@@ -5,7 +5,7 @@ type: docs
 weight: 70
 url: /pt/cpp/presentation-properties/
 keywords:
-- Propriedades do PowerPoint
+- propriedades do PowerPoint
 - propriedades da apresentação
 - propriedades do documento
 - propriedades integradas
@@ -22,46 +22,53 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Domine as propriedades de apresentação no Aspose.Slides for C++ e simplifique a pesquisa, a identidade visual e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
+description: "Domine as propriedades da apresentação no Aspose.Slides para C++ e simplifique a pesquisa, a identidade visual e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
 ---
 ## **Introdução**
 
-Aspose.Slides suporta dois tipos de propriedades de documento: **Built-in** e **Custom**. Ambos os tipos de propriedades podem ser acessados e gerenciados facilmente usando a API do Aspose.Slides.
+Aspose.Slides oferece dois tipos de propriedades de documento: **Integradas** e **Personalizadas**. Ambos os tipos de propriedade podem ser acessados e gerenciados facilmente usando a API do Aspose.Slides.
 
-Aspose.Slides permite que você trabalhe com as propriedades de documento da apresentação através da interface [IDocumentProperties](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_document_properties). Uma instância dessa interface é retornada pelo método [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
+Aspose.Slides permite trabalhar com as propriedades do documento de apresentação através da interface [IDocumentProperties](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_document_properties). Uma instância dessa interface é devolvida pelo método [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
 
-{{% alert color="primary" %}} 
-
-Observe que você não pode definir valores nos campos **Application** e **Producer**, pois Aspose Ltd. e Aspose.Slides for C++ x.x.x serão exibidos nesses campos.
-
+{{% alert color="info" %}} 
+Observe que não é possível definir valores nos campos **Application** e **Producer**, porque “Aspose Ltd.” e “Aspose.Slides for C++ x.x.x” serão exibidos nesses campos.
 {{% /alert %}} 
 
 ## **Gerenciar Propriedades da Apresentação**
 
-O Microsoft PowerPoint fornece um recurso para adicionar algumas propriedades aos arquivos de apresentação. Essas propriedades de documento permitem que informações úteis sejam armazenadas juntamente com os documentos (arquivos de apresentação). Existem dois tipos de propriedades de documento, conforme descrito a seguir:
+O Microsoft PowerPoint oferece um recurso para adicionar algumas propriedades aos arquivos de apresentação. Essas propriedades de documento permitem que informações úteis sejam armazenadas junto com os documentos (arquivos de apresentação). Existem dois tipos de propriedades de documento:
 
-- System Defined (Built-in) Properties
-- User Defined (Custom) Properties
+- Propriedades Definidas pelo Sistema (Integradas)
+- Propriedades Definidas pelo Usuário (Personalizadas)
 
-As propriedades **Built-in** contêm informações gerais sobre o documento, como título do documento, nome do autor, estatísticas do documento etc. As propriedades **Custom** são aquelas definidas pelos usuários como pares **Nome/Valor**, onde tanto o nome quanto o valor são definidos pelo usuário. Usando Aspose.Slides for C++, os desenvolvedores podem acessar e modificar os valores das propriedades built-in assim como das propriedades custom. O Microsoft PowerPoint 2007 permite gerenciar as propriedades de documento dos arquivos de apresentação. Basta clicar no ícone do Office e, em seguida, selecionar **Prepare | Properties | Advanced Properties** no menu do Microsoft PowerPoint 2007. Depois de selecionar o item de menu **Advanced Properties**, aparecerá uma caixa de diálogo que permite gerenciar as propriedades de documento do arquivo PowerPoint. Na **Properties Dialog**, você verá várias páginas de abas, como **General, Summary, Statistics, Contents e Custom**. Todas essas páginas permitem configurar diferentes tipos de informações relacionadas aos arquivos PowerPoint. A aba **Custom** é usada para gerenciar propriedades custom dos arquivos PowerPoint.
+As propriedades **Integradas** contêm informações gerais sobre o documento, como título, nome do autor, estatísticas do documento etc. As propriedades **Personalizadas** são pares **Nome/Valor** definidos pelo usuário. Usando o Aspose.Slides for C++, os desenvolvedores podem acessar e modificar os valores das propriedades integradas bem como das personalizadas. O Microsoft PowerPoint 2007 permite gerenciar as propriedades de documento dos arquivos de apresentação. Basta clicar no ícone do Office e, em seguida, em **Preparar | Propriedades | Propriedades Avançadas** no Microsoft PowerPoint 2007. Após selecionar **Propriedades Avançadas**, uma caixa de diálogo será exibida permitindo gerenciar as propriedades do arquivo PowerPoint. Na **Caixa de Diálogo de Propriedades**, você verá várias abas, como **Geral, Resumo, Estatísticas, Conteúdo e Personalizado**. Todas essas abas permitem configurar diferentes tipos de informações relacionadas aos arquivos PowerPoint. A aba **Personalizado** é usada para gerenciar propriedades personalizadas dos arquivos PowerPoint.
 
-## **Acessar Propriedades Built-in**
+## **Acessar Propriedades Integradas**
 
-Essas propriedades expostas pelo objeto **IDocumentProperties** incluem: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Data de Criação), **Modified** (Data de Modificação), **Printed** (Data da Última Impressão), **LastModifiedBy**, **Keywords**, **SharedDoc** (É compartilhado entre diferentes produtores?), **PresentationFormat**, **Subject** e **Title**.
+Essas propriedades, expostas pelo objeto **IDocumentProperties**, incluem: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Data de Criação), **Modified** (Data de Modificação), **Printed** (Data da Última Impressão), **LastModifiedBy**, **Keywords**, **SharedDoc** (É compartilhado entre diferentes produtores?), **PresentationFormat**, **Subject** e **Title**.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
 
-## **Modificar Propriedades Built-in**
+## **Modificar Propriedades Integradas**
 
-Modificar as propriedades built-in de arquivos de apresentação é tão simples quanto acessá‑las. Você pode simplesmente atribuir um valor de string a qualquer propriedade desejada e o valor da propriedade será modificado. No exemplo abaixo, demonstramos como modificar as propriedades built-in de documento do arquivo de apresentação.
+Modificar as propriedades integradas de arquivos de apresentação é tão simples quanto acessá‑las. Basta atribuir um valor string à propriedade desejada e o valor será alterado. No exemplo abaixo, demonstramos como modificar as propriedades integradas de um documento de apresentação.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
 
-## **Adicionar Propriedades Custom da Apresentação**
+## **Adicionar Propriedades Personalizadas à Apresentação**
 
-Aspose.Slides for C++ também permite que os desenvolvedores adicionem valores custom às propriedades de documento da apresentação. Abaixo há um exemplo que mostra como definir as propriedades custom para uma apresentação.
+Aspose.Slides for C++ também permite que os desenvolvedores adicionem valores personalizados às propriedades de documento da apresentação. O exemplo a seguir mostra como definir propriedades personalizadas para uma apresentação.
 
-``` cpp
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instanciar a classe Presentation
 auto presentation = System::MakeObject<Presentation>();
 
@@ -83,20 +90,32 @@ documentProperties->RemoveCustomProperty(getPropertyName);
 presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Acessar e Modificar Propriedades Custom**
+## **Acessar e Modificar Propriedades Personalizadas**
 
-Aspose.Slides for C++ também permite que os desenvolvedores acessem os valores das propriedades custom. Abaixo há um exemplo que mostra como você pode acessar e modificar todas essas propriedades custom de uma apresentação.
+Aspose.Slides for C++ ainda permite que os desenvolvedores acessem os valores das propriedades personalizadas. O exemplo a seguir demonstra como acessar e modificar todas essas propriedades personalizadas de uma apresentação.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
 
 ## **Definir Idioma de Revisão**
 
-Aspose.Slides fornece a propriedade [LanguageId](https://reference.aspose.com/slides/pt/cpp/aspose.slides/baseportionformat/set_languageid/) (exposta pela classe [PortionFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides/portionformat/)) para permitir que você defina o idioma de revisão para um documento PowerPoint. O idioma de revisão é o idioma para o qual a ortografia e a gramática no PowerPoint são verificadas.
+Aspose.Slides fornece a propriedade [LanguageId](https://reference.aspose.com/slides/pt/cpp/aspose.slides.baseportionformat/set_languageid/) (exposta pela classe [PortionFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides/portionformat/)) para permitir que você defina o idioma de revisão de um documento PowerPoint. O idioma de revisão é o idioma para o qual ortografia e gramática são verificados no PowerPoint.
 
 Este código C++ mostra como definir o idioma de revisão para um PowerPoint:
 
 ```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(pptxFileName);
+#include <DOM/AutoShape.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFontData.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"sample.pptx");
 System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
 
 System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
@@ -120,15 +139,28 @@ portions->Add(newPortion);
 
 ## **Definir Idioma Padrão**
 
-Este código C++ mostra como definir o idioma padrão para toda a apresentação PowerPoint:
+Este código C++ mostra como definir o idioma padrão para uma apresentação PowerPoint inteira:
 
 ```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// Adiciona uma nova forma de retângulo com texto
+// Adiciona uma nova forma retangular com texto
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
 textFrame->set_Text(u"New Text");
@@ -137,22 +169,22 @@ textFrame->set_Text(u"New Text");
 System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
 
-## **Exemplo ao Vivo**
+## **Exemplo Interativo**
 
-Teste o aplicativo online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/pt/metadata) para ver como trabalhar com propriedades de documento via API do Aspose.Slides:
+Experimente o aplicativo online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/pt/metadata) para ver como trabalhar com propriedades de documento via API do Aspose.Slides:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/pt/metadata)
 
 ## ***FAQ**
 
-**Como posso remover uma propriedade built-in de uma apresentação?**
+### Como remover uma propriedade integrada de uma apresentação?
 
-Propriedades built-in são parte integrante da apresentação e não podem ser removidas completamente. Entretanto, você pode alterar seus valores ou defini‑las como vazias, caso a propriedade específica permita.
+Propriedades integradas são parte integrante da apresentação e não podem ser removidas completamente. Entretanto, você pode alterar seus valores ou defini‑las como vazias, se a propriedade permitir.
 
-**O que acontece se eu adicionar uma propriedade custom que já existe?**
+### O que acontece se eu adicionar uma propriedade personalizada que já existe?
 
-Se você adicionar uma propriedade custom que já existe, seu valor atual será sobrescrito pelo novo valor. Não é necessário remover ou verificar a propriedade antes, pois o Aspose.Slides atualiza automaticamente o valor da propriedade.
+Se você adicionar uma propriedade personalizada que já existe, seu valor atual será sobrescrito pelo novo. Não é necessário remover ou verificar a propriedade previamente, pois o Aspose.Slides atualiza o valor automaticamente.
 
-**Posso acessar as propriedades da apresentação sem carregar a apresentação completamente?**
+### Posso acessar as propriedades da apresentação sem carregar a apresentação completa?
 
-Sim, você pode acessar as propriedades da apresentação sem carregá‑la totalmente usando o método `GetPresentationInfo` da classe [PresentationFactory](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentationfactory/). Em seguida, utilize o método `ReadDocumentProperties` fornecido pela interface [IPresentationInfo](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentationinfo/) para ler as propriedades de forma eficiente, economizando memória e melhorando o desempenho.
+Sim. Você pode acessar as propriedades da apresentação sem carregá‑la completamente usando o método `GetPresentationInfo` da classe [PresentationFactory](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentationfactory/). Em seguida, utilize o método `ReadDocumentProperties` fornecido pela interface [IPresentationInfo](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentationinfo/) para ler as propriedades de forma eficiente, economizando memória e melhorando o desempenho.

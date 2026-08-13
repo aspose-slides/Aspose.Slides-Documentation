@@ -5,24 +5,24 @@ type: docs
 weight: 90
 url: /fr/net/extracting-images-from-presentation-shapes/
 keywords:
-- extraire image
-- récupérer image
+- extraction d'image
+- récupération d'image
 - PowerPoint
 - OpenDocument
 - présentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Extraire des images des formes dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour .NET - solution rapide et conviviale pour le code."
+description: "Extraire des images des formes dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour .NET – solution rapide et adaptée au code."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-Les images d’une présentation peuvent apparaître sous plusieurs types de forme : cadres d’image ordinaires, remplissages d’image appliqués aux formes, images d’aperçu d’objets OLE, miniatures de cadres vidéo ou audio, images de zoom, ou images imbriquées dans les formes tableau, graphique et SmartArt. Aspose.Slides stocke ces images dans la collection d’images de la présentation, exposée via les objets [ImageCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/imagecollection/) et [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/).
+Les images dans une présentation peuvent apparaître sous plusieurs types de formes : en tant que cadres d’image ordinaires, comme remplissages d’image appliqués à des formes, comme images d’aperçu d’objet OLE, comme vignettes de cadres vidéo ou audio, comme images de zoom, ou comme images imbriquées dans les formes de tableau, de graphique et de SmartArt. Aspose.Slides stocke ces images dans la collection d’images de la présentation, exposée via les objets [ImageCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/imagecollection/) et [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/).
 
-Si vous avez seulement besoin d’exporter chaque ressource image intégrée dans une présentation, parcourez `presentation.Images`. Cet article se concentre sur une tâche différente : parcourir les formes pour trouver où les images sont utilisées sur les diapositives, afin que les fichiers enregistrés conservent un contexte utile comme le numéro de diapositive, la position de la forme et le type de source (cadre d’image, image de remplissage, aperçu multimédia, aperçu OLE ou image de zoom).
+Si vous devez uniquement exporter chaque ressource image intégrée dans une présentation, parcourez `presentation.Images`. Cet article se concentre sur une tâche différente : parcourir les formes pour trouver où les images sont utilisées sur les diapositives, afin que les fichiers enregistrés conservent un contexte utile tel que le numéro de diapositive, la position de la forme et le type de source (cadre d’image, image de remplissage, aperçu multimédia, aperçu OLE ou image de zoom).
 
-{{% alert title="Astuce" color="primary" %}}
-Utilisez [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) pour préserver les données d’image encodées d’origine et le type de fichier. Utilisez [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) avec [IImage.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/) lorsque vous souhaitez normaliser la sortie vers un format spécifique tel que PNG.
+{{% alert title="Tip" color="info" %}}
+Utilisez [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) pour conserver les données d’image encodées d’origine et le type de fichier. Utilisez [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) avec [IImage.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/) lorsque vous souhaitez normaliser la sortie vers un format spécifique tel que PNG.
 {{% /alert %}}
 
 ## **Méthodes d’assistance partagées**
@@ -164,9 +164,11 @@ private static string MakeSafeFileNamePart(string value)
 
 ## **Extraire les images des cadres d’image**
 
-Utilisez cette approche pour les images insérées comme objets autonomes. Un [IPictureFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ipictureframe/) stocke son image dans `PictureFormat.Picture.Image`, qui renvoie un objet [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/).
+Utilisez cette approche pour les images insérées en tant qu’objets autonomes. Un [IPictureFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ipictureframe/) stocke son image dans `PictureFormat.Picture.Image`, qui renvoie un objet [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -195,9 +197,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images des formes remplies d’image**
 
-Les formes peuvent utiliser une image comme remplissage. Vérifiez d’abord le type de remplissage de la forme : s’il n’est pas [FillType.Picture](https://reference.aspose.com/slides/fr/net/aspose.slides/filltype/), il n’y a aucune image à extraire de ce remplissage. L’exemple ci‑dessous traite les objets [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/) et enregistre chaque image au format PNG via [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/).
+Les formes peuvent utiliser une image comme remplissage. Vérifiez d’abord le type de remplissage de la forme : s’il n’est pas [FillType.Picture](https://reference.aspose.com/slides/fr/net/aspose.slides/filltype/), il n’y a aucune image à extraire de ce remplissage. L’exemple ci‑dessus gère les objets [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/) et enregistre chaque image au format PNG via [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -227,9 +231,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images d’aperçu des cadres d’objet OLE**
 
-Un [IOleObjectFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ioleobjectframe/) peut posséder une image de substitution que PowerPoint utilise comme aperçu de l’objet sur une diapositive. Cette image est accessible via `SubstitutePictureFormat.Picture.Image`. Extraire cette image vous donne l’aperçu, pas le contenu du package OLE intégré.
+Un [IOleObjectFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ioleobjectframe/) peut avoir une image de substitution que PowerPoint utilise comme aperçu de l’objet sur une diapositive. Cette image est disponible via `SubstitutePictureFormat.Picture.Image`. L’extraction de cette image vous fournit l’aperçu, pas le contenu du package OLE intégré.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -262,9 +268,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images d’aperçu des cadres vidéo**
 
-Un [IVideoFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ivideoframe/) peut aussi stocker une image d’aperçu dans `PictureFormat.Picture.Image`. Il s’agit de l’afficheur ou de la miniature affichée sur la diapositive, pas d’une image décodée à partir du flux vidéo.
+Un [IVideoFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ivideoframe/) peut également stocker une image d’aperçu dans `PictureFormat.Picture.Image`. Il s’agit de l’affiche ou de la vignette affichée sur la diapositive, et non d’une image décodée à partir du flux vidéo.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -297,9 +305,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images d’aperçu des cadres audio**
 
-Un [IAudioFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iaudioframe/) peut stocker une vignette dans `PictureFormat.Picture.Image`. C’est l’image affichée pour l’objet audio sur la diapositive.
+Un [IAudioFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iaudioframe/) peut stocker une vignette dans `PictureFormat.Picture.Image`. Il s’agit de l’image affichée pour l’objet audio sur la diapositive.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -332,9 +342,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images des objets Zoom**
 
-Les formes [IZoomFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/izoomframe/) et [ISectionZoomFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/isectionzoomframe/) peuvent utiliser des images personnalisées. Lisez la propriété `ZoomImage` du cadre zoom.
+Les formes [IZoomFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/izoomframe/) et [ISectionZoomFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/isectionzoomframe/) peuvent utiliser des images personnalisées. Lisez `ZoomImage` depuis le cadre de zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extraire les images des cadres de zoom de résumé**
+## **Extraire les images des cadres de Zoom récapitulatif**
 
-Un [ISummaryZoomFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/isummaryzoomframe/) est également une forme. Ses éléments de section peuvent utiliser des images personnalisées, exposées via la propriété `ZoomImage` de chaque section de zoom de résumé.
+Un [ISummaryZoomFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/isummaryzoomframe/) est également une forme. Les éléments de ses sections peuvent utiliser des images personnalisées, exposées via la propriété `ZoomImage` de chaque section de Zoom récapitulatif.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -412,9 +426,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images des formes de tableau**
 
-Une [ITable](https://reference.aspose.com/slides/fr/net/aspose.slides/itable/) est une forme. Les images dans un tableau sont généralement stockées comme remplissages d’image dans les cellules du tableau.
+Un [ITable](https://reference.aspose.com/slides/fr/net/aspose.slides/itable/) est une forme. Les images dans un tableau sont généralement stockées comme remplissages d’image dans les cellules du tableau.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -456,9 +472,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images des formes de graphique**
 
-Un [IChart](https://reference.aspose.com/slides/fr/net/aspose.slides.charts/ichart/) est une forme. L’exemple ci‑dessous extrait une image du remplissage d’image de la zone du graphique.
+Un [IChart](https://reference.aspose.com/slides/fr/net/aspose.slides.charts/ichart/) est une forme. L’exemple ci‑dessus extrait une image du remplissage d’image de la zone du graphique.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +510,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extraire les images des formes SmartArt**
 
-Un [ISmartArt](https://reference.aspose.com/slides/fr/net/aspose.slides.smartart/ismartart/) est une forme. Selon la disposition du SmartArt, les images peuvent être stockées dans les remplissages de puces de nœud ou dans les formats de remplissage des formes de nœud.
+Un objet [ISmartArt](https://reference.aspose.com/slides/fr/net/aspose.slides.smartart/ismartart/) est une forme. Selon la disposition du SmartArt, les images peuvent être stockées dans les remplissages des puces des nœuds ou dans les formats de remplissage des formes de nœuds.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -544,9 +564,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Inclure les images à l’intérieur des formes groupées**
 
-Les formes groupées contiennent leurs propres collections de formes. La méthode d’assistance partagée `EnumerateShapes` propose une option `includeGroupedShapes`. Réglez‑la sur `true` lorsque vous souhaitez inspecter les formes à l’intérieur des objets [IGroupShape](https://reference.aspose.com/slides/fr/net/aspose.slides/igroupshape/). L’exemple ci‑dessous extrait les images des cadres d’image, des formes remplies d’image, des aperçus d’objets OLE, des miniatures de cadres vidéo et des miniatures de cadres audio. Pour inclure également les images de tableau, de graphique, de SmartArt et de zoom de résumé, réutilisez la logique d’extraction spécialisée des sections précédentes tout en conservant le même parcours récursif des formes.
+Les formes groupées contiennent leurs propres collections de formes. L’assistance partagée `EnumerateShapes` possède une option `includeGroupedShapes`. Réglez‑la sur `true` lorsque vous souhaitez inspecter les formes à l’intérieur des objets [IGroupShape](https://reference.aspose.com/slides/fr/net/aspose.slides/igroupshape/). L’exemple ci‑dessus extrait les images des cadres d’image, des formes remplies d’image, des aperçus d’objets OLE, des vignettes de cadres vidéo et des vignettes de cadres audio. Pour inclure également les images de tableau, de graphique, de SmartArt et de zoom récapitulatif, réutilisez la logique d’extraction spécialisée des sections précédentes tout en conservant le même parcours récursif des formes.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -621,36 +643,43 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Cas limites et notes pratiques**
 
-- **Images en double :** plusieurs formes peuvent référencer la même image ou des images distinctes contenant des octets identiques. Hachez [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) avant d’écrire les fichiers si vous souhaitez un fichier de sortie par image unique.
-- **Données d’origine vs. sortie convertie :** enregistrer [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) préserve les données JPEG, PNG, GIF, SVG, EMF ou WMF intégrées. Enregistrer [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) via [IImage.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/) est utile lorsqu’on veut un format de sortie uniforme.
-- **Types de remplissage non pris en charge :** les formes à remplissage solide, dégradé, motif ou sans remplissage ne contiennent pas d’image de remplissage. Vérifiez [FillType](https://reference.aspose.com/slides/fr/net/aspose.slides/filltype/) avant de lire `PictureFillFormat`.
-- **Formes groupées :** la collection de formes de niveau supérieur d’une diapositive ne déplie pas les groupes. Inspectez récursivement [IGroupShape.Shapes](https://reference.aspose.com/slides/fr/net/aspose.slides/igroupshape/) lorsque le contenu groupé importe.
-- **Aperçus d’objets OLE :** un [IOleObjectFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ioleobjectframe/) peut exposer une image d’aperçu via `SubstitutePictureFormat`, mais cette image n’est qu’un aperçu de la diapositive, pas le fichier intégré dans l’objet OLE.
-- **Miniatures de cadres vidéo :** un [IVideoFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ivideoframe/) peut exposer une image d’aperçu via `PictureFormat`, mais cette image n’est que le poster affiché sur la diapositive. Elle n’est pas extraite du flux vidéo.
-- **Miniatures de cadres audio :** un [IAudioFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iaudioframe/) peut exposer une icône ou une vignette via `PictureFormat` ; ce n’est pas le flux audio intégré.
-- **Images de zoom :** les formes de zoom de diapositive, de section et de résumé peuvent utiliser des objets [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) personnalisés via `ZoomImage`.
-- **Modèles de formes imbriquées :** les objets tableau, graphique et SmartArt implémentent [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/), mais leurs images sont souvent stockées dans des objets de formatage de cellule de tableau, d’élément de graphique ou de nœud SmartArt.
-- **Images recadrées ou transformées :** accéder à [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) vous donne la ressource image stockée. Cela ne rend pas le recadrage, la transparence, le recolorisation, la rotation ou d’autres effets visuels appliqués par la forme.
+- **Images en double :** Plusieurs formes peuvent référencer la même image ou des images distinctes avec des octets identiques. Hachez [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) avant d’écrire les fichiers si vous souhaitez un fichier de sortie par image unique.
+- **Données d’origine vs. sortie convertie** : En enregistrant [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) vous conservez les données JPEG, PNG, GIF, SVG, EMF ou WMF intégrées. En enregistrant [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) via [IImage.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/) vous obtenez un format de sortie cohérent.
+- **Types de remplissage non pris en charge** : Les formes à remplissage uni, dégradé, motif ou sans remplissage ne contiennent pas de remplissage d’image. Vérifiez [FillType](https://reference.aspose.com/slides/fr/net/aspose.slides/filltype/) avant de lire `PictureFillFormat`.
+- **Formes groupées** : La collection de formes de la diapositive de niveau supérieur ne déplie pas les groupes. Inspectez récursivement [IGroupShape.Shapes](https://reference.aspose.com/slides/fr/net/aspose.slides/igroupshape/) lorsque le contenu groupé est important.
+- **Aperçus d’objets OLE** : Un [IOleObjectFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ioleobjectframe/) peut exposer une image d’aperçu via `SubstitutePictureFormat`, mais cette image n’est que l’aperçu de la diapositive. Ce n’est pas le fichier intégré à l’objet OLE.
+- **Vignettes de cadres vidéo** : Un [IVideoFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/ivideoframe/) peut exposer une image d’aperçu via `PictureFormat`, mais cette image n’est que l’affiche affichée sur la diapositive. Elle n’est pas extraite du flux vidéo.
+- **Vignettes de cadres audio** : Un [IAudioFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iaudioframe/) peut exposer une icône ou une vignette via `PictureFormat` ; ce n’est pas les données audio intégrées.
+- **Images de zoom** : Les formes de zoom de diapositive, de section et de résumé peuvent utiliser des objets [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) personnalisés via `ZoomImage`.
+- **Modèles de formes imbriquées** : Les objets Table, Chart et SmartArt implémentent [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/), mais leurs images sont souvent stockées dans des objets de formatage imbriqués de cellules de tableau, d’éléments de graphique ou de nœuds SmartArt.
+- **Images recadrées ou transformées** : L’accès à [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) vous fournit la ressource d’image stockée. Il ne rend pas le recadrage, la transparence, le recolorisation, la rotation ou d’autres effets visuels appliqués par la forme.
 
 ## **FAQ**
 
-**Puis‑je extraire l’image originale sans recadrage, effets ou transformations de forme ?**  
-Oui. Accédez à l’objet [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) et écrivez [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) sur le disque. Cela préserve l’image encodée d’origine stockée dans la présentation, et non la façon dont l’image est rendue sur la diapositive.
+### Puis-je extraire l’image originale sans recadrage, effets ou transformations de forme ?
 
-**Puis‑je exporter chaque image extraite au format PNG ?**  
-Oui. Utilisez [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) pour obtenir un objet [IImage](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/), puis appelez [IImage.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/) avec [ImageFormat.Png](https://reference.aspose.com/slides/fr/net/aspose.slides/imageformat/). Cette conversion peut ne pas préserver le type de fichier ou les données vectorielles d’origine.
+Oui. Accédez à l’objet [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) et écrivez [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) sur le disque. Cela conserve l’image encodée d’origine stockée dans la présentation, pas la façon dont l’image est rendue sur la diapositive.
 
-**Comment éviter d’enregistrer la même image plusieurs fois ?**  
-Utilisez un hachage de [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) et conservez les hachages dans un ensemble. Si une nouvelle image possède un hachage déjà présent, ignorez‑la ou enregistrez une référence supplémentaire vers le fichier de sortie existant.
+### Puis-je exporter chaque image extraite en PNG ?
 
-**Pourquoi certaines formes ne produisent‑elles pas d’image ?**  
-Les cadres d’image, les formes remplies d’image, les cadres d’objet OLE, les cadres multimédia, les cadres de zoom, les tableaux, les graphiques et les objets SmartArt peuvent référencer des images. Certains types de forme exposent les images via des objets de formatage imbriqués, de sorte qu’une simple vérification de `PictureFormat` ou `FillFormat` n’est pas toujours suffisante.
+Oui. Utilisez [IPPImage.Image](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) pour obtenir un objet [IImage](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/), puis appelez [IImage.Save](https://reference.aspose.com/slides/fr/net/aspose.slides/iimage/) avec [ImageFormat.Png](https://reference.aspose.com/slides/fr/net/aspose.slides/imageformat/). Cette conversion peut ne pas conserver le type de fichier d’origine ou les données vectorielles.
 
-**Puis‑je extraire la miniature affichée pour un cadre vidéo ?**  
-Oui. Utilisez [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ivideoframe/) et lisez `PictureFormat.Picture.Image`. Cela extrait l’image du poster stockée avec le cadre vidéo, pas une image générée à partir du fichier vidéo.
+### Comment éviter d’enregistrer la même image plusieurs fois ?
 
-**Comment déterminer quelles formes utilisent une image spécifique de la collection d’images de la présentation ?**  
-Aspose.Slides ne conserve pas de liens inversés de [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) vers les formes. Construisez une cartographie pendant le parcours : chaque fois que vous trouvez une référence d’image, enregistrez le numéro de diapositive, le chemin de la forme et le hachage ou l’index de l’image dans la collection.
+Utilisez un hachage de [IPPImage.BinaryData](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) et conservez les hachages dans un ensemble. Si une nouvelle image possède un hachage déjà présent, ignorez‑la ou enregistrez une autre référence vers le fichier de sortie existant.
 
-**Puis‑je extraire les images intégrées dans des objets OLE, comme des documents joints ?**  
-Vous pouvez extraire l’aperçu de la diapositive de l’objet OLE via [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ioleobjectframe/). Cependant, cet aperçu n’est pas le document intégré lui‑mmé. Pour extraire les images contenues dans le fichier intégré, il faut extraire les données OLE et les analyser avec les outils appropriés au type de fichier.
+### Pourquoi certaines formes ne produisent‑elles pas d’image ?
+
+Les cadres d’image, les formes remplies d’image, les cadres d’objet OLE, les cadres multimédia, les cadres de zoom, les tableaux, les graphiques et les objets SmartArt peuvent référencer des images. Certains types de forme exposent les images via des objets de formatage imbriqués, de sorte qu’une simple vérification de `PictureFormat` ou de `FillFormat` de forme n’est parfois pas suffisante.
+
+### Puis-je extraire la miniature affichée pour un cadre vidéo ?
+
+Oui. Utilisez [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ivideoframe/) et lisez `PictureFormat.Picture.Image`. Cela extrait l’image d’affiche stockée avec le cadre vidéo, pas une image extraite du fichier vidéo.
+
+### Comment déterminer quelles formes utilisent une image spécifique de la collection d’images de la présentation ?
+
+Aspose.Slides ne stocke pas de liens inverses de [IPPImage](https://reference.aspose.com/slides/fr/net/aspose.slides/ippimage/) vers les formes. Construisez une correspondance lors du parcours : chaque fois que vous trouvez une référence d’image, consignez le numéro de diapositive, le chemin de la forme et le hachage ou l’élément de collection de l’image.
+
+### Puis-je extraire les images intégrées dans les objets OLE, comme les documents joints ?
+
+Vous pouvez extraire l’aperçu de diapositive de l’objet OLE via [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/ioleobjectframe/). Cependant, cet aperçu n’est pas le document intégré lui‑même. Pour extraire les images du fichier intégré, extrayez les données OLE et examinez‑les avec des outils adaptés à ce type de fichier.

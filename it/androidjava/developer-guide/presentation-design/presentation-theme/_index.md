@@ -1,36 +1,36 @@
 ---
-title: Gestisci i temi delle presentazioni su Android
-linktitle: Tema presentazione
+title: Gestisci i temi di presentazione su Android
+linktitle: Tema della presentazione
 type: docs
 weight: 10
 url: /it/androidjava/presentation-theme/
 keywords:
-- Tema PowerPoint
-- Tema presentazione
-- Tema diapositiva
-- Imposta tema
-- Cambia tema
-- Gestisci tema
-- Colore tema
-- Tavolozza aggiuntiva
-- Font tema
-- Stile tema
-- Effetto tema
+- tema PowerPoint
+- tema della presentazione
+- tema diapositiva
+- imposta tema
+- cambia tema
+- gestisci tema
+- colore tema
+- tavolozza aggiuntiva
+- font del tema
+- stile tema
+- effetto tema
 - PowerPoint
 - OpenDocument
 - presentazione
 - Android
 - Java
 - Aspose.Slides
-description: "Tema master delle presentazioni in Aspose.Slides per Android via Java per creare, personalizzare e convertire file PowerPoint con un branding coerente."
+description: "Gestisci i temi di presentazione in Aspose.Slides per Android tramite Java per creare, personalizzare e convertire file PowerPoint con un branding coerente."
 ---
 ## **Introduzione**
 
-Un tema di presentazione definisce le proprietà degli elementi di design. Quando selezioni un tema di presentazione, scegli essenzialmente un insieme specifico di elementi visivi e le loro proprietà.
+Un tema di presentazione definisce le proprietà degli elementi di design. Quando scegli un tema di presentazione, scegli essenzialmente un insieme specifico di elementi visivi e le loro proprietà.
 
 In PowerPoint, un tema comprende colori, [font](/slides/it/androidjava/powerpoint-fonts/), [stili di sfondo](/slides/it/androidjava/presentation-background/), ed effetti.
 
-![componenti del tema](theme-constituents.png)
+![theme-constituents](theme-constituents.png)
 
 ## **Modifica colore del tema**
 
@@ -39,6 +39,8 @@ Un tema PowerPoint utilizza un insieme specifico di colori per i diversi element
 Questo codice Java mostra come cambiare il colore di accento per un tema:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -51,55 +53,79 @@ try {
 }
 ```
 
-Puoi determinare il valore effettivo del colore risultante in questo modo:
+Puoi determinare il valore efficace del colore risultante in questo modo:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Per dimostrare ulteriormente l'operazione di cambio colore, creiamo un altro elemento e gli assegniamo il colore di accento (dall'operazione iniziale). Poi cambiamo il colore nel tema:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    otherShape.getFillFormat().setFillType(FillType.Solid);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Il nuovo colore viene applicato automaticamente a entrambi gli elementi.
+Il nuovo colore viene applicato automaticamente su entrambi gli elementi.
 
-### **Imposta colore del tema da una tavolozza aggiuntiva**
+### **Imposta colore tema da una tavolozza aggiuntiva**
 
-Quando applichi trasformazioni di luminanza al colore principale del tema(1), si formano i colori dalla tavolozza aggiuntiva(2). Puoi quindi impostare e recuperare quei colori del tema.
+Quando applichi trasformazioni di luminanza al colore principale del tema(1), si formano i colori dalla tavolozza aggiuntiva(2). Puoi quindi impostare e recuperare quei colori del tema. 
 
-![colori della tavolozza aggiuntiva](additional-palette-colors.png)
+![additional-palette-colors](additional-palette-colors.png)
 
-**1** - colori principali del tema  
+**1** - Colori principali del tema
 
-**2** - colori della tavolozza aggiuntiva.
+**2** - Colori dalla tavolozza aggiuntiva.
 
-Questo codice Java dimostra un'operazione in cui i colori della tavolozza aggiuntiva sono ottenuti dal colore principale del tema e poi usati nelle forme:
+Questo codice Java dimostra un'operazione in cui i colori della tavolozza aggiuntiva vengono ottenuti dal colore principale del tema e poi usati nelle forme:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Accent 4
+    // Accento 4
     IShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 50, 50);
 
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // Accent 4, Più chiaro 80%
+    // Accento 4, più chiaro 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -107,7 +133,7 @@ try {
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Accent 4, Più chiaro 60%
+    // Accento 4, più chiaro 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.getFillFormat().setFillType(FillType.Solid);
@@ -115,7 +141,7 @@ try {
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Accent 4, Più chiaro 40%
+    // Accento 4, più chiaro 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.getFillFormat().setFillType(FillType.Solid);
@@ -123,21 +149,21 @@ try {
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Accent 4, Più scuro 25%
+    // Accento 4, più scuro 25%
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Accent 4, Più scuro 50%
+    // Accento 4, più scuro 50%
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.getFillFormat().setFillType(FillType.Solid);
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
@@ -147,69 +173,85 @@ try {
 
 Quando lavori con [SchemeColor](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/schemecolor/), potresti notare che contiene i seguenti valori di colore del tema:
 
-`Background1`, `Background2`, `Text1`, e `Text2`.
+`Background1`, `Background2`, `Text1`, and `Text2`.
 
 Tuttavia, `Presentation.getMasterTheme().getColorScheme()` restituisce [IColorScheme](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icolorscheme/), che espone i colori corrispondenti come:
 
-`Dark1`, `Dark2`, `Light1`, e `Light2`.
+`Dark1`, `Dark2`, `Light1`, and `Light2`.
 
-Questa differenza è solo nel nome. Questi valori si riferiscono alle stesse slot di colore del tema e la mappatura è fissa:
+Questa differenza è solo nella denominazione. Questi valori si riferiscono agli stessi slot di colore del tema e la mappatura è fissa:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Non esiste una conversione dinamica tra `Text`/`Background` e `Dark`/`Light`. Sono semplicemente nomi alternativi per gli stessi colori del tema.
+Non esiste alcuna conversione dinamica tra `Text`/`Background` e `Dark`/`Light`. Sono semplicemente nomi alternativi per gli stessi colori del tema.
 
-Questa differenza di denominazione proviene dalla terminologia di Microsoft Office. Le versioni più vecchie di Office usavano `Dark 1`, `Light 1`, `Dark 2` e `Light 2`, mentre le versioni UI più recenti mostrano le stesse slot come `Text 1`, `Background 1`, `Text 2` e `Background 2`.
+Questa differenza di denominazione proviene dalla terminologia di Microsoft Office. Le versioni più vecchie di Office usavano `Dark 1`, `Light 1`, `Dark 2` e `Light 2`, mentre le versioni UI più recenti mostrano gli stessi slot come `Text 1`, `Background 1`, `Text 2` e `Background 2`.
 
 ## **Modifica font del tema**
 
 Per consentirti di selezionare i font per i temi e altri scopi, Aspose.Slides utilizza questi identificatori speciali (simili a quelli usati in PowerPoint):
 
-* **+mn-lt** - Font corpo Latin (Minor Latin Font)
-* **+mj-lt** - Font intestazione Latin (Major Latin Font)
-* **+mn-ea** - Font corpo East Asian (Minor East Asian Font)
-* **+mj-ea** - Font corpo East Asian (Major East Asian Font)
+* **+mn-lt** - Font del corpo Latin (Minor Latin Font)
+* **+mj-lt** - Font dell'intestazione Latin (Major Latin Font)
+* **+mn-ea** - Font del corpo East Asian (Minor East Asian Font)
+* **+mj-ea** - Font del corpo East Asian (Major East Asian Font)
 
 Questo codice Java mostra come assegnare il font Latin a un elemento del tema:
 
 ```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+import com.aspose.slides.*;
 
-Paragraph paragraph = new Paragraph();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.getPortions().add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(portion);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Questo codice Java mostra come cambiare il font del tema della presentazione:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Il font in tutte le caselle di testo sarà aggiornato.
 
-{{% alert color="primary" title="TIP" %}} 
-Potresti voler vedere [PowerPoint font](/slides/it/androidjava/powerpoint-fonts/). 
+{{% alert color="info" title="TIP" %}} 
+Potresti voler vedere [PowerPoint fonts](/slides/it/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Modifica stile di sfondo del tema**
 
-Per impostazione predefinita, l'app PowerPoint fornisce 12 sfondi predefiniti ma solo 3 di questi 12 sfondi vengono salvati in una presentazione tipica.
+Per impostazione predefinita, l'app PowerPoint fornisce 12 sfondi predefiniti ma solo 3 di questi 12 sfondi vengono salvati in una presentazione tipica. 
 
-![immagine_alt_testo](presentation-design_8.png)
+![todo:image_alt_text](presentation-design_8.png)
 
 Ad esempio, dopo aver salvato una presentazione nell'app PowerPoint, puoi eseguire questo codice Java per scoprire il numero di sfondi predefiniti nella presentazione:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -221,32 +263,42 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-Utilizzando la proprietà [BackgroundFillStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) della classe [FormatScheme](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme), puoi aggiungere o accedere allo stile di sfondo in un tema PowerPoint. 
+Utilizzando la proprietà [BackgroundFillStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) della classe [FormatScheme](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme), puoi aggiungere o accedere allo stile di sfondo in un tema PowerPoint.
 {{% /alert %}} 
 
 Questo codice Java mostra come impostare lo sfondo per una presentazione:
 
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-**Guida agli indici**: 0 indica nessuna riempitura. L'indice parte da 1.
+**Guida indice**: 0 è usato per nessuna riempimento. L'indice inizia da 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Potresti voler vedere [PowerPoint Background](/slides/it/androidjava/presentation-background/). 
+{{% alert color="info" title="TIP" %}} 
+Potresti voler vedere [PowerPoint Background](/slides/it/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **Modifica effetto del tema**
+## **Modifica effetto tema**
 
-Un tema PowerPoint contiene solitamente 3 valori per ogni array di stile. Quegli array sono combinati in questi 3 effetti: sottile, moderato e intenso. Per esempio, questo è il risultato quando gli effetti vengono applicati a una forma specifica:
+Un tema PowerPoint solitamente contiene 3 valori per ogni array di stile. Quegli array sono combinati in questi 3 effetti: sottile, moderato e intenso. Per esempio, questo è il risultato quando gli effetti sono applicati a una forma specifica:
 
-![immagine_alt_testo](presentation-design_10.png)
+![todo:image_alt_text](presentation-design_10.png)
 
-Utilizzando 3 proprietà ([FillStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) della classe [FormatScheme](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme) puoi modificare gli elementi in un tema (anche più flessibilmente rispetto alle opzioni in PowerPoint).
+Utilizzando 3 proprietà ([FillStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) dalla classe [FormatScheme](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/FormatScheme) puoi modificare gli elementi in un tema (in modo ancora più flessibile rispetto alle opzioni di PowerPoint).
 
-Questo codice Java mostra come cambiare un effetto del tema alterando parti degli elementi:
+Questo codice Java mostra come modificare un effetto del tema alterando parti degli elementi:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -263,20 +315,20 @@ try {
 }
 ```
 
-Le modifiche risultanti in colore di riempimento, tipo di riempimento, effetto ombra, ecc.:
+Le modifiche risultanti nel colore di riempimento, tipo di riempimento, effetto ombra, ecc:
 
-![immagine_alt_testo](presentation-design_11.png)
+![todo:image_alt_text](presentation-design_11.png)
 
 ## **FAQ**
 
-**Posso applicare un tema a una singola diapositiva senza modificare il master?**
+### Posso applicare un tema a una singola diapositiva senza modificare il master?
 
-Sì. Aspose.Slides supporta sovrascritture di tema a livello di diapositiva, quindi puoi applicare un tema locale solo a quella diapositiva mantenendo intatto il tema master (tramite [SlideThemeManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/slidethememanager/)).
+Sì. Aspose.Slides supporta le sovrascritture del tema a livello di diapositiva, così puoi applicare un tema locale solo a quella diapositiva mantenendo intatto il tema master (tramite il [SlideThemeManager](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/slidethememanager/)).
 
-**Qual è il modo più sicuro per trasferire un tema da una presentazione all'altra?**
+### Qual è il modo più sicuro per trasferire un tema da una presentazione all'altra?
 
-[Clona le diapositive](/slides/it/androidjava/clone-slides/) insieme al loro master nella presentazione di destinazione. Questo preserva il master originale, i layout e il tema associato così l'aspetto rimane coerente.
+[Clona diapositive](/slides/it/androidjava/clone-slides/) insieme al loro master nella presentazione di destinazione. Questo preserva il master originale, i layout e il tema associato, così l'aspetto rimane coerente.
 
-**Come posso vedere i valori "effettivi" dopo tutte le eredità e le sovrascritture?**
+### Come posso vedere i valori "effettivi" dopo tutta l'ereditarietà e le sovrascritture?
 
-Utilizza le ["visualizzazioni effettive"](/slides/it/androidjava/shape-effective-properties/) dell'API per tema/colore/font/effetto. Queste restituiscono le proprietà risolte e finali dopo l'applicazione del master più eventuali sovrascritture locali.
+Usa le ["visualizzazioni effettive"](/slides/it/androidjava/shape-effective-properties/) dell'API per tema/colore/font/effetto. Queste restituiscono le proprietà risolte e finali dopo aver applicato il master più eventuali sovrascritture locali.

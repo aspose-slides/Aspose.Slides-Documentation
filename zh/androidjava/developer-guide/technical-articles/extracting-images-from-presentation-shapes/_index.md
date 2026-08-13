@@ -1,5 +1,5 @@
 ---
-title: 通过 Java 在 Android 中从演示文稿形状提取图像
+title: 使用 Java 在 Android 中提取演示文稿形状的图像
 linktitle: 形状中的图像
 type: docs
 weight: 100
@@ -13,21 +13,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "通过 Java 使用 Aspose.Slides for Android 从 PowerPoint 和 OpenDocument 演示文稿的形状中提取图像——快速、代码友好的解决方案。"
+description: "使用 Aspose.Slides for Android via Java 从 PowerPoint 和 OpenDocument 演示文稿的形状中提取图像——快速、代码友好的解决方案。"
 ---
 ## **概述**
 
-演示文稿中的图像可以出现在多种形状类型中：普通图片框、作为形状填充的图片、OLE 对象预览图像、视频或音频帧的缩略图、缩放图像，或嵌套在表格、图表和 SmartArt 形状中的图像。Aspose.Slides 将这些图像存储在演示文稿的图像集合中，可通过 [IImageCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagecollection/) 和 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象访问。
+演示文稿中的图像可以出现在多种形状类型中：普通图片框、作为形状填充的图片、OLE 对象预览图像、视频或音频帧缩略图、缩放图像，或嵌套在表格、图表和 SmartArt 形状中的图像。Aspose.Slides 将这些图像存储在演示文稿图像集合中，可通过 [IImageCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimagecollection/) 和 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象访问。
 
-如果只需要导出演示文稿中嵌入的每个图像资源，只需遍历 `presentation.getImages()`。本文重点介绍另一项任务：遍历形状以查找幻灯片中使用图像的位置，从而在保存文件时保留有用的上下文信息，如幻灯片编号、形状位置以及来源类型（图片框、填充图像、媒体预览、OLE 预览或缩放图像）。
+如果只需要导出演示文稿中嵌入的每个图像资源，遍历 `presentation.getImages()` 即可。本文侧重于另一项任务：遍历形状以查找幻灯片中使用图像的位置，从而在保存文件时保留有用的上下文信息，如幻灯片编号、形状位置以及来源类型（图片框、填充图像、媒体预览、OLE 预览或缩放图像）。
 
-{{% alert title="Tip" color="primary" %}}
-使用 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 可保留原始编码的图像数据和文件类型。需要将输出统一为特定格式（例如 PNG）时，可使用 [IPPImage.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getImage--) 配合 [IImage.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-)。
+{{% alert title="Tip" color="info" %}}
+使用 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 可保留原始编码的图像数据和文件类型。使用 [IPPImage.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getImage--) 并结合 [IImage.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 时，可将输出标准化为特定格式（如 PNG）。
 {{% /alert %}}
 
 ## **共享辅助方法**
 
-下面的辅助方法用于保持示例简洁。`saveOriginalImage` 写入原始嵌入字节，从 MIME 类型中选择安全的扩展名，并通过 SHA-256 哈希跳过重复的图像二进制。
+以下辅助方法用于保持示例简洁。`saveOriginalImage` 写入原始嵌入字节、根据 MIME 类型选择安全的扩展名，并通过 SHA-256 哈希跳过重复的图像二进制。
 
 ```java
 import com.aspose.slides.*;
@@ -225,9 +225,14 @@ private static String makeSafeFileNamePart(String value)
 
 ## **从图片框中提取图像**
 
-对作为独立对象插入的图片使用此方法。[IPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipictureframe/) 将其图片存储在 `getPictureFormat().getPicture().getImage()`，该方法返回一个 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象。
+对作为独立对象插入的图片使用此方法。[IPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipictureframe/) 将其图片存储在 `getPictureFormat().getPicture().getImage()` 中，返回一个 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象。请注意，[IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 和 [IAudioFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudioframe/) 继承自 [IPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipictureframe/)，因此此 `instanceof` 检查同样匹配媒体帧并导出它们的预览图像；如果希望单独处理这些类型，请先对它们进行检测，如本页最后的示例所示。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -272,6 +277,10 @@ finally
 形状可以使用图片作为填充。首先检查形状的填充类型：如果不是 [FillType.Picture](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/filltype/)，则不存在可提取的图片。下面的示例处理 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 对象，并通过 [IPPImage.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getImage--) 将每个图像保存为 PNG。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -315,9 +324,14 @@ finally
 
 ## **从 OLE 对象框中提取预览图像**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ioleobjectframe/) 可以拥有 PowerPoint 在幻灯片上用作对象预览的替代图片。该图像可通过 `getSubstitutePictureFormat().getPicture().getImage()` 获取。提取此图片得到的仅是预览图像，而不是嵌入的 OLE 包内容。
+[IOleObjectFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ioleobjectframe/) 可以拥有 PowerPoint 在幻灯片上显示的对象预览图片。该图像可通过 `getSubstitutePictureFormat().getPicture().getImage()` 获取。提取此图片得到的是预览图像，而不是嵌入的 OLE 包内容。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -363,9 +377,14 @@ finally
 
 ## **从视频帧中提取预览图像**
 
-[IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 也可以在 `getPictureFormat().getPicture().getImage()` 中存储预览图像。此图像是幻灯片上显示的海报或缩略图，而不是从视频流中解码的帧。
+[IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 也可以在 `getPictureFormat().getPicture().getImage()` 中存储预览图像。这是幻灯片上显示的海报或缩略图，而非从视频流解码的帧。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -414,6 +433,11 @@ finally
 [IAudioFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudioframe/) 可以在 `getPictureFormat().getPicture().getImage()` 中存储缩略图。这是幻灯片上显示的音频对象图标。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -459,9 +483,14 @@ finally
 
 ## **从缩放对象中提取图像**
 
-[IZoomFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/izoomframe/) 和 [ISectionZoomFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isectionzoomframe/) 形状可以使用自定义图像。请读取缩放帧的 `getZoomImage()`。
+[IZoomFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/izoomframe/) 和 [ISectionZoomFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isectionzoomframe/) 形状可以使用自定义图像。读取缩放帧的 `getZoomImage()`。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -518,11 +547,16 @@ finally
 }
 ```
 
-## **从摘要缩放帧中提取图像**
+## **从汇总缩放帧中提取图像**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isummaryzoomframe/) 也是一种形状。其章节项可以使用自定义图像，通过每个摘要缩放章节的 `getZoomImage()` 方法获取。
+[ISummaryZoomFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/isummaryzoomframe/) 也是一种形状。其各章节项可以使用自定义图像，可通过每个汇总缩放章节的 `getZoomImage()` 方法获取。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -574,9 +608,14 @@ finally
 
 ## **从表格形状中提取图像**
 
-[ITable](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itable/) 是一种形状。表格中的图像通常以单元格的图片填充方式存储。
+[ITable](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itable/) 是一种形状。表格中的图像通常作为单元格的图片填充存储。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -637,6 +676,11 @@ finally
 [IChart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichart/) 是一种形状。下面的示例从图表区域的图片填充中提取图像。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -683,9 +727,14 @@ finally
 
 ## **从 SmartArt 形状中提取图像**
 
-[ISmartArt](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ismartart/) 对象是一种形状。根据 SmartArt 布局，图像可能存储在节点项目符号填充或节点形状的填充格式中。
+[ISmartArt](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ismartart/) 对象是一种形状。根据 SmartArt 布局，图像可能存储在节点的项目符号填充或节点形状的填充格式中。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -751,11 +800,16 @@ finally
 }
 ```
 
-## **在组合形状中包含图像**
+## **包含分组形状内部的图像**
 
-组合形状拥有自己的形状集合。共享的 `enumerateShapes` 辅助方法提供 `includeGroupedShapes` 选项。需要检查 [IGroupShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igroupshape/) 对象内部的形状时，将其设为 `true`。下面的示例提取图片框、填充图片的形状、OLE 对象预览、视频帧缩略图和音频帧缩略图中的图像。若还想包括表格、图表、SmartArt 和摘要缩放图像，可在保持相同递归形状遍历的前提下，复用前面章节的专用提取逻辑。
+分组形状拥有自己的形状集合。共享的 `enumerateShapes` 辅助方法提供 `includeGroupedShapes` 选项。需要检查 [IGroupShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igroupshape/) 对象内部形状时，将其设为 `true`。下面的示例从图片框、填充图片的形状、OLE 对象预览、视频帧缩略图和音频帧缩略图中提取图像。若还需包括表格、图表、SmartArt 和汇总缩放图像，可复用前面章节的专用提取逻辑，并保持相同的递归形状遍历。
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -846,38 +900,45 @@ finally
 }
 ```
 
-## **边缘情况和实用说明**
+## **边缘情况与实用提示**
 
-- **重复图像**：多个形状可能引用同一图像，或不同图像的字节完全相同。写入文件前对 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 进行哈希，以实现每个唯一图像仅输出一次。
-- **原始数据 vs. 转换后输出**：保存 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 可保留嵌入的 JPEG、PNG、GIF、SVG、EMF 或 WMF 数据。通过 [IPPImage.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getImage--) 再调用 [IImage.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 保存时，可统一为一致的输出格式。
-- **不支持的填充类型**：实色、渐变、图案和无填充形状不包含图片填充。读取 `getPictureFillFormat()` 前请检查 [FillType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/filltype/)。
-- **组合形状**：顶层幻灯片形状集合不会自动展开组合。需要递归检查 [IGroupShape.getShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igroupshape/#getShapes--)，当组合内容重要时如此操作。
-- **OLE 对象预览**：[IOleObjectFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ioleobjectframe/) 可能通过 `getSubstitutePictureFormat()` 暴露预览图像，但该图像仅为幻灯片预览，并非嵌入的 OLE 文件本身。
-- **视频帧缩略图**：[IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 可能通过 `getPictureFormat()` 暴露预览图像，该图像仅为幻灯片上显示的海报，而非从视频流中提取的帧。
-- **音频帧缩略图**：[IAudioFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudioframe/) 可能通过 `getPictureFormat()` 暴露图标或缩略图；这并非嵌入的音频数据本身。
-- **缩放图像**：幻灯片缩放、章节缩放和摘要缩放形状可能通过 `getZoomImage()` 使用自定义的 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象。
-- **嵌套形状模型**：表格、图表和 SmartArt 对象实现了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/)，但其图像通常存储在嵌套的表格单元格、图表元素或 SmartArt 节点的格式对象中。
-- **裁剪或变换的图片**：访问 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 只能获取存储的图像资源，不会渲染形状所施加的裁剪、透明度、重新着色、旋转或其他视觉效果。
+- **重复图像：** 多个形状可能引用同一图像，或不同图像却拥有完全相同的字节。写入文件前对 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 进行哈希，可实现每个唯一图像仅输出一次。
+- **原始数据 vs. 转换后输出：** 保存 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 能保留嵌入的 JPEG、PNG、GIF、SVG、EMF 或 WMF 数据。通过 [IPPImage.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getImage--) 再使用 [IImage.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 可将输出统一为特定格式。
+- **不支持的填充类型：** 实体、渐变、图案以及无填充的形状不包含图片填充。读取 `getPictureFillFormat()` 前请先检查 [FillType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/filltype/)。
+- **分组形状：** 顶层幻灯片形状集合不会自动展平组。需要递归检查 [IGroupShape.getShapes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igroupshape/#getShapes--)，当分组内容重要时尤为必要。
+- **OLE 对象预览：** [IOleObjectFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ioleobjectframe/) 可能通过 `getSubstitutePictureFormat()` 提供预览图像，但该图像仅用于幻灯片预览，并非 OLE 对象内嵌的文件。
+- **视频帧缩略图：** [IVideoFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/) 可通过 `getPictureFormat()` 暴露预览图像，该图像仅为幻灯片上显示的海报，并非从视频流中提取的帧。
+- **音频帧缩略图：** [IAudioFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iaudioframe/) 可通过 `getPictureFormat()` 暴露图标或缩略图，仍然不是嵌入的音频数据本身。
+- **缩放图像：** 幻灯片缩放、章节缩放和汇总缩放形状可能通过 `getZoomImage()` 使用自定义的 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象。
+- **嵌套形状模型：** 表格、图表和 SmartArt 对象实现了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/)，但它们的图像通常存储在嵌套的单元格、图表元素或 SmartArt 节点格式对象中。
+- **裁剪或变形的图片：** 访问 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 能得到存储的图像资源，但不会渲染形状所施加的裁剪、透明度、重新着色、旋转或其他视觉效果。
 
-## **常见问答**
+## **常见问题解答**
 
-**是否可以在不裁剪、无特效或形状变换的情况下提取原始图像？**  
-可以。访问 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象并将 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 写入磁盘，即可保留演示文稿中存储的原始编码图像，而不是在幻灯片上的渲染方式。
+### 我能否在不裁剪、特效或形状变换的情况下提取原始图像？
 
-**是否可以将所有提取的图像导出为 PNG？**  
-可以。使用 [IPPImage.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getImage--) 获取 [IImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/) 对象，然后调用 [IImage.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 并指定 [ImageFormat.Png](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imageformat/) 进行转换。这样会改变输出格式，可能不会保留原始文件类型或矢量数据。
+可以。访问 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 对象并将 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 写入磁盘，即可保留演示文稿中存储的原始编码图像，而不是在幻灯片上渲染的效果。
 
-**如何避免多次保存同一图像？**  
-对 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 计算哈希并将哈希存入集合。若新图像的哈希已存在，则跳过保存或记录对已有输出文件的另一个引用。
+### 我能否将所有提取的图像导出为 PNG？
 
-**为什么有些形状没有生成图像？**  
-图片框、填充图片的形状、OLE 对象框、媒体框、缩放框、表格、图表和 SmartArt 对象可以引用图像。某些形状类型通过嵌套的格式对象暴露图像，仅检查 `getPictureFormat()` 或形状的 `getFillFormat()` 可能不足以发现所有图像。
+可以。使用 [IPPImage.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getImage--) 获取 [IImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/) 对象，然后调用 [IImage.save](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 并传入 [ImageFormat.Png](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imageformat/) 即可。此操作会转换输出格式，可能不保留原始文件类型或矢量数据。
 
-**是否可以提取视频帧显示的缩略图？**  
-可以。使用 [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) 并读取 `getPictureFormat().getPicture().getImage()`。这将提取随视频帧一起存储的海报图像，而不是从视频文件中生成的帧。
+### 如何避免重复保存同一图像？
 
-**如何确定演示文稿图像集合中的特定图像被哪些形状使用？**  
-Aspose.Slides 不会为 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 到形状建立反向链接。遍历时构建映射：每当找到图像引用时，记录幻灯片编号、形状路径以及图像哈希或集合项。
+对 [IPPImage.getBinaryData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/#getBinaryData--) 计算哈希并将哈希值存入集合。如果新图像的哈希已存在，则跳过保存或记录为对已有输出文件的另一次引用。
 
-**是否可以提取嵌入在 OLE 对象内部的图像，例如附件文档中的图像？**  
-可以从 [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) 提取 OLE 对象的幻灯片预览，但该预览并非嵌入的文档本身。若要提取嵌入文件内部的图像，需要先提取 OLE 数据，然后使用相应文件类型的工具进行检查。
+### 为什么有些形状没有生成图像？
+
+图片框、填充图片的形状、OLE 对象框、媒体框、缩放框、表格、图表和 SmartArt 对象都可能引用图像。但某些形状类型的图像嵌套在更深层的格式对象中，仅检查 `getPictureFormat()` 或 `getFillFormat()` 并不足以发现所有图像。
+
+### 我能提取视频帧显示的缩略图吗？
+
+可以。使用 [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) 并读取 `getPictureFormat().getPicture().getImage()`。这提取的是随视频帧一起存储的海报图像，而非从视频文件中生成的帧。
+
+### 如何确定哪些形状使用了演示文稿图像集合中的特定图像？
+
+Aspose.Slides 并未维护从 [IPPImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ippimage/) 到形状的反向链接。遍历时构建映射：每当发现图像引用时，记录幻灯片编号、形状路径以及图像的哈希或集合项。
+
+### 我能提取嵌入在 OLE 对象内部的图像吗，例如附件文档？
+
+可以从 [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) 提取 OLE 对象的幻灯片预览图像。但该预览图像并非嵌入的文档本身。要提取嵌入文件内部的图像，需要先提取 OLE 数据，然后使用针对该文件类型的工具进行检查。

@@ -1,5 +1,5 @@
 ---
-title: Publiczne API i zmiany niezgodne wstecz w Aspose.Slides dla .NET 15.7.0
+title: Public API i niekompatybilne zmiany wsteczne w Aspose.Slides dla .NET 15.7.0
 linktitle: Aspose.Slides dla .NET 15.7.0
 type: docs
 weight: 180
@@ -9,27 +9,25 @@ keywords:
 - kod legacy
 - nowoczesny kod
 - podejście legacy
-- nowoczesne podejście
+- podejście nowoczesne
 - PowerPoint
 - OpenDocument
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Przejrzyj aktualizacje publicznego API i zmiany łamiące w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Przeglądnij aktualizacje publicznego API i zmiany łamiące w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-{{% alert color="primary" %}} 
-
-Ta strona wymienia wszystkie [dodane](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) lub [usunięte](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) klasy, metody, właściwości i tak dalej, oraz inne zmiany wprowadzone w API Aspose.Slides dla .NET 15.7.0.
-
+{{% alert color="info" %}} 
+Ta strona wymienia wszystkie [added](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) lub [removed](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) klasy, metody, właściwości i tak dalej, oraz inne zmiany wprowadzone w API Aspose.Slides for .NET 15.7.0.
 {{% /alert %}} 
 ## **Zmiany w publicznym API**
-#### **Enum ImagePixelFormat został dodany**
-Enum Aspose.Slides.Export.ImagePixelFormat został dodany w celu określenia formatu pikseli dla generowanych obrazów.
-#### **Metoda IChartDataPoint.GetAutomaticDataPointColor() została dodana**
-Zwraca automatyczny kolor punktu danych na podstawie indeksu serii, indeksu punktu danych, ParentSeriesGroup, właściwości IsColorVaried oraz stylu wykresu.
-Ten kolor jest używany domyślnie, jeśli FillType jest równy NotDefined.
-#### **Metoda RenderToGraphics została dodana do Slide**
-Metoda RenderToGraphics (i jej przeciążenia) została dodana do Aspose.Slides.Slide w celu renderowania slajdu do obiektu Graphics.
-#### **Właściwość PixelFormat została dodana do ITiffOptions i TiffOptions**
-Właściwość PixelFormat została dodona do Aspose.Slides.Export.ITiffOptions i Aspose.Slides.Export.TiffOptions w celu określenia formatu pikseli dla generowanych obrazów TIFF.
+#### **Dodano wyliczenie ImagePixelFormat**
+Wyliczenie Aspose.Slides.Export.ImagePixelFormat zostało dodane w celu określenia formatu pikseli dla generowanych obrazów.
+#### **Dodano metodę IChartDataPoint.GetAutomaticDataPointColor()**
+Zwraca automatyczny kolor punktu danych w oparciu o indeks serii, indeks punktu danych, ParentSeriesGroup, właściwość IsColorVaried oraz styl wykresu.
+Ten kolor jest używany domyślnie, jeśli FillType ma wartość NotDefined.
+#### **Dodano metodę RenderToGraphics do klasy Slide**
+Metoda RenderToGraphics (oraz jej przeciążenia) została dodana do Aspose.Slides.Slide w celu renderowania slajdu do obiektu Graphics.
+#### **Dodano właściwość PixelFormat do ITiffOptions i TiffOptions**
+Właściwość PixelFormat została dodana do Aspose.Slides.Export.ITiffOptions i Aspose.Slides.Export.TiffOptions w celu określenia formatu pikseli dla generowanych obrazów TIFF.

@@ -15,34 +15,48 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang memutuskan di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan mulus."
+description: "Tinjau pembaruan API publik dan perubahan yang merusak di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Halaman ini mencantumkan semua kelas, metode, properti, dan lain‑lain yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/) atau [dihapus](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/), serta perubahan lainnya yang diperkenalkan dengan API Aspose.Slides for Java 15.8.0.
+Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/) atau [dihapus](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/), serta perubahan lain yang diperkenalkan dengan API Aspose.Slides for Java 15.8.0.
 
 {{% /alert %}} 
 ## **Perubahan API Publik**
-#### **Metode renderToGraphics telah ditambahkan ke com.aspose.slides.ISlide, Slide**
+#### **Metode renderToGraphics ditambahkan ke com.aspose.slides.ISlide, Slide**
 Metode berikut telah ditambahkan:
 
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, int width, int height);
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, float scale);
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics);
-metode tersebut ditambahkan ke antarmuka com.aspose.slides.ISlide dan ke kelas com.aspose.slides.Slide. Metode ini memungkinkan merender slide ke objek Graphics2D yang ditentukan.
+ditambahkan ke antarmuka com.aspose.slides.ISlide dan ke kelas com.aspose.slides.Slide. Metode ini memungkinkan merender slide ke objek Graphics2D yang ditentukan.
+
+Metode `renderToGraphics` sejak saat itu telah dihapus dari API publik. Pada versi saat ini, render slide dengan [ISlide.getImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), seperti contoh di bawah ini:
 
 ``` java
-
- BufferedImage bufferedImage = new BufferedImage(960, 720, BufferedImage.TYPE_INT_ARGB);
-
-Graphics2D g2d = bufferedImage.createGraphics();
+import com.aspose.slides.*;
+import java.awt.Dimension;
 
 Presentation pres = new Presentation("SomePresentation.pptx");
 
-pres.getSlides().get_Item(0).renderToGraphics(false, g2d, bufferedImage.getWidth(), bufferedImage.getHeight());
+try {
 
-g2d.dispose();
+	IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
-ImageIO.write(bufferedImage, "png", fileName);
+	try {
+
+		slideImage.save("slide.png", ImageFormat.Png);
+
+	} finally {
+
+		slideImage.dispose();
+
+	}
+
+} finally {
+
+	if (pres != null) pres.dispose();
+
+}
 
 ```

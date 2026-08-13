@@ -1,5 +1,5 @@
 ---
-title: Android でのプレゼンテーションの VBA プロジェクト管理
+title: Android でのプレゼンテーションにおける VBA プロジェクトの管理
 linktitle: VBA を使用したプレゼンテーション
 type: docs
 weight: 250
@@ -20,14 +20,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java を使用して、VBA 経由で PowerPoint および OpenDocument プレゼンテーションを生成および操作し、ワークフローを効率化する方法をご紹介します。"
+description: "Aspose.Slides for Android を Java で使用し、VBA 経由で PowerPoint および OpenDocument のプレゼンテーションを作成・操作して、ワークフローを効率化する方法をご紹介します。"
 ---
+## **はじめに**
 
-{{% alert title="注意" color="warning" %}} 
+Aspose.Slides は、マクロや VBA コードを操作するためのクラスとインターフェイスを提供します。
 
-マクロを含むプレゼンテーションを別のファイル形式（PDF、HTML など）に変換すると、Aspose.Slides はすべてのマクロを無視します（マクロは生成されたファイルに引き継がれません）。
+{{% alert title="Note" color="warning" %}} 
 
-プレゼンテーションにマクロを追加するか、マクロを含むプレゼンテーションを再保存すると、Aspose.Slides は単にマクロのバイトを書き込みます。
+マクロを含むプレゼンテーションを別のファイル形式（PDF、HTML など）に変換すると、Aspose.Slides はすべてのマクロを無視します（マクロは変換後のファイルに引き継がれません）。
+
+プレゼンテーションにマクロを追加したり、マクロを含むプレゼンテーションを再保存したりすると、Aspose.Slides は単にマクロのバイト列を書き込みます。
 
 Aspose.Slides はプレゼンテーション内のマクロを **決して** 実行しません。
 
@@ -35,19 +38,22 @@ Aspose.Slides はプレゼンテーション内のマクロを **決して** 実
 
 ## **VBA マクロの追加**
 
-Aspose.Slides は、VBA プロジェクト（およびプロジェクト参照）を作成し、既存のモジュールを編集できるように、[VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/) クラスを提供します。プレゼンテーションに埋め込まれた VBA を管理するには、[IVbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivbaproject/) インターフェイスを使用できます。
+Aspose.Slides は、VBA プロジェクト（およびプロジェクト参照）の作成や既存モジュールの編集を可能にする [VbaProject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/vbaproject/) クラスを提供します。プレゼンテーションに埋め込まれた VBA を管理するには、[IVbaProject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ivbaproject/) インターフェイスを使用できます。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
-2. 新しい VBA プロジェクトを追加するには、[VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/#VbaProject--) コンストラクタを使用します。
-3. VbaProject にモジュールを追加します。
-4. モジュールのソースコードを設定します。
-5. <stdole> への参照を追加します。
-6. **Microsoft Office** への参照を追加します。
-7. 参照を VBA プロジェクトに関連付けます。
-8. プレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成します。
+1. [VbaProject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/vbaproject/#VbaProject--) コンストラクタを使用して新しい VBA プロジェクトを追加します。
+1. VbaProject にモジュールを追加します。
+1. モジュールのソースコードを設定します。
+1. <stdole> への参照を追加します。
+1. **Microsoft Office** への参照を追加します。
+1. 参照を VBA プロジェクトに関連付けます。
+1. プレゼンテーションを保存します。
 
-この Java コードは、プレゼンテーションに VBA マクロを最初から追加する方法を示しています。
+この Java コードは、最初からプレゼンテーションに VBA マクロを追加する方法を示しています。
+
 ```java
+import com.aspose.slides.*;
+
 // プレゼンテーションクラスのインスタンスを作成します
 Presentation pres = new Presentation();
 try {
@@ -78,26 +84,29 @@ try {
 }
 ```
 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-**Aspose** の [Macro Remover](https://products.aspose.app/slides/remove-macros) は、PowerPoint、Excel、Word ドキュメントからマクロを削除するための無料ウェブアプリです。 
+**Aspose** の [Macro Remover](https://products.aspose.app/slides/ja/remove-macros) は、PowerPoint、Excel、Word ドキュメントからマクロを削除するための無料ウェブアプリです。ぜひご利用ください。
 
 {{% /alert %}} 
 
 ## **VBA マクロの削除**
 
-[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスの下にある [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getVbaProject--) プロパティを使用すると、VBA マクロを削除できます。
+[Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) クラスの下にある [VbaProject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#getVbaProject--) プロパティを使用して、VBA マクロを削除できます。
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-2. マクロモジュールにアクセスし、削除します。
-3. 変更されたプレゼンテーションを保存します。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
+1. マクロモジュールにアクセスし、削除します。
+1. 変更後のプレゼンテーションを保存します。
+
+この Java コードは、VBA マクロを削除する方法を示しています。
 
 ```java
-// マクロを含むプレゼンテーションを読み込みます
+import com.aspose.slides.*;
+
+// マクロを含むプレゼンテーションをロードします
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // Vba モジュールにアクセスして削除します 
+    // Vba モジュールにアクセスして削除します
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
     // プレゼンテーションを保存します
@@ -107,18 +116,21 @@ try {
 }
 ```
 
-
 ## **VBA マクロの抽出**
 
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-2. プレゼンテーションに VBA プロジェクトが含まれているか確認します。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
+2. プレゼンテーションが VBA プロジェクトを含んでいるか確認します。
 3. VBA プロジェクトに含まれるすべてのモジュールをループして、マクロを表示します。
 
+この Java コードは、マクロを含むプレゼンテーションから VBA マクロを抽出する方法を示しています。
+
 ```java
-// マクロを含むプレゼンテーションを読み込みます
+import com.aspose.slides.*;
+
+// マクロを含むプレゼンテーションをロードします
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // プレゼンテーションが VBA プロジェクトを含むかどうかを確認します
+    if (pres.getVbaProject() != null) // プレゼンテーションに VBA プロジェクトが含まれているかチェックします
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -131,16 +143,17 @@ try {
 }
 ```
 
+## **VBA プロジェクトがパスワードで保護されているか確認する**
 
-## **VBA プロジェクトがパスワードで保護されているかの確認**
+[IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) メソッドを使用して、プロジェクトのプロパティがパスワードで保護されているかどうかを判定できます。
 
-[IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) メソッドを使用すると、プロジェクトのプロパティがパスワードで保護されているかどうかを判断できます。
-
-1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-2. プレゼンテーションに [VBA project](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/) が含まれているか確認します。
+1. [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
+2. プレゼンテーションが [VBA project](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/vbaproject/) を含んでいるか確認します。
 3. VBA プロジェクトがパスワードで保護されているか確認し、プロパティを表示します。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // プレゼンテーションに VBA プロジェクトが含まれているかどうかを確認します。
@@ -154,17 +167,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**プレゼンテーションを PPTX 形式で保存した場合、マクロはどうなりますか？**
+### プレゼンテーションを PPTX として保存した場合、マクロはどうなりますか？
 
 PPTX は VBA をサポートしていないため、マクロは削除されます。マクロを保持したい場合は、PPTM、PPSM、または POTM を選択してください。
 
-**Aspose.Slides はプレゼンテーション内のマクロを実行して、たとえばデータを更新することができますか？**
+### Aspose.Slides はプレゼンテーション内のマクロを実行して、たとえばデータを更新できますか？
 
-いいえ。このライブラリは VBA コードを実行しません。実行は適切なセキュリティ設定がされた PowerPoint 内でのみ可能です。
+いいえ。ライブラリは VBA コードを実行することはなく、実行できるのは適切なセキュリティ設定がされた PowerPoint 内のみです。
 
-**VBA コードにリンクされた ActiveX コントロールの操作はサポートされていますか？**
+### VBA コードにリンクした ActiveX コントロールの操作はサポートされていますか？
 
-はい、既存の [ActiveX controls](/slides/ja/androidjava/activex/) にアクセスし、プロパティを変更したり削除したりできます。これは、マクロが ActiveX と連携する場合に便利です。
+はい、既存の [ActiveX controls](/slides/ja/androidjava/activex/) にアクセスし、プロパティを変更したり削除したりできます。マクロが ActiveX と連携する場合に便利です。

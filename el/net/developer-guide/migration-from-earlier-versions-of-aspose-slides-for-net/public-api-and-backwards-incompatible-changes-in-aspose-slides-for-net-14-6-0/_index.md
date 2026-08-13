@@ -1,14 +1,14 @@
 ---
-title: Δημόσιο API και Μη Συμβατές με Παλαιότερες Εκδόσεις Αλλαγές στο Aspose.Slides για .NET 14.6.0
+title: Δημόσιο API και Αλλαγές Ασυμβατότητας Προς Πίσω στο Aspose.Slides για .NET 14.6.0
 linktitle: Aspose.Slides για .NET 14.6.0
 type: docs
 weight: 80
 url: /el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
-- μεταφορά
-- κληρονομικός κώδικας
+- μετανάστευση
+- παραδοσιακό κώδικα
 - σύγχρονος κώδικας
-- κληρονομική προσέγγιση
+- παραδοσιακή προσέγγιση
 - σύγχρονη προσέγγιση
 - PowerPoint
 - OpenDocument
@@ -16,21 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των διασπαστικών αλλαγών στο Aspose.Slides για .NET, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασής σας PowerPoint PPT, PPTX και ODP."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των καίριων αλλαγών στο Aspose.Slides για .NET, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Αυτή η σελίδα καταγράφει όλες τις [προστιθέμενες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) κλάσεις, μεθόδους, ιδιότητες κ.ά., τυχόν νέους [περιορισμούς](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) και άλλες [αλλαγές](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) που εισήχθησαν με το API του Aspose.Slides for .NET 14.6.0.
+Αυτή η σελίδα απαριθμεί όλες τις [προστέθηκαν](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) κλάσεις, μεθόδους, ιδιότητες κλπ, τυχόν νέους [περιορισμούς](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) και άλλες [αλλαγές](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) που εισήχθησαν με το Aspose.Slides for .NET 14.6.0 API.
 
 {{% /alert %}} 
-## **Αλλαγές Δημόσιου API**
-### **Προστιθέμενα Διεπαφές, Μέθοδοι και Ιδιότητες**
+## **Δημόσιες Αλλαγές API**
+### **Προστέθηκαν Διεπαφές, Μέθοδοι και Ιδιότητες**
 #### **Προστέθηκε η διεπαφή Aspose.Slides.Charts.IErrorBarsFormat**
-Αυτό αντιπροσωπεύει τις γραμμές σφάλματος των σειρών γραφήματος.
+Αυτή αντιπροσωπεύει τις γραμμές σφάλματος των σειρών διαγραμμάτων.
 
-Στην περίπτωση προσαρμοσμένου τύπου τιμής, για να καθορίσετε μια τιμή, χρησιμοποιήστε την ιδιότητα ErrorBarCustomValues του συγκεκριμένου σημείου δεδομένων στη συλλογή DataPoints της σειράς.
+Σε περίπτωση προσαρμοσμένου τύπου τιμής, για να καθορίσετε μια τιμή, χρησιμοποιήστε την ιδιότητα ErrorBarCustomValues του συγκεκριμένου σημείου δεδομένων στη συλλογή DataPoints της σειράς.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -63,12 +67,15 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Προστέθηκε η διεπαφή Aspose.Slides.Charts.IErrorBarsCustomValues**
 Όταν η ιδιότητα IErrorBarsFormat.ValueType είναι ίση με Custom, για να καθορίσετε μια τιμή, χρησιμοποιήστε την ιδιότητα ErrorBarCustomValues του συγκεκριμένου σημείου δεδομένων στη συλλογή DataPoints.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -117,12 +124,15 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Προστέθηκε η διεπαφή Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 Καθορίζει τους τύπους τιμών στη λίστα ιδιοτήτων ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -171,10 +181,9 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Προστέθηκαν οι μέθοδοι Aspose.Slides.IShapeCollection.AddClone(...), και .InsertClone(...)**
-Οι παρακάτω μέθοδοι προσθέτουν/εισαγωγούν ένα αντίγραφο ενός συγκεκριμένου σχήματος στη συλλογή. 
+Οι παρακάτω μέθοδοι προσθέτουν/εισαγωγουν ένα αντίγραφο ενός καθορισμένου σχήματος στη συλλογή. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -184,8 +193,10 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -210,12 +221,13 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Προστέθηκαν το Enum ViewType, η διεπαφή IViewProperties, η κλάση ViewProperties και οι ιδιότητες IPresentation.ViewProperties**
+#### **Προστέθηκαν η Enum ViewType, η διεπαφή IViewProperties, η κλάση ViewProperties και οι ιδιότητες IPresentation.ViewProperties**
 Η IPresentation.ViewProperty επιτρέπει στους προγραμματιστές να αλλάξουν τον τύπο προβολής της παρουσίασης και την ορατότητα των σημειώσεων όταν μια παρουσίαση ανοίγει στο PowerPoint.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -224,5 +236,4 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Java 15.10.0'de Genel API ve Geriye Uyumsuz Değişiklikler
+title: Aspose.Slides for Java 15.10.0'da Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for Java 15.10.0
 type: docs
 weight: 180
@@ -15,14 +15,14 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-Bu sayfa, Aspose.Slides for Java 15.10.0 API'sı ile tanıtılan eklenmiş veya kaldırılmış sınıflar, yöntemler, özellikler vb. ve diğer değişiklikleri listeler.
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for Java 15.10.0 API'siyle tanıtılan, [added](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) veya [removed](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) sınıfları, metodları, özellikleri ve benzeri öğeleri listeler.
 {{% /alert %}} 
-## **Public API Değişiklikleri**
+## **Genel API Değişiklikleri**
 #### **Chart serisi animasyon API'si ISequence'e eklendi**
-Yeni 2 yöntem com.aspose.slides.ISequence arayüzüne eklenmiştir.
+Yeni iki yöntem com.aspose.slides.ISequence arayüzüne eklendi.
 
 ``` java
 
@@ -32,20 +32,23 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 ```
 
-Bu yöntemler, grafik öğelerinin animasyonlarını desteklemek amacıyla eklenmiştir:
-
+Bu yöntemler, grafik elemanlarının animasyonlarını desteklemek için tasarlanmıştır:
 by series
 by categories
 by series elements
 by categories elements
 
-Grafik öğelerinin animasyonu ile ilgili iki yeni enum olan EffectChartMajorGroupingType ve EffectChartMinorGroupingType tanıtıldı.
+Grafik eleman animasyonlarıyla ilgili iki yeni enum olan EffectChartMajorGroupingType ve EffectChartMinorGroupingType tanıtıldı.
 
-Grafiğe seri animasyonu eklemek için aşağıdaki kod kullanılabilir:
+Çart'a seri animasyonu eklemek için aşağıdaki kod kullanılabilir. Örnek dosyadaki çart üç seriye sahiptir, bu nedenle 0'dan 2'ye kadar her indeks için bir efekt eklenir:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -77,12 +80,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -93,11 +90,14 @@ try {
 
 ```
 
-Categories animation:
-
+Kategoriler animasyonu:
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -147,11 +147,14 @@ try
 
 ```
 
-Series elements animation:
-
+Seri elemanları animasyonu:
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -249,11 +252,14 @@ try
 
 ```
 
-Categories elements animation:
-
+Kategori elemanları animasyonu:
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -350,18 +356,18 @@ try
 }
 
 ```
-#### **HTML'ye medya dosyalarının dışa aktarımını desteklemek için yeni com.aspose.slides.VideoPlayerHtmlController eklendi**
-Yeni public sınıf com.aspose.slides.VideoPlayerHtmlController eklendi. Bu sınıfın örneği kullanılarak video ve ses dosyaları HTML'ye dışa aktarılabilir.
+#### **Yeni com.aspose.slides.VideoPlayerHtmlController, medya dosyalarının HTML'ye dışa aktarımını desteklemek için eklendi**
+Yeni public sınıf com.aspose.slides.VideoPlayerHtmlController eklendi. Bu sınıfın bir örneği kullanılarak kullanıcı video ve ses dosyalarını HTML'ye dışa aktarabilir.
 
 VideoPlayerHtmlController yapıcıları aşağıdaki parametreleri kabul eder:
-
-path: Video ve ses dosyalarının oluşturulacağı yol  
-fileName: HTML dosyasının adı  
-baseUri: Bağlantıları oluşturmak için kullanılacak temel URI
+path: Video ve ses dosyalarının oluşturulacağı yol (klasör zaten mevcut olmalıdır)
+fileName: HTML dosyasının adı
+baseUri: Bağlantıların oluşturulmasında kullanılacak temel URI
 
 Kullanım örneği:
-
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -369,7 +375,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

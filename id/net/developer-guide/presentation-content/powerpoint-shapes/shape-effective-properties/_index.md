@@ -20,7 +20,7 @@ keywords:
 - Aspose.Slides
 description: "Temukan bagaimana Aspose.Slides untuk .NET menghitung dan menerapkan properti bentuk efektif untuk rendering PowerPoint yang akurat."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
 Topik ini menjelaskan perbedaan antara properti **lokal** dan **efektif**. Nilai lokal adalah nilai yang ditetapkan secara langsung pada tingkat pemformatan tertentu, seperti:
 
@@ -28,11 +28,13 @@ Topik ini menjelaskan perbedaan antara properti **lokal** dan **efektif**. Nilai
 1. Gaya teks bentuk prototipe pada tata letak atau slide master, ketika bentuk bingkai teks bagian memiliki satu.
 1. Pengaturan teks global dalam presentasi.
 
-Nilai lokal dapat didefinisikan atau diabaikan pada tingkat mana pun. Ketika Aspose.Slides membutuhkan pemformatan akhir "as rendered", ia menyelesaikan rantai pewarisan dan mengembalikan nilai **efektif**. Anda dapat memperolehnya dengan memanggil metode `GetEffective` pada objek format lokal.
+Nilai lokal dapat didefinisikan atau dihilangkan pada tingkat mana pun. Ketika Aspose.Slides memerlukan pemformatan akhir "sebagaimana ditampilkan", ia menyelesaikan rantai pewarisan dan mengembalikan nilai **efektif**. Anda dapat memperolehnya dengan memanggil metode `GetEffective` pada objek format lokal.
 
-Contoh berikut menunjukkan cara mendapatkan nilai efektif. Diasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dengan bingkai teks dan setidaknya satu bagian.
+Contoh berikut menunjukkan cara mendapatkan nilai efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dengan bingkai teks dan setidaknya satu bagian.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -46,17 +48,19 @@ var localPortionFormat = portion.PortionFormat;
 var effectivePortionFormat = localPortionFormat.GetEffective();
 ```
 
-{{% alert color="primary" %}}
-Data pemformatan efektif mewakili pemformatan yang dihitung saat ini setelah pewarisan diterapkan. Pada implementasi saat ini, beberapa objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/iportionformateffectivedata/), dapat disimpan dalam cache secara internal. Memanggil `GetEffective` kembali setelah mengubah format induk atau yang diwarisi dapat menyegarkan data yang di-cache, dan objek yang sebelumnya diperoleh mungkin tidak lagi merepresentasikan keadaan sebelumnya. Jika Anda perlu mempertahankan nilai efektif untuk penggunaan kemudian, salin properti yang diperlukan, seperti tinggi font, warna isi, gaya font, atau perataan, ke dalam objek data Anda sendiri.
+{{% alert color="info" %}}
+Data pemformatan efektif mewakili pemformatan yang dihitung saat ini setelah pewarisan diterapkan. Dalam implementasi saat ini, beberapa objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/iportionformateffectivedata/), dapat disimpan dalam cache secara internal. Memanggil `GetEffective` lagi setelah mengubah pemformatan induk atau yang diwarisi dapat menyegarkan data cache, dan objek yang sebelumnya diperoleh mungkin tidak lagi mewakili keadaan sebelumnya. Jika Anda perlu mempertahankan nilai efektif untuk penggunaan kembali nanti, salin properti yang diperlukan, seperti tinggi font, warna isi, gaya font, atau perataan, ke dalam objek data Anda sendiri.
 {{% /alert %}}
 
 ## **Dapatkan Properti Efektif Kamera**
 
-Aspose.Slides memungkinkan Anda untuk mendapatkan properti efektif kamera. Antarmuka [ICameraEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/icameraeffectivedata/) merepresentasikan objek yang tidak dapat diubah yang berisi properti kamera efektif. Sebuah instance [ICameraEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/icameraeffectivedata/) diekspos melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/).
+Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari sebuah kamera. Antarmuka [ICameraEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/icameraeffectivedata/) mewakili objek tak berubah yang berisi properti kamera efektif. Sebuah instance [ICameraEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/icameraeffectivedata/) diakses melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/).
 
-Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk kamera. Diasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
+Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk kamera. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -70,13 +74,15 @@ Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngl
 Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 ```
 
-## **Dapatkan Properti Efektif Light Rig**
+## **Dapatkan Properti Efektif Rig Cahaya**
 
-Aspose.Slides memungkinkan Anda untuk mendapatkan properti efektif light rig. Antarmuka [ILightRigEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ilightrigeffectivedata/) merepresentasikan objek yang tidak dapat diubah yang berisi properti light rig efektif. Sebuah instance [ILightRigEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ilightrigeffectivedata/) diekspos melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/).
+Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari sebuah rig cahaya. Antarmuka [ILightRigEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ilightrigeffectivedata/) mewakili objek tak berubah yang berisi properti rig cahaya efektif. Sebuah instance [ILightRigEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ilightrigeffectivedata/) diakses melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/).
 
-Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk light rig. Diasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
+Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk rig cahaya. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -91,11 +97,13 @@ Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 
 ## **Dapatkan Properti Efektif Bentuk Bevel**
 
-Aspose.Slides memungkinkan Anda untuk mendapatkan properti efektif bentuk bevel. Antarmuka [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ishapebeveleffectivedata/) merepresentasikan objek yang tidak dapat diubah yang berisi properti relief permukaan efektif untuk sebuah bentuk. Sebuah instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ishapebeveleffectivedata/) diekspos melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/).
+Aspose.Slides memungkinkan Anda mendapatkan properti efektif dari bevel bentuk. Antarmuka [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ishapebeveleffectivedata/) mewakili objek tak berubah yang berisi properti relief muka untuk sebuah bentuk. Sebuah instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ishapebeveleffectivedata/) diakses melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ithreedformat/).
 
-Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk bevel atas sebuah bentuk. Diasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
+Contoh kode berikut menunjukkan cara mendapatkan properti efektif untuk bevel atas sebuah bentuk. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama memiliki pemformatan 3D.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -111,11 +119,13 @@ Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
 
 ## **Dapatkan Properti Efektif Bingkai Teks**
 
-Dengan Aspose.Slides, Anda dapat mendapatkan properti efektif bingkai teks. Antarmuka [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformateffectivedata/) berisi properti pemformatan bingkai teks efektif.
+Menggunakan Aspose.Slides, Anda dapat mendapatkan properti efektif dari sebuah bingkai teks. Antarmuka [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformateffectivedata/) berisi properti pemformatan bingkai teks yang efektif.
 
-Contoh kode berikut menunjukkan cara mendapatkan properti pemformatan bingkai teks efektif. Diasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dengan bingkai teks.
+Contoh kode berikut menunjukkan cara mendapatkan properti pemformatan bingkai teks yang efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dengan bingkai teks.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -136,11 +146,13 @@ Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
 
 ## **Dapatkan Properti Efektif Gaya Teks**
 
-Dengan Aspose.Slides, Anda dapat mendapatkan properti efektif gaya teks. Antarmuka [ITextStyleEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/itextstyleeffectivedata/) berisi properti gaya teks efektif.
+Menggunakan Aspose.Slides, Anda dapat mendapatkan properti efektif dari sebuah gaya teks. Antarmuka [ITextStyleEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/itextstyleeffectivedata/) berisi properti gaya teks yang efektif.
 
-Contoh kode berikut menunjukkan cara mendapatkan properti gaya teks efektif. Diasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dengan bingkai teks.
+Contoh kode berikut menunjukkan cara mendapatkan properti gaya teks yang efektif. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dengan bingkai teks.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -163,9 +175,12 @@ for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 
 ## **Dapatkan Nilai Tinggi Font Efektif**
 
-Dengan Aspose.Slides, Anda dapat mendapatkan tinggi font efektif. Kode berikut menunjukkan bagaimana tinggi font efektif sebuah bagian berubah setelah nilai tinggi font lokal ditetapkan pada berbagai tingkat struktur presentasi.
+Menggunakan Aspose.Slides, Anda dapat mendapatkan tinggi font yang efektif. Kode berikut menunjukkan bagaimana tinggi font efektif sebuah bagian berubah setelah nilai tinggi font lokal diatur pada berbagai tingkat struktur presentasi.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -225,11 +240,13 @@ presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 
 ## **Dapatkan Format Isi Efektif untuk Tabel**
 
-Dengan Aspose.Slides, Anda dapat mendapatkan pemformatan isi efektif untuk berbagai bagian tabel. Antarmuka [IFillFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ifillformateffectivedata/) berisi properti pemformatan isi efektif. Pemformatan sel memiliki prioritas lebih tinggi daripada pemformatan baris, pemformatan baris memiliki prioritas lebih tinggi daripada pemformatan kolom, dan pemformatan kolom memiliki prioritas lebih tinggi daripada pemformatan seluruh tabel.
+Menggunakan Aspose.Slides, Anda dapat mendapatkan pemformatan isi yang efektif untuk berbagai bagian tabel. Antarmuka [IFillFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/ifillformateffectivedata/) berisi properti pemformatan isi yang efektif. Pemformatan sel memiliki prioritas lebih tinggi daripada pemformatan baris, pemformatan baris memiliki prioritas lebih tinggi daripada pemformatan kolom, dan pemformatan kolom memiliki prioritas lebih tinggi daripada pemformatan seluruh tabel.
 
-Akibatnya, properti [ICellFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/icellformateffectivedata/) digunakan untuk menggambar sel tabel. Contoh kode berikut menunjukkan cara mendapatkan pemformatan isi efektif untuk berbagai bagian tabel. Diasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/).
+Akibatnya, properti [ICellFormatEffectiveData](https://reference.aspose.com/slides/id/net/aspose.slides/icellformateffectivedata/) digunakan untuk menggambar sel tabel. Contoh kode berikut menunjukkan cara mendapatkan pemformatan isi yang efektif untuk berbagai bagian tabel. Contoh ini mengasumsikan bahwa bentuk pertama pada slide pertama adalah sebuah [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/).
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -248,34 +265,34 @@ var cellFillFormatEffective = cellFormatEffective.FillFormat;
 
 ## **FAQ**
 
-**Apakah `GetEffective` mengembalikan snapshot?**
+### Apakah `GetEffective` mengembalikan snapshot?
 
-Tidak selalu. Data efektif mewakili pemformatan yang dihitung setelah pewarisan diterapkan, tetapi beberapa objek data efektif dapat disimpan dalam cache secara internal. Panggilan `GetEffective` berikutnya dapat menghitung ulang pemformatan dan menyegarkan data yang di-cache, sehingga objek yang sebelumnya diperoleh tidak boleh dianggap sebagai snapshot yang tahan lama.
+Tidak selalu. Data efektif mewakili pemformatan yang dihitung setelah pewarisan diterapkan, tetapi beberapa objek data efektif dapat disimpan dalam cache secara internal. Panggilan `GetEffective` selanjutnya dapat menghitung ulang pemformatan dan menyegarkan data cache, sehingga objek yang sebelumnya diperoleh tidak boleh dianggap sebagai snapshot yang tahan lama.
 
-**Kapan saya harus membaca properti efektif lagi?**
+### Kapan saya harus membaca properti efektif lagi?
 
-Panggil `GetEffective` lagi setelah mengubah pemformatan lokal, gaya induk, pemformatan tata letak, pemformatan master, atau nilai default pada tingkat presentasi. Panggilan berikutnya akan mengevaluasi kembali hierarki pemformatan dan mengembalikan hasil efektif saat ini.
+Panggil `GetEffective` lagi setelah mengubah pemformatan lokal, gaya induk, pemformatan tata letak, pemformatan master, atau nilai default tingkat presentasi. Panggilan berikutnya akan mengevaluasi kembali hierarki pemformatan dan mengembalikan hasil efektif saat ini.
 
-**Apakah mengubah atau menghapus slide tata letak/master memengaruhi properti efektif yang sudah diambil?**
+### Apakah mengubah atau menghapus slide layout/master memengaruhi properti efektif yang sudah diambil?
 
-Ya, tetapi perubahan tersebut tercermin pada panggilan `GetEffective` berikutnya. Jika sumber pemformatan induk diubah atau dihapus, data efektif yang sebelumnya diperoleh mungkin sudah usang. Setelah `GetEffective` dipanggil lagi, Aspose.Slides akan mengevaluasi kembali pohon pemformatan dan font, warna, ukuran, atau nilai lainnya dapat berubah.
+Ya, tetapi perubahan tersebut tercermin pada panggilan `GetEffective` berikutnya. Jika sumber pemformatan induk diubah atau dihapus, data efektif yang sebelumnya diperoleh mungkin sudah usang. Setelah `GetEffective` dipanggil lagi, Aspose.Slides mengevaluasi kembali pohon pemformatan dan font, warna, ukuran, atau nilai lain yang dihasilkan dapat berubah.
 
-**Dapatkah saya memodifikasi nilai melalui objek data efektif?**
+### Bisakah saya memodifikasi nilai melalui objek data efektif?
 
-Tidak. Objek data efektif hanya menampilkan nilai yang telah dihitung. Lakukan perubahan pada objek pemformatan lokal, kemudian peroleh kembali nilai efektifnya.
+Tidak. Objek data efektif hanya menampilkan nilai yang dihitung. Lakukan perubahan pada objek pemformatan lokal, kemudian dapatkan kembali nilai efektif.
 
-**Apa yang terjadi jika sebuah properti tidak diatur pada tingkat bentuk, tata letak/master, atau pengaturan global?**
+### Apa yang terjadi jika properti tidak diatur di tingkat bentuk, maupun di layout/master, maupun di pengaturan global?
 
-Nilai efektif ditentukan oleh mekanisme default, yang mencakup nilai default PowerPoint dan Aspose.Slides. Nilai yang terpecahkan tersebut menjadi bagian dari data efektif saat ini.
+Nilai efektif ditentukan oleh mekanisme default, yang mencakup nilai default PowerPoint dan Aspose.Slides. Nilai yang terpecahkan menjadi bagian dari data efektif saat ini.
 
-**Dari nilai font efektif, dapatkah saya mengetahui tingkat mana yang menyediakan ukuran atau jenis huruf?**
+### Dari nilai font efektif, dapatkah saya mengetahui level mana yang menyediakan ukuran atau jenis huruf?
 
-Tidak secara langsung. Data efektif mengembalikan nilai akhir. Untuk menemukan sumbernya, periksa nilai lokal pada bagian, paragraf, bingkai teks, dan gaya teks pada tata letak, master, serta tingkat presentasi untuk melihat di mana definisi eksplisit pertama muncul.
+Tidak secara langsung. Data efektif mengembalikan nilai akhir. Untuk menemukan sumbernya, periksa nilai lokal pada bagian, paragraf, bingkai teks, dan gaya teks pada tingkat layout, master, dan presentasi untuk melihat di mana definisi eksplisit pertama muncul.
 
-**Mengapa nilai efektif kadang terlihat identik dengan nilai lokal?**
+### Mengapa nilai efektif kadang terlihat identik dengan nilai lokal?
 
-Karena nilai lokal akhirnya menjadi nilai akhir (tidak ada pewarisan tingkat lebih tinggi yang diperlukan). Dalam kasus tersebut, nilai efektif cocok dengan nilai lokal.
+Karena nilai lokal berakhir menjadi nilai akhir (tidak ada pewarisan tingkat lebih tinggi yang diperlukan). Dalam kasus seperti itu, nilai efektif sama dengan nilai lokal.
 
-**Kapan saya harus menggunakan properti efektif, dan kapan hanya menggunakan yang lokal?**
+### Kapan saya harus menggunakan properti efektif, dan kapan saya harus bekerja hanya dengan yang lokal?
 
-Gunakan data efektif ketika Anda memerlukan hasil "as rendered" setelah semua pewarisan diterapkan, misalnya untuk menyelaraskan warna, indentasi, atau ukuran. Jika Anda perlu mempertahankan nilai tersebut terlepas dari perubahan pemformatan selanjutnya, salin properti yang dibutuhkan ke dalam objek Anda sendiri. Jika Anda perlu mengubah pemformatan pada tingkat tertentu, ubah properti lokal dan kemudian, bila perlu, baca kembali data efektif untuk memverifikasi hasilnya.
+Gunakan data efektif ketika Anda memerlukan hasil "sebagaimana ditampilkan" setelah semua pewarisan diterapkan, seperti untuk menyelaraskan warna, indentasi, atau ukuran. Jika Anda perlu mempertahankan nilai tersebut terlepas dari perubahan pemformatan berikutnya, salin properti yang diperlukan ke objek Anda sendiri. Jika Anda perlu mengubah pemformatan pada tingkat tertentu, modifikasi properti lokal dan kemudian, jika diperlukan, baca data efektif lagi untuk memverifikasi hasilnya.

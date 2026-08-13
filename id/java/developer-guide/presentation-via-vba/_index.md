@@ -1,6 +1,6 @@
 ---
 title: Kelola Proyek VBA dalam Presentasi Menggunakan Java
-linktitle: Presentasi via VBA
+linktitle: Presentasi melalui VBA
 type: docs
 weight: 250
 url: /id/java/presentation-via-vba/
@@ -8,10 +8,10 @@ keywords:
 - makro
 - VBA
 - makro VBA
-- tambahkan makro
+- tambah makro
 - hapus makro
 - ekstrak makro
-- tambahkan VBA
+- tambah VBA
 - hapus VBA
 - ekstrak VBA
 - PowerPoint
@@ -27,31 +27,31 @@ Aspose.Slides menyediakan kelas dan antarmuka untuk bekerja dengan makro dan kod
 
 {{% alert title="Note" color="warning" %}} 
 
-Saat Anda mengonversi presentasi yang berisi makro ke format file yang berbeda (PDF, HTML, dll.), Aspose.Slides mengabaikan semua makro (makro tidak dibawa ke dalam file hasil).
+Saat Anda mengonversi presentasi yang berisi makro ke format file lain (PDF, HTML, dll.), Aspose.Slides mengabaikan semua makro (makro tidak dibawa ke file yang dihasilkan).
 
-Ketika Anda menambahkan makro ke sebuah presentasi atau menyimpan kembali presentasi yang berisi makro, Aspose.Slides hanya menulis byte untuk makro tersebut.
+Saat Anda menambahkan makro ke presentasi atau menyimpan ulang presentasi yang berisi makro, Aspose.Slides hanya menulis byte untuk makro tersebut.
 
-Aspose.Slides **tidak pernah** menjalankan makro dalam sebuah presentasi.
+Aspose.Slides **tidak pernah** menjalankan makro dalam presentasi.
 
 {{% /alert %}}
 
-## **Menambahkan Makro VBA**
+## **Tambahkan Makro VBA**
 
-Aspose.Slides menyediakan kelas [VbaProject](https://reference.aspose.com/slides/id/java/com.aspose.slides/vbaproject/) untuk memungkinkan Anda membuat proyek VBA (dan referensi proyek) serta mengedit modul yang ada. Anda dapat menggunakan antarmuka [IVbaProject](https://reference.aspose.com/slides/id/java/com.aspose.slides/ivbaproject/) untuk mengelola VBA yang tertanam dalam sebuah presentasi.
+Aspose.Slides menyediakan kelas [VbaProject](https://reference.aspose.com/slides/id/java/com.aspose.slides/vbaproject/) untuk memungkinkan Anda membuat proyek VBA (dan referensi proyek) serta mengedit modul yang ada. Anda dapat menggunakan antarmuka [IVbaProject](https://reference.aspose.com/slides/id/java/com.aspose.slides/ivbaproject/) untuk mengelola VBA yang disematkan dalam presentasi.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation).
 1. Gunakan konstruktor [VbaProject](https://reference.aspose.com/slides/id/java/com.aspose.slides/vbaproject/#VbaProject--) untuk menambahkan proyek VBA baru.
 1. Tambahkan modul ke VbaProject.
-1. Atur kode sumber modul.
+1. Tetapkan kode sumber modul.
 1. Tambahkan referensi ke <stdole>.
 1. Tambahkan referensi ke **Microsoft Office**.
-1. Hubungkan referensi dengan proyek VBA.
+1. Kaitkan referensi dengan proyek VBA.
 1. Simpan presentasi.
 
-Kode Java ini menunjukkan cara menambahkan makro VBA dari awal ke sebuah presentasi:
-
 ```java
-// Membuat instance dari kelas presentasi
+import com.aspose.slides.*;
+
+// Membuat instance kelas presentasi
 Presentation pres = new Presentation();
 try {
     // Membuat Proyek VBA baru
@@ -81,23 +81,23 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Anda mungkin ingin melihat **Aspose** [Macro Remover](https://products.aspose.app/slides/id/remove-macros), sebuah aplikasi web gratis yang digunakan untuk menghapus makro dari dokumen PowerPoint, Excel, dan Word. 
+Anda mungkin ingin mencoba **Aspose** [Macro Remover](https://products.aspose.app/slides/id/remove-macros), yaitu aplikasi web gratis yang digunakan untuk menghapus makro dari dokumen PowerPoint, Excel, dan Word. 
 
 {{% /alert %}} 
 
-## **Menghapus Makro VBA**
+## **Hapus Makro VBA**
 
 Dengan menggunakan properti [VbaProject](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getVbaProject--) pada kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation), Anda dapat menghapus makro VBA.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi yang berisi makro.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi yang berisi makro.
 1. Akses modul Macro dan hapus.
 1. Simpan presentasi yang telah dimodifikasi.
 
-Kode Java ini menunjukkan cara menghapus makro VBA:
-
 ```java
+import com.aspose.slides.*;
+
 // Memuat presentasi yang berisi makro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -111,15 +111,15 @@ try {
 }
 ```
 
-## **Mengekstrak Makro VBA**
+## **Ekstrak Makro VBA**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi yang berisi makro.
-2. Periksa apakah presentasi berisi Proyek VBA.
-3. Lakukan perulangan pada semua modul yang terdapat dalam Proyek VBA untuk melihat makro.
-
-Kode Java ini menunjukkan cara mengekstrak makro VBA dari presentasi yang berisi makro:
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) dan muat presentasi yang berisi makro.
+2. Periksa apakah presentasi berisi VBA Project.
+3. Loop melalui semua modul yang terdapat dalam VBA Project untuk melihat makro.
 
 ```java
+import com.aspose.slides.*;
+
 // Memuat presentasi yang berisi makro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -136,15 +136,17 @@ try {
 }
 ```
 
-## **Memeriksa Apakah Proyek VBA Dilindungi Kata Sandi**
+## **Periksa Apakah Proyek VBA Dilindungi Kata Sandi**
 
-Dengan menggunakan metode [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/id/java/com.aspose.slides/ivbaproject/#isPasswordProtected--), Anda dapat menentukan apakah properti proyek dilindungi kata sandi.
+Dengan menggunakan metode [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/id/java/com.aspose.slides/ivbaproject/#isPasswordProtected--) , Anda dapat menentukan apakah properti proyek dilindungi kata sandi.
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) dan muat sebuah presentasi yang berisi makro.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) dan muat presentasi yang berisi makro.
 2. Periksa apakah presentasi berisi [proyek VBA](https://reference.aspose.com/slides/id/java/com.aspose.slides/vbaproject/).
 3. Periksa apakah proyek VBA dilindungi kata sandi untuk melihat propertinya.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // Periksa apakah presentasi berisi proyek VBA.
@@ -160,14 +162,14 @@ try {
 
 ## **FAQ**
 
-**Apa yang terjadi pada makro jika saya menyimpan presentasi sebagai PPTX?**
+### Apa yang terjadi pada makro jika saya menyimpan presentasi sebagai PPTX?
 
 Makro akan dihapus karena PPTX tidak mendukung VBA. Untuk mempertahankan makro, pilih PPTM, PPSM, atau POTM.
 
-**Apakah Aspose.Slides dapat menjalankan makro di dalam presentasi, misalnya untuk memperbarui data?**
+### Bisakah Aspose.Slides menjalankan makro di dalam presentasi untuk, misalnya, memperbarui data?
 
-Tidak. Perpustakaan tidak pernah mengeksekusi kode VBA; eksekusi hanya mungkin di dalam PowerPoint dengan pengaturan keamanan yang sesuai.
+Tidak. Perpustakaan tidak pernah mengeksekusi kode VBA; eksekusi hanya memungkinkan di dalam PowerPoint dengan pengaturan keamanan yang tepat.
 
-**Apakah bekerja dengan kontrol ActiveX yang terhubung ke kode VBA didukung?**
+### Apakah bekerja dengan kontrol ActiveX yang terhubung ke kode VBA didukung?
 
-Ya, Anda dapat mengakses [kontrol ActiveX](/slides/id/java/activex/) yang ada, memodifikasi propertinya, dan menghapusnya. Ini berguna ketika makro berinteraksi dengan ActiveX.
+Ya, Anda dapat mengakses [kontrol ActiveX](/slides/id/java/activex/), mengubah propertinya, dan menghapusnya. Ini berguna ketika makro berinteraksi dengan ActiveX.

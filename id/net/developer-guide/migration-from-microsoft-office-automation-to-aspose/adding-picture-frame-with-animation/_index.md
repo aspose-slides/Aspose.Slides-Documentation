@@ -7,36 +7,36 @@ url: /id/net/adding-picture-frame-with-animation/
 keywords:
 - bingkai gambar
 - menambahkan gambar
-- menambahkan gambar
+- menambahkan foto
 - gambar dengan animasi
-- gambar dengan animasi
+- foto dengan animasi
 - migrasi
 - VSTO
-- otomasi Office
+- otomatisasi Office
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Migrasikan otomasi Microsoft Office ke Aspose.Slides untuk .NET dan animasikan bingkai gambar dalam slide PowerPoint (PPT, PPTX) dengan kode C# yang bersih."
+description: "Migrasikan otomatisasi Microsoft Office ke Aspose.Slides untuk .NET dan animasikan bingkai gambar dalam slide PowerPoint (PPT, PPTX) dengan kode C# yang bersih."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bingkai gambar diterapkan pada bentuk atau gambar di Microsoft PowerPoint untuk membingkai gambar dalam sebuah presentasi. Artikel ini menunjukkan cara membuat bingkai gambar dan menerapkan animasi padanya secara programatis menggunakan pertama [VSTO 2008](/slides/id/net/adding-picture-frame-with-animation/) dan kemudian [Aspose.Slides for .NET](/slides/id/net/adding-picture-frame-with-animation/). Pertama, kami menunjukkan cara menerapkan bingkai dan animasi menggunakan VSTO 2008. Kami kemudian menunjukkan cara melakukan langkah yang sama menggunakan Aspose.Slides for .NET.
+Bingkai gambar diterapkan pada bentuk atau gambar di Microsoft PowerPoint untuk membingkai gambar dalam sebuah presentasi. Artikel ini menunjukkan cara membuat bingkai gambar dan menerapkan animasi padanya secara programatis menggunakan pertama [VSTO 2008](/slides/id/net/adding-picture-frame-with-animation/) dan kemudian [Aspose.Slides for .NET](/slides/id/net/adding-picture-frame-with-animation/). Pertama, kami menunjukkan cara menerapkan bingkai dan animasi menggunakan VSTO 2008. Selanjutnya, kami menunjukkan cara melakukan langkah yang sama menggunakan Aspose.Slides for .NET.
 
 {{% /alert %}} 
 ## **Menambahkan Bingkai Gambar dengan Animasi**
-Contoh kode di bawah ini membuat presentasi dengan satu slide, menambahkan gambar dengan bingkai gambar, dan menerapkan animasi padanya.
+Contoh kode di bawah ini membuat sebuah presentasi dengan satu slide, menambahkan gambar dengan bingkai gambar, dan menerapkan animasi padanya.
 ### **Contoh VSTO 2008**
-Menggunakan VSTO 2008, ikuti langkah-langkah berikut:
+Menggunakan VSTO 2008, ikuti langkah‑langkah berikut:
 
 1. Buat presentasi.
 1. Tambahkan slide kosong.
 1. Tambahkan bentuk gambar ke slide.
 1. Terapkan animasi pada gambar.
-1. Simpan presentasi ke disk.
+1. Tulis presentasi ke disk.
 
-**Presentasi hasil output, dibuat dengan VSTO** 
+**Presentasi keluaran, dibuat dengan VSTO** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_1.png)
 
@@ -64,22 +64,26 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 
 
 ### **Contoh Aspose.Slides for .NET**
-Menggunakan Aspose.Slides for .NET, lakukan langkah-langkah berikut:
+Menggunakan Aspose.Slides for .NET, lakukan langkah‑langkah berikut:
 
 1. Buat presentasi.
 1. Akses slide pertama.
 1. Tambahkan gambar ke koleksi gambar.
 1. Tambahkan bentuk gambar ke slide.
 1. Terapkan animasi pada gambar.
-1. Simpan presentasi ke disk.
+1. Tulis presentasi ke disk.
 
-**Presentasi hasil output, dibuat dengan Aspose.Slides** 
+**Presentasi keluaran, dibuat dengan Aspose.Slides** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_2.png)
 
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Membuat presentasi kosong
 using (Presentation pres = new Presentation())
 {

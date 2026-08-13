@@ -4,9 +4,9 @@ type: docs
 weight: 10
 url: /th/java/microsoft-powerpoint-ppt/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) คือรูปแบบไฟล์เอกสารพรีเซ็นเทชั่นที่สามารถสร้าง อ่าน แก้ไข และเขียนได้โดยเวอร์ชันต่าง ๆ ของ Microsoft PowerPoint นี่คือรูปแบบไบนารีสำหรับเอกสารพรีเซ็นเทชั่นที่พัฒนาโดย Microsoft
+[PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) เป็นรูปแบบไฟล์เอกสารการพรีเซนเทชันที่สามารถสร้าง อ่าน แก้ไข และเขียนได้โดยเวอร์ชันต่าง ๆ ของ Microsoft PowerPoint นี่คือรูปแบบไบนารีสำหรับเอกสารการพรีเซนเทชันที่พัฒนาโดย Microsoft.
 
 {{% /alert %}} 
 
@@ -18,24 +18,24 @@ Aspose.Slides for Java สามารถอ่านไฟล์ PPT ที่�
 - Microsoft PowerPoint XP
 - Microsoft PowerPoint 2003
 
-เช่นเดียวกันไฟล์ PPT ที่สร้างโดย Aspose.Slides for Java สามารถอ่านได้โดยซอฟต์แวร์ชุดข้างต้น
+ในทำนองเดียวกันไฟล์ PPT ที่สร้างโดย Aspose.Slides for Java สามารถอ่านโดยซอฟต์แวร์ชุดดังกล่าวได้
 
 ## **การสนับสนุน PPT อย่างครอบคลุม**
-Aspose.Slides for Java ให้การสนับสนุนคุณสมบัติแทบทั้งหมดที่รูปแบบไฟล์เอกสาร PPT รองรับ ไม่เพียงแต่ครอบคลุมคุณสมบัติพื้นฐานและขั้นสูงที่ต่างเวอร์ชันของ Microsoft PowerPoint ให้ไว้สำหรับการจัดการเอกสาร PPT เท่านั้น แต่ยังรวมถึงคุณสมบัติที่แม้ Microsoft PowerPoint จะไม่รองรับอีกด้วย ข้อได้เปรียบหลักของการใช้ไลบรารี API Aspose.Slides for Java คือความง่ายในการจัดการคุณสมบัติเหล่านี้
+Aspose.Slides for Java ให้การสนับสนุนเกือบทุกคุณลักษณะที่รูปแบบไฟล์เอกสาร PPT รองรับ ไม่เพียงแต่คุณลักษณะพื้นฐานและขั้นสูงที่มาพร้อมกับเวอร์ชันต่าง ๆ ของ Microsoft PowerPoint สำหรับการจัดการเอกสาร PPT เท่านั้น แต่ยังรวมถึงคุณลักษณะที่ Microsoft PowerPoint ไม่ได้สนับสนุนด้วย ข้อได้เปรียบหลักของการใช้ไลบรารี API Aspose.Slides for Java คือความง่ายในการจัดการคุณลักษณะเหล่านี้
 
-นอกเหนือจากงานพื้นฐานที่เกี่ยวกับการสร้าง อ่านและเขียนไฟล์เอกสาร PPT แล้ว ยังมีคุณสมบัติหลายประการที่ Aspose.Slides for Java ให้บริการ
+นอกเหนือจากงานพื้นฐานที่เกี่ยวกับการสร้าง อ่าน และเขียนไฟล์เอกสาร PPT แล้ว Aspose.Slides for Java ยังให้คุณลักษณะหลายอย่างดังต่อไปนี้
 
-- นำเข้าไฟล์รูปแบบ Microsoft Office อื่น ๆ เป็น [OLE objects into PPT documents]()
-- [Export PPT documents to PDF](/slides/th/java/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- ส่งออกสไลด์ในไฟล์ PPT ไปเป็นรูปแบบ SVG
-- แสดงผลสไลด์เป็นรูปภาพในรูปแบบใดก็ได้ที่ Java Framework รองรับ
-- ตั้งค่าขนาดสไลด์ในไฟล์ PPT
+- นำเข้ารูปแบบไฟล์ Microsoft Office อื่นเป็น [วัตถุ OLE ลงในเอกสาร PPT]().
+- [ส่งออกเอกสาร PPT ไปเป็น PDF](/slides/th/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
+- ส่งออกสไลด์ในเอกสาร PPT ไปเป็นรูปแบบ SVG
+- เรนเดอร์สไลด์เป็นรูปภาพใด ๆ ที่รองรับโดย Java Framework
+- ตั้งค่าขนาดสไลด์ในเอกสาร PPT
 - จัดการแอนิเมชันบนรูปร่าง
 - จัดการการแสดงสไลด์โชว์
-- [Format text on slides]()
-- สกัดข้อความจากไฟล์ PPT
-- [Handle tables on slides]()
-- คัดลอกมาสเตอร์โดยอัตโนมัติด้วย [the cloning feature]()
+- [จัดรูปแบบข้อความบนสไลด์]().
+- ดึงข้อความจากเอกสาร PPT
+- [จัดการตารางบนสไลด์]().
+- คัดลอกมาสเตอร์โดยอัตโนมัติด้วย [คุณลักษณะการโคลน]()
 
 **ไฟล์ PPT ที่สร้างโดย Aspose.Slides for Java และเปิดใน Microsoft PowerPoint** 
 

@@ -1,5 +1,5 @@
 ---
-title: سلسلة اختيار الخط في Aspose.Slides لنظام Android عبر Java
+title: تسلسل اختيار الخط في Aspose.Slides لنظام Android عبر Java
 linktitle: اختيار الخط
 type: docs
 weight: 80
@@ -17,39 +17,46 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "اكتشف كيف يقوم Aspose.Slides لنظام Android عبر Java باختيار الخطوط، مما يضمن عرضًا واضحًا ومتسقًا لملفات PPT و PPTX و ODP — حسّن شرائحك الآن."
+description: "اكتشف كيف يختار Aspose.Slides لنظام Android عبر Java الخطوط، مما يضمن عرضًا واضحًا ومتسقًا لملفات PPT و PPTX و ODP — حسّن شرائحك الآن."
 ---
+## **نظرة عامة**
+
+عند تحميل عرض تقديمي أو عرضه أو تحويله إلى تنسيق آخر، يتحقق Aspose.Slides مما إذا كانت الخطوط المستخدمة في العرض متوفرة في نظام التشغيل. إذا كان الخط المطلوب مفقودًا، يختار Aspose.Slides خطًا بديلاً قريبًا قدر الإمكان من الخط الذي سيستخدمه PowerPoint.
+
+يبحث Aspose.Slides أولاً عن الخط المحدد في نظام التشغيل. إذا تم العثور على الخط، يُستخدم. إذا لم يُعثر عليه، يتم تطبيق خط بديل مناسب. عندما يتم تعريف قواعد استبدال الخطوط عبر `FontSubstRule`، تُؤخذ تلك القواعد في الاعتبار أيضًا.
+
+يمكنك أيضًا إضافة خطوط في وقت تشغيل التطبيق، أو استخدام الخطوط المضمنة من العرض، أو تحميل خطوط خارجية للمستندات الناتجة مثل ملفات PDF.
 
 ## **اختيار الخط**
 
-Certain rules apply to fonts in a presentation when the presentation is loaded, rendered, or converted to another format. For example, when you try to convert a presentation (its slides) to images, the presentation's fonts are checked to verify that the chosen fonts are available in the operating system. If the fonts are confirmed to be missing, they are replaced — see [**استبدال الخط**](https://docs.aspose.com/slides/androidjava/font-replacement/) and [**استبدال الخطوط**](https://docs.aspose.com/slides/androidjava/font-substitution/).
+تنطبق قواعد معينة على الخطوط في العرض عندما يتم تحميله أو عرضه أو تحويله إلى تنسيق آخر. على سبيل المثال، عند محاولة تحويل عرض (شرائحه) إلى صور، يتم فحص خطوط العرض للتحقق من توفر الخطوط المختارة في نظام التشغيل. إذا تأكد أن الخطوط مفقودة، يتم استبدالها — انظر إلى [**استبدال الخط**](https://docs.aspose.com/slides/ar/androidjava/font-replacement/) و[**استبدال الخطوط**](https://docs.aspose.com/slides/ar/androidjava/font-substitution/).
 
-This is the process Aspose.Slides follows when dealing with fonts:
+هذه هي العملية التي يتبعها Aspose.Slides عند التعامل مع الخطوط:
 
-1. تقوم Aspose.Slides بالبحث عن الخطوط في نظام التشغيل للعثور على الخط الذي يتطابق مع الخط المختار في العرض التقديمي. 
-2. إذا تم العثور على الخط المختار، تستخدمه Aspose.Slides. وإلا، تستخدم Aspose.Slides خط استبدالي يكون أقرب ما يمكن إلى ما سيستخدمه PowerPoint.
-3. إذا تم تعيين قواعد استبدال الخط عبر [FontSubstRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsubstrule/)، فإنها تُطبق.
+1. يبحث Aspose.Slides عن الخطوط في نظام التشغيل للعثور على الخط الذي يتطابق مع الخط المختار في العرض.  
+2. إذا تم العثور على الخط المختار، يستخدمه Aspose.Slides. وإلا، يستخدم خطًا بديلاً قريبًا قدر الإمكان مما يستخدمه PowerPoint.  
+3. إذا تم ضبط قواعد استبدال الخطوط عبر [FontSubstRule](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsubstrule/)، فسيتم تطبيقها.
 
-Aspose.Slides تسمح لك بإضافة الخطوط إلى وقت تشغيل التطبيق ثم استخدامها. راجع [**خطوط مخصصة**](https://docs.aspose.com/slides/androidjava/custom-font/).
+يتيح لك Aspose.Slides إضافة خطوط إلى وقت تشغيل التطبيق ثم استخدام تلك الخطوط. راجع [**الخطوط المخصصة**](https://docs.aspose.com/slides/ar/androidjava/custom-font/).
 
-عند وضع خطوط إضافية داخل العرض التقديمي، تُسمى [**خطوط مدمجة**](https://docs.aspose.com/slides/androidjava/embedded-font/).
+عندما تُضع خطوط إضافية داخل العرض، تُطلق عليها تسمية [**الخطوط المضمنة**](https://docs.aspose.com/slides/ar/androidjava/embedded-font/).
 
-Aspose.Slides تسمح لك بإضافة خطوط تُطبّق على المستندات الناتجة *فقط*. على سبيل المثال، إذا كان العرض التقديمي الذي تريد تحويله إلى PDF يحتوي على خطوط مفقودة من نظامك والخطوط المدمجة، يمكنك إضافة أو تحميل الخطوط المطلوبة كـ **خطوط خارجية**. 
+يتيح لك Aspose.Slides إضافة خطوط تُطبق *فقط* على المستندات الناتجة. على سبيل المثال، إذا كان العرض الذي تحاول تحويله إلى PDF يحتوي على خطوط مفقودة من نظامك والخطوط المضمنة، يمكنك إضافة أو تحميل الخطوط اللازمة كـ **خطوط خارجية**.
 
-{{% alert title="Note" color="primary" %}} 
-نحن لا نقوم بتوزيع أي خطوط، سواء كانت مدفوعة أو مجانية. تسمح لك واجهة برمجة التطبيقات بتحميل الخطوط الخارجية وتضمينها في المستندات، ولكن تقوم بذلك وفقًا لتقديرك ومسؤوليتك بشأن الخطوط.
+{{% alert title="Note" color="info" %}} 
+We do not distribute any fonts, either paid or free. Our API allows you to load external fonts and embed them in documents, but you do so with fonts at your discretion and responsibility.
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني تحديد الخطوط المستخدمة فعليًا في عرض تقديمي قبل التحويل؟**
+### كيف يمكنني تحديد الخطوط المستخدمة فعليًا في العرض التقديمي قبل التحويل؟
 
-تتيح لك Aspose.Slides فحص الخطوط المستخدمة عبر [font manager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/)، بحيث يمكنك اتخاذ القرار سواءً بـ [تضمين](/slides/ar/androidjava/embedded-font/)، أو [استبدال](/slides/ar/androidjava/font-replacement/)، أو إضافة [مصادر خارجية](/slides/ar/androidjava/custom-font/). يساعدك ذلك على منع الاستبدالات غير المرغوب فيها أثناء العرض والتصدير.
+يتيح لك Aspose.Slides فحص الخطوط المستخدمة عبر [مدير الخطوط](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fontsmanager/)، بحيث يمكنك اتخاذ قرار بـ [تضمين](/slides/ar/androidjava/embedded-font/)، [استبدال](/slides/ar/androidjava/font-replacement/)، أو إضافة [مصادر خارجية](/slides/ar/androidjava/custom-font/). يساعدك هذا على منع الاستبدالات غير المرغوب فيها أثناء العرض والتصدير.
 
-**هل يمكنني إضافة دلائل خطوط إضافية دون تثبيتها على نظام التشغيل؟**
+### هل يمكنني إضافة دلائل خطوط إضافية دون تثبيتها على نظام التشغيل؟
 
-نعم. يمكنك تسجيل [مصادر خطوط خارجية](/slides/ar/androidjava/custom-font/) مثل المجلدات أو التدفقات في الذاكرة للتصوير والتصدير. يزيل هذا الاعتمادية على خطوط نظام المضيف ويحافظ على استقرار التخطيط.
+نعم. يمكنك تسجيل [مصادر الخطوط الخارجية](/slides/ar/androidjava/custom-font/) مثل المجلدات أو التدفقات الذاكرةية للعرض والتصدير. يزيل ذلك الاعتماد على خطوط نظام المضيف ويحافظ على استقرار التخطيط.
 
-**كيف يمكنني منع الانتقال الصامت إلى خط غير مناسب عندما يكون رمز غير متوفر؟**
+### كيف أُجنب الانتقال الصامت إلى خط غير مناسب عندما يكون الحرف مفقودًا؟
 
-حدد [استبدال الخط](/slides/ar/androidjava/font-replacement/) و[قواعد احتياطي الخط](/slides/ar/androidjava/fallback-font/) بشكل صريح مسبقًا. عبر تحليل الخطوط المستخدمة وتحديد أولوية مُتحكم فيها للبدائل، تضمن طباعة متسقة وتتجنب النتائج غير المتوقعة.
+حدد مسبقًا [استبدال الخط](/slides/ar/androidjava/font-replacement/) وقواعد [الخط الاحتياطي](/slides/ar/androidjava/fallback-font/). من خلال تحليل الخطوط المستخدمة وتحديد أولوية محكومة للبدائل، تضمن طباعة متسقة وتتفادى النتائج غير المتوقعة.

@@ -1,6 +1,6 @@
 ---
-title: API Publik dan Perubahan Tidak Kompatibel Mundur pada Aspose.Slides untuk .NET 15.6.0
-linktitle: Aspose.Slides untuk .NET 15.6.0
+title: API Publik dan Perubahan Tidak Kompatibel Mundur di Aspose.Slides untuk .NET 15.6.0
+linktitle: Aspose.Slides for .NET 15.6.0
 type: docs
 weight: 170
 url: /id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/
@@ -16,11 +16,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang merusak pada Aspose.Slides untuk .NET guna memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan mulus."
+description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk .NET agar dapat memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [added](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) atau [removed](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/), serta perubahan lain yang diperkenalkan dengan API Aspose.Slides untuk .NET 15.6.0.
+Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/) atau [dihapus](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-6-0/), serta perubahan lain yang diperkenalkan dengan API Aspose.Slides for .NET 15.6.0.
 
 {{% /alert %}} 
 ## **Perubahan API Publik**
@@ -28,8 +28,8 @@ Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [add
 Tanda tangan konstruktor DataLabel telah diubah:
 was: DataLabel.#ctor(Aspose.Slides.Charts.IChartSeries);
 now: DataLabel.#ctor(Aspose.Slides.Charts.IChartDataPoint).
-#### **Anggota IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) Telah Ditandai Sebagai Usang dan Penggantiannya Telah Diperkenalkan Sebagai Pengganti.**
-Properti IDocumentProperties.Count dan metode IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) telah ditandai sebagai Usang. Properti IDocumentProperties.CountOfCustomProperties dan metode IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) telah ditambahkan sebagai penggantinya.
+#### **Anggota IDocumentProperties.Count, .GetPropertyName(int index), .Remove(string name), .Contains(string name) Telah Ditandai sebagai Usang dan Penggantiannya Telah Diperkenalkan.**
+Properti IDocumentProperties.Count dan metode IDocumentProperties.GetPropertyName(int index), .Remove(string name), .Contains(string name) telah ditandai sebagai Usang. Properti IDocumentProperties.CountOfCustomProperties dan metode IDocumentProperties.GetCustomPropertyName(int index), .RemoveCustomProperty(string name), .ContainsCustomProperty(string name) telah ditambahkan sebagai gantinya.
 #### **Metode INotesSlideManager.RemoveNotesSlide() Telah Ditambahkan**
 Metode INotesSlideManager.RemoveNotesSlide() telah ditambahkan untuk menghapus slide catatan dari suatu slide.
 #### **Metode Remove Telah Ditambahkan ke IComment**
@@ -44,43 +44,44 @@ Metode ICommentAuthorCollection.RemoveAt telah ditambahkan untuk menghapus penul
 Metode ICommentAuthorCollection.Remove telah ditambahkan untuk menghapus penulis tertentu dari koleksi.
 Metode ICommentAuthorCollection.Clear telah ditambahkan untuk menghapus semua item dari koleksi.
 #### **Properti AppVersion Telah Ditambahkan ke IDocumentProperties**
-Properti IDocumentProperties.AppVersion telah ditambahkan untuk mendapatkan properti dokumen bawaan yang mewakili nomor versi internal yang digunakan Microsoft selama pengembangan.
+Properti IDocumentProperties.AppVersion telah ditambahkan untuk memperoleh properti dokumen bawaan yang mewakili nomor versi internal yang digunakan Microsoft selama pengembangan.
 #### **Properti BlackWhiteMode Telah Ditambahkan ke IShape dan ke Shape**
 Properti BlackWhiteMode telah ditambahkan ke IShape dan ke Shape.
 
-Properti ini menentukan bagaimana sebuah shape akan ditampilkan dalam mode tampilan hitam-putih.
+Properti ini menentukan bagaimana sebuah bentuk akan ditampilkan dalam mode tampilan hitam‑putih.
 
-|**Nilai** |**Arti** |
+|**Nilai** |**Makna** |
 | :- | :- |
-|Color |Render dengan warna normal |
+|Color |Render dengan pewarnaan normal |
 |Automatic |Render dengan pewarnaan otomatis |
-|Gray |Render dengan warna abu-abu |
-|LightGray |Render dengan warna abu-abu muda |
-|InverseGray |Render dengan warna abu-abu terbalik |
-|GrayWhite |Render dengan warna abu-abu dan putih |
-|BlackGray |Render dengan warna hitam dan abu-abu |
-|BlackWhite |Render dengan warna hitam dan putih |
-|Black |Render hanya dengan warna hitam |
-|White |Render dengan warna putih |
+|Gray |Render dengan pewarnaan abu‑abu |
+|LightGray |Render dengan pewarnaan abu‑abu terang |
+|InverseGray |Render dengan pewarnaan abu‑abu terbalik |
+|GrayWhite |Render dengan pewarnaan abu‑abu dan putih |
+|BlackGray |Render dengan pewarnaan hitam dan abu‑abu |
+|BlackWhite |Render dengan pewarnaan hitam dan putih |
+|Black |Render hanya dengan pewarnaan hitam |
+|White |Render dengan pewarnaan putih |
 |Hidden |Tidak dirender |
-|NotDefined|menandakan properti tidak diatur|
-#### **Properti ISlide.NotesSlideManager Telah Ditambahkan. Properti ISlide.NotesSlide dan Metode ISlide.AddNotesSlide() Telah Ditandai Sebagai Usang.**
-Anggota ISlide.NotesSlide, ISlide.AddNotesSlide() telah ditandai sebagai Usang. Gunakan properti baru ISlide.NotesSlideManager sebagai gantinya.
+|NotDefined |menandakan bahwa properti tidak diatur |
+#### **Properti ISlide.NotesSlideManager Telah Ditambahkan. Properti ISlide.NotesSlide dan Metode ISlide.AddNotesSlide() Telah Ditandai sebagai Usang.**
+Anggota ISlide.NotesSlide dan ISlide.AddNotesSlide() telah ditandai sebagai Usang. Gunakan properti baru ISlide.NotesSlideManager sebagai gantinya.
 
 ``` csharp
+using Aspose.Slides;
 
- ISlide slide = ...;
+using (Presentation pres = new Presentation("sample.pptx"))
+{
+    ISlide slide = pres.Slides[0];
 
-INotesSlide notes;
+    INotesSlide notes;
 
-// notes = slide.AddNotesSlide(); - usang
+    // notes = slide.AddNotesSlide(); - usang
+    // notes = slide.NotesSlide; - usang
 
-// notes = slide.NotesSlide; - usang
+    notes = slide.NotesSlideManager.NotesSlide;
+    notes = slide.NotesSlideManager.AddNotesSlide();
 
-notes = slide.NotesSlideManager.NotesSlide;
-
-notes = slide.NotesSlideManager.AddNotesSlide();
-
-slide.NotesSlideManager.RemoveNotesSlide();
-
+    slide.NotesSlideManager.RemoveNotesSlide();
+}
 ```

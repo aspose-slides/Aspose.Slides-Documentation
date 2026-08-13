@@ -4,11 +4,11 @@ type: docs
 weight: 45
 url: /el/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
-Για να ενσωματώσετε το Aspose.Slides for JasperReports με το JasperServer, είναι απαραίτητο να κάνετε μερικά επιπλέον βήματα και να ενημερώσετε τα αρχεία διαμόρφωσης του JasperServer. Αυτό το άρθρο εξηγεί πώς.
+{{% alert color="info" %}} 
+Για την ενσωμάτωση του Aspose.Slides for JasperReports με το JasperServer, είναι απαραίτητο να γίνουν αρκετά πρόσθετα βήματα και να ενημερωθούν τα αρχεία ρυθμίσεων του JasperServer. Αυτό το άρθρο εξηγεί πώς.
 {{% /alert %}} 
-1. Προσθέστε νέες ιδιότητες εξαγωγέα στο **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** αρχείο διαμόρφωσης.
 
+1. Προσθήκη νέων ιδιοτήτων εξαγωγέα στο αρχείο ρυθμίσεων **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -29,9 +29,8 @@ url: /el/jasperreports/integration-with-jasperserver/
 </util:map>
 ```
 
-2. Αντιγράψτε το **aspose.slides.jasperreports.jar** στο **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Για να χρησιμοποιήσετε τη λειτουργία αντιστοίχησης γραμματοσειρών, ενημερώστε το **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** όπως παρακάτω.
-
+2. Αντιγραφή του **aspose.slides.jasperreports.jar** στο **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
+3. Για χρήση της λειτουργίας αντιστοίχισης γραμματοσειρών, ενημερώστε το **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** όπως φαίνεται παρακάτω.
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">
     <property name="fontMap">

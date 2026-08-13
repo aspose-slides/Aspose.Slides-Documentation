@@ -6,44 +6,47 @@ weight: 60
 url: /nl/androidjava/manage-lists/
 keywords:
 - opsommingsteken
-- opsomminglijst
+- opsommingstekenslijst
 - genummerde lijst
-- symbool opsomming
-- afbeelding opsomming
+- symbool opsommingsteken
+- afbeelding opsommingsteken
 - aangepast opsommingsteken
 - meerlagige lijst
-- opsomming maken
-- opsomming toevoegen
-- lijst toevoegen
+- maak opsommingsteken
+- voeg opsommingsteken toe
+- voeg lijst toe
 - PowerPoint
 - OpenDocument
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u opsommingstekens, afbeelding‑, meerlagige‑ en genummerde lijsten maakt en opmaakt in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Android via Java."
+description: "Leer hoe u opsommingsteken-, afbeelding-, meerlagige- en genummerde lijsten maakt en formatteert in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Android via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Android via Java stelt u in staat om opsommingstekens en genummerde lijsten aan te maken en op te maken in PowerPoint‑ en OpenDocument‑presentaties. Een lijstitem is een alinea waarvan de opsommingsteken‑instellingen worden beheerd via de alinea‑opmaak.
+Aspose.Slides voor Android via Java stelt u in staat om opsommingstekens en genummerde lijsten te maken en te formatteren in PowerPoint‑ en OpenDocument‑presentaties. Een lijstitem is een alinea waarvan de opsommingsteken‑instellingen worden beheerd via de alinea‑opmaak.
 
-Gebruik de [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--)‑methode om de lijstinstellingen op alinea‑niveau te benaderen. Het belangrijkste toegangspunt is [IParagraphFormat.getBullet](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), dat een [IBulletFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/)‑object retourneert. Met dit object kunt u het type opsommingsteken, symbool, afbeelding, kleur, grootte, nummeringsstijl en startnummer instellen.
+Gebruik de [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--)‑methode om toegang te krijgen tot lijstinstellingen op alinea‑niveau. Het belangrijkste toegangspunt is [IParagraphFormat.getBullet](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), die een [IBulletFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/)‑object retourneert. Met dit object kunt u het type opsommingsteken, het symbool, de afbeelding, de kleur, de grootte, de nummeringsstijl en het startnummer instellen.
 
 Dit artikel laat zien hoe u:
 
-- een opsomming met een aangepast symbool maakt
-- een afbeelding als opsommingsteken maakt
-- een meerlagige lijst maakt door de alinea‑diepte in te stellen
+- een lijst met opsommingstekens maakt met een aangepast symbool
+- een afbeelding‑opsommingsteken maakt
+- een meerlaagse lijst maakt door de alinea‑diepte in te stellen
 - een genummerde lijst maakt
-- de lijstopmaak in een bestaande presentatie bekijkt en wijzigt
+- de lijst‑opmaak in een bestaande presentatie inspecteert en wijzigt
 
-## **Een opsomming maken**
+## **Maak een lijst met opsommingstekens**
 
-Om een opsomming te maken, voegt u alinea’s toe aan een [ITextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/) en stelt u [IBulletFormat.setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) in op [BulletType.Symbol](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/bullettype/). Vervolgens kunt u [IBulletFormat.setChar](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#getColor--) en [IBulletFormat.setHeight](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) gebruiken om het uiterlijk van het opsommingsteken te regelen.
+Om een lijst met opsommingstekens te maken, voegt u alinea’s toe aan een [ITextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/) en stelt u [IBulletFormat.setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) in op [BulletType.Symbol](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/bullettype/). Vervolgens kunt u [IBulletFormat.setChar](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#getColor--) en [IBulletFormat.setHeight](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) instellen om het uiterlijk van het opsommingsteken te bepalen.
 
-De volgende Java‑code laat zien hoe u een opsomming maakt in een dia:
+De volgende Java‑code laat zien hoe u een lijst met opsommingstekens maakt in een dia:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -52,12 +55,14 @@ try {
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.getParagraphs().clear();
 
+    Color bulletColor = new Color(205, 92, 92);
+
     Paragraph paragraph1 = new Paragraph();
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     paragraph1.getParagraphFormat().getBullet().setChar('*');
     paragraph1.getParagraphFormat().setIndent(15);
     paragraph1.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph1.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph1.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph1.getParagraphFormat().getBullet().setHeight(100);
     paragraph1.setText("The first paragraph");
     textFrame.getParagraphs().add(paragraph1);
@@ -67,7 +72,7 @@ try {
     paragraph2.getParagraphFormat().getBullet().setChar('*');
     paragraph2.getParagraphFormat().setIndent(15);
     paragraph2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph2.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph2.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph2.getParagraphFormat().getBullet().setHeight(100);
     paragraph2.setText("The second paragraph");
     textFrame.getParagraphs().add(paragraph2);
@@ -82,13 +87,15 @@ Het resultaat:
 
 ![De symbool‑opsommingstekens](symbol_bullets.png)
 
-## **Een genummerde lijst maken**
+## **Maak een genummerde lijst**
 
-Gebruik genummerde lijsten wanneer de volgorde van de items van belang is. Stel [IBulletFormat.setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) in op [BulletType.Numbered](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/bullettype/). U kunt ook een nummeringsformaat kiezen met [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) of [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) gebruiken wanneer de lijst moet beginnen met een waarde anders dan 1.
+Gebruik genummerde lijsten wanneer de volgorde van items van belang is. Stel [IBulletFormat.setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) in op [BulletType.Numbered](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/bullettype/). U kunt tevens een nummeringsformaat kiezen met [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) of [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) instellen wanneer de lijst moet beginnen met een andere waarde dan 1.
 
-De volgende Java‑code toont hoe u een genummerde lijst maakt in een dia:
+De volgende Java‑code laat zien hoe u een genummerde lijst maakt in een dia:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -122,25 +129,27 @@ Het resultaat:
 
 ![De genummerde opsommingstekens](numbered_bullets.png)
 
-## **Een afbeelding‑opsommingsteken maken**
+## **Maak een afbeelding‑opsommingsteken**
 
-Aspose.Slides stelt u in staat om een regulier opsommingsteken te vervangen door een afbeelding. Afbeeldings‑opsommingstekens werken het beste met eenvoudige afbeeldingen die ook op een kleine grootte leesbaar blijven, zoals pictogrammen of kleine transparante PNG‑bestanden.
+Aspose.Slides maakt het mogelijk een regulier opsommingsteken te vervangen door een afbeelding. Afbeeldings‑opsommingstekens werken het beste met eenvoudige afbeeldingen die ook op een kleine grootte nog goed leesbaar zijn, zoals pictogrammen of kleine transparante PNG‑bestanden.
 
-{{% alert color="primary" %}}
-Idealiter, als u van plan bent het gewone opsommingsteken te vervangen door een afbeelding, is het het beste een eenvoudige afbeelding met een transparante achtergrond te kiezen. Dergelijke afbeeldingen werken goed als aangepaste opsommingstekens.
-
-Houd er rekening mee dat de afbeelding tot een zeer kleine grootte wordt verkleind. Om die reden raden wij sterk aan een afbeelding te kiezen die duidelijk en visueel effectief blijft wanneer deze als opsommingsteken in een lijst wordt gebruikt.
+{{% alert color="info" %}}
+Idealiter, als u van plan bent het reguliere opsommingsteken te vervangen door een afbeelding, kiest u best een eenvoudige tekening met een transparante achtergrond. Dergelijke afbeeldingen werken goed als aangepaste opsommingstekens.
 {{% /alert %}}
 
-Om een afbeelding‑opsommingsteken te maken, voegt u een afbeelding toe aan [Presentation.getImages](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getImages--) en kent u het geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/)‑object toe aan [IBulletFormat.getPicture](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#getPicture--). Stel [IBulletFormat.setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) in op [BulletType.Picture](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/bullettype/) vóór u de afbeelding toewijst.
+Houd er rekening mee dat de afbeelding wordt verkleind tot een zeer kleine grootte. Daarom raden wij sterk aan een afbeelding te kiezen die duidelijk en visueel effectief blijft wanneer deze wordt gebruikt als opsommingsteken in een lijst.
 
-Stel dat we een “image.png” hebben:
+Om een afbeelding‑opsommingsteken te maken, voegt u een afbeelding toe via [Presentation.getImages](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#getImages--) en kent u het teruggegeven [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/)‑object toe aan [IBulletFormat.getPicture](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#getPicture--). Stel [IBulletFormat.setType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) in op [BulletType.Picture](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/bullettype/) voordat u de afbeelding toewijst.
+
+Stel, we hebben een “image.png”:
 
 ![Een afbeelding voor de opsommingstekens](picture_for_bullets.png)
 
 De volgende Java‑code laat zien hoe u afbeelding‑opsommingstekens maakt in een dia:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -177,13 +186,15 @@ Het resultaat:
 
 ![De afbeelding‑opsommingstekens](picture_bullets.png)
 
-## **Een meerlagige lijst maken**
+## **Maak een meerlaagse lijst**
 
-Gebruik [IParagraphFormat.setDepth](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) om lijstitems op verschillende niveaus te plaatsen. Niveau 0 is het hoogste niveau, niveau 1 zit eronder genest, enzovoort.
+Gebruik [IParagraphFormat.setDepth](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) om lijstitems op verschillende niveaus te plaatsen. Niveau 0 is het bovenste niveau, niveau 1 is eronder genest, enzovoort.
 
-De volgende Java‑code laat zien hoe u een meerlagige opsomming maakt:
+De volgende Java‑code laat zien hoe u een meerlaagse lijst maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -220,15 +231,17 @@ try {
 
 Het resultaat:
 
-![De meerlagige lijst](multilevel_list.png)
+![De meerlaagse lijst](multilevel_list.png)
 
-## **Een bestaande lijst wijzigen**
+## **Wijzig een bestaande lijst**
 
-Om de lijstopmaak in een bestaande presentatie te wijzigen, bereikt u de gewenste alinea en werkt u de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--)‑instellingen bij. Dezelfde methoden die gebruikt worden om lijsten te maken, kunnen ook worden ingezet om lijsten die uit een PPT, PPTX of ODP‑bestand geladen zijn te inspecteren of aan te passen.
+Om de lijst‑opmaak in een bestaande presentatie te wijzigen, opent u de gewenste alinea en werkt u de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--)‑instellingen bij. Dezelfde methoden die worden gebruikt om lijsten te maken, kunnen ook worden gebruikt om lijsten die uit een PPT, PPTX of ODP‑bestand zijn geladen, te inspecteren of aan te passen.
 
 De volgende Java‑code wijzigt de eerste alinea in een tekstframe zodat deze een genummerde lijststijl gebruikt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -249,14 +262,14 @@ try {
 
 ## **FAQ**
 
-**Kunnen opsomming- en genummerde lijsten geëxporteerd worden naar PDF of afbeeldingen?**
+### Kunnen lijsten met opsommingstekens en genummerde lijsten geëxporteerd worden naar PDF of afbeeldingen?
 
-Ja. Aspose.Slides behoudt de lijstopmaak wanneer het doelformaat de bijbehorende tekstindeling en opsommingsteken‑eigenschappen ondersteunt.
+Ja. Aspose.Slides behoudt de lijst‑opmaak wanneer het doelformaat de overeenkomstige tekstopmaak en opsommingsteken‑functies ondersteunt.
 
-**Kan ik lijsten bewerken in bestaande presentaties?**
+### Kan ik lijsten bewerken in bestaande presentaties?
 
-Ja. Laad de presentatie, krijg toegang tot de doel‑alinea, bekijk of werk de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--)‑instellingen bij, en sla de presentatie op.
+Ja. Laad de presentatie, open de gewenste alinea, inspecteer of werk de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#getBullet--)‑instellingen bij, en sla de presentatie op.
 
-**Kunnen lijsten niet‑Latijnse tekst bevatten?**
+### Kunnen lijsten niet‑Latijnse tekst bevatten?
 
-Ja. De tekst van een lijstitem kan Unicode‑tekens bevatten, zodat u lijsten kunt maken in meertalige presentaties. Zorg ervoor dat de gebruikte lettertypen in de presentatie de benodigde tekens ondersteunen.
+Ja. De tekst van lijstitems kan Unicode‑tekens bevatten, zodat u lijsten kunt maken in meertalige presentaties. Zorg ervoor dat de gebruikte lettertypen de benodigde tekens ondersteunen.

@@ -11,28 +11,30 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "به‌راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای Java تغییر اندازه دهید—تنظیمات چیدمان اسلاید را خودکار کنید و بهره‌وری را افزایش دهید."
+description: "به راحتی اشکال را در اسلایدهای PowerPoint و OpenDocument با Aspose.Slides برای Java تغییر اندازه دهید — تنظیمات چیدمان اسلاید را خودکار کنید و بهره‌وری را افزایش دهید."
 ---
-## **بررسی کلی**
+## **بررسی اجمالی**
 
-یکی از پرسش‌های رایج مشتریان Aspose.Slides for Java این است که چگونه اشکال را تغییر اندازه دهند به‌طوری که هنگام تغییر اندازه اسلاید، داده‌ها بریده نشوند. این مقاله فنی کوتاه نشان می‌دهد چگونه این کار را انجام دهید.
+یکی از رایج‌ترین سوالات مشتریان Aspose.Slides for Java این است که چگونه اشکال را به‌گونه‌ای تغییر اندازه دهند که وقتی اندازه اسلاید تغییر می‌کند، داده‌ها قطع نشوند. این مقاله فنی کوتاه نشان می‌دهد چگونه این کار را انجام دهید.
 
 ## **تغییر اندازه اشکال**
 
-برای جلوگیری از جابه‌جایی اشکال هنگام تغییر اندازه اسلاید، موقعیت و ابعاد هر شکل را به‌روزرسانی کنید تا با طرح جدید اسلاید همخوانی داشته باشد.
+برای جلوگیری از جابجایی اشکال هنگام تغییر اندازه اسلاید، موقعیت و ابعاد هر شکل را به‌روزرسانی کنید تا با طرح جدید اسلاید سازگار شوند.
 
 ```java
+import com.aspose.slides.*;
+
 // فایل ارائه را بارگذاری کنید.
 Presentation presentation = new Presentation("sample.ppt");
 try {
-    // اندازهٔ اولیهٔ اسلاید را دریافت کنید.
+    // ابعاد اسلاید اصلی را دریافت کنید.
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // اندازهٔ اسلاید را بدون مقیاس کردن اشکال موجود تغییر دهید.
+    // اندازه اسلاید را بدون مقیاس‌بندی اشکال موجود تغییر دهید.
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 
-    // اندازهٔ جدید اسلاید را دریافت کنید.
+    // اندازه اسلاید جدید را دریافت کنید.
     float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
@@ -43,11 +45,11 @@ try {
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
             
-            // مقیاس‌گذاری اندازهٔ شکل.
+            // مقیاس‌بندی اندازه شکل.
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // مقیاس‌گذاری موقعیت شکل.
+            // مقیاس‌بندی موقعیت شکل.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
         }
@@ -60,24 +62,28 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-اگر یک اسلاید شامل جدول باشد، کد فوق به‌درستی کار نخواهد کرد. در این حالت، باید هر سلول جدول را تغییر اندازه داد.
+{{% alert color="info" %}} 
+
+جداول نیازی به پردازش ویژه ندارند: تنظیم عرض و ارتفاع جدول، ستون‌ها و ردیف‌های آن را به‌صورت نسبت‌مند مقیاس می‌کند، بنابراین مقیاس‌گذاری دوباره ارتفاع ردیف‌ها و عرض ستون‌ها، نسبت را دو بار اعمال می‌کند.
+
 {{% /alert %}} 
 
-از کد زیر در سمت خود استفاده کنید تا اسلایدهایی که حاوی جداول هستند را تغییر اندازه دهید. برای جداول، تنظیم عرض یا ارتفاع یک مورد خاص است: باید ارتفاع سطرهای جداگانه و عرض ستون‌ها را برای تغییر اندازه کلی جدول تنظیم کنید.
+کد بالا فقط اشکال موجود در اسلایدها را تغییر می‌دهد. اسلایدهای اصلی و اسلایدهای طرح‌بندی، شکل‌های خود را دارند، بنابراین هنگامیکه می‌خواهید تمام ارائه به اندازه جدید اسلاید سازگار شود، آن‌ها را نیز مقیاس‌گذاری کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // اندازهٔ اولیهٔ اسلاید را دریافت کنید.
+    // دریافت اندازه اسلاید اصلی.
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // اندازهٔ اسلاید را بدون مقیاس کردن اشکال موجود تغییر دهید.
+    // تغییر اندازه اسلاید بدون مقیاس‌بندی اشکال موجود.
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
     // presentation.getSlideSize().setOrientation(SlideOrientation.Portrait);
 
-    // اندازهٔ جدید اسلاید را دریافت کنید.
+    // دریافت اندازه اسلاید جدید.
     float newHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float newWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
@@ -86,22 +92,22 @@ try {
 
     for (IMasterSlide master : presentation.getMasters()) {
         for (IShape shape : master.getShapes()) {
-            // مقیاس‌گذاری اندازهٔ شکل.
+            // مقیاس‌بندی اندازه شکل.
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // مقیاس‌گذاری موقعیت شکل.
+            // مقیاس‌بندی موقعیت شکل.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
         }
 
         for (ILayoutSlide layoutSlide : master.getLayoutSlides()) {
             for (IShape shape : layoutSlide.getShapes()) {
-                // مقیاس‌گذاری اندازهٔ شکل.
+                // مقیاس‌بندی اندازه شکل.
                 shape.setHeight(shape.getHeight() * heightRatio);
                 shape.setWidth(shape.getWidth() * widthRatio);
 
-                // مقیاس‌گذاری موقعیت شکل.
+                // مقیاس‌بندی موقعیت شکل.
                 shape.setY(shape.getY() * heightRatio);
                 shape.setX(shape.getX() * widthRatio);
             }
@@ -110,24 +116,13 @@ try {
 
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
-            // مقیاس‌گذاری اندازهٔ شکل.
+            // مقیاس‌بندی اندازه شکل.
             shape.setHeight(shape.getHeight() * heightRatio);
             shape.setWidth(shape.getWidth() * widthRatio);
 
-            // مقیاس‌گذاری موقعیت شکل.
+            // مقیاس‌بندی موقعیت شکل.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -138,32 +133,32 @@ finally {
 }
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چرا اشکال پس از تغییر اندازه اسلاید خراب یا بریده می‌شوند؟**
+### چرا اشکال بعد از تغییر اندازه اسلاید مخدوش یا قطع می‌شوند؟
 
-هنگام تغییر اندازه اسلاید، اشکال موقعیت و اندازهٔ اصلی خود را حفظ می‌کنند مگر اینکه مقیاس به‌صورت صریح تغییر کند. این می‌تواند منجر به برش محتوا یا جابه‌جایی اشکال شود.
+هنگام تغییر اندازه اسلاید، اشکال موقعیت و اندازه اصلی خود را حفظ می‌کنند مگر اینکه به‌صورت صریح مقیاس آنها تغییر کند. این می‌تواند منجر به بریدن محتوا یا نامرتبی اشکال شود.
 
-**آیا کد ارائه‌شده برای تمام انواع اشکال کار می‌کند؟**
+### آیا کد ارائه‌شده برای همه انواع شکل‌ها کار می‌کند؟
 
-مثال پایه برای اکثر انواع اشکال (جعبه‌های متن، تصاویر، نمودارها و غیره) کار می‌کند. اما برای جداول، باید ردیف‌ها و ستون‌ها را جداگانه مدیریت کنید، زیرا ارتفاع و عرض جدول توسط ابعاد سلول‌های منفرد تعیین می‌شود.
+بله. تنظیم ارتفاع و عرض برای جعبه‌های متن، تصاویر، نمودارها و جداول به یکسان قابل استفاده است.
 
-**چگونه جداول را هنگام تغییر اندازه اسلاید تغییر اندازه دهم؟**
+### چگونه جداول را هنگام تغییر اندازه اسلاید مقیاس‌گذاری کنم؟
 
-باید روی تمامی ردیف‌ها و ستون‌های جدول عبور کنید و ارتفاع و عرض آن‌ها را به‌صورت متناسب تغییر اندازه دهید، همان‌طور که در مثال دوم کد نشان داده شده است.
+به‌صورت کلی همانند سایر اشکال، جدول را مقیاس کنید. ردیف‌ها و ستون‌های آن به‌طور نسبی دنبال می‌شوند، بنابراین بعداً آنها را دوباره مقیاس ندهید.
 
-**آیا این تغییر اندازه برای اسلایدهای مستر و اسلایدهای طرح‌بندی کار می‌کند؟**
+### آیا این مقیاس‌گذاری برای اسلایدهای اصلی و اسلایدهای طرح‌بندی نیز کار می‌کند؟
 
-بله، اما باید همچنین روی [مستَرها](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getMasters--) و [اسلایدهای طرح‌بندی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getLayoutSlides--) حلقه بزنید و منطق مقیاس‌گذاری یکسان را بر روی اشکال آن‌ها اعمال کنید تا سازگاری در سراسر ارائه حفظ شود.
+بله، اما باید همچنین در [اسلایدهای اصلی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getMasters--) و [اسلایدهای طرح‌بندی](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getLayoutSlides--) حلقه بزنید و همان منطق مقیاس‌گذاری را بر شکل‌های آن‌ها اعمال کنید تا سازگاری در سراسر ارائه حفظ شود.
 
-**آیا می‌توانم جهت اسلاید (پرتره/لنداسکپ) را همراه با تغییر اندازه تغییر دهم؟**
+### آیا می‌توانم جهت اسلاید (عمودی/افقی) را همراه با تغییر اندازه تغییر دهم؟
 
-بله. می‌توانید از [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#setOrientation-int-) برای تغییر جهت استفاده کنید. اطمینان حاصل کنید که منطق مقیاس‌گذاری را به‌صورت متناسب تنظیم کنید تا طرح حفظ شود.
+بله. می‌توانید از [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidesize/#setOrientation-int-) برای تغییر جهت استفاده کنید. اطمینان حاصل کنید که منطق مقیاس‌گذاری را متناسب تنظیم کنید تا طرح حفظ شود.
 
-**آیا محدودیتی برای اندازهٔ اسلایدی که می‌توانم تنظیم کنم وجود دارد؟**
+### آیا محدودیتی برای اندازه اسلایدی که می‌توانم تنظیم کنم وجود دارد؟
 
-Aspose.Slides از اندازه‌های سفارشی پشتیبانی می‌کند، اما اندازه‌های بسیار بزرگ ممکن است بر عملکرد یا سازگاری با برخی نسخه‌های PowerPoint اثر بگذارد.
+Aspose.Slides از اندازه‌های سفارشی پشتیبانی می‌کند، اما اندازه‌های بسیار بزرگ ممکن است بر عملکرد یا سازگاری با برخی نسخه‌های PowerPoint تأثیر بگذارند.
 
-**چگونه می‌توانم از خراب شدن اشکال با نسبت ثابت جلوگیری کنم؟**
+### چگونه می‌توانم از مخدوش شدن اشکال با نسبت ثابت جلوگیری کنم؟
 
-می‌توانید قبل از مقیاس‌گذاری، متد `getAspectRatioLocked` شکل را بررسی کنید. اگر قفل باشد، عرض یا ارتفاع را به‌صورت متناسب تنظیم کنید نه اینکه به‌جدا مقیاس شوند.
+قبل از مقیاس‌گذاری می‌توانید متد `getAspectRatioLocked` شکل را بررسی کنید. اگر قفل شده باشد، عرض یا ارتفاع را به‌صورت نسبی تنظیم کنید نه اینکه جداگانه مقیاس کنید.

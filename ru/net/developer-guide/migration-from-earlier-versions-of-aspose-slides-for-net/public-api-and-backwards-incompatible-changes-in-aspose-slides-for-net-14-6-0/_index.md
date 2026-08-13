@@ -1,12 +1,12 @@
 ---
-title: Публичный API и обратно несовместимые изменения в Aspose.Slides для .NET 14.6.0
+title: Публичный API и обратимые несовместимые изменения в Aspose.Slides для .NET 14.6.0
 linktitle: Aspose.Slides для .NET 14.6.0
 type: docs
 weight: 80
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
 - миграция
-- унаследованный код
+- устаревший код
 - современный код
 - устаревший подход
 - современный подход
@@ -16,22 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides для .NET, чтобы плавно перенести решения для презентаций PowerPoint PPT, PPTX и ODP."
+description: "Обзор обновлений публичного API и критических изменений в Aspose.Slides для .NET, чтобы плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) классы, методы, свойства и т.д., любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) внедрённые в API Aspose.Slides for .NET 14.6.0.
+Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) классы, методы, свойства и т.д., любые новые [ограничения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) и другие [изменения](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) введённые в API Aspose.Slides для .NET 14.6.0.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
 ### **Добавленные интерфейсы, методы и свойства**
 #### **Добавлен интерфейс Aspose.Slides.Charts.IErrorBarsFormat**
-Это представляет линии ошибок серий диаграммы.
+Это представляет полосы ошибок серии диаграммы.
 
-В случае пользовательского типа значения, чтобы указать значение, используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints серии.
+В случае пользовательского типа значения, чтобы задать значение, используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints серии.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -64,12 +67,15 @@ description: "Обзор обновлений публичного API и раз
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Добавлен интерфейс Aspose.Slides.Charts.IErrorBarsCustomValues**
-Когда свойство IErrorBarsFormat.ValueType равно Custom, чтобы указать значение, используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints.
+Когда свойство IErrorBarsFormat.ValueType равно Custom, чтобы задать значение, используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -118,12 +124,15 @@ description: "Обзор обновлений публичного API и раз
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Добавлен интерфейс Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 Указывает типы значений в списке свойств ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -172,10 +181,9 @@ description: "Обзор обновлений публичного API и раз
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Добавлены методы Aspose.Slides.IShapeCollection.AddClone(...), и .InsertClone(...)**
-Следующие методы добавляют/вставляют копию указанной фигуры в коллекцию. 
+Следующие методы добавляют/вставляют копию указанной формы в коллекцию. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -185,8 +193,10 @@ description: "Обзор обновлений публичного API и раз
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -211,12 +221,13 @@ description: "Обзор обновлений публичного API и раз
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Добавлены перечисление ViewType, интерфейс IViewProperties, класс ViewProperties и свойство IPresentation.ViewProperties**
+#### **Добавлены перечисление ViewType, интерфейс IViewProperties, класс ViewProperties и свойства IPresentation.ViewProperties**
 Свойство IPresentation.ViewProperty позволяет разработчикам изменять тип представления презентации и видимость заметок при открытии презентации в PowerPoint.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -225,5 +236,4 @@ description: "Обзор обновлений публичного API и раз
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

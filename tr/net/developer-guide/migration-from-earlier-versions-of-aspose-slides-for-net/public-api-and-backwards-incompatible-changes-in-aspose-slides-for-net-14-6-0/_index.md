@@ -1,11 +1,11 @@
 ---
-title: Aspose.Slides for .NET 14.6.0'da Genel API ve Geriye Uyumsuz Değişiklikler
+title: Aspose.Slides for .NET 14.6.0'da Kamu API ve Geriye Dönük Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for .NET 14.6.0
 type: docs
 weight: 80
 url: /tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
-- göç
+- geçiş
 - eski kod
 - modern kod
 - eski yaklaşım
@@ -16,19 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for .NET'te kamu API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-Bu sayfa, Aspose.Slides for .NET 14.6.0 API'sı ile tanıtılan ek sınıfları, yöntemleri, özellikleri vb., ayrıca yeni [kısıtlamalar](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) ve diğer [değişiklikleri](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) listeler. 
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for .NET 14.6.0 API'siyle tanıtılan tüm [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) sınıfları, metodları, özellikleri vb., yeni [kısıtlamaları](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) ve diğer [değişiklikleri](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) listeler.
 {{% /alert %}} 
-## **Genel API Değişiklikleri**
+## **Açık API Değişiklikleri**
 ### **Eklenen Arabirimler, Yöntemler ve Özellikler**
-#### **Eklenen Aspose.Slides.Charts.IErrorBarsFormat Arabirimi**
-Bu, grafik serilerinin hata çubuklarını temsil eder.
+#### **Aspose.Slides.Charts.IErrorBarsFormat Arabirimi eklendi**
+Bu, grafik serisinin hata çubuklarını temsil eder.
 
 Özel değer türü durumunda, bir değeri belirtmek için serinin DataPoints koleksiyonundaki belirli veri noktasının ErrorBarCustomValues özelliğini kullanın.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -61,12 +65,15 @@ Bu, grafik serilerinin hata çubuklarını temsil eder.
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Eklenen Aspose.Slides.Charts.IErrorBarsCustomValues Arabirimi**
-IErrorBarsFormat.ValueType özelliği Custom değerine eşit olduğunda, bir değeri belirtmek için DataPoints koleksiyonundaki belirli veri noktasının ErrorBarCustomValues özelliğini kullanın.
+#### **Aspose.Slides.Charts.IErrorBarsCustomValues Arabirimi eklendi**
+IErrorBarsFormat.ValueType özelliği Custom olduğunda, bir değeri belirtmek için DataPoints koleksiyonundaki belirli veri noktasının ErrorBarCustomValues özelliğini kullanın.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -115,12 +122,15 @@ IErrorBarsFormat.ValueType özelliği Custom değerine eşit olduğunda, bir de�
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Eklenen Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Arabirimi**
-ChartDataPoint.ErrorBarsCustomValues özelliği listesinde değer türlerini belirtir.
+#### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Arabirimi eklendi**
+ChartDataPoint.ErrorBarsCustomValues özellikleri listesindeki değer türlerini belirtir.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -169,10 +179,9 @@ ChartDataPoint.ErrorBarsCustomValues özelliği listesinde değer türlerini bel
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Eklenen Aspose.Slides.IShapeCollection.AddClone(...), ve .InsertClone(...) Yöntemleri**
-Aşağıdaki yöntemler belirtilen şeklin bir kopyasını koleksiyona ekler/ekler. 
+#### **Aspose.Slides.IShapeCollection.AddClone(...), ve .InsertClone(...) Yöntemleri eklendi**
+Aşağıdaki yöntemler, belirtilen şeklin bir kopyasını koleksiyona ekler/yerleştirir. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -182,8 +191,10 @@ Aşağıdaki yöntemler belirtilen şeklin bir kopyasını koleksiyona ekler/ekl
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -208,12 +219,13 @@ Aşağıdaki yöntemler belirtilen şeklin bir kopyasını koleksiyona ekler/ekl
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Eklenen ViewType Enum, IViewProperties Arabirimi, ViewProperties Sınıfı ve IPresentation.ViewProperties Özellikleri**
-IPresentation.ViewProperty, geliştiricilerin bir sunum PowerPoint'te açıldığında sunum görünüm tipini ve notların görünürlüğünü değiştirmesine olanak tanır.
+#### **ViewType Enum, IViewProperties Arabirimi, ViewProperties Sınıfı ve IPresentation.ViewProperties Özellikleri eklendi**
+ IPresentation.ViewProperty, geliştiricilerin bir sunum PowerPoint'te açıldığında sunum görünüm tipini ve notların görünürlüğünü değiştirmesine olanak tanır.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -222,5 +234,4 @@ IPresentation.ViewProperty, geliştiricilerin bir sunum PowerPoint'te açıldı�
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

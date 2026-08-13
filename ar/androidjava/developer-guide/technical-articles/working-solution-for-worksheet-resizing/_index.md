@@ -1,11 +1,11 @@
 ---
-title: حل عملي لتغيير حجم ورقة العمل
+title: حل عملي لمشكلة تغيير حجم ورقة العمل
 type: docs
 weight: 20
 url: /ar/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- صورة معاينة
+- صورة المعاينة
 - تغيير حجم الصورة
 - Excel
 - ورقة عمل
@@ -14,37 +14,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "إصلاح تغيير حجم OLE لورقة عمل Excel في العروض التقديمية: طريقتان للحفاظ على اتساق إطارات الكائن—تحجيم الإطار أو الورقة—عبر تنسيقات PPT و PPTX."
+description: "إصلاح تغيير حجم OLE لورقة عمل Excel في العروض التقديمية: طريقتان للحفاظ على اتساق إطارات الكائن— إما تعديل حجم الإطار أو تعديل حجم الورقة— عبر صيغ PPT و PPTX."
 ---
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}}
-
-تم ملاحظة أن أوراق عمل Excel المضمنة ككائنات OLE في عرض PowerPoint عبر مكونات Aspose يتم تغيير حجمها إلى مقياس غير معروف بعد التفعيل الأول. يخلق هذا السلوك فرقًا بصريًا ملحوظًا في العرض بين حالات الكائن OLE قبل وبعد التفعيل. لقد فحصنا هذه المشكلة بالتفصيل وقدمنا حلًا، وهو ما يُغطى في هذه المقالة.
+تم ملاحظة أن أوراق عمل Excel المدمجة ككائنات OLE في عرض PowerPoint عبر مكونات Aspose يتم تغيير حجمها إلى مقياس غير معروف بعد التفعيل الأول. يخلق هذا السلوك فرقًا بصريًا ملحوظًا في العرض بين حالات الكائن OLE قبل وبعد التفعيل. لقد حققنا في هذه المشكلة بالتفصيل وقدمنا حلاً مغطى في هذه المقالة.
 
 {{% /alert %}}
 
 ## **الخلفية**
 
-في المقالة [إدارة OLE](/slides/ar/androidjava/manage-ole/)، شرحنا كيفية إضافة إطار OLE إلى عرض PowerPoint باستخدام Aspose.Slides for Android عبر Java. لمعالجة [مشكلة معاينة الكائن](/slides/ar/androidjava/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة للمنطقة المختارة من ورقة العمل إلى إطار كائن OLE. في العرض الناتج، عندما تنقر مزدوجًا على إطار كائن OLE الذي يعرض صورة ورقة العمل، يتم تنشيط مصنف Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة على مصنف Excel الفعلي ثم العودة إلى الشريحة بالنقر خارج المصنف النشط. سيتغير حجم إطار كائن OLE عندما يعود المستخدم إلى الشريحة. سيختلف عامل تغيير الحجم اعتمادًا على حجم إطار كائن OLE ومصنف Excel المضمّن.
+في المقالة [Manage OLE](/slides/ar/androidjava/manage-ole/)، شرحنا كيفية إضافة إطار OLE إلى عرض PowerPoint باستخدام Aspose.Slides لـ Android عبر Java. لمعالجة [object preview issue](/slides/ar/androidjava/object-preview-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة لمنطقة ورقة العمل المحددة إلى إطار كائن OLE. في العرض الناتج، عند النقر المزدوج على إطار OLE الذي يعرض صورة ورقة العمل، يتم تنشيط مصنف Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة على مصنف Excel الفعلي ثم العودة إلى الشريحة بالنقر خارج مصنف Excel النشط. سيتغير حجم إطار OLE عندما يعود المستخدم إلى الشريحة. سيتفاوت عامل إعادة التغيير بناءً على حجم إطار OLE ومصنف Excel المدمج.
 
 ## **سبب تغيير الحجم**
 
-نظرًا لأن مصنف Excel له حجم نافذة خاص به، فإنه يحاول الاحتفاظ بحجمه الأصلي عند التفعيل الأول. من ناحية أخرى، يمتلك إطار كائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عندما يتم تنشيط مصنف Excel، يتفاوض Excel وPowerPoint على الحجم لضمان الحفاظ على النسب الصحيحة كجزء من عملية التضمين. يحدث تغيير الحجم بناءً على الاختلافات بين حجم نافذة Excel وحجم وموقع إطار كائن OLE.
+نظرًا لأن مصنف Excel له حجم نافذة خاص به، فإنه يحاول الاحتفاظ بحجمه الأصلي عند التفعيل الأول. من ناحية أخرى، يمتلك إطار كائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عندما يتم تنشيط مصنف Excel، يتفاوض Excel وPowerPoint على الحجم لضمان الحفاظ على النسب الصحيحة كجزء من عملية الإدماج. يحدث تغيير الحجم بناءً على الفروق بين حجم نافذة Excel وحجم وموضع إطار كائن OLE.
 
-## **حل عملي**
+## **الحل العملي**
 
 هناك حلان محتملان لتجنب تأثير تغيير الحجم.
 
-- تغيير حجم إطار OLE في عرض PowerPoint ليتطابق مع ارتفاع وعرض عدد الصفوف والأعمدة المطلوب في إطار OLE.
-- الحفاظ على حجم إطار OLE ثابتًا وتغيير حجم الصفوف والأعمدة المشاركة ليتناسب مع حجم إطار OLE المحدد.
+- ضبط حجم إطار OLE في عرض PowerPoint ليتطابق مع ارتفاع وعرض عدد الصفوف والأعمدة المطلوب في إطار OLE.
+- الحفاظ على حجم إطار OLE ثابتًا وتغيير حجم الصفوف والأعمدة المشاركة ليتناسب مع حجم إطار OLE المختار.
 
-### **تحجيم حجم إطار OLE**
+### **تغيير حجم إطار OLE**
 
-في هذا النهج، سنتعلم كيفية ضبط حجم إطار OLE للمصنف المضمن في Excel ليتطابق مع الحجم التراكمي للصفوف والأعمدة المشاركة في ورقة عمل Excel.
+في هذا النهج، سوف نتعلم كيفية تعيين حجم إطار OLE للمصنف المدمج ليتطابق مع الحجم التجميعي للصفوف والأعمدة المشاركة في ورقة عمل Excel.
 
-افترض أن لدينا ورقة Excel نموذجية ونرغب في إضافتها إلى عرض كإطار OLE. في هذا السيناريو، سيتم أولاً حساب حجم إطار كائن OLE استنادًا إلى مجموع ارتفاعات الصفوف وعرض الأعمدة للصفوف والأعمدة المشاركة في المصنف. ثم سنضبط حجم إطار OLE على هذه القيمة المحسوبة. لتجنب رسالة "EMBEDDED OLE OBJECT" الحمراء لإطار OLE في PowerPoint، سنلتقط أيضًا صورة للأجزاء المطلوبة من الصفوف والأعمدة في المصنف ونعيّنها كصورة لإطار OLE.
+لنفترض أن لدينا ورقة Excel نموذجية ونريد إضافتها إلى عرض كإطار OLE. في هذا السيناريو، سيتم حساب حجم إطار كائن OLE أولاً بناءً على ارتفاعات الصفوف التجميعية وعروض الأعمدة التجميعية للصفوف والأعمدة المشاركة في المصنف. ثم سنقوم بتعيين حجم إطار OLE إلى هذه القيمة المحسوبة. لتجنب رسالة "EMBEDDED OLE OBJECT" الحمراء لإطار OLE في PowerPoint، سنلتقط أيضًا صورة للأجزاء المطلوبة من الصفوف والأعمدة في المصنف ونستخدمها كصورة لإطار OLE.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -62,10 +67,10 @@ workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// الحصول على عرض وارتفاع صورة OLE بوحدات النقاط.
+// الحصول على العرض والارتفاع لصورة OLE بالنقاط.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
 // نحتاج إلى استخدام المصنف المعدل.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
@@ -90,8 +95,11 @@ oleStream.close();
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
-
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -116,14 +124,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
+### **تغيير حجم نطاق الخلايا**
 
-### **تحجيم نطاق الخلايا**
+في هذا النهج، سنتعلم كيفية تعديل ارتفاعات الصفوف المشاركة وعرض الأعمدة المشاركة لتتطابق مع حجم إطار OLE مخصص.
 
-في هذا النهج، سنتعلم كيفية تحجيم ارتفاعات الصفوف المشاركة وعرض الأعمدة المشاركة لتتناسب مع حجم مخصص لإطار OLE.
-
-افترض أن لدينا ورقة Excel نموذجية ونرغب في إضافتها إلى عرض كإطار OLE. في هذا السيناريو، سنضبط حجم إطار OLE ونحجم حجم الصفوف والأعمدة التي تشارك في مساحة إطار OLE. ثم سنحفظ المصنف إلى تدفق لتطبيق التغييرات ونحوّله إلى مصفوفة بايت لإضافته إلى إطار OLE. لتجنب رسالة "EMBEDDED OLE OBJECT" الحمراء لإطار OLE في PowerPoint، سنلتقط أيضًا صورة للأجزاء المطلوبة من الصفوف والأعمدة في المصنف ونعيّنها كصورة لإطار OLE.
+لنفترض أن لدينا ورقة Excel نموذجية ونريد إضافتها إلى عرض كإطار OLE. في هذا السيناريو، سنقوم بتعيين حجم إطار OLE وتعديل حجم الصفوف والأعمدة التي تشارك في منطقة إطار OLE. ثم سنحفظ المصنف إلى تدفق لتطبيق التغييرات ونحوّله إلى مصفوفة بايت لإضافته إلى إطار OLE. لتجنب رسالة "EMBEDDED OLE OBJECT" الحمراء لإطار OLE في PowerPoint، سنلتقط أيضًا صورة للأجزاء المطلوبة من الصفوف والأعمدة في المصنف ونستخدمها كصورة لإطار OLE.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -139,7 +150,7 @@ int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// تحجيم نطاق الخلايا ليتناسب مع حجم الإطار.
+// تقييس نطاق الخلايا ليتناسب مع حجم الإطار.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -167,7 +178,6 @@ oleStream.close();
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
-
 ```java
 /**
  * @param width     العرض المتوقع لنطاق الخلايا بالنقاط.
@@ -204,8 +214,11 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
     }
 }
 ```
-
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -230,37 +243,36 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ## **الخلاصة**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-هناك نهجان لإصلاح مشكلة تغيير حجم ورقة العمل. يعتمد اختيار النهج المناسب على المتطلبات المحددة وحالة الاستخدام. يعمل كلا النهجين بنفس الطريقة، سواء تم إنشاء العروض من قالب أو من الصفر. بالإضافة إلى ذلك، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
+هناك نهجان لإصلاح مشكلة تغيير حجم ورقة العمل. يعتمد اختيار النهج المناسب على المتطلبات المحددة وحالة الاستخدام. يعمل النهجان بنفس الطريقة، سواء تم إنشاء العروض من قالب أو من الصفر. بالإضافة إلى ذلك، لا يوجد حد لحجم إطار كائن OLE في هذا الحل.
 
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**لماذا يتغير حجم ورقة عمل Excel المضمنة عند التفعيل الأول في PowerPoint؟**
+### لماذا يتغير حجم ورقة عمل Excel المدمجة عند تفعيلها لأول مرة في PowerPoint؟
 
-يحدث هذا لأن Excel يحاول الحفاظ على حجم النافذة الأصلي عند التفعيل، بينما يمتلك إطار كائن OLE في PowerPoint أبعاده الخاصة. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة العرض إلى الارتفاع، مما قد يسبب تغيير الحجم.
+يحدث ذلك لأن Excel يحاول الحفاظ على حجم النافذة الأصلي عند تفعيلها، بينما يمتلك إطار كائن OLE في PowerPoint أبعاده الخاصة. يتفاوض PowerPoint وExcel على الحجم للحفاظ على نسبة العرض إلى الارتفاع، مما قد يتسبب في تغيير الحجم.
 
-**هل من الممكن منع هذه المشكلة بالكامل؟**
+### هل من الممكن منع هذه المشكلة بالكامل؟
 
-نعم. من خلال تحجيم إطار OLE ليتناسب مع حجم نطاق خلايا Excel أو تحجيم نطاق الخلايا ليتناسب مع حجم إطار OLE المطلوب، يمكنك منع تغيير الحجم غير المرغوب فيه.
+نعم. من خلال تعديل حجم إطار OLE ليتناسب مع حجم نطاق خلايا Excel أو تعديل نطاق الخلايا ليتناسب مع حجم إطار OLE المطلوب، يمكنك منع تغيير الحجم غير المرغوب فيه.
 
-**أي طريقة تحجيم يجب استخدامها، تحجيم إطار OLE أم تحجيم نطاق الخلية؟**
+### أي طريقة تعديل يجب أن أستخدمها، تعديل إطار OLE أم تعديل نطاق الخلايا؟
 
-اختر **تحجيم إطار OLE** إذا كنت تريد الحفاظ على الأحجام الأصلية للصفوف والأعمدة في Excel. اختر **تحجيم نطاق الخلية** إذا كنت تريد حجمًا ثابتًا لإطار OLE في عرضك.
+اختر **OLE frame scaling** إذا كنت تريد الحفاظ على أحجام الصفوف والأعمدة الأصلية في Excel. اختر **cell range scaling** إذا كنت تريد حجمًا ثابتًا لإطار OLE في عرضك.
 
-**هل هذه الحلول تعمل إذا كان العرض مبنيًا على قالب؟**
+### هل ستعمل هذه الحلول إذا كان عرضي مبنيًا على قالب؟
 
 نعم. كلا الحلين يعملان للعروض التي تم إنشاؤها من القوالب أو من الصفر.
 
-**هل هناك حد لحجم إطار OLE عند استخدام هذه الطرق؟**
+### هل هناك حد لحجم إطار OLE عند استخدام هذه الطرق؟
 
-لا. يمكنك ضبط حجم إطار كائن OLE إلى أي حجم طالما قمت بضبط المقياس بشكل مناسب.
+لا. يمكنك جعل إطار كائن OLE بأي حجم ما دمت تحدد المقياس بشكل مناسب.
 
-**هل هناك طريقة لتجنب نص العنصر النائب "EMBEDDED OLE OBJECT" في PowerPoint؟**
+### هل هناك طريقة لتجنب نص العنصر النائب "EMBEDDED OLE OBJECT" في PowerPoint؟
 
-نعم. من خلال التقاط صورة لنطاق خلايا Excel المستهدف وتعيينها كصورة عنصر نائب لإطار OLE، يمكنك عرض صورة معاينة مخصصة بدلاً من العنصر النائب الافتراضي.
+نعم. من خلال التقاط لقطة لنطاق خلايا Excel المستهدف وتعيينها كصورة نائبة لإطار OLE، يمكنك عرض صورة معاينة مخصصة بدلاً من العنصر النائب الافتراضي.

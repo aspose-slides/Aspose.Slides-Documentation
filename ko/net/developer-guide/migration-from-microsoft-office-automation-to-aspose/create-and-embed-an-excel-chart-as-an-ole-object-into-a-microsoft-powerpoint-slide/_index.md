@@ -18,29 +18,29 @@ keywords:
 - Aspose.Slides
 description: "Microsoft Office 자동화에서 Aspose.Slides for .NET으로 마이그레이션하고 C#에서 Excel 차트를 OLE 개체로 PowerPoint(PPT, PPTX) 슬라이드에 삽입합니다."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
- 차트는 데이터의 시각적 표현이며 프레젠테이션 슬라이드에서 널리 사용됩니다. 이 문서에서는 [VSTO](/slides/ko/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 및 [Aspose.Slides for .NET](/slides/ko/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)를 사용하여 Excel 차트를 OLE 개체로 PowerPoint 슬라이드에 프로그래밍 방식으로 생성하고 삽입하는 코드를 보여줍니다.
+차트는 데이터의 시각적 표현이며 프레젠테이션 슬라이드에서 널리 사용됩니다. 이 문서에서는 [VSTO](/slides/ko/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 및 [Aspose.Slides for .NET](/slides/ko/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)를 사용하여 Excel 차트를 OLE 개체로 PowerPoint 슬라이드에 프로그래밍 방식으로 만들고 삽입하는 코드를 보여줍니다.
 
 {{% /alert %}} 
 ## **Excel 차트 만들기 및 삽입**
-아래 두 개의 코드 예제는 작업이 복잡하기 때문에 길고 자세합니다. Microsoft Excel 통합 문서를 만들고 차트를 생성한 다음 차트를 삽입할 Microsoft PowerPoint 프레젠테이션을 만듭니다. OLE 개체는 원본 문서에 대한 링크를 포함하므로 사용자가 삽입된 파일을 더블 클릭하면 파일과 해당 애플리케이션이 실행됩니다.
+아래 두 코드 예제는 설명하는 작업이 복잡하기 때문에 길고 상세합니다. Microsoft Excel 워크북을 만들고, 차트를 만든 다음 차트를 삽입할 Microsoft PowerPoint 프레젠테이션을 생성합니다. OLE 개체에는 원본 문서에 대한 링크가 포함되어 있어 사용자가 삽입된 파일을 두 번 클릭하면 해당 파일과 해당 애플리케이션이 실행됩니다.
 ## **VSTO 예제**
 VSTO를 사용하여 다음 단계가 수행됩니다:
 
-1. Microsoft Excel ApplicationClass 개체의 인스턴스를 생성합니다.
-2. 시트가 하나 있는 새 통합 문서를 만듭니다.
-3. 시트에 차트를 추가합니다.
-4. 통합 문서를 저장합니다.
-5. 차트 데이터가 있는 워크시트를 포함한 Excel 통합 문서를 엽니다.
-6. 시트의 ChartObjects 컬렉션을 가져옵니다.
-7. 복사할 차트를 가져옵니다.
-8. Microsoft PowerPoint 프레젠테이션을 생성합니다.
-9. 프레젠테이션에 빈 슬라이드를 추가합니다.
-10. Excel 워크시트에서 차트를 클립보드로 복사합니다.
-11. 차트를 PowerPoint 프레젠테이션에 붙여넣습니다.
-12. 슬라이드에 차트의 위치를 지정합니다.
-13. 프레젠테이션을 저장합니다.
+1. Microsoft Excel ApplicationClass 객체의 인스턴스를 생성합니다.
+1. 시트 하나가 포함된 새 워크북을 생성합니다.
+1. 시트에 차트를 추가합니다.
+1. 워크북을 저장합니다.
+1. 차트 데이터가 있는 워크시트가 포함된 Excel 워크북을 엽니다.
+1. 시트에 대한 ChartObjects 컬렉션을 가져옵니다.
+1. 복사할 차트를 가져옵니다.
+1. Microsoft PowerPoint 프레젠테이션을 생성합니다.
+1. 프레젠테이션에 빈 슬라이드를 추가합니다.
+1. Excel 워크시트에서 차트를 복사하여 클립보드에 넣습니다.
+1. 차트를 PowerPoint 프레젠테이션에 붙여넣습니다.
+1. 슬라이드에 차트의 위치를 지정합니다.
+1. 프레젠테이션을 저장합니다.
 
 ```c#
 CreateNewChartInExcel();
@@ -78,20 +78,20 @@ static void CreateNewChartInExcel()
         // Excel ApplicationClass 객체의 인스턴스를 생성합니다.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // 시트가 1개인 새 통합 문서를 생성합니다.
+        // 시트 1개가 포함된 새 워크북을 생성합니다.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
         // 시트 이름을 변경합니다.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // 시트에 차트용 데이터를 삽입합니다.
+        // 차트용 데이터를 시트에 삽입합니다.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
-        //     2    N. America  1.5     2       1.5     2.5
-        //     3    S. America  2       1.75    2       2
-        //     4    Europe      2.25    2       2.5     2
-        //     5    Asia        2.5     2.5     2       2.75
+        //     2    북아메리카  1.5     2       1.5     2.5
+        //     3    남아메리카  2       1.75    2       2
+        //     4    유럽        2.25    2       2.5     2
+        //     5    아시아      2.5     2.5     2       2.75
 
         SetCellValue(targetSheet, "A2", "N. America");
         SetCellValue(targetSheet, "A3", "S. America");
@@ -132,11 +132,11 @@ static void CreateNewChartInExcel()
         xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
         newChartObject.Name = "Sales Chart";
 
-        // 데이터로 새로운 차트를 생성합니다.
+        // 데이터에 대한 새 차트를 만듭니다.
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
-        // 통합 문서를 저장합니다.
+        // 워크북을 저장합니다.
         newWorkbook.SaveAs(paramWorkbookPath, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, xlNS.XlSaveAsAccessMode.xlNoChange, paramMissing, paramMissing, paramMissing, paramMissing, paramMissing);
     }
@@ -158,13 +158,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // PowerPoint 개체에 대한 참조를 보유할 변수를 선언합니다.
+    // PowerPoint 개체에 대한 참조를 보관할 변수를 선언합니다.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Excel 개체에 대한 참조를 보유할 변수를 선언합니다.
+    // Excel 개체에 대한 참조를 보관할 변수를 선언합니다.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -183,7 +183,7 @@ static void UseCopyPaste()
         // Excel 인스턴스를 생성합니다.
         excelApplication = new xlNS.ApplicationClass();
 
-        // 차트 데이터가 있는 워크시트가 포함된 Excel 통합 문서를 엽니다.
+        // 차트 데이터가 있는 워크시트를 포함하는 Excel 워크북을 엽니다.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
@@ -216,7 +216,7 @@ static void UseCopyPaste()
         // 차트를 PowerPoint 프레젠테이션에 붙여넣습니다.
         shapeRange = pptSlide.Shapes.Paste();
 
-        // 슬라이드에 차트 위치를 지정합니다.
+        // 슬라이드에서 차트의 위치를 지정합니다.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
@@ -280,50 +280,60 @@ static void UseCopyPaste()
 ## **Aspose.Slides for .NET 예제**
 Aspose.Slides for .NET를 사용하여 다음 단계가 수행됩니다:
 
-1. Aspose.Cells for .NET를 사용하여 통합 문서를 생성합니다.
-2. Microsoft Excel 차트를 생성합니다.
-3. Excel 차트의 OLE 크기를 설정합니다.
-4. 차트의 이미지를 가져옵니다.
-5. Aspose.Slides for .NET를 사용하여 Excel 차트를 PPTX 프레젠테이션 내부에 OLE 개체로 삽입합니다.
-6. 객체가 변경된 문제를 해결하기 위해 단계 3에서 얻은 이미지로 객체 변경된 이미지를 교체합니다.
-7. 출력 프레젠테이션을 PPTX 형식으로 디스크에 저장합니다.
+1. Aspose.Cells for .NET를 사용하여 워크북을 생성합니다.
+1. Microsoft Excel 차트를 생성합니다.
+1. Excel 차트의 OLE 크기를 설정합니다.
+1. 차트의 이미지를 가져옵니다.
+1. Aspose.Slides for .NET를 사용하여 PPTX 프레젠테이션에 Excel 차트를 OLE 개체로 삽입합니다.
+1. 객체가 변경된 문제를 처리하기 위해 3단계에서 얻은 이미지로 객체 변경 이미지를 교체합니다.
+1. 출력 프레젠테이션을 PPTX 형식으로 디스크에 저장합니다.
 
 
 
 ```c#
-//Step - 1: Aspose.Cells를 사용하여 Excel 차트 만들기
+using System.Drawing;
+using Aspose.Slides;
+
+//Step - 1: Aspose.Cells를 사용하여 Excel 차트를 생성합니다
 //--------------------------------------------------
-//워크북 생성
+//워크북을 생성합니다
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Excel 차트 추가
+//Excel 차트를 추가합니다
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
 //Step - 2: 차트의 OLE 크기를 설정합니다. Aspose.Cells 사용
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//Step - 3: Aspose.Cells로 차트 이미지를 가져옵니다
+//Step - 3: Aspose.Cells를 사용하여 차트 이미지를 가져옵니다
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//워크북을 스트림에 저장
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//워크북을 스트림에 저장합니다
 MemoryStream wbStream = wb.SaveToStream();
-//Step - 4  및 5
+//Step - 4  AND 5
 //-----------------------------------------------------------
-//Step - 4: Aspose.Slides를 사용하여 .ppt 프레젠테이션 안에 차트를 OLE 개체로 삽입합니다
+//Step - 4: Aspose.Slides를 사용하여 .ppt 프레젠테이션에 차트를 OLE 개체로 삽입합니다
 //-----------------------------------------------------------
-//Step - 5: 객체가 변경된 이미지를 3단계에서 얻은 이미지로 교체하여 Object Changed 문제를 해결합니다
+//Step - 5: 객체 변경 문제를 해결하기 위해 단계 3에서 얻은 이미지로 변경된 개체 이미지를 교체합니다
 //-----------------------------------------------------------
-//프레젠테이션 생성
+//프레젠테이션을 생성합니다
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//슬라이드에 워크북 추가
+//슬라이드에 워크북을 추가합니다
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Step - 6: 출력 프레젠테이션을 디스크에 씁니다
+//Step - 6: 출력 프레젠테이션을 디스크에 저장합니다
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -370,7 +380,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //데이터로 셀을 채우기 위해 새 워크시트 추가
+    //데이터를 채우기 위해 새 워크시트를 추가합니다
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
@@ -382,18 +392,18 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //차트 시트 추가
+    //차트 시트를 추가합니다
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //DataSheet에서 데이터 계열로 ChartSheet에 차트 추가
+    //DataSheet의 데이터 시리즈로 ChartSheet에 차트를 추가합니다
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //ChartSheet를 활성 시트로 설정
+    //ChartSheet를 활성 시트로 설정합니다
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

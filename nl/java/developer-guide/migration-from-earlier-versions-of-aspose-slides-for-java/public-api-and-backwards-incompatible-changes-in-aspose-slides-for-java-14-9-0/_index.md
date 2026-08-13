@@ -1,54 +1,52 @@
 ---
-title: Openbare API en achterwaarts incompatibele wijzigingen in Aspose.Slides for Java 14.9.0
-linktitle: Aspose.Slides for Java 14.9.0
+title: Openbare API en achterwaarts incompatibele wijzigingen in Aspose.Slides voor Java 14.9.0
+linktitle: Aspose.Slides voor Java 14.9.0
 type: docs
 weight: 80
 url: /nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/
 keywords:
 - migratie
-- legacy-code
-- moderne-code
-- legacy-aanpak
-- moderne-aanpak
+- oude code
+- moderne code
+- oude aanpak
+- moderne aanpak
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Bekijk de openbare API‑updates en doorbrekende wijzigingen in Aspose.Slides for Java om uw PowerPoint‑PPT, PPTX‑ en ODP‑presentatieoplossingen soepel te migreren."
+description: "Bekijk de updates van de openbare API en breaking changes in Aspose.Slides for Java om uw PowerPoint PPT, PPTX en ODP presentatieoplossingen soepel te migreren."
 ---
-{{% alert color="primary" %}} 
-
-Deze pagina geeft een overzicht van alle [Toegevoegd](/slides/nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) klassen, methoden, eigenschappen enz., eventuele nieuwe beperkingen en andere [wijzigingen](/slides/nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) geïntroduceerd met de Aspose.Slides for Java 14.9.0 API.
-
+{{% alert color="info" %}} 
+Deze pagina geeft een overzicht van alle toegevoegde klassen, methoden, eigenschappen en dergelijke, eventuele nieuwe beperkingen en andere [changes](/slides/nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) geïntroduceerd met de Aspose.Slides for Java 14.9.0 API.
 {{% /alert %}} 
 ## **Openbare API-wijzigingen**
-### **Toegevoegde methoden voor het vervangen van afbeelding door PPImage, IPPImage**
+### **Toegevoegde methoden voor het vervangen van afbeelding naar PPImage, IPPImage**
 Nieuwe methoden toegevoegd:
 
 - IPPImage.replaceImage(byte[] newImageData)
 - IPPImage.replaceImage(IPPImage newImage)
 
 ``` java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
- Presentation presentation = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    // De eerste manier
+    byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+    presentation.getImages().get_Item(0).replaceImage(imageData);
 
-//De eerste manier
+    // De tweede manier
+    presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
 
-byte[] imageData = // ...
-
-presentation.getImages().get_Item(0).replaceImage(imageData);
-
-//De tweede manier
-
-presentation.getImages().get_Item(1).replaceImage(
-
-    presentation.getImages().get_Item(0));
-
-presentation.save("presentation_out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **Toegevoegde methoden voor het opslaan van dia's met paginanummers**
+### **Toegevoegde methoden voor het opslaan van dia's met behoud van paginanummers**
 De volgende methoden zijn toegevoegd:
 
 - void IPresentation.save(string fname, int[] slides, SaveFormat format);
@@ -56,39 +54,47 @@ De volgende methoden zijn toegevoegd:
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-Deze methoden maken het mogelijk om opgegeven dia’s van een presentatie op te slaan naar PDF-, XPS-, TIFF- of HTML-formaten. Het array‑element **slides** stelt paginanummers in, beginnend bij 1.
+Deze methoden maken het mogelijk om opgegeven presentatie‑dia's op te slaan naar PDF, XPS, TIFF en HTML‑formaten. Het ‘slides’-array maakt het mogelijk om paginanummers op te geven, beginnend bij 1.
 
 ``` java
-
- save(string fname, int\[\] slides, SaveFormat format);
-
+// Overloads toegevoegd aan IPresentation (SaveFormat-waarden zijn int-constanten in Java):
+//
+void save(String fname, int[] slides, int format);
+void save(String fname, int[] slides, int format, ISaveOptions options);
+void save(OutputStream stream, int[] slides, int format);
+void save(OutputStream stream, int[] slides, int format, ISaveOptions options);
 ```
 
 
 
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation presentation = new Presentation(presentationFileName);
-int[] slides = new int[] { 2, 3, 5 }; //Array van dia‑posities
-presentation.save(outFileName, slides, SaveFormat.Pdf);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int[] slides = new int[] { 2, 3, 5 }; // Array van dia posities
 
+    presentation.save("presentation_out.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 ### **Toegevoegde enumwaarde SmartArtLayoutType.Custom**
-Dit type SmartArt‑lay‑out vertegenwoordigt een diagram met een aangepast sjabloon. Aangepaste diagrammen kunnen alleen worden geladen uit een presentatiebestand en kunnen niet worden aangemaakt via de methode `ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)`.
-
+Dit type SmartArt‑indeling representeert een diagram met een aangepast sjabloon. Aangepaste diagrammen kunnen alleen geladen worden uit een presentatiebestand en kunnen niet worden aangemaakt via de methode ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
 ### **Toegevoegde SmartArtShape‑klasse en ISmartArtShape‑interface**
-De `Aspose.Slides.SmartArt.SmartArtShape`‑klasse (en haar interface `Aspose.Slides.SmartArt.ISmartArtShape`) biedt toegang tot individuele vormen binnen een SmartArt‑diagram. Met `SmartArtShape` kun je onder andere `FillFormat`, `LineFormat` wijzigen en hyperlinks toevoegen.
+De klasse Aspose.Slides.SmartArt.SmartArtShape (en de bijbehorende interface Aspose.Slides.SmartArt.ISmartArtShape) biedt toegang tot individuele vormen binnen een SmartArt‑diagram. SmartArtShape kan gebruikt worden om FillFormat, LineFormat, hyperlinks toe te voegen, enz.
 
-{{% alert color="primary" %}} 
-
-SmartArtShape ondersteunt de IShape‑eigenschappen `RawFrame`, `Frame`, `Rotation`, `X`, `Y`, `Width`, `Height` niet en werpt een `System.NotSupportedException` wanneer geprobeerd wordt ze te benaderen.
-
+{{% alert color="info" %}} 
+SmartArtShape ondersteunt de IShape‑eigenschappen RawFrame, Frame, Rotation, X, Y, Width, Height niet en gooit een System.NotSupportedException wanneer geprobeerd wordt deze te benaderen.
 {{% /alert %}} 
 
 Voorbeeld van gebruik:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 
@@ -109,18 +115,19 @@ for (ISmartArtShape shape : node.getShapes())
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Toegevoegde SmartArtShapeCollection‑klasse, ISmartArtShapeCollection‑interface en ISmartArtNode.getShapes()‑methode**
-De `Aspose.Slides.SmartArt.SmartArtShapeCollection`‑klasse (en haar interface `Aspose.Slides.SmartArt.ISmartArtShapeCollection`) biedt toegang tot individuele vormen binnen een SmartArt‑diagram. De collectie bevat vormen die gekoppeld zijn aan een `SmartArtNode`. De eigenschap `SmartArtNode.Shapes` retourneert collecties van alle vormen die bij het knooppunt horen.
+### **SmartArtShapeCollection‑klasse, ISmartArtShapeCollection‑interface en ISmartArtNode.getShapes‑methode zijn toegevoegd**
+De klasse Aspose.Slides.SmartArt.SmartArtShapeCollection (en de bijbehorende interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) biedt toegang tot individuele vormen binnen een SmartArt‑diagram. De collectie bevat vormen die gekoppeld zijn aan een SmartArtNode. De eigenschap SmartArtNode.Shapes retourneert collecties van alle vormen die aan het node zijn gekoppeld.
 
-{{% alert color="primary" %}} 
-
-Afhankelijk van `SmartArtLayoutType` kan één `SmartArtShape` gedeeld worden door meerdere knooppunten.
-
+{{% alert color="info" %}} 
+Afhankelijk van SmartArtLayoutType kan één SmartArtShape gedeeld worden tussen meerdere nodes.
 {{% /alert %}} 
 
  
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 

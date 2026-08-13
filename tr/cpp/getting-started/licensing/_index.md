@@ -16,72 +16,77 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ta lisansları uygulayın, yönetin ve sorun giderin. Adım adım lisans rehberimizle tam özelliklere kesintisiz erişimi sağlayın."
+description: "Aspose.Slides for C++'de lisansları uygulayın, yönetin ve sorun giderin. Adım adım lisanslama rehberimizle tam özelliklere kesintisiz erişimi sağlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, değerlendirme modunda veya geçerli bir lisansla kullanılabilir. Değerlendirme sürümü, lisanslı sürümle aynı işlevselliği sunar, ancak sunumlar açıldığında veya kaydedildiğinde bir değerlendirme filigranı ekler ve metin çıkarımını bir slayt ile sınırlandırır.
+Aspose.Slides, değerlendirme modunda veya geçerli bir lisansla kullanılabilir. Değerlendirme sürümü, lisanslı sürümle aynı işlevselliği sağlar, ancak sunumlar açıldığında veya kaydedildiğinde bir değerlendirme filigranı ekler ve metin çıkarımını bir slaytla sınırlar.
 
-Bu makale, Aspose.Slides'te lisanslamanın nasıl çalıştığını ve kütüphaneyi kullanmadan önce nasıl bir lisans uygulanacağını açıklar. Bir lisans, `License` sınıfı kullanılarak bir dosyadan, akıştan veya gömülü kaynaktan yüklenebilir. Makale ayrıca bir lisansın doğru şekilde uygulanıp uygulanmadığını nasıl doğrulayacağınızı gösterir.
+Bu makale, Aspose.Slides'da lisanslamanın nasıl çalıştığını ve kütüphaneyi kullanmadan önce bir lisansın nasıl uygulanacağını açıklar. Bir lisans, `License` sınıfı kullanılarak dosyadan, akıştan veya gömülü kaynaktan yüklenebilir. Makale ayrıca bir lisansın doğru şekilde uygulanıp uygulanmadığını nasıl doğrulayacağınızı da gösterir.
 
 ## **Aspose.Slides'ı Değerlendirin**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**Aspose.Slides for C++**'nin bir değerlendirme sürümünü [NuGet indirme sayfasından](https://www.nuget.org/packages/Aspose.Slides.CPP/) indirebilirsiniz. Değerlendirme sürümü, lisanslı ürünle aynı işlevselliği sunar. Aslında, değerlendirme paketi satın alınan paketle aynıdır—sadece lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı olur.
+**Aspose.Slides for C++**'ın bir değerlendirme sürümünü [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.CPP/) üzerinden indirebilirsiniz. Değerlendirme sürümü, lisanslı ürünle aynı işlevselliği sunar. Aslında, değerlendirme paketi satın alınan paketle özdeştir—sadece lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
 
-**Aspose.Slides**'i değerlendirmesinden memnun kaldığınızda, [bir lisans satın alabilirsiniz](https://purchase.aspose.com/buy). Mevcut abonelik türlerini incelemenizi öneririz. Herhangi bir sorunuz olursa, Aspose satış ekibiyle iletişime geçmekten çekinmeyin.
+**Aspose.Slides**'ı değerlendirmeden memnun kaldığınızda, [purchase a license](https://purchase.aspose.com/buy) sayfasından bir lisans satın alabilirsiniz. Kullanılabilir abonelik tiplerini gözden geçirmenizi öneririz. Herhangi bir sorunuz olursa, lütfen Aspose satış ekibiyle iletişime geçin.
 
-Her Aspose lisansı, bu süre içinde yayınlanan yeni sürümler ve hata düzeltmeleri dahil olmak üzere ücretsiz yükseltmeler için bir yıllık bir abonelik içerir. Lisanslı ya da değerlendirme sürümü kullanıyor olsanız da ücretsiz ve sınırsız teknik destek alırsınız.
+Her Aspose lisansı, bu süre içinde yayınlanan yeni sürümler ve hata düzeltmeleri dahil olmak üzere ücretsiz yükseltmeler için bir yıllık abonelik içerir. Lisanslı veya değerlendirme sürümünü kullanıyor olsanız da ücretsiz ve sınırsız teknik destek alırsınız.
 
 {{% /alert %}} 
 
-**Değerlendirme Sürümü Sınırlamaları**
+**Değerlendirme Sürümü Kısıtlamaları**
 
-* Aspose.Slides değerlendirme sürümü (lisans uygulanmadığında) tam ürün işlevselliği sağlar, ancak açma ve kaydetme işlemleri sırasında belgenin üst kısmına bir değerlendirme filigranı ekler.
-* Değerlendirme sürümü kullanılırken metin çıkarımı bir slayt ile sınırlıdır.
+* Aspose.Slides değerlendirme sürümü (lisans uygulanmadığında) tam ürün işlevselliği sunsa da, belgeyi açma ve kaydetme işlemleri sırasında belgenin üst kısmına bir değerlendirme filigranı ekler.
+* Değerlendirme sürümünü kullanırken metin çıkarımı bir slaytla sınırlıdır.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides'ı sınırlamalar olmadan test etmek için **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [Geçici Lisans Nasıl Alınır](https://purchase.aspose.com/temporary-license) sayfasına bakın.
+Sınırlamaları olmadan Aspose.Slides'ı test etmek için **30 Günlük Geçici Lisans** talep edebilirsiniz. Daha fazla bilgi için [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) sayfasına bakın.
 
 {{% /alert %}}
 
-## **Aspose.Slides'te Lisanslama**
+## **Aspose.Slides'da Lisanslama**
 
-* Bir değerlendirme sürümü, bir lisans satın alıp birkaç satır kod ekleyerek lisansı uyguladığınızda lisanslı hale gelir.
-* Lisans, ürün adı, lisanslı olduğu geliştirici sayısı, abonelik son tarihi ve diğer detayları içeren düz metin XML dosyasıdır.
-* Lisans dosyası dijital olarak imzalanmıştır, bu yüzden değiştirilmemelidir. Bir satır sonu eklemek gibi kazara bir değişiklik bile dosyayı geçersiz kılar.
+* Bir değerlendirme sürümü, bir lisans satın alındıktan ve birkaç satır kod eklenerek uygulandıktan sonra lisanslı hâle gelir.
+* Lisans, ürün adı, lisans verilen geliştirici sayısı, abonelik sona erme tarihi vb. detayları içeren düz metin XML dosyasıdır.
+* Lisans dosyası dijital olarak imzalanmıştır; bu nedenle değiştirilemez. Bir satır sonu eklenmesi gibi tesadüfi bir değişiklik bile dosyayı geçersiz kılar.
 * Aspose.Slides for C++ genellikle lisans dosyasını aşağıdaki konumlarda arar:
   * Kodunuzda açıkça belirtilen bir yol
-  * Bileşenin DLL'sini (Aspose.Slides içinde) içeren klasör
-  * Bileşenin DLL'sini çağıran assembly'nin bulunduğu klasör
-* Değerlendirme sürümünün sınırlamalarından kaçınmak için, Aspose.Slides'ı kullanmadan önce lisansı ayarlamalısınız. Bir lisans, uygulama ya da süreç başına yalnızca bir kez ayarlanması gerekir.
+  * Bileşenin DLL'inin bulunduğu klasör (Aspose.Slides içinde dahil)
+  * Bileşenin DLL'ini çağıran derlemenin bulunduğu klasör
+* Değerlendirme sürümünün sınırlamalarından kaçınmak için, Aspose.Slides'ı kullanmadan önce lisansı ayarlamalısınız. Bir lisans, uygulama veya işlem başına yalnızca bir kez ayarlanır.
 
-## **Lisansı Uygula**
+## **Lisans Uygulama**
 
 Bir lisans **dosyadan**, **akıştan** veya **gömülü kaynaktan** yüklenebilir.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose.Slides, lisans işlemleri için [License](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.license/) sınıfını sunar.
+Aspose.Slides, lisans işlemleri için [License](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.license/) sınıfını sağlar.
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
 
-Yeni lisanslar, Aspose.Slides'ı yalnızca 21.4 veya daha sonraki sürümde etkinleştirebilir. Daha eski sürümler farklı bir lisans sistemine sahiptir ve bu lisansları tanımaz.
+Yeni lisanslar, sadece 21.4 ve sonraki sürümlerle Aspose.Slides'ı etkinleştirebilir. Daha eski sürümler farklı bir lisans sistemi kullanır ve bu lisansları tanımaz.
 
 {{% /alert %}}
 
 ### **Dosya**
 
-Lisans ayarlamanın en kolay yolu, lisans dosyasını bileşenin DLL'si ile aynı klasöre (Aspose.Slides içinde) koymak ve sadece dosya adını, yolu belirtmeden vermektir. Aşağıdaki C++ kodu, bir lisans dosyasının nasıl ayarlanacağını gösterir:
+Lisansı ayarlamanın en kolay yolu, lisans dosyasını bileşenin DLL'inin (Aspose.Slides içinde dahil) bulunduğu aynı klasöre koymak ve sadece dosya adını, yol olmadan belirtmektir.
+
+Aşağıdaki C++ kodu, bir lisans dosyasının nasıl ayarlanacağını gösterir:
 
 ```c++
 #include <Util/License.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
 
 using namespace Aspose::Slides;
+using namespace System;
 
 int main()
 {
@@ -92,19 +97,26 @@ int main()
 }
 ```
 
-{{% alert color="warning" %}}
+{{% alert color="warning" %}} 
 
-Lisans dosyasını farklı bir dizine koyarsanız, [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemini çağırdığınızda, belirtilen açık yolun sonundaki dosya adı lisans dosyanızın adıyla tam olarak eşleşmelidir.
+Lisans dosyasını farklı bir dizine koyarsanız, [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemini çağırırken belirtilen açık yolun sonundaki dosya adı, lisans dosyanızın adıyla tam olarak eşleşmelidir.
 
-Örneğin, lisans dosyanızın adını *Aspose.Slides.lic.xml* olarak değiştirirseniz, kodunuzda [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemine *Aspose.Slides.lic.xml* ile biten tam yolu geçirmeniz gerekir.
+Örneğin, lisans dosyanızın adını *Aspose.Slides.lic.xml* olarak değiştirirseniz, kodunuzda [License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) metoduna *Aspose.Slides.lic.xml* ile biten tam yolu geçirmeniz gerekir.
 
 {{% /alert %}}
 
 ### **Akış**
 
-Bir lisansı bir akıştan yükleyebilirsiniz. Aşağıdaki C++ kodu, bir akıştan lisansın nasıl uygulanacağını gösterir:
+Bir lisansı akıştan yükleyebilirsiniz. Aşağıdaki C++ kodu, bir akıştan lisansın nasıl uygulanacağını gösterir:
 
 ```c++
+#include <Util/License.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto license = MakeObject<License>();
 
 auto stream = File::OpenRead(u"Aspose.Slides.lic");
@@ -112,11 +124,16 @@ auto stream = File::OpenRead(u"Aspose.Slides.lic");
 license->SetLicense(stream);
 ```
 
-## **Lisansı Doğrulama**
+## **Lisans Doğrulama**
 
-Bir lisansın doğru şekilde ayarlanıp ayarlanmadığını kontrol etmek için doğrulayabilirsiniz. Aşağıdaki C++ kodu, bir lisansın nasıl doğrulanacağını gösterir:
+Bir lisansın doğru şekilde ayarlanıp ayarlanmadığını kontrol etmek için doğrulama yapabilirsiniz. Aşağıdaki C++ kodu, bir lisansın nasıl doğrulanacağını gösterir:
 
 ```c++
+#include <Util/License.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto license = MakeObject<License>();
 
 license->SetLicense(u"Aspose.Slides.lic");
@@ -130,18 +147,18 @@ if (license->IsLicensed())
 
 ## **İş Parçacığı Güvenliği**
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Not" color="warning" %}} 
 
-[License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemi **iş parçacığı güvenli değildir**. Bu yöntemi aynı anda birden çok iş parçacığından çağırmanız gerekiyorsa, olası sorunları önlemek için bir kilit gibi eşzamanlama primitiflerini kullanmanız önerilir.
+[License::SetLicense](https://reference.aspose.com/slides/tr/cpp/aspose.slides/license/setlicense/) yöntemi **iş parçacığı güvenli değildir**. Bu yöntemi aynı anda birden fazla iş parçacığından çağırmanız gerekiyorsa, potansiyel sorunları önlemek için bir kilit gibi senkronizasyon primitiflerini kullanmanız önerilir.
 
 {{% /alert %}}
 
 ## **SSS**
 
-**Lisansı tamamen çevrim dışı bir ortamda (internet erişimi olmadan) uygulayabilir miyim?**
+### Lisansı tamamen çevrim dışı bir ortamda (internet erişimi olmadan) uygulayabilir miyim?
 
-Evet. Lisans doğrulaması, lisans dosyası kullanılarak yerel olarak gerçekleştirilir; internet bağlantısı gerekmez.
+Evet. Lisans doğrulaması, lisans dosyası kullanılarak yerel olarak gerçekleştirilir; internet bağlantısı gerektirmez.
 
-**Bir yıllık abonelik sona erdiğinde ne olur? Kütüphane çalışmayı durdurur mu?**
+### Bir yıllık abonelik sona erdiğinde ne olur? Kütüphane çalışmayı durdurur mu?
 
 Hayır. Lisans süresizdir: abonelik bitiş tarihinizden önce yayınlanan sürümleri kullanmaya devam edebilirsiniz; ancak yenilerini kullanmak için yenileme yapmanız gerekir.

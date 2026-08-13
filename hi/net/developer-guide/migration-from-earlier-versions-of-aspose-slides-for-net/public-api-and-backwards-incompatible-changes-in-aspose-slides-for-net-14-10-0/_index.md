@@ -1,62 +1,68 @@
 ---
-title: Aspose.Slides for .NET 14.10.0 में सार्वजनिक API और पिछड़े असंगत परिवर्तन
+title: Aspose.Slides for .NET 14.10.0 में सार्वजनिक API और पीछे की ओर असंगत परिवर्तन
 linktitle: Aspose.Slides for .NET 14.10.0
 type: docs
 weight: 120
 url: /hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
-- स्थानांतरण
+- माइग्रेशन
 - पुरानी कोड
 - आधुनिक कोड
-- पुरानी पद्धति
-- आधुनिक पद्धति
+- पुराना दृष्टिकोण
+- आधुनिक दृष्टिकोण
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेज़ेंटेशन
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET में सार्वजनिक API अद्यतन और तुटते परिवर्तनों की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रस्तुति समाधान को सहजता से माइग्रेट कर सकें।"
+description: "Aspose.Slides for .NET में सार्वजनिक API अपडेट और ब्रेकिंग परिवर्तन की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रेज़ेंटेशन समाधान को सहजता से माइग्रेट कर सकें।"
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-यह पृष्ठ सभी [जोड़े गए](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) या [हटाए गए](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) क्लास, मेथड, प्रॉपर्टी आदि, तथा Aspose.Slides for .NET 14.10.0 API के साथ प्रस्तुत किए गए अन्य परिवर्तनों की सूची देता है।
+यह पृष्ठ सभी [added](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) या [removed](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) क्लासेज़, मेथड्स, प्रॉपर्टीज़ आदि, और Aspose.Slides for .NET 14.10.0 API के साथ पेश किए गए अन्य परिवर्तन सूचीबद्ध करता है।
 
-{{% /alert %}}
-## **Public API परिवर्तन**
-#### **Aspose.Slides.FieldType.Footer फ़ील्ड प्रकार जोड़ा गया**
-फ़ुटर फ़ील्ड प्रकार को इस प्रकार जोड़ दिया गया है कि इस प्रकार के फ़ील्ड बनाने की संभावना लागू की जा सके और वैध प्रेजेंटेशन सीरियलाइज़ेशन हो सके।
-#### **Enum तत्व ShapeElementFillSource.Own हटा दिया गया**
-Enum तत्व ShapeElementFillSource.Own को डुप्लीकेट होने के कारण हटा दिया गया है। ShapeElementFillSource.Own के बजाय ShapeElementFillSource.Shape का उपयोग करें।
-#### **चार्ट डेटा पॉइंट और कैटेगरी हटाने के लिए मेथड जोड़े गए**
-चार्ट डेटा पॉइंट संग्रह से डेटा पॉइंट हटाने की अनुमति देने वाले निम्नलिखित मेथड जोड़े गए हैं:
+{{% /alert %}} 
+## **पब्लिक API परिवर्तन**
+#### **Aspose.Slides.FieldType.Footer फ़ील्ड टाइप जोड़ा गया है**
+#### **Enum एलिमेंट ShapeElementFillSource.Own हटा दिया गया है**
+#### **चार्ट डेटा पॉइंट्स और श्रेणियों को हटाने के लिए मेथड्स जोड़े गए हैं**
+निचे दिए गए मेथड्स, जो चार्ट डेटा पॉइंट कलेक्शन से चार्ट डेटा पॉइंट को हटाने की अनुमति देते हैं, जोड़े गए हैं:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-कंटेनिंग संग्रह से चार्ट कैटेगरी हटाने की अनुमति देने वाला निम्नलिखित मेथड जोड़ा गया है:
+निचे दिया गया मेथड, जो कंटेनिंग कलेक्शन से चार्ट कैटेगरी को हटाने की अनुमति देता है, जोड़ा गया है:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
+using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
-    chart.ChartData.Categories[0].Remove(); //ChartCategory.Remove() के साथ हटाएँ
-    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //ChartCategoryCollection.Remove() के साथ हटाएँ
+
+    chart.ChartData.Categories[0].Remove(); //ChartCategory.Remove() का उपयोग करके हटाएँ
+
+    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //ChartCategoryCollection.Remove() का उपयोग करके हटाएँ
+
     foreach (var ser in chart.ChartData.Series)
     {
-        ser.DataPoints[0].Remove();//ChartDataPoint.Remove() के साथ हटाएँ
+        ser.DataPoints[0].Remove();//ChartDataPoint.Remove() का उपयोग करके हटाएँ
+
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
     }
-    pres.Save(outPath, SaveFormat.Pptx);
+
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-```
-#### **Obsolete Aspose.Slides.ParagraphFormat प्रॉपर्टीज़ हटा दी गईं**
-BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle प्रॉपर्टीज़ हटा दी गई हैं। इन्हें बहुत पहले अप्रचलित के रूप में चिह्नित किया गया था।
-#### **अनुपयोगी और अप्रचलित कंस्ट्रक्टर्स हटा दिए गए**
-निम्नलिखित कंस्ट्रक्टर्स हटा दिए गए हैं:
+``` 
+#### **Obsolete Aspose.Slides.ParagraphFormat प्रॉपर्टीज़ हटा दी गई हैं**
+BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle प्रॉपर्टीज़ हटा दी गई हैं। इन्हें बहुत समय पहले ही अप्रचलित (obsolete) घोषित किया गया था।
+#### **अप्रयुक्त और Obsolete कन्स्ट्रक्टर्स हटा दिए गए हैं**
+निचे दिए गए कन्स्ट्रक्टर्स हटा दिए गए हैं:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)
 - Aspose.Slides.Effects.AlphaModulateFixed(System.Single)

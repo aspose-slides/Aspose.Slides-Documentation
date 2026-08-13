@@ -1,5 +1,5 @@
 ---
-title: Cambia la dimensione della diapositiva della presentazione su Android
+title: Modifica la dimensione delle diapositive della presentazione su Android
 linktitle: Dimensione diapositiva
 type: docs
 weight: 70
@@ -16,39 +16,41 @@ keywords:
 - dimensione diapositiva personalizzata
 - dimensione diapositiva speciale
 - dimensione diapositiva unica
-- diapositiva a grandezza piena
+- diapositiva a grandezza intera
 - tipo di schermo
 - non scalare
-- assicurare adattamento
-- massimizzare
+- garantire adattamento
+- massimizza
 - PowerPoint
 - OpenDocument
 - presentazione
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Ridimensiona rapidamente le diapositive in file PPT, PPTX e ODP con Java e Aspose.Slides per Android, ottimizza le presentazioni per qualsiasi schermo senza perdere qualità."
+description: "Ridimensiona rapidamente le diapositive nei file PPT, PPTX e ODP con Java e Aspose.Slides per Android, ottimizza le presentazioni per qualsiasi schermo senza perdere qualità."
 ---
 ## **Introduzione**
 
-Aspose.Slides fornisce strumenti completi per regolare le dimensioni delle diapositive e il rapporto d'aspetto nelle presentazioni PowerPoint, fondamentali sia per la stampa che per la visualizzazione su schermo. 
+Aspose.Slides fornisce strumenti completi per regolare le dimensioni della diapositiva e il rapporto d'aspetto nelle presentazioni PowerPoint, fondamentali sia per la stampa che per la visualizzazione su schermo.  
 
-Dimensioni delle diapositive più comuni e rapporti:
+Dimensioni e rapporti d'aspetto delle diapositive più comuni:
 
-- **Standard (rapporto 4:3)**: Ideale per schermi e dispositivi più vecchi.
-- **Widescreen (rapporto 16:9)**: Consigliato per proiettori e display moderni.
+- **Standard (rapporto 4:3)**: Ideale per schermi e dispositivi più vecchi.  
+- **Widescreen (rapporto 16:9)**: Raccomandato per proiettori e display moderni.  
 
-Garantisci la coerenza in tutta la presentazione, poiché una singola dimensione della diapositiva e un unico rapporto d'aspetto si applicano a tutte le diapositive. Per risultati ottimali, imposta le dimensioni della diapositiva all'inizio del processo di creazione della presentazione per evitare complicazioni.
+Assicurati della coerenza in tutta la presentazione, poiché un'unica dimensione della diapositiva e un unico rapporto d'aspetto si applicano a tutte le diapositive. Per risultati ottimali, imposta le dimensioni della diapositiva all'inizio del processo di creazione della presentazione per evitare complicazioni.  
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Per impostazione predefinita, le presentazioni create con Aspose.Slides utilizzano il rapporto standard 4:3.
 {{% /alert %}}
 
-## **Modifica la dimensione della diapositiva nelle presentazioni**
+## **Modifica le dimensioni della diapositiva nelle presentazioni**
 
-Questo esempio di codice mostra come cambiare la dimensione della diapositiva in una presentazione in Java usando Aspose.Slides:
+Questo codice di esempio mostra come modificare le dimensioni della diapositiva in una presentazione in Java utilizzando Aspose.Slides:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
@@ -58,13 +60,15 @@ try {
 }
 ```
 
-## **Specifica dimensioni diapositive personalizzate nelle presentazioni**
+## **Specifica dimensioni personalizzate della diapositiva nelle presentazioni**
 
-Se le dimensioni diapositive comuni (4:3 e 16:9) non sono adatte al tuo lavoro, potresti decidere di utilizzare una dimensione diapositive specifica o unica. Ad esempio, se prevedi di stampare diapositive a grandezza naturale dalla tua presentazione su un layout di pagina personalizzato o se intendi visualizzare la presentazione su determinati tipi di schermo, potresti trarre vantaggio dall'utilizzare un'impostazione di dimensione personalizzata per la tua presentazione. 
+Se trovi le dimensioni comuni delle diapositive (4:3 e 16:9) inadeguate per il tuo lavoro, puoi decidere di utilizzare una dimensione specifica o unica. Ad esempio, se prevedi di stampare diapositive a grandezza naturale dalla tua presentazione su un layout di pagina personalizzato o se intendi visualizzare la presentazione su alcuni tipi di schermo, è probabile che tu tragga vantaggio dall'utilizzare un'impostazione di dimensione personalizzata per la tua presentazione.  
 
-Questo esempio di codice mostra come utilizzare Aspose.Slides per Android tramite Java per specificare una dimensione diapositive personalizzata per una presentazione in Java:
+Questo codice di esempio mostra come utilizzare Aspose.Slides per Android tramite Java per specificare una dimensione personalizzata della diapositiva per una presentazione in Java:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // Formato carta A4
@@ -76,25 +80,24 @@ try {
 
 ## **Gestisci il contenuto della diapositiva dopo il ridimensionamento**
 
-Dopo aver modificato la dimensione della diapositiva di una presentazione, i contenuti delle diapositive (immagini o oggetti, ad esempio) potrebbero distorcersi. Per impostazione predefinita, gli oggetti vengono ridimensionati automaticamente per adattarsi alla nuova dimensione della diapositiva. Tuttavia, quando si cambia la dimensione della diapositiva di una presentazione, è possibile specificare un'impostazione che determina come Aspose.Slides gestisce i contenuti delle diapositive.
+Dopo aver modificato le dimensioni della diapositiva di una presentazione, i contenuti delle diapositive (immagini o oggetti, ad esempio) possono diventare distorti. Per impostazione predefinita, gli oggetti vengono ridimensionati automaticamente per adattarsi alla nuova dimensione della diapositiva. Tuttavia, cambiando le dimensioni della diapositiva di una presentazione, è possibile specificare un'impostazione che determina come Aspose.Slides gestisce i contenuti sulle diapositive.  
 
-A seconda di ciò che intendi fare o ottenere, puoi utilizzare una delle seguenti impostazioni:
+A seconda di ciò che intendi fare o ottenere, puoi utilizzare una di queste impostazioni:
 
-- `DoNotScale`
+- `DoNotScale`  
+  Se NON desideri che gli oggetti sulle diapositive vengano ridimensionati, usa questa impostazione.  
 
-  Se NON vuoi che gli oggetti sulle diapositive vengano ridimensionati, utilizza questa impostazione.
+- `EnsureFit`  
+  Se vuoi ridimensionare a una diapositiva più piccola e hai bisogno che Aspose.Slides riduca gli oggetti delle diapositive per assicurarsi che tutti rientrino nelle diapositive (in questo modo eviti di perdere contenuti), usa questa impostazione.  
 
-- `EnsureFit`
+- `Maximize`  
+  Se vuoi ridimensionare a una diapositiva più grande e hai bisogno che Aspose.Slides ingrandisca gli oggetti delle diapositive per renderli proporzionali alla nuova dimensione, usa questa impostazione.  
 
-  Se vuoi ridimensionare a una dimensione di diapositiva più piccola e hai bisogno che Aspose.Slides riduca gli oggetti delle diapositive per garantire che tutti si adattino alle diapositive (in questo modo eviti di perdere contenuti), utilizza questa impostazione. 
-
-- `Maximize`
-
-  Se vuoi ridimensionare a una dimensione di diapositiva più grande e hai bisogno che Aspose.Slides ingrandisca gli oggetti delle diapositive per renderli proporzionali alla nuova dimensione, utilizza questa impostazione. 
-
-Questo esempio di codice mostra come utilizzare l'impostazione `Maximize` quando si cambia la dimensione della diapositiva di una presentazione:
+Questo codice di esempio mostra come utilizzare l'impostazione `Maximize` quando si modifica la dimensione della diapositiva di una presentazione:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -105,18 +108,18 @@ try {
 
 ## **FAQ**
 
-**Posso impostare una dimensione diapositive personalizzata usando unità diverse da pollici (ad esempio punti o millimetri)?**
+### Posso impostare una dimensione personalizzata della diapositiva usando unità diverse da pollici (ad esempio punti o millimetri)?
 
-Sì. Aspose.Slides utilizza i punti internamente, dove 1 punto corrisponde a 1/72 di pollice. È possibile convertire qualsiasi unità (come millimetri o centimetri) in punti e utilizzare i valori convertiti per definire la larghezza e l'altezza della diapositiva.
+Sì. Aspose.Slides utilizza i punti internamente, dove 1 punto equivale a 1/72 di pollice. Puoi convertire qualsiasi unità (come millimetri o centimetri) in punti e utilizzare i valori convertiti per definire la larghezza e l'altezza della diapositiva.  
 
-**Una dimensione diapositive personalizzata molto grande influenzerà le prestazioni e l'utilizzo della memoria durante il rendering?**
+### Una dimensione personalizzata molto grande influenzerà le prestazioni e l'utilizzo della memoria durante il rendering?
 
-Sì. Dimensioni della diapositiva più grandi (in punti) combinate con una scala di rendering più alta comportano un consumo di memoria maggiore e tempi di elaborazione più lunghi. Si consiglia di scegliere una dimensione pratica della diapositiva e di regolare la scala di rendering solo quando necessario per ottenere la qualità di output desiderata.
+Sì. Dimensioni più grandi delle diapositive (in punti) combinate con una scala di rendering più elevata aumentano il consumo di memoria e i tempi di elaborazione. Mira a una dimensione pratica della diapositiva e regola la scala di rendering solo quando necessario per ottenere la qualità di output desiderata.  
 
-**Posso definire una dimensione diapositive non standard e poi unire diapositive da presentazioni con dimensioni diverse?**
+### Posso definire una dimensione della diapositiva non standard e poi unire diapositive da presentazioni che hanno dimensioni diverse?
 
-Non è possibile [merge presentations](/slides/it/androidjava/merge-presentation/) quando le presentazioni hanno dimensioni diapositive diverse — prima, ridimensiona una presentazione per farla corrispondere all'altra. Quando cambi la dimensione della diapositiva, puoi scegliere come gestire il contenuto esistente tramite l'opzione [SlideSizeScaleType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/slidesizescaletype/). Dopo aver allineato le dimensioni, puoi unire le diapositive mantenendo la formattazione.
+Non puoi [unire presentazioni](/slides/it/androidjava/merge-presentation/) mentre hanno dimensioni di diapositiva diverse — prima, ridimensiona una presentazione per farla corrispondere all'altra. Cambiando le dimensioni della diapositiva, puoi scegliere come gestire il contenuto esistente tramite l'opzione [SlideSizeScaleType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/slidesizescaletype/). Dopo aver allineato le dimensioni, puoi unire le diapositive preservando la formattazione.  
 
-**Posso generare miniature per forme individuali o regioni specifiche di una diapositiva, e rispetteranno la nuova dimensione della diapositiva?**
+### Posso generare miniature per forme individuali o regioni specifiche di una diapositiva, e rispetteranno la nuova dimensione della diapositiva?
 
-Sì. Aspose.Slides può generare miniature per [entire slides](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) così come per [selected shapes](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/shape/#getImage-int-float-float-). Le immagini risultanti riflettono la dimensione e il rapporto d'aspetto attuali della diapositiva, garantendo un'inquadratura e una geometria coerenti.
+Sì. Aspose.Slides può generare miniature per [diapositive intere](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) così come per [forme selezionate](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/shape/#getImage-int-float-float-). Le immagini risultanti riflettono la dimensione e il rapporto d'aspetto attuali della diapositiva, garantendo un inquadramento e una geometria coerenti.

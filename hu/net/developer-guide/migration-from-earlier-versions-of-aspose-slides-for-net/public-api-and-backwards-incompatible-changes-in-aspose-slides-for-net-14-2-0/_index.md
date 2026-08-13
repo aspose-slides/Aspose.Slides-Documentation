@@ -16,20 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át a nyilvános API frissítéseket és a törésre okot adó változásokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át az Aspose.Slides for .NET nyilvános API frissítéseit és a romboló változásokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
 ## **Nyilvános API és visszafelé nem kompatibilis változások**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Az Aspose.Slides for .NET 14.2.0 API-jában néhány változtatást végeztünk. Néhány tulajdonság és metódus eltávolításra került, és egyesek más névtérbe kerültek.
+Változtatásokat hajtottunk végre az Aspose.Slides for .NET 14.2.0 API-jában. Néhány tulajdonság és metódus el lett távolítva, illetve néhány át lett helyezve egy másik névtérbe.
 
 {{% /alert %}} 
 ### **Az Aspose.Slides.IPresentation.Write(…) metódusok eltávolítva**
-Ezek a metódusok csak PPTX formátumú fájlba írták a Presentation objektumokat. Az új API-ban a Presentation osztály minden formátummal való munkára szolgál. Lehetőség van a Presentation.Save(…) metódusok használatára a Presentation objektumok mentéséhez minden támogatott formátumba.
+Ezek a metódusok a Presentation objektumokat csak PPTX formátumú fájlba írták. Az új API-ban a Presentation osztály minden formátummal való munkához használható. A Presentation.Save(…) metódusokkal a Presentation objektumok menthetők minden támogatott formátumba.
 ### **A téma stílusokkal kapcsolatos osztályok áthelyezve az Aspose.Slides.Theme névtérbe**
 Az alábbi osztályok át lettek helyezve az Aspose.Slides névtérből az Aspose.Slides.Theme névtérbe.
 
-- Types ColorScheme
+- Típusok ColorScheme
 - EffectStyle
 - EffectStyleCollection
 - EffectStyleCollectionEffectiveData

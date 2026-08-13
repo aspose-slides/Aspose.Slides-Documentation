@@ -1,20 +1,20 @@
 ---
-title: แปลงงานนำเสนอ PowerPoint เป็นวิดีโอใน C++
+title: แปลงการนำเสนอ PowerPoint เป็นวิดีโอใน C++
 linktitle: PowerPoint เป็นวิดีโอ
 type: docs
 weight: 130
 url: /th/cpp/convert-powerpoint-to-video/
 keywords:
 - แปลง PowerPoint
-- แปลงงานนำเสนอ
+- แปลงการนำเสนอ
 - แปลง PPT
 - แปลง PPTX
 - PowerPoint เป็นวิดีโอ
-- งานนำเสนอเป็นวิดีโอ
+- การนำเสนอเป็นวิดีโอ
 - PPT เป็นวิดีโอ
 - PPTX เป็นวิดีโอ
 - PowerPoint เป็น MP4
-- งานนำเสนอเป็น MP4
+- การนำเสนอเป็น MP4
 - PPT เป็น MP4
 - PPTX เป็น MP4
 - บันทึก PPT เป็น MP4
@@ -25,29 +25,53 @@ keywords:
 - PowerPoint
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีแปลงงานนำเสนอ PowerPoint เป็นวิดีโอใน C++. ค้นหาโค้ดตัวอย่างและเทคนิคการอัตโนมัติเพื่อเพิ่มประสิทธิภาพการทำงานของคุณ."
+description: "เรียนรู้วิธีแปลงการนำเสนอ PowerPoint เป็นวิดีโอใน C++ ค้นหาโค้ดตัวอย่างและเทคนิคการอัตโนมัติเพื่อทำให้กระบวนการทำงานของคุณมีประสิทธิภาพมากขึ้น."
 ---
 ## **บทนำ**
 
-โดยการแปลงงานนำเสนอ PowerPoint ของคุณเป็นวิดีโอ คุณจะได้
+โดยการแปลงการนำเสนอ PowerPoint ของคุณเป็นวิดีโอ คุณจะได้รับ 
 
-* **เพิ่มความเข้าถึงได้:** ทุกอุปกรณ์ (ไม่ว่าจะเป็นแพลตฟอร์มใด) มีโปรแกรมเล่นวิดีโอเป็นค่าเริ่มต้นเมื่อเทียบกับแอปพลิเคชันเปิดงานนำเสนอ ทำให้ผู้ใช้เปิดหรือเล่นวิดีโอได้ง่ายขึ้น
-* **เข้าถึงได้มากขึ้น:** ผ่านวิดีโอ คุณสามารถเข้าถึงผู้ชมจำนวนมากและนำเสนอข้อมูลที่อาจดูน่าเบื่อในงานนำเสนอ ตามการสำรวจและสถิติส่วนใหญ่ ผู้คนมักดูและบริโภควิดีโอมากกว่ารูปแบบเนื้อหาอื่น ๆ และโดยทั่วไปพวกเขาชอบเนื้อหานั้น
+* **เพิ่มการเข้าถึง:** ทุกอุปกรณ์ (ไม่ว่าจะเป็นแพลตฟอร์มใด) มีตัวเล่นวิดีโอติดตั้งโดยปริยายเมื่อเทียบกับแอปพลิเคชันที่เปิดการนำเสนอ ทำให้ผู้ใช้พบว่าการเปิดหรือเล่นวิดีโอทำได้ง่ายกว่า
+* **เข้าถึงมากขึ้น:** ผ่านวิดีโอ คุณสามารถเข้าถึงผู้ชมจำนวนมากและมุ่งเป้าหมายให้ข้อมูลที่อาจดูน่าเบื่อในรูปแบบการนำเสนอ การสำรวจและสถิติส่วนใหญ่แสดงว่าผู้คนชมและบริโภควิดีโอมากกว่ารูปแบบเนื้อหาอื่น ๆ และโดยทั่วไปพวกเขาชอบเนื้อหาแบบนี้
 
-ใน [Aspose.Slides 22.11](https://docs.aspose.com/slides/th/cpp/aspose-slides-for-cpp-22-11-release-notes/), เราเพิ่มการสนับสนุนการแปลงงานนำเสนอเป็นวิดีโอ
+ใน [Aspose.Slides 22.11](https://docs.aspose.com/slides/th/cpp/aspose-slides-for-cpp-22-11-release-notes/), เราได้ทำการสนับสนุนการแปลงการนำเสนอเป็นวิดีโอ
 
-* ใช้ Aspose.Slides เพื่อสร้างชุดเฟรม (จากสไลด์งานนำเสนอ) ที่สอดคล้องกับ FPS (เฟรมต่อวินาที) ที่ระบุ
-* ใช้เครื่องมือของบุคคลที่สามเช่น `ffmpeg` เพื่อสร้างวิดีโอตามเฟรมเหล่านั้น
+* ใช้ Aspose.Slides เพื่อสร้างชุดเฟรม (จากสไลด์การนำเสนอ) ที่สอดคล้องกับ FPS (เฟรมต่อวินาที) ที่กำหนด
+* ใช้ยูทิลิตี้ของบุคคลที่สามเช่น `ffmpeg` เพื่อสร้างวิดีโอตามเฟรม
 
-## **แปลงงานนำเสนอ PowerPoint เป็นวิดีโอ**
+## **แปลงการนำเสนอ PowerPoint เป็นวิดีโอ**
 
-1. ดาวน์โหลด ffmpeg [here](https://ffmpeg.org/download.html).
-2. เพิ่มพาธไปยัง `ffmpeg.exe` ในตัวแปรสภาพแวดล้อม `PATH`.
-3. รันโค้ดแปลง PowerPoint เป็นวิดีโอ
+1. ดาวน์โหลด ffmpeg [ที่นี่](https://ffmpeg.org/download.html).
+2. เพิ่มเส้นทางไปยัง `ffmpeg.exe` ในตัวแปรสภาพแวดล้อม `PATH`.
+3. เรียกใช้โค้ดแปลง PowerPoint เป็นวิดีโอ.
 
-โค้ด C++ นี้แสดงวิธีแปลงงานนำเสนอ (ที่มีรูปภาพและสองเอฟเฟกต์แอนิเมชัน) เป็นวิดีโอ:
+โค้ด C++ นี้จะแสดงวิธีแปลงการนำเสนอ (ที่มีรูปภาพและสองเอฟเฟ็กต์แอนิเมชัน) เป็นวิดีโอ:
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -59,7 +83,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // เพิ่มรูปแบบรอยยิ้มแล้วทำแอนิเมชันให้
+    // เพิ่มรูปสัญลักษณ์ยิ้มแล้วทำแอนิเมชันให้
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -76,28 +100,44 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-## **เอฟเฟกต์วิดีโอ**
+## **เอฟเฟ็กต์วิดีโอ**
 
-คุณสามารถใส่แอนิเมชันให้กับวัตถุบนสไลด์และใช้การเปลี่ยนผ่านระหว่างสไลด์ได้
+คุณสามารถใช้แอนิเมชันกับวัตถุในสไลด์และใช้การเปลี่ยนสไลด์ระหว่างสไลด์
 
-{{% alert color="primary" %}} 
-คุณอาจต้องการอ่านบทความเหล่านี้: [PowerPoint Animation](https://docs.aspose.com/slides/th/cpp/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/th/cpp/shape-animation/), และ [Shape Effect](https://docs.aspose.com/slides/th/cpp/shape-effect/).
+{{% alert color="info" %}} 
+
+คุณอาจต้องการดูบทความเหล่านี้: [PowerPoint Animation](https://docs.aspose.com/slides/th/cpp/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/th/cpp/shape-animation/), และ [Shape Effect](https://docs.aspose.com/slides/th/cpp/shape-effect/).
+
 {{% /alert %}} 
 
-แอนิเมชันและการเปลี่ยนผ่านทำให้การแสดงสไลด์มีชีวิตชีวาและน่าสนใจ—และทำเช่นเดียวกันกับวิดีโอ มาเพิ่มสไลด์และการเปลี่ยนผ่านอีกหนึ่งสไลด์ลงในโค้ดของงานนำเสนอก่อนหน้า:
+แอนิเมชันและการเปลี่ยนสไลด์ทำให้การพรีเซนต์ชวนติดตามและน่าสนใจ—และทำเช่นเดียวกันสำหรับวิดีโอ ให้เพิ่มสไลด์และการเปลี่ยนสไลด์อีกหนึ่งสไลด์ในโค้ดของการนำเสนอก่อนหน้า:
 
 ```c++
-// เพิ่มรูปแบบรอยยิ้มและทำแอนิเมชันให้
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
 
-// ...
+// เพิ่มรูปสัญลักษณ์ยิ้มและทำแอนิเมชันให้ตามที่แสดงด้านบน
+auto presentation = System::MakeObject<Presentation>();
 
-// เพิ่มสไลด์ใหม่และการเปลี่ยนผ่านแบบแอนิเมชัน
+// เพิ่มสไลด์ใหม่และการเปลี่ยนสไลด์แบบแอนิเมชัน
 
 System::SharedPtr<ISlide> newSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_Slide(0)->get_LayoutSlide());
 
@@ -114,9 +154,37 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-Aspose.Slides ยังสนับสนุนแอนิเมชันสำหรับข้อความด้วย เราจึงแอนิเมทย่อหน้าบนวัตถุให้ปรากฏต่อเนื่องกัน (โดยตั้งค่าหน่วงเวลาเป็นหนึ่งวินาที):
+Aspose.Slides ยังรองรับการแอนิเมชันสำหรับข้อความ ดังนั้นเราจึงแอนิเมชันย่อหน้าบนวัตถุ ซึ่งจะปรากฏต่อเนื่องกัน (โดยตั้งค่าความล่าช้าเป็นหนึ่งวินาที):
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -162,43 +230,64 @@ void Run()
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-## **คลาสสำหรับการแปลงวิดีโอ**
+## **คลาสการแปลงวิดีโอ**
 
-เพื่อให้คุณทำงานแปลง PowerPoint เป็นวิดีโอได้, Aspose.Slides มีคลาส [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_animations_generator/) และ [PresentationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_player/) ให้ใช้
+เพื่อให้คุณทำงานแปลง PowerPoint เป็นวิดีโอได้ Aspose.Slides มีคลาส [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_animations_generator/) และ [PresentationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_player/) 
 
-PresentationAnimationsGenerator ให้คุณตั้งขนาดเฟรมของวิดีโอ (ที่จะสร้างต่อไป) ผ่านคอนสตรัคเตอร์ของมัน หากคุณส่งอินสแตนซ์ของงานนำเสนอ, `Presentation.SlideSize` จะถูกใช้และมันจะสร้างแอนิเมชันที่ [PresentationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_player/) ใช้
+PresentationAnimationsGenerator อนุญาตให้คุณตั้งขนาดเฟรมสำหรับวิดีโอ (ที่จะสร้างในภายหลัง) ผ่านคอนสตรัคเตอร์ของมัน หากคุณส่งอินสแตนซ์ของการนำเสนอ `Presentation.SlideSize` จะถูกใช้และมันจะสร้างแอนิเมชันที่ [PresentationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_player/) ใช้. 
 
-เมื่อแอนิเมชันถูกสร้าง, เหตุการณ์ `NewAnimation` จะถูกสร้างสำหรับแต่ละแอนิเมชันต่อเนื่อง, ซึ่งมีพารามิเตอร์ประเภท [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player/) ตัวหลังเป็นคลาสที่แทนผู้เล่นสำหรับแอนิเมชันแยกต่างหาก
+เมื่อสร้างแอนิเมชันแล้ว จะเกิดเหตุการณ์ `NewAnimation` สำหรับแต่ละแอนิเมชันต่อเนื่อง ซึ่งมีพารามิเตอร์เป็น [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player/) ตัวหลังเป็นคลาสที่แสดงถึงผู้เล่นสำหรับแอนิเมชันแยกต่างหาก. 
 
-เพื่อทำงานกับ [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player/), ใช้คุณสมบัติ [get_Duration](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (ระยะเวลาทั้งหมดของแอนิเมชัน) และเมธอด [SetTimePosition](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) แต่ละตำแหน่งแอนิเมชันจะถูกตั้งค่าในช่วง *0 ถึง duration* จากนั้นเมธอด `GetFrame` จะคืนค่า Bitmap ที่สอดคล้องกับสถานะแอนิเมชันในขณะนั้น
+เพื่อทำงานกับ [IPresentationAnimationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player/), จะใช้คุณสมบัติ [get_Duration](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (ระยะเวลาทั้งหมดของแอนิเมชัน) และเมธอด [SetTimePosition](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0). ตำแหน่งของแต่ละแอนิเมชันจะตั้งค่าในช่วง *0 ถึง duration* แล้วเมธอด `GetFrame` จะคืนค่า Bitmap ที่สอดคล้องกับสถานะแอนิเมชันในขณะนั้น.
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
     System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
-    // สถานะเริ่มต้นของแอนิเมชัน
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
-    // บิทแมปสถานะเริ่มต้นของแอนิเมชัน
+    // สถานะแอนิเมชันเริ่มต้น
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
+    // บิทแมปสถานะแอนิเมชันเริ่มต้น
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
     // สถานะสุดท้ายของแอนิเมชัน
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
     // เฟรมสุดท้ายของแอนิเมชัน
-    lastBitmap->Save(u"last.png");
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -206,7 +295,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // เพิ่มรูปแบบรอยยิ้มและทำแอนิเมชันให้
+    // เพิ่มรูปสัญลักษณ์ยิ้มและทำแอนิเมชันให้
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -219,9 +308,19 @@ void Run()
 }
 ```
 
-เพื่อให้แอนิเมชันทั้งหมดในงานนำเสนอเล่นพร้อมกัน, ใช้คลาส [PresentationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_player/) คลาสนี้รับอินสแตนซ์ของ [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_animations_generator/) และ FPS สำหรับเอฟเฟกต์ในคอนสตรัคเตอร์ แล้วเรียกเหตุการณ์ `FrameTick` สำหรับแอนิเมชันทั้งหมดเพื่อให้เล่น:
+เพื่อให้แอนิเมชันทั้งหมดในการนำเสนอเล่นพร้อมกัน จะใช้คลาส [PresentationPlayer](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_player/) นี้รับอินสแตนซ์ของ [PresentationAnimationsGenerator](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.export.presentation_animations_generator/) และ FPS สำหรับเอฟเฟ็กต์ในคอนสตรัคเตอร์ แล้วเรียกเหตุการณ์ `FrameTick` สำหรับแอนิเมชันทั้งหมดเพื่อให้เล่น:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -239,14 +338,14 @@ void Run()
 }
 ```
 
-จากนั้นเฟรมที่สร้างจะถูกคอมไพล์เพื่อผลิตวิดีโอ ดูส่วน [แปลง PowerPoint เป็นวิดีโอ](https://docs.aspose.com/slides/th/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video) เพื่อรายละเอียดเพิ่มเติม
+จากนั้นเฟรมที่สร้างขึ้นสามารถนำมาประกอบเป็นวิดีโอได้ ดูส่วน [Convert PowerPoint to Video](https://docs.aspose.com/slides/th/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **แอนิเมชันและเอฟเฟกต์ที่สนับสนุน**
+## **แอนิเมชันและเอฟเฟ็กต์ที่รองรับ**
 
 
-**Entrance**:
+**การเข้า**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Appear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -263,9 +362,9 @@ void Run()
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 
-**Emphasis**:
+**การเน้น**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
 | **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
@@ -281,9 +380,9 @@ void Run()
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Exit**:
+**การออก**:
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Disappear** | ![not supported](x.png) | ![supported](v.png) |
 | **Fade** | ![supported](v.png) | ![supported](v.png) |
@@ -298,9 +397,9 @@ void Run()
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Motion Paths**:
+**เส้นทางการเคลื่อนที่:**
 
-| Animation Type | Aspose.Slides | PowerPoint |
+| ประเภทแอนิเมชัน | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Lines** | ![supported](v.png) | ![supported](v.png) |
 | **Arcs** | ![supported](v.png) | ![supported](v.png) |
@@ -309,16 +408,16 @@ void Run()
 | **Loops** | ![supported](v.png) | ![supported](v.png) |
 | **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**สามารถแปลงงานนำเสนอที่มีการตั้งรหัสผ่านได้หรือไม่?**
+### สามารถแปลงการนำเสนอที่มีการป้องกันด้วยรหัสผ่านได้หรือไม่?
 
-ใช่, Aspose.Slides รองรับการทำงานกับ [password‑protected presentations](/slides/th/cpp/password-protected-presentation/). เมื่อประมวลผลไฟล์ดังกล่าว คุณต้องใส่รหัสผ่านที่ถูกต้องเพื่อให้ไลบรารีเข้าถึงเนื้อหาของงานนำเสนอได้
+ใช่, Aspose.Slides รองรับการทำงานกับ [password-protected presentations](/slides/th/cpp/password-protected-presentation/). เมื่อประมวลผลไฟล์เหล่านี้ คุณต้องระบุรหัสผ่านที่ถูกต้องเพื่อให้ไลบรารีเข้าถึงเนื้อหาของการนำเสนอได้.
 
-**Aspose.Slides รองรับการใช้งานในโซลูชันคลาวด์หรือไม่?**
+### Aspose.Slides รองรับการใช้งานในโซลูชันคลาวด์หรือไม่?
 
-ใช่, Aspose.Slides สามารถผสานรวมกับแอปพลิเคชันและบริการบนคลาวด์ได้ ไลบรารีออกแบบมาสำหรับสภาพแวดล้อมเซิร์ฟเวอร์ เพื่อให้ได้ประสิทธิภาพสูงและขยายตัวได้ดีสำหรับการประมวลผลไฟล์เป็นชุด
+ใช่, Aspose.Slides สามารถผสานรวมกับแอปพลิเคชันและบริการคลาวด์ได้ ไลบรารีออกแบบมาสำหรับทำงานในสภาพแวดล้อมเซิร์ฟเวอร์ ทำให้มีประสิทธิภาพสูงและสเกลได้สำหรับการประมวลผลไฟล์เป็นชุด.
 
-**มีข้อจำกัดขนาดของงานนำเสนอระหว่างการแปลงหรือไม่?**
+### มีข้อจำกัดขนาดของการนำเสนอในระหว่างการแปลงหรือไม่?
 
-Aspose.Slides สามารถจัดการงานนำเสนอขนาดใด ๆ ก็ได้ อย่างไรก็ตาม เมื่อทำงานกับไฟล์ที่มีขนาดใหญ่มาก อาจต้องการทรัพยากรระบบเพิ่มเติม และบางครั้งแนะนำให้ทำการปรับขนาดงานนำเสนอเพื่อเพิ่มประสิทธิภาพ
+Aspose.Slides สามารถจัดการการนำเสนอที่มีขนาดใกล้เคียงกับใดก็ได้ อย่างไรก็ตาม เมื่อทำงานกับไฟล์ขนาดใหญ่มาก อาจต้องการทรัพยากรระบบเพิ่มเติม และบางครั้งแนะนำให้ทำการปรับปรุงการนำเสนอเพื่อเพิ่มประสิทธิภาพ.

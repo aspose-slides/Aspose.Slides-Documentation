@@ -5,10 +5,10 @@ type: docs
 weight: 20
 url: /hu/androidjava/convert-ppt-to-pptx/
 keywords:
-- PowerPoint konvertálás
-- prezentáció konvertálás
-- dia konvertálás
-- PPT konvertálás
+- PowerPoint konvertálása
+- prezentáció konvertálása
+- dia konvertálása
+- PPT konvertálása
 - PPT PPTX-re
 - PPT mentése PPTX-ként
 - PPT exportálása PPTX-be
@@ -17,17 +17,17 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertálja a régi PPT prezentációkat modern PPTX-re gyorsan Java‑ban az Aspose.Slides for Android segítségével — átfogó útmutató, ingyenes kódminták, Microsoft Office függőség nélkül."
+description: "Konvertálja a régi PPT prezentációkat modern PPTX formátumba gyorsan Java-val az Aspose.Slides for Android segítségével — áttekinthető bemutató, ingyenes kódminták, nincs Microsoft Office függőség."
 ---
 ## **Áttekintés**
 
-Ez a cikk elmagyarázza, hogyan konvertálható a PowerPoint bemutató PPT formátumból PPTX formátumba Java-val és online PPT‑t PPTX‑re konvertáló alkalmazással. Az alábbi téma kerül bemutatásra.
+Ez a cikk bemutatja, hogyan lehet a PowerPoint‑prezentációt PPT formátumból PPTX formátumba konvertálni Java‑val és az online PPT‑t‑PPTX átalakító alkalmazással. A következő téma kerül tárgyalásra.
 
-- PPT konvertálása PPTX‑re Java‑ban
+- PPT konvertálása PPTX-re Java‑ban
 
-## **PPT konvertálása PPTX‑re Androidon**
+## **PPT konvertálása PPTX-re Androidon**
 
-A PPT‑t PPTX‑re konvertáló Java mintakódért lásd az alábbi szekciót, azaz [PPT konvertálása PPTX‑re](#convert-ppt-to-pptx). Ez egyszerűen betölti a PPT fájlt és PPTX formátumban menti. A különböző mentési formátumok megadásával a PPT fájlt más formátumokba is menthetjük, például PDF, XPS, ODP, HTML stb., ahogy ezekben a cikkekben tárgyaltuk.
+A PPT‑t PPTX‑re konvertáló Java‑példakódért tekintse meg az alábbi szekciót, azaz a [PPT konvertálása PPTX-re](#convert-ppt-to-pptx) részt. Ez csak betölti a PPT‑fájlt és PPTX formátumban menti el. Különböző mentési formátumok megadásával a PPT‑fájlt sok más formátumba is mentheti, például PDF, XPS, ODP, HTML stb., amint ez a cikkekben tárgyalt.
 
 - [PPT konvertálása PDF‑re Androidon](/slides/hu/androidjava/convert-powerpoint-to-pdf/)
 - [PPT konvertálása XPS‑re Androidon](/slides/hu/androidjava/convert-powerpoint-to-xps/)
@@ -36,37 +36,39 @@ A PPT‑t PPTX‑re konvertáló Java mintakódért lásd az alábbi szekciót, 
 - [PPT konvertálása PNG‑re Androidon](/slides/hu/androidjava/convert-powerpoint-to-png/)
 
 ## **A PPT‑t PPTX‑re konvertálásról**
-Convert old PPT format to PPTX with Aspose.Slides API. If you need to convert thousands of PPT presentations to PPTX format, the best solution is to do it programmatically. With Aspose.Slides API its possible to do it just in few lines of code. The API supports full compatibility to convert PPT presentation to PPTX and its possible to:
+Konvertálja a régi PPT formátumot PPTX‑re az Aspose.Slides API‑val. Ha több ezer PPT‑prezentációt kell PPTX formátumba konvertálni, a legjobb megoldás a programozott végrehajtás. Az Aspose.Slides API‑val ez csak néhány kódsorral megoldható. Az API teljes kompatibilitást biztosít a PPT‑prezentációk PPTX‑re konvertálásához, és lehetséges:
 
-- Bonyolult master‑, elrendezés‑ és dia‑struktúrák konvertálása.
+- Komplex mester‑, elrendezés‑ és diavetítés‑struktúrák konvertálása.
 - Diagramokkal rendelkező prezentáció konvertálása.
-- Csoportos alakzatokkal, auto‑alakzatokkal (például téglalapok és ellipszisek), egyedi geometriájú alakzatokkal rendelkező prezentáció konvertálása.
-- Textúrákkal és képpel kitöltött auto‑alakzatokkal rendelkező prezentáció konvertálása.
-- Helyőrzőkkel, szövegkeretekkel és szöveghelyezőkkel rendelkező prezentáció konvertálása.
+- Csoportos alakzatokkal, automatikus alakzatokkal (például téglalapok és ellipszisek), egyedi geometriájú alakzatokkal rendelkező prezentáció konvertálása.
+- Textúrákat és képeket tartalmazó kitöltési stílusokkal rendelkező automatikus alakzatok konvertálása.
+- Helyőrzőkkel, szövegkeretekkel és szövegmegjelenítőkkel rendelkező prezentáció konvertálása.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tekintse meg a [**Aspose.Slides PPT‑t PPTX‑re konvertáló**](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) alkalmazást:
+Nézze meg a **Aspose.Slides PPT to PPTX Conversion** alkalmazást:
 
 [](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
 
 [![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx)
 
-Ez az alkalmazás a [**Aspose.Slides API**](https://products.aspose.com/slides/hu/androidjava/) alapján készült, így élő példát láthat az alapvető PPT‑t PPTX‑re konvertálási képességekről. Az Aspose.Slides Conversion egy webalkalmazás, amely lehetővé teszi PPT formátumú bemutató fájl feltöltését és PPTX‑re konvertálva letöltését.
+Ez az alkalmazás a **Aspose.Slides API** alapján készült, így láthat egy élő példát az alap PPT‑t‑PPTX konvertálási képességekről. Az Aspose.Slides Conversion egy webalkalmazás, amely lehetővé teszi a PPT formátumú prezentációk feltöltését és letöltését PPTX formátumban.
 
-Találjon más élő [**Aspose.Slides Conversion**](https://products.aspose.app/slides/hu/conversion/) példákat.
+Keressen további élő **Aspose.Slides Conversion** példákat.
 {{% /alert %}} 
 
-## **PPT konvertálása PPTX‑re**
-Aspose.Slides for Android via Java now facilitates the developers to access the PPT using [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) class instance and converting that to respective [PPTX](https://docs.fileformat.com/presentation/pptx/) format. Presently, it supports partial conversion of [PPT ](https://docs.fileformat.com/presentation/ppt/)to PPTX.
+## **PPT konvertálása PPTX-re**
+Az Aspose.Slides for Android via Java most már lehetővé teszi a fejlesztők számára, hogy a PPT‑hez a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztálypéldányon keresztül férjenek hozzá, és azt a megfelelő [PPTX](https://docs.fileformat.com/presentation/pptx/) formátumba konvertálják. Jelenleg részleges konvertálást támogat a [PPT](https://docs.fileformat.com/presentation/ppt/) PPTX‑re.
 
-Aspose.Slides for Android via Java offers [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) class that represents a **PPTX** presentation file. Presentation class can now also access **PPT** through Presentation when the object is instantiated. The following example shows how to convert a PPT presentation into PPTX Presentation.
+Az Aspose.Slides for Android via Java kínálja a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályt, amely egy **PPTX** prezentációs fájlt képvisel. A Presentation osztály most már a **PPT**‑hez is hozzáfér a példányosításkor. Az alábbi példa bemutatja, hogyan konvertáljunk egy PPT‑prezentációt PPTX‑re.
 
 ```java
-// Példányosít egy Presentation objektumot, amely egy PPTX fájlt képvisel
+import com.aspose.slides.*;
+
+// Példányosít egy Presentation objektumot, amely egy PPT fájlt képvisel
 Presentation pres = new Presentation("Aspose.ppt");
 try {
-// A PPTX prezentáció mentése PPTX formátumba
+// A PPT prezentáció mentése PPTX formátumba
     pres.save("ConvertedAspose.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -75,36 +77,36 @@ try {
 
 |![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
 | :- |
-|**Ábra : Forrás PPT prezentáció**|
+|**Ábra: Forrás PPT prezentáció**|
 
-The above code snippet generated the following PPTX presentation after conversion
+A fenti kódrészlet a konverzió után a következő PPTX‑prezentációt hozta létre
 
 |![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
 | :- |
-|**Ábra: Generált PPTX prezentáció a konvertálás után**|
+|**Ábra: A konverzió után létrehozott PPTX prezentáció**|
 
 ## **GYIK**
 
-**Mi a különbség a PPT és PPTX formátumok között?**
+### Mi a különbség a PPT és PPTX formátumok között?
 
-A PPT a régebbi bináris fájlformátum, amelyet a Microsoft PowerPoint használt, míg a PPTX az új XML-alapú formátum, amely a Microsoft Office 2007‑tel került bevezetésre. A PPTX fájlok jobb teljesítményt, kisebb fájlméretet és javított adat‑helyreállítást biztosítanak.
+A PPT a Microsoft PowerPoint régebbi bináris fájlformátuma, míg a PPTX a Microsoft Office 2007‑től kezdődően bevezetett XML‑alapú új formátum. A PPTX‑fájlok jobb teljesítményt, kisebb fájlméretet és fejlettebb adat-helyreállítást kínálnak.
 
-**Támogatja-e az Aspose.Slides a több PPT fájl tömeges PPTX‑re konvertálását?**
+### Támogatja-e az Aspose.Slides a több PPT fájl kötegelt konvertálását PPTX‑re?
 
-Igen, használhatja az Aspose.Slides‑t egy ciklusban a PPT fájlok programozott PPTX‑re konvertálásához, ami alkalmas tömeges konverzióra.
+Igen, az Aspose.Slides‑t ciklusban használva programozottan konvertálhat több PPT fájlt PPTX‑re, így alkalmas kötegelt konvertálási forgatókönyvekre.
 
-**Megmaradnak-e a tartalom és a formázás a konvertálás után?**
+### Megmarad-e a tartalom és a formázás a konverzió után?
 
-Az Aspose.Slides magas hűséggel konvertálja a prezentációkat. A diák elrendezései, animációi, alakzatai, diagramjai és egyéb tervezési elemei megmaradnak a PPT‑t PPTX‑re konvertálás során.
+Az Aspose.Slides nagy hűséggel konvertálja a prezentációkat. A diaelrendezések, animációk, alakzatok, diagramok és egyéb tervezési elemek megmaradnak a PPT‑t PPTX‑re konvertálás során.
 
-**Konvertálhatok-e más formátumokra, például PDF‑re vagy HTML‑re a PPT fájlokból?**
+### Konvertálhatok-e más formátumokat, például PDF‑et vagy HTML‑t PPT fájlokból?
 
-Igen, az Aspose.Slides támogatja a PPT fájlok konvertálását [több formátumba](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/saveformat/), többek között PDF, XPS, HTML, ODP és képfájlformátumok, például PNG és JPEG.
+Igen, az Aspose.Slides támogatja a PPT fájlok konvertálását [több formátumba](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/saveformat/), beleértve a PDF, XPS, HTML, ODP és képformátumokat, mint a PNG és JPEG.
 
-**Lehetséges a PPT‑t PPTX‑re konvertálni a Microsoft PowerPoint telepítése nélkül?**
+### Lehet-e PPT‑t PPTX‑re konvertálni a Microsoft PowerPoint telepítése nélkül?
 
-Igen, az Aspose.Slides egy önálló API, amely nem igényli a Microsoft PowerPoint vagy bármely harmadik féltől származó szoftvert a konvertáláshoz.
+Igen, az Aspose.Slides egy önálló API, és nem igényel Microsoft PowerPoint‑ot vagy más harmadik féltől származó szoftvert a konverzió végrehajtásához.
 
-**Elérhető online eszköz a PPT‑t PPTX‑re konvertáláshoz?**
+### Létezik‑e online eszköz a PPT‑t PPTX‑re konvertáláshoz?
 
-Igen, használhatja a ingyenes [Aspose.Slides PPT‑t PPTX‑re konvertáló](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) webalkalmazást a konvertáláshoz közvetlenül a böngészőjében anélkül, hogy kódot kellene írna.
+Igen, használhatja az ingyenes [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) webalkalmazást a konverzió közvetlen elvégzéséhez a böngészőjében, kód írása nélkül.

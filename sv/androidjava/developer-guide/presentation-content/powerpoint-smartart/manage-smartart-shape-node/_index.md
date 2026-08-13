@@ -1,49 +1,51 @@
 ---
-title: "Hantera SmartArt-formnoder i presentationer på Android"
-linktitle: "SmartArt-formnod"
+title: Hantera SmartArt-formnoder i presentationer på Android
+linktitle: SmartArt-formnod
 type: docs
 weight: 30
 url: /sv/androidjava/manage-smartart-shape-node/
 keywords:
-- "SmartArt-nod"
-- "underordnad nod"
-- "lägga till nod"
-- "nodposition"
-- "åtkomst till nod"
-- "ta bort nod"
-- "anpassad position"
-- "assistentnod"
-- "fyllningsformat"
-- "rendera nod"
-- "PowerPoint"
-- "presentation"
-- "Android"
-- "Java"
-- "Aspose.Slides"
+- SmartArt-nod
+- barnnod
+- lägga till nod
+- nodposition
+- åtkomst till nod
+- ta bort nod
+- anpassad position
+- assistentnod
+- fyllningsformat
+- rendera nod
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides
 description: "Hantera SmartArt-formnoder i PPT och PPTX med Aspose.Slides för Android. Få tydliga Java-kodexempel och tips för att effektivisera dina presentationer."
 ---
 ## **Översikt**
 
-SmartArt‑grafik i PowerPoint‑presentationer organiseras via noder som innehåller text och definierar diagrammets struktur. Aspose.Slides låter dig arbeta med dessa SmartArt‑noder programatiskt: lägga till nya noder och undernoder, infoga undernoder på en specifik position, komma åt befintliga noder och läsa deras text, nivå och position.
+SmartArt-grafik i PowerPoint-presentationer organiseras via noder som innehåller text och definierar diagrammets struktur. Aspose.Slides låter dig arbeta med dessa SmartArt-noder programatiskt: lägga till nya noder och barnnoder, infoga barnnoder på en specifik position, komma åt befintliga noder och läsa deras text, nivå och position.
 
-Denna artikel förklarar hur du hanterar SmartArt‑formnodernas noder. Den visar hur du tar bort noder, arbetar med undernoder per index eller position, ändrar en assistentnod till en normal nod, justerar position, storlek och rotation för SmartArt‑nodformar, anger fyllningsformat för noder och genererar en miniatyrbild för en SmartArt‑under‑nod.
+Denna artikel förklarar hur du hanterar SmartArt-formnoder. Den visar hur du tar bort noder, arbetar med barnnoder efter index eller position, ändrar en assistentnod till en normal nod, justerar position, storlek och rotation av SmartArt-nodformer, ställer in nodens fyllningsformat och genererar en miniatyrbild för en SmartArt-nod.
 
-## **Lägg till en SmartArt‑nod**
-Aspose.Slides for Android via Java har tillhandahållit det enklaste API‑et för att hantera SmartArt‑former på ett enkelt sätt. Följande exempel kod hjälper dig att lägga till nod och undernod i en SmartArt‑form.
+## **Lägg till en SmartArt-nod**
+Aspose.Slides för Android via Java har tillhandahållit det enklaste API:et för att hantera SmartArt-formerna på det lättaste sättet. Följande exempel kod hjälper dig att lägga till nod och barnnod i en SmartArt-form.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation)‑klassen och läs in presentationen med SmartArt‑Shape.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) och ladda presentationen med SmartArt-formen.
 1. Hämta referensen till den första bilden genom att använda dess index.
-1. Gå igenom varje form i den första bilden.
-1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och typkonvertera den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
-1. [Lägg till en ny nod](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) i SmartArt‑formen [**NodeCollection**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) och ange texten i TextFrame.
-1. Nu, [Lägg till](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) en [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) i den nylagda [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt)‑noden och ange texten i TextFrame.
+1. Iterera genom varje form på den första bilden.
+1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och gör en typomvandling av den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
+1. [Lägg till en ny Node](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) i SmartArt-formen [**NodeCollection**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt#getAllNodes--) och sätt texten i TextFrame.
+1. Nu, [Lägg till](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--) en [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) i den nyss tillagda [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) noden och sätt texten i TextFrame
 1. Spara presentationen.
 
 ```java
-// Läs in den önskade presentationen
+import com.aspose.slides.*;
+
+// Ladda den önskade presentationen
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // Gå igenom varje form i den första bilden
+    // Gå igenom alla former i den första bilden
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Kontrollera om formen är av typen SmartArt
@@ -58,7 +60,7 @@ try {
             // Lägger till text
             TemNode.getTextFrame().setText("Test");
     
-            // Lägger till en ny undernod i föräldranoden. Den kommer att läggas till i slutet av samlingen
+            // Lägger till en ny barnnod i föräldranoden. Den kommer att läggas till i slutet av samlingen
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // Lägger till text
@@ -73,60 +75,64 @@ try {
 }
 ```
 
-## **Lägg till en SmartArt‑nod på en specifik position**
-I följande exempel kod har vi förklarat hur du lägger till undernoder som tillhör respektive noder i SmartArt‑formen på en viss position.
+## **Lägg till en SmartArt-nod på en specifik position**
+I följande exempel kod har vi förklarat hur du lägger till barnnoder som tillhör respektive noder i en SmartArt-form på en specifik position.
 
-1. Skapa en instans av Presentation‑klassen.
+1. Skapa en instans av klassen Presentation.
 1. Hämta referensen till den första bilden genom att använda dess index.
-1. Lägg till en [**StackedList**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList)‑typ [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArt)‑form i den åtkomna bilden.
-1. Kom åt den första noden i den tillagda SmartArt‑formen.
-1. Nu, lägg till [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) för den valda [**Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode) på position 2 och ange dess text.
-1. Spara presentationen.
+1. Lägg till en [**StackedList**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) typ av [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArt) form i den åtkomna bilden.
+1. Kom åt den första noden i den tillagda SmartArt-formen
+1. Nu, lägg till [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) för den valda [**Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode) på position 2 och sätt dess text.
+1. Spara presentationen
 
 ```java
+import com.aspose.slides.*;
+
 // Skapar en presentationinstans
 Presentation pres = new Presentation();
 try {
-    // Hämta presentationsbilden
+    // Kom åt presentationsbilden
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Lägg till Smart Art IShape
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-    // Kom åt SmartArt-noden med index 0
+    // Kom åt SmartArt-noden på index 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
-    // Lägger till en ny undernod på position 2 i föräldranoden
+    // Lägger till ny barnnod på position 2 i föräldranoden
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).addNodeByPosition(2);
 
     // Lägg till text
     chNode.getTextFrame().setText("Sample Text Added");
 
-    // Spara presentationen
+    // Spara presentation
     pres.save("AddSmartArtNodeByPosition.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Kom åt en SmartArt‑nod**
-Följande exempel kod hjälper dig att komma åt noder i SmartArt‑formen. Observera att du inte kan ändra LayoutType för SmartArt eftersom den är skrivskyddad och endast sätts när SmartArt‑formen läggs till.
+## **Kom åt en SmartArt-nod**
+Följande exempel kod hjälper dig att komma åt noder i en SmartArt-form. Observera att LayoutType för SmartArt väljs när formen läggs till; en förändring senare med **setLayout** bygger om hela diagrammet, så nodernas positioner och storlekar du eventuellt har ställt in räknas om.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen och läs in presentationen med SmartArt‑Shape.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation) och ladda presentationen med SmartArt-formen.
 1. Hämta referensen till den första bilden genom att använda dess index.
-1. Gå igenom varje form i den första bilden.
-1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och typkonvertera den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
-1. Gå igenom alla [**Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArt#getAllNodes--) i SmartArt‑formen.
-1. Kom åt och visa information såsom SmartArt‑nodens position, nivå och text.
+1. Iterera genom varje form på den första bilden.
+1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och gör en typomvandling av den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
+1. Iterera genom alla [**Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArt#getAllNodes--) i SmartArt-formen.
+1. Kom åt och visa information såsom SmartArt-nodens position, nivå och text.
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera Presentation-klass
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
     // Hämta första bilden
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Gå igenom varje form i den första bilden
+    // Iterera genom alla former i den första bilden
     for (IShape shape : slide.getShapes()) 
     {
         // Kontrollera om formen är av typen SmartArt
@@ -135,10 +141,10 @@ try {
             // Typkonvertera formen till SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Gå igenom alla noder i SmartArt
+            // Iterera genom alla noder i SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Kom åt SmartArt-nod med index i
+                // Kom åt SmartArt-noden på index i
                 SmartArtNode node = (SmartArtNode) smart.getAllNodes().get_Item(i);
     
                 // Skriver ut SmartArt-nodens parametrar
@@ -151,25 +157,27 @@ try {
 }
 ```
 
-## **Kom åt en SmartArt‑under‑nod**
-Följande exempel kod hjälper dig att komma åt undernoder som tillhör respektive noder i SmartArt‑formen.
+## **Kom åt en SmartArt-barnnod**
+Följande exempel kod hjälper dig att komma åt barnnoder som tillhör respektive noder i en SmartArt-form.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen och läs in presentationen med SmartArt‑Shape.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation) och ladda presentationen med SmartArt-formen.
 1. Hämta referensen till den första bilden genom att använda dess index.
-1. Gå igenom varje form i den första bilden.
-1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och typkonvertera den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
-1. Gå igenom alla [**Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArt#getAllNodes--) i SmartArt‑formen.
-1. För varje vald SmartArt‑form [**Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode) gå igenom alla [**Child Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) i den specifika noden.
-1. Kom åt och visa information såsom [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--)s position, nivå och text.
+1. Iterera genom varje form på den första bilden.
+1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och gör en typomvandling av den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
+1. Iterera genom alla [**Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArt#getAllNodes--) i SmartArt-formen.
+1. För varje vald SmartArt-form [**Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode), iterera genom alla [**Child Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode#getChildNodes--) i den specifika noden.
+1. Kom åt och visa information såsom [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) position, nivå och text.
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera Presentation-klass
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
     // Hämta första bilden
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Gå igenom varje form i den första bilden
+    // Iterera genom alla former i den första bilden
     for (IShape shape : slide.getShapes()) 
     {
         // Kontrollera om formen är av typen SmartArt
@@ -178,19 +186,19 @@ try {
             // Typkonvertera formen till SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // Gå igenom alla noder i SmartArt
+            // Iterera genom alla noder i SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // Kom åt SmartArt-nod med index i
+                // Kom åt SmartArt-noden på index i
                 SmartArtNode node0 = (SmartArtNode) smart.getAllNodes().get_Item(i);
                 
-                // Går igenom undernoderna i SmartArt-noden med index i
+                // Iterera genom barnnoderna i SmartArt-noden på index i
                 for (int j = 0; j < node0.getChildNodes().size(); j++) 
                 {
-                    // Kom åt undernoden i SmartArt-noden
+                    // Kom åt barnnoden i SmartArt-noden
                     SmartArtNode node = (SmartArtNode) node0.getChildNodes().get_Item(j);
     
-                    // Skriver ut parametrarna för SmartArt-undernod
+                    // Skriver ut SmartArt-barnnodens parametrar
                     System.out.print("j = " + j + ", Text = " + node.getTextFrame().getText() + ",  Level = " + node.getLevel() + ", Position = " + node.getPosition());
                 }
             }
@@ -201,58 +209,62 @@ try {
 }
 ```
 
-## **Kom åt en SmartArt‑under‑nod på en specifik position**
-I detta exempel lär vi oss att komma åt undernoder på en viss position som tillhör respektive noder i SmartArt‑formen.
+## **Kom åt en SmartArt-barnnod på en specifik position**
+I det här exemplet kommer vi att lära oss att komma åt barnnoder på en viss position som tillhör respektive noder i en SmartArt-form.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation).
 1. Hämta referensen till den första bilden genom att använda dess index.
-1. Lägg till en [**StackedList**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList)‑typ SmartArt‑form.
-1. Kom åt den tillagda SmartArt‑formen.
-1. Kom åt noden med index 0 för den åtkomna SmartArt‑formen.
-1. Nu, kom åt [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) på position 1 för den åtkomna SmartArt‑noden med metoden **get_Item()**.
-1. Kom åt och visa information såsom [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--)s position, nivå och text.
+1. Lägg till en [**StackedList**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtLayoutType#StackedList) typ SmartArt-form.
+1. Kom åt den tillagda SmartArt-formen.
+1. Kom åt noden med index 0 för den åtkomna SmartArt-formen.
+1. Nu, kom åt [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) på position 1 för den åtkomna SmartArt-noden med hjälp av **get_Item()**‑metoden.
+1. Kom åt och visa information såsom [**Child Node**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNode#getChildNodes--) position, nivå och text.
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera presentationen
 Presentation pres = new Presentation();
 try {
-    // Hämtar första bilden
+    // Kom åt den första bilden
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // Lägger till SmartArt-formen i första bilden
+    // Lägger till SmartArt-formen i den första bilden
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
-    // Kom åt SmartArt-nod med index 0
+    // Kom åt SmartArt-noden på index 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
-    // Kom åt undernoden på position 1 i föräldranoden
+    // Kom åt barnnoden på position 1 i föräldranoden
     int position = 1;
     SmartArtNode chNode = (SmartArtNode) ((SmartArtNodeCollection) node.getChildNodes()).get_Item(position);
     
-    // Skriver ut parametrarna för SmartArt-undernoden
+    // Skriver ut SmartArt-barnnodens parametrar
     System.out.print("Text = " + chNode.getTextFrame().getText() + ",  Level = " + chNode.getLevel() + ", Position = " + chNode.getPosition());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Ta bort en SmartArt‑nod**
-I detta exempel lär vi oss att ta bort noder i SmartArt‑formen.
+## **Ta bort en SmartArt-nod**
+I det här exemplet kommer vi att lära oss att ta bort noder i en SmartArt-form.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen och läs in presentationen med SmartArt‑Shape.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation) och ladda presentationen med SmartArt-formen.
 1. Hämta referensen till den första bilden genom att använda dess index.
-1. Gå igenom varje form i den första bilden.
-1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och typkonvertera den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
+1. Iterera genom varje form på den första bilden.
+1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och gör en typomvandling av den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
 1. Kontrollera om [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) har fler än 0 noder.
-1. Välj den SmartArt‑nod som ska tas bort.
-1. Nu, ta bort den valda noden med metoden [**RemoveNode**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) .
+1. Välj den SmartArt-nod som ska tas bort.
+1. Nu, ta bort den valda noden med metoden [**RemoveNode**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-).
 1. Spara presentationen.
 
 ```java
-// Läs in den önskade presentationen
+import com.aspose.slides.*;
+
+// Ladda den önskade presentationen
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Gå igenom varje form i den första bilden
+    // Gå igenom alla former i den första bilden
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Kontrollera om formen är av typen SmartArt
@@ -263,7 +275,7 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Kom åt SmartArt-nod med index 0
+                // Kom åt SmartArt-noden på index 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 // Tar bort den valda noden
@@ -279,23 +291,25 @@ try {
 }
 ```
 
-## **Ta bort en SmartArt‑nod från en specifik position**
-I detta exempel lär vi oss att ta bort noder i SmartArt‑formen på en viss position.
+## **Ta bort en SmartArt-nod från en specifik position**
+I det här exemplet kommer vi att lära oss att ta bort noder i en SmartArt-form på en viss position.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen och läs in presentationen med SmartArt‑Shape.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation) och ladda presentationen med SmartArt-formen.
 1. Hämta referensen till den första bilden genom att använda dess index.
-1. Gå igenom varje form i den första bilden.
-1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och typkonvertera den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
-1. Välj SmartArt‑formens nod med index 0.
-1. Nu, kontrollera om den valda SmartArt‑noden har fler än 2 undernoder.
-1. Nu, ta bort noden på **Position 1** med metoden [**RemoveNode**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-) .
+1. Iterera genom varje form på den första bilden.
+1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och gör en typomvandling av den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
+1. Välj SmartArt-formens nod med index 0.
+1. Nu, kontrollera om den valda SmartArt-noden har fler än 2 barnnoder.
+1. Nu, ta bort noden på **Position 1** med metoden [**RemoveNode**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-).
 1. Spara presentationen.
 
 ```java
-// Läs in den önskade presentationen
+import com.aspose.slides.*;
+
+// Ladda den önskade presentationen
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // Gå igenom varje form i den första bilden
+    // Iterera genom alla former i den första bilden
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Kontrollera om formen är av typen SmartArt
@@ -306,12 +320,12 @@ try {
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // Kom åt SmartArt-nod med index 0
+                // Kom åt SmartArt-noden på index 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 if (node.getChildNodes().size() >= 2) 
                 {
-                    // Tar bort undernoden på position 1
+                    // Tar bort barnnoden på position 1
                     (node.getChildNodes()).removeNode(1);
                 }
             }
@@ -325,32 +339,34 @@ try {
 }
 ```
 
-## **Ställ in en anpassad position för en under‑nod i ett SmartArt‑objekt**
-Aspose.Slides for Android via Java stöder nu att ange [SmartArtShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtShape)‑egenskaperna [X](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShape#setX-float-) och [Y](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShape#setY-float-). Kodsnutten nedan visar hur du anger en anpassad position, storlek och rotation för SmartArt‑Shape; observera att tillägg av nya noder orsakar en omräkning av alla noders positioner och storlekar. Med anpassade positionsinställningar kan användaren placera noderna enligt sina krav.
+## **Ställ in en anpassad position för en barnnod i ett SmartArt‑objekt**
+Nu stöder Aspose.Slides för Android via Java att sätta [SmartArtShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtShape)‑egenskaperna [X](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShape#setX-float-) och [Y](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShape#setY-float-). Kodsnutten nedan visar hur du sätter anpassad SmartArtShape‑position, storlek och rotation; observera även att tillägg av nya noder medför en omräkning av positioner och storlekar för alla noder. Med anpassade positionsinställningar kan användaren ställa in noderna enligt krav.
 
 ```java
+import com.aspose.slides.*;
+
 // Instansiera Presentation-klass
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-    // Flytta SmartArt-formen till ny position
+    // Move SmartArt shape to new position
     ISmartArtNode node = smart.getAllNodes().get_Item(1);
     ISmartArtShape shape = node.getShapes().get_Item(1);
     shape.setX(shape.getX() + shape.getWidth() * 2);
     shape.setY(shape.getY() - shape.getHeight() * 2);
 
-    // Ändra SmartArt-formens bredd
+    // Change SmartArt shape's widths
     node = smart.getAllNodes().get_Item(2);
     shape = node.getShapes().get_Item(1);
     shape.setWidth(shape.getWidth() + shape.getWidth() * 2);
 
-    // Ändra SmartArt-formens höjd
+    // Change SmartArt shape's height
     node = smart.getAllNodes().get_Item(3);
     shape = node.getShapes().get_Item(1);
     shape.setHeight(shape.getHeight() + shape.getHeight() * 2);
 
-    // Ändra SmartArt-formens rotation
+    // Change SmartArt shape's rotation
     node = smart.getAllNodes().get_Item(4);
     shape = node.getShapes().get_Item(1);
     shape.setRotation(90);
@@ -362,33 +378,35 @@ try{
 ```
 
 ## **Kontrollera en assistentnod**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-I den här artikeln undersöker vi ytterligare funktioner hos SmartArt‑former som lagts till i presentationsbilder programatiskt med Aspose.Slides for Android via Java.
+I den här artikeln kommer vi att undersöka ytterligare funktioner hos SmartArt-former som läggs till i presentationsbilder programatiskt med Aspose.Slides för Android via Java.
 
 {{% /alert %}} 
 
-Vi använder följande käll‑SmartArt‑form för vår undersökning i de olika avsnitten av artikeln.
+Vi kommer att använda följande källa‑SmartArt-form för vår undersökning i olika sektioner av denna artikel.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
-|**Figur: Käll‑SmartArt‑figur i bilden**|
+|**Figur: Käll‑SmartArt-form på bilden**|
 
-I följande exempel kod undersöker vi hur man identifierar **Assistant Nodes** i SmartArt‑nodsamlingen och ändrar dem.
+I följande exempel kod kommer vi att undersöka hur man identifierar **Assistant Nodes** i SmartArt‑nodsamlingen och ändrar dem.
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen och läs in presentationen med SmartArt‑Shape.
-1. Hämta referensen till den andra bilden genom att använda dess index.
-1. Gå igenom varje form i den första bilden.
-1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och typkonvertera den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
-1. Gå igenom alla noder i SmartArt‑formen och kontrollera om de är [**Assistant Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
-1. Ändra statusen för assistentnoden till en normal nod.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation) och ladda presentationen med SmartArt-formen.
+1. Hämta referensen till den första bilden genom att använda dess index.
+1. Iterera genom varje form på den första bilden.
+1. Kontrollera om formen är av typen [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) och gör en typomvandling av den valda formen till [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) om den är SmartArt.
+1. Iterera genom alla noder i SmartArt-formen och kontrollera om de är [**Assistant Nodes**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtNode#isAssistant--).
+1. Ändra status för Assistant Node till normal nod.
 1. Spara presentationen.
 
 ```java
+import com.aspose.slides.*;
+
 // Skapar en presentationinstans
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // Gå igenom varje form i den första bilden
+    // Gå igenom alla former i den första bilden
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
         // Kontrollera om formen är av typen SmartArt
@@ -397,21 +415,21 @@ try {
             // Typkonvertera formen till SmartArt
             ISmartArt smart = (SmartArt) shape;
     
-            // Går igenom alla noder i SmartArt-formen
+            // Iterera genom alla noder i SmartArt-formen
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
                 // Kontrollera om noden är en assistentnod
                 if (node.isAssistant()) 
                 {
-                    // Sätter assistentnod till falskt och gör den till en normal nod
-                    node.isAssistant();
+                    // Ställer in assistentnod till false och gör den till en normal nod
+                    node.setAssistant(false);
                 }
             }
         }
     }
     
-    // Spara presentationen
+    // Spara presentation
     pres.save("ChangeAssitantNode.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -420,24 +438,27 @@ try {
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Figur: Assistentsnoder ändrade i SmartArt‑formen i bilden**|
+|**Figur: Assistant‑noder ändrade i SmartArt‑form på bilden**|
 
 ## **Ställ in en nods fyllningsformat**
-Aspose.Slides for Android via Java möjliggör att lägga till anpassade SmartArt‑former och ange deras fyllningsformat. Denna artikel förklarar hur du skapar och får åtkomst till SmartArt‑former samt anger deras fyllningsformat med Aspose.Slides for Android via Java.
+Aspose.Slides för Android via Java möjliggör att lägga till anpassade SmartArt‑former och sätta deras fyllningsformat. Denna artikel förklarar hur du skapar och får åtkomst till SmartArt‑former samt sätter deras fyllningsformat med Aspose.Slides för Android via Java.
 
 Följ stegen nedan:
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation).
 1. Hämta referensen till en bild med dess index.
-1. Lägg till en [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt)‑form genom att ange dess [**LayoutType**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Ange [**FillFormat**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShape#getFillFormat--) för SmartArt‑formens noder.
+1. Lägg till en [SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArt) form genom att ange dess [**LayoutType**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
+1. Ställ in [**FillFormat**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IShape#getFillFormat--) för SmartArt‑formens noder.
 1. Skriv den modifierade presentationen som en PPTX‑fil.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instansiera presentationen
 Presentation pres = new Presentation();
 try {
-    // Hämtar bilden
+    // Kom åt bilden
     ISlide slide = pres.getSlides().get_Item(0);
     
     // Lägger till SmartArt-form och noder
@@ -445,31 +466,33 @@ try {
     ISmartArtNode node = chevron.getAllNodes().addNode();
     node.getTextFrame().setText("Some text");
     
-    // Sätter nodens fyllningsfärg
+    // Ställer in nodens fyllningsfärg
     for (IShape item : node.getShapes()) 
     {
         item.getFillFormat().setFillType(FillType.Solid);
         item.getFillFormat().getSolidFillColor().setColor(Color.RED);
     }
     
-    // Sparar presentationen
+    // Spara presentationen
     pres.save("TestSmart.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Generera en miniatyr av en SmartArt‑under‑nod**
-Utvecklare kan generera en miniatyr av en under‑nod i en SmartArt genom att följa stegen nedan:
+## **Generera en miniatyrbild av en SmartArt-nod**
+Utvecklare kan generera en miniatyrbild av en nod i en SmartArt genom att följa stegen nedan:
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation)‑klassen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation).
 1. [Lägg till SmartArt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISmartArtNodeCollection#addNode--).
-1. Hämta referensen till en nod med dess index.
+1. Hämta referensen till en nod genom att använda dess index.
 1. Hämta miniatyrbilden.
-1. Spara miniatyrbilden i önskat bildformat.
+1. Spara miniatyrbilden i valfritt bildformat.
 
 ```java
-// Instansiera Presentation-klass som representerar PPTX-filen 
+import com.aspose.slides.*;
+
+// Instansiera Presentation-klass som representerar PPTX-filen
 Presentation pres = new Presentation();
 try {
     // Lägg till SmartArt 
@@ -478,10 +501,10 @@ try {
     // Hämta referensen till en nod genom att använda dess index  
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
-    // Hämta miniatyr
+    // Hämta miniatyrbild
     IImage slideImage = node.getShapes().get_Item(0).getImage();
 
-    // Spara miniatyr
+    // Spara miniatyrbild
     try {
           slideImage.save("SmartArt_ChildNote_Thumbnail.png", ImageFormat.Png);
     } finally {
@@ -494,18 +517,18 @@ try {
 
 ## **FAQ**
 
-**Stöds SmartArt‑animation?**
+### Stöds SmartArt‑animation?
 
-Ja. SmartArt behandlas som en vanlig form, så du kan [tillämpa standardanimationer](/slides/sv/androidjava/shape-animation/) (ingång, avslutning, betoning, rörelsebanor) och justera tidpunkten. Du kan även animera former innanför SmartArt‑noder vid behov.
+Ja. SmartArt behandlas som en vanlig form, så du kan [tillämpa standardanimationer](/slides/sv/androidjava/shape-animation/) (ingång, avslut, betoning, rörelsespår) och justera tid. Du kan även animera former inom SmartArt‑noder när det behövs.
 
-**Hur kan jag på ett pålitligt sätt lokalisera en specifik SmartArt på en bild om dess interna ID är okänt?**
+### Hur kan jag på ett pålitligt sätt hitta en specifik SmartArt på en bild om dess interna ID är okänt?
 
-Tilldela och sök efter [alternativ text](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#getAlternativeText--). Genom att sätta en distinkt AltText på SmartArt kan du hitta den programatiskt utan att förlita dig på interna identifierare.
+Tilldela och sök med hjälp av [alternativ text](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#getAlternativeText--). Genom att sätta en distinkt AltText på SmartArt kan du hitta den programatiskt utan att förlita dig på interna identifierare.
 
-**Behåller SmartArt‑utseendet sin form när presentationen konverteras till PDF?**
+### Kommer SmartArt‑utseendet att bevaras vid konvertering av presentationen till PDF?
 
-Ja. Aspose.Slides renderar SmartArt med hög visuell trohet vid [PDF‑export](/slides/sv/androidjava/convert-powerpoint-to-pdf/), vilket bevarar layout, färger och effekter.
+Ja. Aspose.Slides renderar SmartArt med hög visuell likhet under [PDF‑export](/slides/sv/androidjava/convert-powerpoint-to-pdf/), vilket bevarar layout, färger och effekter.
 
-**Kan jag extrahera en bild av hela SmartArt (för förhandsvisningar eller rapporter)?**
+### Kan jag extrahera en bild av hela SmartArt (för förhandsvisningar eller rapporter)?
 
-Ja. Du kan rendera en SmartArt‑form till [rastformat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) eller till [SVG](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) för skalbar vektoroutput, vilket gör den lämplig för miniatyrer, rapporter eller webb.
+Ja. Du kan rendera en SmartArt‑form till [rasterformat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) eller till [SVG](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) för skalbar vektorutgång, vilket gör den lämplig för miniatyrer, rapporter eller webbbruk.

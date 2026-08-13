@@ -1,17 +1,18 @@
 ---
-title: Taşınabilir Belge Biçimi (PDF)
+title: Taşınabilir Belge Formatı (PDF)
 type: docs
 weight: 40
 url: /tr/java/portable-document-format-pdf/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-[Taşınabilir Belge Biçimi](https://en.wikipedia.org/wiki/PDF), Adobe Systems tarafından organizasyonlar arasında belge alışverişi için oluşturulan bir dosya formatıdır. Bu formatın amacı, içeriği ve düzeni, görüntülendiği platformdan bağımsız olarak aynı tutmaktı. Aspose.Slides for Java, sunum dosyalarını PDF'ye dönüştürmenizi sağlar.
+[Taşınabilir Belge Formatı](https://en.wikipedia.org/wiki/PDF), Adobe Systems tarafından kuruluşlar arasında belge alışverişi için oluşturulan bir dosya formatıdır. Formatın amacı, içeriği ve düzeni platformdan bağımsız olarak aynı tutmaktı. Aspose.Slides for Java, sunum dosyalarını PDF'ye dönüştürmenizi sağlar.
 
 {{% /alert %}} 
 
 ## **Aspose.Slides for Java'da PDF**
-Aspose.Slides for Java'ye yüklenebilen herhangi bir sunum, seçiminize bağlı olarak [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) veya [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) standardına uygun bir PDF'ye dönüştürülebilir. Aspose.Slides for Java, sunumları PDF olarak dışa aktarır ve çoğu durumda, oluşturulan PDF orijinal sunuma birebir benzer.
+
+Aspose.Slides for Java'ya yüklenebilen herhangi bir sunum, tercihine bağlı olarak [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) veya [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) standartlarına uygun bir PDF'ye dönüştürülebilir. Aspose.Slides for Java, sunumları PDF'ye dışa aktarır ve çoğu durumda, oluşturulan PDF orijinal sunuma tamamen benzer.
 
 Aspose.Slides, PDF'ye dönüştürürken aşağıdaki sunum özelliklerini destekler:
 
@@ -23,9 +24,9 @@ Aspose.Slides, PDF'ye dönüştürürken aşağıdaki sunum özelliklerini deste
 - Madde işaretleri.
 - Tablolar.
 
-Aspose.Slides for Java kullanarak sunumları doğrudan PDF olarak dışa aktarabilirsiniz; başka bir bileşen gerekmez. Ayrıca, PDF dışa aktarımını [PDF'ye Dönüştürme](/slides/tr/java/converting-a-presentation/) bölümünde açıklandığı gibi çeşitli seçeneklerle özelleştirebilirsiniz.
+Aspose.Slides for Java kullanarak sunumları doğrudan PDF'ye dışa aktarabilirsiniz: başka bir bileşene ihtiyacınız yoktur. Ayrıca, [PDF'ye Dönüştürme](/slides/tr/java/converting-a-presentation/) bölümünde açıklandığı gibi, çeşitli seçeneklerle PDF dışa aktarma işlemini özelleştirebilirsiniz.
 
-**Giriş sunumu** 
+**Girdi sunumu** 
 
 ![todo:image_alt_text](portable-document-format-pdf_1.png)
 

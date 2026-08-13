@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Java 14.9.0'da Genel API ve Geriye Dönük Uyumsuz Değişiklikler
+title: Aspose.Slides for Java 14.9.0'da Kamu API'sı ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for Java 14.9.0
 type: docs
 weight: 80
@@ -15,76 +15,90 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for Java'daki kamu API güncellemelerini ve geriye uyumsuz değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-Bu sayfa, Aspose.Slides for Java 14.9.0 API'siyle tanıtılan tüm [eklenmiş](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) sınıfları, metodları, özellikleri ve benzerlerini, yeni kısıtlamaları ve diğer [değişiklikleri](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) listeler.
+{{% alert color="info" %}} 
+
+Bu sayfa, Aspose.Slides for Java 14.9.0 API'sı ile tanıtılan tüm [eklenmiş](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) sınıfları, yöntemleri, özellikleri vb., yeni kısıtlamaları ve diğer [değişiklikler](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) listeler.
+
 {{% /alert %}} 
-## **Public API Changes**
-### **PPImage, IPPImage İçin Görüntü Değiştirmeye Yönelik Eklenen Metodlar**
-Yeni eklenen metodlar:
+## **Kamu API Değişiklikleri**
+### **PPImage, IPPImage İçin Görüntü Değiştirme Yöntemleri Eklendi**
+Yeni eklenen yöntemler:
 
 - IPPImage.replaceImage(byte[] newImageData)
 - IPPImage.replaceImage(IPPImage newImage)
 
 ``` java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
- Presentation presentation = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    // İlk yöntem
+    byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+    presentation.getImages().get_Item(0).replaceImage(imageData);
 
-//İlk yol
+    // İkinci yöntem
+    presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
 
-byte[] imageData = // ...
-
-presentation.getImages().get_Item(0).replaceImage(imageData);
-
-//İkinci yol
-
-presentation.getImages().get_Item(1).replaceImage(
-
-    presentation.getImages().get_Item(0));
-
-presentation.save("presentation_out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **Sayfa Numaralarını Koruyarak Slaytları Kaydetmeye Yönelik Eklenen Metodlar**
-Aşağıdaki metodlar eklendi:
+### **Sayfa Numaralarını Koruyarak Slaytları Kaydetme Yöntemleri Eklendi**
+Aşağıdaki yöntemler eklendi:
 
 - void IPresentation.save(string fname, int[] slides, SaveFormat format);
 - void IPresentation.save(string fname, int[] slides, SaveFormat format, ISaveOption options);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-Bu metodlar, belirtilen sunum slaytlarını PDF, XPS, TIFF, HTML formatlarında kaydetmeye olanak tanır. 'slides' dizisi, 1'den başlayan sayfa numaralarını belirtmek için kullanılır.
+Bu yöntemler, belirtilen sunum slaytlarını PDF, XPS, TIFF, HTML formatlarında kaydetmeye olanak tanır. 'slides' dizisi, sayfa numaralarını 1'den başlayarak belirtmeye izin verir.
 
 ``` java
-
- save(string fname, int[] slides, SaveFormat format);
-
+// IPresentation'a eklenen aşırı yüklemeler (SaveFormat değerleri Java'da int sabitleridir):
+//
+// void save(String fname, int[] slides, int format);
+// void save(String fname, int[] slides, int format, ISaveOptions options);
+// void save(OutputStream stream, int[] slides, int format);
+// void save(OutputStream stream, int[] slides, int format, ISaveOptions options);
 ```
 
 
 
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation presentation = new Presentation(presentationFileName);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int[] slides = new int[] { 2, 3, 5 }; // Slayt konumlarının dizisi
 
-int[] slides = new int[] { 2, 3, 5 }; //Slayt konumlarının dizisi
-
-presentation.save(outFileName, slides, SaveFormat.Pdf);
-
+    presentation.save("presentation_out.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 ### **SmartArtLayoutType.Custom Enum Değeri Eklendi**
-Bu SmartArt düzeni türü, özel şablonlu bir diyagramı temsil eder. Özel diyagramlar yalnızca sunum dosyasından yüklenebilir ve ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom) metodu ile oluşturulamaz.
+Bu SmartArt düzeni türü, özel şablonlu diyagramı temsil eder. Özel diyagramlar yalnızca sunum dosyasından yüklenebilir ve ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom) yöntemiyle oluşturulamaz.
 ### **SmartArtShape Sınıfı ve ISmartArtShape Arayüzü Eklendi**
-Aspose.Slides.SmartArt.SmartArtShape sınıfı (ve arayüzü Aspose.Slides.SmartArt.ISmartArtShape), SmartArt diyagramı içindeki bireysel şekillere erişim sağlar. SmartArtShape, FillFormat, LineFormat değiştirmek, köprü eklemek vb. için kullanılabilir.
+Aspose.Slides.SmartArt.SmartArtShape sınıfı (ve Aspose.Slides.SmartArt.ISmartArtShape arayüzü) SmartArt diyagramı içindeki bireysel şekillere erişim sağlar. SmartArtShape, FillFormat, LineFormat değiştirme, Hipermetin ekleme vb. için kullanılabilir.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
+
 SmartArtShape, IShape özellikleri RawFrame, Frame, Rotation, X, Y, Width, Height'ı desteklemez ve bunlara erişilmeye çalışıldığında System.NotSupportedException fırlatır.
+
 {{% /alert %}} 
+
 Kullanım örneği:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 
@@ -105,14 +119,22 @@ for (ISmartArtShape shape : node.getShapes())
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **SmartArtShapeCollection Sınıfı, ISmartArtShapeCollection Arayüzü ve ISmartArtNode.getShapes() Metodu Eklendi**
-Aspose.Slides.SmartArt.SmartArtShapeCollection sınıfı (ve arayüzü Aspose.Slides.SmartArt.ISmartArtShapeCollection), SmartArt diyagramı içindeki bireysel şekillere erişim sağlar. Koleksiyon, SmartArtNode ile ilişkili şekilleri içerir. SmartArtNode.Shapes özelliği, düğümle ilişkili tüm şekillerin koleksiyonunu döndürür.
+### **SmartArtShapeCollection sınıfı, ISmartArtShapeCollection arayüzü ve ISmartArtNode.getShapes() yöntemi eklendi**
+Aspose.Slides.SmartArt.SmartArtShapeCollection sınıfı (ve Aspose.Slides.SmartArt.ISmartArtShapeCollection arayüzü) SmartArt diyagramı içindeki bireysel şekillere erişim sağlar. Koleksiyon, SmartArtNode ile ilişkili şekilleri içerir. SmartArtNode.Shapes özelliği, düğümle ilişkili tüm şekillerin koleksiyonunu döndürür.
 
-{{% alert color="primary" %}} 
-SmartArtLayoutType'a bağlı olarak, bir SmartArtShape birden fazla düğüm arasında paylaşılabilir.
+{{% alert color="info" %}} 
+
+SmartArtLayoutType'a bağlı olarak bir SmartArtShape birden fazla düğüm arasında paylaşılabilir.
+
 {{% /alert %}} 
 
+
+
+
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 

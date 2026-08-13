@@ -14,29 +14,29 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Microsoft Office otomasyonundan Aspose.Slides for Java'a geçiş yapın ve Java'da temiz, güvenilir kodla yeni PowerPoint (PPT, PPTX) sunumları oluşturun."
+description: "Microsoft Office otomasyonundan Aspose.Slides for Java'ya geçiş yapın ve temiz, güvenilir kod ile Java'da yeni PowerPoint (PPT, PPTX) sunumları oluşturun."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-VSTO, geliştiricilerin Microsoft Office içinde çalışabilen uygulamalar oluşturmasına olanak sağlamak için geliştirildi. VSTO, COM tabanlıdır ancak .NET uygulamalarında kullanılabilmesi için bir .NET nesnesi içinde paketlenmiştir. VSTO, .NET framework desteğinin yanı sıra Microsoft Office CLR tabanlı çalışma zamanını da gerektirir. Microsoft Office eklentileri oluşturmak için kullanılabilse de sunucu tarafı bir bileşen olarak neredeyse imkânsızdır. Ayrıca ciddi dağıtım sorunları vardır.
+VSTO, geliştiricilerin Microsoft Office içinde çalışabilen uygulamalar oluşturmasını sağlamak için geliştirildi. VSTO COM tabanlıdır ancak .NET uygulamalarında kullanılabilmesi için bir .NET nesnesi içinde sarılmıştır. VSTO, .NET Framework desteği ve Microsoft Office CLR tabanlı çalışma zamanına ihtiyaç duyar. Microsoft Office eklentileri oluşturmak için kullanılabilmesine rağmen sunucu tarafı bir bileşen olarak kullanılması neredeyse imkânsızdır. Ayrıca ciddi dağıtım sorunları vardır.
 
-Aspose.Slides for Java, Microsoft PowerPoint sunumlarını VSTO gibi manipüle edebilen bir bileşendir, ancak birkaç avantaja sahiptir:
+Aspose.Slides for Java, Microsoft PowerPoint sunumlarını VSTO gibi manipüle edebilen bir bileşendir, ancak birkaç avantajı vardır:
 
-- Aspose.Slides yalnızca yönetilen kod içerir ve Microsoft Office çalışma zamanının yüklü olmasını gerektirmez.
-- İstemci tarafı bileşeni veya sunucu tarafı bileşeni olarak kullanılabilir.
+- Aspose.Slides sadece yönetilen kod içerir ve Microsoft Office çalışma zamanının kurulmasını gerektirmez.
+- İstemci tarafı bileşen veya sunucu tarafı bileşen olarak kullanılabilir.
 - Aspose.Slides tek bir jar dosyasında bulunduğu için dağıtımı kolaydır.
 
 {{% /alert %}} 
 ## **Sunum Oluşturma**
-Aşağıda VSTO ve Aspose.Slides for Java’nun aynı hedefe nasıl ulaşabileceğini gösteren iki kod örneği bulunmaktadır. İlk örnek [VSTO](/slides/tr/java/create-a-new-presentation/); [ikinci örnek](/slides/tr/java/create-a-new-presentation/) Aspose.Slides kullanır.
+Aşağıda VSTO ve Aspose.Slides for Java'nun aynı hedefe nasıl ulaşabileceğini gösteren iki kod örneği bulunmaktadır. İlk örnek [VSTO](/slides/tr/java/create-a-new-presentation/); [ikinci örnek](/slides/tr/java/create-a-new-presentation/) Aspose.Slides kullanır.
 ### **VSTO Örneği**
-**VSTO çıktısı** 
+**VSTO Çıktısı** 
 
 ![todo:image_alt_text](create-a-new-presentation_1.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddVSTOPresentation-AddVSTOPresentation.cs" >}}
 ### **Aspose.Slides for Java Örneği**
-**Aspose.Slides çıktısı** 
+**Aspose.Slides Çıktısı** 
 
 ![todo:image_alt_text](create-a-new-presentation_2.png)
 

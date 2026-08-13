@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentationshintergründen auf Android
+title: Präsentationshintergründe auf Android verwalten
 linktitle: Folienhintergrund
 type: docs
 weight: 20
@@ -18,26 +18,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie dynamische Hintergründe in PowerPoint- und OpenDocument-Dateien mithilfe von Aspose.Slides für Android in Java festlegen, mit Code-Tipps zur Verbesserung Ihrer Präsentationen."
+description: "Erfahren Sie, wie Sie dynamische Hintergründe in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides für Android über Java festlegen, mit Code‑Tipps zur Verbesserung Ihrer Präsentationen."
 ---
+## **Einführung**
 
-## **Übersicht**
-
-Einfarbige Farben, Farbverläufe und Bilder werden häufig für Folienhintergründe verwendet. Sie können den Hintergrund für eine **normale Folie** (eine einzelne Folie) oder eine **Masterfolie** (gilt gleichzeitig für mehrere Folien) festlegen.
+Einfarbige Farben, Verläufe und Bilder werden häufig für Folienhintergründe verwendet. Sie können den Hintergrund für eine **normale Folie** (eine einzelne Folie) oder eine **Masterfolie** (gilt für mehrere Folien gleichzeitig) festlegen.
 
 ![PowerPoint-Hintergrund](powerpoint-background.png)
 
 ## **Einfarbigen Hintergrund für eine normale Folie festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, eine einfarbige Farbe als Hintergrund für eine bestimmte Folie in einer Präsentation festzulegen – selbst wenn die Präsentation eine Masterfolie verwendet. Die Änderung wirkt sich nur auf die ausgewählte Folie aus.
+Aspose.Slides ermöglicht das Festlegen einer einfarbigen Farbe als Hintergrund für eine bestimmte Folie in einer Präsentation – selbst wenn die Präsentation eine Masterfolie verwendet. Die Änderung wirkt nur auf die ausgewählte Folie.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
-3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) auf `Solid`.
-4. Verwenden Sie die [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) Methode auf [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/), um die einfarbige Hintergrundfarbe anzugeben.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund-[FillType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/filltype/) auf `Solid`.
+4. Verwenden Sie die Methode [getSolidFillColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) von [FillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/) , um die einfarbige Hintergrundfarbe festzulegen.
 5. Speichern Sie die geänderte Präsentation.
 
+Das folgende Java‑Beispiel zeigt, wie man eine blaue einfarbige Farbe als Hintergrund für eine normale Folie festlegt:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Erstelle eine Instanz der Presentation-Klasse.
 Presentation presentation = new Presentation();
 try {
@@ -48,54 +52,62 @@ try {
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     
-    // Speichere die Präsentation auf dem Datenträger.
+    // Speichere die Präsentation auf der Festplatte.
     presentation.save("SolidColorBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 ## **Einfarbigen Hintergrund für eine Masterfolie festlegen**
 
-Aspose.Slides ermöglicht es Ihnen, eine einfarbige Farbe als Hintergrund für die Masterfolie in einer Präsentation festzulegen. Die Masterfolie fungiert als Vorlage, die die Formatierung aller Folien steuert. Wenn Sie also eine einfarbige Hintergrundfarbe für die Masterfolie wählen, wird sie auf jede Folie angewendet.
+Aspose.Slides ermöglicht das Festlegen einer einfarbigen Farbe als Hintergrund für die Masterfolie in einer Präsentation. Die Masterfolie dient als Vorlage, die die Formatierung für alle Folien steuert, sodass beim Auswählen einer einfarbigen Hintergrundfarbe für die Masterfolie dieser Hintergrund auf jeder Folie angewendet wird.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) der Masterfolie (via `getMasters`) auf `OwnBackground`.
-3. Setzen Sie den Masterfolienhintergrund [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) auf `Solid`.
-4. Verwenden Sie die [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) Methode, um die einfarbige Hintergrundfarbe anzugeben.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/backgroundtype/) der Masterfolie (über `getMasters`) auf `OwnBackground`.
+3. Setzen Sie den Hintergrund-[FillType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/filltype/) der Masterfolie auf `Solid`.
+4. Verwenden Sie die Methode [getSolidFillColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) , um die einfarbige Hintergrundfarbe festzulegen.
 5. Speichern Sie die geänderte Präsentation.
 
+Das folgende Java‑Beispiel zeigt, wie man eine einfarbige (grüne) Farbe als Hintergrund für eine Masterfolie festlegt:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Erstelle eine Instanz der Presentation-Klasse.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Setze die Hintergrundfarbe der Masterfolie auf Waldgrün.
+    // Setze die Hintergrundfarbe für die Masterfolie auf Grün.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
 
-    // Speichere die Präsentation auf dem Datenträger.
+    // Speichere die Präsentation auf der Festplatte.
     presentation.save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Verlaufs‑Hintergrund für eine Folie festlegen**
 
-## **Farbverlauf‑Hintergrund für eine Folie festlegen**
+Ein Verlauf ist ein grafischer Effekt, der durch einen allmählichen Farbwechsel entsteht. Als Folienhintergrund eingesetzt, können Verläufe Präsentationen künstlerischer und professioneller wirken lassen. Aspose.Slides ermöglicht das Festlegen einer Verlaufsfarbe als Hintergrund für Folien.
 
-Ein Farbverlauf ist ein grafischer Effekt, der durch einen allmählichen Farbwechsel entsteht. Als Folienhintergrund eingesetzt, können Farbverläufe Präsentationen künstlerischer und professioneller erscheinen lassen. Aspose.Slides ermöglicht es Ihnen, eine Verlauf‑Farbe als Hintergrund für Folien festzulegen.
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
-3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) auf `Gradient`.
-4. Verwenden Sie die [getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) Methode auf [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/), um Ihre gewünschten Verlaufseinstellungen zu konfigurieren.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund-[FillType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/filltype/) auf `Gradient`.
+4. Verwenden Sie die Methode [getGradientFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) von [FillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/) , um Ihre bevorzugten Verlaufs‑Einstellungen zu konfigurieren.
 5. Speichern Sie die geänderte Präsentation.
 
+Das folgende Java‑Beispiel zeigt, wie man eine Verlauffarbe als Hintergrund für eine Folie festlegt:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Erstelle eine Instanz der Presentation-Klasse.
 Presentation presentation = new Presentation();
 try {
@@ -104,35 +116,44 @@ try {
     // Wende einen Verlaufseffekt auf den Hintergrund an.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
 
-    // Speichere die Präsentation auf dem Datenträger.
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Füge die Verlaufsfarben hinzu. Ohne Verlaufsstopps fällt der Hintergrund auf eine Standard-Schwarz-zu-weiß-Rampe zurück.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
+
+    // Speichere die Präsentation auf der Festplatte.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
-## **Ein Bild als Folienhintergrund festlegen**
+## **Bild als Folienhintergrund festlegen**
 
 Zusätzlich zu einfarbigen und Verlauf‑Füllungen ermöglicht Aspose.Slides die Verwendung von Bildern als Folienhintergründe.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) Klasse.
-2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
-3. Setzen Sie den Folienhintergrund [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) auf `Picture`.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) .
+2. Setzen Sie den [BackgroundType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/backgroundtype/) der Folie auf `OwnBackground`.
+3. Setzen Sie den Folienhintergrund-[FillType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/filltype/) auf `Picture`.
 4. Laden Sie das Bild, das Sie als Folienhintergrund verwenden möchten.
-5. Fügen Sie das Bild zur Bildsammlung der Präsentation hinzu.
-6. Verwenden Sie die [getPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) Methode auf [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/), um das Bild als Hintergrund zuzuweisen.
+5. Fügen Sie das Bild der Bildsammlung der Präsentation hinzu.
+6. Verwenden Sie die Methode [getPictureFillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) von [FillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/) , um das Bild als Hintergrund zuzuweisen.
 7. Speichern Sie die geänderte Präsentation.
 
+Das folgende Java‑Beispiel zeigt, wie man ein Bild als Hintergrund für eine Folie festlegt:
+
 ```java
+import com.aspose.slides.*;
+
 // Erstelle eine Instanz der Presentation-Klasse.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Setze die Hintergrundbild-Eigenschaften.
+    // Setze Bildhintergrund-Eigenschaften.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Picture);
     slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
@@ -145,15 +166,18 @@ try {
 
     slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(ppImage);
     
-    // Speichere die Präsentation auf dem Datenträger.
+    // Speichere die Präsentation auf der Festplatte.
     presentation.save("ImageAsBackground.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Das folgende Code‑Beispiel zeigt, wie man den Hintergrund‑Fülltyp auf ein gekacheltes Bild setzt und die Kachel‑Eigenschaften anpasst:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -167,11 +191,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // Das für die Hintergrundfüllung verwendete Bild festlegen.
+    // Setze das für die Hintergrundfüllung verwendete Bild.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Bildfüllmodus auf Kachel setzen und die Kacheleigenschaften anpassen.
+    // Setze den Bildfüllmodus auf Kachel und passe die Kacheleigenschaften an.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -186,46 +210,60 @@ try {
 }
 ```
 
-
-{{% alert color="primary" %}}
-Mehr erfahren: [**Kachelbild als Textur**](/slides/de/androidjava/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Mehr lesen: [**Kachelbild als Textur**](/slides/de/androidjava/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Transparenz des Hintergrundbildes ändern**
 
-Sie möchten eventuell die Transparenz des Hintergrundbildes einer Folie anpassen, damit der Inhalt der Folie besser hervorsticht. Der folgende Java‑Code zeigt, wie Sie die Transparenz eines Folienhintergrundbildes ändern können:
+Vielleicht möchten Sie die Transparenz des Hintergrundbildes einer Folie anpassen, damit der Inhalt der Folie besser hervorsticht. Der folgende Java‑Code zeigt, wie Sie die Transparenz eines Folien‑Hintergrundbildes ändern können:
+
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Zum Beispiel.
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Hole die Sammlung von Bild-Transformationsoperationen.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Finde einen vorhandenen Transparenzeffekt mit fester Prozentzahl.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Setze den neuen Transparenzwert.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("TransparentBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-
 ## **Wert des Folienhintergrunds abrufen**
 
-Aspose.Slides stellt das Interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/) zur Verfügung, um die effektiven Hintergrundwerte einer Folie abzurufen. Dieses Interface gibt den effektiven [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) und [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) zurück.
+Aspose.Slides stellt das Interface [IBackgroundEffectiveData](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ibackgroundeffectivedata/) zur Verfügung, um die effektiven Hintergrundwerte einer Folie abzurufen. Dieses Interface gibt das effektive [FillFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) und [EffectFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) frei.
 
-Verwenden Sie die `getBackground`‑Methode der Klasse [BaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/), um den effektiven Hintergrund einer Folie zu erhalten.
+Mit der `getBackground`‑Methode der Klasse [BaseSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/baseslide/) können Sie den effektiven Hintergrund einer Folie erhalten.
+
+Das folgende Java‑Beispiel zeigt, wie man den effektiven Hintergrundwert einer Folie abruft:
 
 ```java
+import com.aspose.slides.*;
+
 // Erstelle eine Instanz der Presentation-Klasse.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
@@ -243,13 +281,12 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Kann ich einen benutzerdefinierten Hintergrund zurücksetzen und den Theme-/Layout‑Hintergrund wiederherstellen?**
+### Kann ich einen benutzerdefinierten Hintergrund zurücksetzen und den Theme-/Layout‑Hintergrund wiederherstellen?
 
-Ja. Entfernen Sie die benutzerdefinierte Füllung der Folie, und der Hintergrund wird wieder vom zugehörigen [Layout](/slides/de/androidjava/slide-layout/)/[Master](/slides/de/androidjava/slide-master/) übernommen (also vom [Theme‑Hintergrund](/slides/de/androidjava/presentation-theme/)).
+Ja. Entfernen Sie die benutzerdefinierte Füllung der Folie, und der Hintergrund wird wieder vom entsprechenden [Layout](/slides/de/androidjava/slide-layout/)/[Master](/slides/de/androidjava/slide-master/) (d. h. dem [Theme‑Hintergrund](/slides/de/androidjava/presentation-theme/)) übernommen.
 
-**Was passiert mit dem Hintergrund, wenn ich das Theme der Präsentation später ändere?**
+### Was passiert mit dem Hintergrund, wenn ich das Theme der Präsentation später ändere?
 
-Hat eine Folie ihre eigene Füllung, bleibt diese unverändert. Wird der Hintergrund vom [Layout](/slides/de/androidjava/slide-layout/)/[Master](/slides/de/androidjava/slide-master/) geerbt, wird er an das neue Theme angepasst.
+Wenn eine Folie ihre eigene Füllung hat, bleibt sie unverändert. Wenn der Hintergrund vom [Layout](/slides/de/androidjava/slide-layout/)/[Master](/slides/de/androidjava/slide-master/) geerbt wird, wird er aktualisiert, um dem [neuen Theme](/slides/de/androidjava/presentation-theme/) zu entsprechen.

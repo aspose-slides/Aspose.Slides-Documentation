@@ -1,6 +1,6 @@
 ---
-title: API عمومی و تغییرات ناسازگار با نسخه قبلی در Aspose.Slides برای Java 15.1.0
-linktitle: Aspose.Slides برای Java 15.1.0
+title: "API عمومی و تغییرات ناسازگار به سمت عقب در Aspose.Slides for Java نسخه 15.1.0"
+linktitle: "Aspose.Slides for Java 15.1.0"
 type: docs
 weight: 100
 url: /fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/
@@ -15,34 +15,35 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات شکسته‌کننده در Aspose.Slides برای Java را مرور کنید تا به‌صورت روان اسلایدهای PowerPoint PPT، PPTX و ODP خود را مهاجرت کنید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات شکسته‌کننده در Aspose.Slides for Java را بررسی کنید تا بتوانید به‌صورت روان ارائه‌های PowerPoint PPT، PPTX و ODP خود را مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-این صفحه تمام [added](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) کلاس‌ها، متدها، ویژگی‌ها و غیره، هر محدودیت جدید و سایر [changes](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) معرفی‌شده با Aspose.Slides برای Java 15.1.0 API را فهرست می‌کند.
+این صفحه تمام کلاس‌های [اضافه‌شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) ، متدها، خصوصیات و غیره، محدودیت‌های جدید و سایر [تغییرات](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) معرفی‌شده با Aspose.Slides for Java نسخه 15.1.0 API را فهرست می‌کند.
 
-{{% /alert %}} {{% alert color="primary" %}} 
+{{% /alert %}} {{% alert color="info" %}} 
 
-مشکلات شناخته‌شده‌ای در برخی از گلوله‌های تصویری و اشیای WordArt وجود دارد که در Aspose.Slides برای Java 15.2.0 برطرف خواهند شد.
+مسائل شناخته‌شده‌ای در برخی از گلوله‌های تصویری و اشیای WordArt وجود دارد که در Aspose.Slides for Java نسخه 15.2.0 برطرف خواهند شد.
 
 {{% /alert %}} 
 ## **تغییرات API عمومی**
 ### **قابلیت جایگزینی قلم‌ها اضافه شد**
-امکان جایگزینی قلم‌ها به صورت سراسری در سراسر ارائه و به صورت موقت برای رندرینگ اضافه شده است.
+امکان جایگزینی قلم‌ها به صورت سراسری در تمام ارائه و به‌صورت موقت برای رندرینگ اضافه شد.
 
-متد جدید getFontsManager() از کلاس Presentation معرفی شده است. کلاس FontsManager اعضای زیر را دارد:
+متد جدید **getFontsManager()** از کلاس **Presentation** معرفی شد. کلاس **FontsManager** دارای اعضای زیر است:
 
-**IFontSubstRuleCollection getFontSubstRuleList**() متد
+**IFontSubstRuleCollection getFontSubstRuleList**() متد  
+این مجموعه‌ای از نمونه‌های **IFontSubstRule** است که برای جایگزینی قلم‌ها هنگام رندرینگ استفاده می‌شود. **IFontSubstRule** دارای متدهای **getSourceFont()** و **getDestFont()** است که رابط **IFontData** را پیاده‌سازی می‌کنند و متد **getReplaceFontCondition()** که امکان انتخاب شرط جایگزینی را می‌دهد («WhenInaccessible» یا «Always»).
 
-این مجموعه ای از نمونه‌های IFontSubstRule است که برای جایگزینی قلم‌ها هنگام رندرینگ استفاده می‌شود. IFontSubstRule دارای متدهای getSourceFont() و getDestFont() است که واسط IFontData را پیاده‌سازی می‌کنند و متد getReplaceFontCondition() که امکان انتخاب شرایط جایگزینی را می‌دهد ("WhenInaccessible" یا "Always").
+**IFontData[] getFonts()** متد می‌تواند برای دریافت تمام قلم‌های استفاده‌شده در ارائهٔ فعلی مورد استفاده قرار گیرد.
 
-**IFontData[] getFonts()** متد می‌تواند برای بازیابی تمام قلم‌های استفاده‌شده در ارائه جاری استفاده شود.
+متدهای **replaceFont(...)** می‌توانند برای جایگزینی دائمی یک قلم در یک ارائه استفاده شوند.
 
-**replaceFont(...)** متدها می‌توانند برای جایگزینی دائم یک قلم در ارائه استفاده شوند.
-
-مثال زیر نحوه جایگزینی یک قلم در ارائه را نشان می‌دهد:
+مثال زیر نشان می‌دهد چگونه یک قلم را در یک ارائه جایگزین کنیم:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -56,29 +57,27 @@ pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
 ```
 
-مثال دیگری نشان می‌دهد که چگونه برای رندرینگ هنگام عدم دسترسی به قلم، جایگزینی قلم انجام شود:
+مثال دیگر، جایگزینی قلم برای رندرینگ زمانی که در دسترس نیست را نشان می‌دهد:
 
 ``` java
-
-
+import com.aspose.slides.*;
 
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData destFont = new FontData("Arial");
 
-IFontData sourceFont = new FontData("SomeRareFont");
+    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
 
-IFontData destFont = new FontData("Arial");
+    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
 
-IFontSubstRule fontSubstRule = new FontSubstRule(
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
-sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-fontSubstRuleCollection.add(fontSubstRule);
-
-pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-
-// فونت Arial به جای SomeRareFont در صورت عدم دسترسی استفاده می‌شود
-
-pres.getSlides().get_Item(0).getThumbnail(1, 1);
+    // فونت Arial به جای SomeRareFont وقتی در دسترس نیست استفاده خواهد شد.
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

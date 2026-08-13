@@ -1,5 +1,5 @@
 ---
-title: API pubbliche e modifiche retroattive incompatibili in Aspose.Slides per Java 15.1.0
+title: API pubbliche e modifiche incompatibili retroattive in Aspose.Slides per Java 15.1.0
 linktitle: Aspose.Slides per Java 15.1.0
 type: docs
 weight: 100
@@ -15,34 +15,31 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Esamina gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per Java per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Revisiona gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per Java per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Questa pagina elenca tutte le classi, i metodi, le proprietà e così via [added](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/), eventuali nuove restrizioni e altre [changes](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) introdotte con l'API Aspose.Slides for Java 15.1.0.
-
-{{% /alert %}} {{% alert color="primary" %}} 
-
+{{% /alert %}} {{% alert color="info" %}} 
 Sono noti problemi con alcuni punti elenco immagine e oggetti WordArt che saranno corretti in Aspose.Slides for Java 15.2.0.
-
 {{% /alert %}} 
-## **Modifiche all'API pubblica**
-### **È stata aggiunta la funzionalità di sostituzione dei font**
-È stata aggiunta la possibilità di sostituire i font a livello globale nella presentazione e temporaneamente durante il rendering.
+## **Modifiche API pubbliche**
+### **È stata aggiunta la funzionalità di sostituzione dei caratteri**
+È stata aggiunta la possibilità di sostituire i caratteri globalmente in tutta la presentazione e temporaneamente durante il rendering.
 
-È stato introdotto il nuovo metodo getFontsManager() della classe Presentation. La classe FontsManager ha i seguenti membri:
+È stato introdotto il nuovo metodo getFontsManager() della classe Presentation. La classe FontsManager dispone dei seguenti membri:
 
-**IFontSubstRuleCollection getFontSubstRuleList**() method
+**IFontSubstRuleCollection getFontSubstRuleList**() method  
+Questo è la raccolta di istanze IFontSubstRule utilizzate per sostituire i caratteri durante il rendering. IFontSubstRule dispone dei metodi getSourceFont() e getDestFont() che implementano l'interfaccia IFontData e del metodo getReplaceFontCondition() che consente di scegliere la condizione di sostituzione ("WhenInaccessible" o "Always").
 
-Questa è la raccolta di istanze IFontSubstRule utilizzate per sostituire i font durante il rendering. IFontSubstRule dispone dei metodi getSourceFont() e getDestFont() che implementano l'interfaccia IFontData e del metodo getReplaceFontCondition() che consente di scegliere la condizione di sostituzione (“WhenInaccessible” o “Always”).
+**IFontData[] getFonts**() method can be used to retrieve all fonts used in the current presentation.
 
-**IFontData[] getFonts()** method può essere usato per recuperare tutti i font utilizzati nella presentazione corrente.
+**replaceFont(...)** methods can be used to persistently replace a font in a presentation.  
 
-**replaceFont(...)** methods possono essere usati per sostituire in modo persistente un font in una presentazione. 
-
-Il seguente esempio mostra come sostituire un font in una presentazione:
+The following example shows how to replace a font in a presentation:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -56,28 +53,27 @@ pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
 ```
 
-Un altro esempio mostra la sostituzione dei font per il rendering quando il font non è accessibile:
+Another example, shows font substitution for rendering when it is inaccessible:
 
 ``` java
-
+import com.aspose.slides.*;
 
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData destFont = new FontData("Arial");
 
-IFontData sourceFont = new FontData("SomeRareFont");
+    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
 
-IFontData destFont = new FontData("Arial");
+    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
 
-IFontSubstRule fontSubstRule = new FontSubstRule(
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
-sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-fontSubstRuleCollection.add(fontSubstRule);
-
-pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-
-// Il font Arial verrà utilizzato al posto di SomeRareFont quando non è accessibile
-
-pres.getSlides().get_Item(0).getThumbnail(1, 1);
+    // Il font Arial verrà usato al posto di SomeRareFont quando è inaccessibile.
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

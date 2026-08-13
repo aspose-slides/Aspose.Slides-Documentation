@@ -1,5 +1,5 @@
 ---
-title: API Pubbliche e Modifiche Incompatibili con Versioni Precedenti in Aspose.Slides per Java 16.1.0
+title: Modifiche all'API pubblica e incompatibili retroattive in Aspose.Slides per Java 16.1.0
 linktitle: Aspose.Slides per Java 16.1.0
 type: docs
 weight: 200
@@ -15,18 +15,20 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Esamina gli aggiornamenti dell'API pubblica e le modifiche breaking in Aspose.Slides per Java per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Rivedi gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per Java per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}}
-Questa pagina elenca tutte le classi, i metodi, le proprietà [added](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) o [removed](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) e così via, nonché le altre modifiche introdotte con l'API Aspose.Slides per Java 16.1.0.
-{{% /alert %}}
-## **Modifiche all'API Pubblica**
+{{% alert color="info" %}} 
+Questa pagina elenca tutte le classi, i metodi, le proprietà e così via [aggiunte](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) o [rimosse](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/), e le altre modifiche introdotte con l'API Aspose.Slides per Java 16.1.0.
+{{% /alert %}} 
+## **Modifiche all'API pubblica**
 
 #### **I metodi getRotationAngle() e setRotationAngle() sono stati aggiunti alle interfacce IChartTextBlockFormat e ITextFrameFormat**
-I metodi getRotationAngle() e setRotationAngle() sono stati aggiunti alle interfacce com.aspose.slides.IChartTextBlockFormat e com.aspose.slides.ITextFrameFormat.
-Essi consentono l'accesso alla rotazione personalizzata applicata al testo all'interno del riquadro di delimitazione.
+I metodi getRotationAngle() e setRotationAngle() sono stati aggiunti alle interfacce com.aspose.slides.IChartTextBlockFormat e com.aspose.slides.ITextFrameFormat.  
+Forniscono l'accesso alla rotazione personalizzata applicata al testo all'interno della casella di delimitazione.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

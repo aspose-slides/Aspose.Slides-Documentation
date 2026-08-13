@@ -20,29 +20,32 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeleri nasıl oluşturacağınızı ve biçimlendireceğinizi öğrenin."
+description: "Aspose.Slides for Java kullanarak PowerPoint ve OpenDocument sunumlarında madde işaretli, resimli, çok seviyeli ve numaralı listeler oluşturmayı ve biçimlendirmeyi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Java, PowerPoint ve OpenDocument sunumlarında madde işaretli ve numaralı listeler oluşturmanıza ve biçimlendirmenize olanak tanır. Bir liste öğesi, madde işareti ayarları paragraf biçimi aracılığıyla kontrol edilen bir paragraftır.
+Aspose.Slides for Java, PowerPoint ve OpenDocument sunumlarında madde işaretli ve numaralı listeler oluşturmanızı ve biçimlendirmenizi sağlar. Bir liste öğesi, madde işareti ayarları paragraf formatı aracılığıyla kontrol edilen bir paragraftır.
 
-Paragraf düzeyinde liste ayarlarına erişmek için [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getParagraphFormat--) metodunu kullanın. Ana giriş noktası, bir [IBulletFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/) nesnesi döndüren [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#getBullet--) metodudur. Bu nesneyle madde işareti türünü, sembolünü, resmini, rengini, boyutunu, numaralama stilini ve başlangıç sayısını ayarlayabilirsiniz.
+Paragraf düzeyindeki liste ayarlarına erişmek için [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/#getParagraphFormat--) yöntemini kullanın. Ana giriş noktası, bir [IBulletFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/) nesnesi döndüren [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#getBullet--) yöntemidir. Bu nesne ile madde işareti tipini, sembolünü, resmini, rengini, boyutunu, numaralandırma stilini ve başlangıç numarasını ayarlayabilirsiniz.
 
-Bu makale şunları gösterir:
+Bu makale aşağıdakileri gösterir:
 
 - özel bir sembolle madde işaretli bir liste oluşturma
 - resimli madde işareti oluşturma
 - paragraf derinliğini ayarlayarak çok seviyeli bir liste oluşturma
 - numaralı bir liste oluşturma
-- var olan bir sunumda liste biçimlendirmesini inceleme ve değiştirme
+- varolan bir sunumda liste biçimlendirmesini inceleme ve değiştirme
 
 ## **Madde İşaretli Liste Oluşturma**
 
-Madde işaretli bir liste oluşturmak için bir [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) nesnesine [IParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/) nesneleri ekleyin ve [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-byte-) metodunu [BulletType.Symbol](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/#Symbol) olarak ayarlayın. Ardından [IBulletFormat.setChar](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#getColor--) ve [IBulletFormat.setHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setHeight-float-) metodlarını kullanarak madde işareti görünümünü kontrol edebilirsiniz.
+Madde işaretli bir liste oluşturmak için bir [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) içine [IParagraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraph/) nesneleri ekleyin ve [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-byte-) özelliğini [BulletType.Symbol](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/#Symbol) olarak ayarlayın. Ardından madde işareti görünümünü kontrol etmek için [IBulletFormat.setChar](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#getColor--) ve [IBulletFormat.setHeight](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setHeight-float-) ayarlayabilirsiniz.
 
-Aşağıdaki Java kodu bir slaytta madde işaretli bir liste oluşturmayı gösterir:
+Aşağıdaki Java kodu, bir slaytta madde işaretli bir liste oluşturmayı gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -85,11 +88,13 @@ Sonuç:
 
 ## **Numaralı Liste Oluşturma**
 
-Öğelerin sırası önemli olduğunda numaralı listeler kullanın. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-byte-) metodunu [BulletType.Numbered](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/#Numbered) olarak ayarlayın. Ayrıca bir numaralandırma biçimi seçmek için [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) metodunu veya listenin 1 dışındaki bir değerden başlamasını istiyorsanız [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) metodunu kullanabilirsiniz.
+Sıra önemli olduğunda numaralı listeler kullanın. [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-byte-) özelliğini [BulletType.Numbered](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/#Numbered) olarak ayarlayın. Ayrıca [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) ile bir numaralandırma biçimi seçebilir veya listenin 1’den farklı bir değerden başlamasını istiyorsanız [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) özelliğini ayarlayabilirsiniz.
 
-Aşağıdaki Java kodu bir slaytta numaralı bir liste oluşturmayı gösterir:
+Aşağıdaki Java kodu, bir slaytta numaralı bir liste oluşturmayı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -125,23 +130,23 @@ Sonuç:
 
 ## **Resimli Madde İşareti Oluşturma**
 
-Aspose.Slides, normal bir madde işareti sembolünü bir görüntüyle değiştirmenize olanak tanır. Resimli madde işaretleri, küçük boyutta okunabilirliği koruyan basit görüntüler, örneğin simgeler veya küçük şeffaf PNG dosyaları ile en iyi şekilde çalışır.
+Aspose.Slides, normal bir madde işareti sembolünü bir görüntüyle değiştirmenize olanak tanır. Resimli madde işaretleri, küçük boyutta okunabilirliğini koruyan basit görüntüler, örneğin simgeler veya küçük şeffaf PNG dosyaları ile en iyi şekilde çalışır.
 
-{{% alert color="primary" %}}
-İdeal olarak, normal madde işareti sembolünü bir görüntüyle değiştirmeyi planlıyorsanız, şeffaf bir arka plana sahip basit bir grafik seçmek en iyisidir. Bu tür görüntüler, özel madde işareti sembolleri olarak iyi çalışır.
-
-Resmin çok küçük bir boyuta ölçeklendirileceğini unutmayın. Bu nedenle, madde işaretinde kullanılacak bir görselin net ve görsel olarak etkili kalmasını öneririz.
+{{% alert color="info" %}}
+İdeal olarak, normal madde işareti sembolünü bir görüntüyle değiştirmeyi planlıyorsanız, şeffaf bir arka plana sahip basit bir grafik seçmek en iyisidir. Bu tür görüntüler, özel madde işareti sembolleri olarak iyi sonuç verir.
 {{% /alert %}}
 
-Resimli bir madde işareti oluşturmak için bir görüntüyü [Presentation.getImages](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getImages--) metoduyla ekleyin ve döndürülen görüntü nesnesini [IBulletFormat.getPicture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#getPicture--) metoduna atayın. Görüntüyü atamadan önce [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-byte-) metodunu [BulletType.Picture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/#Picture) olarak ayarlayın.
+Resimli bir madde işareti oluşturmak için bir görüntüyü [Presentation.getImages](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getImages--) metoduna ekleyin ve döndürülen görüntü nesnesini [IBulletFormat.getPicture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#getPicture--) özelliğine atayın. Görüntüyü atamadan önce [IBulletFormat.setType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibulletformat/#setType-byte-) özelliğini [BulletType.Picture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/bullettype/#Picture) olarak ayarlayın.
 
 Diyelim ki elimizde bir "image.png" var:
 
 ![Madde işaretleri için bir resim](picture_for_bullets.png)
 
-Aşağıdaki Java kodu bir slaytta resimli madde işaretleri oluşturmayı gösterir:
+Aşağıdaki Java kodu, bir slaytta resimli madde işaretleri oluşturmayı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +185,13 @@ Sonuç:
 
 ## **Çok Seviyeli Liste Oluşturma**
 
-Liste öğelerini farklı seviyelerde yerleştirmek için [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setDepth-short-) metodunu kullanın. Seviye 0 en üst seviyedir, seviye 1 onun altında gömülüdür ve bu şekilde devam eder.
+Liste öğelerini farklı seviyelere yerleştirmek için [IParagraphFormat.setDepth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#setDepth-short-) özelliğini kullanın. Seviye 0 en üst seviyedir, seviye 1 onun altına gömülüdür ve bu şekilde devam eder.
 
-Aşağıdaki Java kodu çok seviyeli bir madde işaretli liste oluşturmayı gösterir:
+Aşağıdaki Java kodu, çok seviyeli madde işaretli bir liste oluşturmayı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -223,13 +230,15 @@ Sonuç:
 
 ![Çok seviyeli liste](multilevel_list.png)
 
-## **Mevcut Bir Listeyi Değiştirme**
+## **Varolan Bir Listeyi Değiştirme**
 
-Mevcut bir sunumda liste biçimlendirmesini değiştirmek için hedef paragrafı erişin ve [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını güncelleyin. Liste oluşturmak için kullanılan aynı özellikler, PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için de kullanılabilir.
+Varolan bir sunumda liste biçimlendirmesini değiştirmek için hedef paragrafı alın ve [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını güncelleyin. Listeleri oluştururken kullanılan aynı özellikler, PPT, PPTX veya ODP dosyasından yüklenen listeleri incelemek veya değiştirmek için de kullanılabilir.
 
-Aşağıdaki Java kodu bir metin çerçevesindeki ilk paragrafı numaralı liste stiline dönüştürür:
+Aşağıdaki Java kodu, bir metin çerçevesindeki ilk paragrafı numaralı liste stiline dönüştürür:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,16 +257,16 @@ try {
 }
 ```
 
-## **SSS**
+## **FAQ**
 
-**Madde işaretli ve numaralı listeler PDF ya da görüntülere dışa aktarılabilir mi?**
+### Madde işaretli ve numaralı listeler PDF veya görüntülere dışa aktarılabilir mi?
 
-Evet. Aspose.Slides, hedef format ilgili metin yerleşimini ve madde işareti özelliklerini destekliyorsa liste biçimlendirmesini korur.
+Evet. Aspose.Slides, hedef format ilgili metin düzeni ve madde işareti özelliklerini desteklediğinde liste biçimlendirmesini korur.
 
-**Mevcut sunumlarda listeleri düzenleyebilir miyim?**
+### Varolan sunumlarda listeleri düzenleyebilir miyim?
 
-Evet. Sunumu yükleyin, hedef paragrafı erişin, [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını inceleyin veya güncelleyin ve sunumu kaydedin.
+Evet. Sunumu yükleyin, hedef paragrafı alın, [IParagraphFormat.getBullet](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iparagraphformat/#getBullet--) ayarlarını inceleyin veya güncelleyin ve sunumu kaydedin.
 
-**Listeler Latin dışı metin içerebilir mi?**
+### Listeler Latin dışı metin içerebilir mi?
 
-Evet. Liste öğesi metni Unicode karakterler içerebilir, bu sayede çok dilli sunumlarda listeler oluşturabilirsiniz. Kullanılan yazı tiplerinin ihtiyaç duyduğunuz karakterleri desteklediğinden emin olun.
+Evet. Liste öğesi metni Unicode karakterler içerebilir, bu nedenle çok dilli sunumlarda listeler oluşturabilirsiniz. Sunumda kullanılan yazı tiplerinin ihtiyacınız olan karakterleri desteklediğinden emin olun.

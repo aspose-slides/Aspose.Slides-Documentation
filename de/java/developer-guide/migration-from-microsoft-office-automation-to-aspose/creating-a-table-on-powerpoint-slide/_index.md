@@ -1,35 +1,45 @@
 ---
-title: Erstellen einer Tabelle auf einer PowerPoint-Folie
+title: Tabellen mithilfe von VSTO und Aspose.Slides für Java erstellen
+linktitle: Tabellen erstellen
 type: docs
 weight: 50
 url: /de/java/creating-a-table-on-powerpoint-slide/
+keywords:
+- Tabelle erstellen
+- Migration
+- VSTO
+- Office-Automatisierung
+- PowerPoint
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Von der Microsoft Office-Automatisierung zu Aspose.Slides für Java migrieren und Tabellen in PowerPoint (PPT, PPTX)-Folien in Java mit flexibler Formatierung erstellen."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien anzuzeigen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/de/java/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für Java](/slides/de/java/creating-a-table-on-powerpoint-slide/).
+Tabellen werden häufig verwendet, um Daten in Präsentationsfolien darzustellen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15-Tabelle mit einer Schriftgröße von 10 erstellt, zuerst mit [VSTO 2008](/slides/de/java/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides for Java](/slides/de/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Tabellen erstellen**
-### **Beispiel VSTO 2008**
-Die folgenden Schritte fügen einer Microsoft PowerPoint-Folie mit VSTO eine Tabelle hinzu:
+### **VSTO 2008 Beispiel**
+Die folgenden Schritte fügen einer Microsoft PowerPoint-Folie mithilfe von VSTO eine Tabelle hinzu:
 
 1. Erstellen Sie eine Präsentation.
 1. Fügen Sie der Präsentation eine leere Folie hinzu.
-1. Fügen Sie der Folie eine 15 x 15 Tabelle hinzu.
-1. Fügen Sie jedem Zelle der Tabelle Text mit einer Schriftgröße von 10 hinzu.
-1. Speichern Sie die Präsentation auf der Festplatte.
+1. Fügen Sie der Folie eine 15 x 15-Tabelle hinzu.
+1. Fügen Sie jeder Tabellenzelle Text mit einer Schriftgröße von 10 hinzu.
+1. Speichern Sie die Präsentation auf dem Datenträger.
 
 
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateTableUsingVSTO-CreateTableUsingVSTO.cs" >}}
-### **Beispiel Aspose.Slides für Java**
-Die folgenden Schritte fügen einer Microsoft PowerPoint-Folie mit Aspose.Slides eine Tabelle hinzu:
+### **Aspose.Slides for Java Beispiel**
+Die folgenden Schritte fügen einer Microsoft PowerPoint-Folie mithilfe von Aspose.Slides eine Tabelle hinzu:
 
 1. Erstellen Sie eine Präsentation.
-1. Fügen Sie der ersten Folie eine 15 x 15 Tabelle hinzu.
-1. Fügen Sie jedem Zelle der Tabelle Text mit einer Schriftgröße von 10 hinzu.
-1. Schreiben Sie die Präsentation auf der Festplatte.
+1. Fügen Sie der ersten Folie eine 15 x 15-Tabelle hinzu.
+1. Fügen Sie jeder Tabellenzelle Text mit einer Schriftgröße von 10 hinzu.
+1. Schreiben Sie die Präsentation auf den Datenträger.
 
 
 

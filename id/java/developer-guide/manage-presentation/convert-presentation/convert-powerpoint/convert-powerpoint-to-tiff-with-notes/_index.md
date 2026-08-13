@@ -1,5 +1,5 @@
 ---
-title: Mengonversi Presentasi PowerPoint ke TIFF dengan Catatan di Java
+title: Konversi Presentasi PowerPoint ke TIFF dengan Catatan di Java
 linktitle: PowerPoint ke TIFF dengan Catatan
 type: docs
 weight: 100
@@ -27,40 +27,42 @@ keywords:
 - TIFF dengan catatan
 - Java
 - Aspose.Slides
-description: "Konversi presentasi PowerPoint ke TIFF dengan catatan menggunakan Aspose.Slides untuk Java. Pelajari cara mengekspor slide dengan catatan presenter secara efisien."
+description: "Konversi presentasi PowerPoint ke TIFF dengan catatan menggunakan Aspose.Slides for Java. Pelajari cara mengekspor slide dengan catatan pembicara secara efisien."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides for Java menyediakan solusi sederhana untuk mengonversi presentasi PowerPoint dan OpenDocument (PPT, PPTX, dan ODP) beserta catatan ke format TIFF. Format ini banyak digunakan untuk penyimpanan gambar berkualitas tinggi, pencetakan, dan pengarsipan dokumen. Dengan Aspose.Slides, Anda tidak hanya dapat mengekspor seluruh presentasi dengan catatan presenter tetapi juga menghasilkan thumbnail slide dalam tampilan Notes Slide. Proses konversi sederhana dan efisien, memanfaatkan metode `save` pada kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) untuk mengubah seluruh presentasi menjadi serangkaian gambar TIFF sambil mempertahankan catatan dan tata letaknya.
+Aspose.Slides for Java menyediakan solusi sederhana untuk mengonversi presentasi PowerPoint dan OpenDocument (PPT, PPTX, dan ODP) beserta catatan ke format TIFF. Format ini banyak digunakan untuk penyimpanan gambar berkualitas tinggi, pencetakan, dan pengarsipan dokumen. Dengan Aspose.Slides, Anda tidak hanya dapat mengekspor seluruh presentasi dengan catatan pembicara tetapi juga membuat thumbnail slide dalam tampilan Catatan Slide. Proses konversi sederhana dan efisien, memanfaatkan metode `save` dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) untuk mengubah seluruh presentasi menjadi serangkaian gambar TIFF sambil mempertahankan catatan dan tata letak.
 
 ## **Mengonversi Presentasi ke TIFF dengan Catatan**
 
-Menyimpan presentasi PowerPoint atau OpenDocument ke TIFF dengan catatan menggunakan Aspose.Slides for Java melibatkan langkah‑langkah berikut:
+Menyimpan presentasi PowerPoint atau OpenDocument ke TIFF dengan catatan menggunakan Aspose.Slides for Java melibatkan langkah-langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/): Muat file PowerPoint atau OpenDocument.  
-1. Atur opsi tata letak output: Gunakan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/notescommentslayoutingoptions/) untuk menentukan bagaimana catatan dan komentar ditampilkan.  
-1. Simpan presentasi ke TIFF: Kirimkan opsi yang telah dikonfigurasi ke metode [save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-).
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/): Muat file PowerPoint atau OpenDocument.
+1. Atur opsi tata letak keluaran: Gunakan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/notescommentslayoutingoptions/) untuk menentukan bagaimana catatan dan komentar ditampilkan.
+1. Simpan presentasi ke TIFF: Berikan opsi yang telah dikonfigurasi ke metode [save](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-).
 
 Misalkan kita memiliki file "speaker_notes.pptx" dengan slide berikut:
 
 ![The presentation slide with speaker notes](slide_with_notes.png)
 
-Potongan kode di bawah ini menunjukkan cara mengonversi presentasi ke gambar TIFF dalam tampilan Notes Slide menggunakan metode [setSlidesLayoutOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-).
+Potongan kode di bawah ini menunjukkan cara mengonversi presentasi ke gambar TIFF dalam tampilan Catatan Slide menggunakan metode [setSlidesLayoutOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-).
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+import com.aspose.slides.*;
+
+// Buat instance kelas Presentation yang mewakili file presentasi.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull); // Tampilkan catatan di bawah slide.
 
-    // Mengonfigurasi opsi TIFF dengan penataan Catatan.
+    // Konfigurasikan opsi TIFF dengan tata letak Catatan.
     TiffOptions tiffOptions = new TiffOptions();
     tiffOptions.setDpiX(300);
     tiffOptions.setDpiY(300);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Simpan presentasi ke TIFF dengan catatan presenter.
+    // Simpan presentasi ke TIFF dengan catatan pembicara.
     presentation.save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
@@ -71,20 +73,20 @@ Hasilnya:
 
 ![The TIFF image with speaker notes](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 Lihat Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/id/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah saya dapat mengontrol posisi area catatan pada TIFF yang dihasilkan?**
+### Bisakah saya mengontrol posisi area catatan dalam TIFF yang dihasilkan?
 
-Ya. Gunakan [notes layout settings](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) untuk memilih di antara opsi seperti `None`, `BottomTruncated`, atau `BottomFull`, yang masing‑masing menyembunyikan catatan, menyesuaikannya ke satu halaman, atau memungkinkan catatan meluas ke halaman tambahan.
+Ya. Gunakan [pengaturan tata letak catatan](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) untuk memilih di antara opsi seperti `None`, `BottomTruncated`, atau `BottomFull`, yang masing‑masing menyembunyikan catatan, menyesuaikannya ke satu halaman, atau membiarkan catatan berlanjut ke halaman tambahan.
 
-**Bagaimana cara mengurangi ukuran file TIFF dengan catatan tanpa kehilangan kualitas yang terlihat?**
+### Bagaimana cara mengurangi ukuran file TIFF dengan catatan tanpa kehilangan kualitas yang terlihat?
 
-Pilih [efficient compression](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) (misalnya `LZW` atau `RLE`), atur DPI yang wajar, dan bila memungkinkan, gunakan [pixel format](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) yang lebih rendah (seperti 8 bpp atau 1 bpp untuk monokrom). Mengurangi sedikit [image dimensions](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) juga dapat membantu tanpa mengurangi keterbacaan secara signifikan.
+Pilih [kompresi yang efisien](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) (misalnya `LZW` atau `RLE`), atur DPI yang wajar, dan bila dapat diterima, gunakan [format piksel](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) yang lebih rendah (seperti 8 bpp atau 1 bpp untuk monokrom). Mengurangi sedikit [dimensi gambar](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) juga dapat membantu tanpa mengurangi keterbacaan secara mencolok.
 
-**Apakah font pada catatan memengaruhi hasil jika font asli tidak tersedia di sistem?**
+### Apakah font dalam catatan memengaruhi hasil jika font asli tidak ada di sistem?
 
-Ya. Font yang hilang memicu [substitution](/slides/id/java/font-selection-sequence/), yang dapat mengubah metrik teks dan tampilan. Untuk menghindarinya, [supply the required fonts](/slides/id/java/custom-font/) atau atur [fallback font](/slides/id/java/fallback-font/) default sehingga tipe huruf yang dimaksud digunakan.
+Ya. Font yang hilang memicu [substitusi](/slides/id/java/font-selection-sequence/), yang dapat mengubah metrik teks dan tampilan. Untuk menghindarinya, [sediakan font yang diperlukan](/slides/id/java/custom-font/) atau atur [font fallback](/slides/id/java/fallback-font/) default sehingga jenis huruf yang diinginkan digunakan.

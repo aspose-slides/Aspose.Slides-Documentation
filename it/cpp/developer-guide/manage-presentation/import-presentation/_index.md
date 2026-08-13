@@ -5,10 +5,10 @@ type: docs
 weight: 60
 url: /it/cpp/import-presentation/
 keywords:
-- importa presentazione
-- importa diapositiva
-- importa PDF
-- importa HTML
+- importazione presentazione
+- importazione diapositiva
+- importazione PDF
+- importazione HTML
 - PDF a presentazione
 - PDF a PPT
 - PDF a PPTX
@@ -21,7 +21,7 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "Importa facilmente i documenti PDF e HTML in presentazioni PowerPoint e OpenDocument in C++ con Aspose.Slides per una gestione delle diapositive fluida e ad alte prestazioni."
+description: "Importa facilmente documenti PDF e HTML in presentazioni PowerPoint e OpenDocument in C++ con Aspose.Slides per una gestione delle diapositive fluida e ad alte prestazioni."
 ---
 ## **Introduzione**
 
@@ -29,7 +29,7 @@ Utilizzando [**Aspose.Slides for C++**](https://products.aspose.com/slides/it/cp
 
 ## **Importa PowerPoint da PDF**
 
-In questo caso, si può convertire un PDF in una presentazione PowerPoint.
+In questo caso, è possibile convertire un PDF in una presentazione PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
@@ -40,27 +40,43 @@ In questo caso, si può convertire un PDF in una presentazione PowerPoint.
 Questo codice C++ dimostra l'operazione di conversione da PDF a PowerPoint:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
     
 pres->get_Slides()->AddFromPdf(u"InputPDF.pdf");
 pres->Save(u"OutputPresentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert  title="Tip" color="primary" %}} 
-Potresti voler provare l'app web **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/it/import/pdf-to-powerpoint) perché è un'implementazione live del processo descritto qui. 
+{{% alert  title="Suggerimento" color="info" %}} 
+
+Potresti voler provare l'app web gratuita Aspose [PDF to PowerPoint](https://products.aspose.app/slides/it/import/pdf-to-powerpoint) perché è un'implementazione live del processo descritto qui. 
+
 {{% /alert %}} 
 
 ## **Importa PowerPoint da HTML**
 
-In questo caso, si può convertire un documento HTML in una presentazione PowerPoint.
+In questo caso, è possibile convertire un documento HTML in una presentazione PowerPoint.
 
-1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/). 
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation/) . 
 2. Chiamare il metodo [AddFromHtml()](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.slide_collection#ad4337f6be235c230d5d422a6799ef965) e passare il file HTML. 
 3. Utilizzare il metodo [Save()](https://reference.aspose.com/slides/it/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) per salvare il file nel formato PowerPoint.
 
 Questo codice C++ dimostra l'operazione di conversione da HTML a PowerPoint:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>();
 
 {
@@ -71,18 +87,19 @@ auto presentation = System::MakeObject<Presentation>();
 presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Puoi anche usare Aspose.Slides per convertire HTML in altri formati di file popolari: 
+{{% alert title="Nota" color="warning" %}} 
 
-* [HTML a immagine](https://products.aspose.com/slides/it/cpp/conversion/html-to-image/)
-* [HTML a JPG](https://products.aspose.com/slides/it/cpp/conversion/html-to-jpg/)
-* [HTML a XML](https://products.aspose.com/slides/it/cpp/conversion/html-to-xml/)
-* [HTML a TIFF](https://products.aspose.com/slides/it/cpp/conversion/html-to-tiff/)
+È inoltre possibile utilizzare Aspose.Slides per convertire HTML in altri formati di file popolari: 
+
+* [HTML in immagine](https://products.aspose.com/slides/it/cpp/conversion/html-to-image/)
+* [HTML in JPG](https://products.aspose.com/slides/it/cpp/conversion/html-to-jpg/)
+* [HTML in XML](https://products.aspose.com/slides/it/cpp/conversion/html-to-xml/)
+* [HTML in TIFF](https://products.aspose.com/slides/it/cpp/conversion/html-to-tiff/)
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Le tabelle vengono preservate durante l'importazione di un PDF e la loro rilevazione può essere migliorata?**
+### Le tabelle vengono preservate durante l'importazione di un PDF e la loro rilevazione può essere migliorata?
 
-Le tabelle possono essere rilevate durante l'importazione; [PdfImportOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.import/pdfimportoptions/) include il metodo [set_DetectTables](https://reference.aspose.com/slides/it/cpp/aspose.slides.import/pdfimportoptions/set_detecttables/) che abilita il riconoscimento delle tabelle. L'efficacia dipende dalla struttura del PDF.
+Le tabelle possono essere rilevate durante l'importazione; [PdfImportOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.import/pdfimportoptions/) include un metodo [set_DetectTables](https://reference.aspose.com/slides/it/cpp/aspose.slides.import/pdfimportoptions/set_detecttables/) che abilita il riconoscimento delle tabelle. L'efficacia dipende dalla struttura del PDF.

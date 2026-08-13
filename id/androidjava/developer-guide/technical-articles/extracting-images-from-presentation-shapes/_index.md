@@ -1,5 +1,5 @@
 ---
-title: Mengekstrak Gambar dari Bentuk Presentasi di Android via Java
+title: Ekstrak Gambar dari Bentuk Presentasi di Android via Java
 linktitle: Gambar dari Bentuk
 type: docs
 weight: 100
@@ -13,21 +13,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Mengekstrak gambar dari bentuk dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Android via Java - solusi cepat dan ramah kode."
+description: "Ekstrak gambar dari bentuk dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Android via Java - solusi cepat dan ramah kode."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Gambar dalam presentasi dapat muncul dalam beberapa jenis bentuk: sebagai bingkai gambar biasa, sebagai isian gambar yang diterapkan pada bentuk, sebagai gambar pratinjau objek OLE, sebagai gambar miniatur bingkai video atau audio, sebagai gambar zoom, atau sebagai gambar yang bersarang di dalam bentuk tabel, diagram, dan SmartArt. Aspose.Slides menyimpan gambar‑gambar tersebut dalam koleksi gambar presentasi, yang dapat diakses melalui [IImageCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimagecollection/) dan [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) .
+Gambar dalam sebuah presentasi dapat muncul dalam beberapa jenis bentuk: sebagai bingkai gambar biasa, sebagai isian gambar yang diterapkan pada bentuk, sebagai gambar pratinjau objek OLE, sebagai gambar miniatur bingkai video atau audio, sebagai gambar zoom, atau sebagai gambar yang bersarang di dalam bentuk tabel, diagram, dan SmartArt. Aspose.Slides menyimpan gambar‑gambar tersebut dalam koleksi gambar presentasi, yang dapat diakses melalui [IImageCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimagecollection/) dan [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) objek.
 
-Jika Anda hanya perlu mengekspor setiap sumber gambar yang disematkan dalam presentasi, iterasikan melalui `presentation.getImages()`. Artikel ini berfokus pada tugas yang berbeda: menelusuri bentuk untuk menemukan di mana gambar digunakan pada slide, sehingga file yang disimpan dapat menyimpan konteks berguna seperti nomor slide, posisi bentuk, dan tipe sumber (bingkai gambar, gambar isian, pratinjau media, pratinjau OLE, atau gambar zoom).
+Jika Anda hanya perlu mengekspor setiap sumber gambar yang tertanam dalam sebuah presentasi, iterasi melalui `presentation.getImages()`. Artikel ini berfokus pada tugas yang berbeda: menelusuri bentuk untuk menemukan tempat gambar digunakan pada slide, sehingga berkas yang disimpan dapat mempertahankan konteks berguna seperti nomor slide, posisi bentuk, dan jenis sumber (bingkai gambar, isian gambar, pratinjau media, pratinjau OLE, atau gambar zoom).
 
-{{% alert title="Tip" color="primary" %}}
-Gunakan [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) untuk mempertahankan data gambar yang dikodekan asli dan tipe file. Gunakan [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--) dengan [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) ketika Anda ingin menormalkan output ke format tertentu seperti PNG.
+{{% alert title="Tip" color="info" %}}
+Gunakan [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) untuk mempertahankan data gambar yang dikodekan asli dan tipe berkas. Gunakan [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--) dengan [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) ketika Anda ingin menormalkan output ke format tertentu seperti PNG.
 {{% /alert %}}
 
 ## **Metode Bantu Bersama**
 
-Metode bantu di bawah ini menjaga contoh tetap singkat. `saveOriginalImage` menulis byte asli yang disematkan, memilih ekstensi aman dari tipe MIME, dan melewati duplikat biner gambar dengan hash SHA‑256.
+Metode bantu di bawah ini menjaga contoh tetap singkat. `saveOriginalImage` menulis byte yang tertanam asli, memilih ekstensi aman dari tipe MIME, dan melewatkan duplikat gambar biner dengan hash SHA‑256.
 
 ```java
 import com.aspose.slides.*;
@@ -225,9 +225,14 @@ private static String makeSafeFileNamePart(String value)
 
 ## **Ekstrak Gambar dari Bingkai Gambar**
 
-Gunakan pendekatan ini untuk gambar yang disisipkan sebagai objek mandiri. Sebuah [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) menyimpan gambarnya di `getPictureFormat().getPicture().getImage()`, yang mengembalikan objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) .
+Gunakan pendekatan ini untuk gambar yang dimasukkan sebagai objek terpisah. Sebuah [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) menyimpan gambarnya dalam `getPictureFormat().getPicture().getImage()`, yang mengembalikan objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/). Perhatikan bahwa [IVideoFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ivideoframe/) dan [IAudioFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudioframe/) diturunkan dari [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/), sehingga pemeriksaan `instanceof` ini juga mencocokkan bingkai media dan mengekspor gambar pratinjau mereka; uji tipe‑tipe itu terlebih dahulu bila Anda ingin memprosesnya secara terpisah, seperti contoh terakhir pada halaman ini.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -269,9 +274,13 @@ finally
 
 ## **Ekstrak Gambar dari Bentuk yang Diisi Gambar**
 
-Bentuk dapat menggunakan gambar sebagai isian mereka. Periksa tipe isian bentuk terlebih dahulu: jika bukan [FillType.Picture](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/), tidak ada gambar yang dapat diekstrak dari isian tersebut. Contoh di bawah menangani objek [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dan menyimpan setiap gambar sebagai PNG melalui [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--) .
+Bentuk dapat menggunakan gambar sebagai isian mereka. Periksa tipe isian bentuk terlebih dahulu: bila bukan [FillType.Picture](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/), tidak ada gambar yang dapat diekstrak dari isian tersebut. Contoh di bawah menangani objek [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dan menyimpan setiap gambar sebagai PNG melalui [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -315,9 +324,14 @@ finally
 
 ## **Ekstrak Gambar Pratinjau dari Bingkai Objek OLE**
 
-Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/) dapat memiliki gambar pengganti yang digunakan PowerPoint sebagai pratinjau objek pada slide. Gambar ini tersedia melalui `getSubstitutePictureFormat().getPicture().getImage()`. Mengekstrak gambar ini memberi Anda gambar pratinjau, bukan isi paket OLE yang disematkan.
+Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/) dapat memiliki gambar pengganti yang digunakan PowerPoint sebagai pratinjau objek pada slide. Gambar ini tersedia melalui `getSubstitutePictureFormat().getPicture().getImage()`. Mengekstrak gambar ini memberikan Anda gambar pratinjau, bukan isi paket OLE yang tertanam.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -363,9 +377,14 @@ finally
 
 ## **Ekstrak Gambar Pratinjau dari Bingkai Video**
 
-Sebuah [IVideoFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ivideoframe/) juga dapat menyimpan gambar pratinjau di `getPictureFormat().getPicture().getImage()`. Ini adalah poster atau thumbnail yang ditampilkan pada slide, bukan frame yang didekode dari aliran video.
+Sebuah [IVideoFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ivideoframe/) juga dapat menyimpan gambar pratinjau dalam `getPictureFormat().getPicture().getImage()`. Ini adalah poster atau thumbnail yang ditampilkan pada slide, bukan frame yang didekode dari aliran video.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -411,9 +430,14 @@ finally
 
 ## **Ekstrak Gambar Pratinjau dari Bingkai Audio**
 
-Sebuah [IAudioFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudioframe/) dapat menyimpan thumbnail di `getPictureFormat().getPicture().getImage()`. Ini adalah gambar yang ditampilkan untuk objek audio pada slide.
+Sebuah [IAudioFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudioframe/) dapat menyimpan thumbnail dalam `getPictureFormat().getPicture().getImage()`. Ini adalah gambar yang ditampilkan untuk objek audio pada slide.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -459,9 +483,14 @@ finally
 
 ## **Ekstrak Gambar dari Objek Zoom**
 
-[IZoomFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/izoomframe/) dan [ISectionZoomFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectionzoomframe/) dapat menggunakan gambar khusus. Baca `getZoomImage()` dari bingkai zoom.
+Bentuk [IZoomFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/izoomframe/) dan [ISectionZoomFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isectionzoomframe/) dapat menggunakan gambar khusus. Baca `getZoomImage()` dari bingkai zoom.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -520,9 +549,14 @@ finally
 
 ## **Ekstrak Gambar dari Bingkai Zoom Ringkasan**
 
-Sebuah [ISummaryZoomFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isummaryzoomframe/) juga merupakan bentuk. Item bagiannya dapat menggunakan gambar khusus, yang diekspos melalui metode `getZoomImage()` masing‑masing pada bagian zoom ringkasan.
+Sebuah [ISummaryZoomFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/isummaryzoomframe/) juga merupakan bentuk. Item seksi ringkasannya dapat menggunakan gambar khusus, yang diekspos melalui setiap metode `getZoomImage()` pada seksi zoom ringkasan.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -574,9 +608,14 @@ finally
 
 ## **Ekstrak Gambar dari Bentuk Tabel**
 
-Sebuah [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itable/) adalah bentuk. Gambar dalam tabel biasanya disimpan sebagai isian gambar di sel tabel.
+Sebuah [ITable](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itable/) adalah bentuk. Gambar dalam tabel biasanya disimpan sebagai isian gambar dalam sel tabel.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -637,6 +676,11 @@ finally
 Sebuah [IChart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ichart/) adalah bentuk. Contoh di bawah mengekstrak gambar dari isian gambar area diagram.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -683,9 +727,14 @@ finally
 
 ## **Ekstrak Gambar dari Bentuk SmartArt**
 
-Sebuah [ISmartArt](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ismartart/) adalah bentuk. Bergantung pada tata letak SmartArt, gambar dapat disimpan di isian bullet node atau di format isian bentuk node.
+Sebuah [ISmartArt](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ismartart/) adalah bentuk. Bergantung pada tata letak SmartArt, gambar dapat disimpan dalam isian peluru node atau dalam format isian bentuk node.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -751,11 +800,16 @@ finally
 }
 ```
 
-## **Sertakan Gambar di Dalam Bentuk Berkelompok**
+## **Sertakan Gambar di Dalam Bentuk yang Dikelompokkan**
 
-Bentuk berkelompok memiliki koleksi bentuk masing‑masing. Metode bantu bersama `enumerateShapes` memiliki opsi `includeGroupedShapes`. Setel ke `true` ketika Anda ingin memeriksa bentuk di dalam objek [IGroupShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igroupshape/) . Contoh di bawah mengekstrak gambar dari bingkai gambar, bentuk yang diisi gambar, pratinjau objek OLE, thumbnail bingkai video, dan thumbnail bingkai audio. Untuk menyertakan gambar tabel, diagram, SmartArt, dan zoom ringkasan juga, gunakan kembali logika ekstraksi khusus dari bagian sebelumnya sambil mempertahankan penelusuran bentuk rekursif yang sama.
+Bentuk yang dikelompokkan berisi koleksi bentuknya sendiri. Metode bantu `enumerateShapes` bersama memiliki opsi `includeGroupedShapes`. Atur ke `true` bila Anda ingin memeriksa bentuk di dalam objek [IGroupShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igroupshape/). Contoh di bawah mengekstrak gambar dari bingkai gambar, bentuk yang diisi gambar, pratinjau objek OLE, thumbnail bingkai video, dan thumbnail bingkai audio. Untuk menyertakan gambar tabel, diagram, SmartArt, dan zoom ringkasan juga, gunakan kembali logika ekstraksi khusus dari bagian sebelumnya sambil mempertahankan penelusuran bentuk rekursif yang sama.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -848,43 +902,43 @@ finally
 
 ## **Kasus Khusus dan Catatan Praktis**
 
-- **Gambar duplikat:** Beberapa bentuk dapat merujuk pada gambar yang sama atau gambar terpisah dengan byte yang identik. Hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) sebelum menulis file jika Anda menginginkan satu file output per gambar unik.
-- **Data asli vs. output yang diubah:** Menyimpan [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) mempertahankan data JPEG, PNG, GIF, SVG, EMF, atau WMF yang disematkan. Menyimpan [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--) melalui [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) berguna ketika Anda menginginkan format output yang konsisten.
-- **Tipe isian yang tidak didukung:** Bentuk padat, gradien, pola, dan tanpa isian tidak mengandung isian gambar. Periksa [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) sebelum membaca `getPictureFillFormat()`.
-- **Bentuk berkelompok:** Koleksi bentuk slide tingkat atas tidak meratakan grup. Periksa secara rekursif [IGroupShape.getShapes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igroupshape/#getShapes--) ketika konten berkelompok penting.
-- **Pratinjau objek OLE:** Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/) dapat menampilkan gambar pratinjau melalui `getSubstitutePictureFormat()`, tetapi gambar tersebut hanya pratinjau slide. Itu bukan file yang disematkan di dalam objek OLE.
-- **Thumbnail bingkai video:** Sebuah [IVideoFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ivideoframe/) dapat menampilkan gambar pratinjau melalui `getPictureFormat()`, tetapi gambar tersebut hanya poster yang ditampilkan pada slide. Itu tidak diekstrak dari aliran video.
-- **Thumbnail bingkai audio:** Sebuah [IAudioFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudioframe/) dapat menampilkan ikon atau thumbnail melalui `getPictureFormat()`; itu bukan data audio yang disematkan.
-- **Gambar zoom:** Bentuk zoom slide, zoom bagian, dan zoom ringkasan dapat menggunakan objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) khusus melalui `getZoomImage()`.
-- **Model bentuk bersarang:** Objek tabel, diagram, dan SmartArt mengimplementasikan [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/), tetapi gambar mereka sering disimpan dalam objek format sel tabel, elemen diagram, atau node SmartArt yang bersarang.
-- **Gambar yang dipotong atau diubah:** Mengakses [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) memberi Anda sumber gambar yang disimpan. Itu tidak menerapkan pemotongan, transparansi, pewarnaan ulang, rotasi, atau efek visual lain yang diterapkan oleh bentuk.
+- **Gambar duplikat:** Beberapa bentuk dapat merujuk pada gambar yang sama atau gambar terpisah dengan byte identik. Hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) sebelum menulis berkas bila Anda menginginkan satu berkas output per gambar unik.
+- **Data asli vs. output yang dikonversi:** Menyimpan [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) mempertahankan data JPEG, PNG, GIF, SVG, EMF, atau WMF yang tertanam. Menyimpan [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--) melalui [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) berguna bila Anda menginginkan format output yang konsisten.
+- **Tipe isian yang tidak didukung:** Bentuk solid, gradien, pola, dan tanpa isian tidak mengandung isian gambar. Periksa [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) sebelum membaca `getPictureFillFormat()`.
+- **Bentuk yang dikelompokkan:** Koleksi bentuk slide tingkat atas tidak meratakan grup. Periksa secara rekursif [IGroupShape.getShapes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igroupshape/#getShapes--) bila konten grup penting.
+- **Pratinjau objek OLE:** Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/) dapat menampilkan gambar pratinjau melalui `getSubstitutePictureFormat()`, namun gambar tersebut hanya pratinjau slide. Itu bukan berkas yang tertanam di dalam objek OLE.
+- **Thumbnail bingkai video:** Sebuah [IVideoFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ivideoframe/) dapat menampilkan gambar pratinjau melalui `getPictureFormat()`, namun gambar tersebut hanya poster yang ditampilkan pada slide. Itu tidak diekstrak dari aliran video.
+- **Thumbnail bingkai audio:** Sebuah [IAudioFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iaudioframe/) dapat menampilkan ikon atau thumbnail melalui `getPictureFormat()`; itu bukan data audio yang tertanam.
+- **Gambar zoom:** Bentuk zoom slide, zoom seksi, dan zoom ringkasan dapat menggunakan objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) khusus melalui `getZoomImage()`.
+- **Model bentuk bersarang:** Objek tabel, diagram, dan SmartArt mengimplementasikan [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/), namun gambar mereka sering disimpan dalam objek format sel tabel, elemen diagram, atau node SmartArt yang bersarang.
+- **Gambar yang dipotong atau ditransformasi:** Mengakses [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) memberi Anda sumber daya gambar yang disimpan. Itu tidak menerapkan pemotongan, transparansi, recoloring, rotasi, atau efek visual lain yang diterapkan oleh bentuk.
 
 ## **FAQ**
 
-**Apakah saya dapat mengekstrak gambar asli tanpa memotong, menambah efek, atau transformasi bentuk?**
+### Bisakah saya mengekstrak gambar asli tanpa pemotongan, efek, atau transformasi bentuk?
 
-Ya. Akses objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) dan tulis [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) ke disk. Ini mempertahankan gambar terkode asli yang disimpan dalam presentasi, bukan cara gambar dirender pada slide.
+Ya. Akses objek [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) dan tulis [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) ke disk. Ini mempertahankan gambar terkode asli yang disimpan dalam presentasi, bukan cara gambar tersebut dirender pada slide.
 
-**Apakah saya dapat mengekspor setiap gambar yang diekstrak sebagai PNG?**
+### Bisakah saya mengekspor setiap gambar yang diekstrak sebagai PNG?
 
-Ya. Gunakan [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--) untuk mendapatkan objek [IImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/) , lalu panggil [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) dengan [ImageFormat.Png](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imageformat/). Ini mengubah output dan mungkin tidak mempertahankan tipe file atau data vektor asli.
+Ya. Gunakan [IPPImage.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getImage--) untuk mendapatkan objek [IImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/), lalu panggil [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) dengan [ImageFormat.Png](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imageformat/). Ini mengonversi output dan mungkin tidak mempertahankan tipe berkas atau data vektor asli.
 
-**Bagaimana cara menghindari penyimpanan gambar yang sama lebih dari sekali?**
+### Bagaimana cara menghindari menyimpan gambar yang sama lebih dari satu kali?
 
-Gunakan hash dari [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) dan simpan hash tersebut dalam satu set. Jika gambar baru memiliki hash yang sudah ada, lewati atau catat referensi lain ke file output yang sudah ada.
+Gunakan hash dari [IPPImage.getBinaryData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/#getBinaryData--) dan simpan hash tersebut dalam sebuah set. Jika gambar baru memiliki hash yang sudah ada, lewati atau catat referensi lain ke berkas output yang sudah ada.
 
-**Mengapa beberapa bentuk tidak menghasilkan gambar?**
+### Mengapa beberapa bentuk tidak menghasilkan gambar?
 
-Bingkai gambar, bentuk yang diisi gambar, bingkai objek OLE, bingkai media, bingkai zoom, tabel, diagram, dan objek SmartArt dapat merujuk pada gambar. Beberapa tipe bentuk menampilkan gambar melalui objek format bersarang, sehingga pemeriksaan sederhana `getPictureFormat()` atau `getFillFormat()` pada bentuk tidak selalu cukup.
+Bingkai gambar, bentuk yang diisi gambar, bingkai objek OLE, bingkai media, bingkai zoom, tabel, diagram, dan objek SmartArt dapat merujuk pada gambar. Beberapa tipe bentuk mengekspose gambar melalui objek format yang bersarang, sehingga pemeriksaan sederhana `getPictureFormat()` atau `getFillFormat()` pada bentuk tidak selalu cukup.
 
-**Apakah saya dapat mengekstrak thumbnail yang ditampilkan untuk bingkai video?**
+### Bisakah saya mengekstrak thumbnail yang ditampilkan untuk bingkai video?
 
-Ya. Gunakan [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) dan baca `getPictureFormat().getPicture().getImage()`. Ini mengekstrak gambar poster yang disimpan bersama bingkai video, bukan frame yang dihasilkan dari file video.
+Ya. Gunakan [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) dan baca `getPictureFormat().getPicture().getImage()`. Ini mengekstrak gambar poster yang disimpan bersama bingkai video, bukan frame yang dihasilkan dari berkas video.
 
-**Bagaimana saya dapat menentukan bentuk mana yang menggunakan gambar tertentu dari koleksi gambar presentasi?**
+### Bagaimana saya dapat menentukan bentuk mana yang menggunakan gambar tertentu dari koleksi gambar presentasi?
 
-Aspose.Slides tidak menyimpan tautan terbalik dari [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) ke bentuk. Bangun pemetaan selama penelusuran: setiap kali Anda menemukan referensi gambar, catat nomor slide, jalur bentuk, dan hash atau item koleksi gambar.
+Aspose.Slides tidak menyimpan tautan terbalik dari [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) ke bentuk. Bangun pemetaan selama penelusuran: setiap kali Anda menemukan referensi gambar, catat nomor slide, jalur bentuk, dan hash gambar atau item koleksi.
 
-**Apakah saya dapat mengekstrak gambar yang disematkan di dalam objek OLE, seperti dokumen terlampir?**
+### Bisakah saya mengekstrak gambar yang tertanam di dalam objek OLE, seperti dokumen lampiran?
 
-Anda dapat mengekstrak pratinjau slide dari [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) . Namun, pratinjau tersebut bukan dokumen yang disematkan itu sendiri. Untuk mengekstrak gambar dari dalam file yang disematkan, ekstrak data OLE dan periksa dengan alat untuk tipe file tersebut.
+Anda dapat mengekstrak pratinjau slide dari [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). Namun, pratinjau tersebut bukan dokumen yang tertanam itu sendiri. Untuk mengekstrak gambar dari dalam berkas yang tertanam, ekstrak data OLE dan periksa dengan alat untuk tipe berkas tersebut.

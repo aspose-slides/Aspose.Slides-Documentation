@@ -5,11 +5,11 @@ type: docs
 weight: 60
 url: /pl/net/adding-picture-frame-with-animation/
 keywords:
-- ramka obrazu
+- rama obrazu
 - dodaj obraz
-- dodaj zdjęcie
+- dodaj obraz
 - obraz z animacją
-- zdjęcie z animacją
+- obraz z animacją
 - migracja
 - VSTO
 - automatyzacja Office
@@ -18,15 +18,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migracja z automatyzacji Microsoft Office do Aspose.Slides dla .NET i animowanie ramek obrazu w slajdach PowerPoint (PPT, PPTX) przy użyciu czystego kodu C#."
+description: "Migruj z automatyzacji Microsoft Office do Aspose.Slides dla .NET i animuj ramki obrazu w slajdach PowerPoint (PPT, PPTX) przy użyciu czystego kodu C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ramki obrazu są nakładane na kształty lub obrazy w programie Microsoft PowerPoint, aby otoczyć obrazy w prezentacji. Ten artykuł pokazuje, jak programowo utworzyć ramkę obrazu i zastosować na niej animację, najpierw przy użyciu [VSTO 2008](/slides/pl/net/adding-picture-frame-with-animation/), a następnie [Aspose.Slides for .NET](/slides/pl/net/adding-picture-frame-with-animation/). Najpierw pokażemy, jak zastosować ramkę i animację przy użyciu VSTO 2008. Następnie pokażemy, jak wykonać te same kroki przy użyciu Aspose.Slides for .NET.
+Ramki obrazu są stosowane do kształtów lub obrazów w programie Microsoft PowerPoint, aby otaczać obrazy w prezentacji. Ten artykuł pokazuje, jak programowo utworzyć ramkę obrazu i zastosować na niej animację, używając najpierw [VSTO 2008](/slides/pl/net/adding-picture-frame-with-animation/) a następnie [Aspose.Slides for .NET](/slides/pl/net/adding-picture-frame-with-animation/). Najpierw pokażemy, jak zastosować ramkę i animację przy użyciu VSTO 2008. Następnie pokażemy, jak wykonać te same kroki przy użyciu Aspose.Slides for .NET.
 
 {{% /alert %}} 
 ## **Dodawanie ramek obrazu z animacją**
-Poniższe przykłady kodu tworzą prezentację z jednym slajdem, dodają obraz z ramką i stosują do niego animację.
+Poniższe przykłady kodu tworzą prezentację ze slajdem, dodają obraz z ramką i stosują do niego animację.
 ### **Przykład VSTO 2008**
 Korzystając z VSTO 2008, wykonaj następujące kroki:
 
@@ -36,7 +36,7 @@ Korzystając z VSTO 2008, wykonaj następujące kroki:
 1. Zastosuj animację do obrazu.
 1. Zapisz prezentację na dysku.
 
-**Prezentacja wyjściowa, utworzona przy użyciu VSTO** 
+**Prezentacja wynikowa, utworzona przy użyciu VSTO** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_1.png)
 
@@ -46,18 +46,18 @@ Korzystając z VSTO 2008, wykonaj następujące kroki:
 //Tworzenie pustej prezentacji
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Dodanie pustego slajdu
+//Dodaj pusty slajd
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Dodanie ramki obrazu
+//Dodaj ramkę obrazu
 PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 
-//Zastosowanie animacji na ramce obrazu
+//Nakładanie animacji na ramkę obrazu
 PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
-//Zapisanie prezentacji
+//Zapisywanie prezentacji
 pres.SaveAs("d:\\ VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
@@ -73,13 +73,17 @@ Korzystając z Aspose.Slides for .NET, wykonaj następujące kroki:
 1. Zastosuj animację do obrazu.
 1. Zapisz prezentację na dysku.
 
-**Prezentacja wyjściowa, utworzona przy użyciu Aspose.Slides** 
+**Prezentacja wynikowa, utworzona przy użyciu Aspose.Slides** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_2.png)
 
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Utwórz pustą prezentację
 using (Presentation pres = new Presentation())
 {
@@ -97,7 +101,7 @@ using (Presentation pres = new Presentation())
     // Pobierz główną sekwencję animacji slajdu
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Dodaj efekt animacji Przelot z lewej strony do ramki obrazu
+    // Dodaj efekt animacji Przelot z lewej do ramki obrazu
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Zapisz prezentację

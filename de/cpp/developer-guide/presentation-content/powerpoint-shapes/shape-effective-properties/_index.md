@@ -7,8 +7,8 @@ url: /de/cpp/shape-effective-properties/
 keywords:
 - Formeigenschaften
 - Kameraeigenschaften
-- Licht-Rig
-- Formabschrägung
+- Lichtrig
+- Abgeschrägte Form
 - Textfeld
 - Textstil
 - Schriftgröße
@@ -17,21 +17,31 @@ keywords:
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Entdecken Sie, wie Aspose.Slides für C++ effektive Formeigenschaften berechnet und anwendet, um eine präzise PowerPoint-Darstellung zu gewährleisten."
+description: "Erfahren Sie, wie Aspose.Slides für C++ effektive Formeigenschaften berechnet und anwendet, um eine präzise PowerPoint-Darstellung zu gewährleisten."
 ---
 ## **Übersicht**
 
-Dieses Thema erklärt den Unterschied zwischen **lokalen** und **effektiven** Eigenschaften. Lokale Werte sind Werte, die direkt auf einer bestimmten Formatierungsebene festgelegt werden, zum Beispiel:
+Dieses Thema erklärt den Unterschied zwischen **lokalen** und **effektiven** Eigenschaften. Lokale Werte sind Werte, die direkt auf einer bestimmten Formatierungsebene festgelegt werden, beispielsweise:
 
-1. Portionseigenschaften auf einer Folie.
-1. Textstile von Prototypformen auf einem Layout‑ oder Master‑Slide, wenn die Portion ein Textfeld‑Shape besitzt.
+1. Abschnittseigenschaften auf einer Folie.
+1. Textstile von Prototypformen in einem Layout‑ oder Master‑Folien, wenn die Textfeld‑Form des Abschnitts einen hat.
 1. Globale Texteinstellungen in einer Präsentation.
 
-Lokale Werte können auf jeder Ebene definiert oder weggelassen werden. Wenn Aspose.Slides die endgültige „wie dargestellt“ Formatierung benötigt, löst es die Vererbungskette auf und gibt **effektive** Werte zurück. Sie können diese erhalten, indem Sie die Methode `GetEffective` des lokalen Formatobjekts aufrufen.
+Lokale Werte können auf jeder Ebene definiert oder weggelassen werden. Wenn Aspose.Slides die endgültige „wie gerenderte“ Formatierung benötigt, löst es die Vererbungskette auf und gibt **effektive** Werte zurück. Sie können diese erhalten, indem Sie die Methode `GetEffective` des lokalen Formatobjekts aufrufen.
 
-Das folgende Beispiel zeigt, wie man effektive Werte erhält. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) mit einem Textfeld und mindestens einer Portion ist.
+Das folgende Beispiel zeigt, wie man effektive Werte erhält. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) mit einem Textfeld und mindestens einem Abschnitt ist.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,17 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-Effektive Formatierungsdaten repräsentieren die aktuell berechnete Formatierung nach Anwendung der Vererbung. In der aktuellen Implementierung können einige effektive Datenobjekte, wie z. B. [IPortionFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportionformateffectivedata/), intern zwischengespeichert werden. Ein erneuter Aufruf von `GetEffective` nach Änderung der übergeordneten oder geerbten Formatierung kann die zwischengespeicherten Daten aktualisieren, und ein zuvor erhaltenes Objekt kann die frühere Situation nicht mehr widerspiegeln. Wenn Sie effektive Werte für eine spätere Wiederverwendung bewahren müssen, kopieren Sie die benötigten Eigenschaften, wie Schriftgröße, Füllfarbe, Schriftstil oder Ausrichtung, in Ihr eigenes Datenobjekt.
+{{% alert color="info" %}}
+Effektive Formatierungsdaten stellen die aktuell berechnete Formatierung dar, nachdem die Vererbung angewendet wurde. In der aktuellen Implementierung können einige effektive Datenobjekte, wie z. B. [IPortionFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/iportionformateffectivedata/), intern zwischengespeichert werden. Ein erneuter Aufruf von `GetEffective` nach dem Ändern von Eltern‑ oder geerbter Formatierung kann die zwischengespeicherten Daten aktualisieren, und ein zuvor erhaltenes Objekt stellt möglicherweise nicht mehr den früheren Zustand dar. Wenn Sie effektive Werte für spätere Wiederverwendung behalten müssen, kopieren Sie die benötigten Eigenschaften, wie Schrifthöhe, Füllfarbe, Schriftstil oder Ausrichtung, in Ihr eigenes Datenobjekt.
 {{% /alert %}}
 
-## **Effektive Eigenschaften einer Kamera**
+## **Effektive Eigenschaften einer Kamera erhalten**
 
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Kamera. Das Interface [ICameraEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/icameraeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine [ICameraEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/icameraeffectivedata/)-Instanz wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformat/) liefert.
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Kamera. Das Interface [ICameraEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/icameraeffectivedata/) repräsentiert ein unveränderliches Objekt, das effektive Kameraeigenschaften enthält. Eine Instanz von [ICameraEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/icameraeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformat/) liefert.
 
-Das folgende Code‑Beispiel zeigt, wie man effektive Eigenschaften für die Kamera erhält. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
+Das folgende Codebeispiel zeigt, wie man effektive Kameraeigenschaften abruft. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -78,13 +99,24 @@ System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
 presentation->Dispose();
 ```
 
-## **Effektive Eigenschaften eines Licht‑Rig**
+## **Effektive Eigenschaften einer Lichtrig erhalten**
 
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften eines Licht‑Rig. Das Interface [ILightRigEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ilightrigeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Licht‑Rig‑Eigenschaften enthält. Eine [ILightRigEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ilightrigeffectivedata/)-Instanz wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformat/) liefert.
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Lichtrig. Das Interface [ILightRigEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ilightrigeffectivedata/) repräsentiert ein unveränderliches Objekt, das effektive Eigenschaften der Lichtrig enthält. Eine Instanz von [ILightRigEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ilightrigeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformat/) liefert.
 
-Das folgende Code‑Beispiel zeigt, wie man effektive Eigenschaften für das Licht‑Rig erhält. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften der Lichtrig abruft. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -101,13 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **Effektive Eigenschaften einer Abschrägung einer Form**
+## **Effektive Eigenschaften einer abgeschrägten Form erhalten**
 
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Formabschrägung. Das Interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapebeveleffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Gesichts‑Relief‑Eigenschaften für eine Form enthält. Eine [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapebeveleffectivedata/)-Instanz wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformat/) liefert.
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Formabschrägung. Das Interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapebeveleffectivedata/) repräsentiert ein unveränderliches Objekt, das effektive Reliefeigenschaften einer Form enthält. Eine Instanz von [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapebeveleffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/ithreedformat/) liefert.
 
-Das folgende Code‑Beispiel zeigt, wie man effektive Eigenschaften für die obere Abschrägung einer Form erhält. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
+Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften der oberen Abschrägung einer Form abruft. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -127,13 +170,24 @@ System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
 presentation->Dispose();
 ```
 
-## **Effektive Eigenschaften eines Textfelds**
+## **Effektive Eigenschaften eines Textfelds erhalten**
 
-Mit Aspose.Slides können Sie effektive Eigenschaften eines Textfelds erhalten. Das Interface [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframeformateffectivedata/) enthält effektive Formatierungseigenschaften des Textfelds.
+Mit Aspose.Slides können Sie effektive Eigenschaften eines Textfelds abrufen. Das Interface [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframeformateffectivedata/) enthält effektive Formatierungseigenschaften für Textfelder.
 
-Das folgende Code‑Beispiel zeigt, wie man effektive Textfeld‑Formatierungseigenschaften erhält. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) mit einem Textfeld ist.
+Das folgende Codebeispiel zeigt, wie man effektive Textfeldformatierungseigenschaften abruft. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) mit einem Textfeld ist.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -166,13 +220,26 @@ System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
 presentation->Dispose();
 ```
 
-## **Effektive Eigenschaften eines Textstils**
+## **Effektive Eigenschaften eines Textstils erhalten**
 
-Mit Aspose.Slides können Sie effektive Eigenschaften eines Textstils erhalten. Das Interface [ITextStyleEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextstyleeffectivedata/) enthält effektive Textstileigenschaften.
+Mit Aspose.Slides können Sie effektive Eigenschaften eines Textstils abrufen. Das Interface [ITextStyleEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextstyleeffectivedata/) enthält effektive Textstileigenschaften.
 
-Das folgende Code‑Beispiel zeigt, wie man effektive Textstileigenschaften erhält. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) mit einem Textfeld ist.
+Das folgende Codebeispiel zeigt, wie man effektive Textstileigenschaften abruft. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/iautoshape/) mit einem Textfeld ist.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -201,9 +268,28 @@ presentation->Dispose();
 
 ## **Den effektiven Schriftgrößenwert erhalten**
 
-Mit Aspose.Slides können Sie die effektive Schriftgröße erhalten. Der folgende Code demonstriert, wie sich die effektive Schriftgröße einer Portion ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur gesetzt wurden.
+Mit Aspose.Slides können Sie die effektive Schriftgröße ermitteln. Der folgende Code demonstriert, wie sich die effektive Schriftgröße eines Abschnitts ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur gesetzt wurden.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -260,13 +346,29 @@ presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Effektives Füllformat einer Tabelle erhalten**
+## **Effektives Füllformat für eine Tabelle erhalten**
 
-Mit Aspose.Slides können Sie effektive Füllformatierung für unterschiedliche Tabellenteile erhalten. Das Interface [IFillFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifillformateffectivedata/) enthält effektive Füllformatierungseigenschaften. Zellenformatierung hat höhere Priorität als Zeilenformatierung, Zeilenformatierung hat höhere Priorität als Spaltenformatierung und Spaltenformatierung hat höhere Priorität als die Formatierung der gesamten Tabelle.
+Mit Aspose.Slides können Sie effektive Füllformatierungen für verschiedene Tabellenteile erhalten. Das Interface [IFillFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifillformateffectivedata/) enthält effektive Füllformatierungseigenschaften. Die Zellformatierung hat höhere Priorität als die Zeilenformatierung, die Zeilenformatierung hat höhere Priorität als die Spaltenformatierung, und die Spaltenformatierung hat höhere Priorität als die Formatierung der gesamten Tabelle.
 
-Infolgedessen werden die Eigenschaften von [ICellFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/icellformateffectivedata/) verwendet, um die Tabellenzelle zu zeichnen. Das folgende Code‑Beispiel zeigt, wie man effektive Füllformatierung für unterschiedliche Tabellenteile erhält. Es wird angenommen, dass die erste Form auf der ersten Folie ein [ITable](https://reference.aspose.com/slides/de/cpp/aspose.slides/itable/) ist.
+Infolgedessen werden die Eigenschaften von [ICellFormatEffectiveData](https://reference.aspose.com/slides/de/cpp/aspose.slides/icellformateffectivedata/) verwendet, um die Tabellenzelle zu zeichnen. Das folgende Codebeispiel zeigt, wie man effektive Füllformatierung für verschiedene Tabellenteile abruft. Es wird angenommen, dass die erste Form auf der ersten Folie ein [ITable](https://reference.aspose.com/slides/de/cpp/aspose.slides/itable/) ist.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -282,34 +384,34 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Gibt `GetEffective` einen Schnappschuss zurück?**
+### Gibt `GetEffective` einen Schnappschuss zurück?
 
-Nicht immer. Effektive Daten repräsentieren die berechnete Formatierung nach Anwendung der Vererbung, aber einige effektive Datenobjekte können intern zwischengespeichert werden. Ein nachfolgender Aufruf von `GetEffective` kann die Formatierung neu berechnen und die zwischengespeicherten Daten aktualisieren, sodass ein zuvor erhaltenes Objekt nicht als dauerhafter Schnappschuss behandelt werden sollte.
+Nicht immer. Effektive Daten stellen die berechnete Formatierung nach Anwendung der Vererbung dar, aber einige effektive Datenobjekte können intern zwischengespeichert werden. Ein nachfolgender Aufruf von `GetEffective` kann die Formatierung neu berechnen und die zwischengespeicherten Daten aktualisieren, sodass ein zuvor erhaltenes Objekt nicht als dauerhafter Schnappschuss behandelt werden sollte.
 
-**Wann sollte ich effektive Eigenschaften erneut auslesen?**
+### Wann sollte ich effektive Eigenschaften erneut auslesen?
 
-Rufen Sie `GetEffective` erneut auf, nachdem Sie lokale Formatierung, übergeordnete Stile, Layout‑Formatierung, Master‑Formatierung oder Präsentations‑Standardwerte geändert haben. Der nächste Aufruf wertet die Formatierungshierarchie neu aus und liefert das aktuelle effektive Ergebnis.
+Rufen Sie `GetEffective` erneut auf, nachdem Sie lokale Formatierung, übergeordnete Stile, Layout‑Formatierung, Master‑Formatierung oder Präsentations‑Standardwerte geändert haben. Der nächste Aufruf bewertet die Formatierungshierarchie neu und gibt das aktuelle effektive Ergebnis zurück.
 
-**Wirkt sich das Ändern oder Entfernen einer Layout‑/Master‑Folie auf bereits abgerufene effektive Eigenschaften aus?**
+### Wirkt sich das Ändern oder Entfernen einer Layout‑/Master‑Folien auf bereits abgerufene effektive Eigenschaften aus?
 
-Ja, die Änderung wird beim nächsten Aufruf von `GetEffective` berücksichtigt. Wenn eine übergeordnete Formatierungsquelle geändert oder entfernt wird, können zuvor erhaltene effektive Daten veraltet sein. Sobald `GetEffective` erneut aufgerufen wird, bewertet Aspose.Slides den Formatierungsbaum neu und die resultierenden Schriftarten, Farben, Größen oder anderen Werte können sich ändern.
+Ja, die Änderung wird beim nächsten Aufruf von `GetEffective` berücksichtigt. Wenn eine übergeordnete Formatierungsquelle geändert oder entfernt wird, können zuvor erhaltene effektive Daten veraltet sein. Sobald `GetEffective` erneut aufgerufen wird, wertet Aspose.Slides den Formatierungsbaum neu aus und die resultierenden Schriftarten, Farben, Größen oder anderen Werte können sich ändern.
 
-**Kann ich Werte über effektive Datenobjekte ändern?**
+### Kann ich Werte über effektive Datenobjekte ändern?
 
-Nein. Effektive Datenobjekte geben nur berechnete Werte wieder. Änderungen müssen an den lokalen Formatierungsobjekten vorgenommen werden, und anschließend müssen die effektiven Werte erneut abgerufen werden.
+Nein. Effektive Datenobjekte geben nur berechnete Werte zurück. Änderungen müssen in den lokalen Formatierungsobjekten vorgenommen werden, und anschließend müssen die effektiven Werte erneut abgerufen werden.
 
-**Was passiert, wenn eine Eigenschaft weder auf der Form‑Ebene, noch im Layout/Master, noch in den globalen Einstellungen gesetzt ist?**
+### Was geschieht, wenn eine Eigenschaft weder auf Form‑, Layout‑/Master‑ noch auf globaler Ebene gesetzt ist?
 
-Der effektive Wert wird durch den Standard‑Mechanismus bestimmt, der die Vorgaben von PowerPoint und Aspose.Slides umfasst. Dieser aufgelöste Wert wird Teil der aktuellen effektiven Daten.
+Der effektive Wert wird durch den Standardmechanismus bestimmt, der die Vorgaben von PowerPoint und Aspose.Slides umfasst. Dieser aufgelöste Wert wird Bestandteil der aktuellen effektiven Daten.
 
-**Kann ich anhand eines effektiven Schriftwerts erkennen, welche Ebene die Größe oder Schriftart bereitgestellt hat?**
+### Kann ich anhand eines effektiven Schriftwertes erkennen, welche Ebene die Größe oder den Schriftschnitt bereitgestellt hat?
 
-Nicht direkt. Effektive Daten geben nur den endgültigen Wert zurück. Um die Quelle zu ermitteln, prüfen Sie die lokalen Werte auf Portion‑, Absatz‑, Textfeld‑ und Textstil‑Ebene in Layout, Master und Präsentation, um zu sehen, wo die erste explizite Definition vorkommt.
+Nicht direkt. Effektive Daten geben nur den endgültigen Wert zurück. Um die Quelle zu ermitteln, prüfen Sie die lokalen Werte auf Abschnitt‑, Absatz‑, Textfeld‑ und Textstilebene im Layout, Master und in der Präsentation, um zu sehen, wo die erste explizite Definition vorkommt.
 
-**Warum sehen effektive Werte manchmal identisch zu den lokalen aus?**
+### Warum sehen effektive Werte manchmal identisch zu den lokalen aus?
 
-Weil der lokale Wert letztlich final war (keine höhere Vererbung nötig war). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
+Weil der lokale Wert schließlich endgültig war (keine höherstufige Vererbung war erforderlich). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
 
-**Wann sollte ich effektive Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
+### Wann sollte ich effektive Eigenschaften verwenden und wann nur lokale?
 
-Verwenden Sie effektive Daten, wenn Sie das „wie dargestellt“-Ergebnis nach vollständiger Vererbung benötigen, etwa zur Abstimmung von Farben, Einrückungen oder Größen. Wenn Sie diese Werte unverändert behalten möchten, kopieren Sie die benötigten Eigenschaften in Ihr eigenes Objekt. Wenn Sie die Formatierung auf einer bestimmten Ebene ändern wollen, passen Sie die lokalen Eigenschaften an und lesen Sie ggf. die effektiven Daten erneut, um das Ergebnis zu prüfen.
+Verwenden Sie effektive Daten, wenn Sie das „wie gerenderte“ Ergebnis nach Anwendung aller Vererbungen benötigen, etwa zum Angleichen von Farben, Einzügen oder Größen. Wenn Sie diese Werte unabhängig von späteren Formatierungsänderungen bewahren wollen, kopieren Sie die benötigten Eigenschaften in Ihr eigenes Objekt. Wenn Sie die Formatierung auf einer bestimmten Ebene ändern möchten, passen Sie die lokalen Eigenschaften an und lesen Sie bei Bedarf die effektiven Daten erneut, um das Ergebnis zu prüfen.

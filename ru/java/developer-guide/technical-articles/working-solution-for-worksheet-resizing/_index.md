@@ -1,5 +1,5 @@
 ---
-title: Рабочее решение проблемы изменения размера листа
+title: Рабочее решение для изменения размера листов
 type: docs
 weight: 20
 url: /ru/java/working-solution-for-worksheet-resizing/
@@ -8,39 +8,47 @@ keywords:
 - изображение предварительного просмотра
 - изменение размера изображения
 - Excel
-- лист
+- рабочий лист
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Исправьте изменение размера OLE листа Excel в презентациях: два способа сохранить согласованность рамок объектов — масштабировать рамку или лист — для форматов PPT и PPTX."
+description: "Исправление изменения размера OLE листа Excel в презентациях: два способа сохранить согласованность кадров объектов — масштабировать кадр или лист — для форматов PPT и PPTX."
 ---
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}}
-Было обнаружено, что листы Excel, встроенные как OLE‑объекты в презентацию PowerPoint через компоненты Aspose, изменяют масштаб до неопределённого значения после первой активации. Это поведение создаёт заметную визуальную разницу в презентации между состоянием OLE‑объекта до и после активации. Мы подробно исследовали эту проблему и предложили решение, которое описано в этой статье.
+Было замечено, что листы Excel, встроенные как OLE‑объекты в презентацию PowerPoint с помощью компонентов Aspose, изменяются до неопределённого масштаба после первой активации. Это приводит к заметной визуальной разнице между состоянием OLE‑объекта до и после активации. Мы подробно исследовали эту проблему и предложили решение, описанное в статье.
+
 {{% /alert %}}
 
-## **Фон**
+## **Контекст**
 
-В статье [Управление OLE](/slides/ru/java/manage-ole/) мы объяснили, как добавить OLE‑кадр в презентацию PowerPoint с помощью Aspose.Slides for Java. Чтобы решить [проблему предварительного просмотра объекта](/slides/ru/java/object-preview-issue-when-adding-oleobjectframe/), мы назначили изображение выбранной области листа OLE‑объекту. В результирующей презентации при двойном щелчке по OLE‑кадру, отображающему изображение листа, активируется рабочая книга Excel. Пользователи могут вносить любые изменения в реальную книгу Excel, а затем возвращаться к слайду, щёлкнув вне активированной книги. Размер OLE‑кадра изменится, когда пользователь вернётся к слайду. Коэффициент изменения будет зависеть от размеров OLE‑кадра и встроенной рабочей книги Excel.
+В статье [Управление OLE](/slides/ru/java/manage-ole/) мы объяснили, как добавить OLE‑кадр в презентацию PowerPoint с помощью Aspose.Slides for Java. Чтобы решить проблему [предпросмотра объекта](/slides/ru/java/object-preview-issue-when-adding-oleobjectframe/), мы присвоили OLE‑кадру изображение выбранной области листа. В полученной презентации при двойном щелчке по OLE‑кадру, отображающему изображение листа, активируется рабочая книга Excel. Пользователи могут вносить любые изменения в реальную книгу Excel, а затем возвращаться к слайду, щелкнув вне активированной книги. При возврате к слайду размер OLE‑кадра изменяется. Коэффициент изменения зависит от размеров OLE‑кадра и встроенной книги Excel.
 
 ## **Причина изменения размера**
 
-Поскольку у рабочей книги Excel собственный размер окна, при первой активации она пытается сохранить свой исходный размер. С другой стороны, у OLE‑кадра тоже есть свой размер. По данным Microsoft, когда рабочая книга Excel активируется, Excel и PowerPoint согласуют размер, чтобы сохранить правильные пропорции в процессе встраивания. Изменение размера происходит из‑за различий между размером окна Excel и размером и положением OLE‑кадра.
+Поскольку у рабочей книги Excel своё окно, она пытается сохранить исходный размер при первой активации. С другой стороны, у OLE‑кадра есть свои размеры. По данным Microsoft, при активации книги Excel Excel и PowerPoint согласовывают размер, чтобы сохранить правильные пропорции в процессе встраивания. Изменение размера происходит из‑за различий между размером окна Excel и размерами и позицией OLE‑кадра.
 
 ## **Рабочее решение**
 
-Существует два возможных решения, позволяющих избежать эффекта изменения размера.
+Существует два возможных решения, позволяющих избежать эффекта изменения размеров.
 
-- Масштабировать размер OLE‑кадра в презентации PowerPoint, чтобы он соответствовал высоте и ширине нужного количества строк и столбцов в OLE‑кадре.
-- Сохранить постоянный размер OLE‑кадра и масштабировать размеры участвующих строк и столбцов, чтобы они помещались в выбранный размер OLE‑кадра.
+- Масштабировать размер OLE‑кадра в презентации PowerPoint так, чтобы он соответствовал высоте и ширине требуемого количества строк и столбцов в OLE‑кадре.
+- Оставить размер OLE‑кадра постоянным и масштабировать размеры участвующих строк и столбцов, чтобы они помещались в выбранный размер OLE‑кадра.
 
 ### **Масштабировать размер OLE‑кадра**
 
-В этом подходе мы научимся задавать размер OLE‑кадра встроенной книги Excel так, чтобы он соответствовал совокупному размеру участвующих строк и столбцов листа Excel.
+В этом подходе мы узнаем, как задать размер OLE‑кадра встроенной книги Excel, соответствующий совокупному размеру участвующих строк и столбцов листа Excel.
 
-Предположим, у нас есть шаблон листа Excel, который нужно добавить в презентацию как OLE‑кадр. В этом сценарии размер OLE‑объекта сначала рассчитывается на основе суммарных высот строк и ширины столбцов, участвующих в книге. Затем мы задаём размер OLE‑кадра этим вычисленным значением. Чтобы избежать появления красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также создадим изображение нужных участков строк и столбцов в книге и установим его как изображение OLE‑кадра.
+Допустим, у нас есть шаблонный лист Excel, который нужно добавить в презентацию как OLE‑кадр. В этом случае размер OLE‑объекта сначала рассчитывается на основе суммарных высот строк и ширин столбцов, участвующих в книге. Затем мы задаём размер OLE‑кадра этим рассчитанным значением. Чтобы избавиться от красного сообщения «EMBEDDED OLE OBJECT» в PowerPoint, мы также сделаем снимок нужных областей строк и столбцов книги и установим его как изображение OLE‑кадра.
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -50,7 +58,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Установить отображаемый размер, когда файл рабочей книги используется как OLE-объект в PowerPoint.
+// Установите отображаемый размер, когда файл рабочей книги используется как OLE-объект в PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -58,12 +66,12 @@ workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Получить ширину и высоту OLE-изображения в пунктах.
+// Get the width and height of the OLE image in points.
 Image image = ImageIO.read(imageStream);
 float imageWidth = image.getWidth(null) * 72f / imageResolution;
 float imageHeight = image.getHeight(null) * 72f / imageResolution;
 
-// Необходимо использовать изменённую рабочую книгу.
+// Нам нужно использовать модифицированную рабочую книгу.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -71,12 +79,12 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Добавить OLE-изображение в ресурсы презентации.
+// Add the OLE image to the presentation resources.
 imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Создать кадр OLE-объекта.
+// Create the OLE object frame.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -88,6 +96,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -112,13 +124,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ### **Масштабировать размер диапазона ячеек**
 
-В этом подходе мы научимся масштабировать высоту участвующих строк и ширину участвующих столбцов так, чтобы они соответствовали пользовательскому размеру OLE‑кадра.
+В этом подходе мы узнаем, как масштабировать высоты участвующих строк и ширины участвующих столбцов, чтобы они соответствовали пользовательскому размеру OLE‑кадра.
 
-Предположим, у нас есть шаблон листа Excel, который нужно добавить в презентацию как OLE‑кадр. В этом сценарии мы задаём размер OLE‑кадра и масштабируем размеры строк и столбцов, участвующих в области OLE‑кадра. Затем сохраняем книгу в поток, чтобы применить изменения, и преобразуем её в массив байтов для добавления в OLE‑кадр. Чтобы избежать появления красного сообщения «EMBEDDED OLE OBJECT» для OLE‑кадра в PowerPoint, мы также создадим изображение нужных участков строк и столбцов в книге и установим его как изображение OLE‑кадра.
+Допустим, у нас есть шаблонный лист Excel, который нужно добавить в презентацию как OLE‑кадр. В этом случае мы задаём размер OLE‑кадра и масштабируем размеры строк и столбцов, участвующих в области OLE‑кадра. Затем сохраняем книгу в поток, чтобы применить изменения, и конвертируем её в массив байтов для добавления в OLE‑кадр. Чтобы избавиться от красного сообщения «EMBEDDED OLE OBJECT» в PowerPoint, мы также сделаем снимок нужных областей строк и столбцов книги и установим его как изображение OLE‑кадра.
+
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -129,18 +145,18 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Установить отображаемый размер, когда файл рабочей книги используется как OLE‑объект в PowerPoint.
+// Установите отображаемый размер, когда файл рабочей книги используется как OLE объект в PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Масштабировать диапазон ячеек, чтобы вписать его в размер кадра.
+// Масштабировать диапазон ячеек, чтобы он соответствовал размеру кадра.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Нужно использовать изменённую рабочую книгу.
+// Нам нужно использовать модифицированную рабочую книгу.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -148,11 +164,11 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Добавить OLE‑изображение в ресурсы презентации.
+// Добавьте OLE изображение в ресурсы презентации.
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Создать кадр OLE‑объекта.
+// Создайте OLE объектный кадр.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -201,6 +217,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -225,41 +245,42 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ## **Заключение**
 
-{{% alert color="primary" %}} 
-Существует два подхода для исправления проблемы изменения размера листа. Выбор подхода зависит от конкретных требований и сценария использования. Оба подхода работают одинаково, независимо от того, создаются ли презентации из шаблона или с нуля. Кроме того, в этом решении нет ограничения по размеру OLE‑кадра.
+{{% alert color="info" %}} 
+
+Существует два подхода для исправления проблемы изменения размеров листа. Выбор подхода зависит от конкретных требований и сценария использования. Оба подхода работают одинаково, независимо от того, создаётся ли презентация из шаблона или с нуля. Кроме того, в этом решении нет ограничения на размер OLE‑кадра.
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Почему встроенный лист Excel меняет размер при первой активации в PowerPoint?**
+### Почему встроенный лист Excel изменяет размер при первой активации в PowerPoint?
 
-Это происходит потому, что Excel пытается сохранить исходный размер окна при активации, тогда как OLE‑кадр в PowerPoint имеет свои собственные размеры. PowerPoint и Excel согласуют размер, чтобы сохранить соотношение сторон, что может вызвать изменение размера.
+Это происходит because Excel пытается сохранить исходный размер окна при активации, тогда как OLE‑кадр в PowerPoint имеет свои размеры. PowerPoint и Excel согласовывают размер, чтобы сохранить соотношение сторон, что может привести к изменению размеров.
 
-**Можно ли полностью предотвратить эту проблему изменения размера?**
+### Можно ли полностью предотвратить эту проблему изменения размеров?
 
-Да. Масштабируя OLE‑кадр под размер диапазона ячеек Excel или масштабируя диапазон ячеек под требуемый размер OLE‑кадра, можно предотвратить нежелательное изменение размера.
+Да. Масштабируя OLE‑кадр под размер диапазона ячеек Excel или масштабируя диапазон ячеек под желаемый размер OLE‑кадра, можно избежать нежелательного изменения размеров.
 
-**Какой метод масштабирования использовать: масштабирование OLE‑кадра или диапазона ячеек?**
+### Какой метод масштабирования следует использовать: масштабирование OLE‑кадра или диапазона ячеек?
 
-Выберите **масштабирование OLE‑кадра**, если хотите сохранить оригинальные размеры строк и столбцов Excel. Выберите **масштабирование диапазона ячеек**, если нужен фиксированный размер OLE‑кадра в презентации.
+Выберите **масштабирование OLE‑кадра**, если хотите сохранить исходные размеры строк и столбцов Excel. Выберите **масштабирование диапазона ячеек**, если нужен фиксированный размер OLE‑кадра в презентации.
 
-**Будут ли эти решения работать, если моя презентация основана на шаблоне?**
+### Работают ли эти решения, если моя презентация основана на шаблоне?
 
-Да. Оба решения работают для презентаций, созданных из шаблонов, и для презентаций, созданных с нуля.
+Да. Оба решения работают как для презентаций, созданных из шаблонов, так и для созданных с нуля.
 
-**Есть ли ограничение по размеру OLE‑кадра при использовании этих методов?**
+### Есть ли ограничение по размеру OLE‑кадра при использовании этих методов?
 
-Нет. Вы можете задать любой размер OLE‑кадра, если правильно зададите коэффициент масштабирования.
+Нет. Вы можете задать OLE‑кадру любой размер, при условии правильного выбора масштаба.
 
-**Можно ли избавиться от текста‑заполнителя «EMBEDDED OLE OBJECT» в PowerPoint?**
+### Как избавиться от текста‑заполнителя «EMBEDDED OLE OBJECT» в PowerPoint?
 
-Да. Сделав снимок целевого диапазона ячеек Excel и установив его как изображение‑заполнитель OLE‑кадра, можно отобразить пользовательское предварительное изображение вместо стандартного заполнителя.
+Да. Сделав снимок целевого диапазона ячеек Excel и установив его в качестве изображения‑заполнителя OLE‑кадра, можно отобразить собственное изображение предпросмотра вместо стандартного заполнителя.
 
-## **Связанные статьи**
+## **Сопутствующие статьи**
 
-[Создание диаграммы Excel и внедрение её в презентацию как OLE‑объект](/slides/ru/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Создание диаграммы Excel и её встраивание в презентацию как OLE‑объект](/slides/ru/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
 [Автоматическое обновление OLE‑объектов с помощью надстройки MS PowerPoint](/slides/ru/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

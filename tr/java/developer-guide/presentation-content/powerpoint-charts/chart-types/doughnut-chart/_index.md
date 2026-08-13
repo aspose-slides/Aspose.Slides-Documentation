@@ -1,50 +1,52 @@
 ---
-title: Java kullanarak Sunumlarda Halka Grafiklerini Özelleştirme
-linktitle: Halka Grafik
+title: Java Kullanarak Sunumlarda Donut Grafiklerini Özelleştirme
+linktitle: Donut Grafik
 type: docs
 weight: 30
 url: /tr/java/doughnut-chart/
 keywords:
-- halka grafik
-- merkez boşluğu
-- boşluk boyutu
+- donut grafik
+- merkez boşluk
+- delik boyutu
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'da halka grafiklerini nasıl oluşturacağınızı ve özelleştireceğinizi keşfedin; dinamik sunumlar için PowerPoint formatlarını destekler."
+description: "Aspose.Slides for Java'da donut grafiklerini nasıl oluşturacağınızı ve özelleştireceğinizi keşfedin; dinamik sunumlar için PowerPoint formatlarını destekler."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides'te bir halka grafiğiyle nasıl çalışılacağını, grafiği bir slayta ekleyerek, merkez boşluğunun boyutunu ayarlayarak ve sunumu kaydederek gösterir. `setDoughnutHoleSize` yöntemine odaklanır ve kod içinde bu grafik türünü özelleştirmek için gerekli temel adımları gösterir.
+Bu makale, Aspose.Slides'te bir donut (halka) grafiğiyle nasıl çalışılacağını, grafiği bir slayta eklemeyi, merkez deliğinin boyutunu ayarlamayı ve sunumu kaydetmeyi gösterir. `setDoughnutHoleSize` yöntemine odaklanır ve bu grafik türünü kod içinde özelleştirmek için gerekli temel adımları anlatır.
 
-Ayrıca, çoklu serilerle birden çok halka oluşturma, patlamış halka grafiklerle çalışma ve bir grafiği raster görüntü veya SVG olarak dışa aktarma gibi ilgili halka grafik senaryolarını kapsayan kısa bir SSS içerir.
+Ayrıca, birden çok seriyi kullanarak birden fazla halka oluşturma, patlatılmış donut grafiklerle çalışma ve bir grafiği raster görüntü ya da SVG olarak dışa aktarma gibi ilgili donut‑grafik senaryolarını kapsayan kısa bir SSS içerir.
 
-## **Halka Grafiğinde Merkez Boşluğunu Belirleme**
-{{% alert color="primary" %}} 
+## **Donut Grafiğinde Merkez Boşluğunu Belirleme**
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java artık bir halka grafiğinde boşluğun boyutunu belirlemeyi destekliyor. Bu konuda, bir örnekle halka grafiğindeki boşluğun boyutunu nasıl belirleyeceğimizi göreceğiz.
+Aspose.Slides for Java artık donut grafiğinde deliğin boyutunu belirlemeyi destekliyor. Bu konuda, bir örnekle donut grafiğinde deliğin boyutunun nasıl belirleneceğini göreceğiz.
 
 {{% /alert %}} 
 
-Bir halka grafiğinde boşluğun boyutunu belirlemek için aşağıdaki adımları izleyin:
+Donut grafiğinde deliğin boyutunu belirlemek için lütfen aşağıdaki adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) nesnesini örnekleyin.
-1. Slayta bir halka grafiği ekleyin.
-1. Halka grafiğinde boşluğun boyutunu belirleyin.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) nesnesini oluşturun.
+1. Slayta donut grafiği ekleyin.
+1. Donut grafiğinde deliğin boyutunu belirtin.
 1. Sunumu diske yazın.
 
-Aşağıda verilen örnekte, halka grafiğindeki boşluğun boyutunu ayarladık.
+Aşağıdaki örnekte donut grafiğinde deliğin boyutunu ayarladık.
 
 ```java
-// Presentation sınıfının bir örneğini oluşturun
+import com.aspose.slides.*;
+
+// Presentation sınıfının bir örneğini oluştur
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Doughnut, 50, 50, 400, 400);
     
     chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize((byte)90);
 
-    // Sunumu diske kaydedin
+    // Sunumu diske kaydet
     pres.save("DoughnutHoleSize_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -53,14 +55,14 @@ try {
 
 ## **SSS**
 
-**Birden fazla halka içeren çok seviyeli bir halka oluşturabilir miyim?**
+### Birden çok halka içeren çok seviyeli bir donut oluşturabilir miyim?
 
-Evet. Tek bir halka grafiğine birden fazla seri ekleyin—her seri ayrı bir halka olur. Halka sırası, serilerin koleksiyon içindeki sırasına göre belirlenir.
+Evet. Tek bir donut grafiğine birden fazla seri ekleyin — her seri ayrı bir halka olur. Halkaların sırası, serilerin koleksiyondaki sırasına göre belirlenir.
 
-**"Patlamış" bir halka (ayrılmış dilimler) destekleniyor mu?**
+### "Patlatılmış" bir donut (ayrılmış dilimler) destekleniyor mu?
 
-Evet. Bir Patlamış Halka [chart type](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/) ve veri noktaları için bir patlama özelliği vardır; bireysel dilimleri ayırabilirsiniz.
+Evet. Bir Patlatılmış Donut [grafik tipi](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/) ve veri noktaları üzerindeki patlatma özelliği vardır; bireysel dilimleri ayırabilirsiniz.
 
-**Bir rapor için halka grafiğinin (PNG/SVG) görüntüsünü nasıl alabilirim?**
+### Bir rapor için donut grafiğinin görüntüsünü (PNG/SVG) nasıl alabilirim?
 
-Bir grafik bir şekildir; onu bir [raster image](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#getImage-int-float-float-) olarak oluşturabilir veya grafiği bir [SVG image](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) olarak dışa aktarabilirsiniz.
+Grafik bir şekildir; onu bir [raster görüntü](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#getImage-int-float-float-) olarak render edebilir veya grafiği bir [SVG görüntüsü](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) olarak dışa aktarabilirsiniz.

@@ -1,11 +1,11 @@
 ---
-title: Prezentációk renderelése tartalék betűtípusokkal Java-ban
+title: Prezentációk renderelése helyettesítő betűtípusokkal Java-ban
 linktitle: Prezentációk renderelése
 type: docs
 weight: 30
 url: /hu/java/render-presentation-with-fallback-font/
 keywords:
-- tartalék betűtípus
+- helyettesítő betűtípus
 - PowerPoint renderelése
 - prezentáció renderelése
 - dia renderelése
@@ -14,51 +14,54 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Prezentációk renderelése tartalék betűtípusokkal az Aspose.Slides for Java-ban – a szöveg egységességének biztosítása PPT, PPTX és ODP formátumok között lépésről lépésre bemutatott Java kódrészletekkel."
+description: "Prezentációk renderelése helyettesítő betűtípusokkal az Aspose.Slides for Java-ban – biztosítsa a szöveg egységességét a PPT, PPTX és ODP formátumok között lépésről lépésre bemutatott Java kódmintákkal."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy a prezentációkat tartalék betűtípus szabályokkal renderelje. Ez a cikk bemutatja, hogyan hozhat létre egy tartalék betűtípus szabályok gyűjteményét, hogyan módosíthatja a szabályokat tartalék betűtípusok eltávolításával vagy hozzáadásával, és hogyan rendelheti hozzá a gyűjteményt a `FontsManager.setFontFallBackRulesCollection` metódus segítségével.
+Az Aspose.Slides lehetővé teszi a prezentációk megjelenítését helyettesítő betűtípus szabályok használatával. Ez a cikk bemutatja, hogyan hozhat létre egy helyettesítő betűtípus szabálygyűjteményt, módosíthatja annak szabályait helyettesítő betűtípusok eltávolításával vagy hozzáadásával, és hogyan rendeli hozzá a gyűjteményt a `FontsManager.setFontFallBackRulesCollection` metódussal.
 
-Miután a tartalék betűtípus szabályok gyűjteménye hozzá lett rendelve a prezentáció `FontsManager`-éhez, a szabályok alkalmazásra kerülnek olyan műveletek során, mint a mentés, a renderelés és a prezentáció konvertálása. A példa bemutatja, hogyan használhatók a konfigurált szabályok egy dia bélyegkép renderelésekor és PNG képként való mentésekor.
+Miután a helyettesítő betűtípus szabálygyűjteményt hozzárendelték a prezentáció `FontsManager`‑éhez, a szabályok alkalmazásra kerülnek a mentés, megjelenítés és a prezentáció konvertálása során. A példa bemutatja, hogyan használhatók a beállított szabályok egy diakép bélyegkép megjelenítésekor és JPEG képként való mentésekor.
 
-## **Dia renderelése tartalék betűtípus szabályok használatával**
+## **Dia megjelenítése helyettesítő betűtípus szabályokkal**
 
-1. Létrehozzuk a [tartalék betűtípus szabályok gyűjteményét](/slides/hu/java/create-fallback-fonts-collection/).
-1. [Eltávolít](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) egy tartalék betűtípus szabályt és [addFallBackFonts](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) egy másik szabályhoz.
-1. Állítsuk be a szabályok gyűjteményét a [getFontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) metódusra.
-1. A [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#save-java.lang.String-int-) metódussal menthetjük a prezentációt ugyanabban a formátumban, vagy egy másikban. Miután a tartalék betűtípus szabályok gyűjteménye be lett állítva a [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager) objektumban, ezek a szabályok minden prezentáció művelet során alkalmazásra kerülnek: mentés, renderelés, konvertálás stb.
+1. [helyettesítő betűtípus szabálygyűjteményt hozunk létre](/slides/hu/java/create-fallback-fonts-collection/).
+2. [Eltávolít](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) egy helyettesítő betűtípus szabályt és [addFallBackFonts](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) egy másik szabályhoz.
+3. Állítsa be a szabálygyűjteményt a [getFontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) metódusra.
+4. A [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#save-java.lang.String-int-) metódussal menthetjük a prezentációt ugyanabban a formátumban, vagy egy másikban. Miután a helyettesítő betűtípus szabálygyűjteményt beállítottuk a [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager) számára, ezek a szabályok minden prezentáción végzett műveletnél alkalmazásra kerülnek: mentés, megjelenítés, konvertálás stb.
 
 ```java
-// Új példány létrehozása egy szabálygyűjteményből
+import com.aspose.slides.*;
+
+// Hozzon létre egy új szabálygyűjtemény példányt
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
-// szabályok létrehozása
+// create a number of rules
 rulesList.add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
+rulesList.add(new FontFallBackRule(0x600, 0x6FF, "Tahoma, Arial"));
 
 for (IFontFallBackRule fallBackRule : rulesList)
 {
-    // A betöltött szabályok közül a "Tahoma" tartalék betűtípust próbáljuk eltávolítani
+    // A betöltött szabályokból megpróbálja eltávolítani a "Tahoma" helyettesítő betűtípust
     fallBackRule.remove("Tahoma");
 
-    // És a szabályok frissítése a megadott tartományra
-    if ((fallBackRule.getRangeEndIndex() >= 0x4000) && (fallBackRule.getRangeStartIndex() < 0x5000))
+    // És frissíti a szabályokat a megadott tartományra
+    if ((fallBackRule.getRangeEndIndex() >= 0x400) && (fallBackRule.getRangeStartIndex() < 0x500))
         fallBackRule.addFallBackFonts("Verdana");
 }
 
-// Továbbá bármely létező szabályt eltávolíthatunk a listából
-if (rulesList.size() > 0)
-    rulesList.remove(rulesList.get_Item(0));
+// Ezenkívül eltávolíthatunk bármilyen meglévő szabályt a listáról, legalább egy szabályt megőrizve a rendereléshez
+if (rulesList.size() > 1)
+    rulesList.remove(rulesList.get_Item(1));
 
 Presentation pres = new Presentation("input.pptx");
 try {
-    // Előkészített szabálykészlet hozzárendelése használatra
+    // A felhasználandó előkészített szabálylistát rendeli hozzá
     pres.getFontsManager().setFontFallBackRulesCollection(rulesList);
 
-    // Bélyegkép renderelése az inicializált szabálykészlet használatával és mentése JPEG-be
+    // Miniatűr renderelése az inicializált szabálygyűjtemény használatával és mentése JPEG formátumban
    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
 
-   // Kép mentése lemezre JPEG formátumban
+   // Kép mentése lemezen JPEG formátumban
    try {
          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
    } finally {
@@ -69,6 +72,6 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-További információk arról, hogyan [PPT és PPTX konvertálása JPG-re Java-ban](/slides/hu/java/convert-powerpoint-to-jpg/).
+{{% alert color="info" %}} 
+További információk arról, hogyan [konvertálhatja a PPT és PPTX fájlokat JPG-re Java-ban](/slides/hu/java/convert-powerpoint-to-jpg/).
 {{% /alert %}}

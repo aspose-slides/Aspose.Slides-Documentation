@@ -17,38 +17,40 @@ keywords:
 - PPTX به PNG
 - ذخیره PPT به عنوان PNG
 - ذخیره PPTX به عنوان PNG
-- صادرات PPT به PNG
-- صادرات PPTX به PNG
+- صادر کردن PPT به PNG
+- صادر کردن PPTX به PNG
 - .NET
 - C#
 - Aspose.Slides
-description: "تبدیل ارائه‌های PowerPoint به تصاویر PNG با کیفیت بالا به‌سرعت با Aspose.Slides برای .NET، تضمین نتایج دقیق و خودکار."
+description: "ارائه‌های PowerPoint را به سرعت به تصاویر PNG با کیفیت بالا تبدیل کنید با Aspose.Slides برای .NET، تضمین‌کننده نتایج دقیق و خودکار."
 ---
 ## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه ارائه‌های PowerPoint را به تصاویر PNG با استفاده از Aspose.Slides تبدیل کنیم. این مقاله نشان می‌دهد چگونه فایل‌های ارائه را در قالب‌های PPT, PPTX و ODP بارگذاری کرده، اسلایدها را به عنوان تصاویر رندر کنید و نتایج را در قالب PNG ذخیره کنید.
+این مقاله توضیح می‌دهد که چگونه ارائه‌های پاورپوینت را به تصاویر PNG با استفاده از Aspose.Slides تبدیل کنید. این مقاله نشان می‌دهد چگونه فایل‌های ارائه را در قالب‌های PPT، PPTX و ODP بارگذاری کنید، اسلایدها را به صورت تصویر رندر کنید و نتایج را در قالب PNG ذخیره کنید.
 
-همچنین این مقاله نحوه سفارشی‌سازی تصاویر PNG تولید شده را با تنظیم مقادیر مقیاس یا تعیین عرض و ارتفاع موردنظر نشان می‌دهد.
+همچنین مقاله نشان می‌دهد چگونه می‌توانید تصاویر PNG تولید شده را با تنظیم مقادیر مقیاس یا تعیین عرض و ارتفاع موردنظر، سفارشی‌سازی کنید.
 
-## **تبدیل PowerPoint به PNG**
+## **تبدیل پاورپوینت به PNG**
 
 این مراحل را دنبال کنید:
 
-1. یک شی از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.
-2. شی اسلاید را از مجموعه [Presentation.Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/properties/slides) تحت رابط [ISlide](https://reference.aspose.com/slides/fa/net/aspose.slides/islide) دریافت کنید.
-3. از متد [ISlide.GetImage](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/getimage/) برای دریافت تصویر کوچک هر اسلاید استفاده کنید.
-4. از متد [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/fa/net/aspose.slides.ipresentation/save/methods/5) برای ذخیره تصویر کوچک اسلاید در قالب PNG استفاده کنید.
+1. یک شیء از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.
+2. شی اسلاید را از مجموعه [Presentation.Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/properties/slides) تحت رابط [ISlide](https://reference.aspose.com/slides/fa/net/aspose.slides/islide) دریافت کنید. 
+3. از روش [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/getimage/) برای رندر هر اسلاید با مقیاس مورد نیاز استفاده کنید. 
+4. از روش [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/fa/net/aspose.slides.ipresentation/save/methods/5) برای ذخیره تصویر کوچک اسلاید به قالب PNG استفاده کنید. 
 
-این کد C# نشان می‌دهد چگونه یک ارائه PowerPoint را به PNG تبدیل کنید. شی Presentation می‌تواند فایل‌های PPT، PPTX، ODP و غیره را بارگذاری کند، سپس هر اسلاید در این شی به قالب PNG یا سایر قالب‌های تصویری تبدیل می‌شود.
+این کد C# نشان می‌دهد چگونه یک ارائه پاورپوینت را به PNG تبدیل کنید. شیء Presentation می‌تواند فایل‌های PPT، PPTX، ODP و غیره را بارگذاری کند، سپس هر اسلاید در شیء Presentation به قالب PNG یا سایر قالب‌های تصویری تبدیل می‌شود.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
     {
         ISlide slide = pres.Slides[index];
 
-        using (IImage image = slide.GetImage())
+        using (IImage image = slide.GetImage(1f, 1f))
         {
             image.Save($"slide_{index}.png", ImageFormat.Png);
         }
@@ -56,13 +58,19 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **تبدیل PowerPoint به PNG با ابعاد سفارشی**
+{{% alert color="info" %}} 
+**نکته:** آرگومان‌های مقیاس `1f, 1f` هر اسلاید را با اندازه کامل رندر می‌کنند، بنابراین یک اسلاید 720×540 pt تصویری 720×540 پیکسل تولید می‌کند. بارگذاری بدون پارامتر [GetImage()](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/getimage/) یک تصویر کوچک پیش‌نمایش بسیار کوچکتر برمی‌گرداند.
+{{% /alert %}} 
 
-اگر می‌خواهید فایل‌های PNG را با مقیاس خاصی به‌دست آورید، می‌توانید مقادیر `desiredX` و `desiredY` را تنظیم کنید که ابعاد تصویر کوچک حاصل را تعیین می‌کنند.
+## **تبدیل پاورپوینت به PNG با ابعاد سفارشی**
 
-این کد در C# عملیات توضیح داده‌شده را نشان می‌دهد:
+اگر می‌خواهید فایل‌های PNG با مقیاس خاصی دریافت کنید، می‌توانید مقادیر `desiredX` و `desiredY` را تنظیم کنید، که ابعاد تصویر کوچک خروجی را تعیین می‌کنند. 
+
+این کد در C# عملیات توضیح داده شده را نشان می‌دهد:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     float scaleX = 2f;
@@ -79,13 +87,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **تبدیل PowerPoint به PNG با اندازه سفارشی**
+## **تبدیل پاورپوینت به PNG با اندازه سفارشی**
 
-اگر می‌خواهید فایل‌های PNG را با اندازه خاصی به‌دست آورید، می‌توانید آرگومان‌های `width` و `height` موردنظر خود را برای `imageSize` ارسال کنید.
+اگر می‌خواهید فایل‌های PNG با اندازه خاصی دریافت کنید، می‌توانید آرگومان‌های `width` و `height` مورد نظر خود را برای `imageSize` ارسال کنید. 
 
-این کد نشان می‌دهد چگونه یک PowerPoint را به PNG تبدیل کنید در حالی که اندازه تصاویر را مشخص می‌کنید:
+این کد نشان می‌دهد چگونه یک پاورپوینت را به PNG تبدیل کنید در حالی که اندازه تصاویر را مشخص می‌کنید: 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Size size = new Size(960, 720);
@@ -101,16 +112,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **سؤال‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم تنها یک شکل خاص (مانند نمودار یا تصویر) را به‌جای کل اسلاید صادر کنم؟**
+### چگونه می‌توانم فقط یک شکل خاص (مانند نمودار یا تصویر) را به‌جای کل اسلاید صادر کنم؟
 
-Aspose.Slides از [تولید تصویر کوچک برای اشکال منفرد](/slides/fa/net/create-shape-thumbnails/) پشتیبانی می‌کند؛ می‌توانید یک شکل را به تصویر PNG رندر کنید.
+Aspose.Slides از [ایجاد تصاویر کوچک برای شکل‌های منفرد](/slides/fa/net/create-shape-thumbnails/) پشتیبانی می‌کند؛ می‌توانید یک شکل را به تصویر PNG رندر کنید.
 
-**آیا تبدیل موازی بر روی سرور پشتیبانی می‌شود؟**
+### آیا تبدیل موازی بر روی سرور پشتیبانی می‌شود؟
 
-بله، اما [نشر نشدن](/slides/fa/net/multithreading/) یک نمونه Presentation بین چندین رشته مجاز نیست. برای هر رشته یا پردازش یک نمونه جداگانه استفاده کنید.
+بله، اما [به‌اشتراک‌نگذارید](/slides/fa/net/multithreading/) یک شیء Presentation را بین رشته‌ها. برای هر رشته یا فرآیند از یک نمونه جداگانه استفاده کنید.
 
-**محدودیت‌های نسخه آزمایشی هنگام صادر کردن به PNG چیست؟**
+### محدودیت‌های نسخه آزمایشی هنگام خروجی به PNG چه هستند؟
 
-حالت ارزیابی یک واترمارک به تصاویر خروجی اضافه می‌کند و تا اعمال یک لایسنس [محدودیت‌های دیگر](/slides/fa/net/licensing/) را اعمال می‌کند.
+حالت ارزیابی یک واترمارک به تصاویر خروجی اضافه می‌کند و تا اعمال کردن یک لایسنس، [محدودیت‌های دیگر](/slides/fa/net/licensing/) را اعمال می‌کند.

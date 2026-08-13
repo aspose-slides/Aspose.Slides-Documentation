@@ -1,5 +1,5 @@
 ---
-title: 3D hatások létrehozása prezentációkban Java használatával
+title: 3D hatások létrehozása prezentációkban Java-val
 linktitle: 3D prezentáció
 type: docs
 weight: 232
@@ -9,54 +9,55 @@ keywords:
 - 3D prezentáció
 - 3D forgatás
 - 3D mélység
-- 3D extrúzió
+- 3D extrudálás
 - 3D színátmenet
 - 3D szöveg
 - PowerPoint
 - prezentáció
 - Java
 - Aspose.Slides
-description: Alkalmazza és jelenítse meg a 3D hatásokat PowerPoint alakzatokhoz és szöveghez Java-ban az Aspose.Slides segítségével. Konfigurálja a kamerát, a világítást, az anyagot, az extrúziót, a kitöltéseket és a 3D szöveget.
+description: "Alkalmazza és renderelje a 3D hatásokat PowerPoint alakzatokra és szövegre Java-ban az Aspose.Slides segítségével. Állítsa be a kamerát, megvilágítást, anyagot, extrudálást, kitöltéseket és a 3D szöveget."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Java képes létrehozni, szerkeszteni, megőrizni és megjeleníteni PowerPoint‑stílusú 3D formázást alakzatok és szövegek számára. Ez a cikk olyan 3D hatásokat fed le, mint a forgatás, extrúzió, levágások, világítás, anyag, színátmenetes vagy képes kitöltések, valamint a 3D szöveg.
+Az Aspose.Slides for Java képes létrehozni, szerkeszteni, megőrizni és renderelni a PowerPoint‑stílusú 3D formázást alakzatokhoz és szöveghez. Ez a cikk a 3D hatásokat, például a forgatást, extrudálást, levágásokat, megvilágítást, anyagot, színátmenetes vagy képpel kitöltést, valamint a 3D szöveget tárgyalja.
 
-{{% alert color="primary" %}}
-Ez a cikk a PowerPoint alakzatok és szövegek 3D formázási hatásairól szól. Nem a különálló 3D modellfájlok beszúrásáról vagy szerkesztéséről szól. Amikor egy diát képre, PDF‑re vagy HTML‑re exportálsz, az Aspose.Slides ezeket a 3D hatásokat a exportált 2D kimenetbe rendereli.
+{{% alert color="info" %}}
+Ez a cikk a PowerPoint alakzatokra és szövegre vonatkozó 3D formázási hatásokról szól. Nem a különálló 3D modellfájlok beszúrásáról vagy szerkesztéséről szól. Amikor egy diát képre, PDF‑re vagy HTML‑re exportál, az Aspose.Slides ezeket a 3D hatásokat a exportált 2D kimenetbe rendereli.
 {{% /alert %}}
 
-## **3D Formázási Fogalmak**
+## **3D formázási koncepciók**
 
-Használd az [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/).`getThreeDFormat()` metódust 3D formázás alkalmazásához egy alakzatra. A visszaadott formátumobjektum vezérli az adott alakzat 3D jelenetét.
+Használja a [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/).`getThreeDFormat()` metódust 3D formátum alkalmazásához egy alakzatra. A visszaadott formátumobjektum vezérli az adott alakzat 3D jelenetét.
 
-Szöveghez használd az [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()` metódust. Ez a szövegdobozra alkalmazza a 3D formázást, nem az alakzat testére.
+Szöveghez használja a [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()`. Ez a szövegkeretre alkalmaz 3D formázást az alakzat testének helyett.
 
-A legfontosabb API tagok:
+A legfontosabb API tagok a következők:
 
-| API tag | Mit vezérel | Mikor használjuk |
+| API tag | Mit vezérel | Mikor használja |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getCamera--) | Nézőpont, előre beállított kamera típus, forgatás, nagyítás és perspektíva. | Az objektum forgatása 3D térben vagy a PowerPoint 3D forgatás előre beállított értékének megfeleltetése. |
-| [getLightRig](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getLightRig--) | Világítás előbeállítása, irány és fényforgás. | Megváltoztatja, hogyan jelennek meg a kiemelések és árnyékok a 3D felületen. |
-| [getMaterial](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getMaterial--) és [setMaterial](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Felületi anyag, például lapos, matt, műanyag vagy fém. | Ugyanazt a geometriát laposabbá, lágyabbá, fényesebbé vagy fémesebbé teszi. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) és [setExtrusionHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Milyen messze nyúlik vissza az alakzat a frontális felületétől. | Egy lapos alakzatot láthatóan vastag 3D objektummá alakít. |
-| [getExtrusionColor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Az extrudált oldalak színe. | A mélység láthatóvá tétele vagy az oldalszín összehangolása a frontális kitöltéssel. |
-| [getDepth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getDepth--) és [setDepth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setDepth-double-) | A PowerPoint 3D formázás által használt további 3D mélység. | Finomhangolja a mélységet alakzatok vagy szövegek esetén, különösen a levágás és anyag beállításokkal együtt. |
-| [getBevelTop](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getBevelTop--) és [getBevelBottom](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Emelt vagy lekerekített élek az elő‑ és hátlapokon. | Lágyabb vagy formázott él hozzáadása éles, lapos felület helyett. |
-| [getContourColor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getContourWidth--), és [setContourWidth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Kontúr a 3D objektum körül. | Kiemeli az objektum határait a renderelt kimenetben. |
+| [getCamera](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getCamera--) | Nézőpont, előre beállított kamera típus, forgatás, nagyítás és perspektíva. | Az objektum forgatása 3D térben vagy egy PowerPoint 3D forgatási előbeállítás illesztése. |
+| [getLightRig](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getLightRig--) | Fény előbeállítás, irány és fényforgatás. | Megváltoztatja, hogy a kiemelések és árnyékok hogyan jelennek meg a 3D felületen. |
+| [getMaterial](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getMaterial--) és [setMaterial](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Felületi anyag, mint például lapos, matt, műanyag vagy fém. | Ugyanazon geometria laposabbá, puhábbá, fényesebbé vagy fémesebbé tétele. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) és [setExtrusionHeight](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Milyen távolságra nyúlik ki az alakzat hátrafelé az első felületétől. | Lap alakzatot láthatóan vastag 3D objektummá alakít. |
+| [getExtrusionColor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Az extrudált oldalak színe. | A mélység láthatóvá tétele vagy az oldal színének összehangolása az első kitöltéssel. |
+| [getDepth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getDepth--) és [setDepth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setDepth-double-) | További 3D mélység, amelyet a PowerPoint 3D formázás használ. | Finomhangolja a mélységet alakzatoknál vagy szövegnél, különösen a bevel és anyag beállításokkal együtt. |
+| [getBevelTop](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getBevelTop--) és [getBevelBottom](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Emelt vagy lekerekített élek az első és hátsó felületeken. | Lágy vagy formázott él hozzáadása egy éles, lapos felület helyett. |
+| [getContourColor](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#getContourWidth--), és [setContourWidth](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Körvonal a 3D objektum körül. | Kiemeli az objektum határát a renderelt kimenetben. |
 
-## **3D Alakzat Létrehozása**
+## **3D alakzat létrehozása**
 
-Egy alakzat általában négyféle beállítást igényel, mielőtt meggyőzően 3D‑snek tűnik:
+- Kamera beállítások, mivel az alapértelmezett előnézet elrejtheti az extrudálást.  
+- Világítás beállítások, mivel a megvilágítás teszi olvashatóvá az felületeket és oldalakat.  
+- Anyag beállítások, mivel a felület befolyásolja a fény megjelenítését.  
+- Extrudálás vagy mélység beállítások, mivel egy lapos alakzatnak szüksége van vastagságra.
 
-- Kamera beállítások, mivel az alapértelmezett frontális nézet elrejtheti az extrúziót.
-- Világítási beállítások, mivel a fény megmutatja a felületeket és oldalakat.
-- Anyag beállítások, mivel a felület befolyásolja, hogyan jelenik meg a fény.
-- Extrúzió vagy mélység beállítások, mivel egy lapos alakzatnak vastagságra van szüksége.
-
-A következő példa egy téglalapot hoz létre, szöveget ad a frontális felülethez, alkalmaz 3D formázást, PPTX‑ként menti a prezentációt, és a diát PNG képpé rendereli.
+Az alábbi példa egy téglalapot hoz létre, szöveget ad az első felületéhez, 3D formázást alkalmaz, PPTX‑ként menti a prezentációt, és a diát PNG képre rendereli.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -90,50 +91,74 @@ try {
 }
 ```
 
-A renderelt diakép a téglalapot vastag 3D blokként mutatja:
+A renderelt dia kép a téglalapot mint vastag 3D blokkot mutatja:
 
-![Megjelenített kék 3D téglalap fehér 3D szöveggel a frontális felületen](img_01_01.png)
+![Renderelt kék 3D téglalap fehér 3D szöveggel az első felületen](img_01_01.png)
 
-## **Alakzat Forgatása a Kamerával**
+## **Alakzat forgatása a kamerával**
 
-PowerPoint‑ban a 3D forgatás a **3‑D Rotation** panelből állítható. Az X, Y és Z forgatási értékek megfelelnek a kamera API‑val beállított forgatásnak.
+PowerPoint‑ban a 3D forgatás a „3‑D Rotation” panelen állítható be. Az X, Y és Z forgatási értékek megfelelnek a kamera API‑n keresztül beállított forgatásnak.
 
-![PowerPoint 3‑D Rotation panel X, Y és Z forgatási értékekkel kiemelve](img_02_01.png)
+![PowerPoint 3D forgatás panel X, Y és Z forgatási értékek kiemelve](img_02_01.png)
 
-Aspose.Slides‑ben a kamera típusát és forgatását a `shape.getThreeDFormat()` által visszaadott 3D formátummal állíthatod be:
+Aspose.Slides‑ban a kamera típusát és forgatását a `shape.getThreeDFormat()` által visszaadott 3D formátumon keresztül állíthatja be:
 
 ```java
-shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Használd a kamerát, ha meg kell változtatnod, hogyan látja a néző az objektumot. Nem változtatja meg a dia 2D alakzatának geometriáját, csak a PowerPoint és az Aspose.Slides által a renderelés során használt 3D nézőpontot.
+Használja a kamerát, amikor meg kell változtatni, hogy a néző hogyan látja az objektumot. Nem változtatja meg a 2D alakzat geometriáját a dián. A 3D nézőpontot változtatja meg, amelyet a PowerPoint és az Aspose.Slides a rendereléskor használ.
 
-## **Extrúzió és Mélység Hozzáadása**
+## **Extrudálás és mélység hozzáadása**
 
-Az extrúzió egy alakzatot vastagnak mutat azzal, hogy kiterjeszti a frontális felület mögé. PowerPoint‑ban a mélység szabályozó határozza meg ezt a látható vastagságot, a szín szabályozó pedig az oldalfalak színét.
+Az extrudálás egy alakzatot vastagnak mutat azáltal, hogy kinyújtja a front felülete mögé. PowerPoint‑ban a mélység szabályozó állítja be ezt a látható vastagságot, a szín szabályozó pedig az oldal felületek színét.
 
-![PowerPoint mélység szabályozók leképezve az extrúzió színre és extrúzió magasság tulajdonságokra](img_02_02.png)
+![PowerPoint mélység szabályozók leképezve az extrudálás szín és magasság tulajdonságokra](img_02_02.png)
 
-Állítsd be az extrúzió magasságát a vastagsághoz, az extrúzió színét pedig az oldalszínhez:
+Állítsa be az extrudálás magasságát a vastagsághoz és az extrudálás színét az oldal színéhez:
 
 ```java
-Color extrusionColor = new Color(128, 0, 128);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    Color extrusionColor = new Color(128, 0, 128);
+
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Használd a mélység beállítást, ha közvetlenül a PowerPoint mélységértékével szeretnél dolgozni, vagy a mélységet kombinálnád a levágással, anyaggal és szöveghatásokkal. Sok alakzatszituációban az extrúzió magassága egyértelműbb, mert közvetlenül kifejezi a látható extrúziót.
+Használja a mélység beállítást, amikor közvetlenül a PowerPoint mélységértékével kell dolgozni, vagy a mélységet bevel, anyag és szöveghatásokkal kombinálni. Sok alakzati esetben az extrudálás magassága egyértelműbb beállítás, mert közvetlenül kifejezi a látható extrudálást.
 
-## **Színátmenetes vagy Kép Kitöltés 3D Hatásokkal**
+## **Színátmenetes vagy kép kitöltések használata 3D hatásokkal**
 
-A 3D formázás önálló a forma kitöltésétől. Alkalmazhatsz egyszínű, színátmenetes, mintás vagy képes kitöltést a frontális felületre, miközben ugyanazokat a kamera-, világítási-, anyag‑ és extrúzió‑beállításokat használod.
+A 3D formázás független az alakzat kitöltésétől. Alkalmazhat egy egyszínű, színátmenetes, mintás vagy képes kitöltést az első felületre, miközben ugyanazt a kamerát, fényt, anyagot és extrudálást használja.
 
-Ez a példa színátmenetes kitöltést alkalmaz a formára, és sötétebb extrúziószínt az oldalakra:
+Ez a példa színátmenetes kitöltést alkalmaz az alakzatra és sötétebb extrudálás színt az oldalakon:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -167,38 +192,52 @@ try {
 }
 ```
 
-A renderelt kimenet megtartja a színátmenetet a frontális felületen, az extrúziót pedig külön rendereli:
+A renderelt kimenet megőrzi a színátmenetet az első felületen, és külön rendereli az extrudálást:
 
-![Renderelt 3D téglalap kék‑narancs színátmenetes kitöltéssel és narancssárga extrúzióval](img_02_03.png)
+![Renderelt 3D téglalap kék‑narancs színátmenetes kitöltéssel és narancssárga extrudálással](img_02_03.png)
 
-Képes kitöltés használatához add hozzá a képet a prezentációhoz, és rendeld hozzá a forma kitöltéséhez:
+Ha kép kitöltést szeretne használni, adja hozzá a képet a prezentációhoz, és rendelje hozzá az alakzat kitöltéséhez:
 
 ```java
-java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
-byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
-IPPImage image = presentation.getImages().addImage(imageData);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-shape.getFillFormat().setFillType(FillType.Picture);
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
 
-Color extrusionColor = new Color(255, 140, 0);
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+    java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
+    byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageData);
+
+    shape.getFillFormat().setFillType(FillType.Picture);
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+    Color extrusionColor = new Color(255, 140, 0);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-A kép a frontális felületen jelenik meg, míg az extrúzió a 3D oldalfelületként renderelődik:
+A képet az első felületen rendereli, míg az extrudálást a 3D oldal felületként:
 
-![Renderelt 3D téglalap fotó kitöltéssel a frontális felületen és narancssárga extrúzióval](img_02_04.png)
+![Renderelt 3D téglalap fényképes kitöltéssel az első felületen és narancssárga extrudálással](img_02_04.png)
 
-## **3D Formázás Alkalmazása Szövegre**
+## **3D formázás alkalmazása szövegre**
 
-Az alakzat 3D formázása a forma testét érinti. A szöveg 3D formázása a szövegdobozt. Ez WordArt‑szerű hatásokhoz hasznos, ahol a betűknek maguknak is szükségük van extrúzióra, anyagra, világításra és kamera beállításokra.
+Az alakzat 3D formázása az alakzat testére hat. A szöveg 3D formázása a szövegkeretre. Ez hasznos WordArt‑szerű hatásokhoz, ahol a betűknek is szükségük van extrudálásra, anyagra, megvilágításra és kamera beállításokra.
 
-A következő példa mintás kitöltéssel hoz létre szöveget, WordArt transzformációt alkalmaz, és 3D beállításokat konfigurál az [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/)‑nél:
+Az alábbi példa szöveget hoz létre mintás kitöltéssel, WordArt átalakítást alkalmaz, és 3D beállításokat konfigurál a [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/)-on:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -241,43 +280,43 @@ try {
 }
 ```
 
-A szöveg görbült, extrudált 3D betűként jelenik meg:
+A szöveg íves, extrudált 3D betűként renderelődik:
 
-![Renderelt 3D szöveg ívelt WordArt transzformációval, narancssárga mintás kitöltéssel és sötét extrúzióval](img_02_05.png)
+![Renderelt 3D szöveg íves WordArt átalakítással, narancssárga mintás kitöltéssel és sötét extrudálással](img_02_05.png)
 
-## **Exportálási és Renderelési Viselkedés**
+## **Exportálási és renderelési viselkedés**
 
-Az Aspose.Slides megőrzi a 3D formázást, amikor PowerPoint formátumokba, például PPTX‑be ment. Renderelés vagy exportálás fix elrendezésű formátumokba esetén a 3D jelenet raszterizálódik vagy 2D‑ként kerül be a kimenetbe. Ez akkor is érvényes, ha diákot renderelsz [PNG](/slides/hu/java/convert-powerpoint-to-png/), exportálsz [PDF](/slides/hu/java/convert-powerpoint-to-pdf/), exportálsz [HTML](/slides/hu/java/convert-powerpoint-to-html/), vagy kereteket generálsz [video conversion](/slides/hu/java/convert-powerpoint-to-video/).
+Az Aspose.Slides megőrzi a 3D formázást a PowerPoint formátumokba, például PPTX‑be mentéskor. Amikor rögzített elrendezésű formátumokba renderel vagy exportál, a 3D jelenet raszterizálódik vagy a kimenetbe 2D eredményként kerül. Ez akkor is érvényes, amikor a diákot a [PNG](/slides/hu/java/convert-powerpoint-to-png/)-ra rendereli, a [PDF](/slides/hu/java/convert-powerpoint-to-pdf/)-ra exportál, a [HTML](/slides/hu/java/convert-powerpoint-to-html/)-ra exportál, vagy a [videó konverzió](/slides/hu/java/convert-powerpoint-to-video/) kereteit generálja.
 
-Fontos tudnivalók:
+Tartsa szem előtt a következőket:
 
-- Az exportált képek és PDF‑ek nem interaktívak. Az objektumot az export után a néző nem tudja elforgatni.
-- A végső megjelenés a kamera, a világítás, az anyag, az extrúzió, a kitöltés és a dia skálázás kombinációjától függ.
-- Ha meg kell vizsgálnod az örökölt vagy témaalapú formázási értékeket, olvasd el a [effective shape properties](/slides/hu/java/shape-effective-properties/).
-- Néhány kimeneti formátum nem képes szerkeszthető PowerPoint 3D formázást tárolni. Ilyen formátumokban a vizuális eredmény renderelt, nem szerkeszthető 3D beállításként marad meg.
+- Az exportált képek és PDF‑ek nem interaktívak. Az objektumot a néző nem tudja forgatni az export után.  
+- A végső megjelenés a kamera, fény, anyag, extrudálás, kitöltés és dia méretezés kombinációjától függ.  
+- Ha meg kell vizsgálni az örökölt vagy téma‑alapú formázási értékeket, olvassa a [effective shape properties](/slides/hu/java/shape-effective-properties/)-t.  
+- Egyes kimeneti formátumok nem tudják tárolni a szerkeszthető PowerPoint 3D formázást. Ezekben a formátumokban a vizuális eredmény renderelve van, nem szerkeszthető 3D beállításként.
 
 ## **GYIK**
 
-**Készíthet‑e az Aspose.Slides interaktív 3D prezentációkat?**
+### Készíthet‑e az Aspose.Slides interaktív 3D prezentációkat?
 
-Az Aspose.Slides PowerPoint‑3D hatásokat hoz létre és renderel alakzatokra és szövegre. Nem tesz interaktív 3D jeleneteket exportált képekben, PDF‑ekben vagy HTML‑oldalakon, amelyeket a néző elforgathat. PPTX‑ben a 3D formázás szerkeszthető marad PowerPoint‑ban, ahol a formátum támogatja.
+Az Aspose.Slides PowerPoint 3D hatásokat hoz létre és renderel alakzatokra és szövegre. Nem tesz interaktív 3D jeleneteket exportált képek, PDF‑ek vagy HTML‑oldalak esetén, amelyeket a néző forgathat. PPTX‑ben a 3D formázás szerkeszthető marad a PowerPoint‑ban, ahol a formátum támogatja.
 
-**Mi a különbség a 3D modell és a 3D hatás között?**
+### Mi a különbség a 3D modell és a 3D effektus között?
 
-A 3D modell egy különálló 3D objektum, amelyet a prezentációba szúrnak be. A 3D hatás egy szabványos PowerPoint alakzatra vagy szövegre alkalmazott formázás, mint például forgatás, extrúzió, levágás, világítás és anyag. Ez a cikk a 3D hatásokat tárgyalja.
+A 3D modell egy különálló 3D objektum, amelyet a prezentációba szúrnak be. A 3D effektus egy szabványos PowerPoint alakzatra vagy szövegre alkalmazott formázás, például forgatás, extrudálás, bevel, megvilágítás és anyag. Ez a cikk a 3D effektusokat tárgyalja.
 
-**Milyen beállítások szükségesek egy látható 3D alakzathoz?**
+### Mely beállítások szükségesek egy látható 3D alakzathoz?
 
-Legalább kamera forgatás és extrúzió vagy mélység beállítása szükséges. Gyakorlati szempontból ajánlott egy világítási rig és anyag beállítása is, hogy a renderelt felületeknek egyértelmű kiemelések és árnyékok legyenek.
+Legalább egy kamera forgatást, valamint extrudálást vagy mélységet kell beállítani. Gyakorlati szempontból érdemes továbbá fényriget és anyagot is beállítani, hogy a renderelt felületeknek legyenek tiszta kiemelések és árnyékok.
 
-**Alkalmazhatok‑e 3D hatásokat alakzatokra és szövegre egyaránt?**
+### Alkalmazhatok‑e 3D hatásokat alakzatokra és szövegre egyaránt?
 
-Igen. Használd az [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/).`getThreeDFormat()`‑t az alakzat testére, és az [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()`‑t a szövegre.
+Igen. Használja a [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/).`getThreeDFormat()`‑t az alakzat testére, és a [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()`‑t a szövegre.
 
-**Megjelennek‑e a 3D hatások képek, PDF, HTML vagy videókeretek exportálásakor?**
+### Megjelennek‑e a 3D hatások exportáláskor képekre, PDF‑re, HTML‑re vagy videoképkockákra?
 
-Igen. Az Aspose.Slides a 3D hatásokat rendereli, amikor dia képeket, PDF‑kimenetet, HTML‑kimenetet és videókonvertáláshoz használt kereteket hoz létre. Az exportált kimenet a renderelt megjelenést tartalmazza, nem egy szerkeszthető 3D objektumot.
+Igen. Az Aspose.Slides 3D hatásokat renderel, amikor dia képeket, PDF‑kimenetet, HTML‑kimenetet és a videó konverzióhoz használt képkockákat állít elő. Az exportált kimenet a renderelt megjelenést tartalmazza, nem szerkeszthető 3D objektumot.
 
-**Olvashatom‑e a végső 3D értékeket az öröklés és a téma beállítások alkalmazása után?**
+### Kiolvashatom‑e a végső 3D értékeket, miután az öröklődés és a téma beállítások alkalmazásra kerültek?
 
-Igen. Használd a hatékony formázási API‑kat, amelyeket a [Shape Effective Properties](/slides/hu/java/shape-effective-properties/) leír, hogy a végső kamera, világítási rig, levágás és kapcsolódó 3D értékeket olvasd.
+Igen. Használja az effektív formázási API‑kat, amelyeket a [Shape Effective Properties](/slides/hu/java/shape-effective-properties/) leír. Ez lehetővé teszi a végső kamera, fényrig, bevel és kapcsolódó 3D értékek kiolvasását.

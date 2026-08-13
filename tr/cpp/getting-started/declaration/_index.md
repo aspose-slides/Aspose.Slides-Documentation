@@ -14,10 +14,10 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ güven gereksinimleri, izinler ve barındırma sınırlamaları hakkında bilgi edinin, böylece sunucularda PPT, PPTX ve ODP işleyen uygulamaları güvenli bir şekilde dağıtabilirsiniz."
+description: "Aspose.Slides for C++ güven gereksinimleri, izinler ve barındırma sınırlamaları hakkında bilgi edinin, böylece PPT, PPTX ve ODP'yi sunucularda işleyen uygulamaları güvenle dağıtabilirsiniz."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tüm Aspose C++ bileşenleri Full Trust izin kümesini gerektirir. Bunun nedeni, Aspose C++ bileşenlerinin belirli işlemler, örneğin yazı tiplerini ayrıştırma gibi, için sanal dizin dışındaki kayıt defteri ayarlarına ve sistem dosyalarına erişmesi gerekir. Ayrıca, Aspose C++ Bileşenleri, birçok durumda Full Trust izin kümesini gerektiren temel C++ sistem sınıflarına dayanır. 
+Tüm Aspose C++ bileşenleri Full Trust izin kümesini gerektirir. Bunun nedeni, Aspose C++ bileşenlerinin kayıt defteri ayarlarına, sistem dosyalarına ve sanal dizin dışındaki belirli işlemler (örneğin yazı tiplerini ayrıştırma) için erişmesi gerekliliğidir. Ayrıca, Aspose C++ Bileşenleri birçok durumda Full Trust izin kümesini gerektiren çekirdek C++ sistem sınıflarına dayanır. 
 
 {{% /alert %}}

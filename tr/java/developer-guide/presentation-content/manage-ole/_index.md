@@ -6,21 +6,21 @@ weight: 40
 url: /tr/java/manage-ole/
 keywords:
 - OLE nesnesi
-- Nesne Bağlantısı ve Gömme
+- Nesne Bağlantısı & Gömme
 - OLE ekle
-- OLE gömme
+- OLE göm
 - nesne ekle
-- nesne gömme
+- nesne göm
 - dosya ekle
-- dosya gömme
-- bağlantılı nesne
-- bağlantılı dosya
+- dosya göm
+- bağlanmış nesne
+- bağlanmış dosya
 - OLE değiştir
 - OLE simgesi
 - OLE başlığı
-- OLE çıkarma
-- nesneyi çıkar
-- dosyayı çıkar
+- OLE çıkar
+- nesne çıkar
+- dosya çıkar
 - PowerPoint
 - sunum
 - Java
@@ -29,42 +29,47 @@ description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument dosyalarınd
 ---
 ## **Giriş**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-OLE (Object Linking & Embedding), bir uygulamada oluşturulan veri ve nesnelerin başka bir uygulamaya bağlantı ya da gömme yoluyla yerleştirilebilmesini sağlayan bir Microsoft teknolojisidir. 
+OLE (Object Linking & Embedding), bir Microsoft teknolojisidir ve bir uygulamada oluşturulan veri ve nesnelerin bağlantı veya gömme yoluyla başka bir uygulamaya yerleştirilmesini sağlar. 
 
 {{% /alert %}} 
 
-MS Excel’de oluşturulmuş bir grafiği düşünün. Bu grafik daha sonra bir PowerPoint slaytına yerleştirilir. Excel grafiği bir OLE nesnesi olarak kabul edilir. 
+MS Excel'de oluşturulan bir grafiği düşünün. Bu grafik daha sonra bir PowerPoint slaytına yerleştirilir. Bu Excel grafiği bir OLE nesnesi olarak kabul edilir. 
 
-- Bir OLE nesnesi bir simge olarak görünebilir. Bu durumda simgeye çift‑tıkladığınızda grafik ilişkili uygulamasında (Excel) açılır veya nesneyi açmak/ düzenlemek için bir uygulama seçmeniz istenir. 
-- Bir OLE nesnesi, grafiğin içeriği gibi gerçek içeriğini gösterebilir. Bu durumda grafik PowerPoint içinde etkinleşir, grafik arayüzü yüklenir ve grafiğin verilerini PowerPoint içinde değiştirebilirsiniz. 
+- Bir OLE nesnesi bir simge olarak görünebilir. Bu durumda, simgeye çift tıkladığınızda grafik, ilişkili uygulamasında (Excel) açılır veya nesneyi açmak/düzenlemek için bir uygulama seçmeniz istenir. 
+- Bir OLE nesnesi grafiğin içeriği gibi gerçek içeriğini gösterebilir. Bu durumda, grafik PowerPoint içinde etkinleşir, grafik arayüzü yüklenir ve grafik verilerini PowerPoint içinde değiştirebilirsiniz. 
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/tr/java/) OLE Nesnelerini slaytlara OLE nesne çerçeveleri ([OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame)) olarak eklemenizi sağlar. 
+[Aspose.Slides for Java](https://products.aspose.com/slides/tr/java/) slaytlara OLE nesnelerini OLE nesne çerçeveleri olarak ([OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame)) eklemenize olanak tanır.
 
-## **Slaytlara OLE Nesne Çerçeveleri Ekleme**
+## **OLE Nesne Çerçevelerini Slaytlara Ekleme**
 
-Microsoft Excel’de zaten bir grafik oluşturduğunuzu ve bunu Aspose.Slides for Java kullanarak bir OLE nesne çerçevesi olarak bir slayta gömmek istediğinizi varsayalım; bunu şu şekilde yapabilirsiniz:
+Microsoft Excel'de zaten bir grafik oluşturduğunuzu ve bunu Aspose.Slides for Java kullanarak bir OLE nesne çerçevesi olarak slayta gömmek istediğinizi varsayarsak, bunu şu şekilde yapabilirsiniz:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun. 
-1. Slaytın referansını indeksine göre alın. 
-1. Excel dosyasını bir bayt dizisi olarak okuyun. 
-1. OLE nesnesiyle ilgili bayt dizisini ve diğer bilgileri içeren [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame) çerçevesini slayta ekleyin. 
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin. 
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
+1. Slaytın indeksini kullanarak bir referans alın.  
+1. Excel dosyasını bayt dizisi olarak okuyun.  
+1. Bayt dizisini ve OLE nesnesiyle ilgili diğer bilgileri içeren [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame)i slayta ekleyin.  
+1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.  
 
-Aşağıdaki örnekte, bir Excel dosyasındaki grafiği Aspose.Slides for Java kullanarak bir OLE nesne çerçevesi olarak bir slayta ekledik.  
-**Not**: [OleEmbeddedDataInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleEmbeddedDataInfo) yapıcısı ikinci parametre olarak gömülebilir bir nesne uzantısı alır. Bu uzantı, PowerPoint’in dosya türünü doğru bir şekilde yorumlamasını ve bu OLE nesnesini açmak için doğru uygulamayı seçmesini sağlar. 
+Aşağıdaki örnekte, bir Excel dosyasından alınan grafiği Aspose.Slides for Java kullanarak bir OLE nesne çerçevesi olarak slayta ekledik.  
+**Not** ki [OleEmbeddedDataInfo](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleEmbeddedDataInfo) yapıcı, ikinci parametre olarak gömülebilir nesne uzantısını alır. Bu uzantı, PowerPoint'in dosya türünü doğru şekilde yorumlamasını ve bu OLE nesnesini açmak için uygun uygulamayı seçmesini sağlar.
 
 ``` java 
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// OLE nesnesi için veriyi hazırlayın.
+// Prepare data for the OLE object.
 byte[] fileData = Files.readAllBytes(Paths.get("book.xlsx"));
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-// OLE nesne çerçevesini slayta ekleyin.
+// Add the OLE object frame to the slide.
 slide.getShapes().addOleObjectFrame(0, 0, (float)slideSize.getWidth(), (float)slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
@@ -73,15 +78,17 @@ presentation.dispose();
 
 ### **Bağlantılı OLE Nesne Çerçeveleri Ekleme**
 
-Aspose.Slides for Java, veriyi gömmeden yalnızca dosyaya bir bağlantı ile bir [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame) eklemenize olanak tanır. 
+Aspose.Slides for Java, veri gömmeden yalnızca dosyaya bir bağlantı ile bir [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame) eklemenize olanak tanır.
 
-Bu Java kodu, bir slayta bağlantılı bir Excel dosyasıyla bir [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame) eklemenin yolunu gösterir: 
+Bu Java kodu, bir Excel dosyasına bağlantılı bir [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame) eklemenin yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Bağlantılı bir Excel dosyasıyla OLE nesne çerçevesi ekleyin.
+// Bağlantılı bir Excel dosyasıyla OLE nesne çerçevesi ekle.
 slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 presentation.save("output.pptx", SaveFormat.Pptx);
@@ -90,17 +97,18 @@ presentation.dispose();
 
 ## **OLE Nesne Çerçevelerine Erişim**
 
-Bir OLE nesnesi zaten bir slayta gömülmüşse, onu aşağıdaki şekilde kolayca bulabilir veya erişebilirsiniz: 
+Bir OLE nesnesi zaten bir slayta gömülmüşse, ona şu şekilde kolayca erişebilir veya bulabilirsiniz:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturarak gömülü OLE nesnesi içeren bir sunumu yükleyin. 
-2. İndeksini kullanarak slaytın referansını alın. 
-3. [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame) şekline erişin.  
-   Örneğimizde, ilk slaytta yalnızca bir şekil bulunan daha önce oluşturulmuş PPTX’i kullandık. Ardından bu nesneyi bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IOleObjectFrame) olarak *cast* ettik. Bu, erişilmek istenen OLE nesne çerçevesiydi. 
-4. OLE nesne çerçevesine erişildiğinde, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz. 
+1. Gömülü OLE nesnesi içeren bir sunumu, [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturarak yükleyin.  
+2. Slaytın indeksini kullanarak referansını alın.  
+3. [OleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/OleObjectFrame) şekline erişin. Örneğimizde, ilk slaytta yalnızca bir şekil bulunan daha önce oluşturulmuş PPTX dosyasını kullandık. Ardından bu nesneyi bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IOleObjectFrame) olarak *cast* ettik. Bu, erişilmek istenen OLE nesne çerçevesiydi.  
+4. OLE nesne çerçevesine erişildikten sonra, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz.  
 
-Aşağıdaki örnekte, bir OLE nesne çerçevesi (slayta gömülmüş bir Excel grafik nesnesi) ve dosya verileri erişilmektedir. 
+Aşağıdaki örnekte, bir OLE nesne çerçevesi (slayta gömülü bir Excel grafik nesnesi) ve dosya verileri erişilmektedir.
 
 ``` java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -108,10 +116,10 @@ IShape shape = slide.getShapes().get_Item(0);
 if (shape instanceof IOleObjectFrame) {
     IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
     
-    // Gömülü dosya verisini alın.
+    // Gömülü dosya verisini al.
     byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-    // Gömülü dosyanın uzantısını alın.
+    // Gömülü dosyanın uzantısını al.
     String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
     // ...
@@ -120,11 +128,13 @@ if (shape instanceof IOleObjectFrame) {
 
 ### **Bağlantılı OLE Nesne Çerçevesi Özelliklerine Erişim**
 
-Aspose.Slides, bağlantılı OLE nesne çerçevesi özelliklerine erişmenizi sağlar. 
+Aspose.Slides, bağlantılı OLE nesne çerçevesi özelliklerine erişmenizi sağlar.
 
-Bu Java kodu, bir OLE nesnesinin bağlantılı olup olmadığını kontrol etmenizi ve ardından bağlantılı dosyanın yolunu elde etmenizi gösterir: 
+Bu Java kodu, bir OLE nesnesinin bağlantılı olup olmadığını kontrol edip bağlantılı dosyanın yolunu almanın yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -132,12 +142,12 @@ IShape shape = slide.getShapes().get_Item(0);
 if (shape instanceof IOleObjectFrame) {
     IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
 
-    // OLE nesnesinin bağlantılı olup olmadığını kontrol edin.
+    // OLE nesnesinin bağlantılı olup olmadığını kontrol et.
     if (oleFrame.isObjectLink()) {
         // Bağlantılı dosyanın tam yolunu yazdır.
         System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
 
-        // Bağlantılı dosyanın göreceli yolunu, mevcutsa, yazdır.
+        // Bağlantılı dosyanın göreceli yolunu varsa yazdır.
         // Yalnızca PPT sunumları göreceli yolu içerebilir.
         if (oleFrame.getLinkPathRelative() != null && !oleFrame.getLinkPathRelative().isEmpty()) {
             System.out.println("OLE object frame relative path: " + oleFrame.getLinkPathRelative());
@@ -148,29 +158,34 @@ if (shape instanceof IOleObjectFrame) {
 presentation.dispose();
 ```
 
-## **OLE Nesne Verilerini Değiştirme**
+## **OLE Nesne Verisini Değiştirme**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Bu bölümde, aşağıdaki kod örneği [Aspose.Cells for Java](/cells/java/) kullanmaktadır. 
 
-{{% /alert %}} 
+{{% /alert %}}
 
-Bir OLE nesnesi zaten bir slayta gömülmüşse, bu nesneye erişip verilerini şu şekilde değiştirebilirsiniz: 
+Bir OLE nesnesi zaten bir slayta gömülmüşse, o nesneye kolayca erişip verisini şu şekilde değiştirebilirsiniz:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturarak gömülü OLE nesnesi içeren bir sunumu yükleyin. 
-2. İndeksini kullanarak slayt referansını alın. 
-3. OLE nesne çerçevesi şekline erişin.  
-   Örneğimizde, ilk slaytta bir şekil bulunan daha önce oluşturulmuş PPTX’i kullandık. Ardından bu nesneyi bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IOleObjectFrame) olarak *cast* ettik. Bu, erişilmek istenen OLE nesne çerçevesiydi. 
-4. OLE nesne çerçevesine erişildiğinde, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz. 
-5. Bir `Workbook` nesnesi oluşturup OLE verisine erişin. 
-6. İstenen `Worksheet`’i alıp verileri değiştirin. 
-7. Güncellenmiş `Workbook`’ı bir akışa (stream) kaydedin. 
-8. OLE nesne verisini akıştan değiştirin. 
+1. Gömülü OLE nesnesi içeren bir sunumu, [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturarak yükleyin.  
+2. Slaytın indeksini kullanarak referansını alın.  
+3. OLE nesne çerçevesi şekline erişin. Örneğimizde, ilk slaytta bir şekil bulunan daha önce oluşturulmuş PPTX dosyasını kullandık. Ardından bu nesneyi bir [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IOleObjectFrame) olarak *cast* ettik. Bu, erişilmek istenen OLE nesne çerçevesiydi.  
+4. OLE nesne çerçevesine erişildikten sonra, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz.  
+5. Bir `Workbook` nesnesi oluşturun ve OLE verisine erişin.  
+6. İstenen `Worksheet`i erişin ve veriyi düzenleyin.  
+7. Güncellenen `Workbook`i bir akışa (stream) kaydedin.  
+8. OLE nesne verisini akıştan değiştirin.  
 
-Aşağıdaki örnekte, bir OLE nesne çerçevesi (slayta gömülmüş bir Excel grafik nesnesi) erişilip dosya verileri değiştirilerek grafik verileri güncellenmektedir. 
+Aşağıdaki örnekte, bir OLE nesne çerçevesi (slayta gömülü bir Excel grafik nesnesi) erişilmiş ve dosya verileri değiştirilerek grafik verileri güncellenmiştir.
 
 ``` java 
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -180,12 +195,12 @@ if (shape instanceof IOleObjectFrame) {
 
     ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
 
-    // OLE nesne verisini Workbook nesnesi olarak okuyun.
+    // OLE nesne verisini Workbook nesnesi olarak oku.
     Workbook workbook = new Workbook(oleStream);
 
     ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
 
-    // Workbook verisini değiştirin.
+    // Workbook verisini değiştir.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -194,7 +209,7 @@ if (shape instanceof IOleObjectFrame) {
     OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
     workbook.save(newOleStream, fileOptions);
 
-    // OLE çerçeve nesnesi verisini değiştirin.
+    // OLE çerçeve nesnesi verisini değiştir.
     IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 }
@@ -205,11 +220,15 @@ presentation.dispose();
 
 ## **Diğer Dosya Türlerini Slaytlara Gömme**
 
-Excel grafiklerinin yanı sıra, Aspose.Slides for Java slaytlara HTML, PDF ve ZIP gibi farklı dosya türlerini nesne olarak gömmeyi sağlar. Kullanıcı eklenen nesneye çift‑tıkladığında, ilgili program otomatik olarak açılır veya kullanıcıdan dosyayı açmak için uygun bir program seçmesi istenir. 
+Excel grafiklerinin yanı sıra, Aspose.Slides for Java slaytlara başka dosya türlerini de gömmeyi sağlar. Örneğin, HTML, PDF ve ZIP dosyalarını nesne olarak ekleyebilirsiniz. Kullanıcı eklenen nesneye çift tıkladığında, ilgili program otomatik olarak açılır veya kullanıcıdan bu dosyayı açmak için uygun bir program seçmesi istenir.
 
-Bu Java kodu, bir slayta HTML ve ZIP dosyalarını nasıl gömeceğinizi gösterir: 
+Bu Java kodu, bir slayta HTML ve ZIP dosyalarını gömmenin yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -227,13 +246,15 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Gömülü Nesneler İçin Dosya Türlerini Belirleme**
+## **Gömülü Nesneler İçin Dosya Türlerini Ayarlama**
 
-Sunumlarla çalışırken eski OLE nesnelerini yeniyle değiştirmek veya desteklenmeyen bir OLE nesnesini desteklenen bir nesneyle değiştirmek isteyebilirsiniz. Aspose.Slides for Java, gömülü bir nesnenin dosya türünü ayarlamanıza izin verir; bu sayede OLE çerçevesi verisini veya uzantısını güncelleyebilirsiniz. 
+Sunumlarla çalışırken eski OLE nesnelerini yenileriyle değiştirmek veya desteklenmeyen bir OLE nesnesini desteklenen bir nesneyle değiştirmek isteyebilirsiniz. Aspose.Slides for Java, gömülü bir nesne için dosya türünü ayarlamanıza olanak tanır; bu sayede OLE çerçeve verisini veya uzantısını güncelleyebilirsiniz.
 
-Bu Java kodu, gömülü bir OLE nesnesinin dosya türünü `zip` olarak ayarlamayı gösterir: 
+Bu Java kodu, gömülü bir OLE nesnesinin dosya türünü `zip` olarak ayarlamanın yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -243,29 +264,33 @@ byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
 System.out.println("Current embedded file extension is: " + fileExtension);
 
-// Change the file type to ZIP.
+// Dosya türünü ZIP olarak değiştir.
 oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Gömülü Nesneler İçin Simge Görüntüsü ve Başlık Ayarlama**
+## **Gömülü Nesneler İçin Simge Görüntüleri ve Başlıklar Ayarlama**
 
-Bir OLE nesnesi gömüldükten sonra, otomatik olarak bir simge görüntüsü içeren bir önizleme eklenir. Bu önizleme, kullanıcıların OLE nesnesine erişmeden veya açmadan önce gördükleri şeydir. Önizlemede belirli bir resim ve metin kullanmak istiyorsanız, Aspose.Slides for Java ile simge görüntüsü ve başlığı ayarlayabilirsiniz. 
+Bir OLE nesnesi gömüldükten sonra, otomatik olarak bir simge görüntüsü önizlemesi eklenir. Bu önizleme, kullanıcıların OLE nesnesine erişmeden veya açmadan önce gördükleri şeydir. Önizlemede belirli bir görüntü ve metin kullanmak isterseniz, Aspose.Slides for Java ile simge görüntüsü ve başlığı ayarlayabilirsiniz.
 
-Bu Java kodu, gömülü bir nesne için simge görüntüsü ve başlığı nasıl ayarlayacağınızı gösterir: 
+Bu Java kodu, gömülü bir nesne için simge görüntüsü ve başlığı ayarlamanın yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
-// Sunum kaynaklarına bir resim ekleyin.
+// Sunum kaynaklarına bir resim ekle.
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage oleImage = presentation.getImages().addImage(imageData);
 
-// Set a title and the image for the OLE preview.
+// OLE önizlemesi için bir başlık ve resmi ayarla.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(true);
@@ -276,23 +301,37 @@ presentation.dispose();
 
 ## **OLE Nesne Çerçevesinin Yeniden Boyutlandırılmasını ve Yeniden Konumlandırılmasını Önleme**
 
-Bağlantılı bir OLE nesnesini bir sunum slaytına eklediğinizde, PowerPoint’te sunumu açtığınızda bağlantıları güncellemek için bir ileti görebilirsiniz. “Update Links” (Bağlantıları Güncelle) düğmesine tıkladığınızda PowerPoint, bağlantılı OLE nesnesinden verileri günceller ve nesne önizlemesini yenilediği için OLE nesne çerçevesinin boyutu ve konumu değişebilir. PowerPoint’in nesnenin verilerini güncelleme istemesini önlemek için [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ioleobjectframe/) arayüzünün `setUpdateAutomatic` metodunu `false` olarak ayarlayın: 
+Bağlantılı bir OLE nesnesini bir sunum slaytına ekledikten sonra, PowerPoint'te sunumu açtığınızda bağlantıların güncellenmesini isteyen bir mesaj görebilirsiniz. "Bağlantıları Güncelle" düğmesine tıklamak, PowerPoint'in bağlantılı OLE nesnesinden verileri güncellemesi ve nesne önizlemesini yenilemesi nedeniyle OLE nesne çerçevesinin boyutunu ve konumunu değiştirebilir. PowerPoint'in nesnenin verilerini güncelleme istemesini önlemek için, [IOleObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ioleobjectframe/) arayüzünün `setUpdateAutomatic` metodunu `false` olarak ayarlayın:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
 oleFrame.setUpdateAutomatic(false);
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 ## **Gömülü Dosyaları Çıkarma**
 
-Aspose.Slides for Java, slaytlara OLE nesnesi olarak gömülmüş dosyaları şu şekilde çıkarabilir: 
+Aspose.Slides for Java, slaytlara OLE nesneleri olarak gömülmüş dosyaları şu şekilde çıkarabilir:
 
-1. Çıkarmak istediğiniz OLE nesnelerini içeren bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının örneğini oluşturun. 
-2. Sunumdaki tüm şekilleri döngüye alarak [OLEObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/oleobjectframe) şekillerine erişin. 
-3. Gömülü dosya verilerine OLE nesne çerçevelerinden erişin ve diske yazın. 
+1. Çıkarmak istediğiniz OLE nesnelerini içeren bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının örneğini oluşturun.  
+2. Sunumdaki tüm şekilleri döngüye alarak [OLEObjectFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/oleobjectframe) şekillerine erişin.  
+3. OLE nesne çerçevelerindeki gömülü dosya verilerine erişin ve diske yazın.  
 
-Bu Java kodu, bir slayttan OLE nesnesi olarak gömülmüş dosyaları nasıl çıkaracağınızı gösterir: 
+Bu Java kodu, bir slayta OLE nesneleri olarak gömülmüş dosyaları çıkarmanın yolunu gösterir:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -315,18 +354,18 @@ presentation.dispose();
 
 ## **SSS**
 
-**OLE içeriği PDF/görsellere dışa aktarılırken işlenecek mi?**  
+### Slaytları PDF/görsellere dışa aktarırken OLE içeriği render edilecek mi?
 
-Slaytta görülen şey işlenir—simge/yer tutucu görüntüsü (önizleme). “Canlı” OLE içeriği render sırasında yürütülmez. Gerekirse, dışa aktarılan PDF’de beklenen görünümü sağlamak için kendi önizleme resminizi ayarlayın.  
+Slaytta görülen şey render edilir—ikon/ikame görüntüsü (önizleme). "Canlı" OLE içeriği render sırasında çalıştırılmaz. Gerekirse, dışa aktarılan PDF'de beklenen görünümü sağlamak için kendi önizleme görüntünüzü ayarlayın.
 
-**Bir OLE nesnesini slaytta kilitleyerek kullanıcıların PowerPoint’te taşımasını/düzenlemesini nasıl engelleyebilirim?**  
+### Bir OLE nesnesini slaytta kilitleyerek kullanıcıların PowerPoint'te hareket ettirmesini/düzenlemesini nasıl engelleyebilirim?
 
-Şekli kilitleyin: Aspose.Slides, [şekil‑seviyesi kilitler](/slides/tr/java/applying-protection-to-presentation/) sunar. Bu bir şifreleme değildir, ancak kazara düzenlemeleri ve hareketi etkili bir şekilde önler.  
+Şekli kilitleyin: Aspose.Slides, [şekil düzeyi kilitlemeler](/slides/tr/java/applying-protection-to-presentation/) sağlar. Bu şifreleme değildir, ancak kazara düzenleme ve hareketi etkili bir şekilde önler.
 
-**Bağlantılı bir Excel nesnesi sunumu açtığımda “zıplıyor” ya da boyutu değişiyor, neden?**  
+### Bağlantılı bir Excel nesnesi sunumu açtığımda “atlıyor” ya da boyutu değişiyor, neden?
 
-PowerPoint, bağlantılı OLE’nin önizlemesini yenileyebilir. Stabil bir görünüm için [Çalışma Sayfası Yeniden Boyutlandırma için Çözüm](/slides/tr/java/working-solution-for-worksheet-resizing/) önerilerine bakın—çerçeveyi aralığa uydurun veya aralığı sabit bir çerçeveye ölçeklendirin ve uygun bir yer tutucu resim ayarlayın.  
+PowerPoint, bağlantılı OLE'nin önizlemesini yenileyebilir. Stabil bir görünüm için, [Çalışma Sayfası Yeniden Boyutlandırma için Çözüm](/slides/tr/java/working-solution-for-worksheet-resizing/) uygulamalarını izleyin—ya çerçeveyi aralığa göre ayarlayın ya da aralığı sabit bir çerçeveye ölçeklendirin ve uygun bir ikame görüntüsü belirleyin.
 
-**Bağlantılı OLE nesneleri için göreceli yollar PPTX formatında korunur mu?**  
+### Bağlantılı OLE nesneleri için göreceli yollar PPTX formatında korunur mu?
 
-PPTX’te “göreceli yol” bilgisi yoktur—yalnızca tam yol bulunur. Göreceli yollar, eski PPT formatında bulunur. Taşınabilirlik için güvenilir mutlak yollar/erişilebilir URI’lar veya gömme yöntemini tercih edin.  
+PPTX formatında “göreceli yol” bilgisi bulunmaz—yalnızca tam yol bulunur. Göreceli yollar eski PPT formatında mevcuttur. Taşınabilirlik için güvenilir mutlak yollar/erişilebilir URI’lar veya gömme tercih edin.

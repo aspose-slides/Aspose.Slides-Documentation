@@ -1,42 +1,44 @@
 ---
-title: Přizpůsobení prstencových grafů v prezentacích pomocí Javy
-linktitle: Prstencový graf
+title: Přizpůsobení donut diagramů v prezentacích pomocí Javy
+linktitle: Donut diagram
 type: docs
 weight: 30
 url: /cs/java/doughnut-chart/
 keywords:
-- prstencový graf
-- středová mezera
+- donut diagram
+- střední mezera
 - velikost díry
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Objevte, jak vytvářet a přizpůsobovat prstencové grafy v Aspose.Slides pro Javu, podporující formáty PowerPoint pro dynamické prezentace."
+description: "Objevte, jak vytvořit a přizpůsobit donut diagramy v Aspose.Slides pro Javu, podporující formáty PowerPointu pro dynamické prezentace."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak pracovat s prstencovým grafem v Aspose.Slides přidáním grafu do snímku, nastavením velikosti jeho středové díry a uložením prezentace. Zaměřuje se na metodu `setDoughnutHoleSize` a demonstruje základní kroky potřebné k přizpůsobení tohoto typu grafu v kódu.
+Tento článek ukazuje, jak pracovat s donut diagramem v Aspose.Slides přidáním diagramu na snímek, nastavením velikosti jeho centrální díry a uložením prezentace. Zaměřuje se na metodu `setDoughnutHoleSize` a demonstruje základní kroky potřebné k přizpůsobení tohoto typu diagramu v kódu.
 
-Obsahuje také krátkou sekci FAQ, která pokrývá související scénáře s prstencovým grafem, jako je použití více sérií pro vytvoření více prstenců, práce s explozi (roztrženým) prstencovým grafem a export grafu jako rastrového obrazu nebo SVG.
+Obsahuje také krátkou sekci FAQ, která pokrývá související scénáře s donut diagramy, jako je použití více sérií k vytvoření více prstenců, práce s explodovanými donut diagramy a export diagramu jako rastrového obrazu nebo SVG.
 
-## **Určení středové mezery v prstencovém grafu**
-{{% alert color="primary" %}} 
+## **Specifikujte centrální díru v donut diagramu**
+{{% alert color="info" %}} 
 
-Aspose.Slides pro Java nyní podporuje určení velikosti díry v prstencovém grafu. V tomto tématu si ukážeme na příkladu, jak zadat velikost díry v prstencovém grafu.
+Aspose.Slides pro Java nyní podporuje určení velikosti díry v donut diagramu. V tomto tématu si ukážeme na příkladu, jak velikost díry v donut diagramu nastavit.
 
 {{% /alert %}} 
 
-Pro určení velikosti díry v prstencovém grafu postupujte podle následujících kroků:
+Pro určení velikosti díry v donut diagramu postupujte podle následujících kroků:
 
 1. Vytvořte objekt [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-2. Přidejte prstencový graf na snímek.
-3. Určete velikost díry v prstencovém grafu.
-4. Uložte prezentaci na disk.
+1. Přidejte donut diagram na snímek.
+1. Určete velikost díry v donut diagramu.
+1. Uložte prezentaci na disk.
 
-V následujícím příkladu jsme nastavili velikost díry v prstencovém grafu.
+V ukázce níže jsme nastavili velikost díry v donut diagramu.
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte instanci třídy Presentation
 Presentation pres = new Presentation();
 try {
@@ -51,16 +53,16 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Mohu vytvořit víceúrovňový prstenec s několika prstenci?**
+### Mohu vytvořit víceúrovňový donut s více prstenci?
 
-Ano. Přidejte do jednoho prstencového grafu několik sérií — každá série se stane samostatným prstencem. Pořadí prstenců je určeno pořadím sérií v kolekci.
+Ano. Přidejte několik sérií do jednoho donut diagramu – každá série se stane samostatným prstencem. Pořadí prstenců je určeno pořadím sérií v kolekci.
 
-**Je podporován „explodovaný“ prstenec (oddělené výseče)?**
+### Je podporován „explodovaný“ donut (oddělené výseče)?
 
-Ano. Existuje typ grafu Exploded Doughnut [chart type](https://reference.aspose.com/slides/cs/java/com.aspose.slides/charttype/) a vlastnost exploze u datových bodů; můžete oddělit jednotlivé výseče.
+Ano. Existuje typ diagramu Exploded Doughnut [chart type](https://reference.aspose.com/slides/cs/java/com.aspose.slides/charttype/) a vlastnost exploze u datových bodů; můžete oddělit jednotlivé výseče.
 
-**Jak mohu získat obrázek prstencového grafu (PNG/SVG) pro report?**
+### Jak mohu získat obrázek donut diagramu (PNG/SVG) pro zprávu?
 
-Graf je tvar; můžete jej vykreslit do [rastrového obrazu](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getImage-int-float-float-) nebo exportovat graf jako [SVG obrázek](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+Diagram je tvar; můžete jej vykreslit do [raster image](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getImage-int-float-float-) nebo exportovat diagram jako [SVG image](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

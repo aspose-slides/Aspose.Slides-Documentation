@@ -10,12 +10,12 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Készítsen, szerkesszen és konvertáljon prezentációkat Java-ban - PowerPoint nélkül. Az Aspose.Slides támogatja a PPT, PPTX és ODP formátumokat gyors SVG/PDF exporttal."
+description: "Készítsen, szerkesszen és konvertáljon prezentációkat Java-ban - PowerPoint nélkül. Az Aspose.Slides támogatja a PPT, PPTX és ODP formátumokat gyors SVG/PDF exportálással."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java egy osztálykönyvtár, amely lehetővé teszi a Java‑alkalmazások számára, hogy Microsoft PowerPoint® vagy más programok használata nélkül olvassanak és írjanak prezentációs dokumentumokat. Az Aspose.Slides for Java lehetővé teszi a szöveg, alakzatok, táblázatok és animációk kezelését, hang és videó hozzáadását a diákhoz, a diák előnézetét, a diák exportálását SVG, PDF formátumba és még sok mást.
+Az Aspose.Slides for Java egy osztálykönyvtár, amely lehetővé teszi a Java-alkalmazások számára, hogy a Microsoft PowerPoint® vagy más programok használata nélkül olvassanak és írjanak prezentációs dokumentumokat. Az Aspose.Slides for Java lehetővé teszi a szöveg, alakzatok, táblázatok és animációk kezelését, hang- és videófájlok hozzáadását a diákhoz, a diákok előnézetét, a diákok exportálását SVG-be, PDF-formátumba és egyebeket.
 
-A legfrissebb API‑referenciát megtalálhatja a [Aspose.Slides for Java API-referenciája](https://reference.aspose.com/slides/hu/java) oldalon.
+A legújabb API-referencia megtalálható a [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/hu/java) oldalon.
 
 {{% /alert %}}

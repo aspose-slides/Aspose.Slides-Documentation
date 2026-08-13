@@ -1,5 +1,5 @@
 ---
-title: Alakzatanimációk alkalmazása Android prezentációkban
+title: Alakzatanimációk alkalmazása Androidos bemutatókban
 linktitle: Alakzatanimáció
 type: docs
 weight: 60
@@ -16,53 +16,53 @@ keywords:
 - hatás hozzáadása
 - hatás lekérése
 - hatás kinyerése
-- hatás hangja
+- hatás hang
 - animáció alkalmazása
 - PowerPoint
-- prezentáció
+- bemutató
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és testreszabhat alakzatanimációkat PowerPoint prezentációkban az Aspose.Slides for Android via Java segítségével. Emelkedjen ki!"
+description: "Fedezze fel, hogyan hozhat létre és szabhat testre alakzatanimációkat PowerPoint bemutatókban az Aspose.Slides for Android Java segítségével. Tűnjön ki!"
 ---
 ## **Bevezetés**
 
-Az animációk vizuális effektusok, amelyeket szövegekre, képekre, alakzatokra vagy [diagramokra](https://docs.aspose.com/slides/hu/androidjava/animated-charts/) lehet alkalmazni. Életet lehelnek a bemutatókba vagy azok elemeibe.
+Az animációk vizuális hatások, amelyeket szövegekre, képekre, alakzatokra vagy [diagramokra](https://docs.aspose.com/slides/hu/androidjava/animated-charts/) lehet alkalmazni. Életet adnak a bemutatóknak vagy azok elemeinek.
 
 ## **Miért használjunk animációkat a bemutatókban?**
 
-Az animációk segítségével
-
-* az információ áramlásának irányítása
-* a fontos pontok hangsúlyozása
-* a közönség érdeklődésének vagy részvételének növelése
+* a információáramlás szabályozása
+* a fontos pontok kiemelése
+* az érdeklődés vagy a közönség részvételének növelése
 * a tartalom könnyebb olvasása, befogadása vagy feldolgozása
-* a olvasók vagy nézők figyelmének felhívása a bemutató fontos részeire
+* az olvasók vagy nézők figyelmének felhívása a bemutató fontos részeire
 
-A PowerPoint számos lehetőséget és eszközt biztosít az animációkhoz és animációs hatásokhoz a **belépés**, **kilépés**, **kiemelés** és **mozgásútvonalak** kategóriákban. 
+A PowerPoint sok lehetőséget és eszközt kínál az animációk és animációs hatások számára az **belépés**, **kilépés**, **kiemelés** és **mozgási útvonalak** kategóriákban. 
 
-## **Animációk az Aspose.Slides-ben**
+## **Animációk az Aspose.Slides-ban**
 
-* Az Aspose.Slides biztosítja a szükséges osztályokat és típusokat az animációkkal való munkához a `Aspose.Slides.Animation` névtérben,
-* Az Aspose.Slides több mint **150 animációs hatást** biztosít a [EffectType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttype) felsorolásban. Ezek a hatások lényegében megegyeznek (vagy ekvivalensek) a PowerPointban használtakkal.
+* Az Aspose.Slides biztosítja a szükséges osztályokat és típusokat az animációk kezeléséhez a `Aspose.Slides.Animation` névtér alatt,
+* Az Aspose.Slides több mint **150 animációs hatást** biztosít a [EffectType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effecttype) felsorolásban. Ezek a hatások lényegében megegyeznek (vagy ekvivalensek) a PowerPointban használt hatásokkal.
 
 ## **Animáció alkalmazása szövegdobozra**
 
-Az Aspose.Slides for Android Java használatával lehetővé válik animáció alkalmazása egy alakzat szövegére.
+Az Aspose.Slides for Android Java segítségével lehetővé teszi, hogy animációt alkalmazzon az alakzat szövegére.
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-2. Szerezzen be egy dia referenciát az indexe alapján.
-3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape) elemet.
-4. Adjon szöveget a [IAutoShape.TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) elemhez.
-5. Szerezze meg a fő effektussorozatot.
-6. Adjon hozzá egy animációs hatást a [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape) elemhez.
+2. Szerezzen meg egy dia referencia indexe alapján.
+3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape).
+4. Adjon hozzá szöveget a [IAutoShape.TextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-)‑hez.
+5. Szerezze meg a fő hatássorozatot.
+6. Adjon hozzá egy animációs hatást a [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape)-hez.
 7. Állítsa be a `TextAnimation.BuildType` tulajdonságot a `BuildType` felsorolás értékére.
 8. Írja a bemutatót lemezre PPTX fájlként.
 
-Ez a Java kód bemutatja, hogyan alkalmazhatja a `Fade` hatást az AutoShape-re, és állíthatja a szöveganimációt *1. szintű bekezdések szerint* értékre:
+Ez a Java kód megmutatja, hogyan lehet alkalmazni a `Fade` hatást az AutoShape-re, és beállítani a szöveganimációt *1. szintű bekezdések szerint* értékre:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel.
+import com.aspose.slides.*;
+
+// Létrehozza egy prezentációs osztály példányát, amely egy prezentációs fájlt képvisel.
 Presentation pres = new Presentation();
 try {
     ISlide sld = pres.getSlides().get_Item(0);
@@ -73,44 +73,44 @@ try {
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
 
-    // Lekéri a dia fő sorozatát.
+    // Lekéri a dia fő szekvenciáját.
     ISequence sequence = sld.getTimeline().getMainSequence();
 
-    // Fade animációs hatást ad a alakzathoz
+    // Fade animációs hatást ad az alakzathoz
     IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
     // Az alakzat szövegét az 1. szintű bekezdések szerint animálja
     effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
 
-    // Mentse a PPTX fájlt lemezre
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+    // Elmenti a PPTX fájlt a lemezre
+    pres.save("AnimText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-{{%  alert color="primary"  %}} 
-
-A szövegre alkalmazott animációk mellett animációkat alkalmazhat egyetlen [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph) elemre is. Lásd a [**Animált szöveg**](/slides/hu/androidjava/animated-text/) oldalt.
-
+{{%  alert color="info"  %}} 
+Az animációk szövegre való alkalmazása mellett animációkat alkalmazhat egyetlen [Paragraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraph). Lásd [**Animated Text**](/slides/hu/androidjava/animated-text/).
 {{% /alert %}} 
 
-## **Animáció alkalmazása PictureFrame-re**
+## **Animáció alkalmazása képkeretre**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-2. Szerezzen be egy dia referenciát az indexe alapján.
-3. Adjon hozzá vagy szerezzen be egy [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe) elemet a diára.
+2. Szerezzen meg egy dia referencia indexe alapján.
+3. Adjon hozzá vagy szerezzen meg egy [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe) elemet a diára.
 4. Szerezze meg a fő hatássorozatot.
-5. Adjon hozzá egy animációs hatást a [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe) elemhez.
-6. Írja a bemutatót lemezre PPTX fájlként.
+5. Adjon hozzá egy animációs hatást a [PictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pictureframe)-hez.
+6. Mentse el a bemutatót lemezre PPTX fájlként.
 
-Ez a Java kód bemutatja, hogyan alkalmazhatja a `Fly` hatást egy képkockára:
+Ez a Java kód megmutatja, hogyan lehet alkalmazni a `Fly` hatást egy képkeretre:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel.
+import com.aspose.slides.*;
+
+// Létrehozza a prezentációs osztály egy példányát, amely egy prezentációs fájlt képvisel.
 Presentation pres = new Presentation();
 try {
-    // Betölti a képet, amelyet a prezentáció képkollekciójába adunk hozzá
+    // Betölti a képet, amely a prezentáció képgyűjteményéhez lesz hozzáadva
     IPPImage picture;
     IImage image = Images.fromFile("aspose-logo.jpg");
     try {
@@ -122,15 +122,14 @@ try {
     // Képkeretet ad a diára
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
 
-    // Lekéri a dia fő sorozatát.
+    // Lekéri a dia fő szekvenciáját.
     ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
 
-    // Fly animációs hatást ad a balról a képkerethez
+    // Fly from Left animációs hatást ad a képkerethez
     IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-    // Mentse a PPTX fájlt lemezre
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    // Elmenti a PPTX fájlt a lemezre
+    pres.save("AnimImage_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -139,18 +138,21 @@ try {
 ## **Animáció alkalmazása alakzatra**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-2. Szerezzen be egy dia referenciát az indexe alapján.
-3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape) elemet.
-4. Adjon hozzá egy `Bevel` [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape) elemet (amikor ezt az objektumot rákattintják, az animáció lejátszásra kerül).
+2. Szerezzen meg egy dia referencia indexe alapján.
+3. Adjon hozzá egy `rectangle` [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape).
+4. Adjon hozzá egy `Bevel` [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape) (amikor erre az objektumra kattintanak, az animáció lejátszásra kerül).
 5. Hozzon létre egy hatássorozatot a bevel alakzaton.
 6. Hozzon létre egy egyedi `UserPath`-t.
-7. Adjon parancsokat a `UserPath`-ra való mozgáshoz.
-8. Írja a bemutatót lemezre PPTX fájlként.
+7. Adjon parancsokat a `UserPath`-ra mozgatáshoz.
+8. Mentse el a bemutatót lemezre PPTX fájlként.
 
-Ez a Java kód bemutatja, hogyan alkalmazhatja a `PathFootball` (path football) hatást egy alakzatra:
+Ez a Java kód megmutatja, hogyan kell alkalmazni a `PathFootball` (labdarúgó pálya) hatást egy alakzatra:
 
 ```java
-// Példányosít egy Presentation osztályt, amely egy PPTX fájlt képvisel.
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+// Létrehozza a Presentation osztály egy példányát, amely egy PPTX fájlt képvisel.
 Presentation pres = new Presentation();
 try {
     ISlide sld = pres.getSlides().get_Item(0);
@@ -159,30 +161,30 @@ try {
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
     ashp.addTextFrame("Animated TextBox");
 
-    // Hozzáadja a PathFootball animációs hatást
+    // Hozzáadja a PathFootBall animációs hatást
     pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
             EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // Létrehoz valamilyen "gombot".
+    // Létrehoz egyfajta "gombot".
     IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
 
     // Létrehoz egy hatássorozatot ehhez a gombhoz.
     ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
 
-     // Létrehoz egy egyéni felhasználói útvonalat. Objektumunk csak a gomb megnyomása után lesz mozgatva.
+     // Létrehozza egy egyéni felhasználói útvonalat. Az objektum csak a gomb megnyomása után fog mozogni.
     IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
-     // Hozzáad parancsokat a mozgáshoz, mivel a létrehozott útvonal üres.
-    IMotionEffect motionBvh = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
+     // Hozzáad mozgatási parancsokat, mivel a létrehozott útvonal üres.
+    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
 
     Point2D.Float[] pts = new Point2D.Float[1];
     pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBvh.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
+    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
     pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBvh.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBvh.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
+    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
+    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-     // Mentse a PPTX fájlt lemezre
+     // Kiírja a PPTX fájlt a lemezre
     pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -191,13 +193,15 @@ try {
 
 ## **Az alakzatra alkalmazott animációs hatások lekérése**
 
-Az alábbi példák megmutatják, hogyan használhatja a `getEffectsByShape` metódust a [ISequence](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/) interfészből, hogy lekérje az alakzatra alkalmazott összes animációs hatást.
+Az alábbi példák megmutatják, hogyan használja a `getEffectsByShape` metódust a [ISequence](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isequence/) interfészből, hogy lekérje egy alakzatra alkalmazott összes animációs hatást.
 
-**Példa 1: Az animációs hatások lekérése egy normál dián lévő alakzatra**
+**Példa 1: Az animációs hatások lekérése egy alakzatra egy normál dián**
 
-Korábban megtanulta, hogyan adhat animációs hatásokat alakzatokhoz PowerPoint bemutatókban. Az alábbi mintakód megmutatja, hogyan kérheti le az első alakzatra az első normál dián a `AnimExample_out.pptx` bemutatóban alkalmazott hatásokat.
+Eddig megtanulták, hogyan adjanak animációs hatásokat alakzatokhoz PowerPoint bemutatókban. Az alábbi minta kód megmutatja, hogyan lehet lekérni a hatásokat az első alakzatra az első normál dián a `AnimExample_out.pptx` bemutatóban.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("AnimExample_out.pptx");
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -220,23 +224,25 @@ try {
 
 **Példa 2: Az összes animációs hatás lekérése, beleértve a helyőrzőkből örökölt hatásokat**
 
-Ha egy normál dián lévő alakzatnak olyan helyőrzői vannak, amelyek a elrendezés dián és/vagy a mester dián találhatók, és animációs hatásokat adtak ezekhez a helyőrzőkhöz, akkor az alakzat összes hatása lejátszásra kerül a diavetítés során, beleértve a helyőrzőkből örökölt hatásokat.
+Ha egy alakzat egy normál dián helyőrzőkkel rendelkezik, amelyek a diaelrendezésen és/vagy a mester dián találhatók, és ezekhez a helyőrzőkhöz animációs hatásokat adtak hozzá, akkor a dia vetítése során az alakzat összes hatása lejátszásra kerül, beleértve a helyőrzőkből örökölt hatásokat.
 
-Tegyük fel, hogy van egy `sample.pptx` nevű PowerPoint bemutató fájlunk, amely egyetlen diát tartalmaz, amelyen csak egy lábléc alakzat található a "Made with Aspose.Slides" szöveggel, és a **Random Bars** hatás van alkalmazva az alakzatra.
+Legyen egy PowerPoint bemutatófájl `sample.pptx` egy diával, amely csak egy lábléc alakzatot tartalmaz a „Made with Aspose.Slides” szöveggel, és a **Random Bars** hatás van alkalmazva az alakzatra.
 
-![Slide shape animation effect](slide-shape-animation.png)
+![Dia alakzat animációs hatása](slide-shape-animation.png)
 
-Tegyük fel továbbá, hogy a **Split** hatás van alkalmazva a lábléc helyőrzőre a **layout** dián.
+Tegyük fel, hogy a **Split** hatás a lábléc helyőrzőre van alkalmazva az **elrendezés** dián.
 
-![Layout shape animation effect](layout-shape-animation.png)
+![Elrendezés alakzat animációs hatása](layout-shape-animation.png)
 
-Végül, a **Fly In** hatás van alkalmazva a lábléc helyőrzőre a **master** dián.
+Végül, a **Fly In** hatás a lábléc helyőrzőre van alkalmazva a **mester** dián.
 
-![Master shape animation effect](master-shape-animation.png)
+![Mester alakzat animációs hatása](master-shape-animation.png)
 
-Az alábbi mintakód megmutatja, hogyan használhatja a `getBasePlaceholder` metódust a [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) interfészből a formahelyőrzők eléréséhez, és hogyan kérheti le a lábléc alakzatra alkalmazott animációs hatásokat, beleértve az elrendezés és a mester diákon elhelyezkedő helyőrzőkből örökölt hatásokat.
+Az alábbi minta kód megmutatja, hogyan használja a `getBasePlaceholder` metódust a [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) interfészben, hogy elérje az alakzat helyőrzőit és lekérje a lábléc alakzatra alkalmazott animációs hatásokat, beleértve a elrendezés és mester diákon lévő helyőrzőkből örökölt hatásokat.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -254,13 +260,20 @@ IShape masterShape = layoutShape.getBasePlaceholder();
 IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
 
 System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
+for (IEffect[] effects : new IEffect[][] { masterShapeEffects, layoutShapeEffects, shapeEffects }) {
+    for (IEffect effect : effects) {
+        String typeName = EffectType.getName(EffectType.class, effect.getType());
+        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+
+        System.out.println(typeName + " " + subtypeName);
+    }
+}
 
 presentation.dispose();
 ```
 ```java
+import com.aspose.slides.*;
+
 static void printEffects(IEffect[] effects)
 {
     for (IEffect effect : effects)
@@ -273,7 +286,6 @@ static void printEffects(IEffect[] effects)
 }
 ```
 
-Output:
 ```text
 Main sequence of shape effects:
 Fly Bottom
@@ -285,22 +297,28 @@ RandomBars Horizontal
 
 Az Aspose.Slides for Android Java segítségével módosíthatja egy animációs hatás időzítési tulajdonságait.
 
-Ez a Microsoft PowerPoint Animation Timing ablaka:
+Ez a **Animation Timing** panel a Microsoft PowerPointben:
 
 ![example1_image](shape-animation.png)
 
-A PowerPoint időzítés **Start** legördülő listája egyezik a [Effect.Timing.TriggerType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITiming#getTriggerType--) tulajdonsággal.
-A PowerPoint időzítés **Duration** egyezik a [Effect.Timing.Duration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITiming#getDuration--) tulajdonsággal. Az animáció időtartama (másodpercben) az az összes idő, amit a animáció egy ciklus befejezéséhez igényel.
-A PowerPoint időzítés **Delay** egyezik a [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--) tulajdonsággal.
+Ezek a megfelelőségek a PowerPoint időzítés és az [Effect.Timing](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IEffect#getTiming--) tulajdonságok között:
 
-Ez a mód, ahogyan módosíthatja az Effect Timing tulajdonságokat:
+- A PowerPoint **Start** legördülő lista megfelel az [Effect.Timing.TriggerType] tulajdonságnak.
+- A PowerPoint **Duration** megfelel az [Effect.Timing.Duration] tulajdonságnak. Az animáció időtartama (másodpercben) az a teljes idő, ameddig egy ciklus lejátszódik.
+- A PowerPoint **Delay** megfelel az [Effect.Timing.TriggerDelayTime] tulajdonságnak.
 
-1. Alkalmazza ([Apply](#apply-animation-to-shape)) vagy szerezze be az animációs hatást.
-2. Állítson be új értékeket a szükséges [Effect.Timing](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IEffect#getTiming--) tulajdonságokra.
-3. Mentse a módosított PPTX fájlt.
+Az alábbiak szerint módosíthatja a Effect Timing tulajdonságokat:
+
+1. [Alkalmaz](#apply-animation-to-shape) vagy szerezze meg az animációs hatást.
+2. Állítson be új értékeket a szükséges [Effect.Timing] tulajdonságok számára.
+3. Mentse el a módosított PPTX fájlt.
+
+Ez a Java kód demonstrálja a műveletet:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel.
+import com.aspose.slides.*;
+
+// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
     // Lekéri a dia fő sorozatát.
@@ -309,16 +327,16 @@ try {
     // Lekéri a fő sorozat első hatását.
     IEffect effect = sequence.get_Item(0);
 
-    // Módosítja a hatás TriggerType-ot kattintásra
+    // Megváltoztatja a hatás TriggerType-át, hogy kattintásra induljon
     effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
 
-    // Módosítja a hatás időtartamát
+    // Megváltoztatja a hatás időtartamát
     effect.getTiming().setDuration(3f);
 
-    // Módosítja a hatás TriggerDelayTime-ot
+    // Megváltoztatja a hatás TriggerDelayTime-ot
     effect.getTiming().setTriggerDelayTime(0.5f);
 
-    // Mentse a PPTX fájlt lemezre
+    // Elmenti a PPTX fájlt a lemezre
     pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -327,16 +345,20 @@ try {
 
 ## **Animációs hatás hangja**
 
-Az Aspose.Slides biztosítja ezeket a tulajdonságokat, hogy a hangokkal dolgozhasson animációs hatásokban: 
+Az Aspose.Slides a következő tulajdonságokat biztosítja, hogy hangokkal dolgozhasson animációs hatásokban: 
 
 - [setSound(IAudio value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
 - [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
 
 ### **Animációs hatás hangjának hozzáadása**
 
-Ez a Java kód bemutatja, hogyan adhat hozzá egy animációs hatás hangot, és állítsa le, amikor a következő hatás elindul:
+Ez a Java kód megmutatja, hogyan adjon hozzá egy animációs hatás hangot, és állítsa le, amikor a következő hatás elindul:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
     // Hozzáad audiót a prezentáció audio gyűjteményéhez
@@ -350,10 +372,10 @@ try {
     // Lekéri a fő sorozat első hatását
     IEffect firstEffect = sequence.get_Item(0);
 
-    // Ellenőrzi a hatást "No Sound"
+    // Ellenőrzi, hogy a hatásnak nincs hangja
     if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
     {
-        // Hozzáad hangot az első hatáshoz
+        // Hangot ad az első hatáshoz
         firstEffect.setSound(effectSound);
     }
 
@@ -363,7 +385,7 @@ try {
     // Beállítja a hatás "Stop previous sound" jelzőjét
     interactiveSequence.get_Item(0).setStopPreviousSound(true);
 
-    // Mentse a PPTX fájlt lemezre
+    // Kiírja a PPTX fájlt a lemezre
     pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -373,14 +395,16 @@ try {
 ### **Animációs hatás hangjának kinyerése**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-2. Szerezzen be egy dia referenciát az indexe alapján. 
+2. Szerezzen meg egy dia referencia indexe alapján. 
 3. Szerezze meg a fő hatássorozatot. 
-4. Nyissa ki a [setSound(IAudio value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) minden animációs hatáshoz beágyazott hangot.
+4. Vonja ki a [setSound(IAudio value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) minden animációs hatásba beágyazott hangot.
 
-Ez a Java kód bemutatja, hogyan nyerheti ki a hangot, amely egy animációs hatáshoz van beágyazva:
+Ez a Java kód megmutatja, hogyan lehet kinyerni a animációs hatásba beágyazott hangot:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel.
+import com.aspose.slides.*;
+
+// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
 Presentation presentation = new Presentation("EffectSound.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -403,23 +427,28 @@ try {
 
 ## **Animáció után**
 
-Az Aspose.Slides for Android Java segítségével módosíthatja egy animációs hatás After animation tulajdonságát.
+Az Aspose.Slides for Android Java lehetővé teszi, hogy módosítsa egy animációs hatás **After animation** (animáció után) tulajdonságát.
+
+Ez a **Animation Effect** panel és bővített menü a Microsoft PowerPointben:
 
 ![example1_image](shape-after-animation.png)
 
-A PowerPoint Effect **After animation** legördülő listája egyezik ezekkel a tulajdonságokkal: 
+A PowerPoint **After animation** legördülő lista megfelel ezeknek a tulajdonságoknak: 
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) tulajdonság, amely leírja az After animation típust :
-  * A PowerPoint **More Colors** egyezik a [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#Color) típussal;
-  * A PowerPoint **Don't Dim** listaelem egyezik a [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) típussal (az alapértelmezett after animation típus);
-  * A PowerPoint **Hide After Animation** elem egyezik a [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation) típussal;
-  * A PowerPoint **Hide on Next Mouse Click** elem egyezik a [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) típussal;
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) tulajdonság, amely egy after animation színformátumot definiál. Ez a tulajdonság a [AfterAnimationType.Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/afteranimationtype/#Color) típussal együtt működik. Ha a típust másikra változtatja, az after animation szín törlésre kerül.
+- [setAfterAnimationType(int value)] tulajdonság, amely leírja az animáció utáni típust:
+  * A PowerPoint **More Colors** a [AfterAnimationType.Color] típusnak felel meg;
+  * A PowerPoint **Don't Dim** elem a [AfterAnimationType.DoNotDim] típusnak felel meg (alapértelmezett animáció utáni típus);
+  * A PowerPoint **Hide After Animation** elem a [AfterAnimationType.HideAfterAnimation] típusnak felel meg;
+  * A PowerPoint **Hide on Next Mouse Click** elem a [AfterAnimationType.HideOnNextMouseClick] típusnak felel meg;
+- [setAfterAnimationColor(IColorFormat value)] tulajdonság, amely meghatározza az animáció utáni színformátumot. Ez a tulajdonság a [AfterAnimationType.Color] típussal együtt működik. Ha a típust másikra változtatja, az animáció utáni szín törlődik.
 
-Ez a Java kód megmutatja, hogyan változtathat egy after animation hatáson:
+Ez a Java kód megmutatja, hogyan változtatható egy animáció utáni hatás:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel
 Presentation pres = new Presentation("AnimImage_out.pptx");
 try {
     ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -427,13 +456,13 @@ try {
     // Lekéri a fő sorozat első hatását
     IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
 
-    // Megváltoztatja az after animation típust Color értékre
+    // Megváltoztatja az animáció utáni típust Color értékre
     firstEffect.setAfterAnimationType(AfterAnimationType.Color);
 
-    // Beállítja az after animation halványítás színét
+    // Beállítja az animáció utáni elsötétítési színt
     firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
 
-    // Mentse a PPTX fájlt lemezre
+    // Elmenti a PPTX fájlt a lemezre
     pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -442,56 +471,60 @@ try {
 
 ## **Szöveg animálása**
 
-Az Aspose.Slides biztosítja ezeket a tulajdonságokat, hogy a *Animate text* blokkot kezelje egy animációs hatásban:
+Az Aspose.Slides a következő tulajdonságokat biztosítja, hogy az animációs hatás *Animate text* blokkjával dolgozhasson:
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) amely leírja az animált szöveg típusát a hatásban. A forma szövege animálható:
-  - Egyszerre ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce) típus)
-  - Szó szerint ([AnimateTextType.ByWord](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/animatetexttype/#ByWord) típus)
-  - Betű szerint ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/animatetexttype/#ByLetter) típus)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) beállít egy késleltetést az animált szövegrészek (szavak vagy betűk) között. A pozitív érték a hatás időtartamának százalékát adja meg. A negatív érték másodpercben adja meg a késleltetést.
+- [setAnimateTextType(int value)] amely leírja az animált szöveg típusát a hatáson. A alakzat szövege animálható:
+  * Egyszerre ([AnimateTextType.AllAtOnce] típus)
+  * Szó szerint ([AnimateTextType.ByWord] típus)
+  * Betű szerint ([AnimateTextType.ByLetter] típus)
+- [setDelayBetweenTextParts(float value)] egy késleltetést állít be az animált szövegrészek (szavak vagy betűk) között. A pozitív érték a hatás időtartamának százalékát adja meg. A negatív érték másodpercben adja meg a késleltetést.
 
-Ez a mód, ahogyan módosíthatja az Effect Animate text tulajdonságokat:
+Az alábbiak szerint módosíthatja a Effect Animate text tulajdonságait:
 
-1. Alkalmazza ([Apply](#apply-animation-to-shape)) vagy szerezze be az animációs hatást.
-2. Állítsa be a [setBuildType(int value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) tulajdonságot a [BuildType.AsOneObject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/buildtype/#AsOneObject) értékre, hogy kikapcsolja a *By Paragraphs* animációs módot.
-3. Állítson be új értékeket a [setAnimateTextType(int value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) és a [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) tulajdonságokra.
-4. Mentse a módosított PPTX fájlt.
+1. [Alkalmaz](#apply-animation-to-shape) vagy szerezze meg az animációs hatást.
+2. Állítsa be a [setBuildType(int value)] tulajdonságot a [BuildType.AsOneObject] értékre, hogy kikapcsolja a *By Paragraphs* animációs módot.
+3. Állítson be új értékeket a [setAnimateTextType(int value)] és [setDelayBetweenTextParts(float value)] tulajdonságokra.
+4. Mentse el a módosított PPTX fájlt.
+
+Ez a Java kód demonstrálja a műveletet:
 
 ```java
-// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
+import com.aspose.slides.*;
+
+// Példányosít egy prezentációs osztályt, amely egy prezentációs fájlt képvisel.
+Presentation pres = new Presentation("AnimText_out.pptx");
 try {
     ISlide firstSlide = pres.getSlides().get_Item(0);
 
     // Lekéri a fő sorozat első hatását
     IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
 
-    // Megváltoztatja a hatás szöveganimáció típusát "As One Object" értékre
+    // Megváltoztatja a hatás szöveganimáció típusát „As One Object” értékre
     firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
 
-    // Megváltoztatja a hatás animált szöveg típusát "By word" értékre
+    // Megváltoztatja a hatás Animate text típusát „By word” értékre
     firstEffect.setAnimateTextType(AnimateTextType.ByWord);
 
     // Beállítja a szavak közötti késleltetést a hatás időtartamának 20%-ára
     firstEffect.setDelayBetweenTextParts(20f);
 
-    // Mentse a PPTX fájlt lemezre
+    // Elmenti a PPTX fájlt a lemezre
     pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Hogyan biztosíthatom, hogy az animációk megmaradjanak a prezentáció webre közzétételekor?**
+### Hogyan biztosíthatom, hogy az animációk megmaradjanak a bemutató webre való közzétételekor?
 
-[Export to HTML5](/slides/hu/androidjava/export-to-html5/) és engedélyezze az [options](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/) beállításokat, amelyek a [shape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) és [transition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) animációkat kezelik. A sima HTML nem játssza le a diák animációit, míg a HTML5 igen.
+[Export to HTML5](/slides/hu/androidjava/export-to-html5/) és engedélyezze a [options](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/) beállításait, amelyek a [shape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) és [transition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) animációkért felelnek. A sima HTML nem játssza le a diaanimációkat, míg az HTML5 igen.
 
-**Hogyan befolyásolja a z-sorrend (réteg sorrend) módosítása az animációt?**
+### Hogyan befolyásolja az alakzatok z-sorrendjének (réteg sorrendjének) módosítása az animációt?
 
-Az animáció és a rajzolási sorrend független egymástól: egy hatás szabályozza a megjelenés/eltűnés időzítését és típusát, míg a [z-order](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shape/#getZOrderPosition--) határozza meg, mi takarja meg mi‑t. A látható eredményt a kombinációjuk határozza meg. (Ez a PowerPoint általános viselkedése; az Aspose.Slides hatás‑és‑alakzat modellje ugyanazt a logikát követi.)
+Az animáció és a rajzolási sorrend függetlenek: egy hatás szabályozza a megjelenés/eltűnés időzítését és típusát, míg a [z-order](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shape/#getZOrderPosition--) meghatározza, mi takarja meg, mi nem. A látható eredményt a kettő kombinációja definiálja. (Ez a PowerPoint általános viselkedése; az Aspose.Slides hatások‑és‑alakzatok modellje ugyanezt a logikát követi.)
 
-**Vannak korlátozások az animációk videóra konvertálásakor bizonyos hatások esetén?**
+### Vannak korlátozások az animációk videóvá konvertálásakor bizonyos hatások esetén?
 
-Általánosságban a [animációk támogatottak](/slides/hu/androidjava/convert-powerpoint-to-video/), de ritka esetekben vagy bizonyos hatások esetén eltérő módon jelenhetnek meg. Javasolt tesztelni a használt hatásokat és a könyvtár verzióját.
+Általánosságban a [animációk támogatottak](/slides/hu/androidjava/convert-powerpoint-to-video/), de ritka esetekben vagy bizonyos hatásoknál eltérő módon jelenhetnek meg. Ajánlott tesztelni a használt hatásokkal és a könyvtár verziójával.

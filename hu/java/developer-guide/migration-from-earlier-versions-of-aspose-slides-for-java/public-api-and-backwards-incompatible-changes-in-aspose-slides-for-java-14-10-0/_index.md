@@ -1,5 +1,5 @@
 ---
-title: Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 14.10.0-ban
+title: Publikus API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 14.10.0-ban
 linktitle: Aspose.Slides for Java 14.10.0
 type: docs
 weight: 90
@@ -12,32 +12,34 @@ keywords:
 - modern megközelítés
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Java
 - Aspose.Slides
-description: "Tekintse át a nyilvános API frissítéseket és a törődésre alkalmas változásokat az Aspose.Slides for Java-ban, hogy zökkenőmentesen migreálja PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át a publikus API frissítéseket és a törékeny változásokat az Aspose.Slides for Java-ban, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP bemutató megoldásait."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ez az oldal felsorolja az összes [added](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) osztályt, metódust, tulajdonságot és így tovább, valamint az új korlátozásokat és egyéb [changes](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) bevezetését az Aspose.Slides for Java 14.10.0 API-val.
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) osztályt, metódust, tulajdonságot stb., az új korlátozásokat és más [változásokat](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) a Aspose.Slides for Java 14.10.0 API-val kapcsolatban.
 
 {{% /alert %}} 
-## **Nyilvános API változások**
+## **Publikus API változások**
 ### **com.aspose.slides.FieldType.getFooter() metódus hozzá lett adva**
-A getFooter() metódus visszaadja a lábléc mező típusát. Azért lett hozzáadva, hogy lehetővé tegye ennek a típusnak a mezők létrehozását, valamint az érvényes bemutató sorosítását.
+A getFooter() metódus visszaadja a lábléc mező típusát. Hozzá lett adva annak érdekében, hogy lehető legyen ennek a típusnak a mezők létrehozása, és a bemutató helyes sorosítása.
 ### **Elem com.aspose.slides.ShapeElementFillSource.Own törölve lett**
-A ShapeElementFillSource.Own elem duplikátumként lett törölve. Használja a ShapeElementFillSource.Shape-et a ShapeElementFillSource.Own helyett.
-### **Diagram adatpontok és kategóriák eltávolításához kapcsolódó metódusok hozzá lettek adva**
-A következő metódusok, amelyek lehetővé teszik egy diagram adatpont eltávolítását egy diagram adatpont gyűjteményből, hozzá lettek adva:
+A ShapeElementFillSource.Own elemet duplikációnak tekintve törölték. Használja a ShapeElementFillSource.Shape-et a ShapeElementFillSource.Own helyett.
+### **Diagram adatpontok, kategóriák eltávolítására szolgáló metódusok hozzá lettek adva**
+**A következő metódusok, amelyek lehetővé teszik egy diagram adatpont eltávolítását egy diagram adatpontgyűjtből, hozzá lettek adva:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
 IChartDataPoint.remove()
 
-A következő metódus, amely lehetővé teszi egy diagramkategória eltávolítását a tartalmazó gyűjteményből, hozzá lett adva:
+**Az alábbi metódus, amely lehetővé teszi egy diagram kategória eltávolítását a tartalmazó gyűjtből, hozzá lett adva:**
 
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -60,10 +62,10 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
-### **Elavult Aspose.Slides.ParagraphFormat metódusok eltávolítva lettek**
-A getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith() és getNumberedBulletStyle() metódusok, valamint a hozzájuk tartozó set metódusok eltávolításra kerültek. Ezeket már régóta elavultként jelölték meg.
-### **Használhatatlan és elavult konstruktorok törölve lettek**
-A következő konstruktorok törölve lettek:
+### **Az elavult Aspose.Slides.ParagraphFormat metódusok törölve lettek**
+A getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() és a hozzájuk tartozó set metódusok törölve lettek. Ezeket már régóta elavultként jelölték meg.
+### **Haszontalan és elavult konstruktorok törölve lettek**
+A következő konstruktorok lettek törölve:
 
 com.aspose.slides.AlphaBiLevel(float)
 com.aspose.slides.AlphaModulateFixed(float)

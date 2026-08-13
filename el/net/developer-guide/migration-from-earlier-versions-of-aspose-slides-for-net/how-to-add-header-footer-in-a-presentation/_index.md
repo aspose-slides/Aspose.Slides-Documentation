@@ -10,7 +10,7 @@ keywords:
 - προσθήκη υποσέλιδου
 - κληρονομικός κώδικας
 - σύγχρονος κώδικας
-- παλαιά προσέγγιση
+- κληρονομική προσέγγιση
 - σύγχρονη προσέγγιση
 - PowerPoint
 - OpenDocument
@@ -18,49 +18,51 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Μάθετε πώς να προσθέτετε κεφαλίδες και υποσέλιδα σε παρουσιάσεις PowerPoint PPT, PPTX και ODP στο .NET χρησιμοποιώντας τόσο την κληρονομική όσο και τη σύγχρονη API του Aspose.Slides."
+description: "Μάθετε πώς να προσθέτετε κεφαλίδες και υποσέλιδα σε παρουσιάσεις PowerPoint PPT, PPTX και ODP στο .NET χρησιμοποιώντας τόσο τη κληρονομική όσο και τη σύγχρονη API του Aspose.Slides."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Ένα νέο [Aspose.Slides for .NET API](/slides/el/net/) έχει κυκλοφορήσει και τώρα αυτό το μοναδικό προϊόν υποστηρίζει τη δυνατότητα δημιουργίας εγγράφων PowerPoint από το μηδέν και την επεξεργασία των υπάρχοντων.
+Ένα νέο [Aspose.Slides for .NET API](/slides/el/net/) έχει κυκλοφορήσει και τώρα αυτό το ενιαίο προϊόν υποστηρίζει τη δυνατότητα δημιουργίας εγγράφων PowerPoint από το μηδέν και επεξεργασίας των υπαρχόντων.
 
-{{% /alert %}} 
-## **Υποστήριξη παλαιού κώδικα**
-Για να χρησιμοποιήσετε τον κώδικα κληρονομιάς που αναπτύχθηκε με εκδόσεις του Aspose.Slides για .NET παλαιότερες από την 13.x, πρέπει να κάνετε ορισμένες μικρές αλλαγές στον κώδικά σας και ο κώδικας θα λειτουργεί όπως πριν. Όλες οι κλάσεις που υπήρχαν στην παλαιά έκδοση του Aspose.Slides για .NET στους χώρους ονομάτων Aspose.Slide και Aspose.Slides.Pptx έχουν πλέον ενωθεί σε έναν ενιαίο χώρο ονομάτων Aspose.Slides. Παρακαλούμε ρίξτε μια ματιά στο παρακάτω απλό απόσπασμα κώδικα για την προσθήκη κεφαλίδας/υποσέλιδου στην παρουσίαση στην κλασική Aspose.Slides API και ακολουθήστε τα βήματα που περιγράφουν πώς να μεταβείτε στο νέο ενοποιημένο API.
-## **Παλιά προσέγγιση Aspose.Slides για .NET**
+{{% /alert %}}
+## **Υποστήριξη Κώδικα Κληρονομίας**
+Για να χρησιμοποιήσετε τον κώδικα κληρονομίας που αναπτύχθηκε με εκδόσεις του Aspose.Slides για .NET παλαιότερες από την 13.x, πρέπει να κάνετε μερικές μικρές αλλαγές στον κώδικά σας ώστε να λειτουργεί όπως παλιότερα. Όλες οι κλάσεις που ήταν παρούσες στην παλιά έκδοση του Aspose.Slides για .NET στα namespaces Aspose.Slide και Aspose.Slides.Pptx έχουν συγχωνευθεί πλέον σε ένα ενιαίο namespace Aspose.Slides. Παρακαλούμε ρίξτε μια ματιά στο παρακάτω απλό απόσπασμα κώδικα για την προσθήκη κεφαλίδας/υποσέλιδου στην παρουσίαση στην κληρονομική API του Aspose.Slides και ακολουθήστε τα βήματα που περιγράφουν πώς να μεταβείτε στη νέα συγχωνευμένη API.
+## **Προσέγγιση Κληρονομικού Aspose.Slides για .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//Setting Header Footer visibility properties
+//Ορισμός ιδιοτήτων ορατότητας κεφαλίδας & υποσέλιδου
 sourcePres.UpdateSlideNumberFields = true;
 
-//Update the Date Time Fields
+//Ενημέρωση πεδίων ημερομηνίας & ώρας
 sourcePres.UpdateDateTimeFields = true;
 
-//Show date time placeholder
+//Εμφάνιση δείκτη κράτησης θέσης ημερομηνίας & ώρας
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Show the footer place holder
+//Εμφάνιση δείκτη κράτησης θέσης υποσέλιδου
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//Show Slide Number
+//Εμφάνιση αριθμού διαφάνειας
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Set the  header footer visibility on Title Slide
+//Ορισμός  ορατότητας κεφαλίδας & υποσέλιδου στη διαφάνεια τίτλου
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Write the presentation to the disk
+//Γράψτε την παρουσίαση στο δίσκο
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Δημιουργία της παρουσίασης
 Presentation pres = new Presentation();
 
 //Λήψη της πρώτης διαφάνειας
 Slide sld = pres.GetSlideByPosition(1);
 
-//Πρόσβαση στην Κεφαλίδα / Υποσέλιδο της διαφάνειας
+//Πρόσβαση στην κεφαλίδα / υποσέλιδο της διαφάνειας
 HeaderFooter hf = sld.HeaderFooter;
 
 //Ορισμός ορατότητας αριθμού σελίδας
@@ -72,10 +74,10 @@ hf.FooterVisible = true;
 //Ορισμός ορατότητας κεφαλίδας
 hf.HeaderVisible = true;
 
-//Ορισμός ορατότητας ημερομηνίας/ώρας
+//Ορισμός ορατότητας ημερομηνίας & ώρας
 hf.DateTimeVisible = true;
 
-//Ορισμός μορφής ημερομηνίας/ώρας
+//Ορισμός μορφής ημερομηνίας & ώρας
 hf.DateTimeFormat = DateTimeFormat.DateTime_dMMMMyyyy;
 
 //Ορισμός κειμένου κεφαλίδας
@@ -84,32 +86,35 @@ hf.HeaderText = "Header Text";
 //Ορισμός κειμένου υποσέλιδου
 hf.FooterText = "Footer Text";
 
-//Αποθήκευση της παρουσίασης στο δίσκο
+//Εγγραφή της παρουσίασης στο δίσκο
 pres.Write("HeadFoot.ppt");
 ```
 
 
 
-## **Νέα προσέγγιση Aspose.Slides για .NET 13.x**
+## **Νέα Προσέγγιση Aspose.Slides για .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
-    //Ορισμός ιδιοτήτων ορατότητας Κεφαλίδα & Υποσέλιδο
+    //Ορισμός ιδιοτήτων ορατότητας κεφαλίδας & υποσέλιδου
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
-    //Ενημέρωση πεδίων Ημερομηνίας/Ώρας
+    //Ενημέρωση πεδίων ημερομηνίας & ώρας
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Εμφάνιση υπόδειξης ημερομηνίας/ώρας
+    //Εμφάνιση δείκτη κράτησης θέσης ημερομηνίας & ώρας
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Εμφάνιση υποσέλιδου
+    //Εμφάνιση δείκτη κράτησης θέσης υποσέλιδου
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //Ορισμός ορατότητας κεφαλίδα & υποσέλιδο στη διαφάνεια τίτλου
+    //Ορισμός  ορατότητας κεφαλίδας & υποσέλιδου στη διαφάνεια τίτλου
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
-    //Αποθήκευση της παρουσίασης στο δίσκο
+    //Γράψτε την παρουσίαση στο δίσκο
     sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
 }
 ```

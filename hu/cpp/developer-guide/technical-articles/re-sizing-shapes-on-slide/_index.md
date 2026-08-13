@@ -1,5 +1,5 @@
 ---
-title: Alakzatok átméretezése a bemutató diákon
+title: Alakzatok átméretezése a prezentációs diákon
 type: docs
 weight: 100
 url: /hu/cpp/re-sizing-shapes-on-slide/
@@ -8,47 +8,62 @@ keywords:
 - alakzat méretének módosítása
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - C++
 - Aspose.Slides
-description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for C++ segítségével—automatizálja a diaelrendezés módosítását és növelje a hatékonyságot."
+description: "Könnyedén átméretezheti az alakzatokat PowerPoint és OpenDocument diákon az Aspose.Slides for C++ segítségével – automatizálja a diaelrendezés módosítását és növelje a hatékonyságot."
 ---
-## **Overview**
+## **Áttekintés**
 
-Az Aspose.Slides for C++ ügyfelei gyakran felteszik a kérdést, hogyan lehet átméretezni az alakzatokat úgy, hogy a dia méretének változása esetén az adatok ne vágódjanak le. Ez a rövid technikai cikk bemutatja, hogyan hajtható végre ez.
+Az Aspose.Slides for C++ ügyfelei leggyakrabban felmerülő kérdése, hogyan lehet átméretezni az alakzatokat úgy, hogy a diaméret változásakor az adatok ne vágódjanak le. Ez a rövid technikai cikk bemutatja, hogyan kell ezt megtenni.
 
-## **Resize Shapes**
+## **Alakzatok átméretezése**
 
-Az alakzatok elcsúszásának megakadályozása érdekében a dia méretének változása során frissíteni kell minden alakzat pozícióját és méretét, hogy azok illeszkedjenek az új diaelrendezéshez.
+Az alakzatok eltorzulásának megakadályozása érdekében a diaméret változásakor frissítse minden alakzat pozícióját és méreteit, hogy megfeleljenek az új diárelrendezésnek.
 
 ```cpp
-// Töltsük be a bemutatófájlt.
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Töltsük be a prezentáció fájlt.
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 
-// Szerezzük meg az eredeti dia méretét.
+// Szerezze meg az eredeti dia méretét.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// Módosítsuk a dia méretét a meglévő alakzatok méretezése nélkül.
+// Módosítsa a dia méretét a meglévő alakzatok átméretezése nélkül.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 
-// Szerezzük meg az új dia méretét.
+// Szerezze meg az új dia méretét.
 float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
 float heightRatio = newHeight / currentHeight;
 float widthRatio = newWidth / currentWidth;
 
-// Resize and reposition shapes on every slide.
+// Skálázza az alakzat méretét.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Méretezzük az alakzat méretét.
+        // Skálázza az alakzat méretét.
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // Méretezzük az alakzat pozícióját.
+        // Skálázza az alakzat pozícióját.
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
     }
@@ -58,20 +73,45 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-Ha egy dián táblázat szerepel, a fenti kód nem fog helyesen működni. Ebben az esetben a táblázat minden celláját át kell méretezni.
+{{% alert color="info" %}} 
+Ha egy dián táblázat szerepel, a fenti kód nem működik helyesen. Ebben az esetben a táblázat minden celláját át kell méretezni. 
 {{% /alert %}} 
 
-Használja a következő kódot saját környezetében a táblázatot tartalmazó diák átméretezéséhez. A táblázatoknál a szélesség vagy magasság beállítása külön eset: egyedi sormagasságokat és oszlopszélességeket kell módosítani a táblázat teljes méretének megváltoztatásához.
+Használja az alábbi kódot a táblázatot tartalmazó diák átméretezéséhez. Táblázatok esetén a szélesség vagy magasság beállítása speciális eset: egyéni sormagasságokat és oszlopszélességeket kell módosítani a táblázat teljes méretének megváltoztatásához.
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // Szerezze meg az eredeti dia méretét.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// Módosítsa a dia méretét a meglévő alakzatok méretezése nélkül.
+// Módosítsa a dia méretét a meglévő alakzatok átméretezése nélkül.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 //presentation.SlideSize.Orientation = SlideOrienation.Portrait;
 
@@ -86,11 +126,11 @@ for (auto&& master : presentation->get_Masters())
 {
     for (auto&& shape : master->get_Shapes())
     {
-        // Méretezze az alakzat méretét.
+        // Skálázza az alakzat méretét.
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // Méretezze az alakzat pozícióját.
+        // Skálázza az alakzat pozícióját.
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
     }
@@ -99,11 +139,11 @@ for (auto&& master : presentation->get_Masters())
     {
         for (auto&& shape : layoutSlide->get_Shapes())
         {
-            // Méretezze az alakzat méretét.
+            // Skálázza az alakzat méretét.
             shape->set_Height(shape->get_Height() * heightRatio);
             shape->set_Width(shape->get_Width() * widthRatio);
 
-            // Méretezze az alakzat pozícióját.
+            // Skálázza az alakzat pozícióját.
             shape->set_Y(shape->get_Y() * heightRatio);
             shape->set_X(shape->get_X() * widthRatio);
         }
@@ -114,11 +154,11 @@ for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        // Méretezze az alakzat méretét.
+        // Skálázza az alakzat méretét.
         shape->set_Height(shape->get_Height() * heightRatio);
         shape->set_Width(shape->get_Width() * widthRatio);
 
-        // Méretezze az alakzat pozícióját.
+        // Skálázza az alakzat pozícióját.
         shape->set_Y(shape->get_Y() * heightRatio);
         shape->set_X(shape->get_X() * widthRatio);
 
@@ -141,32 +181,32 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Why are shapes distorted or cut off after resizing a slide?**
+### Miért torzulnak vagy vágódnak le az alakzatok a dia átméretezése után?
 
-A dia átméretezésekor az alakzatok megtartják eredeti pozíciójukat és méretüket, hacsak a méretezést kifejezetten nem módosítják. Ennek következtében a tartalom levágódhat vagy az alakzatok elcsúszhatnak.
+Dia átméretezésekor az alakzatok megtartják eredeti pozíciójukat és méretüket, hacsak a skálát nem változtatják meg kifejezetten. Ez a tartalom levágásához vagy az alakzatok eltolódásához vezethet.
 
-**Does the provided code work for all shape types?**
+### Működik a megadott kód minden alakzattípusra?
 
-Az alap példa a legtöbb alakzattípusra (szövegdobozok, képek, diagramok stb.) működik. Azonban táblázatok esetén a sorokat és oszlopokat külön kell kezelni, mivel egy táblázat magasságát és szélességét az egyes cellák méretei határozzák meg.
+Az alap példa a legtöbb alakzattípusra (szövegdobozok, képek, diagramok stb.) működik. Azonban táblázatok esetén a sorokkal és oszlopokkal külön kell foglalkozni, mivel egy táblázat magasságát és szélességét az egyes cellák méretei határozzák meg.
 
-**How do I resize tables when resizing a slide?**
+### Hogyan lehet átméretezni a táblázatokat a dia átméretezésekor?
 
-A táblázat összes sorát és oszlopát végig kell járni, majd a magasságukat és szélességüket arányosan átméretezni, ahogyan a második kódrészletben látható.
+A táblázat összes sorát és oszlopát végig kell iterálni, és azok magasságát és szélességét arányosan át kell méretezni, ahogyan a második kódrészlet is mutatja.
 
-**Will this resizing work for master slides and layout slides?**
+### Működik ez az átméretezés mester- és elrendezési diákon is?
 
-Igen, de a [Masters](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_masters/) és a [Layout slides](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_layoutslides/) elemein is végig kell menni, és ugyanazt a méretezési logikát alkalmazni kell az alakzataikra, hogy a bemutató egységes maradjon.
+Igen, de érdemes végigmenni a [Mestereken](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_masters/) és a [Elrendezési diákon](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_layoutslides/), és ugyanazt a skálázási logikát alkalmazni az alakzataikra is, hogy a prezentáció egységes legyen.
 
-**Can I change the orientation of a slide (portrait/landscape) along with the resizing?**
+### Megváltoztathatom a dia orientációját (álló/fekvő) az átméretezés mellett?
 
-Igen. A [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/set_orientation/) metódussal megváltoztatható a tájolás. Ügyeljen arra, hogy a méretezési logikát ennek megfelelően állítsa be a kialakítás megőrzése érdekében.
+Igen. A [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidesize/set_orientation/) segítségével módosíthatja az orientációt. Győződjön meg róla, hogy a skálázási logikát ennek megfelelően állítja be a elrendezés megtartásához.
 
-**Is there a limit to the slide size I can set?**
+### Van korlátja a beállítható diaméretnek?
 
-Az Aspose.Slides támogatja az egyedi méreteket, de a nagyon nagy méretek befolyásolhatják a teljesítményt vagy a kompatibilitást néhány PowerPoint verzióval.
+Az Aspose.Slides egyéni méreteket támogat, de a nagyon nagy méretek befolyásolhatják a teljesítményt vagy a kompatibilitást bizonyos PowerPoint verziókkal.
 
-**How can I prevent fixed aspect ratio shapes from becoming distorted?**
+### Hogyan akadályozhatom meg, hogy a rögzített képarányú alakzatok torzuljanak?
 
-A méretezés előtt ellenőrizhető az alakzat `get_AspectRatioLocked` metódusa. Ha zárolt, a szélességet vagy magasságot arányosan kell módosítani, ahelyett, hogy külön-külön skálázná őket.
+A skálázás előtt ellenőrizheti az alakzat `get_AspectRatioLocked` metódusát. Ha zárolt, a szélességet vagy magasságot arányosan módosítsa, ahelyett hogy őket egyenként skálázná.

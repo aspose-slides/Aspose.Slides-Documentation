@@ -1,65 +1,65 @@
 ---
-title: نمایش ارائه‌ها با فونت‌های جایگزین در .NET
-linktitle: نمایش ارائه‌ها
+title: رندر ارائه‌ها با فونت‌های جایگزین در .NET
+linktitle: رندر ارائه‌ها
 type: docs
 weight: 30
 url: /fa/net/render-presentation-with-fallback-font/
 keywords:
 - فونت جایگزین
-- رندر PowerPoint
+- رندر پاورپوینت
 - رندر ارائه
 - رندر اسلاید
-- PowerPoint
+- پاورپوینت
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "ارائه‌ها را با فونت‌های جایگزین در Aspose.Slides برای .NET رندر کنید – متن را در فرمت‌های PPT، PPTX و ODP به صورت سازگار و یکنواخت نگه دارید با نمونه‌های کد گام‌به‌گام C#."
+description: "رندر ارائه‌ها با فونت‌های جایگزین در Aspose.Slides برای .NET – حفظ سازگاری متن در میان PPT، PPTX و ODP با نمونه‌های کد گام‌به‌گام C#."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides به شما اجازه می‌دهد ارائه‌ها را با استفاده از قوانین فونت جایگزین رندر کنید. این مقاله نشان می‌دهد چگونه یک مجموعه قوانین فونت جایگزین ایجاد کنید، قوانین آن را با حذف یا افزودن فونت‌های جایگزین تغییر دهید، و مجموعه را به ویژگی `FontsManager.FontFallBackRulesCollection` اختصاص دهید.
+Aspose.Slides به شما امکان رندر ارائه‌ها را با استفاده از قوانین فونت جایگزین می‌دهد. این مقاله نشان می‌دهد که چگونه یک مجموعه قوانین فونت جایگزین ایجاد کنید، قوانین آن را با حذف یا افزودن فونت‌های جایگزین تغییر دهید، و مجموعه را به ویژگی `FontsManager.FontFallBackRulesCollection` اختصاص دهید.
 
-پس از اینکه مجموعه قوانین فونت جایگزین به `FontsManager` ارائه اختصاص یافت، این قوانین در عملیات‌هایی مانند ذخیره، رندر و تبدیل ارائه اعمال می‌شوند. مثال نشان می‌دهد چگونه از قوانین پیکربندی‌شده هنگام رندر کردن تصویر کوچک اسلاید و ذخیره آن به صورت تصویر PNG استفاده کنید.
+هنگامی که مجموعه قوانین فونت جایگزین به `FontsManager` ارائه اختصاص یافت، این قوانین در طول عملیات‌هایی مانند ذخیره، رندر و تبدیل ارائه اعمال می‌شوند. مثال نشان می‌دهد که چگونه از قوانین پیکربندی‌شده هنگام رندر تصویر بندانگشتی اسلاید و ذخیره آن به عنوان تصویر PNG استفاده کنید.
 
-## **رندر اسلاید با استفاده از قوانین فونت جایگزین**
-
-مثال زیر شامل این مراحل است:
+## **رندر یک اسلاید با استفاده از قوانین فونت جایگزین**
 
 1. ما [مجموعه قوانین فونت جایگزین را ایجاد می‌کنیم](/slides/fa/net/create-fallback-fonts-collection/).
-2. [Remove()] یک قانون فونت جایگزین را حذف می‌کند و [AddFallBackFonts()] را به قانون دیگر اضافه می‌کند.
-3. مجموعه قوانین را به ویژگی [FontsManager.FontFallBackRulesCollection] تنظیم کنید.
-4. با متد [Presentation.Save()] می‌توانیم ارائه را در همان قالب ذخیره کنیم یا در قالب دیگری ذخیره کنیم. پس از تنظیم مجموعه قوانین فونت جایگزین در FontsManager، این قوانین در هر عملیاتی روی ارائه اعمال می‌شوند: ذخیره، رندر، تبدیل و غیره.
+2. [Remove()](https://reference.aspose.com/slides/fa/net/aspose.slides/fontfallbackrule/methods/remove) یک قانون فونت جایگزین را حذف کنید و [AddFallBackFonts()](https://reference.aspose.com/slides/fa/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) را به قانون دیگر اضافه کنید.
+3. مجموعه قوانین را به ویژگی [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) تنظیم کنید.
+4. با متد [Presentation.Save()](https://reference.aspose.com/slides/fa/net/aspose.slides.presentation/save/methods/4) می‌توانیم ارائه را در همان قالب ذخیره کنیم یا در قالب دیگری ذخیره کنیم. پس از تنظیم مجموعه قوانین فونت جایگزین به FontsManager، این قوانین در هر عملیاتی روی ارائه اعمال می‌شوند: ذخیره، رندر، تبدیل و غیره.
 
 ```c#
-// یک نمونه جدید از مجموعه قوانین ایجاد کنید
+using Aspose.Slides;
+
+// ایجاد یک نمونه جدید از مجموعه قوانین
 IFontFallBackRulesCollection rulesList = new FontFallBackRulesCollection();
 
-// تعداد مشخصی از قوانین ایجاد کنید
+// ایجاد چند قانون
 rulesList.Add(new FontFallBackRule(0x400, 0x4FF, "Times New Roman"));
-//rulesList.Add(new FontFallBackRule(...));
+rulesList.Add(new FontFallBackRule(0x600, 0x6FF, "Tahoma, Arial"));
 
 foreach (IFontFallBackRule fallBackRule in rulesList)
 {
-	// در حال تلاش برای حذف فونت جایگزین "Tahoma" از قوانین بارگذاری‌شده
+	// تلاش برای حذف فونت جایگزین "Tahoma" از قوانین بارگذاری شده
 	fallBackRule.Remove("Tahoma");
 
-	// و به‌روزرسانی قوانین برای بازهٔ مشخص شده
-	if ((fallBackRule.RangeEndIndex >= 0x4000) && (fallBackRule.RangeStartIndex < 0x5000))
+	// و به‌روزرسانی قوانین برای بازه مشخص
+	if ((fallBackRule.RangeEndIndex >= 0x400) && (fallBackRule.RangeStartIndex < 0x500))
 		fallBackRule.AddFallBackFonts("Verdana");
 }
 
-// همچنین می‌توانیم هر قانون موجودی را از لیست حذف کنیم
-if (rulesList.Count > 0)
-	rulesList.Remove(rulesList[0]);
+// همچنین می‌توانیم هر قانون موجودی را از لیست حذف کنیم، به‌طوری که حداقل یک قانون برای رندر باقی بماند
+if (rulesList.Count > 1)
+	rulesList.Remove(rulesList[1]);
 
 using (Presentation pres = new Presentation("input.pptx"))
 {
-    // اختصاص فهرست قوانین آماده برای استفاده
+    // اختصاص یک لیست قوانین آماده برای استفاده
     pres.FontsManager.FontFallBackRulesCollection = rulesList;
 
-    // رندر تصویر کوچک با استفاده از مجموعه قوانین اولیه و ذخیره به PNG
+    // رندر تصویر بندانگشتی با استفاده از مجموعه قوانین اولیه و ذخیره به PNG
     using (IImage image = pres.Slides[0].GetImage(1f, 1f))
     {
         image.Save("Slide_0.png", ImageFormat.Png);
@@ -67,6 +67,6 @@ using (Presentation pres = new Presentation("input.pptx"))
 }
 ```
 
-{{% alert color="primary" %}} 
-اطلاعات بیشتر در مورد [ذخیره و تبدیل در ارائه](/slides/fa/net/convert-powerpoint-to-png/).
+{{% alert color="info" %}} 
+بیشتر بخوانید درباره [ذخیره‌سازی و تبدیل در ارائه](/slides/fa/net/convert-powerpoint-to-png/).
 {{% /alert %}}

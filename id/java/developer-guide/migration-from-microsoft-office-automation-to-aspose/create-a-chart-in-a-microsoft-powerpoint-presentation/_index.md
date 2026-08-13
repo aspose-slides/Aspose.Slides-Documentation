@@ -1,11 +1,11 @@
 ---
-title: Membuat Chart Menggunakan VSTO dan Aspose.Slides untuk Java
-linktitle: Buat Chart
+title: Membuat Diagram Menggunakan VSTO dan Aspose.Slides untuk Java
+linktitle: Buat Diagram
 type: docs
 weight: 70
 url: /id/java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 keywords:
-- buat chart
+- buat diagram
 - migrasi
 - VSTO
 - otomatisasi Office
@@ -13,38 +13,37 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari cara mengotomatisasi pembuatan chart PowerPoint dalam Java. Panduan langkah demi langkah ini menunjukkan mengapa Aspose.Slides untuk Java adalah alternatif yang lebih cepat dan lebih kuat dibandingkan Microsoft.Office.Interop."
+description: "Pelajari cara mengotomatiskan pembuatan diagram PowerPoint di Java. Panduan langkah demi langkah ini menunjukkan mengapa Aspose.Slides untuk Java adalah alternatif yang lebih cepat dan lebih kuat dibanding Microsoft.Office.Interop."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Chart adalah representasi visual data yang banyak digunakan dalam presentasi. Artikel ini menunjukkan kode untuk membuat chart di Microsoft PowerPoint secara programatik dengan menggunakan [VSTO](/slides/id/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) dan [Aspose.Slides for Java](/slides/id/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+Diagram adalah representasi visual data yang banyak digunakan dalam presentasi. Artikel ini menampilkan kode untuk membuat diagram di Microsoft PowerPoint secara programatis dengan menggunakan [VSTO](/slides/id/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) dan [Aspose.Slides for Java](/slides/id/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
-## **Membuat Chart**
-Contoh kode di bawah ini menjelaskan proses penambahan chart kolom terklaster 3D sederhana menggunakan VSTO. Anda membuat instance presentasi, menambahkan chart default ke dalamnya. Kemudian menggunakan workbook Microsoft Excel untuk mengakses dan memodifikasi data chart bersama dengan mengatur properti chart. Akhirnya, menyimpan presentasi.
+## **Membuat Diagram**
+Contoh kode di bawah menjelaskan proses menambahkan diagram kolom terkelompok 3D sederhana menggunakan VSTO. Anda membuat instance presentasi, menambahkan diagram default ke dalamnya. Kemudian gunakan workbook Microsoft Excel untuk mengakses dan memodifikasi data diagram serta mengatur properti diagram. Akhirnya, simpan presentasi.
+
 ### **Contoh VSTO**
 Dengan menggunakan VSTO, langkah-langkah berikut dilakukan:
 
-1. Buat sebuah instance presentasi Microsoft PowerPoint.
+1. Buat sebuah instance dari presentasi Microsoft PowerPoint.
 1. Tambahkan slide kosong ke presentasi.
-1. Tambahkan chart **3D clustered column** dan akses chart tersebut.
-1. Buat instance Microsoft Excel Workbook baru dan muat data chart.
-1. Akses worksheet data chart menggunakan instance Microsoft Excel Workbook instancefromworkbook.
-1. Atur rentang chart di worksheet dan hapus seri 2 dan 3 dari chart.
-1. Modifikasi data kategori chart di worksheet data chart.
-1. Modifikasi data seri 1 chart di worksheet data chart.
-1. Sekarang, akses judul chart dan atur properti font terkait.
-1. Akses sumbu nilai chart dan atur unit utama, unit minor, nilai maksimum, dan nilai minimum.
-1. Akses kedalaman chart atau sumbu seri dan hapus karena dalam contoh ini hanya satu seri yang digunakan.
-1. Sekarang, atur sudut rotasi chart pada arah X dan Y.
+1. Tambahkan diagram **3D clustered column** dan akses diagram tersebut.
+1. Buat sebuah instance Microsoft Excel Workbook baru dan muat data diagram.
+1. Akses lembar kerja data diagram menggunakan Microsoft Excel Workbook instancefromworkbook.
+1. Atur rentang diagram di lembar kerja dan hapus seri 2 serta 3 dari diagram.
+1. Modifikasi data kategori diagram di lembar kerja data diagram.
+1. Modifikasi data seri 1 diagram di lembar kerja data diagram.
+1. Sekarang, akses judul diagram dan setthefontrelatedproperties.
+1. Akses sumbu nilai diagram dan atur unit mayor, unit minor, nilai maksimum dan nilai minimum.
+1. Akses kedalaman diagram atau sumbu seri dan hapus itu karena dalam contoh ini, onlyoneserieisused.
+1. Sekarang, atur sudut rotasi diagram pada arah X dan Y.
 1. Simpan presentasi.
 1. Tutup instance Microsoft Excel dan PowerPoint.
 
-**Presentasi output, dibuat dengan VSTO** 
+**Presentasi keluaran, yang dibuat dengan VSTO** 
 
 ![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_1.png)
-
-
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-VSTOChart-VSTOChart.cs" >}}
 
@@ -52,19 +51,19 @@ Dengan menggunakan VSTO, langkah-langkah berikut dilakukan:
 ### **Contoh Aspose.Slides for Java**
 Dengan menggunakan Aspose.Slides for Java, langkah-langkah berikut dilakukan:
 
-1. Buat sebuah instance presentasi Microsoft PowerPoint.
+1. Buat sebuah instance dari presentasi Microsoft PowerPoint.
 1. Tambahkan slide kosong ke presentasi.
-1. Tambahkan chart **3D clustered column** dan akses chart tersebut.
-1. Akses worksheet data chart menggunakan instance Microsoft Excel Workbook instancefromworkbook.
+1. Tambahkan diagram **3D clustered column** dan akses diagram tersebut.
+1. Akses lembar kerja data diagram menggunakan Microsoft Excel Workbook instancefromworkbook.
 1. Hapus seri 2 dan 3 yang tidak digunakan.
-1. Akses kategori chart dan modifikasi label.
-1. Akses seri 1 dan modifikasi nilai seri.
-1. Sekarang, akses judul chart dan atur properti font.
-1. Akses sumbu nilai chart dan atur unit utama, unit minor, nilai maksimum, dan nilai minimum.
-1. Sekarang, atur sudut rotasi chart pada arah X dan Y.
+1. Akses kategori diagram dan ubah label.
+1. Accesseries1 dan ubah nilai seri.
+1. Sekarang, akses judul diagram dan atur properti font.
+1. Akses sumbu nilai diagram dan atur unit mayor, unit minor, nilai maksimum dan nilai minimum.
+1. Sekarang, atur sudut rotasi diagram pada arah X dan Y.
 1. Simpan presentasi ke format PPTX.
 
-**Presentasi output, dibuat dengan Aspose.Slides** 
+**Presentasi keluaran, yang dibuat dengan Aspose.Slides** 
 
 ![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_2.png)
 
@@ -72,14 +71,14 @@ Dengan menggunakan Aspose.Slides for Java, langkah-langkah berikut dilakukan:
 
 ## **FAQ**
 
-**Apakah saya dapat membuat jenis chart lain seperti pie, line, atau bar chart dengan Aspose.Slides?**
+### Apakah saya dapat membuat jenis diagram lain seperti diagram pai, garis, atau batang dengan Aspose.Slides?
 
-Ya. Aspose.Slides mendukung berbagai [jenis chart](/slides/id/java/create-chart/), termasuk pie chart, line chart, bar chart, scatter plot, bubble chart, dan lainnya. Anda dapat menentukan jenis chart yang diinginkan menggunakan kelas [ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/) saat menambahkan chart.
+Ya. Aspose.Slides mendukung berbagai [chart types](/slides/id/java/create-chart/), termasuk diagram pai, diagram garis, diagram batang, plot sebar, diagram gelembung, dan lainnya. Anda dapat menentukan jenis diagram yang diinginkan menggunakan kelas [ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/) saat menambahkan diagram.
 
-**Apakah saya dapat menerapkan gaya atau tema khusus pada chart?**
+### Dapatkah saya menerapkan gaya atau tema khusus pada diagram?
 
-Ya. Anda dapat sepenuhnya menyesuaikan tampilan chart, termasuk warna, font, isi, garis tepi, garis kisi, dan tata letak. Namun, menerapkan tema Office persis seperti yang terlihat di PowerPoint memerlukan pengaturan masing‑masing secara manual.
+Ya. Anda dapat menyesuaikan tampilan diagram secara penuh, termasuk warna, font, isi, kontur, garis kisi, dan tata letak. Namun, menerapkan tema Office persis seperti yang terlihat di PowerPoint memerlukan pengaturan gaya secara manual.
 
-**Apakah saya dapat mengekspor chart sebagai gambar terpisah dari slide?**
+### Dapatkah saya mengekspor diagram sebagai gambar terpisah dari slide?
 
-Ya, Aspose.Slides memungkinkan Anda mengekspor shape apa pun—termasuk chart—sebagai gambar terpisah (misalnya PNG, JPEG) dengan menggunakan metode `getImage` pada [shape](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/) chart.
+Ya, Aspose.Slides memungkinkan Anda mengekspor bentuk apa pun—termasuk diagram—sebagai gambar terpisah (mis., PNG, JPEG) menggunakan metode `getImage` pada [shape](https://reference.aspose.com/slides/id/java/com.aspose.slides/shape/).

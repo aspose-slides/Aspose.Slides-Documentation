@@ -1,38 +1,39 @@
+---  
+title: دریافت خصوصیات مؤثر شکل از ارائه‌ها در .NET  
+linktitle: خصوصیات مؤثر  
+type: docs  
+weight: 50  
+url: /fa/net/shape-effective-properties/  
+keywords:  
+- خصوصیات شکل  
+- خصوصیات دوربین  
+- نورپردازی  
+- شکل برجسته  
+- قاب متن  
+- سبک متن  
+- ارتفاع قلم  
+- قالب پرکردن  
+- PowerPoint  
+- ارائه  
+- .NET  
+- C#  
+- Aspose.Slides  
+description: "کشف کنید چگونه Aspose.Slides برای .NET خصوصیات مؤثر شکل را محاسبه و اعمال می‌کند تا رندر دقیق PowerPoint حاصل شود."  
 ---
-title: دریافت ویژگی‌های مؤثر شکل از ارائه‌ها در .NET
-linktitle: ویژگی‌های مؤثر
-type: docs
-weight: 50
-url: /fa/net/shape-effective-properties/
-keywords:
-- ویژگی‌های شکل
-- ویژگی‌های دوربین
-- نورپردازی
-- شکل برجسته
-- قاب متن
-- سبک متن
-- ارتفاع قلم
-- قالب پر کردن
-- PowerPoint
-- ارائه
-- .NET
-- C#
-- Aspose.Slides
-description: "کشف کنید Aspose.Slides برای .NET چگونه ویژگی‌های مؤثر شکل را برای رندر دقیق PowerPoint محاسبه و اعمال می‌کند."
----
-## **Overview**
+## **نمای کلی**
 
-این موضوع تفاوت بین ویژگی‌های **local** و **effective** را توضیح می‌دهد. مقادیر محلی، مقادیری هستند که مستقیماً در یک سطح خاص قالب‌بندی تنظیم می‌شوند، مانند:
+این موضوع تفاوت بین خصوصیات **محلی** و **موثر** را توضیح می‌دهد. مقادیر محلی، مقادیری هستند که به‌ طور مستقیم در یک سطح خاص قالب‌بندی تنظیم می‌شوند، از جمله:
+1. خصوصیات بخشی در یک اسلاید.
+1. سبک‌های متن شکل نمونه در یک طرح‌بندی یا اسلاید اصلی، زمانی که شکل قاب متن بخشی دارای آن باشد.
+1. تنظیمات متن سراسری در ارائه.
 
-1. ویژگی‌های بخش در یک اسلاید.  
-1. سبک‌های متن شکل نمونه در یک طرح‌بندی یا اسلاید مستر، وقتی‌که شکل قاب متن بخش دارای آن باشد.  
-1. تنظیمات متن سراسری در یک ارائه.
+مقادیر محلی می‌توانند در هر سطحی تعریف یا حذف شوند. وقتی Aspose.Slides به قالب‌بندی نهایی «به‌صورت رندر‌شده» نیاز دارد، زنجیره وراثت را حل می‌کند و مقادیر **موثر** را باز می‌گرداند. شما می‌توانید با فراخوانی متد `GetEffective` بر روی شیء قالب‌بندی محلی، آن‌ها را دریافت کنید.
 
-مقادیر محلی می‌توانند در هر سطحی تعریف یا حذف شوند. هنگامی که Aspose.Slides به قالب‌بندی نهایی «as rendered» نیاز دارد، زنجیره وراثت را حل می‌کند و مقادیر **effective** را برمی‌گرداند. می‌توانید با فراخوانی متد `GetEffective` روی شیء قالب‌بندی محلی، این مقادیر را دریافت کنید.
-
-مثال زیر نشان می‌دهد چگونه مقادیر effective را به دست آورید. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن و حداقل یک بخش باشد.
+مثال زیر نحوه دریافت مقادیر موثر را نشان می‌دهد. فرض می‌شود که اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن و حداقل یک بخش باشد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -46,17 +47,19 @@ var localPortionFormat = portion.PortionFormat;
 var effectivePortionFormat = localPortionFormat.GetEffective();
 ```
 
-{{% alert color="primary" %}}
-داده‌های قالب‌بندی Effective، قالب‌بندی محاسبه‌شده فعلی پس از اعمال وراثت را نشان می‌دهد. در پیاده‌سازی فعلی، برخی از اشیای دادهٔ Effective، مانند [IPortionFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformateffectivedata/)، ممکن است به‌صورت داخلی کش شوند. فراخوانی مجدد `GetEffective` پس از تغییر قالب‌بندی پدر یا وراثتی می‌تواند کش را تازه‌سازی کند و شیء قبلاً به‌دست آمده ممکن است دیگر نمایانگر وضعیت قبلی نباشد. اگر نیاز دارید مقادیر effective را برای استفادهٔ بعدی حفظ کنید، ویژگی‌های مورد نیاز مانند ارتفاع قلم، رنگ پر، سبک قلم یا تراز شدن را در شیء دادهٔ خود کپی کنید.
+{{% alert color="info" %}}
+داده‌های قالب‌بندی موثر نشان‌دهنده قالب‌بندی محاسبه‌شده فعلی پس از اعمال وراثت هستند. در پیاده‌سازی فعلی، برخی از اشیای داده موثر، مانند [IPortionFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformateffectivedata/)، ممکن است به‌ صورت داخلی کش شوند. فراخوانی دوباره `GetEffective` پس از تغییر قالب‌بندی والد یا ارث‌گیری شده می‌تواند کش را تازه کند و شیء قبلاً به‌دست آمده ممکن است دیگر حالت قبلی را نشان ندهد. اگر نیاز دارید مقادیر موثر را برای استفاده بعدی حفظ کنید، ویژگی‌های مورد نیاز مانند ارتفاع فونت، رنگ پرکن، سبک فونت یا تراز را به شیء داده خود کپی کنید.
 {{% /alert %}}
 
-## **Get Effective Properties of a Camera**
+## **دریافت خصوصیات موثر دوربین**
 
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های effective دوربین را دریافت کنید. اینترفیس [ICameraEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icameraeffectivedata/) یک شیء غیرقابل تغییر است که ویژگی‌های effective دوربین را شامل می‌شود. یک نمونهٔ [ICameraEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icameraeffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر effective برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را فراهم می‌کند.
+Aspose.Slides به شما امکان دریافت خصوصیات موثر یک دوربین را می‌دهد. رابط [ICameraEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icameraeffectivedata/) یک شیء غیرقابل تغییر را نشان می‌دهد که شامل خصوصیات موثر دوربین است. یک نمونهٔ [ICameraEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icameraeffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر موثر برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را ارائه می‌دهد.
 
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های effective دوربین را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
+نمونه کد زیر نحوه دریافت خصوصیات موثر برای دوربین را نشان می‌دهد. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -70,13 +73,15 @@ Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngl
 Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 ```
 
-## **Get Effective Properties of a Light Rig**
+## **دریافت خصوصیات موثر نورپردازی**
 
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های effective تنظیمات نور را دریافت کنید. اینترفیس [ILightRigEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrigeffectivedata/) یک شیء غیرقابل تغییر است که ویژگی‌های effective تنظیمات نور را شامل می‌شود. یک نمونهٔ [ILightRigEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrigeffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر effective برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را فراهم می‌کند.
+Aspose.Slides به شما امکان دریافت خصوصیات موثر یک دستگاه نورپردازی را می‌دهد. رابط [ILightRigEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrigeffectivedata/) یک شیء غیرقابل تغییر را نشان می‌دهد که شامل خصوصیات موثر دستگاه نورپردازی است. یک نمونهٔ [ILightRigEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrigeffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر موثر برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را ارائه می‌دهد.
 
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های effective تنظیمات نور را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
+نمونه کد زیر نحوه دریافت خصوصیات موثر برای نورپردازی را نشان می‌دهد. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -89,13 +94,15 @@ Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
 Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 ```
 
-## **Get Effective Properties of a Bevel Shape**
+## **دریافت خصوصیات موثر برجستگی شکل**
 
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های effective برجستگی (Bevel) یک شکل را دریافت کنید. اینترفیس [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapebeveleffectivedata/) یک شیء غیرقابل تغییر است که ویژگی‌های effective برجستگی برای یک شکل را شامل می‌شود. یک نمونهٔ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapebeveleffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر effective برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را فراهم می‌کند.
+Aspose.Slides به شما امکان دریافت خصوصیات موثر برجستگی یک شکل را می‌دهد. رابط [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapebeveleffectivedata/) یک شیء غیرقابل تغییر را نشان می‌دهد که شامل خصوصیات موثر برجستگی برای یک شکل است. یک نمونهٔ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapebeveleffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر موثر برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را ارائه می‌دهد.
 
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های effective برجستگی بالایی یک شکل را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
+نمونه کد زیر نحوه دریافت خصوصیات موثر برای برجستگی بالای یک شکل را نشان می‌دهد. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -109,13 +116,15 @@ Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
 Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
 ```
 
-## **Get Effective Properties of a Text Frame**
+## **دریافت خصوصیات موثر قاب متن**
 
-با استفاده از Aspose.Slides می‌توانید ویژگی‌های effective یک قاب متن را دریافت کنید. اینترفیس [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformateffectivedata/) شامل ویژگی‌های قالب‌بندی effective قاب متن است.
+با استفاده از Aspose.Slides می‌توانید خصوصیات موثر یک قاب متن را دریافت کنید. رابط [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformateffectivedata/) شامل خصوصیات قالب‌بندی موثر قاب متن است.
 
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های قالب‌بندی effective قاب متن را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن باشد.
+نمونه کد زیر نحوه دریافت خصوصیات قالب‌بندی موثر قاب متن را نشان می‌دهد. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن باشد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -134,13 +143,15 @@ Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
 Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
 ```
 
-## **Get Effective Properties of a Text Style**
+## **دریافت خصوصیات موثر سبک متن**
 
-با استفاده از Aspose.Slides می‌توانید ویژگی‌های effective یک سبک متن را دریافت کنید. اینترفیس [ITextStyleEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/itextstyleeffectivedata/) شامل ویژگی‌های سبک متن effective است.
+با استفاده از Aspose.Slides می‌توانید خصوصیات موثر یک سبک متن را دریافت کنید. رابط [ITextStyleEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/itextstyleeffectivedata/) شامل خصوصیات موثر سبک متن است.
 
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های سبک متن effective را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن باشد.
+نمونه کد زیر نحوه دریافت خصوصیات موثر سبک متن را نشان می‌دهد. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن باشد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -161,11 +172,14 @@ for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 }
 ```
 
-## **Get the Effective Font Height Value**
+## **دریافت مقدار مؤثر ارتفاع قلم**
 
-با استفاده از Aspose.Slides می‌توانید ارتفاع قلم effective را دریافت کنید. کد زیر نشان می‌دهد چگونه ارتفاع قلم effective یک بخش پس از تنظیم مقادیر محلی ارتفاع قلم در سطوح مختلف ساختار ارائه تغییر می‌کند.
+با استفاده از Aspose.Slides می‌توانید ارتفاع قلم مؤثر را دریافت کنید. کد زیر نشان می‌دهد که چگونه ارتفاع قلم مؤثر یک بخش پس از تنظیم مقادیر محلی ارتفاع قلم در سطوح مختلف ساختار ارائه تغییر می‌کند.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -223,13 +237,15 @@ Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
 presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 ```
 
-## **Get the Effective Fill Format for a Table**
+## **دریافت قالب پر کردن مؤثر برای جدول**
 
-با استفاده از Aspose.Slides می‌توانید قالب‌بندی پر شدن effective برای قسمت‌های مختلف جدول را دریافت کنید. اینترفیس [IFillFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/) شامل ویژگی‌های قالب‌بندی پر شدن effective است. قالب‌بندی سلول نسبت به قالب‌بندی ردیف اولویت بالاتری دارد، قالب‌بندی ردیف نسبت به قالب‌بندی ستون، و قالب‌بندی ستون نسبت به قالب‌بندی کل جدول اولویت بیشتری دارد.
+با استفاده از Aspose.Slides می‌توانید قالب‌پر کردن مؤثر برای قسمت‌های مختلف جدول را دریافت کنید. رابط [IFillFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/) شامل خصوصیات قالب‌پر کردن مؤثر است. قالب‌بندی سلول دارای اولویت بالاتری نسبت به قالب‌بندی ردیف، قالب‌بندی ردیف نسبت به قالب‌بندی ستون و قالب‌بندی ستون نسبت به قالب‌بندی کل جدول است.
 
-در نتیجه، ویژگی‌های [ICellFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icellformateffectivedata/) برای رسم سلول جدول استفاده می‌شوند. کد نمونهٔ زیر نشان می‌دهد چگونه قالب‌بندی پر شدن effective برای قسمت‌های مختلف جدول را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید یک [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) باشد.
+در نتیجه، خصوصیات [ICellFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icellformateffectiveData/) برای رسم سلول جدول استفاده می‌شوند. نمونه کد زیر نشان می‌دهد چگونه قالب‌پر کردن مؤثر برای قسمت‌های مختلف جدول دریافت شود. فرض می‌شود اولین شکل در اولین اسلاید یک [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) باشد.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -246,36 +262,36 @@ var columnFillFormatEffective = columnFormatEffective.FillFormat;
 var cellFillFormatEffective = cellFormatEffective.FillFormat;
 ```
 
-## **FAQ**
+## **پرسش‌های متداول**
 
-**آیا `GetEffective` یک snapshot برمی‌گرداند؟**
+### آیا `GetEffective` یک snapshot برمی‌گرداند؟
 
-همیشه نیست. دادهٔ Effective نمایانگر قالب‌بندی محاسبه‌شده پس از اعمال وراثت است، ولی برخی از اشیای دادهٔ Effective می‌توانند به‌صورت داخلی کش شوند. فراخوانی بعدی `GetEffective` ممکن است قالب‌بندی را دوباره محاسبه کند و کش را تازه‌سازی کند، بنابراین شیء قبلاً به‌دست آمده نباید به‌عنوان یک snapshot پایدار در نظر گرفته شود.
+همیشه نیست. داده‌های مؤثر نمایانگر قالب‌بندی محاسبه‌شده پس از اعمال وراثت هستند، اما برخی از اشیای داده مؤثر می‌توانند به‌صورت داخلی کش شوند. فراخوانی بعدی `GetEffective` ممکن است قالب‌بندی را دوباره محاسبه کند و داده‌های کش‌شده را تازه‌سازی کند، بنابراین نباید شیء قبلاً به‌دست آمده را به‌عنوان یک snapshot پایدار در نظر گرفت.
 
-**چه زمانی باید دوباره ویژگی‌های effective را بخوانم؟**
+### کی باید مجدداً خصوصیات مؤثر را بخوانم؟
 
-بعد از تغییر قالب‌بندی محلی، سبک‌های پدر، قالب‌بندی طرح‌بندی، قالب‌بندی مستر یا پیش‌فرض‌های سطح ارائه، `GetEffective` را دوباره فراخوانی کنید. فراخوانی بعدی سلسله‌مراتب قالب‌بندی را مجدداً ارزیابی می‌کند و نتیجهٔ effective فعلی را برمی‌گرداند.
+پس از تغییر قالب‌بندی محلی، سبک‌های والد، قالب‌بندی طرح‌بندی، قالب‌بندی اسلاید اصلی یا تنظیمات پیش‌فرض سطح ارائه، دوباره `GetEffective` را فراخوانی کنید. فراخوانی بعدی سیر سلسله‌مراتبی قالب‌بندی را دوباره ارزیابی می‌کند و نتیجهٔ مؤثر فعلی را باز می‌گرداند.
 
-**آیا تغییر یا حذف یک اسلاید طرح‌بندی/مستر بر ویژگی‌های effective که قبلاً دریافت شده‌اند تأثیر می‌گذارد؟**
+### آیا تغییر یا حذف یک اسلاید طرح‌بندی/اصلی بر خصوصیات مؤثری که قبلاً دریافت شده‌اند تأثیر می‌گذارد؟
 
-بله، اما تغییر در فراخوانی بعدی `GetEffective` منعکس می‌شود. اگر منبع قالب‌بندی پدر تغییر یا حذف شود، دادهٔ Effective قبلاً به‌دست آمده ممکن است قدیمی باشد. پس از فراخوانی مجدد `GetEffective`، Aspose.Slides درخت قالب‌بندی را دوباره ارزیابی می‌کند و قلم‌ها، رنگ‌ها، اندازه‌ها یا مقادیر دیگر ممکن است تغییر کنند.
+بله، اما تغییر در فراخوانی بعدی `GetEffective` منعکس می‌شود. اگر منبع قالب‌بندی والد تغییر یا حذف شود، داده‌های مؤثر قبلاً به‌دست آمده ممکن است منسوخ شوند. پس از فراخوانی مجدد `GetEffective`، Aspose.Slides درخت قالب‌بندی را دوباره ارزیابی می‌کند و قلم‌ها، رنگ‌ها، اندازه‌ها یا سایر مقادیر ممکن است تغییر کنند.
 
-**آیا می‌توانم مقادیر را از طریق اشیای دادهٔ Effective اصلاح کنم؟**
+### آیا می‌توانم مقادیر را از طریق اشیای داده مؤثر تغییر دهم؟
 
-خیر. اشیای دادهٔ Effective فقط مقادیر محاسبه‌شده را نشان می‌دهند. تغییرات را در اشیای قالب‌بندی محلی اعمال کنید و سپس مجدداً مقادیر effective را دریافت کنید.
+خیر. اشیای داده مؤثر فقط مقادیر محاسبه‌شده را نمایش می‌دهند. تغییرات را در اشیای قالب‌بندی محلی اعمال کنید و سپس مقادیر مؤثر را دوباره دریافت کنید.
 
-**اگر یک ویژگی در سطح شکل، در طرح‌بندی/مستر یا در تنظیمات سراسری تنظیم نشده باشد چه می‌شود؟**
+### چه اتفاقی می‌افتد اگر یک ویژگی در سطح شکل، طرح‌بندی/اسلاید اصلی یا تنظیمات سراسری تنظیم نشده باشد؟
 
-مقدار effective بر پایه مکانیزم پیش‌فرض تعیین می‌شود که شامل پیش‌فرض‌های PowerPoint و Aspose.Slides می‌شود. آن مقدار حل‌شده بخشی از دادهٔ Effective فعلی می‌شود.
+مقدار مؤثر توسط سازوکار پیش‌فرض تعیین می‌شود که شامل پیش‌فرض‌های PowerPoint و Aspose.Slides می‌باشد. آن مقدار حل‌شده بخشی از دادهٔ مؤثر فعلی می‌شود.
 
-**از یک مقدار قلم effective، آیا می‌توانم تشخیص دهم کدام سطح اندازه یا نوع قلم را فراهم کرده است؟**
+### آیا می‌توانم از مقدار مؤثر فونت بفهمم که کدام سطح اندازه یا نوع قلم را فراهم کرده است؟
 
-به‌صورت مستقیم نمی‌توان. دادهٔ Effective مقدار نهایی را برمی‌گرداند. برای پیدا کردن منبع، مقادیر محلی را در بخش، پاراگراف، قاب متن و سبک‌های متن در طرح‌بندی، مستر و سطوح ارائه بررسی کنید تا ببینید اولین تعریف صریح کجا قرار دارد.
+به‌طور مستقیم نیست. دادهٔ مؤثر فقط مقدار نهایی را برمی‌گرداند. برای پیدا کردن منبع، مقادیر محلی را در بخش، پاراگراف، قاب متن و سبک‌های متن در سطوح طرح‌بندی، اسلاید اصلی و ارائه بررسی کنید تا ببینید اولین تعریف صریح در کجا قرار دارد.
 
-**چرا گاهی مقدارهای effective شبیه مقدارهای محلی به نظر می‌آیند؟**
+### چرا گاهی مقادیر مؤثر شبیه مقادیر محلی به نظر می‌رسند؟
 
-چون مقدار محلی در نهایت نهایی شده است (نیازی به وراثت از سطوح بالاتر نبوده). در این حالت مقدار effective با مقدار محلی مطابقت دارد.
+زیرا مقدار محلی در نهایت نهایی شد (نیازی به وراثت از سطوح بالاتر نبود). در چنین مواردی، مقدار مؤثر با مقدار محلی یکسان است.
 
-**چه زمانی باید از ویژگی‌های effective استفاده کنم و چه زمانی فقط با مقدارهای محلی کار کنم؟**
+### کی باید از خصوصیات مؤثر استفاده کنم و کی فقط با خصوصیات محلی کار کنم؟
 
-وقتی به نتیجهٔ «as rendered» پس از اعمال تمام وراثت‌ها نیاز دارید (مثل هم‌ترازی رنگ‌ها، تو رفتگی‌ها یا اندازه‌ها) از دادهٔ Effective استفاده کنید. اگر می‌خواهید این مقادیر را صرف‌نظر از تغییرات بعدی قالب‌بندی حفظ کنید، ویژگی‌های مورد نیاز را در شیء خود کپی کنید. اگر می‌خواهید قالب‌بندی را در سطح خاصی تغییر دهید، ویژگی‌های محلی را اصلاح کنید و سپس، در صورت نیاز، دادهٔ Effective را دوباره بخوانید تا نتیجه را تأیید کنید.
+داده‌های مؤثر را زمانی استفاده کنید که به نتیجهٔ «به‌صورت رندر‌شده» پس از اعمال تمام وراثت نیاز دارید، مثلاً برای هماهنگ‌سازی رنگ‌ها، تورفتگی‌ها یا اندازه‌ها. اگر می‌خواهید این مقادیر را صرف‌نظر از تغییرات بعدی قالب‌بندی حفظ کنید، ویژگی‌های مورد نیاز را در شیء خود کپی کنید. اگر نیاز به تغییر قالب‌بندی در سطح خاصی دارید، ویژگی‌های محلی را تنظیم کنید و سپس در صورت نیاز، دوباره داده‌های مؤثر را خوانده تا نتیجه را تأیید کنید.

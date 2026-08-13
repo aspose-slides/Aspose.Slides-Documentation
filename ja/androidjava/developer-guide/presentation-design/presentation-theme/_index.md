@@ -8,9 +8,9 @@ keywords:
 - PowerPoint テーマ
 - プレゼンテーションテーマ
 - スライドテーマ
-- テーマを設定する
-- テーマを変更する
-- テーマを管理する
+- テーマの設定
+- テーマの変更
+- テーマの管理
 - テーマカラー
 - 追加パレット
 - テーマフォント
@@ -22,21 +22,25 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Java を使用して Android 用 Aspose.Slides でプレゼンテーションテーマをマスターし、一貫したブランディングで PowerPoint ファイルを作成、カスタマイズ、変換します。"
+description: "Java を使用して Android 用 Aspose.Slides のプレゼンテーションテーマをマスターし、一貫したブランディングで PowerPoint ファイルを作成、カスタマイズ、変換します。"
 ---
-プレゼンテーションテーマはデザイン要素のプロパティを定義します。テーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選んでいることになります。
+## **導入**
 
-PowerPoint のテーマは色、[fonts](/slides/ja/androidjava/powerpoint-fonts/)、[background styles](/slides/ja/androidjava/presentation-background/)、および効果で構成されます。
+プレゼンテーションテーマはデザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、実質的に特定のビジュアル要素とそのプロパティのセットを選んでいることになります。
 
-![theme-constituents](theme-constituents.png)
+PowerPoint では、テーマは色、[フォント](/slides/ja/androidjava/powerpoint-fonts/)、[背景スタイル](/slides/ja/androidjava/presentation-background/)、および効果で構成されます。
 
-## **Change Theme Color**
+![テーマの構成要素](theme-constituents.png)
 
-PowerPoint のテーマはスライド上のさまざまな要素に対して特定の色セットを使用します。色が気に入らない場合は、テーマに新しい色を適用して変更します。新しいテーマカラーを選択できるように、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SchemeColor) 列挙体の値を提供します。
+## **テーマカラーの変更**
 
-この Java コードは、テーマのアクセントカラーを変更する方法を示しています:
+PowerPoint のテーマはスライド上のさまざまな要素に対して特定の色セットを使用します。色が気に入らない場合は、テーマに新しい色を適用して色を変更します。新しいテーマカラーを選択できるよう、Aspose.Slides は [SchemeColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/SchemeColor) 列挙体で値を提供しています。
+
+この Java コードは、テーマのアクセントカラーを変更する方法を示しています：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -49,44 +53,67 @@ try {
 }
 ```
 
-この方法で、結果として得られる色の実効値を確認できます:
+この方法で、結果となる色の実効値を判定できます：
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-色変更操作をさらに示すために、別の要素を作成し、最初の操作で取得したアクセントカラーを割り当てます。その後、テーマの色を変更します:
+色変更操作をさらに示すために、別の要素を作成し、（最初の操作で取得した）アクセントカラーを割り当てます。その後、テーマ内の色を変更します：
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    otherShape.getFillFormat().setFillType(FillType.Solid);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 新しい色は両方の要素に自動的に適用されます。
 
-### **Set Theme Color from an Additional Palette**
+### **追加パレットからテーマカラーを設定**
 
-メインテーマカラー(1)に輝度変換を適用すると、追加パレット(2)から色が生成されます。これらのテーマカラーを取得および設定できます。
+メインテーマカラー（1）に輝度変換を適用すると、追加パレット（2）から色が生成されます。その後、これらのテーマカラーを設定および取得できます。
 
-![additional-palette-colors](additional-palette-colors.png)
+![追加パレットの色](additional-palette-colors.png)
 
-**1** - メインテーマカラー
+**1** - メインテーマカラー  
+**2** - 追加パレットの色  
 
-**2** - 追加パレットの色
-
-この Java コードは、メインテーマカラーから取得した追加パレットの色をシェイプで使用する操作を示しています:
+この Java コードは、メインテーマカラーから取得した追加パレットの色をシェイプで使用する操作を示しています：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -135,23 +162,23 @@ try {
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-### **Map `SchemeColor` to `IColorScheme` Colors**
+### **`SchemeColor` を `IColorScheme` のカラーにマッピング**
 
-[SchemeColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/schemecolor/) を使用する際、以下のテーマカラー値が含まれていることに気付くかもしれません:
+[SchemeColor](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/schemecolor/) を使用すると、次のテーマカラーの値が含まれていることに気付くかもしれません：
 
 `Background1`, `Background2`, `Text1`, `Text2`.
 
-しかし、`Presentation.getMasterTheme().getColorScheme()` は [IColorScheme](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icolorscheme/) を返し、対応する色は次のように公開されます:
+しかし、`Presentation.getMasterTheme().getColorScheme()` は [IColorScheme](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icolorscheme/) を返し、対応するカラーを次のように公開します：
 
 `Dark1`, `Dark2`, `Light1`, `Light2`.
 
-この違いは名前だけです。これらの値は同じテーマカラー スロットを指し、マッピングは固定されています:
+この差異は名前だけです。これらの値は同じテーマカラーのスロットを指しており、マッピングは固定されています：
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -160,54 +187,70 @@ try {
 
 `Text`/`Background` と `Dark`/`Light` の間に動的な変換はありません。単に同じテーマカラーの別名です。
 
-この名前の違いは Microsoft Office の用語から来ています。古い Office バージョンは `Dark 1`, `Light 1`, `Dark 2`, `Light 2` を使用し、 newer UI バージョンでは同じスロットが `Text 1`, `Background 1`, `Text 2`, `Background 2` と表示されます。
+この命名の違いは Microsoft Office の用語から来ています。古い Office バージョンでは `Dark 1`、`Light 1`、`Dark 2`、`Light 2` が使用されていましたが、最新の UI バージョンでは同じスロットが `Text 1`、`Background 1`、`Text 2`、`Background 2` と表示されます。
 
-## **Change Theme Font**
+## **テーマフォントの変更**
 
-テーマやその他の目的でフォントを選択できるように、Aspose.Slides は PowerPoint と同様の特別な識別子を使用します:
+テーマやその他の目的でフォントを選択できるよう、Aspose.Slides は以下の特殊な識別子（PowerPoint で使用されるものと同様）を使用します。
 
-* **+mn-lt** - Body Font Latin (Minor Latin Font)
-* **+mj-lt** - Heading Font Latin (Major Latin Font)
-* **+mn-ea** - Body Font East Asian (Minor East Asian Font)
-* **+mj-ea** - Body Font East Asian (Major East Asian Font)
+* **+mn-lt** - 本文フォント ラテン文字 (Minor Latin Font)
+* **+mj-lt** - 見出しフォント ラテン文字 (Major Latin Font)
+* **+mn-ea** - 本文フォント 東アジア文字 (Minor East Asian Font)
+* **+mj-ea** - 見出しフォント 東アジア文字 (Major East Asian Font)
 
-この Java コードは、ラテンフォントをテーマ要素に割り当てる方法を示しています:
+この Java コードは、ラテンフォントをテーマ要素に割り当てる方法を示しています：
 
 ```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+import com.aspose.slides.*;
 
-Paragraph paragraph = new Paragraph();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.getPortions().add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(portion);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-この Java コードは、プレゼンテーションテーマのフォントを変更する方法を示しています:
+この Java コードは、プレゼンテーションのテーマフォントを変更する方法を示しています：
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 すべてのテキストボックスのフォントが更新されます。
 
-{{% alert color="primary" title="TIP" %}} 
-[PowerPoint fonts](/slides/ja/androidjava/powerpoint-fonts/) を参照すると便利です。
+{{% alert color="info" title="TIP" %}} 
+[PowerPoint フォント](/slides/ja/androidjava/powerpoint-fonts/) をご覧になるとよいでしょう。 
 {{% /alert %}}
 
-## **Change Theme Background Style**
+## **テーマ背景スタイルの変更**
 
-デフォルトでは、PowerPoint アプリは 12 個の事前定義された背景を提供しますが、そのうち 3 個だけが典型的なプレゼンテーションに保存されます。
+デフォルトでは、PowerPoint アプリは 12 個の事前定義された背景を提供しますが、典型的なプレゼンテーションではそのうち 3 つのみが保存されます。
 
-![todo:image_alt_text](presentation-design_8.png)
+![プレゼンテーション デザイン 8](presentation-design_8.png)
 
-たとえば、PowerPoint アプリでプレゼンテーションを保存した後、次の Java コードを実行してプレゼンテーション内の事前定義背景の数を取得できます:
+例として、PowerPoint アプリでプレゼンテーションを保存した後、次の Java コードを実行してプレゼンテーションに含まれる事前定義背景の数を確認できます：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -219,32 +262,42 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-[BackgroundFillStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) プロパティを使用すると、[FormatScheme](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme) クラスから PowerPoint テーマの背景スタイルを追加または取得できます。
+[BackgroundFillStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) プロパティを [FormatScheme](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme) クラスから使用することで、PowerPoint テーマ内の背景スタイルを追加または取得できます。 
 {{% /alert %}} 
 
-この Java コードは、プレゼンテーションの背景を設定する方法を示しています:
+この Java コードは、プレゼンテーションの背景を設定する方法を示しています：
 
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-**インデックス ガイド**: 0 は塗りなしを表します。インデックスは 1 から開始します。
+**インデックスガイド**: 0 は塗りなしに使用されます。インデックスは 1 から始まります。
 
-{{% alert color="primary" title="TIP" %}} 
-[PowerPoint Background](/slides/ja/androidjava/presentation-background/) をご覧ください。
+{{% alert color="info" title="TIP" %}} 
+[PowerPoint 背景](/slides/ja/androidjava/presentation-background/) をご覧になるとよいでしょう。 
 {{% /alert %}}
 
-## **Change Theme Effect**
+## **テーマ効果の変更**
 
-PowerPoint のテーマは通常、各スタイル配列に対して 3 つの値を含みます。これらの配列は 3 つの効果 (subtle, moderate, intense) に結合されます。たとえば、特定のシェイプに効果を適用した結果は次のとおりです:
+PowerPoint テーマは通常、各スタイル配列に対して 3 つの値を持ちます。その配列は 3 つの効果（微妙、標準、強烈）に結合されます。たとえば、特定のシェイプに効果を適用した結果は次のとおりです。
 
-![todo:image_alt_text](presentation-design_10.png)
+![プレゼンテーション デザイン 10](presentation-design_10.png)
 
-[FormatScheme](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme) クラスの 3 つのプロパティ ([FillStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) を使用すると、PowerPoint のオプション以上に柔軟にテーマ内の要素を変更できます。
+[FillStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getFillStyles--)、[LineStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getLineStyles--)、[EffectStyles](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--) の 3 つのプロパティを [FormatScheme](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/FormatScheme) クラスから使用すると、テーマ内の要素を変更できます（PowerPoint のオプションよりも柔軟に）。
 
-この Java コードは、要素の一部を変更してテーマ効果を変更する方法を示しています:
+この Java コードは、要素の一部を変更してテーマ効果を変更する方法を示しています：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -261,20 +314,20 @@ try {
 }
 ```
 
-結果としての塗りの色、塗りタイプ、影効果などの変更は以下のとおりです:
+結果として、塗りの色、塗りタイプ、影効果などが変化します。
 
-![todo:image_alt_text](presentation-design_11.png)
+![プレゼンテーション デザイン 11](presentation-design_11.png)
 
-## **FAQ**
+## **よくある質問**
 
-**Can I apply a theme to a single slide without changing the master?**
+### マスターを変更せずに単一スライドにテーマを適用できますか？
 
-はい。Aspose.Slides はスライドレベルのテーマ上書きをサポートしているため、マスターテーマをそのままにして特定のスライドにローカルテーマを適用できます（[SlideThemeManager](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slidethememanager/) を使用）。
+はい。Aspose.Slides はスライドレベルのテーマオーバーライドをサポートしているため、マスターテーマをそのままにして、そのスライドだけにローカルテーマを適用できます（[SlideThemeManager](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/slidethememanager/) を使用）。
 
-**What’s the safest way to carry a theme from one presentation to another?**
+### テーマをあるプレゼンテーションから別のプレゼンテーションへ安全に引き継ぐ最善の方法は何ですか？
 
-[Clone slides](/slides/ja/androidjava/clone-slides/) をマスターと共にターゲット プレゼンテーションにコピーします。これにより、元のマスター、レイアウト、および関連するテーマが保持され、外観が一貫します。
+[スライドのクローン](/slides/ja/androidjava/clone-slides/) とマスターを対象のプレゼンテーションにコピーすると、安全にテーマを引き継げます。これにより、元のマスター、レイアウト、および関連するテーマが保持され、外観が一貫します。
 
-**How can I see the "effective" values after all inheritance and overrides?**
+### 継承とオーバーライド後の「実効」値を確認するには？
 
-テーマ/カラー/フォント/効果の ["effective" views](/slides/ja/androidjava/shape-effective-properties/) を使用してください。これらはマスターとローカル上書きを適用した後の最終的に解決されたプロパティを返します。
+API の ["effective" ビュー](/slides/ja/androidjava/shape-effective-properties/)（テーマ/カラー/フォント/効果）を使用してください。これらは、マスターとローカルオーバーライドを適用した後の解決済みの最終プロパティを返します。

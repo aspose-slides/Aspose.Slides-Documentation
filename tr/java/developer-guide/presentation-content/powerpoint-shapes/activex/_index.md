@@ -15,31 +15,33 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'nın ActiveX'i kullanarak PowerPoint sunumlarını otomatikleştirme ve geliştirme yöntemlerini öğrenin; geliştiricilere slaytlar üzerinde güçlü kontrol sağlar."
+description: "Aspose.Slides for Java'ın ActiveX'i kullanarak PowerPoint sunumlarını otomatikleştirip geliştirdiğini, geliştiricilere slaytlar üzerinde güçlü kontrol sağlayan özellikleri öğrenin."
 ---
 ## **Giriş**
 
-ActiveX denetimleri sunumlarda kullanılır. Aspose.Slides for Java, ActiveX denetimlerini eklemenize ve yönetmenize izin verir, ancak bunlar normal sunum şekilleriyle kıyaslandığında yönetimi biraz daha zordur. Aspose.Slides'te Media Player Active kontrolünün eklenmesi desteğini uyguladık. ActiveX denetimlerinin şekil olmadığını; sunumun [IShapeCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/) içinde yer almadığını unutmayın; bunun yerine ayrı bir [IControlCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrolcollection/) içinde bulunurlar. Bu konuda, onlarla nasıl çalışılacağını göstereceğiz. 
+ActiveX denetimleri sunumlarda kullanılır. Aspose.Slides for Java, ActiveX denetimlerini eklemenize ve yönetmenize olanak tanır, ancak bunlar normal sunum şekilleriyle karşılaştırıldığında yönetimi biraz daha zordur. Aspose.Slides içinde Media Player Active denetimi ekleme desteği uyguladık. ActiveX denetimlerinin şekil olmadığını; sunumun [IShapeCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/) parçası olmadığını unutmayın. Bunun yerine ayrı bir [IControlCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrolcollection/) içinde bulunurlar. Bu konuda, onlarla nasıl çalışılacağını göstereceğiz. 
 
-## **Bir Slayta Media Player ActiveX Denetimi Ekleme**
-Media Player ActiveX denetimini eklemek için şu adımları izleyin:
+## **Bir Slayda Media Player ActiveX Denetimi Ekleme**
+ActiveX Media Player denetimi eklemek için şu adımları izleyin:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının örneğini oluşturun ve boş bir sunum örneği yaratın.
-1. Hedef slayta [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) içinde erişin.
-1. Media Player ActiveX denetimini, [IControlCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrolcollection/) tarafından sunulan [addControl](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) yöntemiyle ekleyin.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun ve boş bir sunum örneği oluşturun.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) içinde hedef slayta erişin.
+1. [IControlCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrolcollection/) tarafından sunulan [addControl](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) yöntemini kullanarak Media Player ActiveX denetimini ekleyin.
 1. Media Player ActiveX denetimine erişin ve özelliklerini kullanarak video yolunu ayarlayın.
 1. Sunumu PPTX dosyası olarak kaydedin.
 
-Yukarıdaki adımlara dayanan bu örnek kod, bir slayta Media Player ActiveX Denetimi eklemeyi gösterir:
+Yukarıdaki adımlara dayanan bu örnek kod, bir slayta Media Player ActiveX Denetimi nasıl eklenir gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 // Boş sunum örneği oluştur
 Presentation pres = new Presentation();
 try {
-    // Medya Oynatıcı ActiveX denetimini ekleme
+    // Media Player ActiveX denetimini ekleme
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Medya Oynatıcı ActiveX denetimine eriş ve video yolunu ayarla
+    // Media Player ActiveX denetimine eriş ve video yolunu ayarla
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // Sunumu kaydet
@@ -50,28 +52,36 @@ try {
 ```
 
 ## **ActiveX Denetimini Değiştirme**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java 7.1.0 ve sonraki sürümler, ActiveX denetimlerini yönetmek için bileşenlerle donatılmıştır. Sunumunuzda zaten eklenmiş bir ActiveX denetimine erişebilir ve özellikleri aracılığıyla onu değiştirebilir veya silebilirsiniz.
+Aspose.Slides for Java 7.1.0 ve sonraki sürümler, ActiveX denetimlerini yönetmek için bileşenlerle donatılmıştır. Sunumunuzda zaten eklenmiş bir ActiveX denetimine erişebilir ve özellikleri aracılığıyla değiştirebilir veya silebilirsiniz.
 
 {{% /alert %}} 
 
-Bir slayttaki metin kutusu ve basit komut düğmesi gibi bir ActiveX denetimini yönetmek için şu adımları izleyin:
+Bir slaytta metin kutusu ve basit bir komut düğmesi gibi basit bir ActiveX denetimini yönetmek için şu adımları izleyin:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının örneğini oluşturun ve içinde ActiveX denetimleri bulunan sunumu yükleyin.
-1. İndeksine göre bir slayt referansı alın.
-1. Slayttaki ActiveX denetimlerine [IControlCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrolcollection/) aracılığıyla erişin.
-1. [IControl](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrol/) nesnesiyle TextBox1 ActiveX denetimine erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun ve içinde ActiveX denetimleri bulunan sunumu yükleyin.
+1. Slayt referansını indeksine göre alın.
+1. Slayttaki ActiveX denetimlerine, [IControlCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrolcollection/) üzerinden erişin.
+1. [IControl](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icontrol/) nesnesini kullanarak TextBox1 ActiveX denetimine erişin.
 1. TextBox1 ActiveX denetiminin metin, yazı tipi, yazı tipi yüksekliği ve çerçeve konumu gibi özelliklerini değiştirin.
 1. CommandButton1 adlı ikinci denetime erişin.
 1. Düğme başlığını, yazı tipini ve konumunu değiştirin.
-1. ActiveX denetimlerinin çerçeve konumlarını kaydırın.
+1. ActiveX denetim çerçevelerinin konumunu kaydırın.
 1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
 
-Yukarıdaki adımlara dayanan bu örnek kod, basit bir ActiveX denetimini nasıl yöneteceğinizi gösterir: 
+Yukarıdaki adımlara dayanan bu örnek kod, basit bir ActiveX denetiminin nasıl yönetileceğini gösterir: 
 
 ```java
-// ActiveX denetimlerine sahip sunuma erişim
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+// ActiveX denetimleriyle sunuma erişim
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
     // Sunumdaki ilk slayta erişim
@@ -84,8 +94,8 @@ try {
         String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // Yedek resim değiştiriliyor. PowerPoint, activeX aktivasyonu sırasında bu resmi değiştirecek,
-        // bu yüzden bazen resmi değiştirmeden bırakmak uygundur.
+        // Yerine geçen resmi değiştiriyor. PowerPoint, activeX etkinleştirilirken bu resmi değiştirecek,
+        // bu yüzden bazen resmin değiştirilmemiş bırakılması sorun olmayabilir.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -122,13 +132,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // Düğme başlığını değiştirme
+    // Düğme başlığını değiştiriyor
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // Yedek resim değiştiriliyor
+        // Yerine geçen öğeyi değiştiriyor
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -165,7 +175,7 @@ try {
                 control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
             }
 
-            // 100 puan aşağı kaydırma
+            // 100 puan aşağı kaydırılıyor
             for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
                 IShapeFrame frame = ctl.getFrame();
                 ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
@@ -173,7 +183,7 @@ try {
             }
             pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
 
-            // denetimleri kaldırma
+            // Denetimler kaldırılıyor
             pres.getSlides().get_Item(0).getControls().clear();
             pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
         } catch(IOException e) {
@@ -184,14 +194,14 @@ try {
 
 ## **SSS**
 
-**Aspose.Slides, Java çalışma zamanında yürütülemeyen ActiveX denetimlerini okuma ve yeniden kaydetme sırasında korur mu?**
+### Aspose.Slides, Java çalışma zamanında çalıştırılamayan ActiveX denetimlerini okurken ve yeniden kaydederken korur mu?
 
-Evet. Aspose.Slides, bunları sunumun bir parçası olarak ele alır ve özellikleri ile çerçevelerini okuma/degistirme yeteneğine sahiptir; denetimlerin kendisinin çalıştırılması, korunmaları için gerekli değildir.
+Evet. Aspose.Slides, bunları sunumun bir parçası olarak kabul eder ve özelliklerini ve çerçevelerini okuyup değiştirebilir; denetimlerin kendisinin çalıştırılması korunmaları için gerekli değildir.
 
-**ActiveX denetimleri bir sunumdaki OLE nesnelerinden nasıl farklıdır?**
+### ActiveX denetimleri, bir sunumdaki OLE nesnelerinden nasıl farklıdır?
 
-ActiveX denetimleri, interaktif yönetilen denetimlerdir (düğmeler, metin kutuları, medya oynatıcı), oysa [OLE](/slides/tr/java/manage-ole/) gömülü uygulama nesnelerini (örneğin bir Excel çalışma sayfası) ifade eder. Bunlar farklı şekilde depolanır ve işlenir ve farklı özellik modellerine sahiptir.
+ActiveX denetimleri, (düğmeler, metin kutuları, medya oynatıcı) gibi etkileşimli yönetilen denetimlerdir, whereas [OLE](/slides/tr/java/manage-ole/) gömülü uygulama nesnelerini (örneğin bir Excel çalışma sayfası) ifade eder. Farklı şekilde depolanır ve işlenir ve farklı özellik modellerine sahiptir.
 
-**Dosya Aspose.Slides tarafından değiştirildiğinde ActiveX olayları ve VBA makroları çalışır mı?**
+### Dosya Aspose.Slides tarafından değiştirilmişse ActiveX olayları ve VBA makroları çalışır mı?
 
-Aspose.Slides mevcut işaretlemeyi ve meta verileri korur; ancak olaylar ve makrolar yalnızca Windows'ta PowerPoint içinde, güvenlik izin verdiğinde çalışır. Kütüphane VBA'yı yürütmez.
+Aspose.Slides mevcut işaretlemeyi ve meta verileri korur; ancak olaylar ve makrolar, güvenlik izin verdiğinde Windows üzerindeki PowerPoint içinde çalışır. Kütüphane VBA'yı çalıştırmaz.

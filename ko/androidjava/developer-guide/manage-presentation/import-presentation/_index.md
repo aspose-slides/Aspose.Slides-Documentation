@@ -1,5 +1,5 @@
 ---
-title: PDF 또는 HTML을 Android에서 프레젠테이션으로 가져오기
+title: Android에서 PDF 또는 HTML로 프레젠테이션 가져오기
 linktitle: 프레젠테이션 가져오기
 type: docs
 weight: 60
@@ -17,30 +17,32 @@ keywords:
 - HTML을 PPT로
 - HTML을 PPTX로
 - HTML을 ODP로
-- PowerPoint
-- OpenDocument
-- Android
-- Java
+- 파워포인트
+- 오픈문서
+- 안드로이드
+- 자바
 - Aspose.Slides
-description: "Java와 Aspose.Slides for Android를 사용하여 PDF 및 HTML 문서를 PowerPoint 및 OpenDocument 프레젠테이션으로 원활하고 고성능 슬라이드 처리와 함께 가져옵니다."
+description: "Aspose.Slides for Android를 사용하여 Java에서 PDF 및 HTML 문서를 PowerPoint 및 OpenDocument 프레젠테이션으로 원활하고 고성능 슬라이드 처리를 수행합니다."
 ---
 ## **소개**
 
-Using [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/ko/androidjava/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
+[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/ko/androidjava/)를 사용하면 다른 형식 파일에서 프레젠테이션을 가져올 수 있습니다. Aspose.Slides는 PDF, HTML 문서 등에서 프레젠테이션을 가져올 수 있도록 [SlideCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slidecollection/) 클래스를 제공합니다.
 
 ## **PDF에서 PowerPoint 가져오기**
 
-In this case, you get to convert a PDF to a PowerPoint presentation.
+이 경우 PDF를 PowerPoint 프레젠테이션으로 변환합니다.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/) class.
-2. Call the [addFromPdf()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) method and pass the PDF file.
-3. Use the [save()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/) 클래스의 인스턴스를 생성합니다.
+2. [addFromPdf()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) 메서드를 호출하고 PDF 파일을 전달합니다.
+3. [save()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) 메서드를 사용하여 파일을 PowerPoint 형식으로 저장합니다.
 
-This Java code demonstrates the PDF to PowerPoint operation:
+다음 Java 코드가 PDF를 PowerPoint로 변환하는 예시입니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -50,21 +52,27 @@ try {
 }
 ```
 
-{{% alert  title="Tip" color="primary" %}} 
-**Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/ko/import/pdf-to-powerpoint) 웹 앱을 확인해 보세요. 이 앱은 여기서 설명한 프로세스의 실시간 구현입니다. 
+{{% alert  title="Tip" color="info" %}} 
+
+프로세스의 실시간 구현을 확인하려면 **Aspose free** [PDF를 PowerPoint로](https://products.aspose.app/slides/ko/import/pdf-to-powerpoint) 웹 앱을 살펴보세요. 
+
 {{% /alert %}} 
 
 ## **HTML에서 PowerPoint 가져오기**
 
-In this case, you get to convert a HTML document to a PowerPoint presentation.
+이 경우 HTML 문서를 PowerPoint 프레젠테이션으로 변환합니다.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/) class.
-2. Call the [addFromHtml()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) method and pass the HTML file.
-3. Use the [save()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/) 클래스의 인스턴스를 생성합니다.
+2. [addFromHtml()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) 메서드를 호출하고 HTML 문서를 포함한 스트림을 전달합니다.
+3. [save()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) 메서드를 사용하여 파일을 PowerPoint 형식으로 저장합니다.
 
-This Java code demonstrates the HTML to PowerPoint operation: 
+다음 Java 코드가 HTML을 PowerPoint로 변환하는 예시입니다: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -83,6 +91,6 @@ try {
 
 ## **FAQ**
 
-**Are tables preserved when importing a PDF, and can their detection be improved?**
+### PDF를 가져올 때 표가 보존되며, 표 감지를 개선할 수 있나요?
 
-Tables can be detected during import; [PdfImportOptions](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/pdfimportoptions/) includes a [setDetectTables](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) method that enables table recognition. The effectiveness depends on the PDF’s structure.
+가져오기 중에 표를 감지할 수 있습니다; [PdfImportOptions](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/pdfimportoptions/)에는 표 인식을 활성화하는 [setDetectTables](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) 메서드가 포함되어 있습니다. 효과는 PDF의 구조에 따라 달라집니다.

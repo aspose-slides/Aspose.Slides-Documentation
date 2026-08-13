@@ -1,5 +1,5 @@
 ---
-title: تطبيق رسوم متحركة للأشكال في العروض التقديمية على Android
+title: تطبيق الرسوم المتحركة للأشكال في العروض التقديمية على Android
 linktitle: رسوم متحركة للأشكال
 type: docs
 weight: 60
@@ -10,102 +10,109 @@ keywords:
 - تأثير
 - شكل متحرك
 - نص متحرك
-- إضافة رسومات متحركة
-- الحصول على الرسوم المتحركة
-- استخراج الرسوم المتحركة
+- إضافة رسم متحرك
+- الحصول على رسم متحرك
+- استخراج رسم متحرك
 - إضافة تأثير
 - الحصول على تأثير
 - استخراج تأثير
 - صوت التأثير
-- تطبيق الرسوم المتحركة
+- تطبيق رسم متحرك
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "اكتشف كيفية إنشاء وتخصيص رسوم متحركة للأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لنظام Android عبر Java. كن مميزًا!"
+description: "اكتشف كيفية إنشاء وتخصيص الرسوم المتحركة للأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لنظام Android عبر Java. تميز!"
 ---
+## **المقدمة**
 
-الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص، الصور، الأشكال، أو [المخططات](https://docs.aspose.com/slides/androidjava/animated-charts/). إنها تضيف الحياة إلى العروض التقديمية أو مكوّناتها.
+الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص أو الصور أو الأشكال أو [الرسوم البيانية](https://docs.aspose.com/slides/ar/androidjava/animated-charts/). إنها تضيف الحياة إلى العروض التقديمية أو مكوناتها.
 
-## **لماذا استخدام الرسوم المتحركة في العروض التقديمية؟**
+## **لماذا تستخدم الرسوم المتحركة في العروض التقديمية؟**
 
-* التحكم في تدفق المعلومات  
-* تسليط الضوء على النقاط المهمة  
-* زيادة الاهتمام أو المشاركة لدى الجمهور  
-* جعل المحتوى أسهل للقراءة أو الاستيعاب أو المعالجة  
-* جذب انتباه القراء أو المشاهدين إلى الأجزاء المهمة في العرض التقديمي  
+* التحكم في تدفق المعلومات
+* إبراز النقاط المهمة
+* زيادة الاهتمام أو المشاركة بين الجمهور
+* جعل المحتوى أسهل للقراءة أو الاستيعاب أو المعالجة
+* جذب انتباه القراء أو المشاهدين إلى الأجزاء المهمة في العرض
 
-يوفر PowerPoint العديد من الخيارات والأدوات للرسوم المتحركة وتأثيراتها عبر فئات **الدخول**، **الخروج**، **التأكيد**، و**مسارات الحركة**.
+يقدم PowerPoint العديد من الخيارات والأدوات للرسوم المتحركة وتأثيراتها عبر فئات **الدخول**، **الخروج**، **التأكيد**، و**مسارات الحركة**.
 
 ## **الرسوم المتحركة في Aspose.Slides**
 
-* توفر Aspose.Slides الفئات والأنواع التي تحتاجها للعمل مع الرسوم المتحركة ضمن مساحة الأسماء `Aspose.Slides.Animation`،  
-* توفر Aspose.Slides أكثر من **150 تأثيرًا للرسوم المتحركة** ضمن تعداد [EffectType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttype). وهذه التأثيرات هي في الأساس نفس التأثيرات (أو المكافئة) المستخدمة في PowerPoint.
+* يوفر Aspose.Slides الفئات والأنواع التي تحتاجها للعمل مع الرسوم المتحركة داخل مساحة الاسم `Aspose.Slides.Animation`،
+* يوفر Aspose.Slides أكثر من **150 تأثيرًا للرسوم المتحركة** ضمن تعداد [EffectType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/effecttype). هذه التأثيرات هي في الأساس نفسها (أو ما يعادلها) المستخدمة في PowerPoint.
 
-## **تطبيق الرسوم المتحركة على صندوق نص**
+## **تطبيق الرسوم المتحركة على مربع نص**
 
-تسمح Aspose.Slides لنظام Android عبر Java بتطبيق الرسوم المتحركة على النص داخل الشكل.
+يسمح Aspose.Slides لنظام Android عبر Java بتطبيق الرسوم المتحركة على النص داخل الشكل.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).  
-2. الحصول على مرجع الشريحة عبر فهرستها.  
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape) من نوع `rectangle`.  
-4. إضافة نص إلى [IAutoShape.TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).  
-5. الحصول على التسلسل الرئيسي للتأثيرات.  
-6. إضافة تأثير رسوم متحركة إلى [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape).  
-7. تعيين خاصية `TextAnimation.BuildType` إلى القيمة من تعداد `BuildType`.  
-8. حفظ العرض التقديمي إلى القرص كملف PPTX.  
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) .
+2. الحصول على مرجع الشريحة عبر الفهرس الخاص بها.
+3. إضافة `rectangle` [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape) .
+4. إضافة نص إلى [IAutoShape.TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) .
+5. الحصول على تسلسل رئيسي من التأثيرات.
+6. إضافة تأثير رسوم متحركة إلى [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape) .
+7. ضبط الخاصية `TextAnimation.BuildType` إلى القيمة من تعداد `BuildType` .
+8. كتابة العرض إلى القرص كملف PPTX.
 
-يعرض هذا الكود Java كيفية تطبيق تأثير `Fade` على AutoShape وتعيين رسومات النص إلى *حسب الفقرات من المستوى الأول*:
+يظهر هذا الكود Java كيفية تطبيق تأثير `Fade` على AutoShape وتعيين الرسوم المتحركة للنص إلى القيمة *By 1st Level Paragraphs*:
+
 ```java
-// ينشئ كائنًا من فئة العرض التقديمي تمثل ملف عرض تقديمي.
+import com.aspose.slides.*;
+
+// ينشئ فئة عرض تمثل ملف عرض تقديمي.
 Presentation pres = new Presentation();
 try {
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // يضيف AutoShape جديدًا مع نص
+    // يضيف AutoShape جديد مع نص
     IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
 
-    // يحصل على التسلسل الرئيسي للشرائح.
+    // يحصل على التسلسل الرئيسي للشريحة.
     ISequence sequence = sld.getTimeline().getMainSequence();
 
-    // يضيف تأثير الرسوم المتحركة Fade إلى الشكل
+    // يضيف تأثير Fade للرسوم المتحركة إلى الشكل
     IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
     // يحرك نص الشكل وفقًا للفقرات من المستوى الأول
     effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
 
-    // حفظ ملف PPTX إلى القرص
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+    // حفظ ملف PPTX على القرص
+    pres.save("AnimText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+{{%  alert color="info"  %}} 
 
-{{%  alert color="primary"  %}} 
-
-بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيقها على [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph) منفرد. راجع [**النص المتحرك**](/slides/ar/androidjava/animated-text/).
+بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على فقرة واحدة [Paragraph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph). راجع [**النص المتحرك**](/slides/ar/androidjava/animated-text/).
 
 {{% /alert %}} 
 
 ## **تطبيق الرسوم المتحركة على PictureFrame**
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).  
-2. الحصول على مرجع الشريحة عبر فهرستها.  
-3. إضافة أو الحصول على [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe) على الشريحة.  
-4. الحصول على التسلسل الرئيسي للتأثيرات.  
-5. إضافة تأثير رسوم متحركة إلى [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe).  
-6. حفظ العرض التقديمي إلى القرص كملف PPTX.  
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) .
+2. الحصول على مرجع شريحة عبر الفهرس الخاص بها.
+3. إضافة أو الحصول على [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe) على الشريحة.
+4. الحصول على التسلسل الرئيسي للتأثيرات.
+5. إضافة تأثير رسوم متحركة إلى [PictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pictureframe) .
+6. كتابة العرض إلى القرص كملف PPTX.
+
+يظهر هذا الكود Java كيفية تطبيق تأثير `Fly` على إطار صورة:
 
 ```java
-// يخلق مثيلاً من فئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+import com.aspose.slides.*;
+
+// ينشئ فئة عرض تمثل ملف عرض تقديمي.
 Presentation pres = new Presentation();
 try {
-    // تحميل صورة لتضاف إلى مجموعة صور العرض التقديمي
+    // تحميل صورة لإضافتها إلى مجموعة صور العرض التقديمي
     IPPImage picture;
     IImage image = Images.fromFile("aspose-logo.jpg");
     try {
@@ -117,92 +124,96 @@ try {
     // يضيف إطار صورة إلى الشريحة
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
 
-    // يحصل على التسلسل الرئيسي للشرائح.
+    // يحصل على التسلسل الرئيسي للشريحة.
     ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
 
-    // يضيف تأثير التحليق من اليسار إلى إطار الصورة
+    // يضيف تأثير Fly من اليسار إلى إطار الصورة
     IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-    // حفظ ملف PPTX إلى القرص
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    // يحفظ ملف PPTX على القرص
+    pres.save("AnimImage_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **تطبيق الرسوم المتحركة على شكل**
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).  
-2. الحصول على مرجع الشريحة عبر فهرستها.  
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape) من نوع `rectangle`.  
-4. إضافة `Bevel` إلى [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape) (عند النقر على هذا الكائن، يتم تشغيل الرسوم المتحركة).  
-5. إنشاء تسلسل من التأثيرات على شكل الـ Bevel.  
-6. إنشاء مسار مخصص `UserPath`.  
-7. إضافة أوامر للتحرك إلى `UserPath`.  
-8. حفظ العرض التقديمي إلى القرص كملف PPTX.  
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) .
+2. الحصول على مرجع شريحة عبر الفهرس الخاص بها.
+3. إضافة `rectangle` [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape) .
+4. إضافة `Bevel` [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape) (عند النقر على هذا الكائن، يتم تشغيل الرسوم المتحركة).
+5. إنشاء تسلسل من التأثيرات على الشكل Bevel.
+6. إنشاء `UserPath` مخصص.
+7. إضافة أوامر للتحرك إلى `UserPath`.
+8. كتابة العرض إلى القرص كملف PPTX.
+
+يظهر هذا الكود Java كيفية تطبيق تأثير `PathFootball` (path football) على شكل:
 
 ```java
-// إنشاء كائن من فئة Presentation يمثل ملف PPTX.
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+// ينشئ فئة عرض تمثل ملف PPTX.
 Presentation pres = new Presentation();
 try {
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // إنشاء تأثير PathFootball للشكل الحالي من الصفر.
+    // ينشئ تأثير PathFootball للشكل الموجود من الصفر.
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
     ashp.addTextFrame("Animated TextBox");
 
-    // إضافة تأثير PathFootBall للرسوم المتحركة
+    // يضيف تأثير PathFootBall للرسوم المتحركة
     pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
             EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // إنشاء نوع ما من "زر".
+    // ينشئ نوعًا من "الزر".
     IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
 
-    // إنشاء تسلسل من التأثيرات لهذا الزر.
+    // ينشئ تسلسلًا من التأثيرات لهذا الزر.
     ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
 
-     // إنشاء مسار مستخدم مخصص. سيتم تحريك كائننا فقط بعد النقر على الزر.
+     // ينشئ مسار مستخدم مخصص. سيتم تحريك كائننا فقط بعد النقر على الزر.
     IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
-     // إضافة أوامر للحركة لأن المسار الذي تم إنشاؤه فارغ.
-    IMotionEffect motionBvh = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
+     // يضيف أوامر للتحريك بما أن المسار المُنشأ فارغ.
+    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
 
     Point2D.Float[] pts = new Point2D.Float[1];
     pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBvh.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
+    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
     pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBvh.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBvh.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
+    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
+    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-     // كتابة ملف PPTX إلى القرص
+     // يكتب ملف PPTX على القرص
     pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **الحصول على تأثيرات الرسوم المتحركة المطبقة على شكل**
 
-تُظهر الأمثلة التالية كيفية استخدام طريقة `getEffectsByShape` من واجهة [ISequence](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/) للحصول على جميع تأثيرات الرسوم المتحركة المطبقة على شكل.
+الأمثلة التالية توضح كيفية استخدام طريقة `getEffectsByShape` من الواجهة [ISequence](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isequence/) للحصول على جميع تأثيرات الرسوم المتحركة المطبقة على شكل.
 
 **مثال 1: الحصول على تأثيرات الرسوم المتحركة المطبقة على شكل في شريحة عادية**
 
-سابقًا، تعلمت كيفية إضافة تأثيرات رسوم متحركة إلى الأشكال في عروض PowerPoint. يوضح كود العينة التالي كيفية الحصول على التأثيرات المطبقة على الشكل الأول في الشريحة العادية الأولى في العرض التقديمي `AnimExample_out.pptx`.
+في السابق، تعلمت كيفية إضافة تأثيرات الرسوم المتحركة إلى الأشكال في عروض PowerPoint. يوضح الكود التالي كيفية الحصول على التأثيرات المطبقة على الشكل الأول في الشريحة العادية الأولى في العرض `AnimExample_out.pptx`.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("AnimExample_out.pptx");
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // يحصل على تسلسل الرسوم المتحركة الرئيسي للشرحة.
+    // يحصل على التسلسل الرئيسي للرسوم المتحركة للشريحة.
+    // يحصل على الشكل الأول في الشريحة الأولى.
+    // يحصل على تأثيرات الرسوم المتحركة المطبقة على الشكل.
     ISequence sequence = firstSlide.getTimeline().getMainSequence();
 
-    // يحصل على الشكل الأول في الشريحة الأولى.
     IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // يحصل على تأثيرات الرسوم المتحركة المطبقة على الشكل.
     IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
 
     if (shapeEffects.length > 0)
@@ -212,50 +223,58 @@ try {
 }
 ```
 
+**مثال 2: الحصول على جميع تأثيرات الرسوم المتحركة، بما في ذلك تلك الموروثة من العناصر النائبة**
 
-**مثال 2: الحصول على جميع تأثيرات الرسوم المتحركة، بما في ذلك الموروثة من العناصر النائبة**
+إذا كان الشكل في شريحة عادية يحتوي على عناصر نائبة موجودة في شريحة التخطيط و/أو الشريحة الرئيسية، وتم إضافة تأثيرات رسوم متحركة إلى هذه العناصر النائبة، فسيتم تشغيل جميع تأثيرات الشكل خلال العرض، بما في ذلك تلك الموروثة من العناصر النائبة.
 
-إذا كان هناك شكل في شريحة عادية يحتوي على عناصر نائبة موجودة في شريحة القالب و/أو شريحة الرئيس، وتم إضافة تأثيرات رسوم متحركة إلى هذه العناصر النائبة، فسيتم تشغيل جميع تأثيرات الشكل أثناء عرض الشرائح، بما في ذلك تلك الموروثة من العناصر النائبة.
+لنفترض أن لدينا ملف عرض PowerPoint `sample.pptx` يحتوي على شريحة واحدة فيها فقط شكل تذييل بالنص "Made with Aspose.Slides" وتم تطبيق تأثير **Random Bars** على الشكل.
 
-لنفترض أن لدينا ملف عرض تقديمي PowerPoint باسم `sample.pptx` يحتوي على شريحة واحدة بها شكل تذييل فقط يحتوي على النص "Made with Aspose.Slides" وتم تطبيق تأثير **Random Bars** على الشكل.
+![تأثير حركة شكل الشريحة](slide-shape-animation.png)
 
-![تأثير الرسوم المتحركة لشكل الشريحة](slide-shape-animation.png)
+لنفترض أيضًا أن تأثير **Split** تم تطبيقه على العنصر النائب في التذييل في شريحة **layout**.
 
-لنفترض أيضًا أن تأثير **Split** تم تطبيقه على عنصر النائب في تذييل شريحة **التخطيط**.
+![تأثير حركة شكل التخطيط](layout-shape-animation.png)
 
-![تأثير الرسوم المتحركة لشكل التخطيط](layout-shape-animation.png)
+وأخيرًا، تم تطبيق تأثير **Fly In** على العنصر النائب في التذييل في شريحة **master**.
 
-وأخيرًا، تم تطبيق تأثير **Fly In** على عنصر النائب في تذييل شريحة **الرئيس**.
+![تأثير حركة شكل الماستر](master-shape-animation.png)
 
-![تأثير الرسوم المتحركة لشكل الرئيس](master-shape-animation.png)
+الكود التالي يوضح كيفية استخدام طريقة `getBasePlaceholder` من الواجهة [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) للوصول إلى العناصر النائبة للشكل والحصول على تأثيرات الرسوم المتحركة المطبقة على شكل التذييل، بما في ذلك تلك الموروثة من العناصر النائبة الموجودة في شريحة التخطيط والماستر.
 
-يظهر كود العينة التالي كيفية استخدام طريقة `getBasePlaceholder` من واجهة [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) للوصول إلى العناصر النائبة والحصول على تأثيرات الرسوم المتحركة المطبقة على شكل التذييل، بما في ذلك تلك الموروثة من العناصر النائبة الموجودة على شريحة التخطيط والشريحة الرئيس.
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// الحصول على تأثيرات الرسوم المتحركة للشكل في الشريحة العادية.
+// احصل على تأثيرات الرسوم المتحركة للشكل في الشريحة العادية.
 IShape shape = slide.getShapes().get_Item(0);
 IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
 
-// الحصول على تأثيرات الرسوم المتحركة للعنصر النائب في شريحة التخطيط.
+// احصل على تأثيرات الرسوم المتحركة للعنصر النائب في شريحة التخطيط.
 IShape layoutShape = shape.getBasePlaceholder();
 IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
 
-// الحصول على تأثيرات الرسوم المتحركة للعنصر النائب في شريحة الرئيس.
+// احصل على تأثيرات الرسوم المتحركة للعنصر النائب في شريحة الماستر.
 IShape masterShape = layoutShape.getBasePlaceholder();
 IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
 
 System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
+for (IEffect[] effects : new IEffect[][] { masterShapeEffects, layoutShapeEffects, shapeEffects }) {
+    for (IEffect effect : effects) {
+        String typeName = EffectType.getName(EffectType.class, effect.getType());
+        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+
+        System.out.println(typeName + " " + subtypeName);
+    }
+}
 
 presentation.dispose();
 ```
-
 ```java
+import com.aspose.slides.*;
+
 static void printEffects(IEffect[] effects)
 {
     for (IEffect effect : effects)
@@ -268,8 +287,7 @@ static void printEffects(IEffect[] effects)
 }
 ```
 
-
-الناتج:
+Output:
 ```text
 Main sequence of shape effects:
 Fly Bottom
@@ -277,63 +295,72 @@ Split VerticalIn
 RandomBars Horizontal
 ```
 
-
 ## **تغيير خصائص توقيت تأثير الرسوم المتحركة**
 
-تسمح Aspose.Slides لنظام Android عبر Java بتغيير خصائص التوقيت لتأثير الرسوم المتحركة.
+يسمح Aspose.Slides لنظام Android عبر Java بتغيير خصائص التوقيت لتأثير الرسوم المتحركة.
 
-![لوحة توقيت الرسوم المتحركة](shape-animation.png)
+هذه هي لوحة توقيت الرسوم المتحركة في Microsoft PowerPoint:
 
-هذه هي المقابلات بين توقيت PowerPoint وخصائص [Effect.Timing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTiming--):
+![لوحة توقيت الرسوم المتحركة في Microsoft PowerPoint](shape-animation.png)
 
-- قائمة **Start** المنسدلة في PowerPoint تتطابق مع خاصية [Effect.Timing.TriggerType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getTriggerType--).  
-- **Duration** في PowerPoint يتطابق مع خاصية [Effect.Timing.Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getDuration--). مدة الرسوم المتحركة (بالثواني) هي الوقت الإجمالي الذي تستغرقه الرسوم المتحركة لإكمال دورة واحدة.  
-- **Delay** في PowerPoint يتطابق مع خاصية [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--).  
+هذه هي المقابلات بين توقيت PowerPoint وخصائص [Effect.Timing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IEffect#getTiming--) :
 
-وهكذا يتم تغيير خصائص توقيت التأثير:
+- يطابق القائمة المنسدلة **Start** في PowerPoint الخاصية [Effect.Timing.TriggerType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITiming#getTriggerType--) .
+- يطابق **Duration** في PowerPoint الخاصية [Effect.Timing.Duration](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITiming#getDuration--) . مدة تأثير الرسوم المتحركة (بالثواني) هي إجمالي الوقت الذي يستغرقه إكمال دورة واحدة.
+- يطابق **Delay** في PowerPoint الخاصية [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--) .
 
-1. [تطبيق](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.  
-2. تعيين القيم الجديدة للخصائص في [Effect.Timing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTiming--) التي تحتاجها.  
-3. حفظ ملف PPTX المعدل.  
+هذه هي طريقة تغيير خصائص توقيت التأثير:
+
+1. [Apply](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
+2. ضبط قيم جديدة للخصائص [Effect.Timing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IEffect#getTiming--) التي تحتاجها.
+3. حفظ ملف PPTX المعدل.
+
+يظهر هذا الكود Java العملية:
 
 ```java
-// ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف عرض تقديمي.
+import com.aspose.slides.*;
+
+// ينشئ فئة عرض تمثل ملف عرض تقديمي.
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
     // يحصل على التسلسل الرئيسي للشريحة.
     ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
 
-    // يحصل على أول تأثير في التسلسل الرئيسي.
+    // يحصل على التأثير الأول في التسلسل الرئيسي.
     IEffect effect = sequence.get_Item(0);
 
-    // يغيّر نوع TriggerType للتأثير ليبدأ عند النقر
+    // يغير TriggerType للتأثير ليبدأ عند النقر
     effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
 
-    // يغيّر مدة التأثير
+    // يغير مدة التأثير
     effect.getTiming().setDuration(3f);
 
-    // يغيّر وقت تأخير TriggerDelayTime للتأثير
+    // يغير TriggerDelayTime للتأثير
     effect.getTiming().setTriggerDelayTime(0.5f);
 
-    // يحفظ ملف PPTX إلى القرص
+    // يحفظ ملف PPTX على القرص
     pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **صوت تأثير الرسوم المتحركة**
 
 توفر Aspose.Slides هذه الخصائص للسماح لك بالعمل مع الأصوات في تأثيرات الرسوم المتحركة:
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
+- [setSound(IAudio value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
+- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
 
 ### **إضافة صوت لتأثير الرسوم المتحركة**
 
 يظهر هذا الكود Java كيفية إضافة صوت لتأثير الرسوم المتحركة وإيقافه عندما يبدأ التأثير التالي:
+
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
     // يضيف صوتًا إلى مجموعة أصوات العرض التقديمي
@@ -341,23 +368,23 @@ try {
 
     ISlide firstSlide = pres.getSlides().get_Item(0);
 
-    // يحصل على التسلسل الرئيسي للشرحة.
+    // يحصل على التسلسل الرئيسي للشريحة.
     ISequence sequence = firstSlide.getTimeline().getMainSequence();
 
-    // يحصل على أول تأثير في التسلسل الرئيسي
+    // يحصل على التأثير الأول في التسلسل الرئيسي
     IEffect firstEffect = sequence.get_Item(0);
 
-    // يتحقق من عدم وجود صوت في التأثير
+    // يفحص التأثير للبحث عن "No Sound"
     if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
     {
         // يضيف صوتًا للتأثير الأول
         firstEffect.setSound(effectSound);
     }
 
-    // يحصل على التسلسل التفاعلي الأول للشرحة.
+    // يحصل على التسلسل التفاعلي الأول للشريحة.
     ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
 
-    // يضبط علم "إيقاف الصوت السابق" للتأثير
+    // يضبط علامة "Stop previous sound" للتأثير
     interactiveSequence.get_Item(0).setStopPreviousSound(true);
 
     // يكتب ملف PPTX إلى القرص
@@ -367,16 +394,19 @@ try {
 }
 ```
 
+### **استخراج صوت تأثير الرسوم المتحركة**
 
-### **استخراج صوت لتأثير الرسوم المتحركة**
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
+2. الحصول على مرجع شريحة عبر الفهرس الخاص بها. 
+3. الحصول على التسلسل الرئيسي للتأثيرات. 
+4. استخراج الخاصية [setSound(IAudio value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) المدمجة في كل تأثير رسوم متحركة.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).  
-2. الحصول على مرجع الشريحة عبر فهرستها.  
-3. الحصول على التسلسل الرئيسي للتأثيرات.  
-4. استخراج [setSound(IAudio value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) المضمن لكل تأثير رسوم متحركة.  
+يظهر هذا الكود Java كيفية استخراج الصوت المدمج في تأثير الرسوم المتحركة:
 
 ```java
-// ينشئ كائنًا من فئة العرض التقديمي تمثل ملف عرض تقديمي.
+import com.aspose.slides.*;
+
+// ينشئ فئة عرض تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation("EffectSound.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -389,7 +419,7 @@ try {
         if (effect.getSound() == null)
             continue;
 
-        // يستخرج صوت التأثير كمصفوفة بايت
+        // يستخرج صوت التأثير في مصفوفة بايت
         byte[] audio = effect.getSound().getBinaryData();
     }
 } finally {
@@ -397,69 +427,78 @@ try {
 }
 ```
 
-
 ## **بعد الرسوم المتحركة**
 
-تسمح Aspose.Slides لنظام Android عبر Java بتغيير خاصية After animation لتأثير الرسوم المتحركة.
+يسمح Aspose.Slides لنظام Android عبر Java بتغيير خاصية After animation لتأثير الرسوم المتحركة.
 
-![لوحة تأثير الرسوم المتحركة](shape-after-animation.png)
+هذه هي لوحة تأثير ما بعد الرسوم المتحركة والقائمة الموسعة في Microsoft PowerPoint:
+
+![لوحة تأثير ما بعد الرسوم المتحركة](shape-after-animation.png)
 
 قائمة **After animation** المنسدلة في PowerPoint تتطابق مع هذه الخصائص:
 
-- خاصية [setAfterAnimationType(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) التي تصف نوع After animation:
-  * **More Colors** في PowerPoint يتطابق مع نوع [AfterAnimationType.Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#Color)؛
-  * **Don't Dim** يتطابق مع نوع [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) (النوع الافتراضي)؛
-  * **Hide After Animation** يتطابق مع نوع [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation)؛
-  * **Hide on Next Mouse Click** يتطابق مع نوع [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick).  
-- خاصية [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) التي تُعرِّف تنسيق لون After animation. تعمل هذه الخاصية بالتزامن مع النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#Color). إذا غيرت النوع إلى آخر، سيتم مسح لون After animation.
+- الخاصية [setAfterAnimationType(int value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) التي تصف نوع After animation :
+  * يطابق PowerPoint **More Colors** النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/afteranimationtype/#Color) ;
+  * يطابق عنصر **Don't Dim** في PowerPoint النوع [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) (نوع الرسوم المتحركة الافتراضي بعد) ;
+  * يطابق عنصر **Hide After Animation** النوع [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation) ;
+  * يطابق عنصر **Hide on Next Mouse Click** النوع [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) ;
+- الخاصية [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) التي تحدد تنسيق لون After animation. تعمل هذه الخاصية بالتزامن مع النوع [AfterAnimationType.Color](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/afteranimationtype/#Color). إذا قمت بتغيير النوع إلى آخر، سيتم مسح لون After animation.
+
+يظهر هذا الكود Java كيفية تغيير تأثير After animation:
 
 ```java
-// ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف عرض تقديمي
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// ينشئ فئة عرض تمثل ملف عرض تقديمي
 Presentation pres = new Presentation("AnimImage_out.pptx");
 try {
     ISlide firstSlide = pres.getSlides().get_Item(0);
 
-    // يحصل على أول تأثير في التسلسل الرئيسي
+    // يحصل على التأثير الأول في التسلسل الرئيسي
     IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
 
-    // يغيّر نوع الرسوم المتحركة بعد العرض إلى اللون
+    // يغير نوع after animation إلى Color
     firstEffect.setAfterAnimationType(AfterAnimationType.Color);
 
-    // يضبط لون التعتيم بعد الرسوم المتحركة
+    // يحدد لون after animation المخفف
     firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
 
-    // يكتب ملف PPTX إلى القرص
+    // يكتب ملف PPTX على القرص
     pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **تحريك النص**
 
-توفر Aspose.Slides هذه الخصائص للسماح لك بالعمل مع كتلة *Animate text* في تأثير الرسوم المتحركة:
+توفر Aspose.Slides هذه الخصائص للسماح لك بالعمل مع كتلة *Animate text* لتأثير الرسوم المتحركة:
 
-- خاصية [setAnimateTextType(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) التي تصف نوع تحريك النص في التأثير. يمكن تحريك نص الشكل:
-  - كلَها مرة واحدة ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce))  
-  - حسب الكلمات ([AnimateTextType.ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/animatetexttype/#ByWord))  
-  - حسب الأحرف ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/animatetexttype/#ByLetter))  
-- خاصية [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) التي تحدد تأخيرًا بين أجزاء النص المتحرك (كلمات أو أحرف). القيمة الموجبة تُحدِّد النسبة المئوية لمدة التأثير. القيمة السالبة تُحدِّد التأخير بالثواني.
+- الخاصية [setAnimateTextType(int value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) التي تصف نوع تحريك النص للتأثير. يمكن تحريك نص الشكل:
+  - كله مرة واحدة ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce) النوع)
+  - كلمة بكلمة ([AnimateTextType.ByWord](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/animatetexttype/#ByWord) النوع)
+  - حرف بحرف ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/animatetexttype/#ByLetter) النوع)
+- الخاصية [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) التي تضبط تأخيرًا بين أجزاء النص المتحركة (كلمات أو حروف). القيمة الموجبة تحدد نسبة مدة التأثير. القيمة السالبة تحدد التأخير بالثواني.
 
-هكذا يمكنك تغيير خصائص تحريك النص في التأثير:
+هذه هي طريقة تغيير خصائص تحريك النص للتأثير:
 
-1. [تطبيق](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.  
-2. تعيين خاصية [setBuildType(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) إلى قيمة [BuildType.AsOneObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/buildtype/#AsOneObject) لإيقاف وضع *By Paragraphs*.  
-3. تعيين القيم الجديدة للخصائص [setAnimateTextType(int value)] و[setDelayBetweenTextParts(float value)].  
-4. حفظ ملف PPTX المعدل.  
+1. [Apply](#apply-animation-to-shape) أو الحصول على تأثير الرسوم المتحركة.
+2. ضبط الخاصية [setBuildType(int value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) إلى القيمة [BuildType.AsOneObject](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/buildtype/#AsOneObject) لإلغاء وضع *By Paragraphs*.
+3. ضبط قيم جديدة للخاصيتين [setAnimateTextType(int value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) و [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) .
+4. حفظ ملف PPTX المعدل.
+
+يظهر هذا الكود Java العملية:
 
 ```java
-// ينشئ كائنًا من فئة العرض التقديمي التي تمثل ملف عرض تقديمي.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
+import com.aspose.slides.*;
+
+// ينشئ فئة عرض تمثل ملف عرض تقديمي.
+Presentation pres = new Presentation("AnimText_out.pptx");
 try {
     ISlide firstSlide = pres.getSlides().get_Item(0);
 
-    // يحصل على أول تأثير في التسلسل الرئيسي
+    // يحصل على التأثير الأول في التسلسل الرئيسي
     IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
 
     // يغيّر نوع تحريك النص للتأثير إلى "As One Object"
@@ -471,24 +510,23 @@ try {
     // يضبط التأخير بين الكلمات إلى 20% من مدة التأثير
     firstEffect.setDelayBetweenTextParts(20f);
 
-    // يكتب ملف PPTX إلى القرص
+    // يكتب ملف PPTX على القرص
     pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني التأكد من حفظ الرسوم المتحركة عند نشر العرض التقديمي على الويب؟**
+### كيف يمكنني التأكد من حفظ الرسوم المتحركة عند نشر العرض على الويب؟
 
-استخدم [تصدير إلى HTML5](/slides/ar/androidjava/export-to-html5/) وقم بتمكين [الخيارات](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) المسؤولة عن الرسوم المتحركة للأشكال و الانتقالات. لا تقوم HTML العادية بتشغيل الرسوم المتحركة للشرائح، بينما تدعم HTML5 ذلك.
+[Export to HTML5](/slides/ar/androidjava/export-to-html5/) وتفعيل الـ[options](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/html5options/) المسؤولة عن [shape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) و[transition](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) للرسوم المتحركة. HTML العادي لا يُشغل رسوم الشرائح، بينما HTML5 يفعل ذلك.
 
-**كيف يؤثر تغيير ترتيب الطبقات (z-order) للأشكال على الرسوم المتحركة؟**
+### كيف يؤثر تغيير ترتيب z-order (ترتيب الطبقات) للأشكال على الرسوم المتحركة؟
 
-الرسوم المتحركة وترتيب الرسم مستقلان: يتحكم التأثير في توقيت ونوع الظهور/الاختفاء، بينما يحدد ترتيب الطبقات ما يغطي ما. النتيجة المرئية تُحدد بتكوينهما معًا. (هذا هو سلوك PowerPoint العام؛ نموذج Aspose.Slides للتأثيرات والأشكال يتبع نفس المنطق.)
+ترتيب الرسوم المتحركة وترتيب الرسم مستقلان: يتحكم التأثير في توقيت ونوع الظهور/الاختفاء، بينما يحدد [z-order](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/shape/#getZOrderPosition--) ما يغطي ماذا. النتيجة المرئية تُحدَّد بجمعهما. (هذا هو سلوك PowerPoint العام؛ نموذج Aspose.Slides للرسوم المتحركة والأشكال يتبع نفس المنطق.)
 
-**هل هناك قيود عند تحويل الرسوم المتحركة إلى فيديو لبعض التأثيرات؟**
+### هل هناك قيود عند تحويل الرسوم المتحركة إلى فيديو لبعض التأثيرات؟
 
-بشكل عام، يتم دعم [الرسوم المتحركة](/slides/ar/androidjava/convert-powerpoint-to-video/)، لكن قد يتم عرض بعض الحالات النادرة أو التأثيرات المحددة بطريقة مختلفة. يُنصح باختبار التأثيرات التي تستخدمها ومع نسخة المكتبة.
+بشكل عام، [الرسوم المتحركة مدعومة](/slides/ar/androidjava/convert-powerpoint-to-video/)، لكن قد تُعرض حالات نادرة أو تأثيرات معينة بشكل مختلف. يوصى باختبار التأثيرات التي تستخدمها مع إصدار المكتبة.

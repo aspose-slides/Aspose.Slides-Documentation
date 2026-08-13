@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 14.2.0 のパブリック API と後方互換性のない変更
+title: Aspose.Slides for .NET 14.2.0 の公開 API と下位互換性のない変更
 linktitle: Aspose.Slides for .NET 14.2.0
 type: docs
 weight: 40
@@ -16,19 +16,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションを円滑に移行できます。"
+description: "Aspose.Slides for .NET の公開 API の更新と破壊的変更を確認し、PowerPoint PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
+## **公開 API と下位互換性のない変更**
+{{% alert color="info" %}} 
 
-## **公開 API と後方互換性のない変更**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for .NET 14.2.0 API でいくつか変更を行いました。プロパティやメソッドが削除されたものや、別の名前空間に移動されたものがあります。
+Aspose.Slides for .NET 14.2.0 API にいくつか変更を加えました。一部のプロパティとメソッドが削除され、いくつかは別の名前空間に移動しました。
 
 {{% /alert %}} 
-### **メソッド Aspose.Slides.IPresentation.Write(…) が削除されました**
-これらのメソッドはプレゼンテーション オブジェクトを PPTX 形式のファイルにのみ書き出していました。新しい API では、Presentation クラスはすべての形式で操作できるようになっています。Presentation.Save(…) メソッドを使用して、プレゼンテーション オブジェクトをすべてのサポートされている形式に保存できます。
-### **テーマ スタイルに関連するクラスが Aspose.Slides.Theme 名前空間に移動しました**
-以下のクラスが Aspose.Slides 名前空間から Aspose.Slides.Theme 名前空間へ移動しました。
+### **Methods Aspose.Slides.IPresentation.Write(…) Removed**
+これらのメソッドは Presentation オブジェクトを PPTX 形式のファイルにのみ書き出していました。新しい API では、Presentation クラスはすべての形式での操作に使用されます。Presentation.Save(…) メソッドを使用して、Presentation オブジェクトをすべてのサポート対象形式に保存できます。
+### **Classes Related to Theme Styles Moved to the Aspose.Slides.Theme Namespace**
+以下のクラスは Aspose.Slides 名前空間から Aspose.Slides.Theme 名前空間へ移動しました。
 
 - Types ColorScheme
 - EffectStyle
@@ -56,5 +55,5 @@ Aspose.Slides for .NET 14.2.0 API でいくつか変更を行いました。プ�
 - IFormatScheme
 - ILineFormatCollection
 - ILineFormatCollectionEffectiveData
-### **Aspose.Slides for .NET 8.X.0 からの変更**
+### **Changes from Aspose.Slides for .NET 8.X.0**
 Aspose.Slides for .NET 8.4 の機能が Aspose.Slides for .NET 14.2.0 に追加されました

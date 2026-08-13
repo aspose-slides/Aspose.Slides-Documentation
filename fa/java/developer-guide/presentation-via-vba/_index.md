@@ -19,38 +19,38 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "کشف کنید چگونه می‌توانید ارائه‌های PowerPoint و OpenDocument را از طریق VBA با Aspose.Slides برای Java ایجاد و دستکاری کنید تا جریان کاری خود را بهینه کنید."
+description: "بدانید چگونه می‌توانید ارائه‌های PowerPoint و OpenDocument را با VBA و Aspose.Slides برای Java ایجاد و دستکاری کنید تا گردش کار خود را بهینه کنید."
 ---
 ## **مقدمه**
 
-Aspose.Slides کلاس‌ها و رابط‌هایی را برای کار با ماکروها و کد VBA فراهم می‌کند.
+Aspose.Slides کلاس‌ها و اینترفیس‌هایی را برای کار با ماکروها و کد VBA فراهم می‌کند.
 
 {{% alert title="Note" color="warning" %}} 
 
-زمانی که یک ارائه حاوی ماکروها را به قالب فایل دیگری (PDF، HTML و غیره) تبدیل می‌کنید، Aspose.Slides تمام ماکروها را نادیده می‌گیرد (ماکروها به فایل خروجی منتقل نمی‌شوند).
+هنگامی که یک ارائه شامل ماکروها را به یک قالب فایل دیگر (PDF، HTML و غیره) تبدیل می‌کنید، Aspose.Slides تمام ماکروها را نادیده می‌گیرد (ماکروها به فایل خروجی منتقل نمی‌شوند).
 
-زمانی که ماکروها را به یک ارائه اضافه می‌کنید یا یک ارائه حاوی ماکروها را دوباره ذخیره می‌کنید، Aspose.Slides به سادگی بایت‌های ماکروها را می‌نویسد.
+وقتی ماکروها را به یک ارائه اضافه می‌کنید یا یک ارائه حاوی ماکروها را مجدداً ذخیره می‌کنید، Aspose.Slides به سادگی بایت‌های ماکروها را می‌نویسد.
 
-Aspose.Slides **هرگز** ماکروهای یک ارائه را اجرا نمی‌کند.
+Aspose.Slides **هرگز** ماکروهای موجود در یک ارائه را اجرا نمی‌کند.
 
 {{% /alert %}}
 
-## **افزودن ماکروهای VBA**
+## **اضافه کردن ماکروهای VBA**
 
-Aspose.Slides کلاس [VbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/vbaproject/) را برای ایجاد پروژه‌های VBA (و مراجع پروژه) و ویرایش ماژول‌های موجود فراهم می‌کند. می‌توانید از رابط [IVbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ivbaproject/) برای مدیریت VBA تعبیه شده در یک ارائه استفاده کنید.
+Aspose.Slides کلاس [VbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/vbaproject/) را فراهم می‌کند تا بتوانید پروژه‌های VBA (و مراجع پروژه) را ایجاد کرده و ماژول‌های موجود را ویرایش کنید. می‌توانید از اینترفیس [IVbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ivbaproject/) برای مدیریت VBA داخل یک ارائه استفاده کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.
-1. از سازنده [VbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/vbaproject/#VbaProject--) برای افزودن یک پروژه VBA جدید استفاده کنید.
-1. یک ماژول به VbaProject اضافه کنید.
-1. کد منبع ماژول را تنظیم کنید.
-1. مرجع‌ها به <stdole> اضافه کنید.
-1. مرجع‌ها به **Microsoft Office** اضافه کنید.
-1. مرجع‌ها را به پروژه VBA مرتبط کنید.
-1. ارائه را ذخیره کنید.
-
-این کد Java نشان می‌دهد چگونه یک ماکرو VBA را از ابتدا به یک ارائه اضافه کنید:
+2. از سازندهٔ [VbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/vbaproject/#VbaProject--) برای افزودن یک پروژه VBA جدید استفاده کنید.
+3. یک ماژول به VbaProject اضافه کنید.
+4. کد منبع ماژول را تنظیم کنید.
+5. مراجع به <stdole> را اضافه کنید.
+6. مراجع به **Microsoft Office** را اضافه کنید.
+7. مراجع را با پروژه VBA مرتبط کنید.
+8. ارائه را ذخیره کنید.
 
 ```java
+import com.aspose.slides.*;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation pres = new Presentation();
 try {
@@ -81,21 +81,23 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-ممکن است بخواهید **Aspose** [Macro Remover](https://products.aspose.app/slides/fa/remove-macros) را بررسی کنید، که یک برنامه وب رایگان برای حذف ماکروها از اسناد PowerPoint، Excel و Word است. 
+شاید بخواهید **Aspose** [Macro Remover](https://products.aspose.app/slides/fa/remove-macros) را بررسی کنید، که یک برنامهٔ وب رایگان برای حذف ماکروها از اسناد PowerPoint، Excel و Word است.
 
 {{% /alert %}} 
 
 ## **حذف ماکروهای VBA**
 
-با استفاده از خصوصیت [VbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getVbaProject--) در زیر کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) می‌توانید یک ماکرو VBA را حذف کنید.
+با استفاده از خاصیت [VbaProject](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getVbaProject--) در کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation)، می‌توانید یک ماکرو VBA را حذف کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه حاوی ماکرو را بارگذاری کنید.
-1. به ماژول Macro دسترسی پیدا کنید و آن را حذف کنید.
-1. ارائهٔ اصلاح‌شده را ذخیره کنید.
+2. به ماژول Macro دسترسی پیدا کنید و آن را حذف کنید.
+3. ارائه اصلاح‌شده را ذخیره کنید.
 
 ```java
+import com.aspose.slides.*;
+
 // ارائه حاوی ماکرو را بارگذاری می‌کند
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -112,14 +114,16 @@ try {
 ## **استخراج ماکروهای VBA**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه حاوی ماکرو را بارگذاری کنید.
-2. بررسی کنید آیا ارائه دارای یک پروژه VBA است یا خیر.
-3. از طریق تمام ماژول‌های موجود در پروژه VBA حلقه بزنید تا ماکروها را مشاهده کنید.
+2. بررسی کنید که آیا ارائه شامل یک پروژه VBA است یا خیر.
+3. در تمام ماژول‌های موجود در پروژه VBA حلقه زده و ماکروها را مشاهده کنید.
 
 ```java
+import com.aspose.slides.*;
+
 // ارائه حاوی ماکرو را بارگذاری می‌کند
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // بررسی می‌کند آیا ارائه حاوی پروژه VBA است یا خیر
+    if (pres.getVbaProject() != null) // بررسی می‌کند که آیا ارائه شامل یک پروژه VBA است
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -132,18 +136,20 @@ try {
 }
 ```
 
-## **بررسی اینکه آیا پروژه VBA رمزعبور دارد یا خیر**
+## **بررسی اینکه آیا پروژه VBA با رمز عبور محافظت شده است**
 
-با استفاده از متد [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ivbaproject/#isPasswordProtected--) می‌توانید تعیین کنید آیا ویژگی‌های یک پروژه با رمزعبور محافظت شده‌اند یا خیر.
+با استفاده از متد [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ivbaproject/#isPasswordProtected--) می‌توانید تعیین کنید که آیا ویژگی‌های یک پروژه با رمز عبور محافظت شده‌اند یا خیر.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) ایجاد کنید و ارائه‌ای که حاوی ماکرو است را بارگذاری کنید.
-2. بررسی کنید آیا ارائه دارای یک [پروژه VBA](https://reference.aspose.com/slides/fa/java/com.aspose.slides/vbaproject/) است یا خیر.
-3. بررسی کنید آیا پروژه VBA با رمزعبور محافظت شده است تا ویژگی‌های آن را مشاهده کنید.
+2. بررسی کنید که آیا ارائه شامل یک [VBA project](https://reference.aspose.com/slides/fa/java/com.aspose.slides/vbaproject/) است یا نه.
+3. بررسی کنید که آیا پروژه VBA با رمز عبور محافظت شده است تا ویژگی‌های آن را مشاهده کنید.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
-    if (presentation.getVbaProject() != null) { // بررسی می‌کند آیا ارائه حاوی پروژه VBA است یا خیر.
+    if (presentation.getVbaProject() != null) { // بررسی می‌کند که آیا ارائه شامل یک پروژه VBA است.
         if (presentation.getVbaProject().isPasswordProtected()) {
             System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
@@ -154,16 +160,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **سوالات متداول**
 
-**اگر ارائه را به صورت PPTX ذخیره کنم چه اتفاقی برای ماکروها می‌افتد؟**
+### اگر ارائه را به صورت PPTX ذخیره کنم چه می‌شود با ماکروها؟
 
-ماکروها حذف می‌شوند زیرا فرمت PPTX از VBA پشتیبانی نمی‌کند. برای نگه داشتن ماکروها، PPTM، PPSM یا POTM را انتخاب کنید.
+ماکروها حذف خواهند شد زیرا PPTX از VBA پشتیبانی نمی‌کند. برای حفظ ماکروها، PPTM، PPSM یا POTM را انتخاب کنید.
 
-**آیا Aspose.Slides می‌تواند ماکروها را داخل یک ارائه اجرا کند، برای مثال برای به‌روزرسانی داده‌ها؟**
+### آیا Aspose.Slides می‌تواند ماکروها را داخل یک ارائه اجرا کند، برای مثال برای به‌روزرسانی داده‌ها؟
 
-خیر. این کتابخانه هرگز کد VBA را اجرا نمی‌کند؛ اجرا فقط در داخل PowerPoint و با تنظیمات امنیتی مناسب امکان‌پذیر است.
+نه. این کتابخانه هرگز کد VBA را اجرا نمی‌کند؛ اجرا تنها در PowerPoint و با تنظیمات امنیتی مناسب امکان‌پذیر است.
 
-**آیا کار با کنترل‌های ActiveX مرتبط با کد VBA پشتیبانی می‌شود؟**
+### آیا کار با کنترل‌های ActiveX مرتبط با کد VBA پشتیبانی می‌شود؟
 
-بله، می‌توانید به [کنترل‌های ActiveX](/slides/fa/java/activex/) موجود دسترسی پیدا کنید، ویژگی‌های آن‌ها را تغییر دهید و حذف کنید. این امر زمانی مفید است که ماکروها با ActiveX تعامل داشته باشند.
+بله، می‌توانید به [ActiveX controls](/slides/fa/java/activex/) موجود دسترسی پیدا کنید، خواص آن‌ها را تغییر دهید و حذف کنید. این زمانی مفید است که ماکروها با ActiveX در تعامل باشند.

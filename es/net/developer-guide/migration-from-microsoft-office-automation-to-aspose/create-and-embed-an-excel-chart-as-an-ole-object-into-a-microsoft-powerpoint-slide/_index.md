@@ -1,5 +1,5 @@
 ---
-title: Crear e incrustar gráficos de Excel como objetos OLE usando VSTO y Aspose.Slides para .NET
+title: Crear e incrustar gráficos de Excel como objetos OLE mediante VSTO y Aspose.Slides para .NET
 linktitle: Crear e incrustar gráficos de Excel como objetos OLE
 type: docs
 weight: 70
@@ -18,20 +18,19 @@ keywords:
 - Aspose.Slides
 description: "Migrar de la automatización de Microsoft Office a Aspose.Slides para .NET e incrustar gráficos de Excel como objetos OLE en diapositivas de PowerPoint (PPT, PPTX) en C#."
 ---
-
-{{% alert color="primary" %}} 
-Los gráficos son representaciones visuales de sus datos y se utilizan ampliamente en diapositivas de presentación. Este artículo le mostrará el código para crear e incrustar un gráfico de Excel como un objeto OLE en la diapositiva de PowerPoint de forma programática mediante [VSTO](/slides/es/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides for .NET](/slides/es/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+{{% alert color="info" %}} 
+Los gráficos son representaciones visuales de sus datos y se utilizan ampliamente en diapositivas de presentaciones. Este artículo le mostrará el código para crear e incrustar un Gráfico de Excel como un Objeto OLE en una diapositiva de PowerPoint de forma programática mediante el uso de [VSTO](/slides/es/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides for .NET](/slides/es/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 {{% /alert %}} 
-## **Crear e incrustar un gráfico de Excel**
-Los dos ejemplos de código a continuación son extensos y detallados porque la tarea que describen es compleja. Usted crea un libro de trabajo de Microsoft Excel, crea un gráfico y luego crea la presentación de Microsoft PowerPoint en la que incrustará el gráfico. Los objetos OLE contienen enlaces al documento original, de modo que un usuario que haga doble clic en el archivo incrustado iniciará el archivo y su aplicación.
+## **Creación e incrustación de un gráfico de Excel**
+Los dos ejemplos de código a continuación son extensos y detallados porque la tarea que describen es compleja. Usted crea un libro de Microsoft Excel, crea un gráfico y luego crea la presentación de Microsoft PowerPoint en la que incrustará el gráfico. Los objetos OLE contienen enlaces al documento original, de modo que un usuario que haga doble clic en el archivo incrustado abrirá el archivo y su aplicación.
 ## **Ejemplo VSTO**
-Usando VSTO, se realizan los siguientes pasos:
+Al usar VSTO, se realizan los siguientes pasos:
 
 1. Crear una instancia del objeto Microsoft Excel ApplicationClass.
 1. Crear un nuevo libro de trabajo con una hoja.
 1. Agregar un gráfico a la hoja.
 1. Guardar el libro de trabajo.
-1. Abrir el libro de Excel que contiene la hoja con los datos del gráfico.
+1. Abrir el libro de Excel que contiene la hoja de cálculo con los datos del gráfico.
 1. Obtener la colección ChartObjects de la hoja.
 1. Obtener el gráfico para copiar.
 1. Crear una presentación de Microsoft PowerPoint.
@@ -40,6 +39,7 @@ Usando VSTO, se realizan los siguientes pasos:
 1. Pegar el gráfico en la presentación de PowerPoint.
 1. Posicionar el gráfico en la diapositiva.
 1. Guardar la presentación.
+
 ```c#
 CreateNewChartInExcel();
 UseCopyPaste();
@@ -55,7 +55,7 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Declarar una variable para la instancia de ApplicationClass de Excel.
+    // Declarar una variable para la instancia de Excel ApplicationClass.
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
     // Declarar variables para los parámetros del método Workbooks.Open.
@@ -73,7 +73,7 @@ static void CreateNewChartInExcel()
 
     try
     {
-        // Crear una instancia del objeto ApplicationClass de Excel.
+        // Crear una instancia del objeto Excel ApplicationClass.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
         // Crear un nuevo libro de trabajo con 1 hoja.
@@ -156,13 +156,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Declarar variables para mantener referencias a objetos de PowerPoint.
+    // Declarar variables para mantener referencias a los objetos de PowerPoint.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Declarar variables para mantener referencias a objetos de Excel.
+    // Declarar variables para mantener referencias a los objetos de Excel.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -195,7 +195,7 @@ static void UseCopyPaste()
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // Obtener el gráfico a copiar.
+        // Obtener el gráfico para copiar.
         existingChartObject =
             (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
@@ -275,23 +275,28 @@ static void UseCopyPaste()
 
 
 
+## **Ejemplo Aspose.Slides for .NET**
+Al usar Aspose.Slides for .NET, se realizan los siguientes pasos:
 
-## **Ejemplo Aspose.Slides para .NET**
-Usando Aspose.Slides para .NET, se realizan los siguientes pasos:
-
-1. Crear un libro de trabajo usando Aspose.Cells para .NET.
+1. Crear un libro de trabajo usando Aspose.Cells for .NET.
 1. Crear un gráfico de Microsoft Excel.
 1. Establecer el tamaño OLE del gráfico de Excel.
 1. Obtener una imagen del gráfico.
-1. Incrustar el gráfico de Excel como un objeto OLE dentro de la presentación PPTX usando Aspose.Slides para .NET.
-1. Reemplazar la imagen del objeto cambiada con la imagen obtenida en el paso 3 para abordar el problema del objeto cambiado.
+1. Incrustar el gráfico de Excel como un Objeto OLE dentro de una presentación PPTX usando Aspose.Slides for .NET.
+1. Reemplazar la imagen del objeto cambiado por la imagen obtenida en el paso 3 para solucionar el problema del objeto cambiado.
 1. Escribir la presentación de salida en disco en formato PPTX.
+
+
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Paso - 1: Crear un gráfico de Excel usando Aspose.Cells
 //--------------------------------------------------
 //Crear un libro de trabajo
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Agregar un gráfico de Excel
+//Añadir un gráfico de Excel
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
@@ -300,26 +305,33 @@ int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Paso - 3: Obtener la imagen del gráfico con Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Guardar el libro de trabajo en stream
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
-//Paso - 4  Y 5
+//Paso - 4 y 5
 //-----------------------------------------------------------
-//Paso - 4: Incrustar el gráfico como un objeto OLE dentro de .ppt presentación usando Aspose.Slides
+//Paso - 4: Incrustar el gráfico como objeto OLE dentro de una presentación .ppt usando Aspose.Slides
 //-----------------------------------------------------------
-//Paso - 5: Reemplazar la imagen del objeto cambiada con la imagen obtenida en el paso 3 para abordar el problema de objeto cambiado
+//Paso - 5: Reemplazar la imagen del objeto cambiado con la imagen obtenida en el paso 3 para abordar el problema de Object Changed Issue
 //-----------------------------------------------------------
 //Crear una presentación
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Agregar el libro de trabajo en diapositiva
+//Añadir el libro de trabajo en la diapositiva
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Paso - 6: Escribir la presentación de salida en disco
+//Paso - 6: Guardar la presentación de salida en disco
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -336,7 +348,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
     {
         chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
 
-	imageStream.Position = 0;
+        imageStream.Position = 0;
         IPPImage image = presentation.Images.AddImage(imageStream);
 
         oleFrame.SubstitutePictureFormat.Picture.Image = image;
@@ -347,7 +359,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
 ```c#
 static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int chartCols)
 {
-    //Arreglo de nombres de celdas
+    //Matriz de nombres de celdas
     string[] cellsName = new string[]
       {
   "A1", "A2", "A3", "A4",
@@ -357,16 +369,16 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
   "E1", "E2", "E3", "E4"
       };
 
-    //Arreglo de datos de celdas
+    //Matriz de datos de celdas
     int[] cellsValue = new int[]
       {
- 67,86,68,91,
- 44,64,89,48,
- 46,97,78,60,
- 43,29,69,26,
- 24,40,38,25
+  67,86,68,91,
+  44,64,89,48,
+  46,97,78,60,
+  43,29,69,26,
+  24,40,38,25
       };
-    //Agregar una nueva hoja de cálculo para rellenar celdas con datos
+    //Añadir una nueva hoja de cálculo para rellenar celdas con datos
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
@@ -378,11 +390,11 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //Agregar una hoja de gráfico
+    //Añadir una hoja de gráfico
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //Agregar un gráfico en ChartSheet con series de datos de DataSheet
+    //Añadir un gráfico en ChartSheet con series de datos de DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);

@@ -1,24 +1,38 @@
 ---
-title: API Público y Cambios Incompatibles hacia Atrás en Aspose.Slides para Java 15.7.0
+title: Cambios en la API pública e incompatibles retroactivos en Aspose.Slides for Java 15.7.0
+linktitle: Aspose.Slides for Java 15.7.0
 type: docs
 weight: 150
 url: /es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/
+keywords:
+- migración
+- código heredado
+- código moderno
+- enfoque heredado
+- enfoque moderno
+- PowerPoint
+- OpenDocument
+- presentación
+- Java
+- Aspose.Slides
+description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides for Java para migrar sin problemas sus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Esta página lista todas las clases, métodos, propiedades, etc., [agregados](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) o [eliminados](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) y otros cambios introducidos con la API Aspose.Slides para Java 15.7.0.
+Esta página enumera todas las clases, métodos, propiedades y demás que se han [added](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) o [removed](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/) y otros cambios introducidos con la API de Aspose.Slides for Java 15.7.0.
 
 {{% /alert %}} 
-## **Cambios en la API Pública**
-#### **Enum com.aspose.slides.ImagePixelFormat ha sido agregado**
-El enum com.aspose.slides.ImagePixelFormat ha sido agregado para especificar el formato de píxel para las imágenes generadas.
-#### **El método com.aspose.slides.IChartDataPoint.getAutomaticDataPointColor() ha sido agregado**
-Este método retorna un color automático del punto de datos basado en el índice de la serie, el índice del punto de datos, parentSeriesGroup, valores isColorVaried y el estilo del gráfico. Este color se utiliza por defecto si fillType es igual a NotDefined.
-#### **Los métodos getPixelFormat(), setPixelFormat(int) han sido agregados a com.aspose.slides.ITiffOptions**
-Los métodos getPixelFormat(), setPixelFormat(/ImagePixelFormat/int) han sido agregados a com.aspose.slides.ITiffOptions y com.aspose.slides.TiffOptions para especificar el formato de píxel para las imágenes TIFF generadas.
+## **Cambios en la API pública**
+#### **Se ha añadido el enum com.aspose.slides.ImagePixelFormat**
+Se ha añadido el enum com.aspose.slides.ImagePixelFormat para especificar el formato de píxel de las imágenes generadas.
+#### **Se ha añadido el método com.aspose.slides.IChartDataPoint.getAutomaticDataPointColor()**
+Este método devuelve un color automático del punto de datos basado en el índice de serie, el índice del punto de datos, parentSeriesGroup, los valores de isColorVaried y el estilo del gráfico. Este color se usa por defecto si fillType es igual a NotDefined.
+#### **Se han añadido los métodos getPixelFormat() y setPixelFormat(int) a com.aspose.slides.ITiffOptions**
+Se han añadido los métodos getPixelFormat() y setPixelFormat(/ImagePixelFormat/int) a com.aspose.slides.ITiffOptions y com.aspose.slides.TiffOptions para especificar el formato de píxel de las imágenes TIFF generadas.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("demo.pptx");
 

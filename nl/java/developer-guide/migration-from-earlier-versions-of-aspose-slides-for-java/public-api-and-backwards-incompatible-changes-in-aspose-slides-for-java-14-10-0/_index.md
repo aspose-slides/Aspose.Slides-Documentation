@@ -6,52 +6,54 @@ weight: 90
 url: /nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/
 keywords:
 - migratie
-- verouderde code
+- legacy-code
 - moderne code
-- verouderde aanpak
+- legacy-aanpak
 - moderne aanpak
 - PowerPoint
 - OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Bekijk de updates van de publieke API en brekende wijzigingen in Aspose.Slides voor Java om soepel uw PowerPoint PPT, PPTX en ODP presentatiesoplossingen te migreren."
+description: "Bekijk de updates van de publieke API en brekende wijzigingen in Aspose.Slides voor Java om uw PowerPoint PPT-, PPTX- en ODP-presentatieoplossingen soepel te migreren."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Deze pagina geeft een lijst van alle [toegevoegd](/slides/nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) klassen, methoden, eigenschappen enz., eventuele nieuwe beperkingen en andere [wijzigingen](/slides/nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) die zijn geïntroduceerd met de Aspose.Slides for Java 14.10.0 API.
+Deze pagina geeft een overzicht van alle [toegevoegde](/slides/nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) klassen, methoden, eigenschappen enzovoort, van eventuele nieuwe beperkingen en andere [wijzigingen](/slides/nl/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) die geïntroduceerd zijn met de Aspose.Slides for Java 14.10.0 API.
 
 {{% /alert %}} 
 ## **Wijzigingen in de publieke API**
-### **com.aspose.slides.FieldType.getFooter()‑methode is toegevoegd**
-De getFooter()‑methode retourneert het type voettekstveld. Hij is toegevoegd om de mogelijkheid te implementeren velden van dit type te maken en om geldige presentatie‑serialisatie mogelijk te maken.
+### **com.aspose.slides.FieldType.getFooter() methode is toegevoegd**
+De methode getFooter() retourneert het voettekst‑veldtype. Deze is toegevoegd om de mogelijkheid te bieden velden van dit type te creëren en voor een geldige serialisatie van presentaties.
 ### **Element com.aspose.slides.ShapeElementFillSource.Own is verwijderd**
-Element ShapeElementFillSource.Own is verwijderd omdat het duplicated was. Gebruik ShapeElementFillSource.Shape in plaats van ShapeElementFillSource.Own.
-### **Methoden voor grafiekdatapunten en -categorieën verwijderen zijn toegevoegd**
-**De volgende methoden, die het mogelijk maken een grafiekdatapunt uit een grafiekdatapuntcollectie te verwijderen, zijn toegevoegd:**
+Element ShapeElementFillSource.Own is verwijderd als duplicaat. Gebruik ShapeElementFillSource.Shape in plaats van ShapeElementFillSource.Own.
+### **Methoden voor het verwijderen van diagramdatapunten en categorieën zijn toegevoegd**
+**De volgende methoden, die het verwijderen van een diagramdatapunt uit een diagramdatapuntcollectie mogelijk maken, zijn toegevoegd:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
 IChartDataPoint.remove()
 
-**De volgende methode, die het mogelijk maakt een grafiekkategorie uit de bijbehorende collectie te verwijderen, is toegevoegd:**
+**De volgende methode, die het verwijderen van een diagramcategorie uit de bijbehorende collectie mogelijk maakt, is toegevoegd:**
 
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
-chart.getChartData().getCategories().get_Item(0).remove(); // verwijderen met ChartCategory.remove()
+chart.getChartData().getCategories().get_Item(0).remove(); // verwijder met ChartCategory.remove()
 
-chart.getChartData().getCategories().remove(chart.getChartData().getCategories().get_Item(0)); // verwijderen met ChartCategoryCollection.remove()
+chart.getChartData().getCategories().remove(chart.getChartData().getCategories().get_Item(0)); // verwijder met ChartCategoryCollection.remove()
 
 for (IChartSeries ser : chart.getChartData().getSeries())
 
 {
 
-    ser.getDataPoints().get_Item(0).remove(); // verwijderen met ChartDataPoint.remove()
+    ser.getDataPoints().get_Item(0).remove(); // verwijder met ChartDataPoint.remove()
 
     ser.getDataPoints().remove(ser.getDataPoints().get_Item(0)); // ChartDataPointCollection.remove()
 
@@ -60,8 +62,8 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
-### **Verouderde Aspose.Slides.ParagraphFormat‑methoden zijn verwijderd**
-De methoden getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() en bijbehorende set‑methoden zijn verwijderd. Ze werden al lang geleden gemarkeerd als verouderd.
+### **Obsolete Aspose.Slides.ParagraphFormat‑methoden zijn verwijderd**
+De methoden getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() en de bijbehorende set‑methoden zijn verwijderd. Ze waren al lang gemarkeerd als verouderd.
 ### **Onbruikbare en verouderde constructors zijn verwijderd**
 De volgende constructors zijn verwijderd:
 

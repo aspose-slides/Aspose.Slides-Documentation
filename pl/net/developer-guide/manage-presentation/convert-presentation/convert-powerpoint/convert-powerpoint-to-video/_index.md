@@ -1,5 +1,5 @@
 ---
-title: Konwertowanie prezentacji PowerPoint na wideo w .NET
+title: Konwertuj prezentacje PowerPoint na wideo w .NET
 linktitle: PowerPoint do wideo
 type: docs
 weight: 130
@@ -26,45 +26,45 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak konwertować prezentacje PowerPoint na wideo w .NET. Odkryj przykładowy kod C# i techniki automatyzacji, aby usprawnić swój proces pracy."
+description: "Dowiedz się, jak konwertować prezentacje PowerPoint na wideo w .NET. Odkryj przykładowy kod C# i techniki automatyzacji ułatwiające Twój przepływ pracy."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Konwertując swoją prezentację PowerPoint lub OpenDocument do wideo, uzyskujesz:
+Konwertując swoją prezentację PowerPoint lub OpenDocument na wideo, zyskujesz:
 
-**Zwiększona dostępność:** Wszystkie urządzenia, niezależnie od platformy, są domyślnie wyposażone w odtwarzacze wideo, co ułatwia użytkownikom otwieranie lub odtwarzanie wideo w porównaniu z tradycyjnymi aplikacjami do prezentacji.
+**Zwiększona dostępność:** Wszystkie urządzenia, niezależnie od platformy, są wyposażone w odtwarzacze wideo domyślnie, co ułatwia użytkownikom otwieranie lub odtwarzanie filmów w porównaniu z tradycyjnymi aplikacjami do prezentacji.
 
-**Szerszy zasięg:** Wideo umożliwia dotarcie do większej grupy odbiorców i przedstawienie informacji w bardziej angażującym formacie. Badania i statystyki wskazują, że ludzie wolą oglądać i konsumować treści wideo niż inne formy, co czyni Twoje przesłanie bardziej wpływowym.
+**Szersze zasięgi:** Filmy pozwalają dotrzeć do większej liczby odbiorców i przedstawić informacje w bardziej angażującym formacie. Badania i statystyki wskazują, że ludzie wolą oglądać i konsumować treści wideo niż inne formy, co sprawia, że Twoja wiadomość jest bardziej skuteczna.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Sprawdź nasz [**konwerter PowerPoint do wideo online**](https://products.aspose.app/slides/pl/video), ponieważ oferuje on na żywo i skuteczne wdrożenie procesu opisanego tutaj.
+Sprawdź nasz [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/pl/video), ponieważ oferuje działające i efektywne wdrożenie procesu opisanego tutaj.
 
 {{% /alert %}} 
 
 W Aspose.Slides for .NET wprowadziliśmy obsługę konwertowania prezentacji na wideo.
 
-* Użyj Aspose.Slides for .NET do generowania klatek z slajdów prezentacji ze wskazaną liczbą klatek na sekundę (FPS).  
-* Następnie użyj narzędzia zewnętrznego, takiego jak ffmpeg, aby złożyć te klatki w wideo.
+* Użyj Aspose.Slides for .NET do generowania klatek z slajdów prezentacji ze określoną liczbą klatek na sekundę (FPS).
+* Następnie użyj narzędzia zewnętrznego, takiego jak ffmpeg, do skompilowania tych klatek w wideo.
 
 ## **Konwertuj prezentację PowerPoint na wideo**
 
-1. Użyj polecenia `dotnet add package`, aby dodać Aspose.Slides oraz bibliotekę FFMpegCore do swojego projektu:  
-   - uruchom `dotnet add package Aspose.Slides.NET --version 22.11.0`  
-   - uruchom `dotnet add package FFMpegCore --version 4.8.0`
+1. Użyj polecenia `dotnet add package`, aby dodać Aspose.Slides i bibliotekę FFMpegCore do swojego projektu:
+   * uruchom `dotnet add package Aspose.Slides.NET --version 22.11.0`
+   * uruchom `dotnet add package FFMpegCore --version 4.8.0`
 2. Pobierz ffmpeg z [tutaj](https://ffmpeg.org/download.html).
-3. FFMpegCore wymaga podania ścieżki do pobranego ffmpeg (np. wypakowanego do „C:\tools\ffmpeg”):  
+3. FFMpegCore wymaga określenia ścieżki do pobranego ffmpeg (np. rozpakowanego do "C:\tools\ffmpeg"):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
 4. Uruchom kod konwertujący PowerPoint na wideo.
 
-Ten kod C# demonstruje, jak przekonwertować prezentację (zawierającą kształt i dwa efekty animacji) na wideo:
+Poniższy kod C# demonstruje, jak przekonwertować prezentację (zawierającą kształt i dwa efekty animacji) na wideo:
 
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore; // będzie używać binarek FFmpeg, które wcześniej wyodrębniliśmy do C:\tools\ffmpeg.
+using FFMpegCore; // użyje binarek FFmpeg, które wcześniej wyodrębniliśmy do C:\tools\ffmpeg.
 using Aspose.Slides.Animation;
 
 using (Presentation presentation = new Presentation())
@@ -108,22 +108,27 @@ using (Presentation presentation = new Presentation())
 
 ## **Efekty wideo**
 
-Podczas konwertowania prezentacji PowerPoint na wideo przy użyciu Aspose.Slides for .NET możesz zastosować różne efekty wideo, aby podnieść jakość wizualną rezultatu. Efekty te pozwalają kontrolować wygląd slajdów w końcowym wideo poprzez dodanie płynnych przejść, animacji i innych elementów wizualnych. Niniejsza sekcja opisuje dostępne opcje efektów wideo i pokazuje, jak je zastosować.
+Podczas konwertowania prezentacji PowerPoint na wideo przy użyciu Aspose.Slides for .NET, możesz zastosować różne efekty wideo, aby poprawić jakość wizualną wyjścia. Efekty te pozwalają kontrolować wygląd slajdów w finalnym wideo, dodając płynne przejścia, animacje i inne elementy wizualne. Ta sekcja wyjaśnia dostępne opcje efektów wideo i pokazuje, jak je zastosować.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Zobacz:  
-- [Ulepszanie prezentacji PowerPoint animacjami w C#](https://docs.aspose.com/slides/pl/net/powerpoint-animation/)  
-- [Animacja kształtu](https://docs.aspose.com/slides/pl/net/shape-animation/)  
-- [Zastosowanie efektów kształtu w PowerPoint przy użyciu C#](https://docs.aspose.com/slides/pl/net/shape-effect/)
+Zobacz:
+- [Enhancing PowerPoint Presentations with Animations in C#](https://docs.aspose.com/slides/pl/net/powerpoint-animation/)
+- [Shape Animation](https://docs.aspose.com/slides/pl/net/shape-animation/)
+- [Apply Shape Effects in PowerPoint Using C#](https://docs.aspose.com/slides/pl/net/shape-effect/)
 
 {{% /alert %}} 
 
-Animacje i przejścia sprawiają, że pokazy slajdów są bardziej angażujące i interesujące — i to samo dotyczy wideo. Dodajmy kolejny slajd i przejście do kodu poprzedniej prezentacji:
+Animacje i przejścia sprawiają, że pokazy slajdów są bardziej angażujące i interesujące — i mają taki sam efekt wideo. Dodajmy kolejny slajd i przejście do kodu dla poprzedniej prezentacji:
 
 ```c#
-    // Dodaj kształt uśmiechu i animuj go.
-    // ...
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
+
+using (Presentation presentation = new Presentation())
+{
+    // Dodaj kształt uśmiechu i animuj go (zobacz kod powyżej).
 
     // Dodaj nowy slajd i animowane przejście.
     ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
@@ -131,9 +136,10 @@ Animacje i przejścia sprawiają, że pokazy slajdów są bardziej angażujące 
     newSlide.Background.FillFormat.FillType = FillType.Solid;
     newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
     newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-Aspose.Slides obsługuje także animacje tekstu. W tym przykładzie animujemy akapity na obiektach tak, aby pojawiały się kolejno, z sekundowym opóźnieniem między nimi:
+Aspose.Slides obsługuje także animacje tekstu. W tym przykładzie animujemy akapity na obiektach tak, aby pojawiały się kolejno, z jednosekundowym opóźnieniem między nimi:
 
 ```c#
 using System.Collections.Generic;
@@ -203,15 +209,19 @@ using (Presentation presentation = new Presentation())
 
 ## **Klasy konwersji wideo**
 
-Aby umożliwić zadania konwersji PowerPoint na wideo, Aspose.Slides for .NET udostępnia klasy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationanimationsgenerator/) i [PresentationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationplayer/).
+Aby umożliwić zadania konwersji PowerPoint do wideo, Aspose.Slides for .NET udostępnia klasy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationanimationsgenerator/) i [PresentationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationplayer/).
 
-`PresentationAnimationsGenerator` pozwala ustawić rozmiar klatki wideo (które zostanie utworzone później) oraz wartość FPS (klatki na sekundę) poprzez konstruktor. Jeśli przekażesz instancję prezentacji, jej `Presentation.SlideSize` zostanie użyta i generuje animacje, które wykorzystuje [PresentationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationplayer/).
+`PresentationAnimationsGenerator` pozwala ustawić rozmiar klatki dla wideo (które zostanie później utworzone) oraz wartość FPS (klatek na sekundę) poprzez konstruktor. Jeśli przekażesz instancję prezentacji, zostanie użyty jej `Presentation.SlideSize`, a klasa generuje animacje, które używa [PresentationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationplayer/).
 
-Podczas generowania animacji wyzwalane jest zdarzenie `NewAnimation` dla każdej kolejnej animacji, które zawiera parametr [IPresentationAnimationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/). Klasa ta reprezentuje odtwarzacz pojedynczej animacji.
+Podczas generowania animacji wywoływane jest zdarzenie `NewAnimation` dla każdej kolejnej animacji, które zawiera parametr [IPresentationAnimationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/). Ta klasa reprezentuje odtwarzacz pojedynczej animacji.
 
-Aby pracować z [IPresentationAnimationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/), używasz właściwości [Duration](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/duration/) (dającej pełny czas trwania animacji) oraz metody [SetTimePosition](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Każda pozycja animacji jest ustawiana w przedziale *0 do duration*, a metoda `GetFrame` zwraca bitmapę przedstawiającą stan animacji w danym momencie.
+Aby pracować z [IPresentationAnimationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/), używasz właściwości [Duration](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/duration/) (która podaje pełny czas trwania animacji) oraz metody [SetTimePosition](https://reference.aspose.com/slides/pl/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/). Każda pozycja animacji jest ustawiana w zakresie *0 do duration*, a metoda `GetFrame` zwraca Bitmapę przedstawiającą stan animacji w danym momencie.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -234,12 +244,12 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // Początkowy stan animacji.
-            Bitmap bitmap = animationPlayer.GetFrame();  // Bitmapa początkowego stanu animacji.
+            animationPlayer.SetTimePosition(0);        // Początkowy stan animacji.
+            IImage image = animationPlayer.GetFrame(); // Obraz początkowego stanu animacji.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // Końcowy stan animacji.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // Ostatnia klatka animacji.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // Końcowy stan animacji.
+            IImage lastImage = animationPlayer.GetFrame();             // Ostatnia klatka animacji.
+            lastImage.Save("last.png");
         };
     }
 }
@@ -248,6 +258,9 @@ using (Presentation presentation = new Presentation())
 Aby wszystkie animacje w prezentacji odtwarzały się jednocześnie, używa się klasy [PresentationPlayer](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationplayer/). Klasa ta przyjmuje instancję [PresentationAnimationsGenerator](https://reference.aspose.com/slides/pl/net/aspose.slides.export/presentationanimationsgenerator/) oraz wartość FPS dla efektów w konstruktorze, a następnie wywołuje zdarzenie `FrameTick` dla wszystkich animacji, aby je odtworzyć:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -262,153 +275,153 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-Następnie wygenerowane klatki mogą zostać skompilowane w wideo. Zobacz sekcję [Konwertuj prezentację PowerPoint na wideo](/slides/pl/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
+Następnie wygenerowane klatki mogą być skompilowane w celu utworzenia wideo. Zobacz sekcję [Convert a PowerPoint Presentation to Video](/slides/pl/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video).
 
 ## **Obsługiwane animacje i efekty**
 
-Podczas konwertowania prezentacji PowerPoint na wideo przy użyciu Aspose.Slides for .NET ważne jest zrozumienie, które animacje i efekty są obsługiwane w wynikowym pliku. Aspose.Slides obsługuje szeroką gamę typowych efektów wejścia, wyjścia i podkreślenia, takich jak zanikanie, przelot, przybliżenie i obrót. Niektóre zaawansowane lub niestandardowe animacje mogą nie być w pełni zachowane lub mogą wyglądać inaczej w końcowym wideo. Poniżej przedstawiono obsługiwane animacje i efekty.
+Podczas konwertowania prezentacji PowerPoint na wideo przy użyciu Aspose.Slides for .NET ważne jest zrozumienie, które animacje i efekty są obsługiwane w wyniku. Aspose.Slides obsługuje szeroką gamę typowych efektów wejściowych, wyjściowych i podkreślających, takich jak zanikanie, wlot, przybliżanie i obracanie. Niektóre zaawansowane lub niestandardowe animacje mogą nie zostać w pełni zachowane lub mogą wyglądać inaczej w finalnym wideo. Poniżej przedstawiono obsługiwane animacje i efekty.
 
 **Wejście**:
 
 | Typ animacji | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Fade** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Fly In** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Float In** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Split** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Wipe** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Shape** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Wheel** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Random Bars** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Grow & Turn** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Zoom** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Swivel** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Bounce** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
+| **Appear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly In** | ![supported](v.png) | ![supported](v.png) |
+| **Float In** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Podkreślenie**:
 
 | Typ animacji | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Color Pulse** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Teeter** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Spin** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Grow/Shrink** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Desaturate** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Darken** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Lighten** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Transparency** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Object Color** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Complementary Color** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Line Color** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Fill Color** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
+| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
+| **Teeter** | ![supported](v.png) | ![supported](v.png) |
+| **Spin** | ![supported](v.png) | ![supported](v.png) |
+| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
+| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
+| **Darken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
+| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
 **Wyjście**:
 
 | Typ animacji | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Fade** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Fly Out** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Float Out** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Split** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Wipe** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Shape** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Random Bars** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Shrink & Turn** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Zoom** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Swivel** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Bounce** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
+| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
+| **Float Out** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![supported](v.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Swivel** | ![supported](v.png) | ![supported](v.png) |
+| **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
 **Ścieżki ruchu**:
 
 | Typ animacji | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Arcs** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Turns** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Shapes** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Loops** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Custom Path** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
+| **Lines** | ![supported](v.png) | ![supported](v.png) |
+| **Arcs** | ![supported](v.png) | ![supported](v.png) |
+| **Turns** | ![supported](v.png) | ![supported](v.png) |
+| **Shapes** | ![supported](v.png) | ![supported](v.png) |
+| **Loops** | ![supported](v.png) | ![supported](v.png) |
+| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
 ## **Obsługiwane efekty przejścia slajdów**
 
-Efekty przejścia slajdów odgrywają istotną rolę w tworzeniu płynnych i atrakcyjnych wizualnie zmian między slajdami w wideo. Aspose.Slides for .NET obsługuje różnorodne popularne efekty przejścia, pomagając zachować przepływ i styl oryginalnej prezentacji. Poniżej przedstawiono, które efekty przejścia są obsługiwane podczas procesu konwersji.
+Efekty przejścia slajdów odgrywają ważną rolę w tworzeniu płynnych i wizualnie atrakcyjnych zmian między slajdami w wideo. Aspose.Slides for .NET obsługuje różnorodne popularne efekty przejścia, pomagając zachować przepływ i styl oryginalnej prezentacji. Poniżej przedstawiono, które efekty przejścia są obsługiwane podczas procesu konwersji.
 
 **Subtelne**:
 
 | Typ animacji | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Morph** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Fade** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Push** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Pull** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Wipe** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Split** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Reveal** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Random Bars** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Shape** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Uncover** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Cover** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Flash** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Strips** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
+| **Morph** | ![not supported](x.png) | ![supported](v.png) |
+| **Fade** | ![supported](v.png) | ![supported](v.png) |
+| **Push** | ![supported](v.png) | ![supported](v.png) |
+| **Pull** | ![supported](v.png) | ![supported](v.png) |
+| **Wipe** | ![supported](v.png) | ![supported](v.png) |
+| **Split** | ![supported](v.png) | ![supported](v.png) |
+| **Reveal** | ![not supported](x.png) | ![supported](v.png) |
+| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
+| **Shape** | ![not supported](x.png) | ![supported](v.png) |
+| **Uncover** | ![not supported](x.png) | ![supported](v.png) |
+| **Cover** | ![supported](v.png) | ![supported](v.png) |
+| **Flash** | ![supported](v.png) | ![supported](v.png) |
+| **Strips** | ![supported](v.png) | ![supported](v.png) |
 
 **Ekscytujące**:
 
 | Typ animacji | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Fall Over** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Drape** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Curtains** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Wind** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Prestige** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Fracture** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Crush** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Peel Off** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Page Curl** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Airplane** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Origami** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Dissolve** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Checkerboard** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Blinds** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Clock** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Ripple** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Honeycomb** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Glitter** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Vortex** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Shred** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Switch** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Flip** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Gallery** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Cube** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Doors** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Box** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Comb** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Zoom** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Random** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
+| **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
+| **Drape** | ![not supported](x.png) | ![supported](v.png) |
+| **Curtains** | ![not supported](x.png) | ![supported](v.png) |
+| **Wind** | ![not supported](x.png) | ![supported](v.png) |
+| **Prestige** | ![not supported](x.png) | ![supported](v.png) |
+| **Fracture** | ![not supported](x.png) | ![supported](v.png) |
+| **Crush** | ![not supported](x.png) | ![supported](v.png) |
+| **Peel Off** | ![not supported](x.png) | ![supported](v.png) |
+| **Page Curl** | ![not supported](x.png) | ![supported](v.png) |
+| **Airplane** | ![not supported](x.png) | ![supported](v.png) |
+| **Origami** | ![not supported](x.png) | ![supported](v.png) |
+| **Dissolve** | ![supported](v.png) | ![supported](v.png) |
+| **Checkerboard** | ![not supported](x.png) | ![supported](v.png) |
+| **Blinds** | ![not supported](x.png) | ![supported](v.png) |
+| **Clock** | ![supported](v.png) | ![supported](v.png) |
+| **Ripple** | ![not supported](x.png) | ![supported](v.png) |
+| **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
+| **Glitter** | ![not supported](x.png) | ![supported](v.png) |
+| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
+| **Shred** | ![not supported](x.png) | ![supported](v.png) |
+| **Switch** | ![not supported](x.png) | ![supported](v.png) |
+| **Flip** | ![not supported](x.png) | ![supported](v.png) |
+| **Gallery** | ![not supported](x.png) | ![supported](v.png) |
+| **Cube** | ![not supported](x.png) | ![supported](v.png) |
+| **Doors** | ![not supported](x.png) | ![supported](v.png) |
+| **Box** | ![not supported](x.png) | ![supported](v.png) |
+| **Comb** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoom** | ![supported](v.png) | ![supported](v.png) |
+| **Random** | ![not supported](x.png) | ![supported](v.png) |
 
 **Dynamiczna zawartość**:
 
 | Typ animacji | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pan** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Ferris Wheel** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
-| **Conveyor** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Rotate** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Orbit** | ![nieobsługiwane](x.png) | ![obsługiwane](v.png) |
-| **Fly Through** | ![obsługiwane](v.png) | ![obsługiwane](v.png) |
+| **Pan** | ![not supported](x.png) | ![supported](v.png) |
+| **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
+| **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
+| **Rotate** | ![not supported](x.png) | ![supported](v.png) |
+| **Orbit** | ![not supported](x.png) | ![supported](v.png) |
+| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
 
-## **Najczęściej zadawane pytania**
+## **FAQ**
 
-**Czy możliwe jest konwertowanie prezentacji chronionych hasłem?**
+### Czy można konwertować prezentacje zabezpieczone hasłem?
 
-Tak, Aspose.Slides for .NET umożliwia pracę z prezentacjami zabezpieczonymi hasłem. Podczas przetwarzania takich plików należy podać prawidłowe hasło, aby biblioteka mogła uzyskać dostęp do zawartości prezentacji.
+Tak, Aspose.Slides for .NET umożliwia pracę z prezentacjami zabezpieczonymi hasłem. Podczas przetwarzania takich plików należy podać właściwe hasło, aby biblioteka mogła uzyskać dostęp do zawartości prezentacji.
 
-**Czy Aspose.Slides for .NET wspiera użycie w rozwiązaniach chmurowych?**
+### Czy Aspose.Slides for .NET obsługuje użycie w rozwiązaniach chmurowych?
 
 Tak, Aspose.Slides for .NET może być zintegrowany z aplikacjami i usługami w chmurze. Biblioteka jest zaprojektowana do pracy w środowiskach serwerowych, zapewniając wysoką wydajność i skalowalność przy przetwarzaniu wsadowym plików.
 
-**Czy istnieją ograniczenia rozmiaru prezentacji podczas konwersji?**
+### Czy istnieją ograniczenia rozmiaru prezentacji podczas konwersji?
 
-Aspose.Slides for .NET jest w stanie obsłużyć prezentacje praktycznie każdego rozmiaru. Jednak przy pracy z bardzo dużymi plikami mogą być wymagane dodatkowe zasoby systemowe i czasami zaleca się optymalizację prezentacji w celu poprawy wydajności.
+Aspose.Slides for .NET jest w stanie obsłużyć prezentacje praktycznie dowolnego rozmiaru. Jednak przy pracy z bardzo dużymi plikami mogą być wymagane dodatkowe zasoby systemowe i często zaleca się optymalizację prezentacji w celu poprawy wydajności.

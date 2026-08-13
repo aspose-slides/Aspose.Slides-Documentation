@@ -1,11 +1,11 @@
 ---
-title: Çalışma Sayfası Yeniden Boyutlandırması İçin Çalışan Çözüm
+title: Çalışma Sayfası Yeniden Boyutlandırma İçin Çözüm
 type: docs
 weight: 40
 url: /tr/net/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
-- ön izleme resmi
+- önizleme görseli
 - görsel yeniden boyutlandırma
 - Excel
 - çalışma sayfası
@@ -14,36 +14,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Sunumlardaki Excel çalışma sayfası OLE yeniden boyutlandırmasını düzeltin: nesne çerçevelerini tutarlı tutmanın iki yolu—çerçeveyi ya da sayfayı ölçeklendirin—PPT ve PPTX formatları boyunca."
+description: "Sunumlarda Excel çalışma sayfası OLE yeniden boyutlandırmasını düzeltin: nesne çerçevelerini tutarlı tutmanın iki yolu—çerçeveyi veya sayfayı ölçeklendirin—PPT ve PPTX formatları boyunca."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose bileşenleri aracılığıyla bir PowerPoint sunumuna OLE nesnesi olarak gömülen Excel çalışma sayfalarının, ilk etkinleştirmenin ardından tanımlanamayan bir ölçeğe yeniden boyutlandırıldığını gözlemledik. Bu davranış, OLE nesnesinin etkinleştirme öncesi ve sonrası durumları arasında sunumda belirgin bir görsel fark yaratmaktadır. Bu sorunu ayrıntılı olarak inceledik ve bu makalede ele alınan bir çözüm sunduk.
+Excel çalışma sayfalarının Aspose bileşenleri aracılığıyla bir PowerPoint sunumuna OLE nesnesi olarak yerleştirildiğinde, ilk etkinleştirmeden sonra tanımlanamayan bir ölçeğe yeniden boyutlandırıldığı gözlemlenmiştir. Bu davranış, OLE nesnesinin etkinleştirme öncesi ve sonrası durumları arasında sunumda belirgin bir görsel fark yaratır. Bu sorunu ayrıntılı olarak inceledik ve bu makalede ele alınan bir çözüm sağladık.
 
 {{% /alert %}} 
 
 ## **Arka Plan**
 
-Makale [OLE Yönetimi](/slides/tr/net/manage-ole/) adresinde, Aspose.Slides for .NET kullanarak bir PowerPoint sunumuna OLE çerçevesi eklemenin nasıl yapılacağını açıkladık. [nesne önizleme sorunu](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/) sorununu gidermek için, seçilen çalışma sayfası alanının bir görüntüsünü OLE nesne çerçevesine atadık. Çıktı sunumunda, çalışma sayfası görüntüsünü gösteren OLE nesne çerçevesine çift tıkladığınızda Excel çalışma kitabı etkinleştirilir. Son kullanıcılar gerçek Excel çalışma kitabında istedikleri değişiklikleri yaptıktan sonra etkinleştirilmiş Excel çalışma kitabının dışına tıklayarak slayta geri dönebilir. Kullanıcı slayta döndüğünde OLE nesne çerçevesinin boyutu değişir. Yeniden boyutlandırma faktörü, OLE nesne çerçevesinin ve gömülü Excel çalışma kitabının boyutuna bağlı olarak değişir. 
+Makale [Manage OLE](/slides/tr/net/manage-ole/) içinde, Aspose.Slides for .NET kullanarak bir PowerPoint sunumuna OLE çerçevesi eklemenin nasıl yapılacağını açıkladık. [object preview issue](/slides/tr/net/object-preview-issue-when-adding-oleobjectframe/) sorununu ele almak için, seçilen çalışma sayfası alanının bir görüntüsünü OLE nesne çerçevesine atadık. Çıktı sunumunda, çalışma sayfası görüntüsünü gösteren OLE nesne çerçevesine çift tıkladığınızda Excel çalışma kitabı etkinleştirilir. Son kullanıcılar gerçek Excel çalışma kitabında istedikleri değişiklikleri yapabilir ve ardından etkinleştirilen Excel çalışma kitabının dışına tıklayarak slayta dönebilirler. Kullanıcı slayta döndüğünde OLE nesne çerçevesinin boyutu değişecektir. Yeniden boyutlandırma faktörü, OLE nesne çerçevesinin ve gömülü Excel çalışma kitabının boyutuna bağlı olarak değişir.
 
 ## **Yeniden Boyutlandırmanın Nedeni**
 
-Excel çalışma kitabının kendi pencere boyutu olduğundan, ilk etkinleştirmede orijinal boyutunu korumaya çalışır. Öte yandan OLE nesne çerçevesinin kendi boyutu vardır. Microsoft’a göre, Excel çalışma kitabı etkinleştirildiğinde, Excel ve PowerPoint gömme işlemi sırasında doğru oranları korumak için boyutu müzakere eder. Yeniden boyutlandırma, Excel pencere boyutu ile OLE nesne çerçevesinin boyutu ve konumu arasındaki farklara dayanarak gerçekleşir.
+Excel çalışma kitabının kendi pencere boyutu olduğundan, ilk etkinleştirmede orijinal boyutunu korumaya çalışır. Öte yandan, OLE nesne çerçevesinin kendi boyutu vardır. Microsoft'a göre, Excel çalışma kitabı etkinleştirildiğinde, Excel ve PowerPoint gömme sürecinin bir parçası olarak doğru oranları korumasını sağlamak için boyut üzerinde anlaşır. Yeniden boyutlandırma, Excel pencere boyutu ile OLE nesne çerçevesinin boyutu ve konumu arasındaki farklara dayanarak gerçekleşir.
 
 ## **Çözüm**
 
 Yeniden boyutlandırma etkisini önlemek için iki olası çözüm vardır.
 
-- PowerPoint sunumundaki OLE çerçeve boyutunu, OLE çerçevesindeki istenen satır ve sütun sayısının yüksekliği ve genişliğiyle eşleşecek şekilde ölçeklendirin.  
-- OLE çerçeve boyutunu sabit tutun ve katılan satır ve sütun boyutlarını seçili OLE çerçeve boyutuna sığacak şekilde ölçeklendirin.  
+- OLE çerçevesinin yüksekliğini ve genişliğini, OLE çerçevesinde istenen satır ve sütun sayısına eşit olacak şekilde PowerPoint sunumunda ölçeklendirin.
+- OLE çerçevesi boyutunu sabit tutun ve katılan satır ve sütunların boyutunu seçilen OLE çerçevesine sığacak şekilde ölçeklendirin.
 
-### **OLE Çerçevesi Boyutunu Ölçeklendirme**
+### **OLE Çerçeve Boyutunu Ölçeklendirme**
 
-Bu yöntemde, gömülü Excel çalışma kitabının OLE çerçevesi boyutunu, çalışma sayfasındaki katılan satır ve sütunların toplam boyutuna eşitleştirmeyi öğreneceğiz.
+Bu yaklaşımda, gömülü Excel çalışma kitabının OLE çerçeve boyutunu, Excel çalışma sayfasındaki katılan satır ve sütunların toplam boyutuna eşit olarak ayarlamayı öğreneceğiz.
 
-Şablon bir Excel sayfamız olduğunu ve bunu bir OLE çerçevesi olarak sunuma eklemek istediğimizi varsayalım. Bu senaryoda, OLE nesne çerçevesinin boyutu önce çalışma kitabındaki katılan satırların yüksekliği ve sütunların genişliğinin toplamına göre hesaplanacaktır. Ardından, OLE çerçevesinin boyutunu bu hesaplanan değere ayarlayacağız. PowerPoint’te OLE çerçevesi için kırmızı “EMBEDDED OLE OBJECT” mesajının oluşmasını önlemek amacıyla, çalışma kitabındaki istenen satır ve sütun bölümlerinin bir görüntüsünü yakalayıp OLE çerçevesi resmi olarak ayarlayacağız.
+Bir şablon Excel sayfamız olduğunu ve bunu bir OLE çerçevesi olarak sunuma eklemek istediğimizi varsayalım. Bu senaryoda, OLE nesne çerçevesinin boyutu, çalışma kitabındaki katılan satırların toplam yükseklikleri ve sütunların toplam genişlikleri temel alınarak önce hesaplanacaktır. Ardından, OLE çerçevesinin boyutunu bu hesaplanan değere ayarlayacağız. PowerPoint'teki OLE çerçevesi için kırmızı "EMBEDDED OLE OBJECT" mesajını önlemek amacıyla, çalışma kitabındaki istenen satır ve sütun bölümlerinin bir görüntüsünü yakalayıp OLE çerçeve resmi olarak ayarlayacağız.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +58,7 @@ int imageResolution = 96;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// Çalışma kitabı dosyası PowerPoint'te OLE nesnesi olarak kullanıldığında gösterilen boyutu ayarla.
+// Çalışma kitabı dosyası PowerPoint'te OLE nesnesi olarak kullanıldığında görüntülenen boyutu ayarlayın.
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,7 +66,7 @@ workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 var imageStream = CreateOleImage(cellRange, imageResolution);
 
-// OLE görüntüsünün genişliğini ve yüksekliğini nokta cinsinden al.
+// OLE görüntüsünün genişliğini ve yüksekliğini puan cinsinden alın.
 using var image = Image.FromStream(imageStream);
 var imageWidth = image.Width * 72 / imageResolution;
 var imageHeight = image.Height * 72 / imageResolution;
@@ -73,11 +78,11 @@ workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 using var presentation = new Presentation();
 var slide = presentation.Slides.First();
 
-// OLE görüntüsünü sunum kaynaklarına ekle.
+// OLE görüntüsünü sunum kaynaklarına ekleyin.
 imageStream.Seek(0, SeekOrigin.Begin);
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// OLE nesne çerçevesini oluştur.
+// OLE nesne çerçevesini oluşturun.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -118,11 +123,15 @@ static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolu
 
 ### **Hücre Aralığı Boyutunu Ölçeklendirme**
 
-Bu yöntemde, katılan satırların yüksekliğini ve katılan sütunların genişliğini, özel bir OLE çerçevesi boyutuna uyduracak şekilde ölçeklendirmeyi öğreneceğiz.
+Bu yaklaşımda, katılan satırların yüksekliğini ve katılan sütunların genişliğini, özel bir OLE çerçeve boyutuna uyması için nasıl ölçeklendireceğimizi öğreneceğiz.
 
-Şablon bir Excel sayfamız olduğunu ve bunu bir OLE çerçevesi olarak sunuma eklemek istediğimizi varsayalım. Bu senaryoda, OLE çerçevesi boyutunu ayarlayacak ve OLE çerçevesi alanına katılan satır ve sütunların boyutunu ölçeklendireceğiz. Ardından, değişiklikleri uygulamak için çalışma kitabını bir akışa kaydedip OLE çerçevesine eklemek üzere bayt dizisine dönüştüreceğiz. PowerPoint’te OLE çerçevesi için kırmızı “EMBEDDED OLE OBJECT” mesajının oluşmasını önlemek amacıyla, çalışma kitabındaki istenen satır ve sütun bölümlerinin bir görüntüsünü yakalayıp OLE çerçevesi resmi olarak ayarlayacağız.
+Bir şablon Excel sayfamız olduğunu ve bunu bir OLE çerçevesi olarak sunuma eklemek istediğimizi varsayalım. Bu senaryoda, OLE çerçevesinin boyutunu ayarlayacak ve OLE çerçeve alanına katılan satır ve sütunların boyutlarını ölçeklendireceğiz. Ardından, değişiklikleri uygulamak için çalışma kitabını bir akışa kaydedip OLE çerçevesine eklemek üzere bayt dizisine dönüştüreceğiz. PowerPoint'teki OLE çerçevesi için kırmızı "EMBEDDED OLE OBJECT" mesajını önlemek amacıyla, çalışma kitabındaki istenen satır ve sütun bölümlerinin bir görüntüsünü yakalayıp OLE çerçeve resmi olarak ayarlayacağız.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -133,12 +142,12 @@ float frameWidth = 400, frameHeight = 100;
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
-// Çalışma kitabı dosyası PowerPoint'te OLE nesnesi olarak kullanıldığında gösterilen boyutu ayarla.
+// Çalışma kitabı dosyası PowerPoint'te OLE nesnesi olarak kullanıldığında görüntülenen boyutu ayarlayın.
 var lastRow = startRow + rowCount - 1;
 var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Hücre aralığını çerçeve boyutuna sığacak şekilde ölçeklendir.
+// Hücre aralığını çerçeve boyutuna uyması için ölçeklendirin.
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -151,10 +160,10 @@ workbook.Save(oleStream, Aspose.Cells.SaveFormat.Xlsx);
 using var presentation = new Presentation();
 var slide = presentation.Slides.First();
 
-// OLE görüntüsünü sunum kaynaklarına ekle.
+// OLE görüntüsünü sunum kaynaklarına ekleyin.
 var oleImage = presentation.Images.AddImage(imageStream);
 
-// OLE nesne çerçevesini oluştur.
+// Create the OLE object frame.
 var dataInfo = new OleEmbeddedDataInfo(oleStream.ToArray(), "xlsx");
 var oleFrame = slide.Shapes.AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
@@ -164,8 +173,8 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 ```cs
-/// <param name="width">Hücre aralığının nokta cinsinden beklenen genişliği.</param>
-/// <param name="height">Hücre aralığının nokta cinsinden beklenen yüksekliği.</param>
+/// <param name="width">Hücre aralığının puan cinsinden beklenen genişliği.</param>
+/// <param name="height">Hücre aralığının puan cinsinden beklenen yüksekliği.</param>
 static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float height)
 {
     var rangeWidth = cellRange.Width;
@@ -225,34 +234,34 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 
 ## **Sonuç**
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Çalışma sayfası yeniden boyutlandırma sorununu gidermek için iki yaklaşım vardır. Uygun yaklaşımın seçimi, belirli gereksinimler ve kullanım senaryosuna bağlıdır. Her iki yaklaşım da, sunumlar bir şablondan ya da sıfırdan oluşturulmuş olsun aynı şekilde çalışır. Ayrıca bu çözümde OLE nesne çerçevesinin boyutu için bir sınırlama yoktur.
+Çalışma sayfası yeniden boyutlandırma sorununu çözmek için iki yaklaşım vardır. Uygun yaklaşımın seçimi, belirli gereksinimlere ve kullanım senaryosuna bağlıdır. Her iki yaklaşım da aynı şekilde çalışır; sunumlar bir şablondan ya da sıfırdan oluşturulmuş olsun fark etmez. Ayrıca, bu çözümde OLE nesne çerçevesinin boyutu için bir limit yoktur.
 
 {{% /alert %}}
 
 ## **SSS**
 
-**Bir gömülü Excel çalışma sayfası PowerPoint’te ilk etkinleştirildiğinde neden boyutu değişir?**  
-Bu, Excel’in etkinleştirildiğinde orijinal pencere boyutunu korumaya çalışması, PowerPoint’teki OLE nesne çerçevesinin ise kendi boyutlarına sahip olması nedeniyle olur. PowerPoint ve Excel, en-boy oranını korumak için boyutu müzakere eder ve bu da yeniden boyutlandırmaya yol açabilir.
+### Yerleştirilen bir Excel çalışma sayfası PowerPoint'te ilk etkinleştirildiğinde neden boyut değiştirir?
+Bu, Excel'in etkinleştirildiğinde orijinal pencere boyutunu korumaya çalışması, PowerPoint'teki OLE nesne çerçevesinin ise kendi boyutlarına sahip olması nedeniyle olur. PowerPoint ve Excel, en‑boy oranını korumak için boyut üzerinde anlaşma yapar; bu da yeniden boyutlandırmaya yol açabilir.
 
-**Bu yeniden boyutlandırma sorunu tamamen önlenebilir mi?**  
-Evet. OLE çerçevesini Excel hücre aralığı boyutuna sığacak şekilde ölçeklendirerek ya da hücre aralığını istenen OLE çerçeve boyutuna uydurarak istenmeyen yeniden boyutlandırmayı önleyebilirsiniz.
+### Bu yeniden boyutlandırma sorununu tamamen önlemek mümkün mü?
+Evet. OLE çerçevesini Excel hücre aralığı boyutuna uyduracak şekilde ölçeklendirerek veya hücre aralığını istenen OLE çerçeve boyutuna uyduracak şekilde ölçeklendirerek istenmeyen yeniden boyutlandırmayı önleyebilirsiniz.
 
-**Hangi ölçeklendirme yöntemini kullanmalıyım, OLE çerçeve ölçeklendirme mi yoksa hücre aralığı ölçeklendirme mi?**  
-Orijinal Excel satır ve sütun boyutlarını korumak istiyorsanız **OLE çerçeve ölçeklendirme** seçin. Sunumunuzda OLE çerçevesi için sabit bir boyut istiyorsanız **hücre aralığı ölçeklendirme** seçin.
+### Hangi ölçekleme yöntemini kullanmalıyım, OLE çerçeve ölçeklendirme mi yoksa hücre aralığı ölçeklendirme mi?
+**OLE çerçeve ölçeklendirmesini** seçin eğer orijinal Excel satır ve sütun boyutlarını korumak istiyorsanız. **Hücre aralığı ölçeklendirmesini** seçin eğer sunumunuzda OLE çerçevesi için sabit bir boyut isterseniz.
 
-**Bu çözümler, sunumum bir şablona dayanıyorsa da çalışır mı?**  
-Evet. Her iki çözüm de şablondan oluşturulan ya da sıfırdan oluşturulan sunumlarda çalışır.
+### Sunumum bir şablona dayalıysa bu çözümler çalışır mı?
+Evet. Her iki çözüm de şablondan oluşturulan ve sıfırdan oluşturulan sunumlarda çalışır.
 
-**Bu yöntemleri kullanırken OLE çerçevesinin boyutu için bir sınırlama var mı?**  
-Hayır. Ölçeği uygun şekilde ayarladığınız sürece OLE nesne çerçevesini istediğiniz büyüklükte yapabilirsiniz.
+### Bu yöntemleri kullanırken OLE çerçevesinin boyutu için bir limit var mı?
+Hayır. Ölçeği uygun şekilde ayarladığınız sürece OLE nesne çerçevesini istediğiniz boyutta yapabilirsiniz.
 
-**PowerPoint’te “EMBEDDED OLE OBJECT” yer tutucu metninden nasıl kaçınılır?**  
-Evet. Hedef Excel hücre aralığının bir fotoğrafını alıp bunu OLE çerçevesinin yer tutucu resmi olarak ayarladığınızda, varsayılan yer tutucu yerine özel bir ön izleme resmi görüntülenir.
+### PowerPoint'te "EMBEDDED OLE OBJECT" yer tutucu metninden kaçınmanın bir yolu var mı?
+Evet. Hedef Excel hücre aralığının bir fotoğrafını alıp bunu OLE çerçevesinin yer tutucu resmi olarak ayarlayarak varsayılan yer tutucu yerine özel bir ön izleme görüntüsü gösterebilirsiniz.
 
 ## **İlgili Makaleler**
 
-[Excel Grafik Oluşturma ve Sunuma OLE Nesnesi Olarak Gömme](/slides/tr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Excel Grafiği Oluşturma ve Sunumda OLE Nesnesi Olarak Yerleştirme](/slides/tr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
 [MS PowerPoint Eklentisi Kullanarak OLE Nesnelerini Otomatik Güncelleme](/slides/tr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

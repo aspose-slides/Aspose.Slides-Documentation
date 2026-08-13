@@ -1,6 +1,6 @@
 ---
-title: "Menerapkan Animasi Shape dalam Presentasi Menggunakan C++"
-linktitle: "Animasi Shape"
+title: Menerapkan Animasi Bentuk dalam Presentasi Menggunakan C++
+linktitle: Animasi Bentuk
 type: docs
 weight: 60
 url: /id/cpp/shape-animation/
@@ -8,46 +8,46 @@ keywords:
 - bentuk
 - animasi
 - efek
-- bentuk beranimasi
-- teks beranimasi
-- menambahkan animasi
-- mendapatkan animasi
-- mengekstrak animasi
-- menambahkan efek
-- mendapatkan efek
-- mengekstrak efek
+- bentuk animasi
+- teks animasi
+- tambahkan animasi
+- dapatkan animasi
+- ekstrak animasi
+- tambahkan efek
+- dapatkan efek
+- ekstrak efek
 - suara efek
-- menerapkan animasi
+- terapkan animasi
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Temukan cara membuat dan menyesuaikan animasi shape dalam presentasi PowerPoint dengan Aspose.Slides untuk C++. Menonjol!"
+description: "Temukan cara membuat dan menyesuaikan animasi bentuk dalam presentasi PowerPoint dengan Aspose.Slides untuk C++. Tampil menonjol!"
 ---
 ## **Pendahuluan**
 
-Animasi adalah efek visual yang dapat diterapkan pada teks, gambar, bentuk, atau [diagram](/slides/id/cpp/animated-charts/). Mereka memberikan kehidupan pada presentasi atau komponennya. 
+Animasi adalah efek visual yang dapat diterapkan pada teks, gambar, bentuk, atau [grafik](/slides/id/cpp/animated-charts/). Animasi memberikan kehidupan pada presentasi atau komponennya. 
 
 ## **Mengapa Menggunakan Animasi dalam Presentasi?**
 
 Dengan menggunakan animasi, Anda dapat 
 
-* mengendalikan alur informasi
+* mengontrol alur informasi
 * menekankan poin penting
 * meningkatkan minat atau partisipasi audiens Anda
 * membuat konten lebih mudah dibaca, dipahami, atau diproses
-* menarik perhatian pembaca atau penonton Anda ke bagian penting dalam presentasi
+* menarik perhatian pembaca atau penonton ke bagian penting dalam presentasi
 
-PowerPoint menyediakan banyak pilihan dan alat untuk animasi serta efek animasi pada kategori **entrance**, **exit**, **emphasis**, dan **motion paths**. 
+PowerPoint menyediakan banyak opsi dan alat untuk animasi serta efek animasi dalam kategori **entrance**, **exit**, **emphasis**, dan **motion paths**. 
 
-## **Animasi di Aspose.Slides**
+## **Animasi dalam Aspose.Slides**
 
-* Aspose.Slides menyediakan kelas dan tipe yang Anda butuhkan untuk bekerja dengan animasi di dalam namespace [Aspose.Slides.Animation](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation).
-* Aspose.Slides menyediakan lebih dari **150 efek animasi** di dalam enumerasi [EffectType](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31). Efek-efek ini pada dasarnya sama (atau setara) dengan efek yang digunakan di PowerPoint.
+* Aspose.Slides menyediakan kelas dan tipe yang Anda perlukan untuk bekerja dengan animasi di namespace [Aspose.Slides.Animation](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation),
+* Aspose.Slides menyediakan lebih dari **150 efek animasi** dalam enumerasi [EffectType](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31). Efek-efek ini pada dasarnya sama (atau setara) dengan efek yang digunakan di PowerPoint.
 
 ## **Menerapkan Animasi ke TextBox**
 
-Aspose.Slides untuk C++ memungkinkan Anda menerapkan animasi ke teks dalam sebuah bentuk. 
+Aspose.Slides untuk C++ memungkinkan Anda menerapkan animasi pada teks dalam sebuah bentuk. 
 
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation/).
 2. Dapatkan referensi slide melalui indeksnya.
@@ -55,12 +55,30 @@ Aspose.Slides untuk C++ memungkinkan Anda menerapkan animasi ke teks dalam sebua
 4. Tambahkan teks ke [IAutoShape.TextFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3).
 5. Dapatkan urutan utama efek.
 6. Tambahkan efek animasi ke [IAutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape). 
-7. Setel properti [TextAnimation.BuildType](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) ke nilai dari [BuildType Enumeration](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
-8. Tuliskan presentasi ke disk sebagai file PPTX.
-
-Kode C++ berikut menunjukkan cara menerapkan efek `Fade` ke AutoShape dan mengatur animasi teks ke nilai *By 1st Level Paragraphs*:
+7. Set properti [TextAnimation.BuildType](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) ke nilai dari [BuildType Enumeration](https://reference.aspose.com/slides/id/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
+8. Tulis presentasi ke disk sebagai file PPTX.
 
 ```c++
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Membuat instance kelas presentasi yang mewakili file presentasi.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
@@ -80,16 +98,16 @@ System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
 System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
     Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
 
-// Menganimasikan teks shape per paragraf tingkat pertama
+// Menganimasi teks shape berdasarkan paragraf tingkat pertama
 effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
 
 // Menyimpan file PPTX ke disk
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
-Selain menerapkan animasi pada teks, Anda juga dapat menerapkan animasi pada satu [Paragraf](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_paragraph). Lihat [**Teks Beranimasi**](/slides/id/cpp/animated-text/).
+Selain menerapkan animasi ke teks, Anda juga dapat menerapkan animasi ke satu [Paragraph](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_paragraph). Lihat [**Animated Text**](/slides/id/cpp/animated-text/).
 
 {{% /alert %}} 
 
@@ -100,15 +118,34 @@ Selain menerapkan animasi pada teks, Anda juga dapat menerapkan animasi pada sat
 3. Tambahkan atau dapatkan sebuah [PictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_picture_frame) pada slide. 
 4. Dapatkan urutan utama efek.
 5. Tambahkan efek animasi ke [PictureFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_picture_frame).
-6. Tuliskan presentasi ke disk sebagai file PPTX.
-
-Kode C++ berikut menunjukkan cara menerapkan efek `Fly` ke sebuah picture frame:
+6. Tulis presentasi ke disk sebagai file PPTX.
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Membuat instance kelas presentasi yang mewakili file presentasi.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
-// Memuat gambar yang akan ditambahkan ke koleksi gambar presentasi
+// Muat gambar yang akan ditambahkan ke koleksi gambar presentasi
 System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
 System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
 
@@ -124,7 +161,7 @@ System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides
     Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
 
 // Menyimpan file PPTX ke disk
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+pres->Save(u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ## **Menerapkan Animasi ke Shape**
@@ -132,15 +169,40 @@ pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Ppt
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation/).
 2. Dapatkan referensi slide melalui indeksnya.
 3. Tambahkan sebuah `rectangle` [IAutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape). 
-4. Tambahkan sebuah `Bevel` [IAutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape) (ketika objek ini diklik, animasi diputar).
-5. Buat urutan efek pada shape bevel.
-6. Buat sebuah `UserPath` kustom.
+4. Tambahkan sebuah `Bevel` [IAutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape) (ketika objek ini diklik, animasi akan diputar).
+5. Buat urutan efek pada bentuk bevel.
+6. Buat `UserPath` khusus.
 7. Tambahkan perintah untuk bergerak ke `UserPath`.
-8. Tuliskan presentasi ke disk sebagai file PPTX.
-
-Kode C++ berikut menunjukkan cara menerapkan efek `PathFootball` (path football) ke sebuah shape:
+8. Tulis presentasi ke disk sebagai file PPTX.
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IBehaviorCollection.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/IMotionPath.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/MotionCommandPathType.h>
+#include <DOM/Animation/MotionEffect.h>
+#include <DOM/Animation/MotionPathPointsType.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 	// Jalur ke direktori dokumen.
 	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
 	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
@@ -169,7 +231,7 @@ Kode C++ berikut menunjukkan cara menerapkan efek `PathFootball` (path football)
 	// Membuat urutan efek untuk tombol ini.
 	SharedPtr<ISequence> seqInter = slide->get_Timeline()->get_InteractiveSequences()->Add(shapeTrigger);
 	
-	 // Membuat jalur pengguna kustom. Objek kami akan bergerak hanya setelah tombol diklik.
+	 // Membuat jalur pengguna khusus. Objek kami akan dipindahkan hanya setelah tombol diklik.
 	SharedPtr<IEffect> fxUserPath = seqInter->AddEffect(ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
 
 	// Menambahkan perintah untuk bergerak karena jalur yang dibuat kosong.
@@ -196,11 +258,22 @@ Kode C++ berikut menunjukkan cara menerapkan efek `PathFootball` (path football)
 
 Contoh berikut menunjukkan cara menggunakan metode `GetEffectsByShape` dari antarmuka [ISequence](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/isequence/) untuk mendapatkan semua efek animasi yang diterapkan pada sebuah shape.
 
-**Contoh 1: Dapatkan efek animasi yang diterapkan pada shape pada slide normal**
+**Contoh 1: Mendapatkan efek animasi yang diterapkan pada shape di slide normal**
 
-Sebelumnya, Anda telah mempelajari cara menambahkan efek animasi ke shape dalam presentasi PowerPoint. Kode contoh berikut menunjukkan cara mendapatkan efek yang diterapkan pada shape pertama pada slide normal pertama dalam presentasi `AnimExample_out.pptx`.
+Sebelumnya, Anda telah mempelajari cara menambahkan efek animasi ke shape dalam presentasi PowerPoint. Kode contoh berikut menunjukkan cara mendapatkan efek yang diterapkan pada shape pertama di slide normal pertama dalam presentasi `AnimExample_out.pptx`.
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
 
 SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
@@ -222,34 +295,64 @@ if (shapeEffects->get_Length() > 0)
 presentation->Dispose();
 ```
 
-**Contoh 2: Dapatkan semua efek animasi, termasuk yang diwarisi dari placeholder**
+**Contoh 2: Mendapatkan semua efek animasi, termasuk yang diwarisi dari placeholder**
 
-Jika sebuah shape pada slide normal memiliki placeholder yang berada pada slide tata letak dan/atau master, dan efek animasi telah ditambahkan ke placeholder tersebut, maka semua efek shape akan diputar selama pertunjukan slide, termasuk yang diwarisi dari placeholder.
+Jika sebuah shape pada slide normal memiliki placeholder yang berada pada layout slide dan/atau master slide, dan efek animasi telah ditambahkan ke placeholder tersebut, maka semua efek pada shape akan diputar selama pertunjukan slide, termasuk yang diwarisi dari placeholder.
 
 Misalkan kita memiliki file presentasi PowerPoint `sample.pptx` dengan satu slide yang hanya berisi shape footer dengan teks "Made with Aspose.Slides" dan efek **Random Bars** diterapkan pada shape tersebut.
 
 ![Efek animasi shape slide](slide-shape-animation.png)
 
-Misalkan juga efek **Split** diterapkan pada placeholder footer pada slide **layout**.
+Misalkan juga efek **Split** diterapkan pada placeholder footer di slide **layout**.
 
-![Efek animasi shape tata letak](layout-shape-animation.png)
+![Efek animasi shape layout](layout-shape-animation.png)
 
-Dan akhirnya, efek **Fly In** diterapkan pada placeholder footer pada slide **master**.
+Dan akhirnya, efek **Fly In** diterapkan pada placeholder footer di slide **master**.
 
 ![Efek animasi shape master](master-shape-animation.png)
 
-Kode contoh berikut menunjukkan cara menggunakan metode `GetBasePlaceholder` dari antarmuka [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides.ishape/) untuk mengakses placeholder shape dan mendapatkan efek animasi yang diterapkan pada shape footer, termasuk yang diwarisi dari placeholder yang berada pada slide tata letak dan master.
+Kode contoh berikut menunjukkan cara menggunakan metode `GetBasePlaceholder` dari antarmuka [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) untuk mengakses placeholder shape dan mendapatkan efek animasi yang diterapkan pada shape footer, termasuk yang diwarisi dari placeholder pada layout dan master slide.
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/IEffect.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
 {
     for (SharedPtr<IEffect> effect : effects)
     {
         Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
     }
-}
+};
 ```
 ```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto PrintEffects = [](ArrayPtr<SharedPtr<IEffect>> effects)
+{
+    for (SharedPtr<IEffect> effect : effects)
+    {
+        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+    }
+};
+
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
 
 SharedPtr<ISlide> slide = presentation->get_Slide(0);
@@ -258,7 +361,7 @@ SharedPtr<ISlide> slide = presentation->get_Slide(0);
 SharedPtr<IShape> shape = slide->get_Shape(0);
 ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
 
-// Dapatkan efek animasi dari placeholder pada slide layout.
+// Dapatkan efek animasi dari placeholder pada slide tata letak.
 SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
 ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
 
@@ -279,32 +382,43 @@ Output:
 Main sequence of shape effects:
 Type: 47, subtype: 2              // Terbang, Bawah
 Type: 134, subtype: 45            // Pisah, VertikalMasuk
-Type: 126, subtype: 22            // Bar Acak, Horizontal
+Type: 126, subtype: 22            // BilahAcak, Horizontal
 ```
 
-## **Mengubah Properti Timing Efek Animasi**
+## **Ubah Properti Waktu Efek Animasi**
 
 Aspose.Slides untuk C++ memungkinkan Anda mengubah properti Timing dari sebuah efek animasi.
 
 Ini adalah panel Animation Timing di Microsoft PowerPoint:
 
-![Panel Timing Animasi](shape-animation.png)
+![example1_image](shape-animation.png)
 
 Berikut adalah korespondensi antara PowerPoint Timing dan properti [Effect.Timing](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c):
 
-- Daftar drop-down **Start** pada PowerPoint Timing sesuai dengan properti [Effect.Timing.TriggerType](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3). 
-- PowerPoint Timing **Duration** sesuai dengan properti [Effect.Timing.Duration](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). Durasi sebuah animasi (dalam detik) adalah total waktu yang diperlukan animasi untuk menyelesaikan satu siklus. 
-- PowerPoint Timing **Delay** sesuai dengan properti [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b). 
+- Daftar drop-down PowerPoint Timing **Start** cocok dengan properti [Effect.Timing.TriggerType](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3). 
+- PowerPoint Timing **Duration** cocok dengan properti [Effect.Timing.Duration](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). Durasi sebuah animasi (dalam detik) adalah total waktu yang dibutuhkan animasi untuk menyelesaikan satu siklus. 
+- PowerPoint Timing **Delay** cocok dengan properti [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b). 
 
 Berikut cara mengubah properti Timing efek:
 
-1. [Terapkan](#apply-animation-to-shape) atau dapatkan efek animasi.
-2. Atur nilai baru untuk properti [Effect.Timing](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) yang Anda perlukan. 
+1. [Apply](#apply-animation-to-shape) atau dapatkan efek animasi.
+2. Setel nilai baru untuk properti [Effect.Timing](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) yang Anda butuhkan. 
 3. Simpan file PPTX yang telah dimodifikasi.
 
-Kode C++ berikut mendemonstrasikan operasi tersebut:
-
 ```c++
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Membuat instance kelas presentasi yang mewakili file presentasi.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
@@ -329,16 +443,28 @@ pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 ## **Suara Efek Animasi**
 
-Aspose.Slides menyediakan properti-properti ini untuk memungkinkan Anda bekerja dengan suara dalam efek animasi: 
+Aspose.Slides menyediakan properti-properti berikut untuk memungkinkan Anda bekerja dengan suara dalam efek animasi: 
 
 - [set_Sound()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/effect/set_sound/) 
 - [set_StopPreviousSound()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
 
 ### **Menambahkan Suara Efek Animasi**
 
-Kode C++ berikut menunjukkan cara menambahkan suara efek animasi dan menghentikannya ketika efek berikutnya dimulai:
-
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
 
 // Menambahkan audio ke koleksi audio presentasi
@@ -351,7 +477,7 @@ System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequ
 // Mendapatkan efek pertama dari urutan utama
 System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
 
-// Memeriksa efek untuk "Tanpa Suara"
+// Memeriksa efek untuk "No Sound"
 if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
 {
     // Menambahkan suara untuk efek pertama
@@ -361,10 +487,10 @@ if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr
 // Mendapatkan urutan interaktif pertama slide.
 System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
 
-// Mengatur flag efek "Hentikan suara sebelumnya"
+// Mengatur flag efek "Stop previous sound"
 interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
 
-// Menyimpan file PPTX ke disk
+// Menulis file PPTX ke disk
 pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
 ```
 
@@ -373,11 +499,18 @@ pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
 1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Dapatkan urutan utama efek. 
-4. Ekstrak [set_Sound()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/effect/set_sound/) yang tersemat pada setiap efek animasi. 
-
-Kode C++ berikut menunjukkan cara mengekstrak suara yang tersemat dalam sebuah efek animasi:
+4. Mengekstrak [set_Sound()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/effect/set_sound/) yang tersemat pada masing-masing efek animasi. 
 
 ```c++
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+
 // Membuat instance kelas presentasi yang mewakili file presentasi.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
 System::SharedPtr<ISlide> slide = pres->get_Slide(0);
@@ -400,22 +533,34 @@ for (auto&& effect : sequence)
 
 Aspose.Slides untuk C++ memungkinkan Anda mengubah properti After animation dari sebuah efek animasi.
 
-Ini adalah panel Animation Effect dan menu lanjutan di Microsoft PowerPoint:
+Ini adalah panel Effect dan menu ekstensi di Microsoft PowerPoint:
 
-![Panel Efek Animasi dan Menu Lanjutan](shape-after-animation.png)
+![example1_image](shape-after-animation.png)
 
-Daftar drop-down PowerPoint Effect **After animation** sesuai dengan properti berikut: 
+Daftar drop-down PowerPoint Effect **After animation** cocok dengan properti berikut: 
 
-- Properti [set_AfterAnimationType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) yang menjelaskan tipe After animation :
-  * PowerPoint **More Colors** cocok dengan tipe [AfterAnimationType.Color](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * PowerPoint **Don't Dim** cocok dengan tipe [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) (tipe after animation default);
-  * PowerPoint **Hide After Animation** cocok dengan tipe [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * PowerPoint **Hide on Next Mouse Click** cocok dengan tipe [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) ;
-- Properti [set_AfterAnimationColor()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) yang mendefinisikan format warna after animation. Properti ini bekerja bersama dengan tipe [AfterAnimationType.Color](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/). Jika Anda mengubah tipe ke yang lain, warna after animation akan dihapus.
-
-Kode C++ berikut menunjukkan cara mengubah efek after animation:
+- Properti [set_AfterAnimationType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) yang mendeskripsikan tipe After animation :
+  * Opsi PowerPoint **More Colors** cocok dengan tipe [AfterAnimationType.Color](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) ;
+  * Opsi PowerPoint **Don't Dim** cocok dengan tipe [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) (tipe after animation default);
+  * Opsi PowerPoint **Hide After Animation** cocok dengan tipe [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) ;
+  * Opsi PowerPoint **Hide on Next Mouse Click** cocok dengan tipe [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/) ;
+- Properti [set_AfterAnimationColor()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) yang mendefinisikan format warna after animation. Properti ini bekerja bersamaan dengan tipe [AfterAnimationType.Color](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/afteranimationtype/). Jika Anda mengubah tipe ke yang lain, warna after animation akan dibersihkan.
 
 ```c++
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Membuat instance kelas presentasi yang mewakili file presentasi
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
@@ -426,7 +571,7 @@ System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSeq
 // Mengubah tipe after animation menjadi Color
 firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
 
-// Mengatur warna after animation
+// Mengatur warna after animation dim
 firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
 
 // Menulis file PPTX ke disk
@@ -435,24 +580,36 @@ pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
 
 ## **Animasi Teks**
 
-Aspose.Slides menyediakan properti-properti ini untuk memungkinkan Anda bekerja dengan blok *Animate text* pada efek animasi: 
+Aspose.Slides menyediakan properti-properti berikut untuk memungkinkan Anda bekerja dengan blok *Animate text* pada sebuah efek animasi:
 
-- [set_AnimateTextType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) yang menjelaskan tipe animate text pada efek. Teks shape dapat dianimasikan:
+- [set_AnimateTextType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) yang mendeskripsikan tipe animate text dari efek. Teks shape dapat dianimasikan:
   - Semua sekaligus ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/animatetexttype/) tipe)
   - Per kata ([AnimateTextType.ByWord](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/animatetexttype/) tipe)
   - Per huruf ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/animatetexttype/) tipe)
-- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) mengatur jeda antara bagian teks yang dianimasikan (kata atau huruf). Nilai positif menentukan persentase durasi efek. Nilai negatif menentukan jeda dalam detik.
+- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) menetapkan jeda antara bagian teks yang dianimasikan (kata atau huruf). Nilai positif menentukan persentase durasi efek. Nilai negatif menentukan jeda dalam detik.
 
-Berikut cara mengubah properti Animate text pada efek:
+Berikut cara mengubah properti Animate text pada Effect:
 
-1. [Terapkan](#apply-animation-to-shape) atau dapatkan efek animasi.
-2. Setel properti [set_BuildType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation.itextanimation/set_buildtype/) ke nilai [BuildType.AsOneObject](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/buildtype/) untuk mematikan mode animasi *By Paragraphs*.
-3. Atur nilai baru untuk properti [set_AnimateTextType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) dan [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/).
+1. [Apply](#apply-animation-to-shape) atau dapatkan efek animasi.
+2. Set properti [set_BuildType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation.itextanimation/set_buildtype/) ke nilai [BuildType.AsOneObject](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/buildtype/) untuk mematikan mode animasi *By Paragraphs*.
+3. Setel nilai baru untuk properti [set_AnimateTextType()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) dan [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/id/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/).
 4. Simpan file PPTX yang telah dimodifikasi.
 
-Kode C++ berikut mendemonstrasikan operasi:
-
 ```c++
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 // Membuat instance kelas presentasi yang mewakili file presentasi.
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
 System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
@@ -463,10 +620,10 @@ System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSeq
 // Mengubah tipe animasi teks efek menjadi "As One Object"
 firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
 
-// Mengubah tipe animasi teks efek menjadi "By word"
+// Mengubah tipe Animate text efek menjadi "By word"
 firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
 
-// Mengatur jeda antar kata menjadi 20% dari durasi efek
+// Menetapkan jeda antar kata menjadi 20% dari durasi efek
 firstEffect->set_DelayBetweenTextParts(20.0f);
 
 // Menulis file PPTX ke disk
@@ -475,14 +632,14 @@ pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Bagaimana saya dapat memastikan animasi tetap terjaga saat mempublikasikan presentasi ke web?**
+### Bagaimana saya dapat memastikan animasi tetap terjaga saat mempublikasikan presentasi ke web?
 
-[Export to HTML5](/slides/id/cpp/export-to-html5/) dan aktifkan [options](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/html5options/) yang bertanggung jawab atas animasi [shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/html5options/set_animateshapes/) dan [transition](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/html5options/set_animatetransitions/). HTML biasa tidak memutar animasi slide, sementara HTML5 melakukannya.
+[Export to HTML5](/slides/id/cpp/export-to-html5/) dan aktifkan [options](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/html5options/) yang bertanggung jawab untuk animasi [shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/html5options/set_animateshapes/) dan [transition](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/html5options/set_animatetransitions/). HTML biasa tidak memutar animasi slide, sedangkan HTML5 melakukannya.
 
-**Bagaimana mengubah urutan z (urutan lapisan) shape memengaruhi animasi?**
+### Bagaimana perubahan urutan z (layer order) pada shape memengaruhi animasi?
 
-Animasi dan urutan menggambar bersifat independen: sebuah efek mengontrol timing dan tipe muncul/hilang, sementara [z-order](https://reference.aspose.com/slides/id/cpp/aspose.slides/shape/get_zorderposition/) menentukan apa yang menutupi apa. Hasil visual ditentukan oleh kombinasi keduanya. (Ini adalah perilaku umum PowerPoint; model efek-dan-shape Aspose.Slides mengikuti logika yang sama.)
+Urutan animasi dan urutan gambar bersifat independen: sebuah efek mengontrol timing dan tipe muncul/hilang, sementara [z-order](https://reference.aspose.com/slides/id/cpp/aspose.slides/shape/get_zorderposition/) menentukan apa yang menutupi apa. Hasil yang terlihat ditentukan oleh kombinasi keduanya. (Ini adalah perilaku umum PowerPoint; model efek-dan-shape Aspose.Slides mengikuti logika yang sama.)
 
-**Apakah ada batasan saat mengonversi animasi ke video untuk efek tertentu?**
+### Apakah ada keterbatasan saat mengkonversi animasi ke video untuk efek tertentu?
 
-Secara umum, [animasi didukung](/slides/id/cpp/convert-powerpoint-to-video/), namun kasus yang jarang atau efek spesifik mungkin dirender secara berbeda. Disarankan untuk menguji dengan efek yang Anda gunakan dan dengan versi perpustakaan yang bersangkutan.
+Secara umum, [animasi didukung](/slides/id/cpp/convert-powerpoint-to-video/), namun kasus langka atau efek spesifik mungkin dirender secara berbeda. Disarankan untuk menguji dengan efek yang Anda gunakan dan dengan versi perpustakaan yang bersangkutan.

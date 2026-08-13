@@ -1,11 +1,11 @@
 ---
-title: الترخيص القائم على القياس
+title: ترخيص الاستهلاك
 type: docs
 weight: 100
 url: /ar/java/metered-licensing/
 keywords:
-- ترخيص
-- ترخيص قائم على القياس
+- رخصة
+- رخصة استهلاك
 - مفاتيح الترخيص
 - المفتاح العام
 - المفتاح الخاص
@@ -15,47 +15,48 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعرف على كيفية تمكين الترخيص القائم على القياس في Aspose.Slides for Java من معالجة ملفات PowerPoint وOpenDocument بمرونة، مع الدفع فقط مقابل ما تستخدمه."
+description: "تعرف على كيفية تمكين ترخيص الاستهلاك في Aspose.Slides for Java من معالجة ملفات PowerPoint وOpenDocument بمرونة، مع الدفع فقط مقابل ما تستخدمه."
 ---
+## **المقدمة**
 
-## **تطبيق المفاتيح القابلة للقياس**
+ترخيص الاستهلاك هو آلية ترخيص يمكن استخدامها إلى جانب طرق الترخيص الموجودة. إذا كنت ترغب في الفوترة بناءً على استخدامك لميزات Aspose.Slides API، فإنك تختار ترخيص الاستهلاك.
 
-{{% alert color="primary" %}} 
+## **تطبيق مفاتيح الاستهلاك**
 
-الترخيص القائم على القياس هو آلية ترخيص جديدة يمكن استخدامها إلى جانب طرق الترخيص الحالية. إذا كنت تريد الفوترة بناءً على استخدامك لميزات Aspose.Slides API، فستختار الترخيص القائم على القياس.
+{{% alert color="info" %}} 
+ترخيص الاستهلاك هو آلية ترخيص جديدة يمكن استخدامها إلى جانب طرق الترخيص الموجودة. إذا كنت ترغب في الفوترة بناءً على استخدامك لميزات Aspose.Slides API، فإنك تختار ترخيص الاستهلاك.
 
-عند شراء ترخيص قائم على القياس، تحصل على مفاتيح (وليس ملف ترخيص). يمكن تطبيق هذا المفتاح القابل للقياس باستخدام الفئة [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) التي وفرتها Aspose لعمليات القياس. لمزيد من التفاصيل، راجع [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
-
+عند شرائك ترخيصًا مستهلكًا، تحصل على مفاتيح (وليس ملف ترخيص). يمكن تطبيق مفتاح الاستهلاك هذا باستخدام فئة [Metered](https://reference.aspose.com/slides/ar/java/com.aspose.slides/metered/) التي وفرتها Aspose لعمليات القياس. لمزيد من التفاصيل، راجع [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 {{% /alert %}} 
 
-1. إنشاء مثال من الفئة [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/).
+1. أنشئ كائنًا من فئة [Metered](https://reference.aspose.com/slides/ar/java/com.aspose.slides/metered/).  
 
-1. تمرير المفاتيح العامة والخاصة إلى طريقة [setMeteredKey](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-).
+2. مرّر المفتاحين العام والخاص إلى طريقة [setMeteredKey](https://reference.aspose.com/slides/ar/java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-).  
 
-1. إجراء بعض المعالجة (تنفيذ المهام).
+3. قم ببعض المعالجة (أداء المهام).  
 
-1. استدعاء طريقة [getConsumptionQuantity](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#getConsumptionQuantity--) من الفئة `Metered`.
+4. استدعِ طريقة [getConsumptionQuantity](https://reference.aspose.com/slides/ar/java/com.aspose.slides/metered/#getConsumptionQuantity--) من فئة `Metered`.
 
 يجب أن ترى كمية/عدد طلبات API التي استهلكتها حتى الآن.
 
-يعرض هذا المثال البرمجي كيفية استخدام الترخيص القائم على القياس:
+يعرض هذا المثال البرمجي كيفية استخدام ترخيص الاستهلاك:
 
 ```java
-// Creates an instance of the Metered class
+// ينشئ كائنًا من فئة Metered
 com.aspose.slides.Metered metered = new com.aspose.slides.Metered();
 
 try {
-    // Passes the public and private keys to the Metered object
+    // يمرّر المفتاحين العام والخاص إلى كائن Metered
     metered.setMeteredKey("<valid public key>", "<valid private key>");
 
-    // Gets the consumed quantity value before API calls
+    // يحصل على قيمة الكمية المستهلكة قبل مكالمات API
     double amountBefore = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed before: " + amountBefore);
 
-    // Do something with Aspose.Slides API here
+    // قم بعمل شيء باستخدام Aspose.Slides API هنا
     // ...
 
-    // Gets the consumed quantity value after API calls
+    // يحصل على قيمة الكمية المستهلكة بعد مكالمات API
     double amountAfter = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed after: " + amountAfter);
 } catch (Exception ex) {
@@ -63,34 +64,32 @@ try {
 }
 ```
 
-{{% alert color="warning" title="NOTE"  %}} 
-
-لاستخدام الترخيص القائم على القياس، تحتاج إلى اتصال إنترنت مستقر لأن آلية الترخيص تستخدم الإنترنت للتفاعل المستمر مع خدماتنا وإجراء الحسابات.
-
+{{% alert color="warning" title="ملاحظة"  %}} 
+لاستخدام ترخيص الاستهلاك، تحتاج إلى اتصال إنترنت ثابت لأن آلية الترخيص تستخدم الإنترنت للتفاعل المستمر مع خدماتنا وإجراء الحسابات.
 {{% /alert %}} 
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**هل يمكنني استخدام ترخيص قائم على القياس مع ترخيص عادي (دائم أو مؤقت) في نفس التطبيق؟**
+### هل يمكنني استخدام ترخيص استهلاك مع ترخيص عادي (دائم أو مؤقت) في نفس التطبيق؟
 
-نعم. الترخيص القائم على القياس هو آلية ترخيص إضافية يمكن استخدامها إلى جانب [طرق الترخيص](/slides/ar/java/licensing/) الحالية. يمكنك اختيار الآلية التي تريد تطبيقها عند بدء تشغيل التطبيق.
+نعم. الاستهلاك هو آلية ترخيص إضافية يمكن استخدامها إلى جانب [طرق الترخيص](/slides/ar/java/licensing/). يمكنك اختيار الآلية التي تريد تطبيقها عند بدء تشغيل التطبيق.
 
-**ما الذي يُحتسب كاستهلاك تحت ترخيص قائم على القياس: عمليات أم ملفات؟**
+### ما الذي يُحتسب كاستهلاك في ترخيص الاستهلاك: عمليات أم ملفات؟
 
-يُحسب استخدام API، أي عدد الطلبات أو العمليات. يمكنك الحصول على الاستهلاك الحالي عبر [طرق تتبع الاستهلاك](https://reference.aspose.com/slides/java/com.aspose.slides/metered/).
+يتم احتساب استخدام API، أي عدد الطلبات أو العمليات. يمكنك الحصول على الاستهلاك الحالي عبر [طرق تتبع الاستهلاك](https://reference.aspose.com/slides/ar/java/com.aspose.slides/metered/).
 
-**هل الترخيص القائم على القياس مناسب لبيئات الميكرو خدمات والخدمات غير الخادمة حيث يتم إعادة تشغيل المثيلات بشكل متكرر؟**
+### هل الاستهلاك مناسب للميكروسيرفيسز والبيئات الخالية من الخوادم حيث يتم إعادة تشغيل المثيلات بشكل متكرر؟
 
-نعم. نظرًا لأن المحاسبة تُجرى على مستوى نداءات API، فإن السيناريوهات التي تتضمن عمليات بدء باردة متكررة متوافقة، بشرط توفر اتصال شبكة مستقر لحسابات الترخيص القائم على القياس.
+نعم. نظرًا لأن الحساب يتم على مستوى طلبات API، فإن السيناريوهات ذات البدء البارد المتكرر متوافقة، شريطة وجود وصول شبكة ثابت لحسابات الاستهلاك.
 
-**هل تختلف وظيفة المكتبة عند استخدام ترخيص قائم على القياس مقارنةً بالترخيص الدائم؟**
+### هل تختلف وظائف المكتبة عند استخدام ترخيص استهلاك مقارنةً بترخيص دائم؟
 
-لا. الأمر يتعلق فقط بآلية الترخيص والفوترة؛ فإن إمكانيات المنتج تبقى نفسها.
+لا. الأمر يتعلق فقط بآلية الترخيص والفوترة؛ فإن قدرات المنتج تبقى هي نفسها.
 
-**كيف يرتبط الترخيص القائم على القياس بالإصدار التجريبي والترخيص المؤقت؟**
+### كيف يرتبط الاستهلاك بالإصدار التجريبي والترخيص المؤقت؟
 
-الإصدار التجريبي يحتوي على قيود وعلامات مائية، أما [الترخيص المؤقت](https://purchase.aspose.com/temporary-license/) فيزيل القيود لمدة 30 يومًا، والترخيص القائم على القياس يزيل القيود ويُحاسب بناءً على الاستخدام الفعلي.
+الإصدار التجريبي يحتوي على قيود وعلامات مائية، بينما يزيل [الترخيص المؤقت](https://purchase.aspose.com/temporary-license/) القيود لمدة 30 يومًا، ويزيل الاستهلاك القيود ويُحاسب بناءً على الاستخدام الفعلي.
 
-**هل يمكنني التحكم في الميزانية من خلال رد فعل تلقائي عند تجاوز عتبة الاستهلاك؟**
+### هل يمكنني التحكم في الميزانية عن طريق رد الفعل تلقائيًا عند تجاوز عتبة الاستهلاك؟
 
-نعم. من الممارسات الشائعة قراءة الاستهلاك الحالي بشكل دوري عبر [طرق التتبع](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) وتطبيق حدود أو تنبيهات خاصة بك على مستوى التطبيق أو المراقبة.
+نعم. من الممارسات الشائعة قراءة الاستهلاك الحالي دوريًا عبر [طرق التتبع](https://reference.aspose.com/slides/ar/java/com.aspose.slides/metered/) وتطبيق حدود أو تنبيهات خاصة بك على مستوى التطبيق أو المراقبة.

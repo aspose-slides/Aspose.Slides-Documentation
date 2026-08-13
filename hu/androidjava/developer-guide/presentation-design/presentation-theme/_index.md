@@ -1,12 +1,12 @@
 ---
-title: Manage Presentation Themes on Android
-linktitle: Presentation Theme
+title: Bemutató témák kezelése Androidon
+linktitle: Bemutató téma
 type: docs
 weight: 10
 url: /hu/androidjava/presentation-theme/
 keywords:
 - PowerPoint téma
-- prezentációs téma
+- bemutató téma
 - dia téma
 - téma beállítása
 - téma módosítása
@@ -18,27 +18,28 @@ keywords:
 - téma effektus
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Android
 - Java
 - Aspose.Slides
-description: "Mester prezentációs témák az Aspose.Slides for Androidban Java segítségével a PowerPoint fájlok egységes arculattal való létrehozásához, testreszabásához és átalakításához."
+description: "Az Aspose.Slides for Androidban a bemutató témák teljes körű kezelése Java segítségével PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához konzisztens márkajelzés mellett."
 ---
 ## **Bevezetés**
 
-A prezentációs téma meghatározza a tervezési elemek tulajdonságait. Ha egy prezentációs témát választ, lényegében egy adott vizuális elemek és azok tulajdonságainak halmazát választja ki.
+A bemutató téma meghatározza a tervezési elemek tulajdonságait. Amikor egy bemutató témát választ, lényegében egy meghatározott vizuális elemek és azok tulajdonságainak halmazát választja ki.
 
-PowerPointban egy téma színeket, [betűtípusokat](/slides/hu/androidjava/powerpoint-fonts/), [háttérstílusokat](/slides/hu/androidjava/presentation-background/), és effektusokat tartalmaz.
+PowerPointban egy téma színeket, [fonts](/slides/hu/androidjava/powerpoint-fonts/), [background styles](/slides/hu/androidjava/presentation-background/) és effektusokat tartalmaz.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Téma színének módosítása**
+## **Téma szín módosítása**
 
-A PowerPoint téma egy adott színkészletet használ a dián lévő különböző elemekhez. Ha nem tetszenek a színek, új színeket alkalmazva megváltoztathatja őket a témában. Ahhoz, hogy új téma színt válasszon, az Aspose.Slides a [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/SchemeColor) felsorolásban értékeket biztosít.
+A PowerPoint téma egy meghatározott színkészletet használ a dián lévő különböző elemekhez. Ha nem tetszenek a színek, új színeket alkalmazva módosíthatja a témát. Ahhoz, hogy új témaszínt válasszon, az Aspose.Slides a [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/SchemeColor) felsorolásban értékeket biztosít.
 
-Ez a Java kód megmutatja, hogyan lehet megváltoztatni a téma akcentusszínét:
-
+Ez a Java kód bemutatja, hogyan lehet módosítani a téma akcentusszínét:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -51,43 +52,64 @@ try {
 }
 ```
 
-Így határozhatja meg a kapott szín tényleges értékét:
-
+Így meghatározhatja a kapott szín tényleges értékét:
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-A színmódosítás műveletének további bemutatásához létrehozunk egy másik elemet, és az akcentusszínt (az első műveletből) hozzárendeljük hozzá. Ezután megváltoztatjuk a színt a témában:
-
+Az színváltoztatás további bemutatásához létrehozunk egy másik elemet, és az első műveletben kapott akcentusszínt hozzárendeljük. Ezután megváltoztatjuk a színt a témában:
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    otherShape.getFillFormat().setFillType(FillType.Solid);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Az új szín automatikusan alkalmazásra kerül mindkét elemre.
+Az új szín automatikusan alkalmazásra kerül mindkét elemen.
 
-### **Téma színének beállítása kiegészítő palettáról**
+### **Témaszín beállítása kiegészítő palettáról**
 
-Amikor luminancia-transzformációkat alkalmaz a fő téma színére(1), a kiegészítő palettáról(2) színek alakulnak ki. Ezután beállíthatja és lekérheti ezeket a téma színeket.
+Ha a fő témaszínre (1) luminancia átalakításokat alkalmaz, a kiegészítő palettáról (2) színek képződnek. Ezután beállíthatja és lekérheti ezeket a témaszíneket.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1** - Fő téma színek  
+**1** - Fő témaszínek  
 **2** - A kiegészítő palettáról származó színek.
 
-Ez a Java kód bemutat egy műveletet, ahol a kiegészítő paletta színét a fő téma színéből nyerik, majd alakzatokban használják:
-
+Ez a Java kód bemutat egy műveletet, ahol a kiegészítő palettaszínek a fő témaszínből nyerhetők, és aztán alakzatokban használhatók:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -98,7 +120,7 @@ try {
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // Akcentus 4, 80%-ban világosabb
+    // Akcentus 4, 80%-kal világosabb
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -106,7 +128,7 @@ try {
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Akcentus 4, 60%-ban világosabb
+    // Akcentus 4, 60%-kal világosabb
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.getFillFormat().setFillType(FillType.Solid);
@@ -114,7 +136,7 @@ try {
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Akcentus 4, 40%-ban világosabb
+    // Akcentus 4, 40%-kal világosabb
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.getFillFormat().setFillType(FillType.Solid);
@@ -122,21 +144,21 @@ try {
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // Akcentus 4, 25%-ban sötétebb
+    // Akcentus 4, 25%-kal sötétebb
     IShape shape5 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.getFillFormat().setFillType(FillType.Solid);
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // Akcentus 4, 50%-ban sötétebb
+    // Akcentus 4, 50%-kal sötétebb
     IShape shape6 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.getFillFormat().setFillType(FillType.Solid);
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
@@ -144,71 +166,82 @@ try {
 
 ### **`SchemeColor` leképezése az `IColorScheme` színekre**
 
-Ha a [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/schemecolor/) használatával dolgozik, észreveheti, hogy a következő téma színértékeket tartalmazza:
+Ha a [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/schemecolor/)‑vel dolgozik, észreveheti, hogy a következő témaszín értékeket tartalmazza:
+`Background1`, `Background2`, `Text1`, és `Text2`.
 
-`Background1`, `Background2`, `Text1`, and `Text2`.
+Azonban a `Presentation.getMasterTheme().getColorScheme()` a [IColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icolorscheme/)‑t adja vissza, amely a megfelelő színeket a következőképpen teszi elérhetővé:
+`Dark1`, `Dark2`, `Light1`, és `Light2`.
 
-Azonban a `Presentation.getMasterTheme().getColorScheme()` visszaad egy [IColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icolorscheme/) objektumot, amely a megfelelő színeket a következőképpen teszi elérhetővé:
-
-`Dark1`, `Dark2`, `Light1`, and `Light2`.
-
-Ez a különbség csak a névben van. Ezek az értékek ugyanazokra a téma színhelyekre vonatkoznak, és a leképezés rögzített:
+Ez a különbség csak a névadásban van. Ezek az értékek ugyanazokra a témaszínhelyekre utalnak, és a leképezés rögzített:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Nincs dinamikus átalakítás a `Text`/`Background` és a `Dark`/`Light` között. Ezek egyszerűen azonos téma színek alternatív nevei.
+Nincs dinamikus konverzió a `Text`/`Background` és a `Dark`/`Light` között. Egyszerűen ugyanazoknak a témaszíneknek alternatív nevei.
 
-Ez a néveltérés a Microsoft Office terminológiájából ered. A régebbi Office verziók a `Dark 1`, `Light 1`, `Dark 2` és `Light 2` neveket használták, míg az újabb felhasználói felületek ugyanazokat a helyeket `Text 1`, `Background 1`, `Text 2` és `Background 2` néven jelenítik meg.
+Ez a névadási különbség a Microsoft Office terminológiájából származik. A régebbi Office verziók a `Dark 1`, `Light 1`, `Dark 2` és `Light 2` elnevezéseket használták, míg az újabb UI verziók ugyanazokat a helyeket `Text 1`, `Background 1`, `Text 2` és `Background 2` néven jelenítik meg.
 
-## **Téma betűtípusának módosítása**
+## **Téma betűtípus módosítása**
 
-A témákhoz és egyéb célokra történő betűtípus‑választáshoz az Aspose.Slides ezeket a speciális azonosítókat használja (hasonlóan a PowerPointban használtakhoz):
+Hogy betűtípusokat választhasson témákhoz és egyéb célokra, az Aspose.Slides ezeket a speciális azonosítókat használja (hasonlóan a PowerPointban használtakhoz):
 
-* **+mn-lt** – Test betűtípusa Latin (Minor Latin Font)
-* **+mj-lt** – Címsor betűtípusa Latin (Major Latin Font)
-* **+mn-ea** – Test betűtípusa Kelet‑Ázsiai (Minor East Asian Font)
-* **+mj-ea** – Címsor betűtípusa Kelet‑Ázsiai (Major East Asian Font)
+* **+mn-lt** – törzs betűtípus Latin (Minor Latin Font)
+* **+mj-lt** – cím betűtípus Latin (Major Latin Font)
+* **+mn-ea** – törzs betűtípus Kelet‑Ázsiai (Minor East Asian Font)
+* **+mj-ea** – törzs betűtípus Kelet‑Ázsiai (Major East Asian Font)
 
-Ez a Java kód megmutatja, hogyan lehet a latin betűtípust hozzárendelni egy téma elemhez:
-
+Ez a Java kód bemutatja, hogyan lehet a latin betűtípust egy témaelemhez hozzárendelni:
 ```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+import com.aspose.slides.*;
 
-Paragraph paragraph = new Paragraph();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.getPortions().add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(portion);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Ez a Java kód megmutatja, hogyan lehet megváltoztatni a prezentáció téma betűtípusát:
-
+Ez a Java kód bemutatja, hogyan módosítható a bemutató téma betűtípusa:
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Az összes szövegmező betűtípusa frissülni fog.
+Az összes szövegdoboz betűtípusa frissülni fog.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 Érdemes megnézni a [PowerPoint betűtípusokat](/slides/hu/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Téma háttérstílusának módosítása**
+## **Téma háttérstílus módosítása**
 
-Alapértelmezés szerint a PowerPoint alkalmazás 12 előre definiált hátteret kínál, de egy tipikus prezentációban csak 3 közülük kerül mentésre. 
+Alapértelmezésben a PowerPoint alkalmazás 12 előre definiált hátteret biztosít, de ezek közül csak 3 kerül mentésre egy tipikus bemutatóban.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Például, miután elment egy prezentációt a PowerPoint alkalmazásban, futtathatja ezt a Java kódot, hogy megtudja a prezentációban lévő előre definiált háttérképek számát:
-
+Például, miután ment egy bemutatót a PowerPoint alkalmazásban, futtathatja ezt a Java kódot, hogy meghatározza az előre definiált háttérképek számát a bemutatóban:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -220,30 +253,40 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-A [BackgroundFillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) tulajdonságot a [FormatScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme) osztályból használva hozzáadhat vagy elérhet háttérstílust egy PowerPoint témában.
+A [BackgroundFillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getBackgroundFillStyles--) tulajdonság használatával a [FormatScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme)‑osztályból hozzáadhat vagy elérheti a háttérstílust egy PowerPoint témában.
 {{% /alert %}} 
 
-Ez a Java kód megmutatja, hogyan lehet beállítani a háttérképet egy prezentációhoz:
-
+Ez a Java kód megmutatja, hogyan állítható be a háttér egy bemutatóhoz:
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-**Index útmutató**: 0 jelzi a kitöltés hiányát. Az indexelés 1‑től kezdődik.
+**Index útmutató**: 0 a kitöltés nélküli. Az index 1‑től kezdődik.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 Érdemes megnézni a [PowerPoint háttér](/slides/hu/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **Téma effektusának módosítása**
+## **Téma effektus módosítása**
 
-Egy PowerPoint téma általában 3 értéket tartalmaz minden stílusorhoz. Ezek az sorok összeolvadnak ez a 3 effektusba: finom, mérsékelt és intenzív. Például ez a végeredmény, amikor az effektusokat egy adott alakzatra alkalmazzák:
+Egy PowerPoint téma általában 3 értéket tartalmaz minden stílus tömbhöz. Ezek a tömbök ezekbe a 3 effektusba kombinálódnak: finom, közepes és intenzív. Például ez a végeredmény, amikor az effektusokat egy adott alakzatra alkalmazzák:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-A [FillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--) három tulajdonságot a [FormatScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme) osztályból használva módosíthatja a téma elemeit (még rugalmasabban, mint a PowerPoint beállításai).
+A [FillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--) három tulajdonság használatával a [FormatScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FormatScheme)‑osztályból módosíthatja a téma elemeit (még rugalmasabban, mint a PowerPoint beállításai).
 
+Ez a Java kód bemutatja, hogyan változtatható meg egy téma effektus az elemek részeinek módosításával:
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -260,17 +303,19 @@ try {
 }
 ```
 
-Az eredményül kapott változások a kitöltő színben, a kitöltés típusában, az árnyék effektusban stb.:
-
+A kapott változások a kitöltő színben, a kitöltő típusban, az árnyék effektusban stb.:
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **GYIK**
 
-**Alkalmazhatok‑e témát egyetlen diára anélkül, hogy a master témát módosítanám?**  
-Igen. Az Aspose.Slides támogatja a diaszintű téma felülbírálást, így egy helyi témát alkalmazhat csak arra a diára, miközben a master téma változatlan marad (a [SlideThemeManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidethememanager/) használatával).
+### Alkalmazhatok témát egyetlen diára a mester módosítása nélkül?
 
-**Mi a legbiztonságosabb módja egy téma átvitelének egy prezentációról a másikra?**  
-[Clone slides](/slides/hu/androidjava/clone-slides/) a mesterrel együtt a célprezentációba. Ez megőrzi az eredeti mastert, elrendezéseket és a kapcsolódó témát, így a megjelenés következetes marad.
+Igen. Az Aspose.Slides támogatja a diaszintű téma felülbírálásokat, így egy helyi témát alkalmazhat csak arra a diára, miközben a mester témát változatlanul hagyja (a [SlideThemeManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidethememanager/) segítségével).
 
-**Hogyan tekinthetem meg a „hatékony” értékeket minden öröklődés és felülbírálás után?**  
-Használja az API ["effective" nézeteit](/slides/hu/androidjava/shape-effective-properties/) a téma/szín/betűtípus/effektus esetében. Ezek a mester és a helyi felülbírálások alkalmazása után a végleges, feloldott tulajdonságokat adják vissza.
+### Mi a legbiztonságosabb módja egy téma átvitelének egy bemutatóból a másikba?
+
+A [Clone slides](/slides/hu/androidjava/clone-slides/) a mesterrel együtt a célbemutatóba másolásával. Ez megőrzi az eredeti mestert, az elrendezéseket és a kapcsolódó témát, így a megjelenés konzisztens marad.
+
+### Hogyan tekinthetem meg a „tényleges” értékeket az összes öröklődés és felülbírálás után?
+
+Használja az API ["effective" nézeteit](/slides/hu/androidjava/shape-effective-properties/) a téma/szín/betűtípus/effektus esetén. Ezek a feloldott, végső tulajdonságokat adják vissza a mester és az esetleges helyi felülbírálások alkalmazása után.

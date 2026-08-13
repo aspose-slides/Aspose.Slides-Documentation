@@ -1,12 +1,12 @@
 ---
-title: Управление OLE объектами в презентациях на .NET
+title: Управление OLE‑объектами в презентациях на .NET
 linktitle: Управление OLE
 type: docs
 weight: 40
 url: /ru/net/manage-ole/
 keywords:
-- OLE объект
-- Связывание и встраивание объектов
+- OLE‑объект
+- Связывание и внедрение объектов
 - добавить OLE
 - встроить OLE
 - добавить объект
@@ -16,7 +16,7 @@ keywords:
 - связанный объект
 - связанный файл
 - изменить OLE
-- иконка OLE
+- значок OLE
 - заголовок OLE
 - извлечь OLE
 - извлечь объект
@@ -26,35 +26,41 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Оптимизируйте управление OLE объектами в PowerPoint и файлах OpenDocument с помощью Aspose.Slides для .NET. Встраивайте, обновляйте и экспортируйте OLE‑контент без проблем."
+description: "Оптимизируйте управление OLE‑объектами в PowerPoint и файлах OpenDocument с помощью Aspose.Slides для .NET. Встраивайте, обновляйте и экспортируйте OLE‑контент без проблем."
 ---
+## **Введение**
 
 {{% alert title="Info" color="info" %}}
 
-OLE (Object Linking & Embedding) — это технология Microsoft, позволяющая размещать данные и объекты, созданные в одном приложении, в другом приложении посредством связывания или встраивания. 
+OLE (Object Linking & Embedding) — технология Microsoft, позволяющая размещать данные и объекты, созданные в одном приложении, в другом приложении через привязку или внедрение. 
 
 {{% /alert %}} 
 
-Рассмотрим диаграмму, созданную в MS Excel. Затем эта диаграмма помещается в слайд PowerPoint. Такая диаграмма Excel считается OLE‑объектом. 
+Рассмотрим диаграмму, созданную в MS Excel. Затем эта диаграмма помещается на слайд PowerPoint. Такая диаграмма Excel считается OLE‑объектом. 
 
-- OLE‑объект может отображаться в виде значка. В этом случае при двойном щелчке по значку диаграмма открывается в связанном приложении (Excel) или появляется запрос выбрать приложение для открытия/редактирования объекта. 
-- OLE‑объект может отображать свое реальное содержимое, например содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, загружается интерфейс диаграммы, и вы можете изменять данные диаграммы прямо в PowerPoint.
+- OLE‑объект может отображаться в виде значка. В этом случае при двойном щелчке по значку диаграмма открывается в связанном приложении (Excel) или пользователю предлагается выбрать приложение для открытия или редактирования объекта. 
+- OLE‑объект может показывать своё фактическое содержимое, например содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, загружается её интерфейс, и вы можете изменять данные диаграммы непосредственно в PowerPoint.
 
-[Aspose.Slides for .NET](https://products.aspose.com/slides/net/) позволяет вставлять OLE‑объекты в слайды как OLE‑кадры ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
+[Aspose.Slides for .NET](https://products.aspose.com/slides/ru/net/) позволяет вставлять OLE‑объекты в слайды в виде кадров OLE‑объекта ([OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe)).
 
-## **Добавление OLE‑кадров в слайды**
+## **Добавление кадров OLE‑объекта в слайды**
 
-Предположим, вы уже создали диаграмму в Microsoft Excel и хотите встроить её в слайд как OLE‑кадр с помощью Aspose.Slides for .NET. Это делается так:
+Предполагая, что вы уже создали диаграмму в Microsoft Excel и хотите внедрить её в слайд как кадр OLE‑объекта с помощью Aspose.Slides for .NET, сделайте следующее:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-2. Получите ссылку на слайд по его индексу.  
-3. Прочитайте файл Excel в виде массива байтов.  
-4. Добавьте [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) на слайд, передав массив байтов и другую информацию об OLE‑объекте.  
-5. Сохраните изменённую презентацию как файл PPTX.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation). 
+2. Получите ссылку на слайд по его индексу. 
+3. Прочитайте файл Excel в виде массива байтов. 
+4. Добавьте [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe) на слайд, передав массив байтов и другую информацию о OLE‑объекте. 
+5. Сохраните изменённую презентацию как файл PPTX. 
 
-В примере ниже мы добавили диаграмму из файла Excel на слайд как [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) с помощью Aspose.Slides for .NET.  
-**Примечание**: конструктор [OleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides.dom.ole/oleembeddeddatainfo/) принимает расширение встраиваемого объекта вторым параметром. Это расширение позволяет PowerPoint правильно интерпретировать тип файла и выбрать нужное приложение для открытия данного OLE‑объекта.
-```csharp
+В примере ниже мы добавили диаграмму из файла Excel на слайд как [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe) с помощью Aspose.Slides for .NET.  **Note** что конструктор [OleEmbeddedDataInfo](https://reference.aspose.com/slides/ru/net/aspose.slides.dom.ole/oleembeddeddatainfo/) принимает расширение внедряемого объекта вторым параметром. Это расширение позволяет PowerPoint правильно распознать тип файла и выбрать подходящее приложение для открытия OLE‑объекта.
+
+```csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     SizeF slideSize = presentation.SlideSize.Size;
@@ -71,13 +77,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+### **Добавление связанных OLE‑кадров объектов**
 
-### **Добавление связанных OLE‑кадров**
+Aspose.Slides for .NET позволяет добавить [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe) без встраивания данных, а лишь с ссылкой на файл.
 
-Aspose.Slides for .NET позволяет добавить [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) без встраивания данных, а только с ссылкой на файл.
+Этот код C# показывает, как добавить [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe) со связанным файлом Excel на слайд:
 
-Следующий код на C# показывает, как добавить [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) со связанным файлом Excel на слайд:
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -89,32 +98,33 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Доступ к OLE‑кадрам объектов**
 
-## **Доступ к OLE‑кадрам**
+Если OLE‑объект уже встроен в слайд, его можно легко найти или получить доступ следующим образом:
 
-Если OLE‑объект уже встроен в слайд, вы можете легко найти или получить к нему доступ следующим образом:
+1. Загрузите презентацию с вложенным OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation). 
+2. Получите ссылку на слайд, используя его индекс. 
+3. Получите форму [OleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe). В нашем примере использовалась ранее созданная PPTX, содержащая единственную форму на первом слайде. Затем мы *привели* этот объект к типу [IOleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe). Это и был нужный кадр OLE‑объекта. 
+4. После получения доступа к кадру OLE‑объекта вы можете выполнять любые операции с ним. 
 
-1. Загрузите презентацию с встроенным OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-2. Получите ссылку на слайд, используя его индекс.  
-3. Доступ к фигуре [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).  
-   В нашем примере мы использовали ранее созданный PPTX, содержащий единственную фигуру на первом слайде. Затем мы *привели* этот объект к типу [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). Это был нужный OLE‑кадр для доступа.  
-4. После получения доступа к OLE‑кадру вы можете выполнять любые операции с ним.
+В примере ниже доступ к кадру OLE‑объекта (встроенной в слайд диаграмме Excel) и к его файловым данным осуществляется.
 
-В примере ниже демонстрируется доступ к OLE‑кадру (встроенному объекту Excel‑диаграммы) и его файловым данным.
 ```csharp 
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Получить первую форму как кадр OLE‑объекта.
+    // Получите первую форму как кадр OLE‑объекта.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
     if (oleFrame != null)
     {
-        // Получить встроенные данные файла.
+        // Получите данные вложенного файла.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-        // Получить расширение встроенного файла.
+        // Получите расширение вложенного файла.
         string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
         // ...
@@ -122,27 +132,29 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+### **Доступ к свойствам связанных OLE‑кадров объектов**
 
-### **Доступ к свойствам связанных OLE‑кадров**
+Aspose.Slides позволяет получать свойства связанных OLE‑кадров объектов.
 
-Aspose.Slides позволяет получать свойства связанных OLE‑кадров.
+Этот код C# показывает, как проверить, является ли OLE‑объект связанным, и получить путь к связанному файлу:
 
-Следующий код на C# показывает, как проверить, является ли OLE‑объект связанным, и затем получить путь к связанному файлу:
 ```csharp
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.ppt"))
 {
     ISlide slide = presentation.Slides[0];
 
-    // Получить первую форму как кадр OLE‑объекта.
+    // Получите первую форму как кадр OLE‑объекта.
     IOleObjectFrame oleFrame = slide.Shapes[0] as IOleObjectFrame;
 
-    // Проверить, связан ли объект OLE.
+    // Проверьте, связан ли OLE‑объект.
     if (oleFrame != null && oleFrame.IsObjectLink)
     {
-        // Вывести полный путь к связанному файлу.
+        // Выведите полный путь к связанному файлу.
         Console.WriteLine("OLE object frame is linked to: " + oleFrame.LinkPathLong);
 
-        // Вывести относительный путь к связанному файлу, если он присутствует.
+        // Выведите относительный путь к связанному файлу, если он присутствует.
         // Только презентации PPT могут содержать относительный путь.
         if (!string.IsNullOrEmpty(oleFrame.LinkPathRelative))
         {
@@ -152,29 +164,32 @@ using (Presentation presentation = new Presentation("sample.ppt"))
 }
 ```
 
-
 ## **Изменение данных OLE‑объекта**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 В этом разделе пример кода использует [Aspose.Cells for .NET](/cells/net/).
 
 {{% /alert %}}
 
-Если OLE‑объект уже встроен в слайд, вы можете легко получить к нему доступ и изменить его данные следующим образом:
+Если OLE‑объект уже встроен в слайд, его можно легко получить и изменить его данные следующим образом:
 
-1. Загрузите презентацию с встроенным OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).  
-2. Получите ссылку на слайд по его индексу.  
-3. Доступ к фигуре [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).  
-   В нашем примере мы использовали ранее созданный PPTX, содержащий одну фигуру на первом слайде. Затем мы *привели* этот объект к типу [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe). Это был нужный OLE‑кадр для доступа.  
-4. После получения доступа к OLE‑кадру вы можете выполнять любые операции с ним.  
-5. Создайте объект `Workbook` и получите доступ к OLE‑данным.  
-6. Доступ к нужному `Worksheet` и изменение данных.  
-7. Сохраните обновлённый `Workbook` в поток.  
-8. Измените данные OLE‑объекта из потока.
+1. Загрузите презентацию с вложенным OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation). 
+2. Получите ссылку на слайд по его индексу. 
+3. Получите форму [OLEObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe). В нашем примере использовалась ранее созданная PPTX с одной формой на первом слайде. Затем мы *привели* этот объект к типу [IOleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe). Это был нужный кадр OLE‑объекта. 
+4. После получения доступа к кадру OLE‑объекта вы можете выполнять любые операции с ним. 
+5. Создайте объект `Workbook` и получите доступ к OLE‑данным. 
+6. Получите требуемый `Worksheet` и измените данные. 
+7. Сохраните обновлённый `Workbook` в поток. 
+8. Замените данные OLE‑объекта данными из потока. 
 
-В примере ниже OLE‑кадр (встроенный объект Excel‑диаграммы) доступен, и его файловые данные изменены для обновления данных диаграммы.
+В примере ниже доступ к кадру OLE‑объекта (встроенной в слайд диаграмме Excel) получен, и его файловые данные изменены для обновления данных диаграммы.
+
 ```csharp 
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -187,17 +202,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         using (MemoryStream oleStream = new MemoryStream(oleFrame.EmbeddedData.EmbeddedFileData))
         {
             // Прочитать данные OLE‑объекта как объект Workbook.
-            Workbook workbook = new Workbook(oleStream);
+            Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook(oleStream);
 
             using (MemoryStream newOleStream = new MemoryStream())
             {
-                // Изменить данные рабочей книги.
+                // Изменить данные workbook.
                 workbook.Worksheets[0].Cells[0, 4].PutValue("E");
                 workbook.Worksheets[0].Cells[1, 4].PutValue(12);
                 workbook.Worksheets[0].Cells[2, 4].PutValue(14);
                 workbook.Worksheets[0].Cells[3, 4].PutValue(15);
 
-                OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
+                Aspose.Cells.OoxmlSaveOptions fileOptions = new Aspose.Cells.OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 workbook.Save(newOleStream, fileOptions);
 
                 // Изменить данные объекта OLE‑кадра.
@@ -211,13 +226,17 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 ## **Встраивание других типов файлов в слайды**
 
-Помимо диаграмм Excel, Aspose.Slides for .NET позволяет встраивать в слайды другие типы файлов. Например, можно вставлять HTML, PDF и ZIP‑файлы как объекты. При двойном щелчке по вставленному объекту он автоматически открывается в соответствующей программе, либо пользователю предлагается выбрать подходящую программу.
+Помимо диаграмм Excel, Aspose.Slides for .NET позволяет встраивать в слайды другие типы файлов. Например, можно вставлять HTML, PDF и ZIP‑файлы в виде объектов. При двойном щелчке пользователя по вставленному объекту он автоматически открывается в соответствующей программе, либо пользователь получает запрос выбрать подходящее приложение для открытия.
 
-Следующий код на C# показывает, как встроить HTML и ZIP в слайд:
+Этот код C# показывает, как встроить HTML и ZIP в слайд:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -236,13 +255,17 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Установка типа файлов для встроенных объектов**
 
-## **Установка типов файлов для встроенных объектов**
+При работе с презентациями может понадобиться заменить старые OLE‑объекты новыми или заменить неподдерживаемый OLE‑объект поддерживаемым. Aspose.Slides for .NET позволяет задать тип файла для встроенного объекта, что дает возможность обновить данные кадра OLE или его расширение.
 
-При работе с презентациями может потребоваться заменить старые OLE‑объекты новыми или заменить неподдерживаемый OLE‑объект поддерживаемым. Aspose.Slides for .NET позволяет задать тип файла для встроенного объекта, что даёт возможность обновить данные OLE‑кадра или его расширение.
+Этот код C# показывает, как установить тип файла для встроенного OLE‑объекта в `zip`:
 
-Следующий код на C# показывает, как установить тип файла встроенного OLE‑объекта в `zip`:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -260,23 +283,26 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **Установка изображений значков и заголовков для встроенных объектов**
 
-## **Установка изображений‑значков и заголовков для встроенных объектов**
+После встраивания OLE‑объекта автоматически добавляется предварительный просмотр в виде значка. Этот предварительный просмотр видят пользователи перед доступом к объекту. Если требуется использовать конкретное изображение и текст в качестве элементов предварительного просмотра, можно задать значок и заголовок с помощью Aspose.Slides for .NET.
 
-После встраивания OLE‑объекта автоматически добавляется предварительный просмотр в виде значка. Этот предварительный просмотр виден пользователям до доступа к объекту. Если необходимо использовать конкретное изображение и текст в качестве элементов предварительного просмотра, можно задать значок и заголовок с помощью Aspose.Slides for .NET.
+Этот код C# показывает, как задать изображение значка и заголовок для встроенного объекта: 
 
-Следующий код на C# показывает, как задать изображение‑значок и заголовок для встроенного объекта: 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
     IOleObjectFrame oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-    // Добавить изображение в ресурсы презентации.
+    // Добавьте изображение в ресурсы презентации.
     byte[] imageData = File.ReadAllBytes("image.png");
     IPPImage oleImage = presentation.Images.AddImage(imageData);
 
-    // Установить заголовок и изображение для предварительного просмотра OLE.
+    // Установите заголовок и изображение для предварительного просмотра OLE.
     oleFrame.SubstitutePictureTitle = "My title";
     oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
     oleFrame.IsObjectIcon = true;
@@ -285,24 +311,37 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **Предотвращение изменения размера и перемещения кадра OLE‑объекта**
 
-## **Предотвращение изменения размера и положения OLE‑кадра**
+После добавления связанного OLE‑объекта в слайд презентации, при открытии презентации в PowerPoint может появиться сообщение с запросом обновить ссылки. Нажатие кнопки «Update Links» может изменить размер и положение кадра OLE‑объекта, поскольку PowerPoint обновляет данные из связанного OLE‑объекта и обновляет его предварительный просмотр. Чтобы предотвратить запрос PowerPoint на обновление данных объекта, установите свойство `UpdateAutomatic` интерфейса [IOleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe/) в `false`:
 
-После добавления связанного OLE‑объекта в слайд презентации, при открытии презентации в PowerPoint может появиться сообщение с запросом обновить ссылки. Нажатие кнопки «Update Links» может изменить размер и положение OLE‑кадра, потому что PowerPoint обновляет данные из связанного OLE‑объекта и пересчитывает предварительный просмотр. Чтобы отключить запрос PowerPoint об обновлении данных объекта, установите свойство `UpdateAutomatic` интерфейса [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) в `false`:
 ```cs
-oleFrame.UpdateAutomatic = false;
-```
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IOleObjectFrame oleFrame = (IOleObjectFrame)presentation.Slides[0].Shapes[0];
+
+    // Сохранить размер и положение кадра OLE‑объекта при обновлении ссылки PowerPoint.
+    oleFrame.UpdateAutomatic = false;
+
+    presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
 
 ## **Извлечение встроенных файлов**
 
-Aspose.Slides for .NET позволяет извлекать файлы, встроенные в слайды как OLE‑объекты, следующим способом:
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation), содержащий OLE‑объекты, которые нужно извлечь.  
-2. Пройдитесь по всем фигурам в презентации и получите доступ к фигурам [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).  
-3. Доступ к данным встроенных файлов из OLE‑кадров и запись их на диск.
+Aspose.Slides for .NET позволяет извлекать файлы, встроенные в слайды как OLE‑объекты, следующим образом:
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation), содержащего OLE‑объекты, которые необходимо извлечь. 
+2. Пройдитесь по всем формам в презентации и получите формы [OLEObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/oleobjectframe). 
+3. Получите данные встроенных файлов из кадров OLE‑объекта и запишите их на диск. 
 
-Следующий код на C# показывает, как извлечь файлы, встроенные в слайд как OLE‑объекты:
+Этот код C# показывает, как извлечь файлы, встроенные в слайд как OLE‑объекты:
+
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -324,21 +363,20 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 ## **FAQ**
 
-**Будут ли OLE‑данные отображаться при экспорте слайдов в PDF/изображения?**
+### **Будет ли содержимое OLE отображаться при экспорте слайдов в PDF/изображения?**
 
-Отображается то, что видно на слайде — значок/замещающее изображение (превью). «Живой» OLE‑контент не выполняется при рендеринге. При необходимости задайте собственное изображение‑превью, чтобы обеспечить ожидаемый вид в экспортированном PDF.
+Отображается то, что видно на слайде — значок/заместительное изображение (preview). «Живое» содержимое OLE не исполняется при рендеринге. При необходимости задайте собственное изображение превью, чтобы обеспечить ожидаемый вид в экспортированном PDF.
 
-**Как заблокировать OLE‑объект на слайде, чтобы пользователи не могли перемещать/редактировать его в PowerPoint?**
+### **Как заблокировать OLE‑объект на слайде, чтобы пользователи не могли перемещать/редактировать его в PowerPoint?**
 
-Заблокируйте фигуру: Aspose.Slides предоставляет [блокировки на уровне фигур](/slides/ru/net/applying-protection-to-presentation/). Это не шифрование, но эффективно предотвращает случайные изменения и перемещения.
+Заблокируйте форму: Aspose.Slides предоставляет [shape-level locks](/slides/ru/net/applying-protection-to-presentation/). Это не шифрование, но эффективно предотвращает случайные правки и перемещения.
 
-**Почему связанный объект Excel «перепрыгивает» или меняет размер при открытии презентации?**
+### **Почему связанный объект Excel «перепрыгивает» или меняет размер при открытии презентации?**
 
-PowerPoint может обновлять превью связанного OLE‑объекта. Для стабильного внешнего вида используйте рекомендации из [Рабочего решения для изменения размера листа](/slides/ru/net/working-solution-for-worksheet-resizing/) — либо подгоните кадр под диапазон, либо масштабируйте диапазон до фиксированного кадра и задайте подходящее замещающее изображение.
+PowerPoint может обновлять превью связанного OLE. Для стабильного отображения используйте рекомендации из [Working Solution for Worksheet Resizing](/slides/ru/net/working-solution-for-worksheet-resizing/) — либо подгоните кадр под диапазон, либо масштабируйте диапазон до фиксированного кадра и задайте соответствующее заменяющее изображение.
 
-**Сохраняются ли относительные пути для связанных OLE‑объектов в формате PPTX?**
+### **Будут ли относительные пути для связанных OLE‑объектов сохранены в формате PPTX?**
 
-В PPTX информация о «относительном пути» не хранится — сохраняется только полный путь. Относительные пути присутствуют в старом формате PPT. Для переносимости предпочтительнее использовать надёжные абсолютные пути/доступные URI или встраивание.
+В PPTX информация о «относительном пути» недоступна — сохраняется только полный путь. Относительные пути встречаются в более старом формате PPT. Для переносимости предпочтительнее использовать надёжные абсолютные пути/доступные URI или встраивание.

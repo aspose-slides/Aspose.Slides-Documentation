@@ -1,37 +1,39 @@
 ---
-title: जावा में प्रस्तुतियों से Shape प्रभावी गुण प्राप्त करें
-linktitle: प्रभावी प्रॉपर्टीज़
+title: जावा में प्रस्तुतियों से आकार के प्रभावी गुण प्राप्त करें
+linktitle: प्रभावी गुण
 type: docs
 weight: 50
 url: /hi/java/shape-effective-properties/
 keywords:
-- shape प्रॉपर्टीज़
-- कैमरा प्रॉपर्टीज़
+- आकार गुण
+- कैमरा गुण
 - लाइट रिग
-- बीवेल Shape
+- बेवेल आकार
 - टेक्स्ट फ्रेम
-- टेक्स्ट स्टाइल
+- टेक्स्ट शैली
 - फ़ॉन्ट ऊँचाई
-- फ़िल फ़ॉर्मेट
+- भरण स्वरूप
 - PowerPoint
-- प्रेजेंटेशन
+- प्रस्तुति
 - Java
 - Aspose.Slides
-description: "जावा के लिए Aspose.Slides कैसे सटीक PowerPoint रेंडरिंग के लिए प्रभावी Shape प्रॉपर्टीज़ की गणना और लागू करता है, इस बारे में जानें।"
+description: "जानिए कि Aspose.Slides for Java कैसे सटीक PowerPoint रेंडरिंग के लिए आकार के प्रभावी गुणों की गणना और लागू करता है।"
 ---
 ## **अवलोकन**
 
-यह विषय **स्थानीय** और **प्रभावी** प्रॉपर्टियों के बीच अंतर को समझाता है। स्थानीय मान वे मान हैं जो किसी विशिष्ट फॉर्मेटिंग स्तर पर सीधे सेट किए जाते हैं, जैसे:
+यह विषय **स्थानीय** और **प्रभावी** गुणों के बीच अंतर को समझाता है। स्थानीय मान वे मान होते हैं जो सीधे किसी विशिष्ट स्वरूपण स्तर पर सेट किए जाते हैं, जैसे:
 
-1. स्लाइड पर भाग की प्रॉपर्टी।
-2. लेआउट या मास्टर स्लाइड पर प्रोटोटाइप शAPE टेक्स्ट स्टाइल्स, जब भाग के टेक्स्ट फ़्रेम शAPE में एक हो।
-3. प्रस्तुति में वैश्विक टेक्स्ट सेटिंग्स।
+1. स्लाइड पर भाग (portion) गुण।
+1. लेआउट या मास्टर स्लाइड पर प्रोटोटाइप आकार के टेक्स्ट शैलियों, जब भाग के टेक्स्ट फ्रेम आकार में एक हो।
+1. प्रस्तुति में वैश्विक टेक्स्ट सेटिंग्स।
 
-स्थानीय मान को किसी भी स्तर पर परिभाषित या छोड़ दिया जा सकता है। जब Aspose.Slides को अंतिम "जैसे दिखाया गया" फॉर्मेटिंग चाहिए होती है, तो यह विरासत श्रृंखला को हल करती है और **प्रभावी** मान लौटाती है। आप इन्हें स्थानीय फ़ॉर्मेट ऑब्जेक्ट पर `getEffective` मेथड को कॉल करके प्राप्त कर सकते हैं।
+स्थानीय मान किसी भी स्तर पर परिभाषित या छोड़े जा सकते हैं। जब Aspose.Slides को अंतिम "जैसे प्रस्तुत" स्वरूपण चाहिए होता है, तो वह विरासत श्रृंखला को हल करता है और **प्रभावी** मान लौटाता है। आप इन्हें स्थानीय स्वरूपण वस्तु पर `getEffective` विधि को कॉल करके प्राप्त कर सकते हैं।
 
-निम्नलिखित उदाहरण दिखाता है कि प्रभावी मान कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें एक टेक्स्ट फ़्रेम और कम से कम एक भाग है।
+निम्नलिखित उदाहरण दिखाता है कि प्रभावी मान कैसे प्राप्त करें। यह मानता है कि प्रथम स्लाइड पर पहला आकार एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें टेक्स्ट फ्रेम और कम से कम एक भाग है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,15 +51,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-प्रभावी फ़ॉर्मेटिंग डेटा वह वर्तमान गणना किया गया फ़ॉर्मेटिंग दर्शाता है जो विरासत लागू होने के बाद होता है। वर्तमान कार्यान्वयन में, कुछ प्रभावी डेटा ऑब्जेक्ट्स, जैसे कि [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPortionFormatEffectiveData), को आंतरिक रूप से कैश किया जा सकता है। पैरेंट या विरासत फ़ॉर्मेटिंग को बदलने के बाद फिर से `getEffective` कॉल करने से कैश्ड डेटा रीफ़्रेश हो सकता है, और पहले प्राप्त ऑब्जेक्ट अब पहले की स्थिति को दर्शा नहीं सकता। यदि आपको बाद में पुनः उपयोग के लिए प्रभावी मान सुरक्षित रखने की आवश्यकता है, तो आवश्यक प्रॉपर्टीज़ जैसे फ़ॉन्ट ऊँचाई, भरने का रंग, फ़ॉन्ट शैली, या संरेखण को अपने डेटा ऑब्जेक्ट में कॉपी करें।
+{{% alert color="info" %}}
+प्रभावी स्वरूपण डेटा वह वर्तमान गणना किया गया स्वरूपण दर्शाता है जो विरासत लागू होने के बाद प्राप्त होता है। वर्तमान कार्यान्वयन में, कुछ प्रभावी डेटा वस्तुएँ, जैसे कि [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IPortionFormatEffectiveData), आंतरिक रूप से कैश हो सकती हैं। पैरेंट या विरासतित स्वरूपण बदलने के बाद `getEffective` को फिर से कॉल करने से कैश्ड डेटा रीफ़्रेश हो सकता है, और पहले प्राप्त वस्तु अब पूर्व स्थिति का प्रतिनिधित्व नहीं कर सकती। यदि आपको प्रभावी मानों को बाद में पुनः उपयोग के लिए संरक्षित करना है, तो आवश्यक गुणों जैसे फ़ॉन्ट ऊँचाई, भरने का रंग, फ़ॉन्ट शैली, या संरेखण को अपनी डेटा वस्तु में कॉपी करें।
 {{% /alert %}}
 
-## **कैमरा के प्रभावी प्रॉपर्टीज़ प्राप्त करें**
+## **कैमरा के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides आपको कैमरा की प्रभावी प्रॉपर्टीज़ प्राप्त करने की अनुमति देता है। इंटरफ़ेस [ICameraEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICameraEffectiveData) एक अपरिवर्तनीय ऑब्जेक्ट दर्शाता है जिसमें प्रभावी कैमरा प्रॉपर्टीज़ होती हैं। एक [ICameraEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICameraEffectiveData) इंस्टेंस को [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+Aspose.Slides आपको कैमरे के प्रभावी गुण प्राप्त करने की अनुमति देता है। [ICameraEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICameraEffectiveData) इंटरफ़ेस एक अपरिवर्तनीय वस्तु का प्रतिनिधित्व करता है जिसमें प्रभावी कैमरा गुण शामिल होते हैं। एक [ICameraEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICameraEffectiveData) उदाहरण [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+
+निम्नलिखित कोड नमूना दिखाता है कि कैमरे के लिए प्रभावी गुण कैसे प्राप्त करें। यह मानता है कि प्रथम स्लाइड पर पहला आकार 3D स्वरूपण रखता है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -78,11 +84,15 @@ try {
 }
 ```
 
-## **लाइट रिग की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
+## **लाइट रिग के प्रभावी गुण получ करें**
 
-Aspose.Slides आपको लाइट रिग की प्रभावी प्रॉपर्टीज़ प्राप्त करने की अनुमति देता है। इंटरफ़ेस [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ILightRigEffectiveData) एक अपरिवर्तनीय ऑब्जेक्ट दर्शाता है जिसमें प्रभावी लाइट रिग प्रॉपर्टीज़ होती हैं। एक [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ILightRigEffectiveData) इंस्टेंस को [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+Aspose.Slides आपको लाइट रिग के प्रभावी गुण प्राप्त करने की अनुमति देता है। [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ILightRigEffectiveData) इंटरफ़ेस एक अपरिवर्तनीय वस्तु का प्रतिनिधित्व करता है जिसमें प्रभावी लाइट रिग गुण शामिल होते हैं। एक [ILightRigEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ILightRigEffectiveData) उदाहरण [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+
+निम्नलिखित कोड नमूना दिखाता है कि लाइट रिग के लिए प्रभावी गुण कैसे प्राप्त करें। यह मानता है कि प्रथम स्लाइड पर पहला आकार 3D स्वरूपण रखता है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -101,11 +111,15 @@ try {
 }
 ```
 
-## **बीवेल आकार की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
+## **बेवेल आकार के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides आपको शAPE बीवेल की प्रभावी प्रॉपर्टीज़ प्राप्त करने की अनुमति देता है। इंटरफ़ेस [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeBevelEffectiveData) एक अपरिवर्तनीय ऑब्जेक्ट दर्शाता है जिसमें शAPE के लिए प्रभावी फेस-रिलिफ़ प्रॉपर्टीज़ होती हैं। एक [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeBevelEffectiveData) इंस्टेंस को [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+Aspose.Slides आपको आकार के बेवेल के प्रभावी गुण प्राप्त करने की अनुमति देता है। [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeBevelEffectiveData) इंटरफ़ेस एक अपरिवर्तनीय वस्तु का प्रतिनिधित्व करता है जिसमें आकार के लिए प्रभावी फेस‑रिलिफ़ गुण होते हैं। एक [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShapeBevelEffectiveData) उदाहरण [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormatEffectiveData) के माध्यम से उजागर किया जाता है, जो [IThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IThreeDFormat) के लिए प्रभावी मान प्रदान करता है।
+
+निम्नलिखित कोड नमूना दिखाता है कि आकार के शीर्ष बेवेल के लिए प्रभावी गुण कैसे प्राप्त करें। यह मानता है कि प्रथम स्लाइड पर पहला आकार 3D स्वरूपण रखता है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -126,13 +140,15 @@ try {
 }
 ```
 
-## **टेक्स्ट फ्रेम की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
+## **टेक्स्ट फ्रेम के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides का उपयोग करके, आप टेक्स्ट फ्रेम की प्रभावी प्रॉपर्टीज़ प्राप्त कर सकते हैं। इंटरफ़ेस [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormatEffectiveData) में प्रभावी टेक्स्ट फ्रेम फ़ॉर्मेटिंग प्रॉपर्टीज़ शामिल हैं।
+Aspose.Slides का उपयोग करके, आप टेक्स्ट फ्रेम के प्रभावी गुण प्राप्त कर सकते हैं। [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormatEffectiveData) इंटरफ़ेस में प्रभावी टेक्स्ट फ्रेम स्वरूपण गुण होते हैं।
 
-निम्नलिखित कोड नमूना दिखाता है कि प्रभावी टेक्स्ट फ्रेम फ़ॉर्मेटिंग प्रॉपर्टीज़ कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें एक टेक्स्ट फ़्रेम है।
+निम्नलिखित कोड नमूना दिखाता है कि प्रभावी टेक्स्ट फ्रेम स्वरूपण गुण कैसे प्राप्त करें। यह मानता है कि प्रथम स्लाइड पर पहला आकार एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें टेक्स्ट फ्रेम है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -161,13 +177,15 @@ try {
 }
 ```
 
-## **टेक्स्ट स्टाइल की प्रभावी प्रॉपर्टीज़ प्राप्त करें**
+## **टेक्स्ट शैली के प्रभावी गुण प्राप्त करें**
 
-Aspose.Slides का उपयोग करके, आप टेक्स्ट स्टाइल की प्रभावी प्रॉपर्टीज़ प्राप्त कर सकते हैं। इंटरफ़ेस [ITextStyleEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextStyleEffectiveData) में प्रभावी टेक्स्ट स्टाइल प्रॉपर्टीज़ शामिल हैं।
+Aspose.Slides का उपयोग करके, आप टेक्स्ट शैली के प्रभावी गुण प्राप्त कर सकते हैं। [ITextStyleEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextStyleEffectiveData) इंटरफ़ेस में प्रभावी टेक्स्ट शैली गुण होते हैं।
 
-निम्नलिखित कोड नमूना दिखाता है कि प्रभावी टेक्स्ट स्टाइल प्रॉपर्टीज़ कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें एक टेक्स्ट फ़्रेम है।
+निम्नलिखित कोड नमूना दिखाता है कि प्रभावी टेक्स्ट शैली गुण कैसे प्राप्त करें। यह मानता है कि प्रथम स्लाइड पर पहला आकार एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) है जिसमें टेक्स्ट फ्रेम है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -200,6 +218,8 @@ try {
 Aspose.Slides का उपयोग करके, आप प्रभावी फ़ॉन्ट ऊँचाई प्राप्त कर सकते हैं। निम्नलिखित कोड दर्शाता है कि विभिन्न प्रस्तुति संरचना स्तरों पर स्थानीय फ़ॉन्ट ऊँचाई मान सेट करने के बाद भाग की प्रभावी फ़ॉन्ट ऊँचाई कैसे बदलती है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -270,13 +290,15 @@ try {
 }
 ```
 
-## **टेबल के लिए प्रभावी फ़िल फॉर्मेट प्राप्त करें**
+## **टेबल के लिए प्रभावी भराव स्वरूप प्राप्त करें**
 
-Aspose.Slides में, आप विभिन्न टेबल भागों के लिए प्रभावी फ़िल फ़ॉर्मेटिंग प्राप्त कर सकते हैं। इंटरफ़ेस [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IFillFormatEffectiveData) में प्रभावी फ़िल फ़ॉर्मेटिंग प्रॉपर्टीज़ शामिल हैं। सेल फ़ॉर्मेटिंग का प्राथमिकता रो फ़ॉर्मेटिंग से अधिक है, रो फ़ॉर्मेटिंग का कॉलम फ़ॉर्मेटिंग से अधिक, और कॉलम फ़ॉर्मेटिंग का पूरे टेबल फ़ॉर्मेटिंग से अधिक है।
+Aspose.Slides का उपयोग करके, आप विभिन्न टेबल भागों के लिए प्रभावी भराव स्वरूपण प्राप्त कर सकते हैं। [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IFillFormatEffectiveData) इंटरफ़ेस में प्रभावी भराव स्वरूपण गुण होते हैं। सेल स्वरूपण का प्राथमिकता पंक्ति स्वरूपण से अधिक है, पंक्ति स्वरूपण का प्राथमिकता कॉलम स्वरूपण से अधिक है, और कॉलम स्वरूपण का प्राथमिकता सम्पूर्ण टेबल स्वरूपण से अधिक है।
 
-परिणामस्वरूप, टेबल सेल को ड्रॉ करने के लिए [ICellFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICellFormatEffectiveData) प्रॉपर्टीज़ का उपयोग किया जाता है। निम्नलिखित कोड नमूना दिखाता है कि विभिन्न टेबल भागों के लिए प्रभावी फ़िल फ़ॉर्मेटिंग कैसे प्राप्त करें। यह मानता है कि पहली स्लाइड पर पहला शAPE एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) है।
+परिणामस्वरूप, टेबल सेल को चित्रित करने के लिए [ICellFormatEffectiveData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ICellFormatEffectiveData) गुणों का उपयोग किया जाता है। निम्नलिखित कोड नमूना दिखाता है कि विभिन्न टेबल भागों के लिए प्रभावी भराव स्वरूपण कैसे प्राप्त करें। यह मानता है कि प्रथम स्लाइड पर पहला आकार एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITable) है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -298,34 +320,34 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**`getEffective` एक स्नैपशॉट वापस करता है?**
+### क्या `getEffective` एक स्नैपशॉट लौटाता है?
 
-हमेशा नहीं। प्रभावी डेटा वह गणना किया गया फ़ॉर्मेटिंग दर्शाता है जो विरासत लागू होने के बाद प्राप्त होता है, लेकिन कुछ प्रभावी डेटा ऑब्जेक्ट्स को आंतरिक रूप से कैश किया जा सकता है। आगे का `getEffective` कॉल फ़ॉर्मेटिंग को पुनः गणना कर सकता है और कैश्ड डेटा को रीफ़्रेश कर सकता है, इसलिए पहले प्राप्त किए गए ऑब्जेक्ट को स्थायी स्नैपशॉट के रूप में नहीं माना जाना चाहिए।
+हमेशा नहीं। प्रभावी डेटा विरासत लागू होने के बाद गणना किया गया स्वरूपण दर्शाता है, लेकिन कुछ प्रभावी डेटा वस्तुएँ आंतरिक रूप से कैश हो सकती हैं। एक बाद वाला `getEffective` कॉल स्वरूपण को पुनः गणना कर सकता है और कैश्ड डेटा को रीफ़्रेश कर सकता है, इसलिए पहले प्राप्त वस्तु को स्थायी स्नैपशॉट के रूप में नहीं माना जाना चाहिए।
 
-**मुझे प्रभावी प्रॉपर्टीज़ फिर से कब पढ़नी चाहिए?**
+### मुझे प्रभावी गुणों को पुनः कब पढ़ना चाहिए?
 
-स्थानीय फ़ॉर्मेटिंग, पैरेंट स्टाइल्स, लेआउट फ़ॉर्मेटिंग, मास्टर फ़ॉर्मेटिंग या प्रेज़ेंटेशन-स्तर के डिफॉल्ट बदलने के बाद फिर से `getEffective` कॉल करें। अगला कॉल फ़ॉर्मेटिंग पदानुक्रम का पुनर्मूल्यांकन करता है और वर्तमान प्रभावी परिणाम लौटाता है।
+स्थानीय स्वरूपण, पैरेंट शैली, लेआउट स्वरूपण, मास्टर स्वरूपण, या प्रस्तुति‑स्तर के डिफ़ॉल्ट बदलने के बाद `getEffective` को पुनः कॉल करें। अगली कॉल स्वरूपण पदानुक्रम को पुनर्मूल्यांकन करती है और वर्तमान प्रभावी परिणाम लौटाती है।
 
-**क्या लेआउट/मास्टर स्लाइड को बदलना या हटाना उन प्रभावी प्रॉपर्टीज़ को प्रभावित करता है जो पहले ही प्राप्त की गई हैं?**
+### क्या लेआउट/मास्टर स्लाइड को बदलना या हटाना पहले प्राप्त प्रभावी गुणों को प्रभावित करता है?
 
-हाँ, लेकिन परिवर्तन अगली `getEffective` कॉल पर दिखाया जाता है। यदि पैरेंट फ़ॉर्मेटिंग स्रोत बदलता या हटता है, तो पहले प्राप्त किया गया प्रभावी डेटा पुराना हो सकता है। जब `getEffective` फिर से कॉल किया जाता है, तो Aspose.Slides फ़ॉर्मेटिंग ट्री का पुनर्मूल्यांकन करता है और परिणामस्वरूप फ़ॉन्ट, रंग, आकार या अन्य मान बदल सकते हैं।
+हाँ, लेकिन परिवर्तन अगली `getEffective` कॉल पर प्रतिबिंबित होगा। यदि पैरेंट स्वरूपण स्रोत बदलता या हटाया जाता है, तो पहले प्राप्त प्रभावी डेटा पुराना हो सकता है। एक बार `getEffective` फिर से कॉल करने पर, Aspose.Slides स्वरूपण वृक्ष को पुनः मूल्यांकन करता है और परिणामस्वरूप फ़ॉन्ट, रंग, आकार या अन्य मान बदल सकते हैं।
 
-**क्या मैं प्रभावी डेटा ऑब्जेक्ट्स के माध्यम से मानों को संशोधित कर सकता हूँ?**
+### क्या मैं प्रभावी डेटा वस्तुओं के माध्यम से मान संशोधित कर सकता हूँ?
 
-नहीं। प्रभावी डेटा ऑब्जेक्ट्स गणना किए गए मान प्रदान करते हैं। स्थानीय फ़ॉर्मेटिंग ऑब्जेक्ट्स में परिवर्तन करें, और फिर प्रभावी मानों को फिर से प्राप्त करें।
+नहीं। प्रभावी डेटा वस्तुएँ गणना किए गए मान प्रदान करती हैं। स्थानीय स्वरूपण वस्तुओं में परिवर्तन करें, और फिर प्रभावी मान पुनः प्राप्त करें।
 
-**यदि कोई प्रॉपर्टी शAPE स्तर पर, न लेआउट/मास्टर में, न ही वैश्विक सेटिंग्स में सेट नहीं है तो क्या होता है?**
+### यदि कोई गुण आकार स्तर पर, न लेआउट/मास्टर में, न ही वैश्विक सेटिंग्स में सेट नहीं है तो क्या होता है?
 
-प्रभावी मान डिफ़ॉल्ट मेकेनिज़्म द्वारा निर्धारित किया जाता है, जिसमें PowerPoint और Aspose.Slides के डिफ़ॉल्ट शामिल होते हैं। वह समाधान किया गया मान वर्तमान प्रभावी डेटा का हिस्सा बन जाता है।
+प्रभावी मान डिफ़ॉल्ट तंत्र द्वारा निर्धारित किया जाता है, जिसमें PowerPoint और Aspose.Slides के डिफ़ॉल्ट शामिल होते हैं। वह निर्धारित मान वर्तमान प्रभावी डेटा का हिस्सा बन जाता है।
 
-**क्या प्रभावी फ़ॉन्ट मान से मैं बता सकता हूँ कि आकार या फ़ॉन्ट किस स्तर से आया है?**
+### क्या प्रभावी फ़ॉन्ट मान से मैं बता सकता हूँ कि किस स्तर ने आकार या फ़ॉन्ट प्रदान किया?
 
-सीधे नहीं। प्रभावी डेटा अंतिम मान लौटाता है। स्रोत पता करने के लिए, भाग, पैराग्राफ, टेक्स्ट फ्रेम, और लेआउट, मास्टर तथा प्रेज़ेंटेशन स्तर पर टेक्स्ट स्टाइल्स में स्थानीय मानों की जाँच करें कि पहला स्पष्ट परिभाषा कहाँ है।
+सीधे नहीं। प्रभावी डेटा अंतिम मान लौटाता है। स्रोत पता करने के लिए, भाग, पैराग्राफ, टेक्स्ट फ्रेम, और लेआउट, मास्टर, तथा प्रस्तुति स्तर पर टेक्स्ट शैलियों में स्थानीय मान देखें कि पहली स्पष्ट परिभाषा कहाँ है।
 
-**कभी-कभी प्रभावी मान स्थानीय मानों से समान क्यों दिखते हैं?**
+### क्यों कभी‑कभी प्रभावी मान स्थानीय मानों के समान दिखते हैं?
 
-क्योंकि स्थानीय मान अंत में अंतिम हो जाता है (उच्च स्तर की विरासत की आवश्यकता नहीं थी)। ऐसे मामलों में, प्रभावी मान स्थानीय मान के समान होता है।
+क्योंकि स्थानीय मान अंततः अंतिम हो गया (उच्च स्तर की विरासत की आवश्यकता नहीं थी)। ऐसे मामलों में, प्रभावी मान स्थानीय मान से मेल खाता है।
 
-**मुझे प्रभावी प्रॉपर्टीज़ कब उपयोग करनी चाहिए, और कब केवल स्थानीय प्रॉपर्टीज़ के साथ काम करना चाहिए?**
+### मुझे प्रभावी गुण कब उपयोग करने चाहिए, और केवल स्थानीय गुणों के साथ कब काम करना चाहिए?
 
-सभी विरासत लागू होने के बाद "जैसे प्रदर्शित हुआ" परिणाम चाहिए हो तो प्रभावी डेटा का उपयोग करें, जैसे रंग, इन्डेंट या आकार को संरेखित करने के लिए। यदि आपको बाद में फ़ॉर्मेटिंग बदलने के बावजूद उन मानों को सुरक्षित रखना है, तो आवश्यक प्रॉपर्टीज़ को अपने ऑब्जेक्ट में कॉपी करें। यदि आपको किसी विशिष्ट स्तर पर फ़ॉर्मेटिंग बदलनी है, तो स्थानीय प्रॉपर्टीज़ को संशोधित करें और फिर, यदि आवश्यक हो, परिणाम सत्यापित करने के लिए प्रभावी डेटा को फिर से पढ़ें।
+जब आपको सभी विरासत लागू होने के बाद "जैसे प्रस्तुत" परिणाम चाहिए, जैसे रंग, इंडेंट या आकार का संरेखण, तो प्रभावी डेटा का उपयोग करें। यदि आप इन मानों को बाद में स्वरूपण परिवर्तन के बावजूद संरक्षित रखना चाहते हैं, तो आवश्यक गुणों को अपनी वस्तु में कॉपी करें। यदि आप किसी विशिष्ट स्तर पर स्वरूपण बदलना चाहते हैं, तो स्थानीय गुणों को संशोधित करें और आवश्यक होने पर प्रभावी डेटा को पुनः पढ़ें ताकि परिणाम की पुष्टि हो सके।

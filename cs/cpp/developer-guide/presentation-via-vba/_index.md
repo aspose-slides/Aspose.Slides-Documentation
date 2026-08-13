@@ -1,6 +1,6 @@
 ---
-title: Správa VBA projektů v prezentacích pomocí C++
-linktitle: Prezentace přes VBA
+title: Správa projektů VBA v prezentacích pomocí C++
+linktitle: Prezentace pomocí VBA
 type: docs
 weight: 250
 url: /cs/cpp/presentation-via-vba/
@@ -19,7 +19,7 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Objevte, jak pomocí Aspose.Slides pro C++ vytvářet a manipulovat s prezentacemi PowerPoint a OpenDocument přes VBA, abyste zjednodušili svůj pracovní postup."
+description: "Objevte, jak pomocí VBA vygenerovat a manipulovat s prezentacemi PowerPoint a OpenDocument pomocí Aspose.Slides pro C++, abyste zefektivnili svůj pracovní postup."
 ---
 ## **Úvod**
 
@@ -35,34 +35,47 @@ Aspose.Slides **never** runs the macros in a presentation.
 
 {{% /alert %}}
 
-## **Přidat VBA makra**
+## **Přidání VBA maker**
 
 Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.vba.vba_project) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.vba.i_vba_project/) interface to manage VBA embedded in a presentation.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation) class.
-1. Use the [VbaProject](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) constructor to add a new VBA project.
-1. Add a module to the VbaProject.
-1. Set the module source code.
-1. Add references to <stdole>.
-1. Add references to **Microsoft Office**.
-1. Associate the references with the VBA project.
-1. Save the presentation.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).
+1. Použijte konstruktor [VbaProject](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) k přidání nového VBA projektu.
+1. Přidejte modul do VbaProject.
+1. Nastavte zdrojový kód modulu.
+1. Přidejte odkazy na <stdole>.
+1. Přidejte odkazy na **Microsoft Office**.
+1. Propojte odkazy s VBA projektem.
+1. Uložte prezentaci.
 
 This C++ code shows you how to add a VBA macro from scratch to a presentation: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaReferenceCollection.h>
+#include <DOM/Vba/VbaProject.h>
+#include <DOM/Vba/VbaReferenceOleTypeLib.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 // Cesta k adresáři dokumentů.
 const String outPath = u"../out/AddVBAMacros_out.pptm";
 
-// Vytvoří instanci třídy prezentace
+// Vytvoří instanci třídy Presentation.
 SharedPtr<Presentation> presentation = MakeObject<Presentation>();
-// Vytvoří nový VBA projekt
+// Vytvoří nový VBA projekt.
 presentation->set_VbaProject(MakeObject<VbaProject>());
 
-// Přidá prázdný modul do VBA projektu
+// Přidá prázdný modul do VBA projektu.
 SharedPtr<IVbaModule> module = presentation->get_VbaProject()->get_Modules()->AddEmptyModule(u"Module");
 
-// Nastaví zdrojový kód modulu
+// Nastaví zdrojový kód modulu.
 module->set_SourceCode(u"Sub Test(oShape As Shape) MsgBox \"Test\" End Sub");
 
 // Vytvoří odkaz na <stdole>
@@ -73,33 +86,40 @@ SharedPtr<VbaReferenceOleTypeLib> stdoleReference =
 SharedPtr<VbaReferenceOleTypeLib> officeReference =
 	MakeObject<VbaReferenceOleTypeLib>(u"Office", u"*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-// Přidá odkazy do VBA projektu
+// Přidá odkazy do VBA projektu.
 presentation->get_VbaProject()->get_References()->Add(stdoleReference);
 presentation->get_VbaProject()->get_References()->Add(officeReference);
 
-// Uloží prezentaci
+// Uloží prezentaci.
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
-
-
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to check out **Aspose** [Macro Remover](https://products.aspose.app/slides/cs/remove-macros), which a free web app used to remove macros from PowerPoint, Excel, and Word documents. 
 
 {{% /alert %}} 
 
-## **Odstranit VBA makra**
+## **Odstranění VBA maker**
 
 Using the [VbaProject](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) property under the [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation) class, you can remove a VBA macro.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation) class and load the presentation containing the macro.
-1. Access the Macro module and remove it.
-1. Save the modified presentation.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation) a načtěte prezentaci obsahující makro.
+1. Přistupte k modulu Macro a odstraňte jej.
+1. Uložte upravenou prezentaci.
 
 This C++ code shows you how to remove a VBA macro: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Cesta k adresáři dokumentů.
 const String outPath = u"../out/RemoveVBAMacros_out.pptm";
 const String templatePath = u"../templates/vba.pptm";
@@ -107,22 +127,31 @@ const String templatePath = u"../templates/vba.pptm";
 // Načte prezentaci obsahující makro
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
 
-// Přistoupí k Vba modulu a odebere jej
+// Přistoupí k modulu Vba a odstraní jej
 presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
 
 // Uloží prezentaci
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
-## **Extrahovat VBA makra**
+## **Extrahování VBA maker**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation) class and load the presentation containing the macro.
-2. Check if the presentation contains a VBA Project.
-3. Loop through all the modules contained in the VBA Project to view the macros.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation) a načtěte prezentaci obsahující makro.
+2. Zkontrolujte, zda prezentace obsahuje VBA Project.
+3. Procházejte všechny moduly obsažené v VBA Project a zobrazte makra.
 
 This C++ code shows you how to extract VBA macros from a presentation containing macros: 
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
 
 	// Cesta k adresáři dokumentů.
 	const String templatePath = u"../templates/VBA.pptm";
@@ -145,18 +174,25 @@ This C++ code shows you how to extract VBA macros from a presentation containing
 	}
 ```
 
-## **Zkontrolovat, zda je VBA projekt chráněn heslem**
+## **Kontrola, zda je VBA projekt chráněn heslem**
 
 Using the [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/cs/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/) property, you can determine whether a project’s properties are password-protected.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) class and load a presentation that contains a macro.
-2. Check whether the presentation contains a [VBA project](https://reference.aspose.com/slides/cs/cpp/aspose.slides.vba/vbaproject/).
-3. Check whether the VBA project is password-protected to view its properties.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) a načtěte prezentaci, která obsahuje makro.
+2. Zkontrolujte, zda prezentace obsahuje [VBA project](https://reference.aspose.com/slides/cs/cpp/aspose.slides.vba/vbaproject/).
+3. Zkontrolujte, zda je VBA projekt chráněn heslem, a podívejte se na jeho vlastnosti.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"VBA.pptm");
     
-if (presentation->get_VbaProject() != nullptr) // Zkontroluje, zda prezentace obsahuje VBA projekt.
+if (presentation->get_VbaProject() != nullptr) // Zkontrolujte, zda prezentace obsahuje VBA projekt.
 {
     if (presentation->get_VbaProject()->get_IsPasswordProtected())
     {
@@ -167,16 +203,16 @@ if (presentation->get_VbaProject() != nullptr) // Zkontroluje, zda prezentace ob
 presentation->Dispose();
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Co se stane s makry, když uložíte prezentaci jako PPTX?**
+### Co se stane s makry, když uložíte prezentaci jako PPTX?
 
-Macros will be removed because PPTX does not support VBA. To keep macros, choose PPTM, PPSM, or POTM.
+Makra budou odstraněna, protože PPTX nepodporuje VBA. Pro zachování maker zvolte PPTM, PPSM nebo POTM.
 
-**Může Aspose.Slides spouštět makra v prezentaci, například k aktualizaci dat?**
+### Může Aspose.Slides spouštět makra v prezentaci, například pro aktualizaci dat?
 
-No. The library never executes VBA code; execution is only possible inside PowerPoint with the appropriate security settings.
+Ne. Knihovna nikdy nespouští VBA kód; vykonání je možné pouze v PowerPointu s vhodnými bezpečnostními nastaveními.
 
-**Je podporována práce s ActiveX ovládacími prvky spojenými s VBA kódem?**
+### Je podpora pro práci s ActiveX ovládacími prvky propojenými s VBA kódem?
 
-Yes, you can access existing [ActiveX controls](/slides/cs/cpp/activex/), modify their properties, and remove them. This is useful when macros interact with ActiveX.
+Ano, můžete přistupovat k existujícím [ActiveX controls](/slides/cs/cpp/activex/), měnit jejich vlastnosti a odstraňovat je. To je užitečné, když makra interagují s ActiveX.

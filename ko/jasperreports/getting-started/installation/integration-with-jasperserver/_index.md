@@ -4,13 +4,13 @@ type: docs
 weight: 45
 url: /ko/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for JasperReports를 JasperServer와 통합하려면 몇 가지 추가 단계가 필요하고 JasperServer 구성 파일을 업데이트해야 합니다. 이 문서에서는 방법을 설명합니다.
+JasperServer와 함께 Aspose.Slides for JasperReports를 통합하려면 몇 가지 추가 단계가 필요하고 JasperServer 구성 파일을 업데이트해야 합니다. 이 문서에서는 방법을 설명합니다.
 
 {{% /alert %}} 
 
-1. 새로운 내보내기 속성을 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** 구성 파일에 추가합니다.
+1. 새 내보내기 속성을 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** 구성 파일에 추가합니다.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -27,12 +27,13 @@ Aspose.Slides for JasperReports를 JasperServer와 통합하려면 몇 가지 �
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- exporterConfigMap에 이 항목을 추가합니다 -->
+    <!-- exporterConfigMap에 이 항목을 추가 -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
 2. **aspose.slides.jasperreports.jar** 파일을 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** 로 복사합니다.
+
 3. 글꼴 매핑 기능을 사용하려면 아래와 같이 **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** 을 업데이트합니다.
 
 ``` xml

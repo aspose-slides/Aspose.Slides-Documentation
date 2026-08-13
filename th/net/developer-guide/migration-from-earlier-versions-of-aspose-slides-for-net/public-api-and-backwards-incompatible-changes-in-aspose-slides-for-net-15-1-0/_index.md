@@ -1,14 +1,14 @@
 ---
-title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนกลับใน Aspose.Slides สำหรับ .NET 15.1.0
+title: การเปลี่ยนแปลง Public API และการไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ .NET 15.1.0
 linktitle: Aspose.Slides สำหรับ .NET 15.1.0
 type: docs
 weight: 130
 url: /th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
 keywords:
-- การย้าย
-- โค้ดโบราณ
+- การย้ายข้อมูล
+- โค้ดเดิม
 - โค้ดสมัยใหม่
-- วิธีการแบบโบราณ
+- วิธีการแบบดั้งเดิม
 - วิธีการสมัยใหม่
 - PowerPoint
 - OpenDocument
@@ -16,34 +16,37 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้แตกหักใน Aspose.Slides สำหรับ .NET เพื่อย้ายการแก้ปัญหา PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น"
+description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เกิดการเสียฟังก์ชันใน Aspose.Slides for .NET เพื่อการย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการคลาส เมธอด คุณสมบัติ ฯลฯ ทั้งหมดที่ [เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) หรือ [ลบ](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำมาพร้อมกับ Aspose.Slides for .NET 15.1.0 API.
+หน้าตัวนี้แสดงรายการคลาส เมธอด คุณสมบัติ และอื่น ๆ ที่ถูก[added](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/)หรือ[removed](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) รวมถึงการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for .NET 15.1.0 API
 
 {{% /alert %}} 
-## **การเปลี่ยนแปลง API สาธารณะ**
-#### **ฟังก์ชันการแทนที่แบบอักษรได้ถูกเพิ่ม**
-ได้เพิ่มความสามารถในการแทนที่แบบอักษรทั่วทั้งงานนำเสนอและแบบชั่วคราวสำหรับการเรนเดอร์
+## **Public API Chages**
+#### **Fonts Substitutions Functinality Has Been Added**
+ความสามารถในการแทนที่ฟอนต์ทั่วทั้งงานนำเสนอและแบบชั่วคราวสำหรับการเรนเดอร์ได้ถูกเพิ่มเข้ามา
 
-ได้แนะนำคุณสมบัติใหม่ "FontsManager" ของคลาส Presentation. คลาส FontsManager มีสมาชิกต่อไปนี้:
+มีการแนะนำคุณสมบัติใหม่ "FontsManager" ของคลาส Presentation แล้ว คลาส FontsManager มีสมาชิกต่อไปนี้:
 
-**IFontSubstRuleCollection FontSubstRuleList** คุณสมบัติ
+**IFontSubstRuleCollection FontSubstRuleList** Property
 
-คอลเลกชันนี้ของอินสแตนซ์ IFontSubstRule ใช้แทนที่แบบอักษรระหว่างการเรนเดอร์. IFontSubstRule มีคุณสมบัติ SourceFont และ DestFont ซึ่งทำตามอินเทอร์เฟซ IFontData และคุณสมบัติ ReplaceFontCondition ที่ให้เลือกเงื่อนไขการแทนที่ ("WhenInaccessible" หรือ "Always").
+คอลเลกชันของอินสแตนซ์ IFontSubstRule ที่ใช้ในการแทนที่ฟอนต์ระหว่างการเรนเดอร์ IFontSubstRule มีคุณสมบัติ SourceFont และ DestFont ที่ทำตามอินเตอร์เฟซ IFontData และคุณสมบัติ ReplaceFontCondition ที่ให้เลือกเงื่อนไขการแทนที่ ("WhenInaccessible" หรือ "Always")
 
-**IFontData[] GetFonts()** เมธอด
+**IFontData[] GetFonts()** Method
 
-ใช้เพื่อดึงแบบอักษรทั้งหมดที่ใช้ในงานนำเสนอปัจจุบัน.
+ใช้เพื่อดึงฟอนต์ทั้งหมดที่ใช้ในงานนำเสนอปัจจุบัน
 
-**ReplaceFont** เมธอด
+**ReplaceFont** Methods
 
-ใช้เพื่อแทนที่แบบอักษรอย่างถาวรในงานนำเสนอ.
+ใช้เพื่อแทนที่ฟอนต์ในงานนำเสนออย่างถาวร
 
-ตัวอย่างต่อไปนี้แสดงวิธีการแทนที่แบบอักษรในงานนำเสนอ:
+ตัวอย่างต่อไปนี้แสดงวิธีการแทนที่ฟอนต์ในงานนำเสนอ:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -58,9 +61,11 @@ description: "ตรวจสอบการอัปเดต API สาธา�
 
 ``` 
 
-ตัวอย่างอีกหนึ่งแสดงการแทนที่แบบอักษรสำหรับการเรนเดอร์เมื่อไม่สามารถเข้าถึงได้:
+ตัวอย่างอื่น แสดงการแทนที่ฟอนต์สำหรับการเรนเดอร์เมื่อไม่สามารถเข้าถึงได้:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -78,7 +83,6 @@ description: "ตรวจสอบการอัปเดต API สาธา�
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // แบบอักษร Arial จะถูกใช้แทน SomeRareFont เมื่อไม่สามารถเข้าถึงได้
-            pres.Slides[0].GetThumbnail();
-
+            // ฟอนต์ Arial จะถูกใช้แทน SomeRareFont เมื่อไม่สามารถเข้าถึงได้
+            pres.Slides[0].GetImage();
 ```

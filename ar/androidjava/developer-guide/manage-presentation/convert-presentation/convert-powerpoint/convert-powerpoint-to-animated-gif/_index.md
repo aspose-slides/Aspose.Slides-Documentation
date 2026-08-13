@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint التقديمية إلى ملفات GIF متحركة على Android
+title: تحويل عروض PowerPoint إلى GIF متحركة على Android
 linktitle: PowerPoint إلى GIF
 type: docs
 weight: 65
@@ -23,17 +23,23 @@ keywords:
 - الإعدادات الافتراضية
 - الإعدادات المخصصة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تحويل عروض PowerPoint (PPT، PPTX) بسهولة إلى GIF متحركة باستخدام Aspose.Slides للأندرويد عبر Java. نتائج سريعة وعالية الجودة."
+description: "تحويل عروض PowerPoint (PPT, PPTX) بسهولة إلى GIF متحركة باستخدام Aspose.Slides لنظام Android عبر Java. نتائج سريعة وعالية الجودة."
 ---
+## **نظرة عامة**
+
+Aspose.Slides يتيح لك تحويل عروض PowerPoint إلى ملفات GIF متحركة ببضع أسطر من الشيفرة. هذا مفيد عندما تحتاج إلى مشاركة محتوى الشرائح بصيغة خفيفة الوزن ومدعومة على نطاق واسع ويمكن تضمينها في صفحات الويب أو الرسائل أو الوثائق. يشرح هذا المقال كيفية تصدير عرض تقديمي إلى GIF باستخدام الإعدادات الافتراضية وكيفية تخصيص المخرجات من خلال تكوين خيارات مثل حجم الإطار، تأخير الشريحة، ومعدل إطارات الانتقال عبر [GifOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/gifoptions/).
 
 ## **تحويل العروض التقديمية إلى GIF متحرك باستخدام الإعدادات الافتراضية**
 
-هذا مثال شفرة في Java يوضح لك كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات القياسية:
+هذا المثال البرمجي بلغة Java يوضح لك كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات القياسية:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	pres.save("pres.gif", SaveFormat.Gif);
@@ -42,25 +48,26 @@ try {
 }
 ```
 
+سيتم إنشاء GIF المتحرك بمعلمات افتراضية.
 
-سيتم إنشاء GIF المتحرك باستخدام المعلمات الافتراضية. 
-
-{{%  alert  title="نصيحة"  color="primary"  %}} 
-
-إذا كنت تفضل تخصيص المعلمات للـ GIF، يمكنك استخدام الفئة [GifOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/GifOptions). راجع الشفرة النموذجية أدناه.
-
+{{%  alert  title="TIP"  color="info"  %}} 
+إذا رغبت في تخصيص المعلمات للـ GIF، يمكنك استخدام الفئة [GifOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/GifOptions). راجع الشيفرة النموذجية أدناه.
 {{% /alert %}} 
 
-## **تحويل العروض التقديمية إلى GIF متحرك باستخدام إعدادات مخصصة**
+## **تحويل العروض التقديمية إلى GIF متحرك باستخدام الإعدادات المخصصة**
 
-هذا المثال يوضح لك كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام إعدادات مخصصة في Java:
+هذا المثال البرمجي يوضح لك كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام إعدادات مخصصة في Java:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();
 	gifOptions.setFrameSize(new Dimension(960, 720)); // حجم GIF الناتج  
-	gifOptions.setDefaultDelay(2000); // المدة التي ستظهر فيها كل شريحة حتى يتم تغييرها إلى التالية
-	gifOptions.setTransitionFps(35); // زيادة عدد الإطارات في الثانية لتحسين جودة حركة الانتقال
+	gifOptions.setDefaultDelay(2000); // مدة عرض كل شريحة قبل الانتقال إلى التالية
+	gifOptions.setTransitionFps(35); // زيادة FPS لتحسين جودة الرسوم المتحركة للانتقال
 	
 	pres.save("pres.gif", SaveFormat.Gif, gifOptions);
 } finally {
@@ -68,19 +75,16 @@ try {
 }
 ```
 
-
-{{% alert title="معلومة" color="info" %}}
-
-قد ترغب في تجربة محول مجاني [Text to GIF](https://products.aspose.app/slides/text-to-gif) تم تطويره بواسطة Aspose. 
-
+{{% alert title="Info" color="info" %}}
+قد ترغب في تجربة محول [Text to GIF](https://products.aspose.app/slides/ar/text-to-gif) المجاني الذي طورته Aspose.
 {{% /alert %}}
 
 ## **الأسئلة المتكررة**
 
-**ماذا يحدث إذا لم تكن الخطوط المستخدمة في العرض مثبتة على النظام؟**
+### ماذا لو لم تكن الخطوط المستخدمة في العرض التقديمي مثبتة على النظام؟
 
-قم بتثبيت الخطوط المفقودة أو [تكوين الخطوط الاحتياطية](/slides/ar/androidjava/powerpoint-fonts/). ستستبدل Aspose.Slides الخطوط، لكن قد يختلف المظهر. لضمان العلامة التجارية، تأكد دائمًا من توفر الخطوط المطلوبة بشكل صريح.
+قم بتثبيت الخطوط المفقودة أو [تهيئة خطوط الاحتياط](/slides/ar/androidjava/powerpoint-fonts/). سيقوم Aspose.Slides بالاستبدال، لكن قد يختلف الشكل. للهوية البصرية، تأكد دائمًا من توفر الخطوط المطلوبة بشكل صريح.
 
-**هل يمكنني إضافة علامة مائية على إطارات الـ GIF؟**
+### هل يمكنني إضافة علامة مائية على إطارات GIF؟
 
-نعم. [إضافة كائن/شعار شبه شفاف](/slides/ar/androidjava/watermark/) إلى الشريحة الرئيسية أو إلى الشرائح الفردية قبل التصدير — ستظهر العلامة المائية على كل إطار.
+نعم. يمكنك [إضافة كائن/شعار شبه شفاف](/slides/ar/androidjava/watermark/) إلى الشريحة الرئيسية أو إلى الشرائح الفردية قبل التصدير — ستظهر العلامة المائية على كل إطار.

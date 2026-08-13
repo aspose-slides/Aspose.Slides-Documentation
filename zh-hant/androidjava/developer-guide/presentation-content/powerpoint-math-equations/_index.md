@@ -1,54 +1,56 @@
 ---
-title: 在 Android 上於 PowerPoint 簡報中加入數學方程式
-linktitle: PowerPoint 數學方程式
+title: 在 Android 上為 PowerPoint 簡報新增數學公式
+linktitle: PowerPoint 數學公式
 type: docs
 weight: 80
 url: /zh-hant/androidjava/powerpoint-math-equations/
 keywords:
-- 數學方程式
-- 數學符號
 - 數學公式
+- 數學符號
+- 數學式
 - 數學文字
-- 新增數學方程式
-- 新增數學符號
 - 新增數學公式
+- 新增數學符號
+- 新增數學式
 - 新增數學文字
 - PowerPoint
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 在 PowerPoint PPT 與 PPTX 中插入與編輯數學方程式，支援 OMML、格式控制，並提供清晰的 Java 程式碼範例。"
+description: "使用 Aspose.Slides for Android 在 PowerPoint PPT 與 PPTX 中插入與編輯數學公式，支援 OMML、格式控制，並提供清晰的 Java 程式碼範例。"
 ---
 ## **概觀**
 
-PowerPoint 將方程式儲存為 Office Math Markup Language (OMML)。使用 Aspose.Slides for Android via Java，您可以以程式方式建立相同類型的數學內容：分數、根號、函數、極限、N 元運算子、矩陣、陣列，以及格式化的數學區塊。
+PowerPoint 以 Office Math Markup Language (OMML) 儲存公式。使用 Aspose.Slides for Android via Java，您可以以程式方式建立相同類型的數學內容：分數、根號、函數、極限、N 元運算子、矩陣、陣列以及格式化的數學區塊。
 
-在 PowerPoint 中，使用者通常從 **插入 > 方程式** 加入方程式：
+在 PowerPoint 中，使用者通常從 **插入 > 公式** 新增公式：
 
-![PowerPoint 插入索引標籤，已選取方程式指令](powerpoint-math-equations_1.png)
+![PowerPoint 插入功能表標籤，已選取「公式」指令](powerpoint-math-equations_1.png)
 
-結果是在投影片上可編輯的數學文字：
+結果是在投影片上呈現可編輯的數學文字：
 
-![包含可編輯數學方程式的 PowerPoint 投影片](powerpoint-math-equations_2.png)
+![包含可編輯數學公式的 PowerPoint 投影片](powerpoint-math-equations_2.png)
 
-Aspose.Slides 透過三個主要物件建立此數學文字：
+Aspose.Slides 透過三個主要物件建構這些數學文字：
 
-- 數學圖形，由 [addMathShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/) 建立，是包含方程式的圖形。
-- [MathPortion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathportion/) 在圖形的文字框中儲存數學內容。
+- 一個數學形狀，使用 [addMathShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapecollection/) 建立，是包含公式的形狀。
+- [MathPortion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathportion/) 儲存形狀文字框內的數學內容。
 - [MathParagraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathparagraph/) 包含一個或多個 [MathBlock](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathblock/) 物件。
 
-以下大部分範例使用 [MathematicalText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathematicaltext/) 與 [IMathElement](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) 的串流方法，以保持程式碼簡潔易讀。
+以下大多範例使用 [MathematicalText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathematicaltext/) 以及 [IMathElement](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) 的流暢方法，以保持程式碼簡潔易讀。
 
 如需 MathML 匯出情境，請參閱 [Export Math Equations from Presentations on Android](/slides/zh-hant/androidjava/exporting-math-equations/)。
 
-## **建立方程式**
+## **建立公式**
 
-此範例建立一個數學圖形並加入畢氏定理：
+此範例建立一個數學形狀並加入畢氏定理：
 
-![c 平方等於 a 平方加 b 平方的方程式](powerpoint-math-equations_3.png)
+![c 平方等於 a 平方加 b 平方的公式](powerpoint-math-equations_3.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -72,17 +74,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` 會建立已包含數學段落的圖形。取得第一個 `MathPortion`，取得其 `MathParagraph`，並向其加入數學區塊或數學元素。
+{{% alert color="info" %}}
+`addMathShape` 會建立已包含數學段落的形狀。取得第一個 `MathPortion`，取得其 `MathParagraph`，然後將數學區塊或數學元素加入其中。
 {{% /alert %}}
 
 ## **加入分數**
 
 使用 `divide` 建立分數。您可以使用 [MathFractionTypes](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathfractiontypes/) 選擇分數樣式。
 
-![顯示 1 除以 x 的傾斜分數](powerpoint-math-equations_4.png)
+![顯示 1 除以 x 的斜分數](powerpoint-math-equations_4.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,16 +109,20 @@ try {
 若要堆疊式分數，使用 `MathFractionTypes.Bar`：
 
 ```java
+import com.aspose.slides.*;
+
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
 ## **加入根號**
 
-使用 `radical` 建立平方根、立方根或其他根號。當前元素成為底部，參數成為指數。
+使用 `radical` 建立平方根、立方根或其他根。目前的元素成為基底，參數則成為次方。
 
 ![在根號符號下方有 x 的 n 次根表達式](powerpoint-math-equations_5.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -136,11 +144,13 @@ try {
 
 ## **加入函數與極限**
 
-使用 `asArgumentOfFunction` 或 `function` 來建立 `sin(x)`、`log(x)` 或自訂函數名稱等函數。若要建立極限，將 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathlimit/)，或使用 `setLowerLimit`。
+使用 `asArgumentOfFunction` 或 `function` 來建立如 `sin(x)`、`log(x)` 或自訂函數名稱的函數。對於極限，將 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathlimit/) 或使用 `setLowerLimit`。
 
-![當 x 趨近於無限大時的極限](powerpoint-math-equations_8.png)
+![x 趨近於無限大的極限](powerpoint-math-equations_8.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -161,19 +171,23 @@ try {
 }
 ```
 
-若使用自訂函數名稱，將函數名稱設為當前元素：
+若要使用自訂函數名稱，將函數名稱設定為目前的元素：
 
 ```java
+import com.aspose.slides.*;
+
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
 ## **加入 N 元運算子與積分**
 
-使用 `nary` 處理求和、聯集、交集以及其他大型運算子。使用 `integral` 處理積分。兩者皆可設定上下限。
+使用 `nary` 來建立求和、聯集、交集等大型運算子。使用 `integral` 來建立積分。兩者皆可設定上下限制。
 
-![帶有上下限的求和符號](powerpoint-math-equations_7.png)
+![具有上下限制的求和符號](powerpoint-math-equations_7.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -196,22 +210,26 @@ try {
 }
 ```
 
-N 元運算子用於可選上下限的大型運算子。`+`、`-`、`=` 等簡單運算子通常使用 `MathematicalText` 加入並串接於表達式中。
+N 元運算子用於可選上下限制的大型運算子。`+`、`-`、`=` 等簡單運算子通常以 `MathematicalText` 加入，然後串接成表達式。
 
 若要建立積分，使用 `integral`：
 
 ```java
+import com.aspose.slides.*;
+
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
 ## **加入矩陣**
 
-使用 [MathMatrix](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathmatrix/) 來處理行與列。矩陣預設不包含括號，如需括號、方括號或大括號，請自行將矩陣包起來。
+使用 [MathMatrix](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathmatrix/) 來處理行與列。矩陣預設不包含括號，若需要括號、方括號或大括號，請自行在矩陣外加上。
 
-![有兩列且其中一格為空的數學矩陣](powerpoint-math-equations_10.png)
+![具有一個空儲存格的兩列矩陣](powerpoint-math-equations_10.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -235,13 +253,15 @@ try {
 }
 ```
 
-## **加入方程式陣列**
+## **加入公式陣列**
 
-需要對齊的方程式或垂直堆疊的表達式時，使用 `toMathArray`。
+當需要對齊的公式或垂直堆疊的表達式時，使用 `toMathArray`。
 
-![垂直排列的數學陣列，x 位於 y 之上](powerpoint-math-equations_11.png)
+![上方為 x、下方為 y 的垂直數學陣列](powerpoint-math-equations_11.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -264,11 +284,13 @@ try {
 
 ## **加入三角函數**
 
-當參數是當前元素且已知函數名稱時，使用 `asArgumentOfFunction`。
+當參數是目前的元素且函數名稱已知時，使用 `asArgumentOfFunction`。
 
-![三角函數 cos 作用於 2x](powerpoint-math-equations_6.png)
+![cos 函數套用於 2x 的示例](powerpoint-math-equations_6.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -290,11 +312,13 @@ try {
 
 ## **加入下標與上標**
 
-使用下標與上標輔助方法處理索引與次方。若索引必須顯示在基底左側，使用 `setSubSuperscriptOnTheLeft`。
+使用下標與上標輔助方法處理索引與次方。若索引必須出現在基底左側，使用 `setSubSuperscriptOnTheLeft`。
 
-![左側帶有下標 1 與上標 n 的大寫 Y](powerpoint-math-equations_9.png)
+![左側下標 1 及上標 n 的大寫 Y](powerpoint-math-equations_9.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -314,13 +338,15 @@ try {
 }
 ```
 
-## **加入分隔符號**
+## **加入界定符**
 
-使用 `enclose` 將表達式置於分隔符號內。亦可為包含多個元素的分隔符號設定分隔字元。
+使用 `enclose` 將表達式置於界定符之中。亦可設定分隔字元，以在包含多個元素的界定符表達式中使用。
 
-![包含 x、y、z 並以直線分隔的分隔符號表達式](powerpoint-math-equations_13.png)
+![以直線分隔 x、y、z 的界定符表達式](powerpoint-math-equations_13.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -343,13 +369,15 @@ try {
 }
 ```
 
-## **加入邊框盒子**
+## **加入邊框盒**
 
-當方程式本身需要被框住時，使用 `toBorderBox`。
+當整個公式需要被框起時，使用 `toBorderBox`。
 
-![帶框的方程式，a 平方等於 b 平方加 c 平方](powerpoint-math-equations_12.png)
+![顯示 a 平方等於 b 平方加 c 平方的盒狀公式](powerpoint-math-equations_12.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -376,11 +404,13 @@ try {
 
 ## **分組項目**
 
-使用 `group` 在表達式上方或下方放置分組字元。加入上下限以為分組項目加上標籤。
+使用 `group` 將分組字元放於表達式的上方或下方。加入限制以為分組項目加上標籤。
 
-![將表達式 x 加 y 加上分組字元，並在下方加上任意文字標籤](powerpoint-math-equations_15.png)
+![x 加 y 的表達式下方附有「任何文字」的分組示例](powerpoint-math-equations_15.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -403,11 +433,13 @@ try {
 
 ## **格式化數學元素**
 
-僅在有助於清晰表達公式時使用格式化輔助方法。例如，`overbar` 會在數學元素上方加上一條橫線。
+僅在能提升公式可讀性的情況下使用格式化輔助方法。例如，`overbar` 會在數學元素上方加上一條橫線。
 
-![帶有上橫線的數學表達式 ABC](powerpoint-math-equations_14.png)
+![帶上橫線的 ABC 數學表達式](powerpoint-math-equations_14.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -431,30 +463,30 @@ try {
 | 任務 | 主要 API |
 | --- | --- |
 | 建立數學文字 | [MathematicalText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathematicaltext/) |
-| 組合元素 | [IMathElement.join](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
+| 合併元素 | [IMathElement.join](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 建立分數 | [IMathElement.divide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 加入上標或下標 | [setSuperscript](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 加入函數 | [function](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 加入根號 | [IMathElement.radical](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 加入極限 | [setLowerLimit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
-| 加入左側標記 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
+| 加入左側腳本 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 加入求和與積分 | [nary](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 加入矩陣 | [MathMatrix](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mathmatrix/) |
-| 加入方程式陣列 | [toMathArray](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
-| 加入分隔符號 | [enclose](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
-| 加入橫線與邊框 | [overbar](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
+| 加入公式陣列 | [toMathArray](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
+| 加入界定符 | [enclose](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
+| 加入上橫線與邊框 | [overbar](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 | 分組項目 | [group](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathelement/) |
 
 ## **常見問題**
 
-**我可以編輯現有的 PowerPoint 方程式嗎？**
+**我可以編輯已存在的 PowerPoint 公式嗎？**
 
-可以。開啟簡報後，找到包含 `MathPortion` 的圖形，取得其 `MathParagraph`，即可更新該段落中的數學區塊。
+可以。開啟簡報，找到包含 `MathPortion` 的形狀，取得其 `MathParagraph`，然後更新該段落中的數學區塊。
 
-**方程式會儲存為可編輯的 PowerPoint 數學嗎？**
+**公式會儲存為可編輯的 PowerPoint 數學嗎？**
 
-會。將簡報儲存為 PPTX 時，Aspose.Slides 會將方程式寫入可編輯的 Office 數學內容。
+會。存成 PPTX 時，Aspose.Slides 會將公式寫入為可編輯的 Office 數學內容。
 
-**我可以將方程式匯出為 LaTeX 嗎？**
+**我可以將公式匯出為 LaTeX 嗎？**
 
-Aspose.Slides 只能將數學方程式匯出為 MathML。如需 LaTeX，先匯出為 MathML，然後使用支援 LaTeX 轉換的工具將 MathML 轉換為目標 LaTeX 方言。
+可以。從其 [IMathPortion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathportion/) 取得公式的 [IMathParagraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathparagraph/)，然後呼叫 [IMathParagraph.toLatex](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imathparagraph/#toLatex--) 直接匯出。完整範例請參閱 [Export Math Equations from Presentations in Android via Java](/slides/zh-hant/androidjava/exporting-math-equations/#export-math-equations-to-latex)。

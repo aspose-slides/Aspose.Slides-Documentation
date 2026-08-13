@@ -1,61 +1,75 @@
 ---
-title: Konversi Presentasi PowerPoint ke GIF Animasi dalam C++
+title: Mengonversi Presentasi PowerPoint ke GIF Animasi dalam C++
 linktitle: PowerPoint ke GIF
 type: docs
 weight: 65
 url: /id/cpp/convert-powerpoint-to-animated-gif/
 keywords:
 - GIF animasi
-- konversi PowerPoint
-- konversi presentasi
-- konversi slide
-- konversi PPT
-- konversi PPTX
+- mengonversi PowerPoint
+- mengonversi presentasi
+- mengonversi slide
+- mengonversi PPT
+- mengonversi PPTX
 - PowerPoint ke GIF
 - presentasi ke GIF
 - slide ke GIF
 - PPT ke GIF
 - PPTX ke GIF
-- simpan PPT sebagai GIF
-- simpan PPTX sebagai GIF
-- ekspor PPT sebagai GIF
-- ekspor PPTX sebagai GIF
+- menyimpan PPT sebagai GIF
+- menyimpan PPTX sebagai GIF
+- mengekspor PPT sebagai GIF
+- mengekspor PPTX sebagai GIF
 - pengaturan default
-- pengaturan khusus
+- pengaturan kustom
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Dengan mudah mengonversi presentasi PowerPoint (PPT, PPTX) menjadi GIF animasi dengan Aspose.Slides untuk C++. Hasil cepat dan berkualitas tinggi."
+description: "Dengan mudah mengonversi presentasi PowerPoint (PPT, PPTX) ke GIF animasi menggunakan Aspose.Slides untuk C++. Hasil cepat dan berkualitas tinggi."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda untuk mengonversi presentasi PowerPoint menjadi file GIF animasi dengan hanya beberapa baris kode. Ini berguna ketika Anda perlu membagikan konten slide dalam format animasi yang ringan, didukung secara luas, dan dapat disematkan di halaman web, messenger, atau dokumentasi. Artikel ini menjelaskan cara mengekspor presentasi ke GIF menggunakan pengaturan default dan cara menyesuaikan output dengan mengonfigurasi opsi seperti ukuran frame, penundaan slide, dan kecepatan frame transisi melalui [GifOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/gifoptions/).
+Aspose.Slides memungkinkan Anda mengonversi presentasi PowerPoint ke file GIF animasi dengan hanya beberapa baris kode. Ini berguna ketika Anda perlu berbagi konten slide dalam format animasi ringan, didukung secara luas, yang dapat disematkan di halaman web, messenger, atau dokumentasi. Artikel ini menjelaskan cara mengekspor presentasi ke GIF menggunakan pengaturan default dan cara menyesuaikan output dengan mengonfigurasi opsi seperti ukuran bingkai, jeda slide, dan kecepatan bingkai transisi melalui [GifOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/gifoptions/).
 
 ## **Mengonversi Presentasi ke GIF Animasi dengan Pengaturan Default**
 
-Kode contoh ini dalam C++ menunjukkan cara mengonversi presentasi ke GIF animasi menggunakan pengaturan standar:
+Contoh kode berikut dalam C++ menunjukkan cara mengonversi presentasi ke GIF animasi menggunakan pengaturan standar:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif);
 ```
 
 GIF animasi akan dibuat dengan parameter default. 
 
-{{%  alert  title="TIP"  color="primary"  %}} 
-Jika Anda lebih suka menyesuaikan parameter untuk GIF, Anda dapat menggunakan kelas [GifOptions](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.gif_options). Lihat kode contoh di bawah. 
+{{%  alert  title="TIP"  color="info"  %}} 
+
+Jika Anda ingin menyesuaikan parameter untuk GIF, Anda dapat menggunakan kelas [GifOptions](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.export.gif_options). Lihat contoh kode di bawah ini. 
+
 {{% /alert %}} 
 
-## **Mengonversi Presentasi ke GIF Animasi dengan Pengaturan Khusus**
+## **Mengonversi Presentasi ke GIF Animasi dengan Pengaturan Kustom**
 
-Kode contoh ini menunjukkan cara mengonversi presentasi ke GIF animasi dengan pengaturan khusus dalam C++:
+Contoh kode berikut menunjukkan cara mengonversi presentasi ke GIF animasi menggunakan pengaturan kustom dalam C++:
 
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/GifOptions.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto gifOptions = System::MakeObject<GifOptions>();
-// ukuran GIF yang dihasilkan 
-gifOptions->set_FrameSize(Size(960, 720));
-// berapa lama setiap slide akan ditampilkan hingga diganti ke slide berikutnya
+// ukuran GIF yang dihasilkan
+gifOptions->set_FrameSize(System::Drawing::Size(960, 720));
+// berapa lama setiap slide akan ditampilkan sampai diganti dengan slide berikutnya
 gifOptions->set_DefaultDelay(2000);
 // tingkatkan FPS untuk kualitas animasi transisi yang lebih baik
 gifOptions->set_TransitionFps(35);
@@ -65,15 +79,17 @@ pres->Save(u"pres.gif", SaveFormat::Gif, gifOptions);
 ```
 
 {{% alert title="Info" color="info" %}}
-Anda mungkin ingin melihat konverter [Text to GIF](https://products.aspose.app/slides/id/text-to-gif) GRATIS yang dikembangkan oleh Aspose. 
+
+Anda mungkin ingin mencoba konverter GRATIS [Text to GIF](https://products.aspose.app/slides/id/text-to-gif) yang dikembangkan oleh Aspose. 
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Bagaimana jika font yang digunakan dalam presentasi tidak terpasang di sistem?**
+### Bagaimana jika font yang digunakan dalam presentasi tidak terpasang di sistem?
 
-Pasang font yang hilang atau [konfigurasikan font fallback](/slides/id/cpp/powerpoint-fonts/). Aspose.Slides akan menggantinya, tetapi tampilannya mungkin berbeda. Untuk keperluan merek, selalu pastikan tipe huruf yang diperlukan tersedia secara eksplisit.
+Instal font yang hilang atau [konfigurasikan fallback fonts](/slides/id/cpp/powerpoint-fonts/). Aspose.Slides akan melakukan substitusi, namun tampilannya mungkin berbeda. Untuk keperluan branding, pastikan semua tipe huruf yang diperlukan tersedia secara eksplisit.
 
-**Apakah saya dapat menambahkan watermark pada frame GIF?**
+### Bisakah saya menambahkan watermark pada bingkai GIF?
 
-Ya. [Tambahkan objek/logo semi-transparan](/slides/id/cpp/watermark/) ke slide master atau ke slide individual sebelum mengekspor — watermark akan muncul pada setiap frame.
+Ya. [Tambahkan objek/logo semi-transparan](/slides/id/cpp/watermark/) ke master slide atau ke slide individu sebelum ekspor — watermark akan muncul pada setiap bingkai.

@@ -1,44 +1,47 @@
 ---
-title: Διαχείριση Φόντων Παρουσίασης σε Java
-linktitle: Φόντο Διαφάνειας
+title: Διαχείριση Υποβάθρων Παρουσίασης σε Java
+linktitle: Υπόβαθρο Διαφάνειας
 type: docs
 weight: 20
 url: /el/java/presentation-background/
 keywords:
-- φόντο παρουσίασης
-- φόντο διαφάνειας
-- μονόχρωμο
-- χρώμα διαβάθμισης
-- φόντο εικόνας
-- διαφάνεια φόντου
-- ιδιότητες φόντου
+- υπόβαθρο παρουσίασης
+- υπόβαθρο διαφάνειας
+- στερεό χρώμα
+- διαβαθμισμένο χρώμα
+- υπόβαθρο εικόνας
+- διαφάνεια υποβάθρου
+- ιδιότητες υποβάθρου
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να ορίζετε δυναμικά φόντα σε αρχεία PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Java, με συμβουλές κώδικα για να ενισχύσετε τις παρουσιάσεις σας."
+description: "Μάθετε πώς να ορίζετε δυναμικά υπόβαθρα σε αρχεία PowerPoint και OpenDocument χρησιμοποιώντας την Aspose.Slides για Java, με συμβουλές κώδικα για να ενισχύσετε τις παρουσιάσεις σας."
 ---
 ## **Εισαγωγή**
 
-Συχνά χρησιμοποιούνται μονές χρώματα, διαβαθμίσεις και εικόνες για το φόντο των διαφανειών. Μπορείτε να ορίσετε το φόντο για μια **κανονική διαφάνεια** (μια μονή διαφάνεια) ή μια **διαφάνεια προτύπου** (εφαρμόζεται σε πολλές διαφάνειες ταυτόχρονα).
+Τα στερεά χρώματα, τα διαβαθμισμένα χρώματα και οι εικόνες χρησιμοποιούνται συχνά ως φόντο διαφανειών. Μπορείτε να ορίσετε το φόντο για μια **κανονική διαφάνεια** (μια μόνο διαφάνεια) ή μια **κύρια διαφάνεια** (εφαρμόζεται σε πολλές διαφάνειες ταυτόχρονα).
 
-![PowerPoint background](powerpoint-background.png)
+![Φόντο PowerPoint](powerpoint-background.png)
 
-## **Ορισμός ενός μονόχρωμου φόντου για κανονική διαφάνεια**
+## **Ορισμός Στερεού Χρώματος Φόντου για Κανονική Διαφάνεια**
 
-Το Aspose.Slides σας επιτρέπει να ορίσετε ένα μονόχρωμο χρώμα ως φόντο για μια συγκεκριμένη διαφάνεια σε μια παρουσίαση—ακόμη και αν η παρουσίαση χρησιμοποιεί διαφάνεια προτύπου. Η αλλαγή εφαρμόζεται μόνο στην επιλεγμένη διαφάνεια.
+Η Aspose.Slides σάς επιτρέπει να ορίσετε ένα στερεό χρώμα ως φόντο για μια συγκεκριμένη διαφάνεια σε μια παρουσίαση — ακόμη και αν η παρουσίαση χρησιμοποιεί μια κύρια διαφάνεια. Η αλλαγή εφαρμόζεται μόνο στην επιλεγμένη διαφάνεια.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/).
-2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της διαφάνειας σε `OwnBackground`.
-3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της διαφάνειας σε `Solid`.
-4. Χρησιμοποιήστε τη μέθοδο [getSolidFillColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/#getSolidFillColor--) στην κλάση [FillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/) για να ορίσετε το μονόχρωμο χρώμα φόντου.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
+2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της διαφάνειας σε `OwnBackground` .
+3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της διαφάνειας σε `Solid` .
+4. Χρησιμοποιήστε τη μέθοδο [getSolidFillColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/#getSolidFillColor--) στην κλάση [FillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/) για να καθορίσετε το στερεό χρώμα φόντου.
 5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Το παρακάτω παράδειγμα Java δείχνει πώς να ορίσετε ένα μπλε μονόχρωμο φόντο για μια κανονική διαφάνεια:
+Το παρακάτω παράδειγμα Java δείχνει πώς να ορίσετε ένα μπλε στερεό χρώμα ως φόντο για μια κανονική διαφάνεια:
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Δημιουργήστε μια παρουσία της κλάσης Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -55,25 +58,28 @@ try {
 }
 ```
 
-## **Ορισμός ενός μονόχρωμου φόντου για διαφάνεια προτύπου**
+## **Ορισμός Στερεού Χρώματος Φόντου για Κύρια Διαφάνεια**
 
-Το Aspose.Slides σας επιτρέπει να ορίσετε ένα μονόχρωμο χρώμα ως φόντο για τη διαφάνεια προτύπου σε μια παρουσίαση. Η διαφάνεια προτύπου λειτουργεί ως πρότυπο που ελέγχει τη μορφοποίηση για όλες τις διαφάνειες, επομένως όταν επιλέγετε ένα μονόχρωμο φόντο για τη διαφάνεια προτύπου, αυτό εφαρμόζεται σε κάθε διαφάνεια.
+Η Aspose.Slides σάς επιτρέπει να ορίσετε ένα στερεό χρώμα ως φόντο για τη κύρια διαφάνεια σε μια παρουσίαση. Η κύρια διαφάνεια λειτουργεί ως πρότυπο που ελέγχει τη μορφοποίηση για όλες τις διαφάνειες, έτσι όταν επιλέγετε ένα στερεό χρώμα για το φόντο της κύριας διαφάνειας, αυτό εφαρμόζεται σε κάθε διαφάνεια.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/).
-2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της διαφάνειας προτύπου (μέσω `getMasters`) σε `OwnBackground`.
-3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της διαφάνειας προτύπου σε `Solid`.
-4. Χρησιμοποιήστε τη μέθοδο [getSolidFillColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/#getSolidFillColor--) για να ορίσετε το μονόχρωμο χρώμα φόντου.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
+2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της κύριας διαφάνειας (μέσω `getMasters`) σε `OwnBackground` .
+3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της κύριας διαφάνειας σε `Solid` .
+4. Χρησιμοποιήστε τη μέθοδο [getSolidFillColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/#getSolidFillColor--) για να καθορίσετε το στερεό χρώμα φόντου.
 5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Το παρακάτω παράδειγμα Java δείχνει πώς να ορίσετε ένα πράσινο μονόχρωμο φόντο για μια διαφάνεια προτύπου:
+Το παρακάτω παράδειγμα Java δείχνει πώς να ορίσετε ένα στερεό χρώμα (πράσινο) ως φόντο για μια κύρια διαφάνεια:
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Δημιουργήστε μια παρουσία της κλάσης Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Ορίστε το χρώμα φόντου για τη διαφάνεια Master σε Δασικό Πράσινο.
+    // Ορίστε το χρώμα φόντου για τη κύρια διαφάνεια σε πράσινο.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -85,20 +91,23 @@ try {
 }
 ```
 
-## **Ορισμός διαβαθμισμένου φόντου για διαφάνεια**
+## **Ορισμός Διαβαθμισμένου Φόντου για Διαφάνεια**
 
-Μια διαβάθμιση είναι ένα γραφικό εφέ που δημιουργείται με σταδιακή αλλαγή χρώματος. Όταν χρησιμοποιείται ως φόντο διαφάνειας, οι διαβαθμίσεις μπορούν να κάνουν τις παρουσιάσεις να φαίνονται πιο καλλιτεχνικές και επαγγελματικές. Το Aspose.Slides σας επιτρέπει να ορίσετε ένα χρώμα διαβάθμισης ως φόντο για διαφάνειες.
+Ένα διαβάθμισμα είναι ένα γραφικό εφέ που δημιουργείται από διαδοχική αλλαγή χρώματος. Όταν χρησιμοποιείται ως φόντο διαφάνειας, τα διαβαθμισμένα χρώματα μπορούν να κάνουν τις παρουσιάσεις να φαίνονται πιο καλλιτεχνικές και επαγγελματικές. Η Aspose.Slides σάς επιτρέπει να ορίσετε ένα διαβαθμισμένο χρώμα ως φόντο για διαφάνειες.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/).
-2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της διαφάνειας σε `OwnBackground`.
-3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της διαφάνειας σε `Gradient`.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
+2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της διαφάνειας σε `OwnBackground` .
+3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της διαφάνειας σε `Gradient` .
 4. Χρησιμοποιήστε τη μέθοδο [getGradientFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/#getGradientFormat--) στην κλάση [FillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/) για να ρυθμίσετε τις προτιμώμενες ρυθμίσεις διαβάθμισης.
 5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Το παρακάτω παράδειγμα Java δείχνει πώς να ορίσετε ένα χρώμα διαβάθμισης ως φόντο για μια διαφάνεια:
+Το παρακάτω παράδειγμα Java δείχνει πώς να ορίσετε ένα διαβαθμισμένο χρώμα ως φόντο για μια διαφάνεια:
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Δημιουργήστε μια παρουσία της κλάσης Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -106,7 +115,13 @@ try {
     // Εφαρμόστε ένα διαβαθμισμένο εφέ στο φόντο.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Προσθέστε τα διαβαθμισμένα χρώματα. Χωρίς στάσεις διαβάθμισης, το φόντο επανέρχεται σε προεπιλεγμένη κλίμακα μαύρο-άσπρο.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Αποθηκεύστε την παρουσίαση στο δίσκο.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -115,13 +130,13 @@ try {
 }
 ```
 
-## **Ορισμός εικόνας ως φόντο διαφάνειας**
+## **Ορισμός Εικόνας ως Φόντο Διαφάνειας**
 
-Εκτός από μονές και διαβαθμισμένες γεμίσεις, το Aspose.Slides σας επιτρέπει να χρησιμοποιήσετε εικόνες ως φόντο διαφάνειας.
+Εκτός από στερεές και διαβαθμισμένες γεμίσεις, η Aspose.Slides σάς επιτρέπει να χρησιμοποιείτε εικόνες ως φόντο διαφανειών.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/).
-2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της διαφάνειας σε `OwnBackground`.
-3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της διαφάνειας σε `Picture`.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) .
+2. Ορίστε το [BackgroundType](https://reference.aspose.com/slides/el/java/com.aspose.slides/backgroundtype/) της διαφάνειας σε `OwnBackground` .
+3. Ορίστε το [FillType](https://reference.aspose.com/slides/el/java/com.aspose.slides/filltype/) του φόντου της διαφάνειας σε `Picture` .
 4. Φορτώστε την εικόνα που θέλετε να χρησιμοποιήσετε ως φόντο διαφάνειας.
 5. Προσθέστε την εικόνα στη συλλογή εικόνων της παρουσίασης.
 6. Χρησιμοποιήστε τη μέθοδο [getPictureFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/#getPictureFillFormat--) στην κλάση [FillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/fillformat/) για να ορίσετε την εικόνα ως φόντο.
@@ -130,7 +145,9 @@ try {
 Το παρακάτω παράδειγμα Java δείχνει πώς να ορίσετε μια εικόνα ως φόντο για μια διαφάνεια:
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation.
+import com.aspose.slides.*;
+
+// Δημιουργήστε μια παρουσία της κλάσης Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -155,9 +172,11 @@ try {
 }
 ```
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να ορίσετε τον τύπο γεμίσματος φόντου σε εικόνα ταμπέλας και να τροποποιήσετε τις ιδιότητες ταμπέλας:
+Το παρακάτω δείγμα κώδικα δείχνει πώς να ορίσετε τον τύπο γεμίσεως φόντου σε μία επαναλαμβανόμενη εικόνα και να τροποποιήσετε τις ιδιότητες επαναληψίας:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -171,11 +190,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // Ορίστε την εικόνα που χρησιμοποιείται για το γέμισμα φόντου.
+    // Ορίστε την εικόνα που χρησιμοποιείται για τη γεμιστική του φόντου.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Ορίστε τη λειτουργία γεμίσματος εικόνας σε Tile και προσαρμόστε τις ιδιότητες του πλακιδίου.
+    // Ορίστε τη μέθοδο γεμίσματος εικόνας σε Καρό και προσαρμόστε τις ιδιότητες του καρώματος.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -190,53 +209,64 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Διαβάστε περισσότερα: [**Πάτσα Εικόνας Ως Υφή**](/slides/el/java/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Διαβάστε περισσότερα: [**Επανάληψη Εικόνας ως Υφή**](/slides/el/java/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
-### **Αλλαγή της διαφάνειας εικόνας φόντου**
+### **Αλλαγή Διαφάνειας Εικόνας Φόντου**
 
-Μπορεί να θέλετε να προσαρμόσετε τη διαφάνεια της εικόνας φόντου μιας διαφάνειας ώστε το περιεχόμενο της διαφάνειας να ξεχωρίζει. Ο παρακάτω κώδικας Java δείχνει πώς να αλλάξετε τη διαφάνεια για μια εικόνα φόντου διαφάνειας:
+Μπορεί να θέλετε να προσαρμόσετε τη διαφάνεια της εικόνας φόντου μιας διαφάνειας ώστε το περιεχόμενο της διαφάνειας να ξεχωρίζει. Το παρακάτω κώδικας Java σας δείχνει πώς να αλλάξετε τη διαφάνεια για μια εικόνα φόντου διαφάνειας:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Για παράδειγμα.
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Λάβετε τη συλλογή των λειτουργιών μετασχηματισμού εικόνας.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Βρείτε ένα υπάρχον εφέ διαφάνειας με σταθερό ποσοστό.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Ορίστε τη νέα τιμή διαφάνειας.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Λήψη της τιμής φόντου διαφάνειας**
+## **Λήψη Τιμής Φόντου Διαφάνειας**
 
-Το Aspose.Slides παρέχει τη διεπαφή [IBackgroundEffectiveData](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibackgroundeffectivedata/) για την ανάκτηση των αποτελεσματικών τιμών φόντου μιας διαφάνειας. Αυτή η διεπαφή εκθέτει το αποτελεσματικό [FillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) και το [EffectFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+Η Aspose.Slides παρέχει τη διεπαφή [IBackgroundEffectiveData](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibackgroundeffectivedata/) για την ανάκτηση των αποτελεσματικών τιμών φόντου μιας διαφάνειας. Αυτή η διεπαφή εκθέτει το αποτελεσματικό [FillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) και το [EffectFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
 
-Χρησιμοποιώντας τη μέθοδο `getBackground` της κλάσης [BaseSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/baseslide/), μπορείτε να λάβετε το αποτελεσματικό φόντο για μια διαφάνεια.
-
-Το παρακάτω παράδειγμα Java δείχνει πώς να λάβετε την αποτελεσματική τιμή φόντου μιας διαφάνειας:
+Χρησιμοποιώντας τη μέθοδο `getBackground` της κλάσης [BaseSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/baseslide/) , μπορείτε να αποκτήσετε το αποτελεσματικό φόντο για μια διαφάνεια.
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation.
+import com.aspose.slides.*;
+
+// Δημιουργήστε μια παρουσία της κλάσης Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ανακτήστε το αποτελεσματικό φόντο, λαμβάνοντας υπόψη το master, τη διάταξη και το θέμα.
+    // Retrieve the effective background, taking into account master, layout, and theme.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -248,12 +278,10 @@ try {
 }
 ```
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Μπορώ να επαναφέρω ένα προσαρμοσμένο φόντο και να αποκαταστήσω το φόντο θέματος/διάταξης;**
+### Μπορώ να επαναφέρω ένα προσαρμοσμένο φόντο και να αποκαταστήσω το φόντο του θέματος/διάταξης;
+Ναι. Αφαιρέστε την προσαρμοσμένη γεμιστική της διαφάνειας, και το φόντο θα κληρονομηθεί ξανά από τη σχετική διαφάνεια [διάταξης](/slides/el/java/slide-layout/)/[κύριας διαφάνειας](/slides/el/java/slide-master/) (δηλαδή το [φόντο θέματος](/slides/el/java/presentation-theme/)).
 
-Ναι. Αφαιρέστε το προσαρμοσμένο γέμισμα της διαφάνειας και το φόντο θα κληρονομηθεί ξανά από την αντίστοιχη διαφάνεια [διάταξης](/slides/el/java/slide-layout/)/[προτύπου](/slides/el/java/slide-master/) (δηλαδή το [φόντο θέματος](/slides/el/java/presentation-theme/)).
-
-**Τι συμβαίνει με το φόντο εάν αλλάξω αργότερα το θέμα της παρουσίασης;**
-
-Εάν μια διαφάνεια έχει το δικό της γέμισμα, θα παραμείνει αμετάβλητο. Εάν το φόντο κληρονομείται από τη [διάταξη](/slides/el/java/slide-layout/)/[πρότυπο](/slides/el/java/slide-master/), θα ενημερωθεί ώστε να ταιριάζει με το [νέο θέμα](/slides/el/java/presentation-theme/)).
+### Τι συμβαίνει με το φόντο αν αλλάξω το θέμα της παρουσίασης αργότερα;
+Αν μια διαφάνεια έχει τη δική της γεμιστική, αυτή θα παραμείνει αμετάβλητη. Αν το φόντο κληρονομείται από τη [διάταξη](/slides/el/java/slide-layout/)/[κύρια διαφάνεια](/slides/el/java/slide-master/), θα ενημερωθεί ώστε να ταιριάζει με το [νέο θέμα](/slides/el/java/presentation-theme/).

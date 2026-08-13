@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 16.1.0 の公開 API と後方互換性のない変更
+title: Aspose.Slides for .NET 16.1.0 のパブリック API と下位互換性のない変更
 linktitle: Aspose.Slides for .NET 16.1.0
 type: docs
 weight: 220
@@ -16,21 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET の公開 API 更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for .NET 16.1.0 API に導入された、追加された[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)または削除された[removed](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/)クラス、メソッド、プロパティ等と、その他の変更を一覧します。
+このページでは、Aspose.Slides for .NET 16.1.0 APIで導入された、[追加](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) または [削除](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) クラス、メソッド、プロパティなど、その他の変更をすべて一覧表示します。
 
 {{% /alert %}} 
-## **パブリック API の変更**
+## **Public API の変更**
 
-#### **IChartTextBlockFormat と ITextFrameFormat インターフェイスに Property RotationAngle が追加されました**
-Property RotationAngle が Aspose.Slides.Charts.IChartTextBlockFormat と Aspose.Slides.ITextFrameFormat インターフェイスに追加されました。  
-このプロパティは、バウンディング ボックス内のテキストに適用されるカスタム回転角度を指定します。
+
+#### **プロパティ RotationAngle が IChartTextBlockFormat と ITextFrameFormat インターフェイスに追加されました**
+Aspose.Slides.Charts.IChartTextBlockFormat と Aspose.Slides.ITextFrameFormat インターフェイスに、プロパティ RotationAngle が追加されました。
+これは、バウンディング ボックス内のテキストに適用されるカスタム回転を指定します。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -51,7 +55,5 @@ chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.Rotat
 pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-
 ``` 
-#### **OdpException が Aspose.Slides.Odp から Aspose.Slides 名前空間へ移動しました**
+#### **OdpException が Aspose.Slides.Odp から Aspose.Slides 名前空間に移動しました**

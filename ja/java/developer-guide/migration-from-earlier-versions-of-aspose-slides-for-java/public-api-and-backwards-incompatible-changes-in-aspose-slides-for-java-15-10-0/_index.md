@@ -1,18 +1,28 @@
 ---
-title: Aspose.Slides for Java 15.10.0 における公開 API と後方互換性のない変更
+title: Aspose.Slides for Java 15.10.0 のパブリック API と後方互換性のない変更
+linktitle: Aspose.Slides for Java 15.10.0
 type: docs
 weight: 180
 url: /ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のパブリック API 更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
-
-{{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for Java 15.10.0 API で追加されたまたは削除されたすべての [追加された](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) クラス、メソッド、プロパティなど、及びその他の変更点を一覧表示しています。
-
+{{% alert color="info" %}} 
+このページでは、Aspose.Slides for Java 15.10.0 APIで導入された、[added](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) または [removed](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) クラス、メソッド、プロパティなど、その他の変更をすべて一覧表示します。
 {{% /alert %}} 
-## **公開 API の変更**
-#### **ISequence にチャート系列アニメーション API が追加されました**
-com.aspose.slides.ISequence インターフェイスに新しい 2 つのメソッドが追加されました。
+## **パブリック API の変更**
+#### **ISequence にチャートシリーズ アニメーション API が追加されました**
+新しい 2 つのメソッドが com.aspose.slides.ISequence インターフェイスに追加されました。
 
 ``` java
 
@@ -22,20 +32,24 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 ```
 
-これらのメソッドは、チャートの要素のアニメーションをサポートすることを目的としています。
+これらのメソッドは、チャート要素のアニメーションをサポートすることを目的としています。
 
-シリーズによって
-カテゴリによって
-系列要素によって
-カテゴリ要素によって
+シリーズごとに
+カテゴリごとに
+シリーズ要素ごとに
+カテゴリ要素ごとに
 
-チャートの要素アニメーションに関連する新しい列挙型 EffectChartMajorGroupingType と EffectChartMinorGroupingType が導入されました。
+チャート要素アニメーションに関連する新しい列挙型 EffectChartMajorGroupingType と EffectChartMinorGroupingType の 2 つが導入されました。
 
-チャートに系列アニメーションを追加するには、以下のコードを使用できます。
+チャートにシリーズ アニメーションを追加するには、以下のコードを使用できます。例のファイルのチャートには 3 つのシリーズがあるため、インデックス 0 から 2 までそれぞれにエフェクトが追加されます：
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -67,12 +81,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -80,14 +88,17 @@ try {
 	if(pres != null) pres.dispose();
 
 }
-
 ```
 
-カテゴリアニメーション：
+カテゴリ アニメーション：
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -134,14 +145,17 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
 
-系列要素アニメーション：
+シリーズ要素 アニメーション：
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -236,14 +250,17 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
 
-カテゴリ要素アニメーション：
+カテゴリ要素 アニメーション：
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -338,20 +355,21 @@ try
 	if(pres != null) pres.dispose();
 
 }
-
 ```
-#### **メディアファイルを HTML にエクスポートするために新しい com.aspose.slides.VideoPlayerHtmlController が追加されました**
-新しい公開クラス com.aspose.slides.VideoPlayerHtmlController が追加されました。このクラスのインスタンスを使用することで、ユーザーはビデオおよび音声ファイルを HTML にエクスポートできます。
+#### **HTML へのメディア ファイルエクスポートをサポートする新しい com.aspose.slides.VideoPlayerHtmlController が追加されました**
+新しいパブリック クラス com.aspose.slides.VideoPlayerHtmlController が追加されました。このクラスのインスタンスを使用して、動画および音声ファイルを HTML にエクスポートできます。
 
-VideoPlayerHtmlController のコンストラクタは次のパラメータを受け取ります。
+VideoPlayerHtmlController コンストラクタは以下のパラメータを受け取ります：
 
-path: ビデオおよび音声ファイルが生成されるパス
+path: 動画および音声ファイルが生成されるパス（フォルダーは事前に存在している必要があります）
 fileName: HTML ファイルの名前
-baseUri: リンクを生成するために使用されるベース URI
+baseUri: リンク生成に使用されるベース URI
 
 使用例：
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -359,7 +377,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

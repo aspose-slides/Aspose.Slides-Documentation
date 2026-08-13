@@ -1,5 +1,5 @@
 ---
-title: Extrahovat obrázky z tvarů prezentace v Androidu pomocí Java
+title: Extrahovat obrázky z tvarů prezentace v Androidu pomocí Javy
 linktitle: Obrázek z tvaru
 type: docs
 weight: 100
@@ -13,21 +13,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Extrahujte obrázky z tvarů v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Android prostřednictvím Java – rychlé, kódu přátelské řešení."
+description: "Extrahujte obrázky z tvarů v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Android pomocí Javy – rychlé, kódem přátelské řešení."
 ---
 ## **Přehled**
 
-Obrázky v prezentaci se mohou objevit v několika typech tvarů: jako běžné rámy obrázků, jako výplně obrázkem aplikované na tvary, jako náhledové obrázky objektů OLE, jako miniatury video nebo audio snímků, jako zoom obrázky nebo jako obrázky vnořené v tabulkách, grafech a tvarech SmartArt. Aspose.Slides ukládá tyto obrázky do kolekce obrázků prezentace, která je dostupná prostřednictvím objektů [IImageCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagecollection/) a [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/).
+Obrázky v prezentaci se mohou objevit v několika typech tvarů: jako běžné rámy obrázků, jako výplně obrázkem aplikované na tvary, jako náhledové obrázky OLE objektů, jako miniatury video nebo audio snímků, jako zoom obrázky nebo jako obrázky vložené do tabulek, grafů a tvarů SmartArt. Aspose.Slides ukládá tyto obrázky do kolekce obrázků prezentace, přístupné prostřednictvím objektů [IImageCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagecollection/) a [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) .
 
-Pokud potřebujete pouze exportovat všechny obrázkové zdroje vložené v prezentaci, iterujte pomocí `presentation.getImages()`. Tento článek se zaměřuje na jiný úkol: procházet tvary a najít, kde jsou obrázky na snímcích použity, aby uložené soubory mohly zachovat užitečný kontext, jako je číslo snímku, pozice tvaru a typ zdroje (rám obrázku, výplň obrázkem, náhled média, náhled OLE nebo zoom obrázek).
+Pokud potřebujete pouze exportovat každý obrázkový zdroj vložený v prezentaci, projděte `presentation.getImages()`. Tento článek se zaměřuje na jiný úkol: procházet tvary a zjistit, kde jsou obrázky použity na snímcích, aby uložené soubory mohly zachovat užitečný kontext, jako je číslo snímku, pozice tvaru a typ zdroje (rám obrázku, výplň obrázkem, náhled média, náhled OLE nebo zoom obrázek).
 
-{{% alert title="Tip" color="primary" %}}
-Použijte [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) k zachování originálních kódovaných dat obrázku a typu souboru. Použijte [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--) s [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-), pokud chcete normalizovat výstup do konkrétního formátu, například PNG.
+{{% alert title="Tip" color="info" %}}
+Použijte [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) k zachování původních zakódovaných dat obrázku a typu souboru. Použijte [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--) s [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) , pokud chcete normalizovat výstup do konkrétního formátu, například PNG.
 {{% /alert %}}
 
-## **Společné pomocné metody**
+## **Sdílené pomocné metody**
 
-Níže uvedené pomocné metody udržují příklady stručné. `saveOriginalImage` zapisuje originální vložené bajty, vybírá bezpečnou příponu z MIME typu a přeskočí duplicitní binární data obrázku pomocí SHA-256 hashe.
+Níže uvedené pomocné metody udržují příklady stručné. `saveOriginalImage` zapisuje původní vložené bajty, vybírá bezpečnou příponu z MIME typu a přeskočí duplicitní binární data obrázku pomocí SHA‑256 hash.
 
 ```java
 import com.aspose.slides.*;
@@ -225,9 +225,14 @@ private static String makeSafeFileNamePart(String value)
 
 ## **Extrahovat obrázky z rámečků obrázků**
 
-Použijte tento postup pro obrázky vložené jako samostatné objekty. [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) ukládá svůj obrázek v `getPictureFormat().getPicture().getImage()`, který vrací objekt [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/).
+Použijte tento přístup pro obrázky vložené jako samostatné objekty. [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) ukládá svůj obrázek v `getPictureFormat().getPicture().getImage()`, což vrací objekt [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) . Všimněte si, že [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) a [IAudioFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iaudioframe/) jsou odvozeny od [IPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipictureframe/) , takže tato kontrola `instanceof` také zachytí mediální rámce a exportuje jejich náhledové obrázky; testujte tyto typy nejprve, pokud je chcete zpracovat odděleně, jak ukazuje poslední příklad na této stránce.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -269,9 +274,13 @@ finally
 
 ## **Extrahovat obrázky z tvarů vyplněných obrázkem**
 
-Tvary mohou používat obrázek jako výplň. Nejprve zkontrolujte typ výplně tvaru: pokud není [FillType.Picture](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/), není z této výplně žádný obrázek k extrahování. Níže uvedený příklad pracuje s objekty [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a ukládá každý obrázek jako PNG pomocí [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--).
+Tvary mohou použít obrázek jako výplň. Nejprve zkontrolujte typ výplně tvaru: pokud není [FillType.Picture](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/), neexistuje obrázek, který by se dalo z výplně extrahovat. Níže uvedený příklad pracuje s objekty [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a ukládá každý obrázek jako PNG pomocí [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--) .
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -313,11 +322,16 @@ finally
 }
 ```
 
-## **Extrahovat náhledové obrázky z OLE rámců objektů**
+## **Extrahovat náhledové obrázky z OLE objektových rámců**
 
-Objekt [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/) může mít náhradní obrázek, který PowerPoint používá jako náhled objektu na snímku. Tento obrázek je dostupný přes `getSubstitutePictureFormat().getPicture().getImage()`. Extrahování tohoto obrázku vám poskytne náhledový obrázek, nikoli obsah vloženého OLE balíčku.
+[IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/) může mít náhradní obrázek, který PowerPoint používá jako náhled objektu na snímku. Tento obrázek je dostupný přes `getSubstitutePictureFormat().getPicture().getImage()` . Extrahování tohoto obrázku vám poskytne náhledový obrázek, nikoli obsah vloženého OLE balíčku.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -361,11 +375,16 @@ finally
 }
 ```
 
-## **Extrahovat náhledové obrázky z video rámců**
+## **Extrahovat náhledové obrázky z video snímků**
 
-[IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) může také uložit náhledový obrázek v `getPictureFormat().getPicture().getImage()`. Jedná se o plakát nebo miniaturu zobrazenou na snímku, ne o snímek dekódovaný z video proudu.
+[IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) může také uložit náhledový obrázek v `getPictureFormat().getPicture().getImage()` . Jedná se o plakát nebo miniaturu zobrazenou na snímku, ne o snímek dekódovaný z video proudu.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -409,11 +428,16 @@ finally
 }
 ```
 
-## **Extrahovat náhledové obrázky z audio rámců**
+## **Extrahovat náhledové obrázky z audio snímků**
 
-[IAudioFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iaudioframe/) může uložit miniaturu v `getPictureFormat().getPicture().getImage()`. Jedná se o obrázek zobrazený pro audio objekt na snímku.
+[IAudioFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iaudioframe/) může uložit miniaturu v `getPictureFormat().getPicture().getImage()` . Jedná se o obrázek zobrazený pro audio objekt na snímku.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -459,9 +483,14 @@ finally
 
 ## **Extrahovat obrázky ze Zoom objektů**
 
-[IZoomFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/izoomframe/) a [ISectionZoomFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isectionzoomframe/) mohou používat vlastní obrázky. Přečtěte `getZoomImage()` ze zoom rámce.
+[IZoomFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/izoomframe/) a [ISectionZoomFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isectionzoomframe/) mohou používat vlastní obrázky. Přečtěte `getZoomImage()` ze Zoom rámce.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -518,11 +547,16 @@ finally
 }
 ```
 
-## **Extrahovat obrázky ze Summary Zoom rámců**
+## **Extrahovat obrázky ze souhrnných Zoom rámců**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isummaryzoomframe/) je také tvar. Jeho sekční položky mohou používat vlastní obrázky, dostupné přes metodu `getZoomImage()` každé sekce.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isummaryzoomframe/) je také tvar. Jeho sekční položky mohou používat vlastní obrázky, zpřístupněné přes metodu `getZoomImage()` každé sekce souhrnného Zoomu.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -572,11 +606,16 @@ finally
 }
 ```
 
-## **Extrahovat obrázky z tabulkových tvarů**
+## **Extrahovat obrázky z tvarů tabulky**
 
 [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itable/) je tvar. Obrázky v tabulce jsou obvykle uloženy jako výplně obrázkem v buňkách tabulky.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -632,11 +671,16 @@ finally
 }
 ```
 
-## **Extrahovat obrázky z grafových tvarů**
+## **Extrahovat obrázky z tvarů grafu**
 
-[IChart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichart/) je tvar. Níže uvedený příklad extrahuje obrázek z výplně obrázkem oblastí grafu.
+[IChart](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichart/) je tvar. Níže uvedený příklad extrahuje obrázek z výplně obrázkem oblasti grafu.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -681,11 +725,16 @@ finally
 }
 ```
 
-## **Extrahovat obrázky ze SmartArt tvarů**
+## **Extrahovat obrázky z tvarů SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartart/) je objekt tvaru. V závislosti na rozložení SmartArt mohou být obrázky uloženy ve výplních teček uzlů nebo ve výplních tvarů uzlů.
+[ISmartArt](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartart/) je objekt tvaru. V závislosti na rozvržení SmartArt mohou být obrázky uloženy v výplních odrážek uzlů nebo ve výplních tvarů uzlů.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -753,9 +802,14 @@ finally
 
 ## **Zahrnout obrázky uvnitř seskupených tvarů**
 
-Seskupené tvary obsahují vlastní kolekce tvarů. Sdílený pomocník `enumerateShapes` má možnost `includeGroupedShapes`. Nastavte ji na `true`, pokud chcete prozkoumat tvary uvnitř objektů [IGroupShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igroupshape/). Níže uvedený příklad extrahuje obrázky z rámečků obrázků, tvarů vyplněných obrázkem, náhledů OLE objektů, miniatur video rámců a miniatur audio rámců. Pro zahrnutí obrázků z tabulek, grafů, SmartArt a summary zoom také použijte specializovanou logiku extrakce z předchozích sekcí při zachování stejného rekurzivního procházení tvarů.
+Seskupené tvary obsahují své vlastní kolekce tvarů. Sdílený pomocník `enumerateShapes` má volbu `includeGroupedShapes`. Nastavte ji na `true`, pokud chcete prozkoumat tvary uvnitř objektů [IGroupShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igroupshape/) . Níže uvedený příklad extrahuje obrázky z rámečků obrázků, tvarů vyplněných obrázkem, náhledů OLE objektů, miniatur video snímků a miniatur audio snímků. Pro zahrnutí obrázků z tabulek, grafů, SmartArt a souhrnných zoom obrázků použijte specializovanou logiku extrakce z předchozích sekcí při zachování stejného rekurzivního procházení tvarů.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -848,43 +902,43 @@ finally
 
 ## **Okrajové případy a praktické poznámky**
 
-- **Duplicitní obrázky:** Více tvarů může odkazovat na stejný obrázek nebo na různé obrázky se stejnými bajty. Vytvořte hash pomocí [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) před zápisem souborů, pokud chcete jeden výstupní soubor na unikátní obrázek.
-- **Originální data vs. konvertovaný výstup:** Ukládání pomocí [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) zachovává vložená JPEG, PNG, GIF, SVG, EMF nebo WMF data. Ukládání pomocí [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--) přes [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) je užitečné, když chcete jednotný výstupní formát.
-- **Nepodporované typy výplní:** Tvary s plnou barvou, gradientem, vzorem nebo bez výplně neobsahují obrázkovou výplň. Zkontrolujte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) před čtením `getPictureFillFormat()`.
-- **Seskupené tvary:** Kolekce tvarů na úrovni snímku nevyrovnává skupiny. Rekurzivně prozkoumejte [IGroupShape.getShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igroupshape/#getShapes--) pokud je obsah skupiny relevantní.
-- **Náhledy OLE objektů:** [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/) může vystavit náhledový obrázek přes `getSubstitutePictureFormat()`, ale tento obrázek je jen náhled na snímku. Není to vložený soubor uvnitř OLE objektu.
-- **Miniatury video snímků:** [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) může vystavit náhledový obrázek přes `getPictureFormat()`, ale tento obrázek je jen plakát zobrazený na snímku. Není extrahován z video proudu.
-- **Miniatury audio snímků:** [IAudioFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iaudioframe/) může vystavit ikonu nebo miniaturu přes `getPictureFormat()`; není to vložený audio soubor.
-- **Zoom obrázky:** Tvary zoom, sekční zoom a summary zoom mohou používat vlastní objekty [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) přes `getZoomImage()`.
-- **Vnořené modely tvarů:** Objektům tabulek, grafů a SmartArt implementuje [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), ale jejich obrázky jsou často uloženy v vnořených objektech formátování buněk, prvků grafu nebo uzlů SmartArt.
-- **Oříznuté nebo transformované obrázky:** Přístup k [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) poskytuje uložený obrázkový zdroj. Nezahrnuje oříznutí, průhlednost, přeobarvení, rotaci nebo jiné vizuální efekty aplikované tvarem.
+- **Duplicitní obrázky:** Více tvarů může odkazovat na stejný obrázek nebo na různé obrázky se stejnými bajty. Vytvořte hash pomocí [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) před zápisem souborů, pokud chcete mít jeden výstupní soubor na unikátní obrázek.
+- **Původní data vs. konvertovaný výstup:** Ukládání [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) zachovává vložená data JPEG, PNG, GIF, SVG, EMF nebo WMF. Ukládání [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--) pomocí [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) je užitečné, když chcete mít jednotný výstupní formát.
+- **Nevyhovující typy výplní:** Tvary s plnou, gradientní, vzorovou nebo žádnou výplní neobsahují obrázek. Zkontrolujte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) před čtením `getPictureFillFormat()`.
+- **Seskupené tvary:** Kolekce tvarů na úrovni snímku nevyhlazuje skupiny. Rekurzivně prozkoumejte [IGroupShape.getShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/igroupshape/#getShapes--) pokud je obsah skupiny relevantní.
+- **Náhledy OLE objektů:** [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/) může zpřístupnit náhledový obrázek přes `getSubstitutePictureFormat()`, ale tento obrázek je jen náhledem na snímku. Nejedná se o soubor vložený uvnitř OLE objektu.
+- **Miniatury video snímků:** [IVideoFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/) může zpřístupnit náhledový obrázek přes `getPictureFormat()`, ale tento obrázek je pouze plakát zobrazovaný na snímku. Není extrahován z video proudu.
+- **Miniatury audio snímků:** [IAudioFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iaudioframe/) může zpřístupnit ikonu nebo miniaturu přes `getPictureFormat()`; nejedná se o vložená audio data.
+- **Zoom obrázky:** Tvary zoomu snímku, sekčního zoomu a souhrnného zoomu mohou používat vlastní objekty [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) přes `getZoomImage()`.
+- **Vnořené modely tvarů:** Tabulky, grafy a SmartArt implementují [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), ale jejich obrázky jsou často uloženy v vnořených objektech formátování buněk tabulky, elementů grafu nebo uzlů SmartArt.
+- **Oříznuté nebo transformované obrázky:** Přístup k [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) poskytuje uložený obrázkový zdroj. Nezahrnuje ořez, průhlednost, přeobarvení, rotaci nebo jiné vizuální efekty aplikované tvarem.
 
 ## **Často kladené otázky**
 
-**Mohu extrahovat původní obrázek bez oříznutí, efektů nebo transformací tvaru?**
+### Můžu extrahovat původní obrázek bez ořezu, efektů nebo transformací tvaru?
 
-Ano. Přistupte k objektu [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) a zapište [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) na disk. Tím zachováte originální kódovaný obrázek uložený v prezentaci, nikoli způsob, jakým je obrázek vykreslen na snímku.
+Ano. Získejte objekt [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) a zapište [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) na disk. Tím se zachová původní zakódovaný obrázek uložený v prezentaci, nikoli způsob, jakým je obrázek vykreslen na snímku.
 
-**Mohu exportovat každý extrahovaný obrázek jako PNG?**
+### Můžu exportovat každý extrahovaný obrázek jako PNG?
 
-Ano. Použijte [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--) pro získání objektu [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/), a poté zavolejte [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) s [ImageFormat.Png](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imageformat/). Tento převod může nezachovat původní typ souboru nebo vektorová data.
+Ano. Použijte [IPPImage.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getImage--) k získání objektu [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/) a poté zavolejte [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) s [ImageFormat.Png](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imageformat/). Tento převod může nezachovat původní typ souboru ani vektorová data.
 
-**Jak zabránit ukládání stejného obrázku vícekrát?**
+### Jak zabránit opakovanému ukládání stejného obrázku?
 
-Vytvořte hash pomocí [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) a uložte hashe do množiny. Pokud nový obrázek má hash, který již existuje, přeskočte jej nebo zaznamenejte další odkaz na existující výstupní soubor.
+Vytvořte hash pomocí [IPPImage.getBinaryData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/#getBinaryData--) a uložte hashe v množině. Pokud nový obrázek má hash, který již existuje, přeskočte jej nebo zaznamenejte další odkaz na existující výstupní soubor.
 
-**Proč některé tvary neprodukují obrázek?**
+### Proč některé tvary neprodukují obrázek?
 
-Rámečky obrázků, tvary vyplněné obrázkem, OLE rámce objektů, mediální rámce, zoom rámce, tabulky, grafy a SmartArt mohou odkazovat na obrázky. Některé typy tvarů vystavují obrázky prostřednictvím vnořených formátovacích objektů, takže jednoduchá kontrola `getPictureFormat()` nebo `getFillFormat()` nemusí být vždy dostačující.
+Rámečky obrázků, tvary vyplněné obrázkem, OLE objektové rámy, mediální rámy, zoom rámy, tabulky, grafy a objekty SmartArt mohou odkazovat na obrázky. Některé typy tvarů zpřístupňují obrázky přes vnořené objekty formátování, takže jednoduchá kontrola `getPictureFormat()` nebo `getFillFormat()` nemusí být vždy dostatečná.
 
-**Mohu extrahovat miniaturu zobrazenou pro video rám?**
+### Můžu extrahovat miniaturu zobrazenou pro video snímek?
 
-Ano. Použijte [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) a přečtěte `getPictureFormat().getPicture().getImage()`. Tím získáte plakátový obrázek uložený s video rámem, ne snímek vygenerovaný z video souboru.
+Ano. Použijte [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) a přečtěte `getPictureFormat().getPicture().getImage()` . Tím se získá plakát uložený s video snímkem, ne snímek vygenerovaný z video souboru.
 
-**Jak zjistit, které tvary používají konkrétní obrázek z kolekce obrázků prezentace?**
+### Jak mohu zjistit, které tvary používají konkrétní obrázek z kolekce obrázků prezentace?
 
-Aspose.Slides neukládá reverzní odkazy z [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) na tvary. Vytvořte mapování během procházení: kdykoli najdete odkaz na obrázek, zaznamenejte číslo snímku, cestu tvaru a hash nebo položku kolekce obrázku.
+Aspose.Slides neuchovává reverzní odkazy z [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) na tvary. Vytvořte mapování během procházení: kdykoli najdete odkaz na obrázek, zaznamenejte číslo snímku, cestu tvaru a hash obrázku nebo položku kolekce.
 
-**Mohu extrahovat obrázky vložené uvnitř OLE objektů, například připojené dokumenty?**
+### Můžu extrahovat obrázky vložené uvnitř OLE objektů, například připojené dokumenty?
 
-Můžete extrahovat náhled OLE objektu pomocí [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). Tento náhled však není samotný vložený dokument. Pro extrakci obrázků zevnitř vloženého souboru musíte získat OLE data a prozkoumat je nástroji určenými pro daný typ souboru.
+Můžete extrahovat náhled OLE objektu pomocí [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) . Tento náhled však není samotný vložený dokument. Pro extrahování obrázků zevnitř vloženého souboru musíte získat OLE data a prozkoumat je pomocí nástrojů určených pro daný typ souboru.

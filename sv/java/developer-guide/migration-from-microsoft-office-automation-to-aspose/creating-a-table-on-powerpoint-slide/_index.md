@@ -13,31 +13,31 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Migrera från Microsoft Office-automatisering till Aspose.Slides för Java och skapa tabeller i PowerPoint (PPT, PPTX)-bilder i Java med flexibel formatering."
+description: "Migrera från Microsoft Office-automatisering till Aspose.Slides för Java och skapa tabeller i PowerPoint (PPT, PPTX)-presentationer i Java med flexibel formatering."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tabeller används i stor utsträckning för att visa data på presentationsbilder. Den här artikeln visar hur du programatiskt skapar en 15 x 15-tabell med teckenstorlek 10 först med [VSTO 2008](/slides/sv/java/creating-a-table-on-powerpoint-slide/) och sedan med [Aspose.Slides for Java](/slides/sv/java/creating-a-table-on-powerpoint-slide/).
+Tabeller används ofta för att visa data på presentationsbilder. Denna artikel visar hur man skapar ett 15 x 15-tabell med teckenstorlek 10 programatiskt med först [VSTO 2008](/slides/sv/java/creating-a-table-on-powerpoint-slide/) och sedan [Aspose.Slides for Java](/slides/sv/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Skapa tabeller**
-### **VSTO 2008-exempel**
+### **VSTO 2008‑exempel**
 Följande steg lägger till en tabell i en Microsoft PowerPoint‑bild med VSTO:
 
 1. Skapa en presentation.
 1. Lägg till en tom bild i presentationen.
-1. Lägg till en 15 x 15‑tabell på bilden.
+1. Lägg till en 15 x 15-tabell på bilden.
 1. Lägg till text i varje cell i tabellen med teckenstorlek 10.
-1. Spara presentationen till disk.
+1. Spara presentationen på disk.
 
 
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateTableUsingVSTO-CreateTableUsingVSTO.cs" >}}
-### **Aspose.Slides för Java-exempel**
+### **Aspose.Slides for Java‑exempel**
 Följande steg lägger till en tabell i en Microsoft PowerPoint‑bild med Aspose.Slides:
 
 1. Skapa en presentation.
-1. Lägg till en 15 x 15‑tabell på den första bilden.
+1. Lägg till en 15 x 15-tabell på den första bilden.
 1. Lägg till text i varje cell i tabellen med teckenstorlek 10.
 1. Skriv presentationen till disk.
 

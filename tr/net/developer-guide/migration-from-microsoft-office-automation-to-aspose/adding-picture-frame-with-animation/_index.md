@@ -6,9 +6,9 @@ weight: 60
 url: /tr/net/adding-picture-frame-with-animation/
 keywords:
 - resim çerçevesi
+- görüntü ekle
 - resim ekle
-- resim ekle
-- animasyonlu resim
+- animasyonlu görüntü
 - animasyonlu resim
 - göç
 - VSTO
@@ -18,15 +18,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e geçin ve PowerPoint (PPT, PPTX) slaytlarında temiz C# kodu ile resim çerçevelerine animasyon ekleyin."
+description: "Microsoft Office otomasyonundan Aspose.Slides for .NET'e geçiş yapın ve PowerPoint (PPT, PPTX) slaytlarındaki resim çerçevelerine temiz C# koduyla animasyon ekleyin."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Resim çerçeveleri, Microsoft PowerPoint'te şekillere veya resimlere uygulanarak bir sunumda görselleri çerçeveler. Bu makale, önce [VSTO 2008](/slides/tr/net/adding-picture-frame-with-animation/) ve ardından [Aspose.Slides for .NET](/slides/tr/net/adding-picture-frame-with-animation/) kullanarak bir resim çerçevesi oluşturmayı ve buna programlı olarak animasyon eklemeyi gösterir. İlk olarak, VSTO 2008 ile bir çerçeve ve animasyon nasıl uygulanır gösteriyoruz. Ardından aynı adımları Aspose.Slides for .NET ile nasıl gerçekleştireceğinizi gösteriyoruz.
+Resim çerçeveleri, Microsoft PowerPoint'te şekillere veya görüntülere uygulanarak bir sunumda görüntülere çerçeve ekler. Bu makale, önce [VSTO 2008](/slides/tr/net/adding-picture-frame-with-animation/) ve ardından [Aspose.Slides for .NET](/slides/tr/net/adding-picture-frame-with-animation/) kullanarak bir resim çerçevesi oluşturmayı ve ona animasyon uygulamayı programlı olarak nasıl yapacağınızı gösterir. İlk olarak, VSTO 2008 kullanarak bir çerçeve ve animasyonun nasıl uygulanacağını gösteriyoruz. Ardından, aynı adımları Aspose.Slides for .NET kullanarak nasıl gerçekleştireceğinizi gösteriyoruz.
 
 {{% /alert %}} 
 ## **Resim Çerçevelerine Animasyon Ekleme**
-Aşağıdaki kod örnekleri bir slayt içeren bir sunum oluşturur, bir resim çerçevesiyle bir resim ekler ve ona animasyon uygular.
+Aşağıdaki kod örnekleri bir slayt içeren bir sunum oluşturur, görüntüyü bir resim çerçevesiyle ekler ve ona animasyon uygular.
 ### **VSTO 2008 Örneği**
 VSTO 2008 kullanarak aşağıdaki adımları izleyin:
 
@@ -36,7 +36,7 @@ VSTO 2008 kullanarak aşağıdaki adımları izleyin:
 1. Resme animasyon uygulayın.
 1. Sunumu diske kaydedin.
 
-**VSTO ile oluşturulan çıktı sunumu** 
+**VSTO ile oluşturulan çıkış sunumu** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_1.png)
 
@@ -49,7 +49,7 @@ PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(M
 //Boş bir slayt ekle
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Resim Çerçevesi Ekle
+//Resim çerçevesi ekle
 PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
@@ -57,7 +57,7 @@ Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 //Resim çerçevesine animasyon uygulama
 PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
-//Sunumu Kaydetme
+//Sunumu kaydetme
 pres.SaveAs("d:\\ VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
@@ -68,36 +68,40 @@ Aspose.Slides for .NET kullanarak aşağıdaki adımları gerçekleştirin:
 
 1. Bir sunum oluşturun.
 1. İlk slayta erişin.
-1. Resmi bir resim koleksiyonuna ekleyin.
+1. Bir görüntüyü resim koleksiyonuna ekleyin.
 1. Slayta bir resim şekli ekleyin.
 1. Resme animasyon uygulayın.
 1. Sunumu diske kaydedin.
 
-**Aspose.Slides ile oluşturulan çıktı sunumu** 
+**Aspose.Slides ile oluşturulan çıkış sunumu** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_2.png)
 
 
 
 ```c#
- // Boş bir sunum oluştur
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Boş bir sunum oluştur
 using (Presentation pres = new Presentation())
 {
     // İlk slayta eriş
     ISlide slide = pres.Slides[0];
 
-    // Sunumun resim koleksiyonuna bir resim ekle
+    // Sunumun görüntü koleksiyonuna bir resim ekle
     IImage image = Images.FromFile("aspose.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // Resmin yüksekliği ve genişliğiyle aynı yüksekliğe ve genişliğe sahip bir resim çerçevesi ekle
+    // Görüntünün yüksekliği ve genişliğiyle aynı boyutta bir resim çerçevesi ekle
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Slaytın ana animasyon dizisini al
+    // Slaytın ana animasyon sırasını al
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Resim çerçevesine Soldan Uçuş animasyon etkisini ekle
+    // Resim çerçevesine Soldan Uçuş animasyon efekti ekle
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Sunumu kaydet

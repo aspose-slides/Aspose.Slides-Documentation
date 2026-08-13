@@ -1,5 +1,5 @@
 ---
-title: .NET で PowerPoint プレゼンテーションを Word 文書に変換
+title: .NET で PowerPoint プレゼンテーションを Word 文書に変換する
 linktitle: PowerPoint から Word へ
 type: docs
 weight: 110
@@ -32,33 +32,36 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET 用 Aspose.Slides を使用し、C#で PowerPoint の PPT および PPTX スライドを編集可能な Word 文書に変換します。レイアウト、画像、書式設定が正確に保持されます。"
+description: "Aspose.Slides for .NET を使用し、正確なレイアウト、画像、書式設定を保持したまま、C# で PowerPoint の PPT および PPTX スライドを編集可能な Word 文書に変換します。"
 ---
-
 ## **概要**
 
-本記事は、開発者向けに Aspose.Slides for .NET と Aspose.Words for .NET を使用して PowerPoint および OpenDocument のプレゼンテーションを Word 文書に変換するソリューションを提供します。ステップバイステップのガイドで変換プロセスのすべての段階を案内します。
+この記事では、開発者が Aspose.Slides for .NET と Aspose.Words for .NET を使用して PowerPoint および OpenDocument プレゼンテーションを Word 文書に変換するためのソリューションを提供します。ステップバイステップのガイドが変換プロセスの各段階を案内します。
 
 ## **プレゼンテーションを Word 文書に変換する**
 
-以下の手順に従って、PowerPoint または OpenDocument のプレゼンテーションを Word 文書に変換します。
+以下の手順に従って PowerPoint または OpenDocument プレゼンテーションを Word 文書に変換します。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーション ファイルをロードします。
-2. [Document](https://reference.aspose.com/words/net/aspose.words/document/) と [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) クラスのインスタンスを作成して、Word 文書を生成します。
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスのインスタンスを作成し、プレゼンテーション ファイルをロードします。
+2. [Document](https://reference.aspose.com/words/net/aspose.words/document/) と [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) クラスのインスタンスを作成し、Word 文書を生成します。
 3. [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/) プロパティを使用して、Word 文書のページサイズをプレゼンテーションと同じに設定します。
 4. [DocumentBuilder.PageSetup](https://reference.aspose.com/words/net/aspose.words/documentbuilder/pagesetup/) プロパティを使用して、Word 文書の余白を設定します。
-5. [Presentation.Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) プロパティを使用して、すべてのプレゼンテーション スライドを処理します。
-   - [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) インターフェイスの `GetImage` メソッドを使用してスライド画像を生成し、メモリ ストリームに保存します。
-   - [DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) クラスの `InsertImage` メソッドを使用して、スライド画像を Word 文書に追加します。
+5. [Presentation.Slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) プロパティを使用して、すべてのプレゼンテーション スライドを走査します。
+    - `GetImage` メソッド（[ISlide](https://reference.aspose.com/slides/ja/net/aspose.slides/islide/) インターフェイス）を使用してスライド画像を生成し、メモリストリームに保存します。
+    - `InsertImage` メソッド（[DocumentBuilder](https://reference.aspose.com/words/net/aspose.words/documentbuilder/) クラス）を使用して、スライド画像を Word 文書に追加します。
 6. Word 文書をファイルに保存します。
 
-例として、以下のようなプレゼンテーション "sample.pptx" があるとします：
+たとえば、以下のようなプレゼンテーション **sample.pptx** があるとします。
 
 ![PowerPoint プレゼンテーション](PowerPoint.png)
 
-以下の C# コード例は、PowerPoint プレゼンテーションを Word 文書に変換する方法を示しています：
+以下の C# コード例は、PowerPoint プレゼンテーションを Word 文書に変換する方法を示しています。
+
 ```cs
-// プレゼンテーション ファイルをロードします。
+using Aspose.Slides;
+using Aspose.Words;
+
+// プレゼンテーション ファイルを読み込みます。
 using var presentation = new Presentation("sample.pptx");
 
 // Document と DocumentBuilder オブジェクトを作成します。
@@ -78,7 +81,7 @@ builder.PageSetup.BottomMargin = 0;
 
 const float scaleX = 2, scaleY = 2;
 
-// すべてのプレゼンテーション スライドを処理します。
+// すべてのプレゼンテーション スライドを走査します。
 foreach (var slide in presentation.Slides)
 {
     // スライド画像を生成し、メモリ ストリームに保存します。
@@ -97,23 +100,20 @@ foreach (var slide in presentation.Slides)
 document.Save("output.docx");
 ```
 
-
 結果：
 
 ![Word 文書](Word.png)
 
-{{% alert color="primary" %}} 
-
-PowerPoint と OpenDocument のプレゼンテーションを Word 文書に変換することで得られる利点を確認するには、[**オンライン PPT から Word へのコンバータ**](https://products.aspose.app/slides/conversion/ppt-to-word) をお試しください。 
-
+{{% alert color="info" %}} 
+[**オンライン PPT から Word のコンバータ**](https://products.aspose.app/slides/ja/conversion/ppt-to-word) を使用して、PowerPoint および OpenDocument プレゼンテーションを Word 文書に変換することで得られるメリットをご確認ください。 
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**PowerPoint と OpenDocument のプレゼンテーションを Word 文書に変換するために必要なコンポーネントは何ですか？**
+### PowerPoint と OpenDocument プレゼンテーションを Word 文書に変換するために必要なコンポーネントは何ですか？
 
-C# プロジェクトに [Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) と [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) の対応する NuGet パッケージを追加するだけで済みます。両方のライブラリはスタンドアロンの API として動作し、Microsoft Office のインストールは必要ありません。
+C# プロジェクトに、[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET) と [Aspose.Words for .NET](https://www.nuget.org/packages/Aspose.Words/) のそれぞれの NuGet パッケージを追加するだけです。両方のライブラリはスタンドアロンの API として動作し、Microsoft Office をインストールする必要はありません。
 
-**すべての PowerPoint および OpenDocument プレゼンテーション形式がサポートされていますか？**
+### すべての PowerPoint および OpenDocument プレゼンテーション形式がサポートされていますか？
 
-Aspose.Slides for .NET は [すべてのプレゼンテーション形式をサポート](/slides/ja/net/supported-file-formats/) しており、PPT、PPTX、ODP などの一般的なファイル形式が含まれます。これにより、さまざまなバージョンの Microsoft PowerPoint で作成されたプレゼンテーションを扱うことができます。
+Aspose.Slides for .NET は [すべてのプレゼンテーション形式をサポート](/slides/ja/net/supported-file-formats/) しており、PPT、PPTX、ODP などの一般的なファイルタイプを含みます。これにより、さまざまなバージョンの Microsoft PowerPoint で作成されたプレゼンテーションを扱うことができます。

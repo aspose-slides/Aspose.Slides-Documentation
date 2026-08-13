@@ -1,5 +1,5 @@
 ---
-title: API Publik dan Perubahan Tidak Kompatibel Mundur di Aspose.Slides untuk .NET 14.2.0
+title: API Publik dan Perubahan Tidak Kompatibel ke Belakang di Aspose.Slides untuk .NET 14.2.0
 linktitle: Aspose.Slides untuk .NET 14.2.0
 type: docs
 weight: 40
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk .NET untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan mulus."
+description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk .NET agar dapat dengan lancar memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda."
 ---
-## **API Publik dan Perubahan Tidak Kompatibel Mundur**
-{{% alert color="primary" %}} 
+## **API Publik dan Perubahan Tidak Kompatibel ke Belakang**
+{{% alert color="info" %}} 
 
-Kami telah melakukan beberapa perubahan pada API Aspose.Slides untuk .NET 14.2.0. Beberapa properti dan metode telah dihapus dan beberapa dipindahkan ke ruang nama lain.
+Kami telah melakukan beberapa perubahan pada API Aspose.Slides untuk .NET 14.2.0. Beberapa properti dan metode telah dihapus dan beberapa dipindahkan ke namespace lain.
 
 {{% /alert %}} 
 ### **Metode Aspose.Slides.IPresentation.Write(…) Dihapus**
-Metode-metode ini hanya menulis objek Presentation ke file berformat PPTX. Pada API baru, kelas Presentation digunakan untuk bekerja dengan semua format. Dimungkinkan untuk menggunakan metode Presentation.Save(…) untuk menyimpan objek Presentation ke semua format yang didukung.
-### **Kelas yang Berkaitan dengan Gaya Tema Dipindahkan ke Namespace Aspose.Slides.Theme**
+Metode-metode ini menulis objek Presentation hanya ke file format PPTX. Pada API baru, kelas Presentation digunakan untuk bekerja dengan semua format. Dimungkinkan untuk menggunakan metode Presentation.Save(…) untuk menyimpan objek Presentation ke semua format yang didukung.
+### **Kelas yang Terkait dengan Gaya Tema Dipindahkan ke Namespace Aspose.Slides.Theme**
 Kelas-kelas berikut telah dipindahkan dari namespace Aspose.Slides ke namespace Aspose.Slides.Theme.
 
 - Types ColorScheme
@@ -56,4 +56,4 @@ Kelas-kelas berikut telah dipindahkan dari namespace Aspose.Slides ke namespace 
 - ILineFormatCollection
 - ILineFormatCollectionEffectiveData
 ### **Perubahan dari Aspose.Slides untuk .NET 8.X.0**
-Fitur-fitur Aspose.Slides untuk .NET 8.4 telah ditambahkan ke Aspose.Slides untuk .NET 14.2.0
+Fitur Aspose.Slides untuk .NET 8.4 ditambahkan ke Aspose.Slides untuk .NET 14.2.0

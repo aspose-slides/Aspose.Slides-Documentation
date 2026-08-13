@@ -13,21 +13,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Wyodrębnij obrazy z kształtów w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET - szybkie, przyjazne kodowi rozwiązanie."
+description: "Wyodrębnij obrazy z kształtów w prezentacjach PowerPoint i OpenDocument za pomocą Aspose.Slides dla .NET - szybkie, przyjazne programiście rozwiązanie."
 ---
 ## **Przegląd**
 
-Obrazy w prezentacji mogą występować w kilku typach kształtów: jako zwykłe ramki obrazu, jako wypełnienia obrazu zastosowane do kształtów, jako podglądowe obrazy obiektów OLE, jako miniatury klatek wideo lub audio, jako obrazy powiększenia lub jako obrazy zagnieżdżone wewnątrz kształtów tabel, wykresów i SmartArt. Aspose.Slides przechowuje te obrazy w kolekcji obrazów prezentacji, udostępnianej przez [ImageCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/imagecollection/) i [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) obiekty.
+Obrazy w prezentacji mogą występować w kilku typach kształtów: jako zwykłe ramki obrazów, jako wypełnienia obrazem stosowane do kształtów, jako podglądowe obrazy obiektów OLE, jako miniatury klatek wideo lub audio, jako obrazy powiększenia lub jako obrazy zagnieżdżone wewnątrz kształtów tabeli, wykresu i SmartArt. Aspose.Slides przechowuje te obrazy w kolekcji obrazów prezentacji, udostępnianej przez obiekty [ImageCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/imagecollection/) i [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) .
 
-Jeśli potrzebujesz jedynie wyeksportować każdy zasób obrazu osadzony w prezentacji, iteruj przez `presentation.Images`. Ten artykuł koncentruje się na innym zadaniu: przeszukiwaniu kształtów w celu znalezienia, gdzie obrazy są używane na slajdach, aby zapisane pliki mogły zachować przydatny kontekst, taki jak numer slajdu, pozycja kształtu i typ źródła (ramka obrazu, wypełnienie obrazu, podgląd mediów, podgląd OLE lub obraz powiększenia).
+Jeśli potrzebujesz wyeksportować tylko każdy zasób obrazu osadzony w prezentacji, przeiteruj `presentation.Images`. Ten artykuł koncentruje się na innym zadaniu: przeglądaniu kształtów w celu znalezienia, gdzie obrazy są użyte na slajdach, aby zapisane pliki mogły zachować przydatny kontekst, taki jak numer slajdu, pozycja kształtu i typ źródła (ramka obrazu, wypełnienie obrazem, podgląd multimediów, podgląd OLE lub obraz powiększenia).
 
-{{% alert title="Tip" color="primary" %}}
-Użyj [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) aby zachować oryginalne zakodowane dane obrazu i typ pliku. Użyj [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) wraz z [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) gdy chcesz znormalizować wyjście do określonego formatu, takiego jak PNG.
+{{% alert title="Tip" color="info" %}}
+Użyj [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) aby zachować oryginalne zakodowane dane obrazu i typ pliku. Użyj [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) z [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) gdy chcesz znormalizować wyjście do konkretnego formatu, np. PNG.
 {{% /alert %}}
 
 ## **Wspólne Metody Pomocnicze**
 
-Metody pomocnicze poniżej skracają przykłady. `SaveOriginalImage` zapisuje oryginalne osadzone bajty, wybiera bezpieczne rozszerzenie z typu MIME i pomija zduplikowane binaria obrazu przy użyciu skrótu SHA-256.
+Poniższe metody pomocnicze skracają przykłady. `SaveOriginalImage` zapisuje oryginalne osadzone bajty, wybiera bezpieczne rozszerzenie na podstawie typu MIME i pomija duplikaty binarne obrazu za pomocą hashu SHA‑256.
 
 ```c#
 using Aspose.Slides;
@@ -162,11 +162,13 @@ private static string MakeSafeFileNamePart(string value)
 }
 ```
 
-## **Eksportowanie Obrazów z Ramki Obrazu**
+## **Wyodrębnianie obrazów z ramek obrazów**
 
-Użyj tego podejścia dla obrazów wstawionych jako samodzielne obiekty. [IPictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ipictureframe/) przechowuje swój obraz w `PictureFormat.Picture.Image`, co zwraca obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/).
+Użyj tego podejścia dla obrazów wstawionych jako odrębne obiekty. [IPictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ipictureframe/) przechowuje swój obraz w `PictureFormat.Picture.Image`, co zwraca obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) .
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -193,11 +195,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów z Kształtów Wypełnionych Obrazem**
+## **Wyodrębnianie obrazów z kształtów wypełnionych obrazem**
 
-Kształty mogą używać obrazu jako swojego wypełnienia. Najpierw sprawdź typ wypełnienia kształtu: jeśli nie jest to [FillType.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/), nie ma obrazu do wyodrębnienia z tego wypełnienia. Przykład poniżej obsługuje obiekty [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) i zapisuje każdy obraz jako PNG przy użyciu [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/).
+Kształty mogą używać obrazu jako wypełnienia. Najpierw sprawdź typ wypełnienia kształtu: jeśli nie jest to [FillType.Picture](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/), nie ma obrazu do wyodrębnienia z tego wypełnienia. Poniższy przykład obsługuje obiekty [IAutoShape](https://reference.aspose.com/slides/pl/net/aspose.slides/iautoshape/) i zapisuje każdy obraz jako PNG przy użyciu [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) .
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +229,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów Podglądu z Ramki Obiektu OLE**
+## **Wyodrębnianie obrazów podglądu z ramek obiektów OLE**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/) może mieć zamienny obraz, którego PowerPoint używa jako podgląd obiektu na slajdzie. Ten obraz jest dostępny poprzez `SubstitutePictureFormat.Picture.Image`. Wyodrębnienie tego obrazu daje podgląd, a nie osadzone treści pakietu OLE.
+[IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/) może mieć zamienny obraz, którego PowerPoint używa jako podgląd obiektu na slajdzie. Ten obraz jest dostępny przez `SubstitutePictureFormat.Picture.Image`. Wyodrębnienie tego obrazu daje podgląd, a nie osadzone treści pakietu OLE.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -260,11 +266,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów Podglądu z Ramki Wideo**
+## **Wyodrębnianie obrazów podglądu z ramek wideo**
 
-[IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) może również przechowywać obraz podglądu w `PictureFormat.Picture.Image`. Jest to plakat lub miniatura wyświetlana na slajdzie, a nie klatka zdekodowana ze strumienia wideo.
+[IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) może również przechowywać obraz podglądu w `PictureFormat.Picture.Image`. Jest to plakat lub miniatura wyświetlana na slajdzie, a nie klatka dekodowana ze strumienia wideo.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -295,11 +303,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów Podglądu z Ramki Audio**
+## **Wyodrębnianie obrazów podglądu z ramek audio**
 
 [IAudioFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/iaudioframe/) może przechowywać miniaturę w `PictureFormat.Picture.Image`. Jest to obraz wyświetlany dla obiektu audio na slajdzie.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -330,11 +340,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów z Obiektów Zoom**
+## **Wyodrębnianie obrazów z obiektów Zoom**
 
 [IZoomFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/izoomframe/) i [ISectionZoomFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/isectionzoomframe/) mogą używać własnych obrazów. Odczytaj `ZoomImage` z ramki zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów z Ramki Zoom Podsumowania**
+## **Wyodrębnianie obrazów z ramek podsumowania Zoom**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/isummaryzoomframe/) jest również kształtem. Jego elementy sekcji mogą używać własnych obrazów, udostępnianych przez właściwość `ZoomImage` każdego elementu sekcji podsumowania.
+[ISummaryZoomFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/isummaryzoomframe/) jest również kształtem. Elementy jego sekcji mogą używać własnych obrazów, udostępnianych poprzez właściwość `ZoomImage` każdej sekcji podsumowania Zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -410,11 +424,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów z Kształtów Tabeli**
+## **Wyodrębnianie obrazów z kształtów tabeli**
 
-[ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/) jest kształtem. Obrazy w tabeli są zazwyczaj przechowywane jako wypełnienia obrazu w komórkach tabeli.
+[ITable](https://reference.aspose.com/slides/pl/net/aspose.slides/itable/) jest kształtem. Obrazy w tabeli są zazwyczaj przechowywane jako wypełnienia obrazem w komórkach tabeli.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -454,11 +470,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów z Kształtów Wykresu**
+## **Wyodrębnianie obrazów z kształtów wykresu**
 
-[IChart](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/) jest kształtem. Przykład poniżej wyodrębnia obraz z wypełnienia obrazu obszaru wykresu.
+[IChart](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichart/) jest kształtem. Poniższy przykład wyodrębnia obraz z wypełnienia obrazem obszaru wykresu.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -490,11 +508,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Eksportowanie Obrazów z Kształtów SmartArt**
+## **Wyodrębnianie obrazów z kształtów SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/pl/net/aspose.slides.smartart/ismartart/) jest kształtem. W zależności od układu SmartArt, obrazy mogą być przechowywane w wypełnieniach punktów węzła lub w formatach wypełnienia kształtów węzłów.
+[ISmartArt](https://reference.aspose.com/slides/pl/net/aspose.slides.smartart/ismartart/) jest obiektem kształtu. W zależności od układu SmartArt, obrazy mogą być przechowywane w wypełnieniach punktów węzłów lub w formatach wypełnień kształtów węzłów.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -542,11 +562,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Dołączanie Obrazów w Kształtach Grupowanych**
+## **Uwzględnianie obrazów wewnątrz grupowanych kształtów**
 
-Kształty grupowane zawierają własne kolekcje kształtów. Wspólna metoda pomocnicza `EnumerateShapes` ma opcję `includeGroupedShapes`. Ustaw ją na `true`, gdy chcesz analizować kształty wewnątrz obiektów [IGroupShape](https://reference.aspose.com/slides/pl/net/aspose.slides/igroupshape/). Przykład poniżej wyodrębnia obrazy z ramek obrazu, kształtów wypełnionych obrazem, podglądów obiektów OLE, miniatur klatek wideo i miniatur klatek audio. Aby dołączyć obrazy tabel, wykresów, SmartArt i podsumowania zoom, ponownie użyj specjalizowanej logiki wyodrębniania z poprzednich sekcji, zachowując tę samą rekurencyjną traversję kształtów.
+Grupowane kształty zawierają własne kolekcje kształtów. Wspólna metoda pomocnicza `EnumerateShapes` posiada opcję `includeGroupedShapes`. Ustaw ją na `true`, gdy chcesz sprawdzić kształty wewnątrz obiektów [IGroupShape](https://reference.aspose.com/slides/pl/net/aspose.slides/igroupshape/) . Poniższy przykład wyodrębnia obrazy z ramek obrazów, kształtów wypełnionych obrazem, podglądów obiektów OLE, miniatur ramek wideo i miniatur ramek audio. Aby uwzględnić także obrazy z tabel, wykresów, SmartArt oraz podsumowania Zoom, użyj specjalistycznej logiki ekstrakcji z poprzednich sekcji, zachowując tę samą rekurencyjną traversę kształtów.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -619,45 +641,45 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Edge Cases i Praktyczne Uwagi**
+## **Szczególne przypadki i praktyczne uwagi**
 
-- **Zduplikowane obrazy:** Wiele kształtów może odwoływać się do tego samego obrazu lub do osobnych obrazów o identycznych bajtach. Haszuj [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) przed zapisem plików, jeśli chcesz mieć jeden plik wyjściowy dla unikalnego obrazu.
-- **Oryginalne dane vs. przetworzone wyjście:** Zapisywanie [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) zachowuje osadzony JPEG, PNG, GIF, SVG, EMF lub WMF. Zapisywanie [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) przez [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) jest przydatne, gdy potrzebny jest spójny format wyjściowy.
-- **Nieobsługiwane typy wypełnień:** Kształty o wypełnieniu stałym, gradientowym, wzorowym i bez wypełnienia nie zawierają obrazu wypełnienia. Sprawdź [FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) przed odczytem `PictureFillFormat`.
-- **Kształty grupowane:** Górna kolekcja kształtów slajdu nie spłaszcza grup. Rekurencyjnie analizuj [IGroupShape.Shapes](https://reference.aspose.com/slides/pl/net/aspose.slides/igroupshape/), gdy zależy ci na zawartości grup.
-- **Podglądy obiektów OLE:** [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/) może udostępniać obraz podglądu poprzez `SubstitutePictureFormat`, ale jest to tylko podgląd slajdu, a nie osadzony plik w obiekcie OLE.
-- **Miniatury klatek wideo:** [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) może udostępniać obraz podglądu poprzez `PictureFormat`, ale jest to jedynie plakat wyświetlany na slajdzie, a nie klatka wyodrębniona z strumienia wideo.
-- **Miniatury klatek audio:** [IAudioFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/iaudioframe/) może udostępniać ikonę lub miniaturę poprzez `PictureFormat`; nie jest to osadzony dźwięk.
-- **Obrazy zoom:** Kształty zoom slajdu, sekcji i podsumowania mogą używać własnych obiektów [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) poprzez `ZoomImage`.
-- **Zagnieżdżone modele kształtów:** Obiekty tabel, wykresów i SmartArt implementują [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/), ale ich obrazy są często przechowywane w zagnieżdżonych obiektach formatowania komórek, elementów wykresu lub węzłów SmartArt.
-- **Obrazy przycięte lub przekształcone:** Dostęp do [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) daje zasób obrazu przechowywany w prezentacji. Nie renderuje on przycięć, przezroczystości, recoloringu, rotacji ani innych efektów wizualnych nakładanych przez kształt.
+- **Duplicate images:** Wiele kształtów może odwoływać się do tego samego obrazu lub do osobnych obrazów o identycznych bajtach. Zrób hash [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) przed zapisem plików, jeśli chcesz mieć jeden plik wyjściowy na unikalny obraz.
+- **Original data vs. converted output:** Zapisanie [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) zachowuje osadzony JPEG, PNG, GIF, SVG, EMF lub WMF. Zapisanie [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) przy użyciu [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) jest przydatne, gdy chcesz spójny format wyjściowy.
+- **Unsupported fill types:** Kształty wypełnione kolorem stałym, gradientem, wzorem lub bez wypełnienia nie zawierają wypełnienia obrazem. Sprawdź [FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) przed odczytem `PictureFillFormat`.
+- **Grouped shapes:** Główna kolekcja kształtów slajdu nie spłaszcza grup. Rekurencyjnie sprawdzaj [IGroupShape.Shapes](https://reference.aspose.com/slides/pl/net/aspose.slides/igroupshape/) , gdy zawartość grup ma znaczenie.
+- **OLE object previews:** [IOleObjectFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/) może udostępniać obraz podglądu przez `SubstitutePictureFormat`, ale jest to tylko podgląd slajdu. Nie jest to osadzony plik wewnątrz obiektu OLE.
+- **Video frame thumbnails:** [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) może udostępniać obraz podglądu przez `PictureFormat`, ale jest to jedynie plakat wyświetlany na slajdzie. Nie jest wyodrębniony ze strumienia wideo.
+- **Audio frame thumbnails:** [IAudioFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/iaudioframe/) może udostępniać ikonę lub miniaturę przez `PictureFormat`; nie jest to osadzony dźwięk.
+- **Zoom images:** Kształty Zoom slajdu, sekcji oraz podsumowania mogą używać własnych obiektów [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) poprzez `ZoomImage`.
+- **Nested shape models:** Obiekty tabel, wykresów i SmartArt implementują [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/), ale ich obrazy są często przechowywane w zagnieżdżonych komórkach tabeli, elementach wykresu lub obiektach formatowania węzłów SmartArt.
+- **Cropped or transformed pictures:** Uzyskanie dostępu do [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) daje zasób zapisany jako obraz. Nie renderuje przycięć, przezroczystości, przekształceń kolorów, obrotu ani innych efektów wizualnych zastosowanych przez kształt.
 
 ## **FAQ**
 
-**Czy mogę wyodrębnić oryginalny obraz bez przycinania, efektów lub transformacji kształtu?**
+### Czy mogę wyodrębnić oryginalny obraz bez przycinania, efektów ani transformacji kształtu?
 
-Tak. Uzyskaj obiekt [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) i zapisz [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) na dysk. To zachowuje oryginalny zakodowany obraz przechowywany w prezentacji, a nie sposób, w jaki obraz jest renderowany na slajdzie.
+Tak. Uzyskaj dostęp do obiektu [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) i zapisz [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) na dysk. Dzięki temu zachowujesz oryginalny zakodowany obraz przechowywany w prezentacji, a nie sposób, w jaki obraz jest renderowany na slajdzie.
 
-**Czy mogę wyeksportować każdy wyodrębniony obraz jako PNG?**
+### Czy mogę wyeksportować każdy wyodrębniony obraz jako PNG?
 
-Tak. Użyj [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) aby uzyskać obiekt [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/), a następnie wywołaj [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) z [ImageFormat.Png](https://reference.aspose.com/slides/pl/net/aspose.slides/imageformat/). To konwertuje wyjście i może nie zachować oryginalnego typu pliku ani danych wektorowych.
+Tak. Użyj [IPPImage.Image](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) , aby uzyskać obiekt [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) , a następnie wywołaj [IImage.Save](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) z [ImageFormat.Png](https://reference.aspose.com/slides/pl/net/aspose.slides/imageformat/). To konwertuje wyjście i może nie zachować oryginalnego typu pliku ani danych wektorowych.
 
-**Jak uniknąć zapisywania tego samego obrazu więcej niż raz?**
+### Jak uniknąć zapisywania tego samego obrazu więcej niż raz?
 
-Użyj skrótu [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) i przechowuj skróty w zbiorze. Jeśli nowy obraz ma skrót, który już istnieje, pomiń go lub zarejestruj kolejne odniesienie do istniejącego pliku wyjściowego.
+Użyj hashu [IPPImage.BinaryData](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) i przechowuj hashe w zbiorze. Jeśli nowy obraz ma hash, który już istnieje, pomiń go lub zanotuj kolejne odwołanie do istniejącego pliku wyjściowego.
 
-**Dlaczego niektóre kształty nie generują obrazu?**
+### Dlaczego niektóre kształty nie generują obrazu?
 
-Ramki obrazu, kształty wypełnione obrazem, ramki obiektów OLE, ramki mediów, ramki zoom, tabele, wykresy i obiekty SmartArt mogą odwoływać się do obrazów. Niektóre typy kształtów udostępniają obrazy poprzez zagnieżdżone obiekty formatowania, więc proste sprawdzenie `PictureFormat` lub `FillFormat` nie zawsze wystarcza.
+Ramki obrazów, kształty wypełnione obrazem, ramki obiektów OLE, ramki multimediów, ramki zoom, tabele, wykresy i obiekty SmartArt mogą odwoływać się do obrazów. Niektóre typy kształtów udostępniają obrazy poprzez zagnieżdżone obiekty formatowania, więc proste sprawdzenie `PictureFormat` lub `FillFormat` kształtu nie zawsze wystarczy.
 
-**Czy mogę wyodrębnić miniaturę wyświetlaną dla klatki wideo?**
+### Czy mogę wyodrębnić miniaturę wyświetlaną dla ramki wideo?
 
-Tak. Użyj [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) i odczytaj `PictureFormat.Picture.Image`. To wyodrębnia plakat przechowywany z klatką wideo, a nie klatkę wygenerowaną z pliku wideo.
+Tak. Użyj [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) i odczytaj `PictureFormat.Picture.Image`. To wyodrębnia obraz plakatu przechowywany z ramką wideo, a nie klatkę wygenerowaną z pliku wideo.
 
-**Jak mogę określić, które kształty używają konkretnego obrazu z kolekcji obrazów prezentacji?**
+### Jak mogę określić, które kształty używają konkretnego obrazu z kolekcji obrazów prezentacji?
 
-Aspose.Slides nie przechowuje odwróconych linków od [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) do kształtów. Zbuduj mapowanie podczas traversji: za każdym razem, gdy znajdziesz odwołanie do obrazu, zapisz numer slajdu, ścieżkę kształtu oraz skrót obrazu lub element kolekcji.
+Aspose.Slides nie przechowuje odwróconych odnośników od [IPPImage](https://reference.aspose.com/slides/pl/net/aspose.slides/ippimage/) do kształtów. Zbuduj mapowanie podczas przeglądania: za każdym razem, gdy znajdziesz odwołanie do obrazu, zapisz numer slajdu, ścieżkę kształtu oraz hash obrazu lub element kolekcji.
 
-**Czy mogę wyodrębnić obrazy osadzone w obiektach OLE, takie jak załączone dokumenty?**
+### Czy mogę wyodrębnić obrazy osadzone w obiektach OLE, np. załączonych dokumentach?
 
-Możesz wyodrębnić podgląd slajdu obiektu OLE z [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/). Jednak ten podgląd nie jest osadzonym dokumentem. Aby wyodrębnić obrazy z wnętrza pliku osadzonego, wyodrębnij dane OLE i zbadaj je przy użyciu narzędzi odpowiednich dla tego typu pliku.
+Możesz wyodrebnąć podgląd slajdu obiektu OLE z [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ioleobjectframe/). Jednak ten podgląd nie jest osadzonym dokumentem. Aby wyodrębnić obrazy z wewnątrz pliku osadzonego, wyodrębnij dane OLE i przeanalizuj je przy pomocy narzędzi odpowiednich dla tego typu pliku.

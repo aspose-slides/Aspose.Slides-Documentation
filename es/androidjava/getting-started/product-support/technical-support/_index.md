@@ -11,44 +11,50 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Obtenga soporte técnico rápido y gratuito para Aspose.Slides para Android mediante Java, informe problemas de manera eficaz y mantenga sus proyectos PPT, PPTX y ODP funcionando sin problemas."
+description: "Obtén soporte técnico rápido y gratuito para Aspose.Slides para Android vía Java, informa problemas de forma eficaz y mantiene tus proyectos PPT, PPTX y ODP funcionando sin problemas."
 ---
+## **Visión general**
+
+Este artículo explica cómo obtener soporte para Aspose.Slides y cómo informar de los problemas de forma eficaz. Describe el canal principal de soporte, ofrece recomendaciones para enviar un problema y señala recursos técnicos útiles como la página del producto, el blog, descargas, foro de soporte, documentación y la Referencia de API. El artículo también responde a preguntas comunes sobre el soporte de pago, la escalada de incidencias y el soporte para versiones antiguas de la biblioteca.
 
 ## **Soporte técnico**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose ofrece soporte técnico gratuito ilimitado para todos sus productos. El soporte está disponible para todos los usuarios (incluidos los usuarios con paquetes de evaluación).
+Aspose ofrece soporte técnico ilimitado y gratuito para todos sus productos. El soporte está disponible para todos los usuarios (incluidos los usuarios con paquetes de evaluación).
 
 {{% /alert %}} 
 
-Cuando necesite ayuda con Aspose.Slides for Android via Java, considere lo siguiente:
+Cuando necesites ayuda con Aspose.Slides para Android vía Java, considera lo siguiente:
 
-- La principal vía de soporte son los Aspose.Forums. Publique su pregunta en el foro de Aspose.Slides y será respondida en unas pocas horas. El equipo de soporte de Aspose.Slides responde directamente a las preguntas publicadas en el foro.
-- Tenga en cuenta que Aspose no ofrece soporte técnico por teléfono. El soporte telefónico solo está disponible para preguntas de ventas y compra.
-- Al esperar una respuesta en los foros, sea paciente y tenga en cuenta las diferencias de zona horaria.
+- La vía principal de soporte es Aspose.Forums. Publica tu pregunta en el foro de Aspose.Slides y será respondida en unas pocas horas. El equipo de soporte de Aspose.Slides responde directamente a las preguntas publicadas en el foro.
+- Ten en cuenta que Aspose no ofrece soporte técnico por teléfono. El soporte telefónico solo está disponible para consultas de ventas y compra.
+- Al esperar una respuesta en los foros, ten paciencia y ten en cuenta las diferencias de zona horaria.
 
-Cuando experimente un problema con Aspose.Slides for Android via Java, siga estas directrices para resolverlo de la manera más eficiente:
+Cuando experimentes un problema con Aspose.Slides para Android vía Java, sigue estas directrices para resolverlo de la manera más eficiente:
 
-- Verifique y confirme que está utilizando la última versión de Aspose.Slides for Android via Java antes de informar el problema. Puede que el problema que experimentó ya se haya resuelto en una actualización.
+- Comprueba y confirma que estás usando la última versión de Aspose.Slides para Android vía Java antes de informar del problema. Puede que el problema que experimentaste ya estuviera resuelto en una actualización.  
 
-  Consulte la descarga de Aspose.Slides para obtener información sobre la última versión.
-- Antes de informar un problema, quizás desee revisar nuestros foros, esta documentación y la Referencia de API. Tal vez la respuesta a su pregunta ya se haya proporcionado.
-- Al informar un problema, incluya el documento original y (si es posible) un fragmento de su código relativo al problema. Si necesita adjuntar varios archivos, colóquelos en un paquete ZIP.
+  Consulta la descarga de Aspose.Slides para obtener información sobre la última versión.
 
-  Puede adjuntar sus documentos de forma segura en Aspose.Forums porque solo usted y los desarrolladores de Aspose tienen acceso a los archivos adjuntos.
-- Cree y utilice un hilo único para un problema específico. Si experimenta otro problema, deberá crear otro hilo para informarlo.
+- Antes de informar de un problema, quizá quieras revisar nuestros foros, esta documentación y la Referencia de API. Puede que la respuesta a tu pregunta ya se haya proporcionado.  
 
-## **Preguntas frecuentes**
+- Al informar de un problema, incluye el documento original y (si es posible) un fragmento de tu código relacionado con el problema. Si necesitas adjuntar varios archivos, colócalos en un paquete ZIP.  
 
-**¿Qué niveles de soporte pago están disponibles y en qué se diferencian?**
+  Puedes adjuntar tus documentos de forma segura en Aspose.Forums porque solo tú y los desarrolladores de Aspose tienen acceso a los archivos adjuntos.
 
-[Developer, Business, and Enterprise](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Se diferencian por la cantidad de incidentes incluidos, la prioridad de respuesta y los canales de comunicación disponibles.
+- Crea y usa un solo hilo para un problema específico. Si experimentas otro problema, deberás crear otro hilo para informarlo.  
 
-**¿Puedo escalar un error directamente al equipo de ingeniería?**
+## **FAQ**
 
-Sí. [Paid support](https://helpdesk.aspose.com/) permite escalar a los desarrolladores cuando un problema requiere una investigación más profunda.
+### ¿Qué niveles de soporte de pago están disponibles y en qué se diferencian?
 
-**¿Se admiten versiones antiguas de la biblioteca, y publican correcciones para ellas?**
+[Desarrollador, Negocio y Empresa](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Se diferencian por el número de incidentes incluidos, la prioridad de respuesta y los canales de comunicación disponibles.
 
-Puede usar versiones anteriores, pero las correcciones se proporcionan para la versión actual; no se emiten parches para versiones heredadas.
+### ¿Puedo escalar un error directamente al equipo de ingeniería?
+
+Sí. [Soporte de pago](https://helpdesk.aspose.com/) permite la escalada a los desarrolladores cuando un problema requiere una investigación más profunda.
+
+### ¿Se admiten versiones antiguas de la biblioteca y se publican correcciones para ellas?
+
+Puedes usar versiones antiguas, pero las correcciones se proporcionan solo para la versión actual; no se emiten parches para versiones heredadas.

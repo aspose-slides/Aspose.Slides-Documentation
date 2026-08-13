@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση OLE σε Παρουσιάσεις με Java
+title: Διαχείριση OLE σε Παρουσιάσεις χρησιμοποιώντας Java
 linktitle: Διαχείριση OLE
 type: docs
 weight: 40
@@ -14,7 +14,7 @@ keywords:
 - προσθήκη αρχείου
 - ενσωμάτωση αρχείου
 - συνδεδεμένο αντικείμενο
-- συνδεδεμένο αρχείο
+- συνδεμένο αρχείο
 - αλλαγή OLE
 - εικονίδιο OLE
 - τίτλος OLE
@@ -25,82 +25,90 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Βελτιστοποιήστε τη διαχείριση αντικειμένων OLE σε αρχεία PowerPoint και OpenDocument με το Aspose.Slides for Java. Ενσωματώστε, ενημερώστε και εξάγετε το περιεχόμενο OLE άψογα."
+description: "Βελτιστοποιήστε τη διαχείριση αντικειμένων OLE σε αρχεία PowerPoint και OpenDocument με το Aspose.Slides για Java. Ενσωματώστε, ενημερώστε και εξάγετε το περιεχόμενο OLE αδιάκοπα."
 ---
 ## **Εισαγωγή**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-OLE (Object Linking & Embedding) είναι μια τεχνολογία της Microsoft που επιτρέπει στα δεδομένα και στα αντικείμενα που δημιουργούνται σε μία εφαρμογή να τοποθετούνται σε άλλη εφαρμογή μέσω σύνδεσης ή ενσωμάτωσης. 
+OLE (Object Linking & Embedding) είναι μια τεχνολογία της Microsoft που επιτρέπει σε δεδομένα και αντικείμενα που δημιουργούνται σε μια εφαρμογή να τοποθετούνται σε άλλη εφαρμογή μέσω σύνδεσης ή ενσωμάτωσης. 
 
 {{% /alert %}} 
 
-Θεωρήστε ένα διάγραμμα που δημιουργήθηκε στο MS Excel. Το διάγραμμα τοποθετείται στη συνέχεια σε μια διαφάνεια PowerPoint. Αυτό το διάγραμμα Excel θεωρείται αντικείμενο OLE. 
+Σκεφτείτε ένα γράφημα που δημιουργήθηκε στο MS Excel. Το γράφημα τοποθετείται στη συνέχεια μέσα σε μια διαφάνεια του PowerPoint. Αυτό το γράφημα Excel θεωρείται αντικείμενο OLE. 
 
-- Ένα αντικείμενο OLE μπορεί να εμφανίζεται ως εικονίδιο. Σε αυτήν την περίπτωση, όταν κάνετε διπλό κλικ στο εικονίδιο, το διάγραμμα ανοίγει στην συσχετισμένη εφαρμογή του (Excel), ή σας ζητείται να επιλέξετε μια εφαρμογή για το άνοιγμα ή την επεξεργασία του αντικειμένου. 
-- Ένα αντικείμενο OLE μπορεί να εμφανίζει τα πραγματικά του περιεχόμενα, όπως τα περιεχόμενα ενός διαγράμματος. Σε αυτήν την περίπτωση, το διάγραμμα ενεργοποιείται στο PowerPoint, φορτώνεται η διεπαφή του διαγράμματος και μπορείτε να τροποποιήσετε τα δεδομένα του διαγράμματος μέσα στο PowerPoint.
+- Ένα αντικείμενο OLE μπορεί να εμφανίζεται ως εικονίδιο. Σε αυτή την περίπτωση, όταν κάνετε διπλό‑κλικ στο εικονίδιο, το γράφημα ανοίγει στην σχετική εφαρμογή (Excel) ή σας ζητείται να επιλέξετε μια εφαρμογή για το άνοιγμα ή την επεξεργασία του αντικειμένου. 
+- Ένα αντικείμενο OLE μπορεί να εμφανίζει το πραγματικό του περιεχόμενο, όπως τα δεδομένα ενός γραφήματος. Σε αυτήν την περίπτωση, το γράφημα ενεργοποιείται στο PowerPoint, φορτώνεται η διεπαφή του γραφήματος και μπορείτε να τροποποιήσετε τα δεδομένα του γραφήματος μέσα στο PowerPoint.
 
-[Aspose.Slides for Java](https://products.aspose.com/slides/el/java/) σας επιτρέπει να εισάγετε OLE Objects στις διαφάνειες ως πλαίσια αντικειμένων OLE ([OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Java](https://products.aspose.com/slides/el/java/) επιτρέπει την εισαγωγή OLE αντικειμένων στις διαφάνειες ως πλαίσια αντικειμένων OLE ([OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame)).
 
-## **Προσθήκη Πλαισίων Αντικειμένων OLE σε Διαφάνειες**
+## **Προσθήκη πλαισίων αντικειμένων OLE στις διαφάνειες**
 
-Υποθέτοντας ότι έχετε ήδη δημιουργήσει ένα διάγραμμα στο Microsoft Excel και θέλετε να το ενσωματώσετε σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας το Aspose.Slides for Java, μπορείτε να το κάνετε με τον ακόλουθο τρόπο:
+Υποθέτοντας ότι έχετε ήδη δημιουργήσει ένα γράφημα στο Microsoft Excel και θέλετε να το ενσωματώσετε σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας Aspose.Slides for Java, μπορείτε να το κάνετε ως εξής:
 
-1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-1. Αποκτήστε μια αναφορά της διαφάνειας μέσω του δείκτη της.
-1. Διαβάστε το αρχείο Excel ως byte array.
-1. Προσθέστε το [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame) στη διαφάνεια, περιλαμβάνοντας το byte array και άλλες πληροφορίες για το αντικείμενο OLE.
-1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
+1. Αποκτήστε αναφορά σε μια διαφάνεια μέσω του ευρετηρίου της.
+1. Διαβάστε το αρχείο Excel ως πίνακα byte.
+1. Προσθέστε το [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame) στη διαφάνεια περιέχοντας τον πίνακα byte και τις άλλες πληροφορίες για το αντικείμενο OLE.
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
-Στο παρακάτω παράδειγμα, προσθέσαμε ένα διάγραμμα από ένα αρχείο Excel σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας το Aspose.Slides for Java.
-**Σημείωση** ότι ο κατασκευαστής [OleEmbeddedDataInfo](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleEmbeddedDataInfo) δέχεται μια επέκταση ενσωματώσιμου αντικειμένου ως δεύτερη παράμετρο. Αυτή η επέκταση επιτρέπει στο PowerPoint να ερμηνεύσει σωστά τον τύπο αρχείου και να επιλέξει τη σωστή εφαρμογή για το άνοιγμα αυτού του αντικειμένου OLE.
+Στο παρακάτω παράδειγμα, προσθέσαμε ένα γράφημα από αρχείο Excel σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας Aspose.Slides for Java.
+**Σημείωση** ότι ο κατασκευαστής του [OleEmbeddedDataInfo](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleEmbeddedDataInfo) δέχεται ως δεύτερη παράμετρο μια επέκταση ενσωματώσιμου αντικειμένου. Αυτή η επέκταση επιτρέπει στο PowerPoint να ερμηνεύσει σωστά τον τύπο του αρχείου και να επιλέξει τη σωστή εφαρμογή για το άνοιγμα του αντικειμένου OLE.
 
 ``` java 
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Προετοιμάστε τα δεδομένα για το αντικείμενο OLE.
+// Prepare data for the OLE object.
 byte[] fileData = Files.readAllBytes(Paths.get("book.xlsx"));
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-// Προσθέστε το πλαίσιο αντικειμένου OLE στη διαφάνεια.
+// Add the OLE object frame to the slide.
 slide.getShapes().addOleObjectFrame(0, 0, (float)slideSize.getWidth(), (float)slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-### **Προσθήκη Συνδεδεμένων Πλαισίων Αντικειμένων OLE**
+### **Προσθήκη συνδεδεμένων πλαισίων αντικειμένων OLE**
 
-Το Aspose.Slides for Java σας επιτρέπει να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame) χωρίς ενσωμάτωση δεδομένων, αλλά μόνο με σύνδεσμο στο αρχείο.
+Aspose.Slides for Java επιτρέπει την προσθήκη ενός [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame) χωρίς ενσωμάτωση δεδομένων, αλλά μόνο με σύνδεσμο προς το αρχείο.
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame) με ένα συνδεδεμένο αρχείο Excel σε μια διαφάνεια:
+Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame) με συνδεδεμένο αρχείο Excel σε μια διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Προσθέστε ένα πλαίσιο αντικειμένου OLE με ένα συνδεδεμένο αρχείο Excel.
+// Προσθήκη πλαισίου αντικειμένου OLE με συνδεδεμένο αρχείο Excel.
 slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Πρόσβαση σε Πλαίσια Αντικειμένων OLE**
+## **Πρόσβαση σε πλαίσια αντικειμένων OLE**
 
-Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να το βρείτε ή να το προσπελάσετε με αυτόν τον τρόπο:
+Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να το βρείτε ή να το αποκτήσετε με τον ακόλουθο τρόπο:
 
-1. Φορτώστε μια παρουσία με το ενσωματωμένο αντικείμενο OLE δημιουργώντας μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Αποκτήστε την αναφορά της διαφάνειας χρησιμοποιώντας τον δείκτη της.
-3. Προσπελάστε το σχήμα [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame).
-   Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγούμενο δημιουργημένο PPTX που έχει μόνο ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* (μετατρέπουμε) αυτό το αντικείμενο σε ένα [IOleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/IOleObjectFrame). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE που θέλαμε να προσεγγίσουμε.
-4. Μόλις το πλαίσιο αντικειμένου OLE προσεγγιστεί, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία σε αυτό.
+1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
+2. Αποκτήστε την αναφορά της διαφάνειας χρησιμοποιώντας το ευρετήριο της.
+3. Αποκτήστε το σχήμα [OleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/OleObjectFrame). Στο παράδειγμά μας, χρησιμοποιήσαμε το PPTX που δημιουργήθηκε προηγουμένως και έχει μόνο ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* το αντικείμενο ως [IOleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/IOleObjectFrame). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.
+4. Μόλις αποκτηθεί το πλαίσιο αντικειμένου OLE, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία επάνω του.
 
-Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (ένα αντικείμενο διαγράμματος Excel ενσωματωμένο σε μια διαφάνεια) και τα δεδομένα αρχείου του προσεγγίζονται.
+Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (αντικείμενο γραφήματος Excel ενσωματωμένο σε διαφάνεια) και τα δεδομένα του αρχείου του προέρχονται.
 
 ``` java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -108,23 +116,25 @@ IShape shape = slide.getShapes().get_Item(0);
 if (shape instanceof IOleObjectFrame) {
     IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
     
-    // Αποκτήστε τα ενσωματωμένα δεδομένα του αρχείου.
+    // Ανάκτηση των ενσωματωμένων δεδομένων αρχείου.
     byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-    // Αποκτήστε την επέκταση του ενσωματωμένου αρχείου.
+    // Ανάκτηση της επέκτασης του ενσωματωμένου αρχείου.
     String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
     // ...
 }
 ```
 
-### **Πρόσβαση σε Ιδιότητες Συνδεμένου Πλαισίου Αντικειμένου OLE**
+### **Πρόσβαση στις ιδιότητες συνδεδεμένου πλαισίου αντικειμένου OLE**
 
-Το Aspose.Slides σας επιτρέπει να προσπελάσετε τις ιδιότητες του συνδεδεμένου πλαισίου αντικειμένου OLE.
+Aspose.Slides επιτρέπει την πρόσβαση στις ιδιότητες των συνδεδεμένων πλαισίων αντικειμένου OLE.
 
-Αυτός ο κώδικας Java δείχνει πώς να ελέγξετε αν ένα αντικείμενο OLE είναι συνδεδεμένο και στη συνέχεια να αποκτήσετε τη διαδρομή του συνδεδεμένου αρχείου:
+Αυτός ο κώδικας Java δείχνει πώς να ελέγξετε εάν ένα αντικείμενο OLE είναι συνδεδεμένο και στη συνέχεια να λάβετε τη διαδρομή προς το συνδεδεμένο αρχείο:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -134,7 +144,7 @@ if (shape instanceof IOleObjectFrame) {
 
     // Ελέγξτε αν το αντικείμενο OLE είναι συνδεδεμένο.
     if (oleFrame.isObjectLink()) {
-        // Εκτυπώστε την πλήρη διαδρομή του συνδεδεμένου αρχείου.
+        // Εκτυπώστε τη πλήρη διαδρομή του συνδεδεμένου αρχείου.
         System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
 
         // Εκτυπώστε τη σχετική διαδρομή του συνδεδεμένου αρχείου αν υπάρχει.
@@ -148,29 +158,34 @@ if (shape instanceof IOleObjectFrame) {
 presentation.dispose();
 ```
 
-## **Αλλαγή Δεδομένων Αντικειμένου OLE**
+## **Αλλαγή δεδομένων αντικειμένου OLE**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Σε αυτήν την ενότητα, το παρακάτω παράδειγμα κώδικα χρησιμοποιεί το [Aspose.Cells for Java](/cells/java/).
+Σε αυτήν την ενότητα, το παρακάτω παράδειγμα κώδικα χρησιμοποιεί [Aspose.Cells for Java](/cells/java/).
 
 {{% /alert %}}
 
-Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να προσπελάσετε αυτό το αντικείμενο και να τροποποιήσετε τα δεδομένα του με αυτόν τον τρόπο:
+Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να αποκτήσετε πρόσβαση στο αντικείμενο και να τροποποιήσετε τα δεδομένα του ως εξής:
 
-1. Φορτώστε μια παρουσία με το ενσωματωμένο αντικείμενο OLE δημιουργώντας μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
-2. Αποκτήστε την αναφορά της διαφάνειας μέσω του δείκτη της.
-3. Προσπελάστε το σχήμα του πλαισίου αντικειμένου OLE.
-   Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγούμενο δημιουργημένο PPTX που έχει ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* αυτό το αντικείμενο σε ένα [IOleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/IOleObjectFrame). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.
-4. Μόλις προσεγγιστεί το πλαίσιο αντικειμένου OLE, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία σε αυτό.
-5. Δημιουργήστε ένα αντικείμενο `Workbook` και προσπελάστε τα δεδομένα OLE.
-6. Προσπελάστε το επιθυμητό `Worksheet` και τροποποιήστε τα δεδομένα.
-7. Αποθηκεύστε το ενημερωμένο `Workbook` σε ένα  stream.
-8. Αλλάξτε τα δεδομένα του αντικειμένου OLE από το stream.
+1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation).
+2. Αποκτήστε την αναφορά της διαφάνειας μέσω του ευρετηρίου της. 
+3. Αποκτήστε το σχήμα του πλαισίου αντικειμένου OLE. Στο παράδειγμά μας, χρησιμοποιήσαμε το PPTX που δημιουργήθηκε προηγουμένως και έχει ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* το αντικείμενο ως [IOleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/IOleObjectFrame). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.
+4. Μόλις αποκτηθεί το πλαίσιο αντικειμένου OLE, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία επάνω του.
+5. Δημιουργήστε ένα αντικείμενο `Workbook` και αποκτήστε πρόσβαση στα δεδομένα OLE.
+6. Αποκτήστε το επιθυμητό `Worksheet` και τροποποιήστε τα δεδομένα.
+7. Αποθηκεύστε το ενημερωμένο `Workbook` σε ροή.
+8. Αλλάξτε τα δεδομένα του αντικειμένου OLE από τη ροή.
 
-Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (ένα αντικείμενο διαγράμματος Excel ενσωματωμένο σε μια διαφάνεια) προσεγγίζεται και τα δεδομένα του αρχείου τροποποιούνται για την ενημέρωση των δεδομένων του διαγράμματος.
+Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (αντικείμενο γραφήματος Excel ενσωματωμένο σε διαφάνεια) προέρχεται, και τα δεδομένα του αρχείου τροποποιούνται ώστε να ενημερώσουν τα δεδομένα του γραφήματος.
 
 ``` java 
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -185,7 +200,7 @@ if (shape instanceof IOleObjectFrame) {
 
     ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
 
-    // Τροποποιήστε τα δεδομένα του workbook.
+    // Τροποποίηση των δεδομένων του βιβλίου εργασίας.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -194,7 +209,7 @@ if (shape instanceof IOleObjectFrame) {
     OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
     workbook.save(newOleStream, fileOptions);
 
-    // Αλλάξτε τα δεδομένα του αντικειμένου πλαισίου OLE.
+    // Αλλαγή των δεδομένων του αντικειμένου πλαισίου OLE.
     IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 }
@@ -203,13 +218,17 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Ενσωμάτωση Άλλων Τύπων Αρχείων σε Διαφάνειες**
+## **Ενσωμάτωση άλλων τύπων αρχείων στις διαφάνειες**
 
-Εκτός από διαγράμματα Excel, το Aspose.Slides for Java σας επιτρέπει να ενσωματώσετε άλλους τύπους αρχείων στις διαφάνειες. Για παράδειγμα, μπορείτε να εισάγετε αρχεία HTML, PDF και ZIP ως αντικείμενα. Όταν ένας χρήστης κάνει διπλό κλικ στο εισαχθέν αντικείμενο, αυτό ανοίγει αυτόματα στο σχετικό πρόγραμμα ή εμφανίζεται προτροπή να επιλέξει κατάλληλο πρόγραμμα για το άνοιγμά του.
+Εκτός από γραφήματα Excel, Aspose.Slides for Java επιτρέπει την ενσωμάτωση άλλων τύπων αρχείων στις διαφάνειες. Για παράδειγμα, μπορείτε να εισάγετε HTML, PDF και ZIP αρχεία ως αντικείμενα. Όταν ένας χρήστης κάνει διπλό‑κλικ στο ενσωματωμένο αντικείμενο, αυτό ανοίγει αυτόματα στο σχετικό πρόγραμμα ή του ζητείται να επιλέξει ένα κατάλληλο πρόγραμμα για το άνοιγμα.
 
 Αυτός ο κώδικας Java δείχνει πώς να ενσωματώσετε HTML και ZIP σε μια διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -227,13 +246,15 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Ορισμός Τύπων Αρχείων για Ενσωματωμένα Αντικείμενα**
+## **Ορισμός τύπων αρχείων για ενσωματωμένα αντικείμενα**
 
-Κατά την εργασία με παρουσιάσεις, ενδέχεται να χρειαστεί να αντικαταστήσετε παλαιά αντικείμενα OLE με νέα ή να αντικαταστήσετε ένα μη υποστηριζόμενο αντικείμενο OLE με ένα υποστηριζόμενο. Το Aspose.Slides for Java σας επιτρέπει να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο, επιτρέποντας την ενημέρωση των δεδομένων του πλαισίου OLE ή της επέκτασής του.
+Κατά την εργασία με παρουσιάσεις, μπορεί να χρειαστεί να αντικαταστήσετε παλιά αντικείμενα OLE με νέα ή να αντικαταστήσετε ένα μη υποστηριζόμενο αντικείμενο OLE με ένα υποστηριζόμενο. Aspose.Slides for Java επιτρέπει τον ορισμό του τύπου αρχείου για ένα ενσωματωμένο αντικείμενο, επιτρέποντας την ενημέρωση των δεδομένων του πλαισίου OLE ή της επέκτασής του.
 
 Αυτός ο κώδικας Java δείχνει πώς να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο OLE σε `zip`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -243,25 +264,29 @@ byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
 System.out.println("Current embedded file extension is: " + fileExtension);
 
-// Αλλάξτε τον τύπο αρχείου σε ZIP.
+// Αλλαγή του τύπου αρχείου σε ZIP.
 oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Ορισμός Εικόνων Εικονιδίου και Τίτλων για Ενσωματωμένα Αντικείμενα**
+## **Ορισμός εικόνων εικονιδίου και τίτλων για ενσωματωμένα αντικείμενα**
 
-Μετά την ενσωμάτωση ενός αντικειμένου OLE, προστίθεται αυτόματα μια προεπισκόπηση που αποτελείται από μια εικόνα εικονιδίου. Αυτή η προεπισκόπηση είναι ό,τι βλέπουν οι χρήστες πριν προσπελάσουν ή ανοίξουν το αντικείμενο OLE. Εάν θέλετε να χρησιμοποιήσετε μια συγκεκριμένη εικόνα και κείμενο ως στοιχεία στην προεπισκόπηση, μπορείτε να ορίσετε την εικόνα εικονιδίου και τον τίτλο χρησιμοποιώντας το Aspose.Slides for Java.
+Μετά την ενσωμάτωση ενός αντικειμένου OLE, προστίθεται αυτόματα μια προεπισκόπηση που αποτελείται από μια εικόνα εικονιδίου. Αυτή η προεπισκόπηση είναι αυτό που βλέπουν οι χρήστες πριν αποκτήσουν πρόσβαση ή ανοίξουν το αντικείμενο OLE. Εάν θέλετε να χρησιμοποιήσετε μια συγκεκριμένη εικόνα και κείμενο ως στοιχεία στην προεπισκόπηση, μπορείτε να ορίσετε την εικόνα εικονιδίου και τον τίτλο χρησιμοποιώντας Aspose.Slides for Java.
 
 Αυτός ο κώδικας Java δείχνει πώς να ορίσετε την εικόνα εικονιδίου και τον τίτλο για ένα ενσωματωμένο αντικείμενο:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
-// Προσθέστε μια εικόνα στους πόρους της παρουσίασης.
+// Προσθήκη εικόνας στους πόρους της παρουσίασης.
 byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
 IPPImage oleImage = presentation.getImages().addImage(imageData);
 
@@ -274,25 +299,39 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Αποτροπή Αλλαγής Μεγέθους και Θέσης Πλαισίου Αντικειμένου OLE**
+## **Αποτροπή αλλαγής μεγέθους και θέσης πλαισίου αντικειμένου OLE**
 
-Μετά την προσθήκη ενός συνδεδεμένου αντικειμένου OLE σε μια διαφάνεια παρουσίασης, όταν ανοίξετε την παρουσίαση στο PowerPoint, μπορεί να εμφανιστεί ένα μήνυμα που σας ζητά να ενημερώσετε τους συνδέσμους. Κάνοντας κλικ στο κουμπί "Update Links" μπορεί να αλλάξει το μέγεθος και η θέση του πλαισίου αντικειμένου OLE, επειδή το PowerPoint ενημερώνει τα δεδομένα από το συνδεδεμένο αντικείμενο OLE και ανανεώνει την προεπισκόπηση του αντικειμένου. Για να αποτρέψετε το PowerPoint από το να προτρέπει την ενημέρωση των δεδομένων του αντικειμένου, ορίστε τη μέθοδο `setUpdateAutomatic` της διεπαφής [IOleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioleobjectframe/) σε `false`:
+Αφού προσθέσετε ένα συνδεδεμένο αντικείμενο OLE σε μια διαφάνεια παρουσίασης, όταν ανοίγετε την παρουσίαση στο PowerPoint, μπορεί να εμφανιστεί μήνυμα που σας ζητά να ενημερώσετε τους συνδέσμους. Κάνοντας κλικ στο κουμπί «Update Links» μπορεί να αλλάξει το μέγεθος και η θέση του πλαισίου αντικειμένου OLE επειδή το PowerPoint ενημερώνει τα δεδομένα από το συνδεδεμένο αντικείμενο OLE και ανανεώνει την προεπισκόπηση. Για να αποτρέψετε το PowerPoint από το να ζητά ενημέρωση των δεδομένων του αντικειμένου, ορίστε τη μέθοδο `setUpdateAutomatic` της διεπαφής [IOleObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioleobjectframe/) σε `false`:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
 oleFrame.setUpdateAutomatic(false);
+
+presentation.save("output.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
-## **Εξαγωγή Ενσωματωμένων Αρχείων**
+## **Εξαγωγή ενσωματωμένων αρχείων**
 
-Το Aspose.Slides for Java σας επιτρέπει να εξάγετε τα αρχεία που είναι ενσωματωμένα στις διαφάνειες ως αντικείμενα OLE με τον εξής τρόπο:
+Aspose.Slides for Java επιτρέπει την εξαγωγή των αρχείων που είναι ενσωματωμένα σε διαφάνειες ως αντικείμενα OLE ως εξής:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation) που περιέχει τα αντικείμενα OLE που θέλετε να εξάγετε.
-2. Διπλώστε (επαναλάβετε) μέσω όλων των σχήματων στην παρουσία και προσπελάστε τα σχήματα [OLEObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/oleobjectframe).
-3. Προσπελάστε τα δεδομένα των ενσωματωμένων αρχείων από τα πλαίσια αντικειμένων OLE και γράψτε τα στο δίσκο.
+1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/Presentation) που περιέχει τα αντικείμενα OLE που θέλετε να εξαγάγετε.
+2. Περιηγηθείτε σε όλα τα σχήματα της παρουσίασης και αποκτήστε πρόσβαση στα σχήματα [OLEObjectFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/oleobjectframe).
+3. Αποκτήστε τα δεδομένα των ενσωματωμένων αρχείων από τα πλαίσια αντικειμένων OLE και γράψτε τα στο δίσκο.
 
-Αυτός ο κώδικας Java δείχνει πώς να εξάγετε αρχεία ενσωματωμένα σε μια διαφάνεια ως αντικείμενα OLE:
+Αυτός ο κώδικας Java δείχνει πώς να εξαγάγετε αρχεία ενσωματωμένα σε μια διαφάνεια ως αντικείμενα OLE:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -315,18 +354,18 @@ presentation.dispose();
 
 ## **FAQ**
 
-**Θα αποδοθεί το περιεχόμενο OLE κατά την εξαγωγή των διαφανειών σε PDF/εικόνες;**
+### Θα αποδοθεί το περιεχόμενο OLE κατά την εξαγωγή των διαφανειών σε PDF/εικόνες;
 
-Απεικονίζεται ό,τι είναι ορατό στη διαφάνεια — το εικονίδιο/εικόνα υποκατάστασης (προεπισκόπηση). Το «ζωντανό» περιεχόμενο OLE δεν εκτελείται κατά την απόδοση. Εάν χρειάζεται, ορίστε τη δική σας εικόνα προεπισκόπησης για να εξασφαλίσετε την αναμενόμενη εμφάνιση στο εξαγόμενο PDF.
+Αυτό που είναι ορατό στη διαφάνεια αποδίδεται — το εικονίδιο/εικόνα προεπισκόπησης. Το «ζωντανό» περιεχόμενο OLE δεν εκτελείται κατά την απόδοση. Εάν χρειάζεται, ορίστε τη δική σας εικόνα προεπισκόπησης ώστε να εξασφαλίσετε την αναμενόμενη εμφάνιση στο εξαγόμενο PDF.
 
-**Πώς μπορώ να κλειδώσω ένα αντικείμενο OLE σε μια διαφάνεια ώστε οι χρήστες να μην μπορούν να το μετακινήσουν/επεξεργαστούν στο PowerPoint;**
+### Πώς μπορώ να κλειδώσω ένα αντικείμενο OLE σε μια διαφάνεια ώστε οι χρήστες να μην μπορούν να το μετακινήσουν/επεξεργαστούν στο PowerPoint;
 
-Κλειδώστε το σχήμα: το Aspose.Slides παρέχει [κλειδώματα επιπέδου σχήματος](/slides/el/java/applying-protection-to-presentation/). Αυτό δεν είναι κρυπτογράφηση, αλλά αποτρέπει αποτελεσματικά τυχαίες τροποποιήσεις και μετακινήσεις.
+Κλειδώστε το σχήμα: το Aspose.Slides παρέχει [κλειδώματα επιπέδου σχήματος](/slides/el/java/applying-protection-to-presentation/). Αυτό δεν είναι κρυπτογράφηση, αλλά εμποδίζει αποτελεσματικά τυχαίες επεμβάσεις και μετακινήσεις.
 
-**Γιατί ένα συνδεδεμένο αντικείμενο Excel «πηδά» ή αλλάζει μέγεθος όταν ανοίγω την παρουσίαση;**
+### Γιατί ένα συνδεδεμένο αντικείμενο Excel «πηδάει» ή αλλάζει μέγεθος όταν ανοίγω την παρουσίαση;
 
-Το PowerPoint ενδέχεται να ανανεώσει την προεπισκόπηση του συνδεδεμένου OLE. Για σταθερή εμφάνιση, ακολουθήστε τις πρακτικές του [Working Solution for Worksheet Resizing](/slides/el/java/working-solution-for-worksheet-resizing/) — είτε προσαρμόστε το πλαίσιο στην περιοχή, είτε κλιμακώστε την περιοχή σε ένα σταθερό πλαίσιο και ορίστε μια κατάλληλη εικόνα υποκατάστασης.
+Το PowerPoint μπορεί να ανανεώσει την προεπισκόπηση του συνδεδεμένου OLE. Για σταθερή εμφάνιση, ακολουθήστε τις πρακτικές του [Working Solution for Worksheet Resizing](/slides/el/java/working-solution-for-worksheet-resizing/) — είτε προσαρμόστε το πλαίσιο στην περιοχή, είτε κλιμακώστε την περιοχή σε σταθερό πλαίσιο και ορίστε μια κατάλληλη εναλλακτική εικόνα.
 
-**Θα διατηρηθούν οι σχετικές διαδρομές για συνδεδεμένα αντικείμενα OLE στη μορφή PPTX;**
+### Θα διατηρηθούν οι σχετικές διαδρομές για συνδεδεμένα αντικείμενα OLE στη μορφή PPTX;
 
-Στο PPTX, δεν υπάρχει πληροφορία «σχετική διαδρομή» — μόνο η πλήρης διαδρομή. Οι σχετικές διαδρομές υπάρχουν μόνο στην παλαιότερη μορφή PPT. Για φορητότητα, προτιμήστε αξιόπιστες απόλυτες διαδρομές/πρόσβαση μέσω URIs ή ενσωμάτωση.
+Στη μορφή PPTX, οι πληροφορίες «σχετική διαδρομή» δεν είναι διαθέσιμες — μόνο η πλήρης διαδρομή. Σχετικές διαδρομές υπάρχουν μόνο στην παλαιότερη μορφή PPT. Για φορητότητα, προτιμήστε αξιόπιστες απόλυτες διαδρομές/προσβάσιμα URIs ή ενσωμάτωση.

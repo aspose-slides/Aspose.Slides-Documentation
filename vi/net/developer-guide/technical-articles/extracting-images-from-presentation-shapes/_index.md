@@ -1,33 +1,33 @@
 ---
-title: Trích xuất hình ảnh từ các hình dạng trong bài thuyết trình bằng .NET
+title: Trích xuất hình ảnh từ các hình dạng trong bản trình chiếu bằng .NET
 linktitle: Hình ảnh từ hình dạng
 type: docs
 weight: 90
 url: /vi/net/extracting-images-from-presentation-shapes/
 keywords:
-- trích xuất hình ảnh
-- lấy hình ảnh
-- PowerPoint
-- OpenDocument
-- bài thuyết trình
-- .NET
-- C#
-- Aspose.Slides
-description: "Trích xuất hình ảnh từ các hình dạng trong bài thuyết trình PowerPoint và OpenDocument bằng Aspose.Slides cho .NET - giải pháp nhanh, thân thiện với mã."
+  - trích xuất hình ảnh
+  - lấy lại hình ảnh
+  - PowerPoint
+  - OpenDocument
+  - bản trình chiếu
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Trích xuất hình ảnh từ các hình dạng trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho .NET - giải pháp nhanh, thân thiện với mã."
 ---
 ## **Tổng quan**
 
-Hình ảnh trong một bản trình bày có thể xuất hiện trong một số loại hình dạng: như khung ảnh thông thường, như hình nền ảnh được áp dụng cho các hình dạng, như ảnh xem trước của đối tượng OLE, như hình thu nhỏ khung video hoặc âm thanh, như hình ảnh thu phóng, hoặc như hình ảnh lồng trong các hình dạng bảng, biểu đồ và SmartArt. Aspose.Slides lưu trữ những hình ảnh đó trong bộ sưu tập hình ảnh của bản trình bày, được mở ra qua các đối tượng [ImageCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imagecollection/) và [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) .
+Hình ảnh trong một bài thuyết trình có thể xuất hiện trong nhiều kiểu hình dạng: như khung ảnh thông thường, như ảnh nền được áp dụng cho các hình dạng, như hình ảnh xem trước của đối tượng OLE, như hình thu nhỏ của khung video hoặc âm thanh, như ảnh thu phóng, hoặc như hình ảnh lồng trong các hình dạng bảng, biểu đồ và SmartArt. Aspose.Slides lưu các hình ảnh này trong bộ sưu tập hình ảnh của bản trình chiếu, được truy cập thông qua các đối tượng [ImageCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imagecollection/) và [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) .
 
-Nếu bạn chỉ cần xuất mọi tài nguyên hình ảnh được nhúng trong một bản trình bày, hãy lặp qua `presentation.Images`. Bài viết này tập trung vào một nhiệm vụ khác: duyệt các hình dạng để tìm nơi hình ảnh được sử dụng trên các slide, để các tệp đã lưu có thể giữ ngữ cảnh hữu ích như số slide, vị trí hình dạng và loại nguồn (khung ảnh, ảnh nền, xem trước phương tiện, xem trước OLE hoặc ảnh thu phóng).
+Nếu bạn chỉ cần xuất mọi tài nguyên hình ảnh được nhúng trong một bản trình chiếu, hãy lặp qua `presentation.Images`. Bài viết này tập trung vào một nhiệm vụ khác: duyệt các hình dạng để tìm nơi hình ảnh được sử dụng trên các slide, để các tệp đã lưu có thể giữ lại ngữ cảnh hữu ích như số slide, vị trí hình dạng và loại nguồn (khung ảnh, ảnh nền, xem trước phương tiện, xem trước OLE, hoặc ảnh thu phóng).
 
-{{% alert title="Tip" color="primary" %}}
-Sử dụng [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) để bảo tồn dữ liệu ảnh đã mã hoá gốc và kiểu tệp. Sử dụng [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) với [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) khi bạn muốn chuẩn hoá đầu ra sang định dạng cụ thể như PNG.
+{{% alert title="Tip" color="info" %}}
+Sử dụng [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) để giữ nguyên dữ liệu hình ảnh đã mã hoá và loại tệp gốc. Sử dụng [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) cùng với [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) khi bạn muốn chuẩn hoá đầu ra sang một định dạng cụ thể như PNG.
 {{% /alert %}}
 
-## **Phương thức Trợ giúp Chung**
+## **Các phương thức trợ giúp chung**
 
-Các phương thức trợ giúp bên dưới giúp các ví dụ ngắn gọn. `SaveOriginalImage` ghi các byte nhúng gốc, chọn phần mở rộng an toàn từ loại MIME và bỏ qua các ảnh nhị phân trùng lặp bằng hàm băm SHA-256.
+Các phương thức trợ giúp dưới đây giúp các ví dụ ngắn gọn. `SaveOriginalImage` ghi các byte nhúng gốc, chọn phần mở rộng an toàn dựa trên MIME type, và bỏ qua các hình ảnh nhị phân trùng lặp bằng hàm băm SHA-256.
 
 ```c#
 using Aspose.Slides;
@@ -162,11 +162,13 @@ private static string MakeSafeFileNamePart(string value)
 }
 ```
 
-## **Trích xuất Hình ảnh từ Khung Ảnh**
+## **Trích xuất hình ảnh từ khung ảnh**
 
-Sử dụng cách tiếp cận này cho các ảnh được chèn dưới dạng đối tượng độc lập. Một [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) lưu ảnh của nó trong `PictureFormat.Picture.Image`, trả về một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) .
+Sử dụng cách này cho các hình ảnh được chèn dưới dạng đối tượng độc lập. Một [IPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) lưu hình ảnh của mình trong `PictureFormat.Picture.Image`, trả về một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) .
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -193,11 +195,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh từ Hình dạng Được Điền Hình ảnh**
+## **Trích xuất hình ảnh từ các hình dạng được điền bằng hình ảnh**
 
-Các hình dạng có thể sử dụng một bức ảnh làm nền. Kiểm tra loại nền của hình dạng trước: nếu không phải là [FillType.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/), thì không có ảnh nào để trích xuất từ nền đó. Ví dụ dưới đây xử lý các đối tượng [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) và lưu mỗi ảnh dưới dạng PNG qua [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) .
+Các hình dạng có thể sử dụng một hình ảnh làm nền. Kiểm tra loại nền của hình dạng trước: nếu nó không phải là [FillType.Picture](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/), thì không có hình ảnh nào để trích xuất từ nền đó. Ví dụ bên dưới xử lý các đối tượng [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) và lưu mỗi hình ảnh dưới dạng PNG thông qua [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) .
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +229,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh Xem trước từ Khung Đối tượng OLE**
+## **Trích xuất hình ảnh xem trước từ khung đối tượng OLE**
 
-Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleobjectframe/) có thể có một ảnh thay thế mà PowerPoint dùng làm xem trước của đối tượng trên slide. Ảnh này có sẵn qua `SubstitutePictureFormat.Picture.Image`. Trích xuất ảnh này sẽ cho bạn ảnh xem trước, không phải nội dung gói OLE được nhúng.
+Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleobjectframe/) có thể có một ảnh thay thế mà PowerPoint sử dụng làm xem trước đối tượng trên slide. Ảnh này có sẵn thông qua `SubstitutePictureFormat.Picture.Image`. Trích xuất ảnh này sẽ cho bạn hình ảnh xem trước, không phải nội dung gói OLE đã nhúng.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -260,11 +266,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh Xem trước từ Khung Video**
+## **Trích xuất hình ảnh xem trước từ khung video**
 
-Một [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) cũng có thể lưu một ảnh xem trước trong `PictureFormat.Picture.Image`. Đây là poster hoặc hình thu nhỏ hiển thị trên slide, không phải một khung được giải mã từ luồng video.
+Một [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) cũng có thể lưu một hình ảnh xem trước trong `PictureFormat.Picture.Image`. Đây là ảnh poster hoặc thumbnail hiển thị trên slide, không phải một khung được giải mã từ luồng video.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -295,11 +303,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh Xem trước từ Khung Âm thanh**
+## **Trích xuất hình ảnh xem trước từ khung âm thanh**
 
-Một [IAudioFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudioframe/) có thể lưu một hình thu nhỏ trong `PictureFormat.Picture.Image`. Đây là ảnh hiển thị cho đối tượng âm thanh trên slide.
+Một [IAudioFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudioframe/) có thể lưu một thumbnail trong `PictureFormat.Picture.Image`. Đây là ảnh hiển thị cho đối tượng âm thanh trên slide.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -330,11 +340,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh từ Đối tượng Thu phóng**
+## **Trích xuất hình ảnh từ đối tượng Zoom**
 
-[IZoomFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/izoomframe/) và [ISectionZoomFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/isectionzoomframe/) có thể sử dụng ảnh tùy chỉnh. Đọc `ZoomImage` từ khung thu phóng.
+[IZoomFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/izoomframe/) và [ISectionZoomFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/isectionzoomframe/) có thể sử dụng hình ảnh tùy chỉnh. Đọc `ZoomImage` từ khung zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh từ Khung Thu phóng Tổng hợp**
+## **Trích xuất hình ảnh từ khung Summary Zoom**
 
-Một [ISummaryZoomFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/isummaryzoomframe/) cũng là một hình dạng. Các mục phần có thể sử dụng ảnh tùy chỉnh, được cung cấp qua thuộc tính `ZoomImage` của từng phần tổng hợp.
+Một [ISummaryZoomFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/isummaryzoomframe/) cũng là một hình dạng. Các mục phần của nó có thể sử dụng hình ảnh tùy chỉnh, được mở rộng qua thuộc tính `ZoomImage` của từng phần summary zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -410,11 +424,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh từ Hình dạng Bảng**
+## **Trích xuất hình ảnh từ hình dạng Bảng**
 
-Một [ITable](https://reference.aspose.com/slides/vi/net/aspose.slides/itable/) là một hình dạng. Hình ảnh trong bảng thường được lưu dưới dạng nền ảnh trong các ô bảng.
+Một [ITable](https://reference.aspose.com/slides/vi/net/aspose.slides/itable/) là một hình dạng. Hình ảnh trong bảng thường được lưu dưới dạng nền hình ảnh trong các ô bảng.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -454,11 +470,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh từ Hình dạng Biểu đồ**
+## **Trích xuất hình ảnh từ hình dạng Biểu đồ**
 
-Một [IChart](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/) là một hình dạng. Ví dụ dưới đây trích xuất ảnh từ nền ảnh của vùng biểu đồ.
+Một [IChart](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/) là một hình dạng. Ví dụ dưới đây trích xuất một hình ảnh từ nền hình ảnh của khu vực biểu đồ.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -490,11 +508,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Trích xuất Hình ảnh từ Hình dạng SmartArt**
+## **Trích xuất hình ảnh từ hình dạng SmartArt**
 
-Một [ISmartArt](https://reference.aspose.com/slides/vi/net/aspose.slides.smartart/ismartart/) là một hình dạng. Tùy thuộc vào bố cục SmartArt, hình ảnh có thể được lưu trong nền bullet của nút hoặc trong định dạng nền của các hình dạng nút.
+Một đối tượng [ISmartArt](https://reference.aspose.com/slides/vi/net/aspose.slides.smartart/ismartart/) là một hình dạng. Tùy thuộc vào bố cục SmartArt, hình ảnh có thể được lưu trong nền dấu chấm của nút hoặc trong định dạng nền của các hình dạng nút.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -542,11 +562,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Bao gồm Hình ảnh bên trong Hình dạng Nhóm**
+## **Bao gồm hình ảnh bên trong các hình dạng nhóm**
 
-Các hình dạng nhóm chứa bộ sưu tập hình dạng riêng. Trợ giúp chung `EnumerateShapes` có tùy chọn `includeGroupedShapes`. Đặt thành `true` khi bạn muốn kiểm tra các hình dạng bên trong các đối tượng [IGroupShape](https://reference.aspose.com/slides/vi/net/aspose.slides/igroupshape/) . Ví dụ dưới đây trích xuất hình ảnh từ khung ảnh, hình dạng được điền ảnh, xem trước đối tượng OLE, hình thu nhỏ khung video và hình thu nhỏ khung âm thanh. Để bao gồm hình ảnh bảng, biểu đồ, SmartArt và thu phóng tổng hợp nữa, hãy tái sử dụng logic trích xuất chuyên biệt từ các phần trước trong khi duy trì cùng một quá trình duyệt hình dạng đệ quy.
+Các hình dạng nhóm chứa bộ sưu tập hình dạng riêng của chúng. Trợ giúp chung `EnumerateShapes` có tùy chọn `includeGroupedShapes`. Đặt nó thành `true` khi bạn muốn kiểm tra các hình dạng bên trong các đối tượng [IGroupShape](https://reference.aspose.com/slides/vi/net/aspose.slides/igroupshape/) . Ví dụ dưới đây trích xuất hình ảnh từ khung ảnh, các hình dạng được điền bằng hình ảnh, xem trước đối tượng OLE, thumbnail khung video và thumbnail khung âm thanh. Để bao gồm cả hình ảnh bảng, biểu đồ, SmartArt và summary zoom, hãy tái sử dụng logic trích xuất chuyên biệt từ các phần trước trong khi giữ cùng cách duyệt hình dạng đệ quy.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -619,45 +641,45 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Các Trường hợp Cực đoan và Ghi chú Thực tiễn**
+## **Các trường hợp đặc biệt và ghi chú thực tiễn**
 
-- **Duplicate images:** Nhiều hình dạng có thể tham chiếu cùng một ảnh hoặc các ảnh riêng biệt có byte giống hệt nhau. Băm [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) trước khi ghi tệp nếu bạn muốn một tệp đầu ra cho mỗi ảnh duy nhất.
-- **Original data vs. converted output:** Lưu [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) bảo tồn dữ liệu JPEG, PNG, GIF, SVG, EMF hoặc WMF đã nhúng. Lưu [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) qua [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) hữu ích khi bạn muốn định dạng đầu ra nhất quán.
-- **Unsupported fill types:** Các hình dạng rắn, gradient, pattern và không nền không chứa ảnh nền. Kiểm tra [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) trước khi đọc `PictureFillFormat`.
-- **Grouped shapes:** Bộ sưu tập hình dạng slide cấp cao không làm phẳng các nhóm. Kiểm tra đệ quy [IGroupShape.Shapes](https://reference.aspose.com/slides/vi/net/aspose.slides/igroupshape/) khi nội dung nhóm quan trọng.
-- **OLE object previews:** Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleobjectframe/) có thể hiển thị ảnh xem trước qua `SubstitutePictureFormat`, nhưng ảnh này chỉ là xem trước trên slide, không phải tệp được nhúng bên trong đối tượng OLE.
-- **Video frame thumbnails:** Một [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) có thể hiển thị ảnh xem trước qua `PictureFormat`, nhưng ảnh này chỉ là poster hiển thị trên slide, không được trích xuất từ luồng video.
-- **Audio frame thumbnails:** Một [IAudioFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudioframe/) có thể hiển thị biểu tượng hoặc hình thu nhỏ qua `PictureFormat`; nó không phải là dữ liệu âm thanh được nhúng.
-- **Zoom images:** Các hình dạng thu phóng slide, thu phóng phần và thu phóng tổng hợp có thể sử dụng các đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) tùy chỉnh qua `ZoomImage`.
-- **Nested shape models:** Các đối tượng bảng, biểu đồ và SmartArt thực hiện [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), nhưng hình ảnh của chúng thường được lưu trong các đối tượng định dạng ô bảng, phần tử biểu đồ hoặc nút SmartArt lồng nhau.
-- **Cropped or transformed pictures:** Truy cập [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) cho bạn tài nguyên ảnh đã lưu. Nó không áp dụng cắt, trong suốt, đổi màu, xoay hoặc các hiệu ứng trực quan khác mà hình dạng áp dụng.
+- **Duplicate images:** Nhiều hình dạng có thể tham chiếu cùng một hình ảnh hoặc các hình ảnh riêng biệt với cùng byte. Tính băm [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) trước khi ghi tệp nếu bạn muốn một tệp đầu ra cho mỗi hình ảnh duy nhất.  
+- **Original data vs. converted output:** Lưu [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) giữ nguyên dữ liệu JPEG, PNG, GIF, SVG, EMF hoặc WMF đã nhúng. Lưu [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) qua [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) hữu ích khi bạn muốn một định dạng đầu ra nhất quán.  
+- **Unsupported fill types:** Các hình dạng đặc, gradient, mẫu và không nền không chứa nền hình ảnh. Kiểm tra [FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/filltype/) trước khi đọc `PictureFillFormat`.  
+- **Grouped shapes:** Bộ sưu tập hình dạng slide cấp cao nhất không làm phẳng các nhóm. Kiểm tra đệ quy [IGroupShape.Shapes](https://reference.aspose.com/slides/vi/net/aspose.slides/igroupshape/) khi nội dung nhóm quan trọng.  
+- **OLE object previews:** Một [IOleObjectFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleobjectframe/) có thể hiển thị một hình ảnh xem trước qua `SubstitutePictureFormat`, nhưng hình ảnh này chỉ là xem trước slide. Nó không phải là tệp được nhúng bên trong đối tượng OLE.  
+- **Video frame thumbnails:** Một [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) có thể hiển thị hình ảnh xem trước qua `PictureFormat`, nhưng hình ảnh này chỉ là poster hiển thị trên slide. Nó không được trích xuất từ luồng video.  
+- **Audio frame thumbnails:** Một [IAudioFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iaudioframe/) có thể hiển thị biểu tượng hoặc thumbnail qua `PictureFormat`; nó không phải là dữ liệu âm thanh được nhúng.  
+- **Zoom images:** Các hình dạng slide zoom, section zoom và summary zoom có thể sử dụng các đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) tùy chỉnh qua `ZoomImage`.  
+- **Nested shape models:** Các đối tượng Table, Chart và SmartArt triển khai [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), nhưng hình ảnh của chúng thường được lưu trong ô bảng lồng nhau, phần tử biểu đồ hoặc đối tượng định dạng nút SmartArt.  
+- **Cropped or transformed pictures:** Truy cập [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) cung cấp cho bạn tài nguyên hình ảnh đã lưu. Nó không thực hiện cắt, trong suốt, thay đổi màu, xoay hoặc các hiệu ứng hình ảnh khác được áp dụng bởi hình dạng.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể trích xuất ảnh gốc mà không cắt, không hiệu ứng hay biến đổi hình dạng không?**
+### Tôi có thể trích xuất hình ảnh gốc mà không cắt, hiệu ứng hay biến đổi hình dạng không?
 
-Có. Truy cập đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) và ghi [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) ra đĩa. Điều này bảo tồn dữ liệu ảnh đã mã hoá gốc được lưu trong bản trình bày, không phải cách ảnh được hiển thị trên slide.
+Có. Truy cập đối tượng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) và ghi [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) ra đĩa. Điều này giữ nguyên hình ảnh đã mã hoá gốc được lưu trong bản trình chiếu, không phải cách hình ảnh được render trên slide.
 
-**Tôi có thể xuất mọi ảnh đã trích xuất dưới dạng PNG không?**
+### Tôi có thể xuất mọi hình ảnh đã trích xuất dưới dạng PNG không?
 
-Có. Sử dụng [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) để nhận một đối tượng [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/), sau đó gọi [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) với [ImageFormat.Png](https://reference.aspose.com/slides/vi/net/aspose.slides/imageformat/). Điều này chuyển đổi đầu ra và có thể không bảo tồn kiểu tệp gốc hoặc dữ liệu vector.
+Có. Sử dụng [IPPImage.Image](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) để lấy một đối tượng [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) , sau đó gọi [IImage.Save](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) với [ImageFormat.Png](https://reference.aspose.com/slides/vi/net/aspose.slides/imageformat/). Điều này chuyển đổi đầu ra và có thể không giữ nguyên loại tệp gốc hoặc dữ liệu vector.
 
-**Làm sao tránh lưu cùng một ảnh nhiều lần?**
+### Làm thế nào để tránh lưu cùng một hình ảnh nhiều lần?
 
-Sử dụng hàm băm của [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) và giữ các giá trị băm trong một tập hợp. Nếu ảnh mới có băm đã tồn tại, bỏ qua hoặc ghi nhận một tham chiếu khác tới tệp đầu ra hiện có.
+Sử dụng hàm băm của [IPPImage.BinaryData](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) , và giữ các băm trong một tập hợp. Nếu một hình ảnh mới có băm đã tồn tại, bỏ qua nó hoặc ghi lại một tham chiếu khác tới tệp đầu ra hiện có.
 
-**Tại sao một số hình dạng không tạo ra ảnh?**
+### Tại sao một số hình dạng không tạo ra hình ảnh?
 
-Khung ảnh, hình dạng được điền ảnh, khung OLE, khung phương tiện, khung thu phóng, bảng, biểu đồ và đối tượng SmartArt có thể tham chiếu ảnh. Một số loại hình dạng công bố ảnh qua các đối tượng định dạng lồng nhau, vì vậy việc chỉ kiểm tra `PictureFormat` hoặc `FillFormat` của hình dạng không luôn đủ.
+Khung ảnh, các hình dạng được điền bằng hình ảnh, khung đối tượng OLE, khung phương tiện, khung zoom, bảng, biểu đồ và đối tượng SmartArt có thể tham chiếu hình ảnh. Một số loại hình dạng hiển thị hình ảnh thông qua các đối tượng định dạng lồng nhau, vì vậy việc kiểm tra đơn giản `PictureFormat` hoặc `FillFormat` của hình dạng không luôn đủ.
 
-**Tôi có thể trích xuất hình thu nhỏ hiển thị cho khung video không?**
+### Tôi có thể trích xuất thumbnail hiển thị cho một khung video không?
 
 Có. Sử dụng [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) và đọc `PictureFormat.Picture.Image`. Điều này trích xuất ảnh poster được lưu cùng với khung video, không phải một khung được tạo ra từ tệp video.
 
-**Làm sao xác định hình dạng nào sử dụng một ảnh cụ thể từ bộ sưu tập ảnh của bản trình bày?**
+### Làm sao tôi có thể xác định những hình dạng nào sử dụng một hình ảnh cụ thể từ bộ sưu tập hình ảnh của bản trình chiếu?
 
-Aspose.Slides không lưu liên kết ngược từ [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) tới các hình dạng. Xây dựng một ánh xạ trong quá trình duyệt: mỗi khi tìm thấy tham chiếu ảnh, ghi lại số slide, đường dẫn hình dạng và băm ảnh hoặc mục trong bộ sưu tập.
+Aspose.Slides không lưu liên kết ngược từ [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) tới các hình dạng. Xây dựng một bản đồ trong quá trình duyệt: mỗi khi bạn tìm thấy một tham chiếu hình ảnh, ghi lại số slide, đường dẫn hình dạng và băm hình ảnh hoặc mục trong bộ sưu tập.
 
-**Tôi có thể trích xuất ảnh nhúng trong đối tượng OLE, chẳng hạn như tài liệu đính kèm?**
+### Tôi có thể trích xuất hình ảnh được nhúng trong các đối tượng OLE, chẳng hạn như tài liệu đính kèm không?
 
-Bạn có thể trích xuất ảnh xem trước slide của đối tượng OLE từ [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleobjectframe/). Tuy nhiên, ảnh xem trước này không phải là tài liệu được nhúng. Để trích xuất ảnh từ bên trong tệp nhúng, bạn cần xuất dữ liệu OLE và kiểm tra nó bằng các công cụ dành cho loại tệp tương ứng.
+Bạn có thể trích xuất xem trước slide của đối tượng OLE từ [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/ioleobjectframe/). Tuy nhiên, xem trước này không phải là tài liệu nhúng. Để trích xuất hình ảnh từ bên trong tệp nhúng, hãy trích xuất dữ liệu OLE và kiểm tra nó bằng các công cụ cho loại tệp đó.

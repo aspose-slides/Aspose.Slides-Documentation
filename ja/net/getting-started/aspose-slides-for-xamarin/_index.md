@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Xamarin
+title: Xamarin 用 Aspose.Slides
 type: docs
 weight: 150
 url: /ja/net/aspose-slides-for-xamarin/
@@ -13,38 +13,42 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "C# で Xamarin モバイルアプリを構築し、Aspose.Slides を使用して Android 上で PPT、PPTX、ODP のプレゼンテーションを表示、編集、変換する豊富な機能をサポートします。"
+description: "C# で Xamarin のモバイルアプリを構築し、Aspose.Slides を使用してプレゼンテーションの表示、編集、変換を行い、Android 上で PPT、PPTX、ODP の豊富な機能をサポートします。"
 ---
+## **イントロダクション**
 
-## **概要**
-Xamarin は .NET C# でのモバイル開発に使用されるフレームワークです。Xamarin には .NET プラットフォームの機能を拡張するツールとライブラリがあります。開発者は **Android** オペレーティングシステム向けのアプリケーションを構築できます。
+Xamarin は .NET C# でのモバイル開発に使用されるフレームワークです。Xamarin には .NET プラットフォームの機能を拡張するツールとライブラリが用意されています。開発者は **Android** OS 用のアプリケーションを構築できます。 
 
-{{% alert color="primary" %}} 
-Xamarin の開発では、プログラマーは通常の開発環境（C#、Visual Studio、サードパーティ ライブラリ）を使用できます。
+{{% alert color="info" %}} 
+
+Xamarin での開発では、プログラマーは通常の開発環境（C#、Visual Studio、サードパーティ ライブラリ）を使用できます。
+
 {{% /alert %}}
 
-Aspose.Slides API は Xamarin プラットフォーム上で動作します。これを実現するために、Aspose.Slides .NET パッケージは Xamarin 用の別個の DLL を追加します。Aspose.Slides for Xamarin は .NET バージョンで利用可能な機能のほとんどをサポートします。
+Aspose.Slides API は Xamarin プラットフォーム上で動作します。これを実現するために、Aspose.Slides .NET パッケージは Xamarin 用の別個の DLL を追加します。Aspose.Slides for Xamarin は .NET バージョンで利用できる機能の大部分をサポートしています。
 
 - プレゼンテーションの変換と表示。
-- プレゼンテーション内のコンテンツ編集：テキスト、図形、チャート、SmartArt、音声/ビデオ、フォントなど。
+- プレゼンテーション内のコンテンツの編集：テキスト、図形、チャート、SmartArt、音声/動画、フォントなど。
 - アニメーション、2D エフェクト、WordArt などの処理。
-- メタデータおよびドキュメント プロパティの処理。
+- メタデータとドキュメントプロパティの処理。
 - 印刷、クローン作成、マージ、比較、分割など。
 
-ページ下部にある別セクションで、すべての機能の比較を提供しています。
+ページ下部付近の別セクションで、全機能の比較を提供しています。
 
-Aspose.Slides for Xamarin API では、クラス、名前空間、ロジック、動作は .NET バージョンとできるだけ同様になるように設計されています。最小限のコストで Aspose.Slides .NET アプリケーションを Xamarin に移行できます。
+Aspose.Slides for Xamarin API では、クラス、名前空間、ロジック、動作は .NET バージョンとできるだけ同様になるように設計されています。Aspose.Slides .NET アプリケーションを最小限のコストで Xamarin に移行できます。
+
 
 ## **クイック例**
-Aspose.Slides for Xamarin を使用して、Slides for Android 経由で C# アプリケーションを構築および活用できます。
 
-Xamarin アプリケーションで Android を使用し、Aspose.Slides を利用してプレゼンテーション スライドを表示し、タッチ時にスライドに新しい図形を追加する例を提供しています。サンプルの完全なソースは [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) で確認できます。
+Aspose.Slides for Xamarin を使用して、Slides for Android を介した C# アプリケーションを構築・利用できます。
 
-Xamarin Android アプリの作成から始めましょう。
+Aspose.Slides を使用してプレゼンテーションスライドを表示し、タッチ時にスライドに新しい図形を追加する Android 用 Xamarin アプリケーションの例を提供しています。サンプルの完全なソースは [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin) で確認できます。
+
+まず、Xamarin Android アプリを作成しましょう：
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-まず、画像ビュー、Prev、Next ボタンを含むコンテンツ レイアウトを作成します。
+最初に、画像ビュー、Prev、Next ボタンを含むコンテンツレイアウトを作成します：
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
@@ -92,11 +96,13 @@ Xamarin Android アプリの作成から始めましょう。
 </LinearLayout>
 ```
 
-
-ここでは、サンプル プレゼンテーション（"HelloWorld.pptx"）を含む "Aspose.Slides.Droid.dll" ライブラリを Xamarin アプリケーションの Assets に参照し、MainActivity に初期化コードを追加します。
+ここでは、サンプルプレゼンテーション ("HelloWorld.pptx") を含む "Aspose.Slides.Droid.dll" ライブラリを Xamarin アプリケーションの Assets に参照し、MainActivity に初期化コードを追加します：
 
 **C# - MainActivity.cs - 初期化**
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -130,11 +136,13 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+ボタンをタップしたときに Prev と Next スライドを表示する関数を追加しましょう：
 
-Prev と Next ボタンのクリックでスライドを表示する関数を追加しましょう。
-
-**C# - MainActivity.cs - Prev と Next ボタンのクリックでスライドを表示**
+**C# - MainActivity.cs - Prev と Next ボタンのクリックでスライド表示**
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -264,10 +272,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+最後に、スライドをタッチしたときに楕円形の図形を追加する関数を実装しましょう：
 
-最後に、スライドをタップしたときに楕円形を追加する関数を実装します。
-
-**C# - MainActivity.cs - スライドクリックで楕円形を追加**
+**C# - MainActivity.cs - スライドクリックで楕円を追加**
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -297,44 +304,44 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-
-プレゼンテーション スライドをクリックするたびに、ランダムな色の楕円形が追加されます。
+プレゼンテーションスライドをクリックするたびに、ランダムな色の楕円が追加されます：
 
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
-## **サポートされている機能**
+
+## **サポート機能**
 
 |**機能**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**プレゼンテーション機能:**| | |
-|新しいプレゼンテーションの作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**プレゼンテーション機能**:| | |
+|新規プレゼンテーションの作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 97‑2003 形式の開閉|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2007 形式の開閉|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2010 拡張機能のサポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PowerPoint 2013 拡張機能のサポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2016 機能のサポート|restricted|restricted|
-|PowerPoint 2019 機能のサポート|restricted |restricted|
+|PowerPoint 2016 機能のサポート|制限あり|制限あり|
+|PowerPoint 2019 機能のサポート|制限あり|制限あり|
 |PPT から PPTX への変換|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |PPTX から PPT への変換|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPT 内の PPTX|restricted|restricted|
+|PPT 内の PPTX|制限あり|制限あり|
 |テーマの処理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |マクロの処理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|ドキュメント プロパティの処理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|ドキュメントプロパティの処理|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |パスワード保護|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |高速テキスト抽出|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |フォントの埋め込み|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|コメントのレンダリング|{{< emoticons/tick >}} |{{< emoticons/tick >}}|
-|長時間タスクの中断|{{< emoticons/tick >}}|{{< emoticons/tick >}} |
+|コメントのレンダリング|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|長時間タスクの中断|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**エクスポート形式:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restricted |restricted|
-|SWF|restricted|restricted|
+|ODP|制限あり|制限あり|
+|SWF|制限あり|制限あり|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**インポート形式:**| | |
-|HTML|restricted|restricted|
+|HTML|制限あり|制限あり|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**マスタースライド機能:**| | |
@@ -349,24 +356,24 @@ public class MainActivity : AppCompatActivity
 |既存のすべてのスライドへのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |スライドの作成/削除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |スライドのクローン作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|スライドを画像へエクスポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|スライド セクションの作成/編集/削除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**ノートスライド機能**| | |
+|スライドを画像にエクスポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|スライドセクションの作成/編集/削除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**ノートスライド機能:**| | |
 |既存のすべてのノートスライドへのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**図形機能:**| | |
 |スライド上のすべての図形へのアクセス|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|新しい図形の追加|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|新規図形の追加|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |図形のクローン作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|個別の図形を画像へエクスポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**サポートされている図形タイプ:**| | |
-|すべての事前定義された図形タイプ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|個別図形を画像にエクスポート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**サポートされる図形タイプ:**| | |
+|すべての事前定義図形タイプ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |画像フレーム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |テーブル|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |チャート|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |レガシーダイアグラム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE、ActiveX オブジェクト|restricted|restricted|
+|OLE、ActiveX オブジェクト|制限あり|制限あり|
 |ビデオフレーム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |オーディオフレーム|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |コネクタ|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -375,11 +382,11 @@ public class MainActivity : AppCompatActivity
 |グループ図形の作成|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |既存のグループ図形の解除|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**図形エフェクト機能:**| | |
-|2D エフェクト|restricted|restricted|
+|2D エフェクト|制限あり|制限あり|
 |3D エフェクト|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**テキスト機能:**| | |
-|段落書式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|文字列書式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|段落の書式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|テキスト部分の書式設定|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**アニメーション機能:**| | |
-|アニメーションを SWF にエクスポート|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
-|アニメーションを HTML にエクスポート|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|アニメーションの SWF へのエクスポート|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
+|アニメーションの HTML へのエクスポート|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

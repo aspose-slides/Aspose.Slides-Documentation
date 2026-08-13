@@ -1,6 +1,6 @@
 ---
-title: Fusionar presentaciones de forma eficiente en C++
-linktitle: Fusionar presentaciones
+title: "Combinar presentaciones de forma eficiente en C++"
+linktitle: "Combinar presentaciones"
 type: docs
 weight: 40
 url: /es/cpp/merge-presentation/
@@ -19,69 +19,70 @@ keywords:
 - combinar ODP
 - C++
 - Aspose.Slides
-description: "Fusión sin esfuerzo de presentaciones PowerPoint (PPT, PPTX) y OpenDocument (ODP) con Aspose.Slides para C++, optimizando su flujo de trabajo."
+description: "Fusiona sin esfuerzo presentaciones PowerPoint (PPT, PPTX) y OpenDocument (ODP) con Aspose.Slides para C++, optimizando su flujo de trabajo."
 ---
+## **Visión general**
 
-{{% alert  title="Tip" color="primary" %}} 
+Aspose.Slides le permite combinar presentaciones clonando diapositivas de una presentación a otra. Este artículo explica cómo combinar presentaciones completas o diapositivas seleccionadas, usar un patrón de diapositivas o un diseño específico durante la combinación, manejar presentaciones con diferentes tamaños de diapositiva y añadir diapositivas combinadas a una sección de presentación. También cubre notas prácticas relacionadas con el contenido combinado, incluidas notas del presentador, comentarios, archivos de origen protegidos con contraseña y uso de subprocesos.
 
-Tal vez quiera probar **Aspose free online** [Merger app](https://products.aspose.app/slides/merger). Permite a los usuarios combinar presentaciones de PowerPoint en el mismo formato (PPT a PPT, PPTX a PPTX, etc.) y combinar presentaciones en diferentes formatos (PPT a PPTX, PPTX a ODP, etc.).
+## **Combinar presentaciones**
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+Al combinar una presentación con otra, está combinando efectivamente sus diapositivas en una sola presentación para obtener un archivo.
 
-{{% /alert %}} 
+{{% alert title="Información" color="info" %}}
 
+La mayoría de los programas de presentación (PowerPoint u OpenOffice) carecen de funciones que permitan a los usuarios combinar presentaciones de esta manera.
 
-## **Fusión de presentaciones**
-
-Al fusionar una presentación con otra, está combinando efectivamente sus diapositivas en una sola presentación para obtener un archivo. 
-
-{{% alert title="Info" color="info" %}}
-
-La mayoría de los programas de presentación (PowerPoint u OpenOffice) carecen de funciones que permitan a los usuarios combinar presentaciones de esta manera. 
-
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) , sin embargo, le permite combinar presentaciones de diferentes formas. Puede combinar presentaciones con todas sus formas, estilos, textos, formato, comentarios, animaciones, etc., sin preocuparse por la pérdida de calidad o datos. 
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/es/cpp/), sin embargo, permite combinar presentaciones de diferentes formas. Puede combinar presentaciones con todas sus formas, estilos, textos, formatos, comentarios, animaciones, etc., sin preocuparse por la pérdida de calidad o datos.
 
 **Ver también**
 
-[Clone Slides](https://docs.aspose.com/slides/cpp/clone-slides/)*.* 
+[Clonar diapositivas](https://docs.aspose.com/slides/es/cpp/clone-slides/)*.*
 
 {{% /alert %}}
 
-### **Qué se puede fusionar**
+### **Qué se puede combinar**
 
-Con Aspose.Slides, puede fusionar 
+Con Aspose.Slides, puede combinar
 
 * presentaciones completas. Todas las diapositivas de las presentaciones terminan en una sola presentación
 * diapositivas específicas. Las diapositivas seleccionadas terminan en una sola presentación
-* presentaciones en un mismo formato (PPT a PPT, PPTX a PPTX, etc.) y en diferentes formatos (PPT a PPTX, PPTX a ODP, etc.) entre sí. 
+* presentaciones en un formato (PPT a PPT, PPTX a PPTX, etc.) y en formatos diferentes (PPT a PPTX, PPTX a ODP, etc.) entre sí.
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Nota" color="warning" %}}
 
-Además de las presentaciones, Aspose.Slides permite combinar otros archivos:
+Además de presentaciones, Aspose.Slides le permite combinar otros archivos:
 
-* [Imágenes](https://products.aspose.com/slides/cpp/merger/image-to-image/), como [JPG to JPG](https://products.aspose.com/slides/cpp/merger/jpg-to-jpg/) o [PNG to PNG](https://products.aspose.com/slides/cpp/merger/png-to-png/)
-* Documentos, como [PDF to PDF](https://products.aspose.com/slides/cpp/merger/pdf-to-pdf/) o [HTML to HTML](https://products.aspose.com/slides/cpp/merger/html-to-html/)
-* Y dos archivos diferentes, como [image to PDF](https://products.aspose.com/slides/cpp/merger/image-to-pdf/) o [JPG to PDF](https://products.aspose.com/slides/cpp/merger/jpg-to-pdf/) o [TIFF to PDF](https://products.aspose.com/slides/cpp/merger/tiff-to-pdf/).
+* [Imágenes](https://products.aspose.com/slides/es/cpp/merger/image-to-image/), como [JPG a JPG](https://products.aspose.com/slides/es/cpp/merger/jpg-to-jpg/) o [PNG a PNG](https://products.aspose.com/slides/es/cpp/merger/png-to-png/)
+* Documentos, como [PDF a PDF](https://products.aspose.com/slides/es/cpp/merger/pdf-to-pdf/) o [HTML a HTML](https://products.aspose.com/slides/es/cpp/merger/html-to-html/)
+* Y dos archivos diferentes, como [imagen a PDF](https://products.aspose.com/slides/es/cpp/merger/image-to-pdf/), [JPG a PDF](https://products.aspose.com/slides/es/cpp/merger/jpg-to-pdf/) o [TIFF a PDF](https://products.aspose.com/slides/es/cpp/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 
-### **Opciones de fusión**
+### **Opciones de combinación**
 
-Puede aplicar opciones que determinan si
+Puede aplicar opciones que determinen si
 
 * cada diapositiva en la presentación de salida conserva un estilo único
-* se utiliza un estilo específico para todas las diapositivas en la presentación de salida. 
+* se utiliza un estilo específico para todas las diapositivas en la presentación de salida.
 
-Para combinar presentaciones, Aspose.Slides proporciona métodos [AddClone](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (de la interfaz [ISlideCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection)). Hay varias implementaciones de los métodos `AddClone` que definen los parámetros del proceso de fusión de presentaciones. Cada objeto Presentation tiene una colección [Slides](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), por lo que puede llamar a un método `AddClone` desde la presentación a la que desea combinar diapositivas. 
+Para combinar presentaciones, Aspose.Slides proporciona los métodos [AddClone](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (de la interfaz [ISlideCollection](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.i_slide_collection)). Existen varias implementaciones del método `AddClone` que definen los parámetros del proceso de combinación. Cada objeto Presentation tiene una colección [Slides](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), por lo que puede llamar a un método `AddClone` desde la presentación a la que desea combinar diapositivas.
 
-El método `AddClone` devuelve un objeto `ISlide`, que es una réplica de la diapositiva origen. Las diapositivas en una presentación de salida son simplemente una copia de las diapositivas de la fuente. Por lo tanto, puede modificar las diapositivas resultantes (por ejemplo, aplicar estilos, opciones de formato o diseños) sin preocuparse de que las presentaciones de origen se vean afectadas. 
+El método `AddClone` devuelve un objeto `ISlide`, que es una copia de la diapositiva de origen. Las diapositivas en una presentación de salida son simplemente una copia de las diapositivas del origen. Por lo tanto, puede modificar las diapositivas resultantes (por ejemplo, aplicar estilos, opciones de formato o diseños) sin preocuparse de que las presentaciones de origen se vean afectadas.
 
-## **Fusionar presentaciones** 
+## **Combinar presentaciones**
 
-Aspose.Slides proporciona el método [**AddClone (ISlide)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) que permite combinar diapositivas mientras las diapositivas conservan sus diseños y estilos (parámetros predeterminados). 
+Aspose.Slides proporciona el método [**AddClone (ISlide)**](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) que le permite combinar diapositivas mientras las diapositivas conservan sus diseños y estilos (parámetros predeterminados).
 
-Este código C++ le muestra cómo fusionar presentaciones:
+Este código C++ le muestra cómo combinar presentaciones:
+
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -92,13 +93,20 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
+## **Combinar presentaciones con un patrón de diapositivas**
 
-## **Fusionar presentaciones con un maestro de diapositivas**
+Aspose.Slides proporciona el método [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) que le permite combinar diapositivas aplicando una plantilla de patrón de diapositivas. De este modo, si es necesario, puede cambiar el estilo de las diapositivas en la presentación de salida.
 
-Aspose.Slides proporciona el método [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640) que permite combinar diapositivas aplicando una plantilla de maestro de diapositivas. De este modo, si es necesario, puede cambiar el estilo de las diapositivas en la presentación de salida. 
+Este código en C++ demuestra la operación descrita:
 
-Este código C++ demuestra la operación descrita:
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -109,21 +117,30 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
+{{% alert title="Nota" color="warning" %}}
 
-{{% alert title="Note" color="warning" %}} 
-
-El diseño de diapositiva para el maestro se determina automáticamente. Cuando no se puede determinar un diseño adecuado, si el parámetro booleano `allowCloneMissingLayout` del método `AddClone` está establecido en true, se utiliza el diseño de la diapositiva origen. De lo contrario, se lanzará una [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
+El diseño de diapositiva para el patrón se determina automáticamente. Cuando no se puede determinar un diseño adecuado, si el parámetro booleano `allowCloneMissingLayout` del método `AddClone` se establece en true, se utiliza el diseño de la diapositiva de origen. De lo contrario, se lanzará una [PptxEditException](https://reference.aspose.com/slides/es/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d).
 
 {{% /alert %}}
 
-Si desea que las diapositivas en la presentación de salida tengan un diseño de diapositiva diferente, utilice el método [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) en su lugar al combinar. 
+Si desea que las diapositivas en la presentación de salida tengan un diseño de diapositiva diferente, utilice el método [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/es/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) en su lugar al combinar.
 
-## **Fusionar diapositivas específicas de presentaciones**
+## **Combinar diapositivas específicas de presentaciones**
 
-Combinar diapositivas específicas de varias presentaciones es útil para crear paquetes de diapositivas personalizados. Aspose.Slides C++ permite seleccionar e importar solo las diapositivas que necesita. La API preserva el formato, el diseño y la apariencia de las diapositivas originales.
+Combinar diapositivas específicas de varias presentaciones es útil para crear juegos de diapositivas personalizados. Aspose.Slides C++ le permite seleccionar e importar sólo las diapositivas que necesita. La API conserva el formato, el diseño y el estilo de las diapositivas originales.
 
-El siguiente código C++ crea una nueva presentación, agrega diapositivas de título de dos presentaciones distintas y guarda el resultado en un archivo:
+El siguiente código C++ crea una nueva presentación, añade diapositivas de título de dos presentaciones distintas y guarda el resultado en un archivo:
+
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
     for (auto&& slide : presentation->get_Slides())
@@ -136,8 +153,20 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
     return nullptr;
 }
 ```
-
 ```cpp
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Declarado en el código anterior.
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
+
 auto presentation = MakeObject<Presentation>();
 auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
 auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
@@ -161,11 +190,18 @@ presentation1->Dispose();
 presentation->Dispose();
 ```
 
+## **Combinar presentaciones con un diseño de diapositiva**
 
-## **Fusionar presentaciones con un diseño de diapositiva**
+Este código C++ le muestra cómo combinar diapositivas de presentaciones aplicando su diseño de diapositiva preferido para obtener una sola presentación de salida:
 
-Este código C++ le muestra cómo combinar diapositivas de presentaciones aplicando su diseño de diapositiva preferido para obtener una única presentación de salida:
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -176,19 +212,28 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
+## **Combinar presentaciones con diferentes tamaños de diapositiva**
 
-## **Fusionar presentaciones con diferentes tamaños de diapositiva**
+{{% alert title="Nota" color="warning" %}}
 
-{{% alert title="Note" color="warning" %}} 
-
-No se pueden fusionar presentaciones con diferentes tamaños de diapositiva. 
+No se pueden combinar presentaciones con diferentes tamaños de diapositiva.
 
 {{% /alert %}}
 
-Para fusionar 2 presentaciones con diferentes tamaños de diapositiva, debe cambiar el tamaño de una de las presentaciones para que coincida con el de la otra. 
+Para combinar 2 presentaciones con tamaños de diapositiva diferentes, debe redimensionar una de las presentaciones para que su tamaño coincida con el de la otra presentación.
 
 Este código de ejemplo demuestra la operación descrita:
+
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
 
@@ -203,11 +248,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
+## **Combinar diapositivas en una sección de presentación**
 
-## **Fusionar diapositivas a una sección de presentación**
+Este código C++ le muestra cómo combinar una diapositiva específica en una sección de una presentación:
 
-Este código C++ le muestra cómo fusionar una diapositiva específica a una sección en una presentación:
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
@@ -219,29 +271,28 @@ for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
+La diapositiva se añade al final de la sección.
 
-La diapositiva se agrega al final de la sección. 
+{{% alert title="Consejo" color="info" %}}
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose ofrece una [FREE Collage web app](https://products.aspose.app/slides/collage). Con este servicio en línea, puede combinar [JPG to JPG](https://products.aspose.app/slides/collage/jpg) o PNG to PNG imágenes, crear [photo grids](https://products.aspose.app/slides/collage/photo-grid), y más. 
+Aspose ofrece una aplicación web GRATUITA de Collage ([https://products.aspose.app/slides/es/collage](https://products.aspose.app/slides/es/collage)). Con este servicio en línea, puede combinar [JPG a JPG](https://products.aspose.app/slides/es/collage/jpg) o PNG a PNG, crear [cuadrículas de fotos](https://products.aspose.app/slides/es/collage/photo-grid) y mucho más.
 
 {{% /alert %}}
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Se conservan las notas del orador al fusionar?**
+### ¿Se conservan las notas del presentador durante la combinación?
 
-Sí. Al clonar diapositivas, Aspose.Slides traslada todos los elementos de la diapositiva, incluidas notas, formato y animaciones.
+Sí. Al clonar diapositivas, Aspose.Slides traslada todos los elementos de la diapositiva, incluidas las notas, el formato y las animaciones.
 
-**¿Se transfieren los comentarios y sus autores?**
+### ¿Se transfieren los comentarios y sus autores?
 
 Los comentarios, como parte del contenido de la diapositiva, se copian con la diapositiva. Las etiquetas de autor de los comentarios se conservan como objetos de comentario en la presentación resultante.
 
-**¿Qué ocurre si la presentación origen está protegida con contraseña?**
+### ¿Qué ocurre si la presentación de origen está protegida con contraseña?
 
-Debe [abrirse con la contraseña](/slides/es/cpp/password-protected-presentation/) mediante [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/); tras cargarla, esas diapositivas pueden clonarse de forma segura en un archivo de destino sin protección (o también protegido).
+Debe [abrirse con la contraseña](/slides/es/cpp/password-protected-presentation/) mediante [LoadOptions::set_Password](https://reference.aspose.com/slides/es/cpp/aspose.slides/loadoptions/set_password/); después de cargarla, esas diapositivas pueden clonarse de forma segura en un archivo de destino no protegido (o también protegido).
 
-**¿Qué tan seguro es el proceso de fusión en entornos multihilo?**
+### ¿Qué tan seguro para subprocesos es el proceso de combinación?
 
-No utilice la misma instancia de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) desde [múltiples hilos](/slides/es/cpp/multithreading/). La regla recomendada es "un documento — un hilo"; diferentes archivos pueden procesarse en paralelo en hilos independientes.
+No utilice la misma instancia de [Presentation](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/) desde [varios subprocesos](/slides/es/cpp/multithreading/). La regla recomendada es “un documento — un subproceso”; diferentes archivos pueden procesarse en paralelo en subprocesos independientes.

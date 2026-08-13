@@ -1,6 +1,6 @@
 ---
 title: Afbeeldingen extraheren uit presentatievormen in Java
-linktitle: Afbeelding van vorm
+linktitle: Afbeelding uit Vorm
 type: docs
 weight: 100
 url: /nl/java/extracting-images-from-presentation-shapes/
@@ -12,23 +12,21 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Afbeeldingen extraheren uit vormen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Java - snelle, code-vriendelijke oplossing."
+description: "Afbeeldingen extraheren uit vormen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Java – snelle, codevriendelijke oplossing."
 ---
 ## **Overzicht**
 
-Afbeeldingen in een presentatie kunnen in verschillende vormtypen verschijnen: als gewone afbeeldingskaders, als afbeeldingsvullingen die op vormen worden toegepast, als OLE‑objectvoorvertoningsafbeeldingen, als miniaturen van video‑ of audiokaders, als zoom‑afbeeldingen, of als afbeeldingen die genest zijn in tabel-, grafiek‑ en SmartArt‑vormen. Aspose.Slides slaat die afbeeldingen op in de presentatie‑afbeeldingenverzameling, toegankelijk via [IImageCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimagecollection/) en [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) objecten.
+Afbeeldingen in een presentatie kunnen verschijnen in verschillende vormtypen: als gewone afbeeldingskaders, als afbeeldingsvullingen die op vormen worden toegepast, als voorbeeldafbeeldingen van OLE‑objecten, als miniaturen van video‑ of audio‑frames, als zoom‑afbeeldingen, of als afbeeldingen die genest zijn in tabel‑, grafiek‑ en SmartArt‑vormen. Aspose.Slides slaat die afbeeldingen op in de afbeeldingscollectie van de presentatie, toegankelijk via de objecten [IImageCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimagecollection/) en [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) .
 
-Als je alleen alle afbeelding resources die in een presentatie zijn ingebed wilt exporteren, iterate dan door `presentation.getImages()`. Dit artikel richt zich op een andere taak: vormen doorlopen om te achterhalen waar afbeeldingen op dia's worden gebruikt, zodat de opgeslagen bestanden nuttige context kunnen behouden zoals het dia‑nummer, de vormpositie en het brontype (afbeeldingskader, vul­afbeelding, media‑voorvertoning, OLE‑voorvertoning of zoom‑afbeelding).
+Als je alleen elke in de presentatie ingebedde afbeeldingsresource wilt exporteren, itereren dan over `presentation.getImages()`. Dit artikel richt zich op een andere taak: vormen doorlopen om te vinden waar afbeeldingen worden gebruikt op dia's, zodat de opgeslagen bestanden bruikbare context behouden, zoals dia‑nummer, vormpositie en bron‑type (afbeeldingskader, vulling, mediavoorbeeld, OLE‑voorbeeld of zoom‑afbeelding).
 
-{{% alert title="Tip" color="primary" %}}
-
-Gebruik [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) om de originele gecodeerde afbeeldingsdata en het bestandstype te behouden. Gebruik [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--) met [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/#save-java.lang.String-int-) wanneer je de uitvoer wilt normaliseren naar een specifiek formaat zoals PNG.
-
+{{% alert title="Tip" color="info" %}}
+Gebruik [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) om de originele gecodeerde afbeeldingsdata en bestandstype te behouden. Gebruik [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--) met [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/#save-java.lang.String-int-) wanneer je de output wilt normaliseren naar een specifiek formaat zoals PNG.
 {{% /alert %}}
 
 ## **Gedeelde hulpmethoden**
 
-De onderstaande hulpmethoden houden de voorbeelden kort. `saveOriginalImage` schrijft de originele ingebedde bytes, kiest een veilige extensie op basis van het MIME‑type, en slaat dubbele afbeeldings‑binaries over met een SHA‑256 hash.
+De hulpmethoden hieronder houden de voorbeelden kort. `saveOriginalImage` schrijft de originele ingebedde bytes, kiest een veilige extensie op basis van het MIME‑type, en slaat dubbele afbeeldingsbinaire bestanden over met een SHA‑256‑hash.
 
 ```java
 import com.aspose.slides.*;
@@ -184,7 +182,7 @@ private static String getExtensionFromContentType(String contentType)
         return "gif";
     }
 
-    if ("image/bbmp".equals(mediaType))
+    if ("image/bmp".equals(mediaType))
     {
         return "bmp";
     }
@@ -226,9 +224,14 @@ private static String makeSafeFileNamePart(String value)
 
 ## **Afbeeldingen extraheren uit afbeeldingskaders**
 
-Gebruik deze aanpak voor afbeeldingen die als zelfstandige objecten zijn ingevoegd. Een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ipictureframe/) slaat zijn afbeelding op in `getPictureFormat().getPicture().getImage()`, wat een [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) object retourneert.
+Gebruik deze aanpak voor afbeeldingen die als zelfstandige objecten zijn ingevoegd. Een [IPictureFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ipictureframe/) slaat zijn afbeelding op in `getPictureFormat().getPicture().getImage()`, wat een [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) object teruggeeft.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -268,11 +271,15 @@ finally
 }
 ```
 
-## **Afbeeldingen extraheren uit met een afbeelding gevulde vormen**
+## **Afbeeldingen extraheren uit vormen met afbeeldingvulling**
 
-Vormen kunnen een afbeelding als vulling gebruiken. Controleer eerst het vultype van de vorm: als het niet [FillType.Picture](https://reference.aspose.com/slides/nl/java/com.aspose.slides.filltype/) is, is er geen afbeelding om uit die vulling te extraheren. Het voorbeeld hieronder behandelt [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iautoshape/) objecten en slaat elke afbeelding op als PNG via [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--).
+Vormen kunnen een afbeelding gebruiken als hun vulling. Controleer eerst het vullingstype van de vorm: als het niet [FillType.Picture](https://reference.aspose.com/slides/nl/java/com.aspose.slides.filltype/) is, is er geen afbeelding om uit die vulling te extraheren. Het voorbeeld hieronder behandelt [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iautoshape/) objecten en slaat elke afbeelding op als PNG via [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -314,11 +321,16 @@ finally
 }
 ```
 
-## **Voorvertoningsafbeeldingen extraheren uit OLE‑objectkaders**
+## **Voorbeeldafbeeldingen extraheren uit OLE‑objectkaders**
 
-Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ioleobjectframe/) kan een vervangende afbeelding hebben die PowerPoint gebruikt als de voorvertoning van het object op een dia. Deze afbeelding is beschikbaar via `getSubstitutePictureFormat().getPicture().getImage()`. Het extraheren van deze afbeelding geeft je de voorvertoningsafbeelding, niet de ingebedde OLE‑pakketinhoud.
+Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ioleobjectframe/) kan een vervangende afbeelding hebben die PowerPoint gebruikt als voorbeeld van het object op een dia. Deze afbeelding is beschikbaar via `getSubstitutePictureFormat().getPicture().getImage()`. Het extraheren van deze afbeelding levert je de voorbeeldafbeelding op, niet de inhoud van het ingebedde OLE‑pakket.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -362,11 +374,16 @@ finally
 }
 ```
 
-## **Voorvertoningsafbeeldingen extraheren uit videokaders**
+## **Voorbeeldafbeeldingen extraheren uit videokaders**
 
-Een [IVideoFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ivideoframe/) kan ook een voorvertoningsafbeelding opslaan in `getPictureFormat().getPicture().getImage()`. Dit is de poster of miniatuur die op de dia wordt getoond, niet een frame dat uit de videostroom is gedecodeerd.
+Een [IVideoFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ivideoframe/) kan ook een voorbeeldafbeelding opslaan in `getPictureFormat().getPicture().getImage()`. Dit is de poster of miniatuur die op de dia wordt getoond, niet een frame dat uit de videostroom is gedecodeerd.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -410,11 +427,16 @@ finally
 }
 ```
 
-## **Voorvertoningsafbeeldingen extraheren uit audiokaders**
+## **Voorbeeldafbeeldingen extraheren uit audiokaders**
 
-Een [IAudioFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iaudioframe/) kan een miniatuur opslaan in `getPictureFormat().getPicture().getImage()`. Dit is de afbeelding die voor het audio‑object op de dia wordt weergegeven.
+Een [IAudioFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iaudioframe/) kan een miniatuur opslaan in `getPictureFormat().getPicture().getImage()`. Dit is de afbeelding die wordt getoond voor het audio‑object op de dia.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -458,11 +480,16 @@ finally
 }
 ```
 
-## **Afbeeldingen extraheren uit zoom‑objecten**
+## **Afbeeldingen extraheren uit Zoom‑objecten**
 
 [IZoomFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.izoomframe/) en [ISectionZoomFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.isectionzoomframe/) vormen kunnen aangepaste afbeeldingen gebruiken. Lees `getZoomImage()` van het zoom‑frame.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -519,11 +546,16 @@ finally
 }
 ```
 
-## **Afbeeldingen extraheren uit samenvattende zoom‑kaders**
+## **Afbeeldingen extraheren uit samenvattings‑Zoom‑kaders**
 
-Een [ISummaryZoomFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.isummaryzoomframe/) is ook een vorm. De sectie‑items kunnen aangepaste afbeeldingen gebruiken, toegankelijk via de `getZoomImage()` methode van elk samenvattend zoom‑sectie‑object.
+Een [ISummaryZoomFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.isummaryzoomframe/) is ook een vorm. Zijn sectie‑items kunnen aangepaste afbeeldingen gebruiken, toegankelijk via de `getZoomImage()`‑methode van elke samenvattings‑Zoom‑sectie.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -573,11 +605,16 @@ finally
 }
 ```
 
-## **Afbeeldingen extraheren uit tafel‑vormen**
+## **Afbeeldingen extraheren uit tabelvormen**
 
 Een [ITable](https://reference.aspose.com/slides/nl/java/com.aspose.slides.itable/) is een vorm. Afbeeldingen in een tabel worden meestal opgeslagen als afbeeldingsvullingen in tabelcellen.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -633,11 +670,16 @@ finally
 }
 ```
 
-## **Afbeeldingen extraheren uit grafiek‑vormen**
+## **Afbeeldingen extraheren uit grafiekvormen**
 
-Een [IChart](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ichart/) is een vorm. Het voorbeeld hieronder haalt een afbeelding uit de pictogramvulling van het grafiekgebied.
+Een [IChart](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ichart/) is een vorm. Het voorbeeld hieronder haalt een afbeelding uit de afbeeldingsvulling van het grafiekgebied.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -684,9 +726,14 @@ finally
 
 ## **Afbeeldingen extraheren uit SmartArt‑vormen**
 
-Een [ISmartArt](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ismartart/) object is een vorm. Afhankelijk van de SmartArt‑lay‑out kunnen afbeeldingen worden opgeslagen in bullet‑vullingen van knooppunten of in de vul­formaten van knooppunt‑vormen.
+Een [ISmartArt](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ismartart/) object is een vorm. Afhankelijk van de SmartArt‑lay-out kunnen afbeeldingen worden opgeslagen in node‑bullet‑vullingen of in de vullingsformaten van node‑vormen.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -752,11 +799,16 @@ finally
 }
 ```
 
-## **Afbeeldingen opnemen binnen gegroepeerde vormen**
+## **Afbeeldingen opnemen in gegroepeerde vormen**
 
-Gegroepeerde vormen bevatten hun eigen vorm‑verzamelingen. De gedeelde `enumerateShapes`‑helper heeft een `includeGroupedShapes`‑optie. Zet deze op `true` wanneer je vormen binnen [IGroupShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides.igroupshape/) objecten wilt inspecteren. Het voorbeeld hieronder extrahiert afbeeldingen uit afbeeldingskaders, met afbeelding gevulde vormen, OLE‑objectvoorvertoningen, videokader‑miniaturen en audio‑kader‑miniaturen. Om tabel‑, grafiek‑, SmartArt‑ en samenvattende zoom‑afbeeldingen ook op te nemen, hergebruik de gespecialiseerde extractielogica uit de vorige secties terwijl je dezelfde recursieve vorm‑doorloop behoudt.
+Gegroepeerde vormen bevatten hun eigen vormcollecties. De gedeelde `enumerateShapes`‑helper heeft een `includeGroupedShapes`‑optie. Zet deze op `true` wanneer je vormen binnen [IGroupShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides.igroupshape/) objecten wilt inspecteren. Het voorbeeld hieronder haalt afbeeldingen uit afbeeldingskaders, met afbeelding gevulde vormen, OLE‑objectvoorbeelden, videokader‑miniaturen en audio‑kader‑miniaturen. Om ook tabel‑, grafiek‑, SmartArt‑ en samenvattings‑Zoom‑afbeeldingen op te nemen, hergebruik de gespecialiseerde extractielogica uit de vorige secties terwijl je dezelfde recursieve vormdoorloop behoudt.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -849,43 +901,43 @@ finally
 
 ## **Randgevallen en praktische opmerkingen**
 
-- **Dubbele afbeeldingen:** Meerdere vormen kunnen naar dezelfde afbeelding verwijzen of naar afzonderlijke afbeeldingen met identieke bytes. Hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) voordat je bestanden schrijft als je één uitvoerbestand per unieke afbeelding wilt.
-- **Originele data vs. geconverteerde uitvoer:** Het opslaan van [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) behoudt de ingebedde JPEG, PNG, GIF, SVG, EMF of WMF data. Het opslaan van [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--) via [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/#save-java.lang.String-int-) is handig wanneer je een consistent uitvoerformaat wilt.
-- **Niet‑ondersteunde vullingstypen:** Vullingen van type solide, gradient, patroon en geen vulling bevatten geen afbeelding. Controleer [FillType](https://reference.aspose.com/slides/nl/java/com.aspose.slides.filltype/) voordat je `getPictureFillFormat()` leest.
-- **Gegroepeerde vormen:** De boven‑niveau dia‑vormverzameling vlakt groepen niet af. Inspecteer recursief [IGroupShape.getShapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides.igroupshape/#getShapes--) wanneer gegroepeerde inhoud van belang is.
-- **OLE‑objectvoorvertoningen:** Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ioleobjectframe/) kan een voorvertoningsafbeelding blootleggen via `getSubstitutePictureFormat()`, maar die afbeelding is alleen de dia‑voorvertoning. Het is niet het ingebedde bestand binnen het OLE‑object.
-- **Video‑kader‑miniaturen:** Een [IVideoFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ivideoframe/) kan een voorvertoningsafbeelding blootleggen via `getPictureFormat()`, maar die afbeelding is alleen de poster die op de dia wordt getoond. Het wordt niet uit de videostroom geëxtraheerd.
-- **Audio‑kader‑miniaturen:** Een [IAudioFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iaudioframe/) kan een pictogram of miniatuur blootleggen via `getPictureFormat()`; het is niet de ingebedde audio‑data.
-- **Zoom‑afbeeldingen:** Slide‑zoom, sectie‑zoom en samenvattende zoom‑vormen kunnen aangepaste [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) objecten gebruiken via `getZoomImage()`.
-- **Geneste vormmodellen:** Tabel‑, grafiek‑ en SmartArt‑objecten implementeren [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ishape/), maar hun afbeeldingen worden vaak opgeslagen in geneste tabelcel‑, grafiekelement‑ of SmartArt‑knooppunt‑formatteringobjecten.
-- **Bijsneden of getransformeerde afbeeldingen:** Toegang tot [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) geeft je de opgeslagen afbeeldingresource. Het rendert geen bijsnijden, transparantie, herkleurings‑, rotatie‑ of andere visuele effecten die door de vorm zijn toegepast.
+- **Dupliceer‑afbeeldingen:** Meerdere vormen kunnen naar dezelfde afbeelding verwijzen of afzonderlijke afbeeldingen met identieke bytes hebben. Hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) vóór het schrijven van bestanden als je één uitvoerbestand per unieke afbeelding wilt.
+- **Originele data vs. geconverteerde output:** Het opslaan van [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) behoudt de ingebedde JPEG, PNG, GIF, SVG, EMF of WMF data. Het opslaan van [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--) via [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/#save-java.lang.String-int-) is handig wanneer je een consistent outputformaat wilt.
+- **Niet‑ondersteunde vullingstypen:** Solide, verloop, patroon‑ en geen‑vulling vormen bevatten geen afbeeldingsvulling. Controleer [FillType](https://reference.aspose.com/slides/nl/java/com.aspose.slides.filltype/) voordat je `getPictureFillFormat()` leest.
+- **Gegroepeerde vormen:** De bovenste vormenverzameling van een dia vlakt groepen niet af. Inspecteer recursief [IGroupShape.getShapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides.igroupshape/#getShapes--) wanneer gegroepeerde inhoud van belang is.
+- **OLE‑objectvoorbeelden:** Een [IOleObjectFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ioleobjectframe/) kan een voorbeeldafbeelding blootleggen via `getSubstitutePictureFormat()`, maar die afbeelding is alleen het dia‑voorbeeld. Het is niet het ingebedde bestand binnen het OLE‑object.
+- **Videokader‑miniaturen:** Een [IVideoFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ivideoframe/) kan een voorbeeldafbeelding blootleggen via `getPictureFormat()`, maar die afbeelding is alleen de poster die op de dia wordt getoond. Het wordt niet uit de videostroom gehaald.
+- **Audio‑kader‑miniaturen:** Een [IAudioFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iaudioframe/) kan een icoon of miniatuur blootleggen via `getPictureFormat()`; het is niet de ingebedde audiogegevens.
+- **Zoom‑afbeeldingen:** Slide‑zoom, sectie‑zoom en samenvattings‑zoom vormen kunnen aangepaste [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) objecten gebruiken via `getZoomImage()`.
+- **Geneste vormmodellen:** Tabel‑, grafiek‑ en SmartArt‑objecten implementeren [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ishape/), maar hun afbeeldingen worden vaak opgeslagen in geneste tabelcel‑, grafiekelement‑ of SmartArt‑node‑opmaakobjecten.
+- **Bijgesneden of getransformeerde afbeeldingen:** Toegang tot [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) geeft je de opgeslagen afbeeldingsresource. Het rendert geen bijsnijden, transparantie, herkleuring, rotatie of andere visuele effecten die op de vorm zijn toegepast.
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik de originele afbeelding extraheren zonder bijsnijden, effecten of vormtransformaties?**
+### Kan ik de originele afbeelding extraheren zonder bijsnijden, effecten of vormtransformaties?
 
-Ja. Benader het [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) object en schrijf [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) naar schijf. Dit behoudt de originele gecodeerde afbeelding die in de presentatie is opgeslagen, niet de manier waarop de afbeelding op de dia wordt gerenderd.
+Ja. Toegang tot het [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) object en schrijf [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) naar schijf. Hiermee behoud je de originele gecodeerde afbeelding die in de presentatie is opgeslagen, niet de manier waarop de afbeelding wordt gerenderd op de dia.
 
-**Kan ik elke geëxtraheerde afbeelding exporteren als PNG?**
+### Kan ik elke geëxtraheerde afbeelding exporteren als PNG?
 
-Ja. Gebruik [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--) om een [IImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/) object te krijgen, en roep vervolgens [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/#save-java.lang.String-int-) aan met [ImageFormat.Png](https://reference.aspose.com/slides/nl/java/com.aspose.slides.imageformat/). Dit converteert de uitvoer en behoudt mogelijk niet het oorspronkelijke bestandstype of de vector‑data.
+Ja. Gebruik [IPPImage.getImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getImage--) om een [IImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/) object te krijgen, en roep vervolgens [IImage.save](https://reference.aspose.com/slides/nl/java/com.aspose.slides.iimage/#save-java.lang.String-int-) aan met [ImageFormat.Png](https://reference.aspose.com/slides/nl/java/com.aspose.slides.imageformat/). Dit converteert de output en behoudt mogelijk niet het oorspronkelijke bestandstype of vector‑data.
 
-**Hoe voorkom ik dat dezelfde afbeelding meer dan eens wordt opgeslagen?**
+### Hoe voorkom ik dat dezelfde afbeelding meer dan één keer wordt opgeslagen?
 
-Gebruik een hash van [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) en bewaar de hashes in een set. Als een nieuwe afbeelding een hash heeft die al bestaat, sla die dan over of registreer een aanvullende verwijzing naar het bestaande uitvoerbestand.
+Gebruik een hash van [IPPImage.getBinaryData](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/#getBinaryData--) en bewaar de hashes in een set. Als een nieuwe afbeelding een hash heeft die al bestaat, sla deze dan over of registreer een extra referentie naar het bestaande uitvoerbestand.
 
-**Waarom leveren sommige vormen geen afbeelding?**
+### Waarom leveren sommige vormen geen afbeelding?
 
-Afbeeldingskaders, met afbeelding gevulde vormen, OLE‑objectkaders, media‑kaders, zoom‑kaders, tabellen, grafieken en SmartArt‑objecten kunnen afbeeldingen refereren. Sommige vormtypen exposeren afbeeldingen via geneste format‑objecten, dus een eenvoudige `getPictureFormat()` of `getFillFormat()` controle is niet altijd voldoende.
+Afbeeldingskaders, met afbeelding gevulde vormen, OLE‑objectkaders, mediakaders, zoom‑kaders, tabellen, grafieken en SmartArt‑objecten kunnen naar afbeeldingen verwijzen. Sommige vormtypen exposeren afbeeldingen via geneste opmaakobjecten, waardoor een eenvoudige `getPictureFormat()`‑ of `getFillFormat()`‑controle niet altijd voldoende is.
 
-**Kan ik de miniatuur die wordt getoond voor een videokader extraheren?**
+### Kan ik de miniatuur die wordt getoond voor een videokader extraheren?
 
-Ja. Gebruik [IVideoFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ivideoframe/) en lees `getPictureFormat().getPicture().getImage()`. Dit haalt de poster‑afbeelding op die met het videokader is opgeslagen, niet een frame dat gegenereerd is uit het videobestand.
+Ja. Gebruik [IVideoFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ivideoframe/) en lees `getPictureFormat().getPicture().getImage()`. Dit haalt de posterafbeelding op die met het videokader is opgeslagen, niet een frame dat uit het videobestand wordt gegenereerd.
 
-**Hoe kan ik bepalen welke vormen een specifieke afbeelding uit de presentatie‑afbeeldingenverzameling gebruiken?**
+### Hoe kan ik bepalen welke vormen een specifieke afbeelding uit de presentatie‑afbeeldingscollectie gebruiken?
 
-Aspose.Slides slaat geen omgekeerde koppelingen op van [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) naar vormen. Bouw een mapping tijdens de doorloop: telkens wanneer je een afbeeldingsreferentie vindt, noteer je het dia‑nummer, het vormpad en de afbeelding‑hash of collectie‑item.
+Aspose.Slides slaat geen omgekeerde koppelingen op van [IPPImage](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ippimage/) naar vormen. Bouw tijdens de traversie een mapping op: telkens wanneer je een afbeeldingsreferentie vindt, noteer je het dia‑nummer, het vormpad en de afbeelding‑hash of collectie‑item.
 
-**Kan ik afbeeldingen extraheren die ingebed zijn in OLE‑objecten, zoals bijgevoegde documenten?**
+### Kan ik afbeeldingen extraheren die in OLE‑objecten zijn ingebed, zoals bijgevoegde documenten?
 
-Je kunt de slide‑voorvertoning van het OLE‑object extraheren via [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--). Deze voorvertoning is echter niet het ingebedde document zelf. Om afbeeldingen uit het ingebedde bestand te halen, moet je de OLE‑data extraheren en inspecteren met tools die geschikt zijn voor dat bestandstype.
+Je kunt het dia‑voorbeeld van het OLE‑object extraheren via [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--). Dit voorbeeld is echter niet het ingebedde document zelf. Om afbeeldingen uit het ingebedde bestand te halen, moet je de OLE‑data extraheren en deze inspecteren met tools die geschikt zijn voor dat bestandstype.

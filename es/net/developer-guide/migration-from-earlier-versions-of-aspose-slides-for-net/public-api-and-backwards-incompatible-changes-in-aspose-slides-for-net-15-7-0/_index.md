@@ -1,14 +1,14 @@
 ---
-title: Cambios de API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 15.7.0
+title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 15.7.0
 linktitle: Aspose.Slides para .NET 15.7.0
 type: docs
 weight: 180
 url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/
 keywords:
 - migración
-- código heredado
+- código legado
 - código moderno
-- enfoque heredado
+- enfoque legado
 - enfoque moderno
 - PowerPoint
 - OpenDocument
@@ -16,21 +16,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise las actualizaciones de la API pública y los cambios críticos en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
+description: "Revisa las actualizaciones de la API pública y los cambios que rompen compatibilidad en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
-
-{{% alert color="primary" %}} 
-
-Esta página enumera todas las [añadidas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) o [eliminadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) clases, métodos, propiedades y demás, y otros cambios introducidos con la API Aspose.Slides for .NET 15.7.0.
-
+{{% alert color="info" %}}
+Esta página enumera todas las [añadidas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) o [eliminadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-7-0/) clases, métodos, propiedades, etc., y otros cambios introducidos con la API de Aspose.Slides for .NET 15.7.0.
 {{% /alert %}} 
-## **Cambios de API pública**
-#### **Se ha añadido el enum ImagePixelFormat**
-Se ha añadido el enum Aspose.Slides.Export.ImagePixelFormat para especificar el formato de píxel de las imágenes generadas.
-#### **Se ha añadido el método IChartDataPoint.GetAutomaticDataPointColor()**
-Devuelve un color automático del punto de datos basado en el índice de la serie, el índice del punto de datos, ParentSeriesGroup, la propiedad IsColorVaried y el estilo del gráfico.
-Este color se usa por defecto si FillType es igual a NotDefined.
-#### **Se ha añadido el método RenderToGraphics a Slide**
-El método RenderToGraphics (y sus sobrecargas) se ha añadido a Aspose.Slides.Slide para renderizar una diapositiva a un objeto Graphics.
-#### **Se ha añadido la propiedad PixelFormat a ITiffOptions y TiffOptions**
-Se ha añadido la propiedad PixelFormat a Aspose.Slides.Export.ITiffOptions y Aspose.Slides.Export.TiffOptions para especificar el formato de píxel de las imágenes TIFF generadas.
+## **Cambios en la API pública**
+#### **Enum ImagePixelFormat ha sido añadido**
+Enum Aspose.Slides.Export.ImagePixelFormat ha sido añadido para especificar el formato de píxel de las imágenes generadas.
+#### **IChartDataPoint.GetAutomaticDataPointColor() ha sido añadido**
+Devuelve un color automático del punto de datos basado en el índice de serie, el índice del punto de datos, ParentSeriesGroup, la propiedad IsColorVaried y el estilo del gráfico.
+Este color se utiliza por defecto si FillType es NotDefined.
+#### **RenderToGraphics ha sido añadido a Slide**
+Method RenderToGraphics (y sus sobrecargas) ha sido añadido a Aspose.Slides.Slide para renderizar una diapositiva a un objeto Graphics.
+#### **PixelFormat ha sido añadido a ITiffOptions y TiffOptions**
+Property PixelFormat ha sido añadido a Aspose.Slides.Export.ITiffOptions y Aspose.Slides.Export.TiffOptions para especificar el formato de píxel de las imágenes TIFF generadas.

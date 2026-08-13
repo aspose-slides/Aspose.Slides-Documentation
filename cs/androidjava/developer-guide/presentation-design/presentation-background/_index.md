@@ -8,8 +8,8 @@ keywords:
 - pozadí prezentace
 - pozadí snímku
 - jednobarevná barva
-- přechodová barva
-- obrázkové pozadí
+- barva přechodu
+- pozadí obrázkem
 - průhlednost pozadí
 - vlastnosti pozadí
 - PowerPoint
@@ -18,27 +18,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se, jak nastavit dynamická pozadí v souborech PowerPoint a OpenDocument pomocí Aspose.Slides pro Android v jazyce Java, s tipy na kód, které vylepší vaše prezentace."
+description: "Naučte se nastavit dynamická pozadí v souborech PowerPoint a OpenDocument pomocí Aspose.Slides pro Android v Javě, včetně tipů na kód, které vylepší vaše prezentace."
 ---
 ## **Úvod**
 
-Jednobarevné barvy, přechody a obrázky jsou běžně používány jako pozadí snímků. Můžete nastavit pozadí pro **normální snímek** (jednotlivý snímek) nebo pro **hlavní snímek** (platí pro více snímků najednou).
+Jednobarevné barvy, přechody a obrázky se běžně používají jako pozadí snímků. Můžete nastavit pozadí pro **normální snímek** (jednotlivý snímek) nebo **hlavní snímek** (aplikuje se na více snímků najednou).
 
-![Pozadí PowerPointu](powerpoint-background.png)
+![PowerPoint background](powerpoint-background.png)
 
 ## **Nastavení jednobarevného pozadí pro normální snímek**
 
-Aspose.Slides umožňuje nastavit jednobarevnou barvu jako pozadí konkrétního snímku v prezentaci — i když prezentace používá hlavní snímek. Změna se použije pouze na vybraný snímek.
+Aspose.Slides umožňuje nastavit jednobarevnou barvu jako pozadí konkrétního snímku v prezentaci – i když prezentace používá hlavní snímek. Změna se vztahuje pouze na vybraný snímek.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
 2. Nastavte [BackgroundType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/backgroundtype/) snímku na `OwnBackground`.
 3. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) pozadí snímku na `Solid`.
-4. Použijte metodu [getSolidFillColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) na [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/) a určete jednobarevnou barvu pozadí.
+4. Použijte metodu [getSolidFillColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) na [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/) k určení jednobarevné barvy pozadí.
 5. Uložte upravenou prezentaci.
 
-Následující ukázka v jazyce Java ukazuje, jak nastavit modrou jednobarevnou barvu jako pozadí normálního snímku:
+Následující příklad v jazyce Java ukazuje, jak nastavit modrou jednobarevnou barvu jako pozadí normálního snímku:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Vytvořte instanci třídy Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -58,7 +61,7 @@ try {
 
 ## **Nastavení jednobarevného pozadí pro hlavní snímek**
 
-Aspose.Slides umožňuje nastavit jednobarevnou barvu jako pozadí hlavního snímku v prezentaci. Hlavní snímek funguje jako šablona, která řídí formátování všech snímků, takže když zvolíte jednobarevnou barvu pro pozadí hlavního snímku, použije se na každý snímek.
+Aspose.Slides umožňuje nastavit jednobarevnou barvu jako pozadí hlavního snímku v prezentaci. Hlavní snímek funguje jako šablona, která řídí formátování všech snímků, takže když vyberete jednobarevnou barvu pro pozadí hlavního snímku, použije se na každý snímek.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
 2. Nastavte [BackgroundType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/backgroundtype/) hlavního snímku (pomocí `getMasters`) na `OwnBackground`.
@@ -66,15 +69,18 @@ Aspose.Slides umožňuje nastavit jednobarevnou barvu jako pozadí hlavního sn�
 4. Použijte metodu [getSolidFillColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) k určení jednobarevné barvy pozadí.
 5. Uložte upravenou prezentaci.
 
-Následující ukázka v jazyce Java ukazuje, jak nastavit jednobarevnou barvu (zelenou) jako pozadí hlavního snímku:
+Následující příklad v jazyce Java ukazuje, jak nastavit jednobarevnou barvu (zelenou) jako pozadí hlavního snímku:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Vytvořte instanci třídy Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Nastavte barvu pozadí hlavního snímku na lesní zelenou.
+    // Nastavte barvu pozadí hlavního snímku na zelenou.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -86,19 +92,22 @@ try {
 }
 ```
 
-## **Nastavení přechodu jako pozadí snímku**
+## **Nastavení přechodového pozadí pro snímek**
 
-Přechod je grafický efekt vytvořený postupnou změnou barvy. Použitý jako pozadí snímku může přechod učinit prezentaci umělečtější a profesionálnější. Aspose.Slides umožňuje nastavit barvu přechodu jako pozadí snímků.
+Přechod je grafický efekt vytvořený postupnou změnou barvy. Použitý jako pozadí snímku může přechod učinit prezentaci umělečtější a profesionálnější. Aspose.Slides umožňuje nastavit barvu přechodu jako pozadí pro snímky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
 2. Nastavte [BackgroundType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/backgroundtype/) snímku na `OwnBackground`.
 3. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) pozadí snímku na `Gradient`.
-4. Použijte metodu [getGradientFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) na [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/) a nakonfigurujte požadované nastavení přechodu.
+4. Použijte metodu [getGradientFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) na [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/) k nastavení požadovaných parametrů přechodu.
 5. Uložte upravenou prezentaci.
 
-Následující ukázka v jazyce Java ukazuje, jak nastavit barvu přechodu jako pozadí snímku:
+Následující příklad v jazyce Java ukazuje, jak nastavit barvu přechodu jako pozadí snímku:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Vytvořte instanci třídy Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -107,7 +116,13 @@ try {
     // Použijte přechodový efekt na pozadí.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Přidejte barvy přechodu. Bez zastávek přechodu se pozadí vrátí k výchozí černo-bílé skále.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Uložte prezentaci na disk.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -125,12 +140,14 @@ Kromě jednobarevných a přechodových výplní umožňuje Aspose.Slides použ�
 3. Nastavte [FillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) pozadí snímku na `Picture`.
 4. Načtěte obrázek, který chcete použít jako pozadí snímku.
 5. Přidejte obrázek do kolekce obrázků prezentace.
-6. Použijte metodu [getPictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) na [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/) a přiřaďte obrázek jako pozadí.
+6. Použijte metodu [getPictureFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) na [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/) k přiřazení obrázku jako pozadí.
 7. Uložte upravenou prezentaci.
 
-Následující ukázka v jazyce Java ukazuje, jak nastavit obrázek jako pozadí snímku:
+Následující příklad v jazyce Java ukazuje, jak nastavit obrázek jako pozadí snímku:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte instanci třídy Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -156,9 +173,11 @@ try {
 }
 ```
 
-Následující ukázkový kód ukazuje, jak nastavit typ výplně pozadí na dlaždicový obrázek a upravit vlastnosti dlaždicování:
+Následující ukázka kódu ukazuje, jak nastavit typ výplně pozadí na dlaždicový obrázek a upravit vlastnosti dlaždicování:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -176,7 +195,7 @@ try {
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Nastavte režim výplně obrázku na Dlaždice a upravte vlastnosti dlaždic.
+    // Nastavte režim výplně obrázkem na Dlaždice a upravte vlastnosti dlaždic.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -191,7 +210,7 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Přečtěte si více: [**Tile Picture As Texture**](/slides/cs/androidjava/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
@@ -200,38 +219,51 @@ Přečtěte si více: [**Tile Picture As Texture**](/slides/cs/androidjava/shape
 Možná budete chtít upravit průhlednost obrázku na pozadí snímku, aby se obsah snímku lépe vyčlenil. Následující kód v jazyce Java ukazuje, jak změnit průhlednost obrázku na pozadí snímku:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Například.
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Získejte kolekci operací transformace obrázku.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Najděte existující efekt průhlednosti s pevnou procentuální hodnotou.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Nastavte novou hodnotu průhlednosti.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("TransparentBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Získání hodnoty pozadí snímku**
 
-Aspose.Slides poskytuje rozhraní [IBackgroundEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibackgroundeffectivedata/) pro získání efektivních hodnot pozadí snímku. Toto rozhraní exponuje efektivní [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) a [EffectFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+Aspose.Slides poskytuje rozhraní [IBackgroundEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibackgroundeffectivedata/) pro získání efektivních hodnot pozadí snímku. Toto rozhraní zpřístupňuje efektivní [FillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) a [EffectFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
 
 Pomocí metody `getBackground` třídy [BaseSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseslide/) můžete získat efektivní pozadí snímku.
 
-Následující ukázka v jazyce Java ukazuje, jak získat efektivní hodnotu pozadí snímku:
+Následující příklad v jazyce Java ukazuje, jak získat efektivní hodnotu pozadí snímku:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte instanci třídy Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
@@ -251,10 +283,10 @@ try {
 
 ## **Často kladené otázky**
 
-**Mohu resetovat vlastní pozadí a obnovit pozadí motivu/rozvržení?**
+### Můžu resetovat vlastní pozadí a obnovit pozadí motivu/layoutu?
 
-Ano. Odstraňte vlastní výplň snímku a pozadí bude znovu zděděno z odpovídajícího [rozvržení](/slides/cs/androidjava/slide-layout/)/[hlavního snímku](/slides/cs/androidjava/slide-master/) (tj. z [pozadí motivu](/slides/cs/androidjava/presentation-theme/)).
+Ano. Odstraňte vlastní výplň snímku a pozadí bude znovu zděděno z odpovídajícího snímku [layout](/slides/cs/androidjava/slide-layout/)/[master](/slides/cs/androidjava/slide-master/) (tj. z [theme background](/slides/cs/androidjava/presentation-theme/)).
 
-**Co se stane s pozadím, když později změníme motiv prezentace?**
+### Co se stane s pozadím, pokud později změníme motiv prezentace?
 
-Pokud má snímek vlastní výplň, zůstane nezměněna. Pokud je pozadí zděděno z [rozvržení](/slides/cs/androidjava/slide-layout/)/[hlavního snýmku](/slides/cs/androidjava/slide-master/), aktualizuje se tak, aby odpovídalo novému motivu.
+Pokud má snímek vlastní výplň, zůstane beze změny. Pokud je pozadí zděděno ze [layout](/slides/cs/androidjava/slide-layout/)/[master](/slides/cs/androidjava/slide-master/), aktualizuje se tak, aby odpovídalo [new theme](/slides/cs/androidjava/presentation-theme/).

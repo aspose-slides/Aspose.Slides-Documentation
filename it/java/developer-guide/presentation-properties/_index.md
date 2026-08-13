@@ -15,7 +15,7 @@ keywords:
 - modificare le proprietà
 - metadati del documento
 - modificare i metadati
-- lingua di revisione
+- lingua di correzione
 - lingua predefinita
 - PowerPoint
 - OpenDocument
@@ -26,46 +26,50 @@ description: "Gestisci le proprietà della presentazione in Aspose.Slides per Ja
 ---
 ## **Introduzione**
 
-Aspose.Slides supporta due tipologie di proprietà del documento: **Integrate** e **Personalizzate**. Entrambi i tipi di proprietà possono essere facilmente accessi e gestiti tramite le API di Aspose.Slides.
+Aspose.Slides supporta due tipi di proprietà del documento: **Built-in** e **Custom**. Entrambi questi tipi di proprietà possono essere facilmente accessibili e gestiti utilizzando l'API di Aspose.Slides.
 
-Aspose.Slides consente di lavorare con le proprietà dei documenti di presentazione attraverso l'interfaccia [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/). Un'istanza di questa interfaccia è restituita dal metodo [Presentation.getDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getDocumentProperties--) . Gli esempi seguenti mostrano come leggere, modificare e gestire queste proprietà.
+Aspose.Slides consente di lavorare con le proprietà del documento di una presentazione tramite l'interfaccia [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties/) . Un'istanza di questa interfaccia è restituita dal metodo [Presentation.getDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getDocumentProperties--) . I seguenti esempi mostrano come leggere, modificare e gestire queste proprietà.
 
-{{% alert color="primary" %}} 
-Si noti che i campi **Application** e **Producer** non possono essere modificati, poiché mostreranno sempre "Aspose Ltd." e "Aspose.Slides for Java x.x.x".
+{{% alert color="info" %}} 
+Si prega di notare che i campi **Application** e **AppVersion** non possono essere modificati. Aspose.Slides li riscrive ad ogni salvataggio, quindi una presentazione salvata riporta sempre "Aspose.Slides for Java" e la versione della libreria che l'ha prodotta. Qualsiasi valore passato a `setNameOfApplication` viene scartato quando la presentazione viene scritta.
 {{% /alert %}} 
 
 ## **Proprietà del documento in PowerPoint**
 
-Microsoft PowerPoint 2007 consente di gestire le proprietà del documento dei file di presentazione. È sufficiente fare clic sull'icona Office e quindi sulla voce di menu **Prepare | Properties | Advanced Properties** di Microsoft PowerPoint 2007, come mostrato di seguito:
+Microsoft PowerPoint 2007 consente di gestire le proprietà del documento dei file di presentazione. Tutto quello che devi fare è fare clic sull'icona di Office e quindi sul menu **Prepare | Properties | Advanced Properties** di Microsoft PowerPoint 2007 come mostrato di seguito:
 
-|**Selezione voce di menu Proprietà avanzate**|** |
+|**Selezionare voce di menu Proprietà avanzate**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-Dopo aver selezionato la voce di menu **Advanced Properties**, verrà visualizzata una finestra di dialogo che permette di gestire le proprietà del documento del file PowerPoint, come mostrato nella figura seguente:
+|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| ** **|
 
-|**Finestra Proprietà**|** |
+Dopo aver selezionato la voce di menu **Advanced Properties**, appare una finestra di dialogo che consente di gestire le proprietà del documento del file PowerPoint come mostrato nella figura seguente:
+
+|**Finestra Proprietà**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Nella **Finestra Proprietà** è possibile vedere numerose schede come **General**, **Summary**, **Statistics**, **Contents** e **Custom**. Tutte queste schede consentono di configurare diversi tipi di informazioni relative ai file PowerPoint. La scheda **Custom** è usata per gestire le proprietà personalizzate dei file PowerPoint.
+|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| ** **|
 
-### Lavorare con le proprietà del documento usando Aspose.Slides per Java
+Nella **Finestra Proprietà** sopra, puoi vedere che ci sono molte schede come **General**, **Summary**, **Statistics**, **Contents** e **Custom**. Tutte queste schede consentono di configurare diversi tipi di informazioni relative ai file PowerPoint. La scheda **Custom** è utilizzata per gestire le proprietà personalizzate dei file PowerPoint.
 
-Come descritto in precedenza, Aspose.Slides per Java supporta due categorie di proprietà del documento, ovvero **Integrate** e **Personalizzate**. Pertanto, gli sviluppatori possono accedere a entrambe le tipologie di proprietà tramite le API di Aspose.Slides per Java. Aspose.Slides per Java fornisce la classe [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties) che rappresenta le proprietà del documento associate a un file di presentazione attraverso la proprietà **Presentation.DocumentProperties**.
+Lavorare con le proprietà del documento usando Aspose.Slides per Java
 
-Gli sviluppatori possono utilizzare la proprietà **IDocumentProperties** esposta dall'oggetto [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation) per accedere alle proprietà del documento dei file di presentazione, come descritto di seguito:
+Come descritto in precedenza, Aspose.Slides per Java supporta due tipi di proprietà del documento, ovvero **Built-in** e **Custom**. Pertanto, gli sviluppatori possono accedere a entrambi i tipi di proprietà utilizzando l'API di Aspose.Slides per Java. Aspose.Slides per Java fornisce una classe [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties) che rappresenta le proprietà del documento associate a un file di presentazione attraverso la proprietà **Presentation.DocumentProperties**.
 
-## **Accedere alle proprietà integrate**
+Gli sviluppatori possono usare la proprietà **IDocumentProperties** esposta dall'oggetto [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation) per accedere alle proprietà del documento dei file di presentazione come descritto di seguito:
 
-Queste proprietà, esposte dall'oggetto [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties), includono: **Creator** (Autore), **Description**, **Keywords**, **Created** (Data di creazione), **Modified** (Data di modifica), **Printed** (Data ultima stampa), **LastModifiedBy**, **SharedDoc** (È condiviso tra diversi produttori?), **PresentationFormat**, **Subject** e **Title**.
+## **Accedere alle proprietà Built-in**
+
+Queste proprietà esposte dall'oggetto [IDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties) includono: **Creator** (Autore), **Description**, **Keywords**, **Created** (Data di creazione), **Modified** (Data di modifica), **Printed** (Data dell'ultima stampa), **LastModifiedBy**, **Keywords**, **SharedDoc** (Condiviso tra diversi produttori?), **PresentationFormat**, **Subject** e **Title**.
 
 ```java
-// Instanzia la classe Presentation che rappresenta la presentazione
+import com.aspose.slides.*;
+
+// Istanziare la classe Presentation che rappresenta la presentazione
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Crea un riferimento all'oggetto IDocumentProperties associato a Presentation
+    // Creare un riferimento all'oggetto IDocumentProperties associato alla presentazione
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Visualizza le proprietà integrate
+    // Visualizzare le proprietà integrate
     System.out.println("Category : " + dp.getCategory());
     System.out.println("Current Status : " + dp.getContentStatus());
     System.out.println("Creation Date : " + dp.getCreatedTime());
@@ -85,44 +89,48 @@ try {
 }
 ```
 
-## **Modificare le proprietà integrate**
+## **Modificare le proprietà Built-in**
 
-Modificare le proprietà integrate dei file di presentazione è semplice quanto accedervi. È sufficiente assegnare una stringa a qualsiasi proprietà desiderata e il valore verrà aggiornato. Nell'esempio seguente, dimostriamo come modificare le proprietà integrate del documento di una presentazione utilizzando Aspose.Slides per Java.
+Modificare le proprietà built-in dei file di presentazione è facile quanto accedervi. È sufficiente assegnare un valore stringa a qualsiasi proprietà desiderata e il valore della proprietà verrà modificato. Nell'esempio mostrato di seguito, abbiamo dimostrato come è possibile modificare le proprietà built-in del documento di una presentazione utilizzando Aspose.Slides per Java.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Crea un riferimento all'oggetto IDocumentProperties associato a Presentation
+    // Creare un riferimento all'oggetto IDocumentProperties associato alla presentazione
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Imposta le proprietà integrate
+    // Impostare le proprietà integrate
     dp.setAuthor("Aspose.Slides for Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
     dp.setComments("Aspose Description");
     dp.setManager("Aspose Manager");
     
-    // Salva la presentazione in un file
+    // Salvare la presentazione in un file
     pres.save("DocProps.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-Questo esempio modifica le proprietà integrate della presentazione, come mostrato di seguito:
+Questo esempio modifica le proprietà built-in della presentazione che possono essere visualizzate come mostrato di seguito:
 
-|**Proprietà integrate del documento dopo la modifica**|** |
+|**Proprietà del documento Built-in dopo la modifica**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| ** **|
 
-## **Aggiungere proprietà personalizzate al documento**
+## **Aggiungere proprietà personalizzate del documento**
 
-Aspose.Slides per Java consente anche agli sviluppatori di aggiungere valori personalizzati alle proprietà del documento della presentazione. Di seguito è riportato un esempio che mostra come impostare le proprietà personalizzate per una presentazione.
+Aspose.Slides per Java consente inoltre agli sviluppatori di aggiungere valori personalizzati alle proprietà del documento della presentazione. L'esempio seguente aggiunge tre proprietà personalizzate, poi ricerca il nome memorizzato all'indice 2 e rimuove quella proprietà, così la presentazione salvata ne conserva due. Le proprietà personalizzate sono indicizzate in ordine alfabetico, non nell'ordine in cui sono state aggiunte.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-    // Ottenere le proprietà del documento
+    // Recuperare le proprietà del documento
     IDocumentProperties dProps = pres.getDocumentProperties();
     
     // Aggiungere proprietà personalizzate
@@ -130,7 +138,7 @@ try {
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
     
-    // Ottenere il nome della proprietà a un indice particolare
+    // Ottenere il nome della proprietà a un indice specifico
     String getPropertyName = dProps.getCustomPropertyName(2);
     
     // Rimuovere la proprietà selezionata
@@ -143,76 +151,82 @@ try {
 }
 ```
 
-|**Proprietà personalizzate del documento aggiunte**|** |
+|**Proprietà personalizzate del documento aggiunte**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| ** **|
 
 ## **Accedere e modificare le proprietà personalizzate**
 
-Aspose.Slides per Java permette anche di accedere ai valori delle proprietà personalizzate. Di seguito è mostrato un esempio che illustra come accedere e modificare tutte queste proprietà personalizzate per una presentazione.
+Aspose.Slides per Java consente inoltre agli sviluppatori di accedere ai valori delle proprietà personalizzate. Di seguito è riportato un esempio che mostra come è possibile accedere e modificare tutte queste proprietà personalizzate per una presentazione.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Crea un riferimento all'oggetto DocumentProperties associato a Presentation
+    // Creare un riferimento all'oggetto DocumentProperties associato alla presentazione
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Accedi e modifica le proprietà personalizzate
+    // Accedere e modificare le proprietà personalizzate
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Visualizza i nomi e i valori delle proprietà personalizzate
+        // Visualizzare i nomi e i valori delle proprietà personalizzate
         System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
         System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // Modifica i valori delle proprietà personalizzate
+        // Modificare i valori delle proprietà personalizzate
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
-    // Salva la tua presentazione in un file
+    // Salvare la presentazione in un file
     pres.save("CustomDemoModified.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-Questo esempio modifica le proprietà personalizzate della [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentazione. Le figure seguenti mostrano le proprietà personalizzate della presentazione prima e dopo la modifica:
+Questo esempio modifica le proprietà personalizzate della presentazione [PPTX ](https://docs.fileformat.com/presentation/pptx/). Le figure successive mostrano le proprietà personalizzate della presentazione prima e dopo la modifica:
 
-|**Proprietà personalizzate prima della modifica**|** |
+|**Proprietà personalizzate prima della modifica**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| ** **|
 
-|**Proprietà personalizzate dopo la modifica**|** |
+|**Proprietà personalizzate dopo la modifica**|** **|
 | :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
+|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| ** **|
 
 ## **Proprietà avanzate del documento**
 
-{{% alert color="primary" %}} 
-Sono stati aggiunti i nuovi metodi [ReadDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), e [WriteBindedPresentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) all'interfaccia [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo); la logica del setter della proprietà [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) è stata modificata.
+{{% alert color="info" %}} 
+Sono stati aggiunti i nuovi metodi [ReadDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), e [WriteBindedPresentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) a [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo), la logica del setter della proprietà [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/it/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) è stata modificata.
 {{% /alert %}} 
 
-I due nuovi metodi [ReadDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) e [UpdateDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) sono stati aggiunti all'interfaccia [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo). Forniscono un accesso rapido alle proprietà del documento e consentono di modificare e aggiornare le proprietà senza caricare l'intera presentazione.
+I due nuovi metodi [ReadDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) e [UpdateDocumentProperties](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) sono stati aggiunti all'interfaccia [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentationInfo). Forniscono un accesso rapido alle proprietà del documento e permettono di modificare e aggiornare le proprietà senza caricare l'intera presentazione.
 
-Lo scenario tipico consiste nel caricare le proprietà, modificare qualche valore e aggiornare il documento, come mostrato di seguito:
+Lo scenario tipico di caricare le proprietà, cambiare un valore e aggiornare il documento può essere implementato nel modo seguente:
 
 ```java
-// leggi le informazioni della presentazione
+import com.aspose.slides.*;
+
+// leggere le informazioni della presentazione
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// ottieni le proprietà attuali
+// obtain the current properties
 IDocumentProperties props = info.readDocumentProperties();
 
-// imposta i nuovi valori dei campi Autore e Titolo
+// set the new values of Author and Title fields
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
-// aggiorna la presentazione con i nuovi valori
+// update the presentation with a new values
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-È possibile utilizzare le proprietà di una presentazione specifica come modello per aggiornare le proprietà in altre presentazioni:
+Esiste un altro modo per usare le proprietà di una presentazione specifica come modello per aggiornare le proprietà in altre presentazioni:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -225,12 +239,16 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
+    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -242,7 +260,9 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 Un nuovo modello può essere creato da zero e poi usato per aggiornare più presentazioni:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -253,27 +273,24 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
-{
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
     toUpdate.writeBindedPresentation(path);
 }
 ```
 
-## **Impostare la lingua di revisione**
+## **Impostare la lingua di correzione**
 
-Aspose.Slides fornisce la proprietà LanguageId (esposta dalla classe PortionFormat) per consentire di impostare la lingua di revisione per un documento PowerPoint. La lingua di revisione è la lingua per la quale vengono controllati ortografia e grammatica nel PowerPoint.
+Aspose.Slides fornisce la proprietà LanguageId (esposta dalla classe PortionFormat) per consentire di impostare la lingua di correzione per un documento PowerPoint. La lingua di correzione è la lingua per la quale vengono controllate ortografia e grammatica in PowerPoint.
 
-Questo codice Java mostra come impostare la lingua di revisione per un PowerPoint: xxx Perché LanguageId è assente nella classe Java PortionFormat?
+Questo codice Java mostra come impostare la lingua di correzione per un PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
+String pptxFileName = "presentation.pptx";
+
 Presentation pres = new Presentation(pptxFileName);
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -289,7 +306,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // imposta l'Id di una lingua di revisione
+    portionFormat.setLanguageId("zh-CN"); // imposta l'Id di una lingua di correzione
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -303,6 +320,8 @@ try {
 Questo codice Java mostra come impostare la lingua predefinita per un'intera presentazione PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -321,20 +340,20 @@ try {
 
 ## **Esempio live**
 
-Prova l'app online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/it/metadata) per vedere come lavorare con le proprietà del documento tramite le API di Aspose.Slides:
+Prova l'app online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/it/metadata) per vedere come lavorare con le proprietà del documento tramite l'API di Aspose.Slides:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/it/metadata)
 
 ## ***FAQ**
 
-**Come posso rimuovere una proprietà integrata da una presentazione?**
+### Come posso rimuovere una proprietà built-in da una presentazione?
 
-Le proprietà integrate sono parte integrante della presentazione e non possono essere rimosse completamente. È possibile però cambiarne il valore o impostarlo a vuoto, se consentito dalla specifica proprietà.
+Le proprietà built-in fanno parte integrante della presentazione e non possono essere rimosse completamente. Tuttavia, è possibile cambiare i loro valori o impostarli a vuoto se la proprietà specifica lo consente.
 
-**Cosa succede se aggiungo una proprietà personalizzata che esiste già?**
+### Cosa accade se aggiungo una proprietà custom che esiste già?
 
-Se aggiungi una proprietà personalizzata già esistente, il suo valore corrente verrà sovrascritto con quello nuovo. Non è necessario rimuovere o verificare la proprietà in anticipo, poiché Aspose.Slides aggiorna automaticamente il valore della proprietà.
+Se aggiungi una proprietà custom che esiste già, il suo valore corrente verrà sovrascritto con quello nuovo. Non è necessario rimuovere o controllare la proprietà in anticipo, poiché Aspose.Slides aggiorna automaticamente il valore della proprietà.
 
-**Posso accedere alle proprietà della presentazione senza caricare interamente la presentazione?**
+### Posso accedere alle proprietà della presentazione senza caricare completamente la presentazione?
 
-Sì, è possibile accedere alle proprietà della presentazione senza caricare l'intera presentazione utilizzando il metodo `getPresentationInfo` della classe [PresentationFactory](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/). Successivamente, utilizza il metodo `readDocumentProperties` fornito dall'interfaccia [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/) per leggere le proprietà in modo efficiente, risparmiando memoria e migliorando le prestazioni.
+Sì, puoi accedere alle proprietà della presentazione senza caricare completamente la presentazione usando il metodo `getPresentationInfo` della classe [PresentationFactory](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentationfactory/). Poi, utilizza il metodo `readDocumentProperties` fornito dall'interfaccia [IPresentationInfo](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipresentationinfo/) per leggere le proprietà in modo efficiente, risparmiando memoria e migliorando le prestazioni.

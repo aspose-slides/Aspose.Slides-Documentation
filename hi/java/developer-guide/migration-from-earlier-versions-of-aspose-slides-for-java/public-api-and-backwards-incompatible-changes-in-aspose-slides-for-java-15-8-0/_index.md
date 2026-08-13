@@ -1,32 +1,31 @@
 ---
-title: Aspose.Slides for Java 15.8.0 में सार्वजनिक API और पीछे की ओर असंगत परिवर्तन
+title: Aspose.Slides for Java 15.8.0 में सार्वजनिक API और बैकवर्ड असंगत परिवर्तन
 linktitle: Aspose.Slides for Java 15.8.0
 type: docs
 weight: 160
 url: /hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
 keywords:
-- माइग्रेशन
-- पुरानी कोड
+- स्थानांतरण
+- लेगेसी कोड
 - आधुनिक कोड
-- पुरानी दृष्टिकोण
+- लेगेसी दृष्टिकोण
 - आधुनिक दृष्टिकोण
 - PowerPoint
 - OpenDocument
-- प्रेजेंटेशन
+- प्रस्तुतीकरण
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java में सार्वजनिक API अपडेट और ब्रेकिंग परिवर्तन की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रेजेंटेशन समाधान को सुगमता से माइग्रेट कर सकें।"
+description: "Aspose.Slides for Java में सार्वजनिक API अपडेट और ब्रेकिंग परिवर्तन की समीक्षा करके अपने PowerPoint PPT, PPTX और ODP प्रस्तुतीकरण समाधान को सुगमता से माइग्रेट करें।"
 ---
-{{% alert color="primary" %}} 
-
-यह पृष्ठ सभी [जोड़ें](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) या [हटाए](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) क्लासेस, मेथड्स, प्रॉपर्टीज़ आदि की सूची देता है, और Aspose.Slides for Java 15.8.0 API में प्रस्तुत अन्य परिवर्तन।
-
+{{% alert color="info" %}} 
+यह पृष्ठ Aspose.Slides for Java 15.8.0 API के साथ प्रस्तुत किए गए सभी [जोड़े गए](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) या [हटाए गए](/slides/hi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) क्लास, मेथड, प्रॉपर्टी आदि और अन्य परिवर्तन सूचीबद्ध करता है।
 {{% /alert %}} 
 ## **सार्वजनिक API परिवर्तन**
-#### **मेथड्स getDoughnutHoleSize(), setDoughnutHoleSize(byte) को IChartSeries और ChartSeries में जोड़ा गया है**
+#### **IChartSeries और ChartSeries में Methods getDoughnutHoleSize(), setDoughnutHoleSize(byte) जोड़े गए हैं**
 डोनट चार्ट में छेद के आकार को निर्दिष्ट करता है।
-
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

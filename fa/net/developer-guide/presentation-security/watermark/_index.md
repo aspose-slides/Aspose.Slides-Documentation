@@ -1,5 +1,5 @@
 ---
-title: افزودن واترمارک‌ها به ارائه‌ها در .NET
+title: افزودن واترمارک به ارائه‌ها در .NET
 linktitle: واترمارک
 type: docs
 weight: 40
@@ -8,13 +8,13 @@ keywords:
 - واترمارک
 - واترمارک متنی
 - واترمارک تصویری
-- اضافه کردن واترمارک
+- افزودن واترمارک
 - تغییر واترمارک
 - حذف واترمارک
 - پاک کردن واترمارک
-- اضافه کردن واترمارک به PPT
-- اضافه کردن واترمارک به PPTX
-- اضافه کردن واترمارک به ODP
+- افزودن واترمارک به PPT
+- افزودن واترمارک به PPTX
+- افزودن واترمارک به ODP
 - حذف واترمارک از PPT
 - حذف واترمارک از PPTX
 - حذف واترمارک از ODP
@@ -27,29 +27,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "در .NET، واترمارک‌های متنی و تصویری را در ارائه‌های PowerPoint و OpenDocument مدیریت کنید تا پیش‌نویس، اطلاعات محرمانه، حق کپی‌رایت و موارد دیگر را نشان دهند."
+description: "مدیریت واترمارک‌های متنی و تصویری در ارائه‌های PowerPoint و OpenDocument در .NET برای نشان‌دادن پیش‌نویس، اطلاعات محرمانه، حق تکثیر و موارد دیگر."
 ---
 ## **مقدمه**
 
-**یک واترمارک** در یک ارائه، متن یا تصویرمطبوعی است که بر روی یک اسلاید یا تمام اسلایدهای ارائه قرار می‌گیرد. معمولاً واترمارک برای نشان دادن این که ارائه یک پیش‌نویس است (به عنوان مثال، واترمارک «پیش‌نویس»)، حاوی اطلاعات محرمانه است (به عنوان مثال، واترمارک «محرمانه»)، تعلق به یک شرکت خاص را نشان می‌دهد (به عنوان مثال، واترمارک «نام شرکت»)، شناسایی نویسندهٔ ارائه و غیره استفاده می‌شود. واترمارک به جلوگیری از نقض حق کپی‌رایت کمک می‌کند زیرا نشان می‌دهد که ارائه نباید کپی شود. واترمارک‌ها هم در فرمت‌های PowerPoint و هم در فرمت‌های OpenDocument استفاده می‌شوند. در Aspose.Slides می‌توانید واترمارک را به فرمت‌های PowerPoint PPT، PPTX و OpenDocument ODP اضافه کنید.
+**یک watermark** در یک ارائه، یک متن یا تصویر است که به یک اسلاید یا تمام اسلایدهای ارائه اضافه می‌شود. معمولاً از watermark برای نشان دادن اینکه ارائه یک پیش‌نویس است (مثلاً watermark «Draft»)، اینکه شامل اطلاعات محرمانه است (مثلاً watermark «Confidential»)، برای مشخص کردن شرکت متعلق به آن (مثلاً watermark «Company Name»)، برای شناسایی نویسنده ارائه و غیره استفاده می‌شود. watermark به جلوگیری از نقض حق کپی‌رایت کمک می‌کند زیرا نشان می‌دهد که ارائه نباید کپی شود. watermarkها هم در قالب PowerPoint و هم در قالب OpenDocument استفاده می‌شود. در Aspose.Slides می‌توانید watermark را به فرمت‌های فایل PowerPoint PPT، PPTX و OpenDocument ODP اضافه کنید.
 
-در [**Aspose.Slides**](https://products.aspose.com/slides/fa/net/)، راه‌های مختلفی برای ایجاد واترمارک در اسناد PowerPoint یا OpenDocument و تغییر طرح و رفتار آن‌ها وجود دارد. نکته مشترک این است که برای افزودن واترمارک متنی باید از رابط [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) استفاده کنید و برای افزودن واترمارک تصویری، از کلاس [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) یا پر کردن یک شکل واترمارک با تصویر استفاده کنید. `PictureFrame` رابط [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape) را پیاده‌سازی می‌کند و به شما امکان استفاده از تمام تنظیمات انعطاف‌پذیر شیء شکل را می‌دهد. از آنجا که `ITextFrame` یک شکل نیست و تنظیمات آن محدود است، در یک شیء [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape) بسته می‌شود.
+در [**Aspose.Slides**](https://products.aspose.com/slides/fa/net/) روش‌های مختلفی برای ایجاد watermark در اسناد PowerPoint یا OpenDocument و اصلاح طراحی و رفتار آن‌ها وجود دارد. نکته مشترک این است که برای افزودن watermark متنی باید از رابط [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) استفاده کنید و برای افزودن watermark تصویری، از کلاس [PictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/pictureframe/) یا پر کردن یک شکل watermark با تصویر استفاده کنید. `PictureFrame` رابط [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape) را پیاده‌سازی می‌کند و به شما امکان استفاده از تمام تنظیمات انعطاف‌پذیر شیء شکل را می‌دهد. چون `ITextFrame` یک شکل نیست و تنظیماتش محدود است، در یک شیء [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape) بسته می‌شود.
 
-دو روش برای اعمال واترمارک وجود دارد: به یک اسلاید واحد یا به تمام اسلایدهای ارائه. برای اعمال واترمارک به تمام اسلایدها از Slide Master استفاده می‌شود — واترمارک به Slide Master اضافه می‌شود، در آنجا به طور کامل طراحی می‌شود و به تمام اسلایدها اعمال می‌شود بدون اینکه اجازهٔ ویرایش واترمارک در اسلایدهای فردی را تحت تأثیر قرار دهد.
+دو روش برای اعمال watermark وجود دارد: به یک اسلاید واحد یا به تمام اسلایدهای ارائه. برای افزودن watermark به تمام اسلایدها از Slide Master استفاده می‌شود — watermark به Slide Master اضافه می‌شود، در آنجا به‌طور کامل طراحی می‌شود و به تمام اسلایدها اعمال می‌شود بدون اینکه اجازه ویرایش watermark در اسلایدهای جداگانه تحت تأثیر قرار گیرد.
 
-معمولاً واترمارک برای کاربران دیگر غیرقابل ویرایش در نظر گرفته می‌شود. برای جلوگیری از ویرایش واترمارک (یا بهتر بگوییم شکل مادر واترمارک) Aspose.Slides قابلیت قفل‌گذاری شکل را فراهم می‌کند. یک شکل خاص می‌تواند در اسلاید عادی یا در Slide Master قفل شود. وقتی شکل واترمارک در Slide Master قفل شود، در تمام اسلایدهای ارائه قفل می‌ماند.
+یک watermark معمولاً به‌عنوان غیرقابل ویرایش توسط سایر کاربران در نظر گرفته می‌شود. برای جلوگیری از ویرایش watermark (یا بهتر بگوییم شکل والد watermark) Aspose.Slides قابلیت قفل‌کردن شکل را فراهم می‌کند. یک شکل خاص می‌تواند در یک اسلاید عادی یا در Slide Master قفل شود. وقتی شکل watermark در Slide Master قفل شود، در تمام اسلایدهای ارائه نیز قفل خواهد بود.
 
-می‌توانید برای واترمارک نامی تعیین کنید تا در آینده، اگر بخواهید آن را حذف کنید، بتوانید آن را به‌وسیله نام در بین اشکال اسلاید پیدا کنید.
+می‌توانید برای watermark یک نام تعیین کنید تا در آینده، اگر بخواهید آن را حذف کنید، بتوانید آن را بر اساس نام در لیست اشکال اسلاید پیدا کنید.
 
-می‌توانید واترمارک را به هر شکلی طراحی کنید؛ اما معمولاً ویژگی‌های مشترکی در واترمارک‌ها وجود دارد، مانند تراز وسط، چرخش، موقعیت جلو و غیره. در مثال‌های زیر به نحوه استفاده از این ویژگی‌ها می‌پردازیم.
+شما می‌توانید watermark را به هر شکلی طراحی کنید؛ اما معمولاً ویژگی‌های مشترکی مانند ترازبندی وسط، چرخش، موقعیت جلو و غیره در watermarkها وجود دارد. در مثال‌های زیر نحوه استفاده از این ویژگی‌ها را بررسی می‌کنیم.
 
-## **واترمارک متنی**
+## **Watermark متنی**
 
-### **افزودن واترمارک متنی به یک اسلاید**
+### **افزودن Watermark متنی به یک اسلاید**
 
-برای افزودن واترمارک متنی در PPT، PPTX یا ODP، ابتدا می‌توانید یک شکل به اسلاید اضافه کنید، سپس یک فریم متن به این شکل اضافه کنید. فریم متن توسط رابط [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe) نمایندگی می‌شود. این نوع از [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) ارث‌بری نمی‌کند و مجموعهٔ وسیعی از ویژگی‌های موقعیت‌یابی انعطاف‌پذیر را در اختیار ندارند. بنابراین شیء [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe) در یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) بسته می‌شود. برای افزودن متن واترمارک به شکل، از متد [AddTextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/methods/addtextframe) همان‌طور که در زیر نشان داده شده استفاده کنید.
+برای افزودن watermark متنی در PPT، PPTX یا ODP ابتدا می‌توانید یک شکل به اسلاید اضافه کنید، سپس یک فریم متنی به این شکل اضافه کنید. فریم متنی توسط رابط [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe) نمایش داده می‌شود. این نوع از [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) ارث‌بری نمی‌کند، در حالی که [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) مجموعه‌ای گسترده از ویژگی‌های موقعیت‌یابی را برای تنظیم watermark به‌صورت انعطاف‌پذیر فراهم می‌کند. بنابراین شیء [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe) در یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) بسته می‌شود. برای افزودن متن watermark به شکل، از متد [AddTextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/methods/addtextframe) همان‌طور که در زیر نشان داده شده استفاده کنید.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
@@ -60,15 +62,17 @@ IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="همچنین ببینید" %}} 
+{{% alert color="info" title="همچنین ببینید" %}} 
 - [چگونه از کلاس TextFrame استفاده کنیم؟](/slides/fa/net/text-formatting/)
 {{% /alert %}}
 
-### **افزودن واترمارک متنی به یک ارائه**
+### **افزودن Watermark متنی به یک ارائه**
 
-اگر می‌خواهید واترمارک متنی را به کل ارائه (یعنی تمام اسلایدها به‌صورت همزمان) اضافه کنید، آن را به [MasterSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/masterslide/) اضافه کنید. بقیه منطق مشابه افزودن واترمارک به یک اسلاید است — یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) ایجاد کنید و سپس با استفاده از متد [AddTextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/methods/addtextframe) واترمارک را به آن اضافه کنید.
+اگر می‌خواهید watermark متنی را به کل ارائه (یعنی همه اسلایدها به‌صورت همزمان) اضافه کنید، آن را به [MasterSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/masterslide/) اضافه کنید. منطق باقی مانده همانند افزودن watermark به یک اسلاید واحد است — یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) ایجاد کنید و سپس با استفاده از متد [AddTextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/methods/addtextframe) watermark را به آن اضافه نمایید.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
@@ -79,40 +83,61 @@ IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle,
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="همچنین ببینید" %}} 
+{{% alert color="info" title="همچنین ببینید" %}} 
 - [چگونه از Slide Master استفاده کنیم؟](/slides/fa/net/slide-master/)
 {{% /alert %}}
 
-### **تنظیم شفافیت شکل واترمارک**
+### **تنظیم شفافیت شکل Watermark**
 
-به‌صورت پیش‌فرض، شکل مستطیل با رنگ پر و رنگ خط استایل می‌شود. این به این معنی است که وقتی واترمارک اضافه شود، ممکن است پس‌زمینه یا مرزی جامد داشته باشد که می‌تواند از محتوای اسلاید حواس‌پرت کند. برای اطمینان از اینکه واترمارک به‌صورت ظریف باقی می‌ماند و با طراحی بصری ارائه تداخل ندارد، می‌توانید شکل را کاملاً شفاف کنید.
+به‌صورت پیش‌فرض، شکل مستطیلی با رنگ پر و رنگ خط استایل می‌شود. این به این معناست که وقتی watermark اضافه می‌شود، ممکن است با پس‌زمینه یا حاشیه‌ای ثابت ظاهر شود که می‌تواند حواس‌پرتی ایجاد کند. برای اطمینان از اینکه watermark به‌صورت دقیق و بدون تداخل با طرح بصری اسلاید باقی بماند، می‌توانید شکل را کاملاً شفاف کنید.
 
-کدهای زیر شکل را با حذف هر دو رنگ پر و مرز شفاف می‌کند:
+خطوط کد زیر با حذف هر دو رنگ پر و خط، شکل را شفاف می‌کند:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
 
-### **تنظیم قلم برای واترمارک متنی**
+### **تنظیم فونت برای Watermark متنی**
 
-قبل از اعمال واترمارک متنی بر اسلاید، مهم است ظاهر آن را سفارشی کنید تا با طراحی کلی هم‌خوانی داشته باشد. می‌توانید نوع و اندازهٔ قلم را تغییر دهید تا واترمارک هم خوانا و هم زیبا باشد. سفارشی‌سازی قلم می‌تواند به تقویت هویت برند یا صرفاً مطابقت با سبک ارائه کمک کند.
+قبل از اعمال watermark متنی به اسلاید، مهم است که ظاهر آن را سفارشی کنید تا با طراحی کلی هماهنگ باشد. می‌توانید نوع و اندازه فونت را تغییر دهید تا watermark هم قابل خواندن باشد و هم از لحاظ زیبایی جذاب باشد. سفارشی‌سازی فونت می‌تواند به تقویت هویت برند یا صرفاً مطابقت با سبک ارائه کمک کند.
 
-قطعه کد زیر نشان می‌دهد چگونه تنظیمات قلم واترمارک را با انتخاب یک قلم لاتین خاص و تنظیم ارتفاع مناسب قلم انجام دهید:
+کد زیر نحوه تنظیم فونت watermark را با انتخاب یک فونت لاتین خاص و تنظیم ارتفاع مناسب نشان می‌دهد:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
 textFormat.FontHeight = 50;
 ```
 
-### **تنظیم رنگ متن واترمارک**
+### **تنظیم رنگ متن Watermark**
 
-پیش از اعمال واترمارک، ضروری است رنگ متن به‌گونه‌ای تنظیم شود که با محتوای اسلاید ترکیب شود بدون اینکه بیش از حد برجسته باشد. تنظیم شفافیت رنگ (آلفا) به‌همراه مؤلفه‌های قرمز، سبز و آبی به شما امکان می‌دهد واترمارکی نیمه‌شفاف و ظریف ایجاد کنید که قابل مشاهده اما کم‌تداخل باشد. این رویکرد تمرکز بر ارائهٔ اصلی را حفظ می‌کند در حالی که همچنان محتوای شما را محافظت می‌کند.
+قبل از اعمال watermark، ضروری است که رنگ متن به‌گونه‌ای تنظیم شود که با محتوای اسلاید ترکیب شود بدون این‌که بر آن غلبه کند. تنظیم شفافیت (آلفا) به همراه مؤلفه‌های قرمز، سبز و آبی به شما امکان می‌دهد watermark نیمه‌شفاف و ظریف ایجاد کنید که قابل مشاهده اما نامرئی باشد. این روش به حفظ تمرکز بر محتوا کمک می‌کند و در عین حال محتوای شما را محافظت می‌نماید.
 
-برای تنظیم رنگ متن واترمارک، از کد زیر استفاده کنید:
+برای تنظیم رنگ متن watermark، از کد زیر استفاده کنید:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
@@ -120,13 +145,21 @@ fillFormat.FillType = FillType.Solid;
 fillFormat.SolidFillColor.Color = Color.FromArgb(alpha, red, green, blue);
 ```
 
-### **مرکزی‌سازی واترمارک متنی**
+### **وسط‌چین کردن Watermark متنی**
 
-مرکز‌گذاری صحیح واترمارک متنی می‌تواند زیبایی کلی ارائه را به‌طور قابل توجهی ارتقا دهد، زیرا واترمارک به‌صورت متقارن نسبت به ابعاد اسلاید قرار می‌گیرد. این کار نه تنها ظاهر حرفه‌ای به اسلایدها می‌بخشد، بلکه اطمینان می‌دهد که واترمارک محتوا اصلی اسلاید را مختل نمی‌کند.
+قرار دادن درست watermark متنی در مرکز می‌تواند زیبایی کلی ارائه را به‌طور قابل توجهی ارتقا دهد، زیرا watermark به‌صورت متقارن در هر ابعاد اسلاید قرار می‌گیرد. این کار نه تنها ظاهر حرفه‌ای به اسلایدها می‌بخشد بلکه از تداخل watermark با محتوای اصلی اسلاید جلوگیری می‌کند.
 
-قطعه کد زیر نشان می‌دهد چگونه موقعیت مرکز اسلاید را محاسبه کرده و واترمارک متنی را مطابق آن قرار دهید:
+کد زیر نحوه محاسبه موقعیت مرکز اسلاید و قرار دادن watermark متنی را نشان می‌دهد:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+string watermarkText = "CONFIDENTIAL";
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 SizeF slideSize = presentation.SlideSize.Size;
 
 float watermarkWidth = 400;
@@ -142,15 +175,21 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 
 تصویر زیر نتیجه نهایی را نشان می‌دهد.
 
-![The text watermark](text_watermark.png)
+![نشان‌گذاری متنی](text_watermark.png)
 
-## **واترمارک تصویری**
+## **Watermark تصویری**
 
-### **افزودن واترمارک تصویری به یک ارائه**
+### **افزودن Watermark تصویری به یک ارائه**
 
-در بسیاری از موارد، واترمارک تصویری می‌تواند عنصر برندینگ منحصربه‌فرد یا جایگزینی بصری جذاب‌تر نسبت به واترمارک متنی ارائه دهد. قبل از افزودن واترمارک، مطمئن شوید که فایل تصویر در دسترس است (مثلاً PNG برای شفافیت). مثال زیر نشان می‌دهد چگونه یک تصویر را از سیستم فایل بارگذاری کنید، به ارائه اضافه کنید و سپس به‌وسیلهٔ ویژگی پر کردن شکل، به‌عنوان واترمارک اعمال کنید.
+در بسیاری از موارد، watermark تصویری می‌تواند عنصر برندینگ منحصر به‌فرد یا گزینه‌ای بصری جذاب‌تر نسبت به watermark متنی فراهم کند. قبل از افزودن watermark، اطمینان حاصل کنید که فایل تصویر در دسترس باشد (مثلاً PNG برای شفافیت). مثال زیر نحوه بارگذاری یک تصویر از سیستم فایل، افزودن آن به ارائه و سپس اعمال به‌عنوان watermark با استفاده از ویژگی‌های پر کردن شکل را نشان می‌دهد.
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
 
@@ -159,12 +198,18 @@ watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 ```
 
-## **قفل کردن واترمارک در برابر ویرایش**
+## **قفل کردن Watermark از ویرایش**
 
-اگر لازم باشد از ویرایش واترمارک جلوگیری کنید، از ویژگی [IAutoShape.ShapeLock](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/properties/shapelock) بر روی شکل استفاده کنید. با این ویژگی می‌توانید از انتخاب، تغییر اندازه، جابه‌جا کردن، گروه‌بندی با عناصر دیگر، قفل متن در برابر ویرایش و موارد بیشتر برای شکل جلوگیری کنید:
+اگر نیاز باشد که از ویرایش watermark جلوگیری کنید، از ویژگی [IAutoShape.ShapeLock](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/properties/shapelock) بر روی شکل استفاده کنید. با این ویژگی می‌توانید شکل را از انتخاب، تغییر اندازه، تغییر مکان، گروه‌بندی با سایر عناصر، قفل کردن متن از ویرایش و موارد دیگر محافظت نمایید:
 
 ```cs
-// قفل کردن شکل واترمارک برای جلوگیری از تغییر.
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+// قفل کردن شکل واترمارک از تغییر.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
 watermarkShape.ShapeLock.TextLocked = true;
@@ -172,44 +217,70 @@ watermarkShape.ShapeLock.PositionLocked = true;
 watermarkShape.ShapeLock.GroupingLocked = true;
 ```
 
-## **آوردن واترمارک به جلو**
+## **بردن Watermark به جلو**
 
-در Aspose.Slides، ترتیب Z اشکال می‌تواند از طریق متد [IShapeCollection.Reorder](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/reorder/#reorder) تنظیم شود. برای انجام این کار، باید این متد را از لیست اسلایدهای ارائه فراخوانی کنید و مرجع شکل و شماره ترتیب آن را به‌عنوان پارامتر به متد بدهید. به این ترتیب می‌توانید شکلی را به جلو یا به عقب اسلاید برسانید. این قابلیت به‌ویژه زمانی مفید است که نیاز داشته باشید واترمارک را جلوی ارائه قرار دهید:
+در Aspose.Slides می‌توانید ترتیب Z اشکال را با متد [IShapeCollection.Reorder](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/reorder/#reorder) تنظیم کنید. برای این کار، باید این متد را از لیست اسلایدهای ارائه فراخوانی کنید و مرجع شکل و شماره ترتیب آن را به‌عنوان پارامتر به متد بدهید. به این ترتیب می‌توانید یک شکل را به جلو یا به عقب اسلاید برورید. این ویژگی به‌ویژه زمانی مفید است که بخواهید watermark را در جلوی ارائه قرار دهید:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
 
-## **تنظیم چرخش واترمارک**
+## **تنظیم چرخش Watermark**
 
-تنظیم چرخش واترمارک می‌تواند تأثیر بصری و ظرافت ارائه را به‌طور قابل ملاحظه‌ای بهبود بخشد. به‌عنوان مثال، واترمارک قطری می‌تواند کم‌تداخل‌تر باشد و همچنان محافظت قوی در برابر استفادهٔ غیرمجاز ارائه دهد. مثال زیر زاویه مناسب را بر اساس ابعاد اسلاید محاسبه می‌کند تا واترمارک به‌صورت قطری در سراسر اسلاید قرار گیرد. این محاسبهٔ پویا اطمینان می‌دهد که واترمارک بدون توجه به اندازه‌های متفاوت اسلاید مؤثر بماند.
+تنظیم چرخش watermark می‌تواند تأثیر بصری و ظرافت ارائه را به‌طور قابل توجهی افزایش دهد. یک watermark قطری، به‌عنوان مثال، می‌تواند کم‌حجمت‌تر باشد در حالی که همچنان حفاظت قوی در برابر استفاده غیرمجاز فراهم می‌کند. مثال زیر زاویه مناسب را بر اساس ابعاد اسلاید محاسبه می‌کند تا watermark به‌صورت قطری در اسلاید قرار گیرد. این محاسبه پویا تضمین می‌کند که watermark صرف‌نظر از اندازه‌های مختلف اسلاید مؤثر بماند.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+SizeF slideSize = presentation.SlideSize.Size;
+
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
 ```
 
-## **تنظیم نام برای واترمارک**
+## **تعیین نام برای Watermark**
 
-Aspose.Slides امکان تنظیم نام برای یک شکل را فراهم می‌کند. با استفاده از نام شکل، می‌توانید در آینده به آن دسترسی پیدا کنید تا آن را تغییر یا حذف کنید. برای تنظیم نام شکل واترمارک، مقدار آن را به ویژگی [IAutoShape.Name](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/properties/name) اختصاص دهید:
+Aspose.Slides به شما امکان می‌دهد نام یک شکل را تنظیم کنید. با استفاده از نام شکل می‌توانید در آینده به آن دسترسی پیدا کنید تا آن را اصلاح یا حذف کنید. برای تنظیم نام شکل watermark، مقدار آن را به ویژگی [IAutoShape.Name](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/properties/name) اختصاص دهید:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.Name = "watermark";
 ```
 
-## **حذف واترمارک**
+## **حذف Watermark**
 
-برای حذف شکل واترمارک، از ویژگی [IAutoShape.Name](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/properties/name) برای پیدا کردن آن در اشکال اسلاید استفاده کنید. سپس شکل واترمارک را به متد [IShapeCollection.Remove](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/remove/) پاس دهید:
+برای حذف شکل watermark، از ویژگی [IAutoShape.Name](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/properties/name) استفاده کنید تا آن را در اشکال اسلاید پیدا کنید. سپس شکل watermark را به متد [IShapeCollection.Remove](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/remove/) پاس بدهید:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
     if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
-        slide.Shapes.Remove(watermarkShape);
+        slide.Shapes.Remove(shape);
     }
 }
 ```
@@ -218,30 +289,30 @@ foreach (IShape shape in slideShapes)
 
 ممکن است بخواهید ابزارهای آنلاین **Aspose.Slides free** [Add Watermark](https://products.aspose.app/slides/fa/watermark) و [Remove Watermark](https://products.aspose.app/slides/fa/watermark/remove-watermark) را بررسی کنید.
 
-![Online tools to add and remove watermarks](online_tools.png)
+![ابزارهای آنلاین برای افزودن و حذف watermarkها](online_tools.png)
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**واترمارک چیست و چرا باید از آن استفاده کنم؟**
+### watermark چیست و چرا باید از آن استفاده کنم؟
 
-یک واترمارک، پوشش متنی یا تصویری‌ای است که بر روی اسلایدها اعمال می‌شود و به محافظت از مالکیت فکری، تقویت شناخت برند یا جلوگیری از استفاده غیرمجاز از ارائه‌ها کمک می‌کند.
+watermark یک متن یا تصویر پوششی است که بر اسلایدها اعمال می‌شود و به محافظت از مالکیت فکری، افزایش شناسایی برند یا جلوگیری از استفاده غیرمجاز از ارائه‌ها کمک می‌کند.
 
-**آیا می‌توانم واترمارک را به همه اسلایدهای یک ارائه اضافه کنم؟**
+### آیا می‌توانم watermark را به تمام اسلایدهای یک ارائه اضافه کنم؟
 
- بله، Aspose.Slides امکان افزودن برنامه‌نویسی شدهٔ واترمارک به هر اسلاید از یک ارائه را فراهم می‌کند. می‌توانید بر روی تمام اسلایدها پیمایش کنید و تنظیمات واترمارک را به‌صورت جداگانه اعمال کنید.
+بله، Aspose.Slides به شما اجازه می‌دهد که برنامه‌نویسی watermark را به هر اسلایدی از یک ارائه اضافه کنید. می‌توانید به تمام اسلایدها پیمایش کنید و تنظیمات watermark را به‌صورت جداگانه اعمال کنید.
 
-**چگونه می‌توانم شفافیت واترمارک را تنظیم کنم؟**
+### چگونه می‌توانم شفافیت watermark را تنظیم کنم؟
 
-می‌توانید شفافیت واترمارک را با تغییر تنظیمات پر ([FillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/shape/fillformat/)) شکل تنظیم کنید. این کار اطمینان می‌دهد که واترمارک به‌صورت ظریف باقی می‌ماند و از محتوای اسلاید حواس‌پرت نمی‌شود.
+می‌توانید شفافیت watermark را با تغییر تنظیمات پر (FillFormat) شکل تنظیم کنید. این کار اطمینان می‌دهد که watermark نامحسوس باشد و حواس‌پرتی ایجاد نکند.
 
-**چه قالب‌های تصویری برای واترمارک پشتیبانی می‌شود؟**
+### چه قالب‌های تصویری برای watermark پشتیبانی می‌شوند؟
 
-Aspose.Slides قالب‌های تصویری متنوعی مانند PNG، JPEG، GIF، BMP، SVG و موارد دیگر را پشتیبانی می‌کند.
+Aspose.Slides قالب‌های تصویری مختلفی مانند PNG، JPEG، GIF، BMP، SVG و غیره را پشتیبانی می‌کند.
 
-**آیا می‌توانم قلم و سبک واترمارک متنی را سفارشی کنم؟**
+### آیا می‌توانم فونت و سبک watermark متنی را سفارشی کنم؟
 
-بله، می‌توانید هر قلم، اندازه و سبکی را انتخاب کنید تا با طراحی ارائه‌تان مطابقت داشته باشد و سازگاری برند را حفظ کنید.
+بله، می‌توانید هر فونت، اندازه و سبکی را انتخاب کنید تا با طراحی ارائه شما هم‌خوانی داشته باشد و سازگاری برند را حفظ کنید.
 
-**چگونه می‌توانم موقعیت یا جهت‌گیری واترمارک را تغییر دهم؟**
+### چگونه موقعیت یا جهت‌گیری watermark را تغییر دهم؟
 
-می‌توانید موقعیت و جهت‌گیری واترمارک را برنامه‌نویسی با تغییر مختصات، اندازه و ویژگی‌های چرخش شکل تنظیم کنید.
+می‌توانید موقعیت و جهت‌گیری watermark را برنامه‌نویسی با تغییر مختصات، اندازه و ویژگی‌های چرخش شکل تنظیم کنید.

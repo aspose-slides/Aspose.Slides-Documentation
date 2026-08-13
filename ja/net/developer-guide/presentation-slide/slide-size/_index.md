@@ -19,7 +19,7 @@ keywords:
 - フルサイズスライド
 - 画面タイプ
 - スケールしない
-- フィットを確保
+- フィットを保証
 - 最大化
 - PowerPoint
 - OpenDocument
@@ -27,28 +27,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドをすばやくリサイズする方法を学び、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化します。"
+description: ".NET と Aspose.Slides を使用して PPT、PPTX、ODP ファイルのスライドを素早くリサイズする方法を学び、品質を損なうことなく任意の画面向けにプレゼンテーションを最適化します。"
 ---
+## **はじめに**
 
-## **プレゼンテーションのスライドサイズとアスペクト比のカスタマイズ**
+Aspose.Slides for .NET は、PowerPoint プレゼンテーションのスライドサイズとアスペクト比を調整するための包括的なツールを提供し、印刷と画面表示の両方において重要です。
 
-Aspose.Slides for .NET は、印刷と画面表示の両方に重要な PowerPoint プレゼンテーションのスライドサイズとアスペクト比を調整するための包括的なツールを提供します。
-
-### **一般的なスライドサイズと比率**
+一般的なスライドサイズと比率:
 
 - **Standard (4:3 アスペクト比)**: 古い画面やデバイスに最適です。
-- **Widescreen (16:9 アスペクト比)**: 現代のプロジェクターやディスプレイに推奨されます。
+- **Widescreen (16:9 アスペクト比)**: 最新のプロジェクターやディスプレイに推奨されます。
 
-プレゼンテーション全体で一貫性を保つために、スライドサイズとアスペクト比はすべてのスライドに対して共通です。最適な結果を得るには、プレゼンテーション作成プロセスの初期段階でスライドの寸法を設定し、後からのトラブルを防ぎましょう。
+プレゼンテーション全体で一貫性を保つために、すべてのスライドは単一のスライドサイズとアスペクト比が適用されます。最適な結果を得るには、プレゼンテーションの作成プロセスの最初にスライドの寸法を設定し、問題を防ぎましょう。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 デフォルトでは、Aspose.Slides で作成されたプレゼンテーションは標準の 4:3 アスペクト比を使用します。
 {{% /alert %}}
 
-## **プレゼンテーションでスライドサイズを変更する方法**
+## **プレゼンテーションでのスライドサイズの変更方法**
 
-この例では、C# で Aspose.Slides を使用してプレゼンテーションのスライドサイズを変更する方法を示します:
+この例では、C# で Aspose.Slides を使用してプレゼンテーションのスライドサイズを変更する方法を示します。
+
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 {
     pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
@@ -56,11 +59,14 @@ using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 }
 ```
 
-
 ## **カスタムスライドサイズの指定**
 
-独自の紙のレイアウトや画面仕様に合わせてスライドサイズを調整すると便利です。以下は Aspose.Slides for .NET でカスタムスライドサイズを設定する方法です:
+固有の紙のレイアウトや画面仕様など、特定のニーズに合わせてスライドサイズを調整すると便利です。以下は、Aspose.Slides for .NET でカスタムスライドサイズを設定する方法です。
+
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 用紙サイズ
@@ -68,38 +74,39 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
+## **リサイズ後のスライドコンテンツの取り扱い**
 
-## **サイズ変更後のスライドコンテンツの扱い**
+リサイズ後、スライドのコンテンツが歪むことがあります。Aspose.Slides がこのリサイズをどのように処理するかを制御できます。
 
-サイズ変更後、スライドのコンテンツが歪むことがあります。Aspose.Slides がこのリサイズをどのように処理するかを制御できます:
-
-- **`DoNotScale`**: オブジェクトを元のサイズのまま保持し、拡大縮小を防止します。
-- **`EnsureFit`**: 小さなスライドに収まるようオブジェクトを縮小し、コンテンツの欠落を防ぎます。
-- **`Maximize`**: 大きなスライドに合わせてオブジェクトを拡大し、視覚的一貫性を保ちます。
+- **`DoNotScale`**: オブジェクトを元のサイズのままにし、拡大縮小を回避します。
+- **`EnsureFit`**: オブジェクトを小さいスライドに合わせてスケーリングし、コンテンツの欠落を防ぎます。
+- **`Maximize`**: 大きいスライドに合わせてオブジェクトを拡大し、見た目の一貫性を保ちます。
 
 `Maximize` 設定を使用したスライドサイズ調整の例:
+
 ```csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
    pres.SlideSize.SetSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
 }
 ```
 
+## **よくある質問**
 
-## **FAQ**
+### インインチ以外の単位（例えばポイントやミリメートル）でカスタムスライドサイズを設定できますか？
 
-**カスタムスライドサイズをインチ以外の単位（ポイントやミリメートルなど）で設定できますか？**
+はい。Aspose.Slides は内部でポイントを使用しており、1 ポイントは 1/72 インインチに相当します。ミリメートルやセンチメートルなど任意の単位をポイントに変換し、その変換値でスライドの幅と高さを指定できます。
 
-はい。Aspose.Slides は内部でポイントを使用しており、1 ポイントは 1/72 インチに相当します。ミリメートルやセンチメートルなど任意の単位をポイントに変換し、その値でスライドの幅と高さを指定できます。
+### 非常に大きなカスタムスライドサイズは、レンダリング時のパフォーマンスやメモリ使用量に影響しますか？
 
-**非常に大きなカスタムスライドサイズは、レンダリング時のパフォーマンスやメモリ使用量に影響しますか？**
+はい。スライドの寸法が大きく（ポイント単位）なると、レンダリングスケールが高くなることでメモリ使用量が増加し、処理時間も長くなります。実用的なスライドサイズを目指し、必要に応じてレンダリングスケールだけを調整して目的の出力品質を得てください。
 
-はい。ポイント単位のスライドサイズが大きくなるほど、レンダリングスケールが高くなるため、メモリ消費が増加し、処理時間も長くなります。実用的なスライドサイズを目指し、必要な出力品質を得るためにレンダリングスケールだけを調整してください。
+### 標準外のスライドサイズを定義し、異なるサイズのプレゼンテーションからスライドをマージできますか？
 
-**標準外のスライドサイズを1つ定義し、サイズが異なるプレゼンテーションからスライドをマージできますか？**
+異なるスライドサイズのままでは [merge presentations](/slides/ja/net/merge-presentation/) はできません。まず、片方のプレゼンテーションのサイズを他方に合わせてリサイズします。スライドサイズを変更する際、既存のコンテンツの処理方法は [SlideSizeScaleType](https://reference.aspose.com/slides/ja/net/aspose.slides/slidesizescaletype/) オプションで選択できます。サイズを揃えた後、書式を保持したままスライドをマージできます。
 
-サイズが異なるプレゼンテーションは[プレゼンテーションの結合](/slides/ja/net/merge-presentation/)できません。まず、1つのプレゼンテーションをもう一方のサイズに合わせてリサイズする必要があります。スライドサイズを変更する際は、[SlideSizeScaleType](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) オプションで既存コンテンツの処理方法を選択できます。サイズを揃えた後は、書式を保持したままスライドをマージできます。
+### スライドの個々のシェイプや特定領域のサムネイルを生成できますか？また、それらは新しいスライドサイズを考慮しますか？
 
-**個々のシェイプやスライドの特定領域のサムネイルを生成できますか？また、それらは新しいスライドサイズを考慮しますか？**
-
-はい。Aspose.Slides は[スライド全体]https://reference.aspose.com/slides/net/aspose.slides/slide/getimage/ のサムネイルだけでなく、[選択したシェイプ]https://reference.aspose.com/slides/net/aspose.slides/shape/getimage/ のサムネイルも生成できます。生成された画像は現在のスライドサイズとアスペクト比を反映し、フレーミングとジオメトリの一貫性を保ちます。
+はい。Aspose.Slides は [entire slides](https://reference.aspose.com/slides/ja/net/aspose.slides/slide/getimage/) と [selected shapes](https://reference.aspose.com/slides/ja/net/aspose.slides/shape/getimage/) のサムネイルをレンダリングできます。生成された画像は現在のスライドサイズとアスペクト比を反映し、一貫した構図とジオメトリを保ちます。

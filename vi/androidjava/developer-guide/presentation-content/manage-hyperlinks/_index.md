@@ -1,50 +1,54 @@
 ---
-title: Quản lý Siêu liên kết trong Bản trình bày trên Android
+title: Quản lý liên kết siêu văn bản trong bản trình bày trên Android
 linktitle: Quản lý Siêu liên kết
 type: docs
 weight: 20
 url: /vi/androidjava/manage-hyperlinks/
 keywords:
 - Thêm URL
-- Thêm siêu liên kết
-- Tạo siêu liên kết
-- Định dạng siêu liên kết
-- Xóa siêu liên kết
-- Cập nhật siêu liên kết
-- Siêu liên kết văn bản
-- Siêu liên kết slide
-- Siêu liên kết hình dạng
-- Siêu liên kết hình ảnh
-- Siêu liên kết video
-- Siêu liên kết có thể thay đổi
+- Thêm liên kết
+- Tạo liên kết
+- Định dạng liên kết
+- Xóa liên kết
+- Cập nhật liên kết
+- Liên kết văn bản
+- Liên kết slide
+- Liên kết hình dạng
+- Liên kết hình ảnh
+- Liên kết video
+- Liên kết có thể thay đổi
 - PowerPoint
 - OpenDocument
 - Bản trình bày
 - Android
 - Java
 - Aspose.Slides
-description: "Quản lý siêu liên kết trong các bản trình bày PowerPoint và OpenDocument một cách dễ dàng với Aspose.Slides cho Android thông qua Java—tăng cường tương tác và quy trình làm việc trong vài phút."
+description: "Quản lý liên kết siêu văn bản trong các bản trình bày PowerPoint và OpenDocument một cách dễ dàng với Aspose.Slides cho Android thông qua Java—tăng cường tính tương tác và quy trình công việc trong vài phút."
 ---
 ## **Giới thiệu**
 
-Liên kết siêu văn bản là một tham chiếu tới một đối tượng, dữ liệu hoặc một vị trí nào đó. Đây là các liên kết siêu văn bản phổ biến trong bản trình bày PowerPoint:
+Liên kết siêu văn bản là một tham chiếu tới một đối tượng, dữ liệu hoặc một vị trí trong một tài liệu. Đây là các liên kết siêu văn bản phổ biến trong các bản trình bày PowerPoint:
 
 * Liên kết tới các trang web trong văn bản, hình dạng hoặc phương tiện
 * Liên kết tới các slide
 
-Aspose.Slides cho Android thông qua Java cho phép bạn thực hiện nhiều tác vụ liên quan đến siêu liên kết trong bản trình bày.
+Aspose.Slides cho Android thông qua Java cho phép bạn thực hiện nhiều tác vụ liên quan đến liên kết siêu văn bản trong bản trình bày.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
+
 Bạn có thể muốn khám phá Aspose đơn giản, [trình chỉnh sửa PowerPoint trực tuyến miễn phí.](https://products.aspose.app/slides/vi/editor)
+
 {{% /alert %}} 
 
-## **Thêm Siêu liên kết URL**
+## **Thêm Liên Kết URL**
 
-### **Thêm Siêu liên kết URL vào Văn bản**
+### **Thêm Liên Kết URL vào Văn Bản**
 
-Mã Java này cho bạn thấy cách thêm một siêu liên kết trang web vào văn bản:
+Đoạn mã Java này cho bạn thấy cách thêm một liên kết siêu văn bản tới một website vào văn bản:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -61,11 +65,13 @@ try {
 }
 ```
 
-### **Thêm Siêu liên kết URL vào Hình dạng hoặc Khung**
+### **Thêm Liên Kết URL vào Hình Dạng hoặc Khung**
 
-Mã mẫu này bằng Java cho bạn thấy cách thêm một siêu liên kết trang web vào một hình dạng:
+Đoạn mã mẫu trong Java này cho bạn thấy cách thêm một liên kết siêu văn bản tới một hình dạng:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -79,39 +85,45 @@ try {
 }
 ```
 
-### **Thêm Siêu liên kết URL vào Phương tiện**
+### **Thêm Liên Kết URL vào Phương Tiện**
 
-Aspose.Slides cho phép bạn thêm siêu liên kết vào các tệp hình ảnh, âm thanh và video.
+Aspose.Slides cho phép bạn thêm liên kết siêu văn bản vào hình ảnh, tệp âm thanh và video.
 
-Mã mẫu này cho bạn thấy cách thêm một siêu liên kết vào **hình ảnh**:
+Đoạn mã mẫu này cho bạn thấy cách thêm một liên kết siêu văn bản vào **hình ảnh**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	// Thêm hình ảnh vào bản trình bày
+	// Thêm ảnh vào bản trình bày
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// Tạo khung hình ảnh trên slide 1 dựa trên hình ảnh đã thêm trước đó
+	// Tạo khung hình ảnh trên slide 1 dựa trên ảnh đã thêm trước đó
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Mã mẫu này cho bạn thấy cách thêm một siêu liên kết vào **tập tin âm thanh**:
+Đoạn mã mẫu này cho bạn thấy cách thêm một liên kết siêu văn bản vào **tệp âm thanh**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -127,9 +139,14 @@ try {
 }
 ```
 
-Mã mẫu này cho bạn thấy cách thêm một siêu liên kết vào **video**:
+Đoạn mã mẫu này cho bạn thấy cách thêm một liên kết siêu văn bản vào **video**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -145,17 +162,22 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-Bạn có thể muốn xem *[Quản lý OLE](/slides/vi/androidjava/manage-ole/)*.
+{{%  alert  title="Tip"  color="info"  %}} 
+
+Bạn có thể muốn xem *[Quản Lý OLE](/slides/vi/androidjava/manage-ole/)*.
+
 {{% /alert %}}
 
-## **Sử dụng Siêu liên kết để Tạo Mục lục**
+## **Sử Dụng Liên Kết Để Tạo Mục Lục**
 
-Vì siêu liên kết cho phép bạn thêm các tham chiếu tới các đối tượng hoặc vị trí, bạn có thể sử dụng chúng để tạo mục lục.
+Vì liên kết siêu văn bản cho phép bạn thêm tham chiếu tới các đối tượng hoặc vị trí, bạn có thể sử dụng chúng để tạo mục lục.
 
-Mã mẫu này cho bạn thấy cách tạo mục lục với các siêu liên kết:
+Đoạn mã mẫu này cho bạn thấy cách tạo mục lục với các liên kết siêu văn bản:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -184,15 +206,18 @@ try {
 }
 ```
 
-## **Định dạng Siêu liên kết**
+## **Định Dạng Liên Kết**
 
 ### **Màu**
 
-Với thuộc tính [ColorSource](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) trong giao diện [IHyperlink](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlink), bạn có thể đặt màu cho siêu liên kết và cũng có thể lấy thông tin màu từ siêu liên kết. Tính năng này lần đầu được giới thiệu trong PowerPoint 2019, do đó các thay đổi liên quan đến thuộc tính này không áp dụng cho các phiên bản PowerPoint cũ hơn.
+Với thuộc tính [ColorSource](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) trong giao diện [IHyperlink](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlink), bạn có thể đặt màu cho các liên kết siêu văn bản và cũng có thể lấy thông tin màu từ các liên kết. Tính năng này lần đầu được giới thiệu trong PowerPoint 2019, vì vậy các thay đổi liên quan đến thuộc tính này không áp dụng cho các phiên bản PowerPoint cũ hơn.
 
-Mã mẫu này minh họa một thao tác mà các siêu liên kết với màu khác nhau được thêm vào cùng một slide:
+Đoạn mã mẫu này minh họa một thao tác mà các liên kết siêu văn bản với màu sắc khác nhau đã được thêm vào cùng một slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -213,21 +238,23 @@ try {
 }
 ```
 
-## **Xóa Siêu liên kết khỏi Bản trình bày**
+## **Xóa Liên Kết Khỏi Bản Trình Bày**
 
-### **Xóa Siêu liên kết khỏi Văn bản**
+### **Xóa Liên Kết Khỏi Văn Bản**
 
-Mã Java này cho bạn thấy cách xóa siêu liên kết khỏi văn bản trong một slide bản trình bày:
+Đoạn mã Java này cho bạn thấy cách xóa liên kết siêu văn bản khỏi văn bản trong một slide của bản trình bày:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -244,12 +271,14 @@ try {
 }
 ```
 
-### **Xóa Siêu liên kết khỏi Hình dạng hoặc Khung**
+### **Xóa Liên Kết Khỏi Hình Dạng hoặc Khung**
 
-Mã Java này cho bạn thấy cách xóa siêu liên kết khỏi một hình dạng trong slide bản trình bày:
+Đoạn mã Java này cho bạn thấy cách xóa liên kết siêu văn bản khỏi một hình dạng trong slide của bản trình bày: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -262,9 +291,9 @@ try {
 }
 ```
 
-## **Siêu liên kết Có Thể Thay Đổi**
+## **Liên Kết Siêu Văn Bản Có Thể Thay Đổi**
 
-Lớp [Hyperlink](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Hyperlink) là có thể thay đổi. Với lớp này, bạn có thể thay đổi các giá trị của các thuộc tính sau:
+Class [Hyperlink](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Hyperlink) là có thể thay đổi. Với lớp này, bạn có thể thay đổi các giá trị cho các thuộc tính sau:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -272,9 +301,11 @@ Lớp [Hyperlink](https://reference.aspose.com/slides/vi/androidjava/com.aspose.
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Đoạn mã này cho bạn thấy cách thêm một siêu liên kết vào slide và chỉnh sửa tooltip sau này:
+Đoạn mã minh họa cho bạn cách thêm một liên kết siêu văn bản vào slide và chỉnh sửa tooltip của nó sau này:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -285,37 +316,40 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Thay đổi tooltip của hyperlink đã được thêm
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **Các Thuộc tính Hỗ trợ trong IHyperlinkQueries**
+## **Các Thuộc Tính Hỗ Trợ trong IHyperlinkQueries**
 
-Bạn có thể truy cập [IHyperlinkQueries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries) từ một bản trình bày, slide hoặc văn bản mà siêu liên kết được định nghĩa.
+Bạn có thể truy cập [IHyperlinkQueries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries) từ một bản trình bày, slide hoặc văn bản mà liên kết siêu văn bản được định nghĩa.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-Lớp [IHyperlinkQueries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries) hỗ trợ các phương thức và thuộc tính sau:
+Class [IHyperlinkQueries](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries) hỗ trợ các phương thức và thuộc tính sau:
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Làm thế nào tôi có thể tạo điều hướng nội bộ không chỉ tới một slide, mà còn tới một "section" hoặc slide đầu tiên của một section?**
+### Làm thế nào tôi có thể tạo điều hướng nội bộ không chỉ tới một slide, mà còn tới một "phần" hoặc slide đầu tiên của một phần?
 
-Các section trong PowerPoint là các nhóm slide; điều hướng về mặt kỹ thuật nhắm tới một slide cụ thể. Để "đi tới một section", thường bạn sẽ liên kết tới slide đầu tiên của section đó.
+Các phần trong PowerPoint là nhóm các slide; điều hướng về mặt kỹ thuật hướng tới một slide cụ thể. Để "điều hướng tới một phần", bạn thường liên kết tới slide đầu tiên của phần đó.
 
-**Tôi có thể gắn siêu liên kết vào các yếu tố của master slide để nó hoạt động trên tất cả các slide không?**
+### Tôi có thể gắn liên kết siêu văn bản vào các phần tử master slide để nó hoạt động trên tất cả các slide không?
 
-Có. Các yếu tố của master slide và layout hỗ trợ siêu liên kết. Những liên kết này sẽ xuất hiện trên các slide con và có thể nhấp được trong quá trình trình chiếu.
+Có. Các phần tử master slide và layout hỗ trợ liên kết siêu văn bản. Những liên kết này xuất hiện trên các slide con và có thể nhấp trong khi trình chiếu.
 
-**Liệu các siêu liên kết có được giữ lại khi xuất sang PDF, HTML, hình ảnh hoặc video không?**
+### Liên kết siêu văn bản có được giữ lại khi xuất ra PDF, HTML, hình ảnh hoặc video không?
 
-Trong [PDF](/slides/vi/androidjava/convert-powerpoint-to-pdf/) và [HTML](/slides/vi/androidjava/convert-powerpoint-to-html/), có — các liên kết thường được giữ lại. Khi xuất sang [hình ảnh](/slides/vi/androidjava/convert-powerpoint-to-png/) và [video](/slides/vi/androidjava/convert-powerpoint-to-video/), khả năng nhấp sẽ không được chuyển tiếp vì đặc tính của các định dạng đó (khung raster/video không hỗ trợ siêu liên kết).
+Trong [PDF](/slides/vi/androidjava/convert-powerpoint-to-pdf/) và [HTML](/slides/vi/androidjava/convert-powerpoint-to-html/), có—liên kết thường được giữ lại. Khi xuất ra [hình ảnh](/slides/vi/androidjava/convert-powerpoint-to-png/) và [video](/slides/vi/androidjava/convert-powerpoint-to-video/), tính năng nhấp không được chuyển sang vì bản chất của các định dạng đó (khung raster/video không hỗ trợ liên kết siêu văn bản).

@@ -1,17 +1,17 @@
 ---
-title: تحويل عروض PowerPoint إلى TIFF مع الملاحظات على Android
-linktitle: PowerPoint إلى TIFF مع الملاحظات
+title: تحويل عروض PowerPoint إلى TIFF مع ملاحظات على Android
+linktitle: PowerPoint إلى TIFF مع ملاحظات
 type: docs
 weight: 100
 url: /ar/androidjava/convert-powerpoint-to-tiff-with-notes/
 keywords:
 - تحويل PowerPoint
-- تحويل العرض التقديمي
+- تحويل العرض
 - تحويل الشريحة
 - تحويل PPT
 - تحويل PPTX
 - PowerPoint إلى TIFF
-- العرض التقديمي إلى TIFF
+- العرض إلى TIFF
 - الشريحة إلى TIFF
 - PPT إلى TIFF
 - PPTX إلى TIFF
@@ -19,37 +19,39 @@ keywords:
 - حفظ PPTX كـ TIFF
 - تصدير PPT إلى TIFF
 - تصدير PPTX إلى TIFF
-- PowerPoint مع الملاحظات
-- العرض التقديمي مع الملاحظات
-- الشريحة مع الملاحظات
-- PPT مع الملاحظات
-- PPTX مع الملاحظات
-- TIFF مع الملاحظات
+- PowerPoint مع ملاحظات
+- العرض مع ملاحظات
+- الشريحة مع ملاحظات
+- PPT مع ملاحظات
+- PPTX مع ملاحظات
+- TIFF مع ملاحظات
 - Android
 - Java
 - Aspose.Slides
-description: "تحويل عروض PowerPoint إلى TIFF مع الملاحظات باستخدام Aspose.Slides لأندرويد عبر جافا. تعلّم كيفية تصدير الشرائح مع ملاحظات المتحدث بفعالية."
+description: "تحويل عروض PowerPoint إلى TIFF مع ملاحظات باستخدام Aspose.Slides للأندرويد عبر Java. تعلم كيفية تصدير الشرائح مع ملاحظات المتحدث بكفاءة."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
-
-توفر Aspose.Slides لأندرويد عبر جافا حلاً بسيطًا لتحويل عروض PowerPoint وOpenDocument (PPT وPPTX وODP) مع الملاحظات إلى تنسيق TIFF. يُستخدم هذا التنسيق على نطاق واسع لتخزين الصور عالية الجودة والطباعة وأرشفة المستندات. باستخدام Aspose.Slides، يمكنك ليس فقط تصدير العروض الكاملة مع ملاحظات المتحدث بل أيضًا إنشاء صور مصغرة للشرائح في وضع ملاحظات الشريحة. عملية التحويل بسيطة وفعّالة، وتستفيد من طريقة `save` الخاصة بفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) لتحويل العرض بالكامل إلى سلسلة من صور TIFF مع الحفاظ على الملاحظات والتخطيط.
+Aspose.Slides for Android via Java يوفر حلًا بسيطًا لتحويل عروض PowerPoint وOpenDocument (PPT وPPTX وODP) مع الملاحظات إلى تنسيق TIFF. يُستخدم هذا التنسيق على نطاق واسع لتخزين الصور عالية الجودة، والطباعة، وأرشفة المستندات. مع Aspose.Slides، يمكنك ليس فقط تصدير العروض بالكامل مع ملاحظات المتحدث ولكن أيضًا إنشاء صور مصغرة للشرائح في عرض ملاحظات الشريحة. عملية التحويل بسيطة وفعّالة، حيث يتم استخدام طريقة `save` من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) لتحويل العرض بالكامل إلى سلسلة من صور TIFF مع الحفاظ على الملاحظات والتخطيط.
 
 ## **تحويل عرض تقديمي إلى TIFF مع الملاحظات**
 
-يتضمن حفظ عرض PowerPoint أو OpenDocument إلى TIFF مع الملاحظات باستخدام Aspose.Slides لأندرويد عبر جافا الخطوات التالية:
+حفظ عرض PowerPoint أو OpenDocument إلى TIFF مع الملاحظات باستخدام Aspose.Slides for Android via Java يتضمن الخطوات التالية:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) : تحميل ملف PowerPoint أو OpenDocument.
-1. تهيئة خيارات تخطيط المخرجات: استخدم فئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) لتحديد كيفية عرض الملاحظات والتعليقات.
-1. حفظ العرض بصيغة TIFF: مرّر الخيارات المهيأة إلى طريقة [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) .
+1. إنشاء كائن فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/): تحميل ملف PowerPoint أو OpenDocument.  
+1. ضبط خيارات تخطيط الإخراج: استخدم فئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/notescommentslayoutingoptions/) لتحديد كيفية عرض الملاحظات والتعليقات.  
+1. حفظ العرض بتنسيق TIFF: مرّر الخيارات المضبوطة إلى طريقة [save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) .
 
 لنفترض أن لدينا ملف "speaker_notes.pptx" يحتوي على الشريحة التالية:
 
-![شريحة العرض مع ملاحظات المتحدث](slide_with_notes.png)
+![الشريحة مع ملاحظات المتحدث](slide_with_notes.png)
 
-القطعة البرمجية أدناه توضح كيفية تحويل العرض إلى صورة TIFF في وضع ملاحظة الشريحة باستخدام طريقة [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) .
+المقتطف البرمجي أدناه يوضح طريقة تحويل العرض إلى صورة TIFF في عرض ملاحظات الشريحة باستخدام طريقة [setSlidesLayoutOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) .
+
 ```java
-// إنشاء كائن من الفئة Presentation التي تمثل ملف عرض تقديمي.
+import com.aspose.slides.*;
+
+// إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
@@ -61,32 +63,31 @@ try {
     tiffOptions.setDpiY(300);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // حفظ العرض التقديمي كملف TIFF مع ملاحظات المتحدث.
+    // حفظ العرض بتنسيق TIFF مع ملاحظات المتحدث.
     presentation.save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 النتيجة:
 
 ![صورة TIFF مع ملاحظات المتحدث](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-تحقق من Aspose [محول PowerPoint مجاني إلى ملصق](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+تحقق من أداة Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/ar/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني التحكم في موضع منطقة الملاحظات في ملف TIFF الناتج؟**
+### هل يمكنني التحكم في موضع منطقة الملاحظات في ملف TIFF الناتج؟
 
-نعم. استخدم [notes layout settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) لاختيار أحد الخيارات مثل `None` أو `BottomTruncated` أو `BottomFull`، والتي على التوالي تخفي الملاحظات أو تُلائمها في صفحة واحدة أو تسمح لها بالانتقال إلى صفحات إضافية.
+نعم. استخدم [إعدادات تخطيط الملاحظات](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) لاختيار أحد الخيارات مثل `None` أو `BottomTruncated` أو `BottomFull`، والتي على التوالي تخفي الملاحظات أو تُلائمها في صفحة واحدة أو تسمح لها بالانتقال إلى صفحات إضافية.
 
-**كيف يمكنني تقليل حجم ملف TIFF مع الملاحظات دون فقدان ملحوظ في الجودة؟**
+### كيف يمكنني تقليل حجم ملف TIFF مع الملاحظات دون فقدان ملحوظ في الجودة؟
 
-اختر [efficient compression](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (مثلاً `LZW` أو `RLE`)، حدد DPI معقول، وإذا كان مقبولًا، استخدم [pixel format](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) أقل (مثل 8 bpp أو 1 bpp للصور أحادية اللون). يمكن أيضًا تقليل أبعاد الصورة [image dimensions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) قليلاً دون أن يؤثر ذلك بشكل ملحوظ على قابلية القراءة.
+اختر ضغطًا فعالًا عبر [efficient compression](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (مثل `LZW` أو `RLE`)، واضبط DPI مناسب، وإذا كان مقبولًا، استخدم تنسيق بكسل أقل مثل 8 بت أو 1 بت للصور أحادية اللون. يمكن أيضًا تقليل أبعاد الصورة قليلًا عبر [image dimensions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) دون الإضرار الواضح بقراءة المحتوى.
 
-**هل يؤثر الخط في الملاحظات على النتيجة إذا كانت الخطوط الأصلية غير موجودة في النظام؟**
+### هل يؤثر الخط في الملاحظات على النتيجة إذا كانت الخطوط الأصلية غير موجودة على النظام؟
 
-نعم. يؤدي عدم توفر الخطوط الأصلية إلى استدعاء [substitution](/slides/ar/androidjava/font-selection-sequence/)، مما قد يغيّر مقاييس النص ومظهره. لتجنّب ذلك، [supply the required fonts](/slides/ar/androidjava/custom-font/) أو عيّن [fallback font](/slides/ar/androidjava/fallback-font/) افتراضيًا لضمان استخدام الخطوط المطلوبة.
+نعم. الخطوط المفقودة تُفعل [substitution](/slides/ar/androidjava/font-selection-sequence/)، مما قد يغيّر مقاييس النص ومظهره. لتجنب ذلك، [قم بتوفير الخطوط المطلوبة](/slides/ar/androidjava/custom-font/) أو اضبط خطًا احتياطيًا افتراضيًا عبر [fallback font](/slides/ar/androidjava/fallback-font/) لتستخدم الخطوط المقصودة.

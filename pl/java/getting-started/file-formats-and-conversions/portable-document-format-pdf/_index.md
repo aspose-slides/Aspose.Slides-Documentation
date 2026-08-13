@@ -1,35 +1,35 @@
 ---
-title: Format dokumentu przenośnego (PDF)
+title: Format Dokumentu Przenośnego (PDF)
 type: docs
 weight: 40
 url: /pl/java/portable-document-format-pdf/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-The [Portable Document Format](https://en.wikipedia.org/wiki/PDF) jest formatem plików stworzonym przez Adobe Systems do wymiany dokumentów pomiędzy organizacjami. Celem tego formatu było zachowanie takiej samej zawartości i układu, niezależnie od platformy, na której był wyświetlany. Aspose.Slides for Java umożliwia konwersję plików prezentacji do formatu PDF.
+Format Portable Document Format (PDF) jest formatem plików utworzonym przez firmę Adobe Systems do wymiany dokumentów między organizacjami. Celem formatu było zachowanie treści i układu identycznych, niezależnie od platformy, na której był wyświetlany. Aspose.Slides for Java pozwala konwertować pliki prezentacji do PDF.
 
 {{% /alert %}} 
 
 ## **PDF w Aspose.Slides for Java**
-Każda prezentacja, którą można załadować do Aspose.Slides for Java, może zostać przekonwertowana na PDF zgodny z [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) lub [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA), w zależności od wybranego wariantu. Aspose.Slides for Java eksportuje prezentacje do PDF i w większości przypadków wygenerowany plik PDF wygląda dokładnie tak samo jak oryginalna prezentacja.
+Każda prezentacja, którą można załadować do Aspose.Slides for Java, może być skonwertowana do pliku PDF spełniającego standard [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) lub [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) w zależności od wyboru. Aspose.Slides for Java eksportuje prezentacje do PDF i w większości przypadków wyjściowy plik PDF wygląda dokładnie tak jak oryginalna prezentacja.
 
-Aspose.Slides obsługuje następujące elementy prezentacji podczas konwersji do PDF:
+Aspose.Slides obsługuje następujące elementy prezentacji przy konwersji do PDF:
 
 - Obrazy, pola tekstowe i inne kształty.
 - Tekst i formatowanie.
 - Akapity i formatowanie.
-- Hiperałącza.
+- Hiperdłącza.
 - Nagłówki i stopki.
-- Wypunktowanie.
+- Wypunktowania.
 - Tabele.
 
-Możesz eksportować prezentacje do PDF bezpośrednio przy użyciu Aspose.Slides for Java: nie potrzebujesz żadnego innego komponentu. Ponadto możesz dostosować eksport prezentacji do PDF, korzystając z różnych opcji, jak wyjaśniono w [Konwertowanie do PDF](/slides/pl/java/converting-a-presentation/).
+Możesz eksportować prezentacje do plików PDF bezpośrednio przy użyciu Aspose.Slides for Java: nie potrzebujesz żadnego innego komponentu. Ponadto możesz dostosować eksport prezentacji do PDF przy użyciu różnych opcji, jak wyjaśniono w [Converting to PDF](/slides/pl/java/converting-a-presentation/).
 
 **Prezentacja wejściowa** 
 
 ![todo:image_alt_text](portable-document-format-pdf_1.png)
 
 
-**Prezentacja przekonwertowana do PDF przy użyciu Aspose.Slides for Java** 
+**Prezentacja skonwertowana do PDF przy użyciu Aspose.Slides for Java** 
 
 ![todo:image_alt_text](portable-document-format-pdf_2.png)

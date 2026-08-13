@@ -4,17 +4,16 @@ type: docs
 weight: 40
 url: /es/java/portable-document-format-pdf/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-El [Formato de Documento Portátil](https://es.wikipedia.org/wiki/PDF) es un formato de archivo creado por Adobe Systems para intercambiar documentos entre organizaciones. El propósito del formato era mantener el contenido y el diseño iguales, independientemente de la plataforma en la que se visualizara. Aspose.Slides para Java te permite convertir archivos de presentación a PDF.
+El [Formato de Documento Portátil](https://en.wikipedia.org/wiki/PDF) es un formato de archivo creado por Adobe Systems para intercambiar documentos entre organizaciones. El objetivo del formato era mantener el contenido y el diseño iguales, independientemente de la plataforma en la que se visualizara. Aspose.Slides for Java permite convertir archivos de presentación a PDF.
 
 {{% /alert %}} 
 
-## **PDF en Aspose.Slides para Java**
-Cualquier presentación que se pueda cargar en Aspose.Slides para Java se puede convertir a un PDF que cumpla con [PDF 1.5](https://es.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://es.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://es.wikipedia.org/wiki/PDF/A) o [PDF/UA](https://es.wikipedia.org/wiki/PDF/UA) según tu elección. Aspose.Slides para Java exporta presentaciones a PDF y, en la mayoría de los casos, el PDF de salida se ve exactamente como la presentación original.
+## **PDF en Aspose.Slides for Java**
+Cualquier presentación que pueda cargarse en Aspose.Slides for Java puede convertirse a un PDF que cumpla con [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) o [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA) según su elección. Aspose.Slides for Java exporta presentaciones a PDF y, en la mayoría de los casos, el PDF resultante se ve exactamente como la presentación original.
 
-Aspose.Slides es compatible con las siguientes características de presentación al convertir a PDF:
+Aspose.Slides admite las siguientes características de la presentación al convertir a PDF:
 
 - Imágenes, cuadros de texto y otras formas.
 - Texto y formato.
@@ -24,13 +23,13 @@ Aspose.Slides es compatible con las siguientes características de presentación
 - Viñetas.
 - Tablas.
 
-Puedes exportar presentaciones a PDFs directamente utilizando Aspose.Slides para Java: no necesitas ningún otro componente. Además, puedes personalizar la exportación de la presentación a PDF con varias opciones como se explica en [Conversión a PDF](/slides/es/java/converting-a-presentation/).
+Puede exportar presentaciones a PDFs directamente usando Aspose.Slides for Java: no necesita ningún otro componente. Además, puede personalizar la exportación de la presentación a PDF con varias opciones como se explica en [Conversión a PDF](/slides/es/java/converting-a-presentation/).
 
-**La presentación de entrada** 
+**La presentación de origen** 
 
-![todo:texto_alternativo_de_la_imagen](portable-document-format-pdf_1.png)
+![todo:image_alt_text](portable-document-format-pdf_1.png)
 
 
-**Una presentación convertida a PDF usando Aspose.Slides para Java** 
+**Una presentación convertida a PDF usando Aspose.Slides for Java** 
 
-![todo:texto_alternativo_de_la_imagen](portable-document-format-pdf_2.png)
+![todo:image_alt_text](portable-document-format-pdf_2.png)

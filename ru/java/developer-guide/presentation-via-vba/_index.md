@@ -1,5 +1,5 @@
 ---
-title: Управление VBA‑проектами в презентациях с использованием Java
+title: Управление VBA‑проектами в презентациях с помощью Java
 linktitle: Презентация через VBA
 type: docs
 weight: 250
@@ -19,32 +19,38 @@ keywords:
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как создавать и изменять презентации PowerPoint и OpenDocument с помощью VBA, используя Aspose.Slides для Java, чтобы оптимизировать ваш рабочий процесс."
+description: "Узнайте, как создавать и манипулировать презентациями PowerPoint и OpenDocument через VBA с помощью Aspose.Slides для Java, чтобы оптимизировать ваш рабочий процесс."
 ---
+## **Введение**
 
-{{% alert title="Note" color="warning" %}} 
-При конвертации презентации, содержащей макросы, в другой формат файла (PDF, HTML и т.д.), Aspose.Slides игнорирует все макросы (макросы не переносятся в полученный файл).
+Aspose.Slides предоставляет классы и интерфейсы для работы с макросами и кодом VBA.
 
-Когда вы добавляете макросы в презентацию или сохраняете заново презентацию, содержащую макросы, Aspose.Slides просто записывает байты макросов.
+{{% alert title="Примечание" color="warning" %}} 
 
-Aspose.Slides **никогда** не запускает макросы в презентации.
+When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+
+When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
+
+Aspose.Slides **never** runs the macros in a presentation.
+
 {{% /alert %}}
 
-## **Добавить VBA‑макросы**
+## **Добавление VBA‑макросов**
 
-Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/), позволяющий создавать VBA‑проекты (и ссылки на проекты) и редактировать существующие модули. Вы можете использовать интерфейс [IVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/) для управления VBA, встроенным в презентацию.
+Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/vbaproject/) для создания VBA‑проектов (и ссылок на проекты) и редактирования существующих модулей. Вы можете использовать интерфейс [IVbaProject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ivbaproject/) для управления VBA, встроенным в презентацию.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/#VbaProject--) для добавления нового VBA‑проекта.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation).
+1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/vbaproject/#VbaProject--) для добавления нового VBA‑проекта.
 1. Добавьте модуль в VbaProject.
-1. Установите исходный код модуля.
+1. Задайте исходный код модуля.
 1. Добавьте ссылки на <stdole>.
 1. Добавьте ссылки на **Microsoft Office**.
-1. Ассоциируйте ссылки с VBA‑проекта.
+1. Свяжите ссылки с VBA‑проектом.
 1. Сохраните презентацию.
 
-Этот код на Java показывает, как добавить VBA‑макрос с нуля в презентацию:
 ```java
+import com.aspose.slides.*;
+
 // Создаёт экземпляр класса презентации
 Presentation pres = new Presentation();
 try {
@@ -75,25 +81,27 @@ try {
 }
 ```
 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-Возможно, вам будет интересно ознакомиться с **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros) — бесплатным веб‑приложением для удаления макросов из документов PowerPoint, Excel и Word. 
+Возможно, вам будет интересно посмотреть бесплатное веб‑приложение **Aspose** [Macro Remover](https://products.aspose.app/slides/ru/remove-macros), которое используется для удаления макросов из документов PowerPoint, Excel и Word. 
+
 {{% /alert %}} 
 
-## **Удалить VBA‑макросы**
+## **Удаление VBA‑макросов**
 
-Используя свойство [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getVbaProject--) класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation), вы можете удалить VBA‑макрос.
+Используя свойство [VbaProject](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getVbaProject--) класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation), вы можете удалить VBA‑макрос.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
-2. Получите доступ к модулю Macro и удалите его.
-3. Сохраните изменённую презентацию.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
+1. Получите доступ к модулю Macro и удалите его.
+1. Сохраните изменённую презентацию.
 
-Этот код на Java показывает, как удалить VBA‑макрос:
 ```java
+import com.aspose.slides.*;
+
 // Загружает презентацию, содержащую макрос
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // Получает модуль VBA и удаляет его 
+    // Получает доступ к модулю VBA и удаляет его 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
     // Сохраняет презентацию
@@ -103,19 +111,19 @@ try {
 }
 ```
 
+## **Извлечение VBA‑макросов**
 
-## **Извлечь VBA‑макросы**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
 2. Проверьте, содержит ли презентация VBA‑проект.
-3. Пройдитесь по всем модулям, содержащимся в VBA‑проекте, чтобы просмотреть макросы.
+3. Пройдите по всем модулям, содержащимся в VBA‑проекте, чтобы просмотреть макросы.
 
-Этот код на Java показывает, как извлечь VBA‑макросы из презентации, содержащей макросы:
 ```java
+import com.aspose.slides.*;
+
 // Загружает презентацию, содержащую макрос
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // Проверяет, содержит ли презентация VBA‑проект
+    if (pres.getVbaProject() != null) // Проверяет, содержит ли презентация проект VBA
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -128,18 +136,20 @@ try {
 }
 ```
 
+## **Проверка, защищён ли VBA‑проект паролем**
 
-## **Проверить, защищён ли VBA‑проект паролем**
+Используя метод [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ivbaproject/#isPasswordProtected--), вы можете определить, защищены ли свойства проекта паролем.
 
-С помощью метода [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/#isPasswordProtected--) можно определить, защищены ли свойства проекта паролем.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
-2. Проверьте, содержит ли презентация [VBA‑проект](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
+2. Проверьте, содержит ли презентация [VBA‑проект](https://reference.aspose.com/slides/ru/java/com.aspose.slides/vbaproject/).
 3. Проверьте, защищён ли VBA‑проект паролем, чтобы просмотреть его свойства.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
-    if (presentation.getVbaProject() != null) { // Проверяет, содержит ли презентация VBA‑проект.
+    if (presentation.getVbaProject() != null) { // Проверяет, содержит ли презентация проект VBA.
         if (presentation.getVbaProject().isPasswordProtected()) {
             System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
@@ -150,14 +160,16 @@ try {
 }
 ```
 
+## **FAQ**
 
-## **Часто задаваемые вопросы**
+### Что происходит с макросами, если я сохраняю презентацию как PPTX?
 
-**Что происходит с макросами, если сохранить презентацию как PPTX?**  
-Макросы будут удалены, так как PPTX не поддерживает VBA. Чтобы сохранить макросы, выбирайте форматы PPTM, PPSM или POTM.
+Макросы будут удалены, потому что PPTX не поддерживает VBA. Чтобы сохранить макросы, выберите PPTM, PPSM или POTM.
 
-**Может ли Aspose.Slides выполнять макросы внутри презентации, например, для обновления данных?**  
-Нет. Библиотека никогда не исполняет код VBA; выполнение возможно только в PowerPoint при соответствующих настройках безопасности.
+### Может ли Aspose.Slides выполнять макросы внутри презентации, например, для обновления данных?
 
-**Поддерживается ли работа с элементами управления ActiveX, связанными с кодом VBA?**  
-Да, вы можете получать доступ к существующим [элементам управления ActiveX](/slides/ru/java/activex/), изменять их свойства и удалять их. Это полезно, когда макросы взаимодействуют с ActiveX.
+Нет. Библиотека никогда не выполняет код VBA; выполнение возможно только внутри PowerPoint при соответствующих настройках безопасности.
+
+### Поддерживается ли работа с элементами управления ActiveX, связанными с кодом VBA?
+
+Да, вы можете получить доступ к существующим [ActiveX controls](/slides/ru/java/activex/), изменить их свойства и удалить их. Это полезно, когда макросы взаимодействуют с ActiveX.

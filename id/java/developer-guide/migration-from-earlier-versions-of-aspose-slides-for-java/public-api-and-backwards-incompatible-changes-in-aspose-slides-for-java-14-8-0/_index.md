@@ -1,35 +1,36 @@
 ---
-title: Perubahan API Publik dan Tidak Kompatibel Mundur di Aspose.Slides untuk Java 14.8.0
+title: API Publik dan Perubahan Tidak Kompatibel Mundur di Aspose.Slides untuk Java 14.8.0
 linktitle: Aspose.Slides untuk Java 14.8.0
 type: docs
 weight: 70
 url: /id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/
 keywords:
 - migrasi
-- kode lama
+- kode warisan
 - kode modern
-- pendekatan lama
+- pendekatan warisan
 - pendekatan modern
 - PowerPoint
 - OpenDocument
 - presentasi
 - Java
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda secara mulus."
+description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
-
-Halaman ini memuat semua [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) kelas, metode, properti, dan sebagainya, semua pembatasan baru, serta [perubahan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) yang diperkenalkan dengan API Aspose.Slides for Java 14.8.0.
-
+{{% alert color="info" %}} 
+Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/), setiap pembatasan baru, dan [perubahan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) yang diperkenalkan dengan API Aspose.Slides untuk Java 14.8.0.
 {{% /alert %}} 
 ## **Perubahan API Publik**
-### **Menambahkan Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap(), dan setOverlap(byte) Mehtods**
-Aspose.Slides.Charts.IChartSeries.getOverlap() menentukan seberapa banyak batang dan kolom harus tumpang tindih pada diagram 2D (dalam rentang -100 hingga 100). Metode ini tidak hanya berlaku untuk seri tertentu, melainkan untuk semua seri dalam grup seri induk – ini merupakan proyeksi properti grup yang sesuai.
+### **Menambahkan Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap(), dan setOverlap(byte) Metode**
+Aspose.Slides.Charts.IChartSeries.getOverlap() menentukan seberapa banyak batang dan kolom harus saling tumpang tindih pada diagram 2D (dalam rentang -100 hingga 100).
+Metode ini tidak hanya berlaku untuk seri tertentu, tetapi untuk semua seri dalam grup seri induk – ini merupakan proyeksi properti grup yang sesuai.
 
 - Gunakan metode IChartSeries.getParentSeriesGroup() untuk mengakses grup seri induk.
 - Gunakan metode IChartSeriesGroup.getOverlap() dan setOverlap(byte) untuk mengelola nilai.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -39,25 +40,29 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
 ### **Menambahkan Nilai Enum ShapeThumbnailBounds.Appearance**
-Metode pembuatan thumbnail bentuk ini memungkinkan pengembang menghasilkan thumbnail bentuk dalam batas penampilannya. Metode ini mempertimbangkan semua efek bentuk. Thumbnail bentuk yang dihasilkan dibatasi oleh batas slide.
+Metode pembuatan thumbnail bentuk ini memungkinkan pengembang menghasilkan thumbnail bentuk dalam batas penampilannya. Metode ini memperhitungkan semua efek bentuk. Thumbnail bentuk yang dihasilkan dibatasi oleh batas slide.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
-### **Menambahkan Kelas VbaProject dan Antarmuka IVbaProject, Mengubah Metode Presentation.getVbaProject() dan setVbaProject(VbaProject)**
-Fitur baru memungkinkan pengembang untuk membuat dan mengedit proyek VBA dalam sebuah presentasi.
+### **Menambahkan Kelas VbaProject dan Interface IVbaProject, Mengubah Metode Presentation.getVbaProject() dan setVbaProject(VbaProject)**
+Fitur baru memungkinkan pengembang membuat dan mengedit proyek VBA dalam sebuah presentasi.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -69,7 +74,7 @@ pres.setVbaProject(new VbaProject());
 
 IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
 
-// Atur kode sumber modul
+// Setel kode sumber modul
 
 module.setSourceCode("Sub Test(oShape As Shape)\r\n    MsgBox \"Test\"\r\nEnd Sub");
 
@@ -95,6 +100,5 @@ pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
-
+pres.save("test.pptm", SaveFormat.Pptm);
 ```

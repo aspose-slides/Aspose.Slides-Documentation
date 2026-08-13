@@ -13,21 +13,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ekstrak gambar dari bentuk dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET - solusi cepat dan mudah diprogram."
+description: "Ekstrak gambar dari bentuk dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET - solusi cepat dan ramah kode."
 ---
 ## **Gambaran Umum**
 
-Gambar dalam sebuah presentasi dapat muncul dalam beberapa jenis bentuk: sebagai bingkai gambar biasa, sebagai isian gambar yang diterapkan pada bentuk, sebagai gambar pratinjau objek OLE, sebagai thumbnail bingkai video atau audio, sebagai gambar zoom, atau sebagai gambar yang ditempatkan di dalam bentuk tabel, bagan, dan SmartArt. Aspose.Slides menyimpan gambar-gambar tersebut dalam koleksi gambar presentasi, yang dapat diakses melalui objek [ImageCollection](https://reference.aspose.com/slides/id/net/aspose.slides/imagecollection/) dan [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) .
+Gambar dalam presentasi dapat muncul dalam beberapa jenis bentuk: sebagai bingkai gambar biasa, sebagai isi gambar yang diterapkan pada bentuk, sebagai gambar pratinjau objek OLE, sebagai thumbnail bingkai video atau audio, sebagai gambar zoom, atau sebagai gambar yang berada di dalam tabel, grafik, dan bentuk SmartArt. Aspose.Slides menyimpan gambar tersebut dalam koleksi gambar presentasi, yang dapat diakses melalui [ImageCollection](https://reference.aspose.com/slides/id/net/aspose.slides/imagecollection/) dan [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) objek.
 
-Jika Anda hanya perlu mengekspor setiap sumber gambar yang disisipkan dalam sebuah presentasi, iterasi melalui `presentation.Images`. Artikel ini fokus pada tugas yang berbeda: menelusuri bentuk untuk menemukan di mana gambar digunakan pada slide, sehingga file yang disimpan dapat mempertahankan konteks berguna seperti nomor slide, posisi bentuk, dan tipe sumber (bingkai gambar, gambar isian, pratinjau media, pratinjau OLE, atau gambar zoom).
+Jika Anda hanya perlu mengekspor setiap sumber gambar yang disematkan dalam presentasi, iterasi melalui `presentation.Images`. Artikel ini fokus pada tugas yang berbeda: menelusuri bentuk untuk menemukan di mana gambar digunakan pada slide, sehingga file yang disimpan dapat mempertahankan konteks berguna seperti nomor slide, posisi bentuk, dan jenis sumber (bingkai gambar, gambar isi, pratinjau media, pratinjau OLE, atau gambar zoom).
 
-{{% alert title="Tip" color="primary" %}}
-Gunakan [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) untuk mempertahankan data gambar yang dikodekan asli dan tipe file. Gunakan [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) dengan [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) ketika Anda ingin menormalkan output ke format tertentu seperti PNG.
+{{% alert title="Tip" color="info" %}}
+Gunakan [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) untuk mempertahankan data gambar yang dikodekan asli dan jenis file. Gunakan [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) dengan [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) ketika Anda ingin menormalkan output ke format tertentu seperti PNG.
 {{% /alert %}}
 
-## **Metode Pembantu Bersama**
+## **Metode Bantuan Bersama**
 
-Metode pembantu di bawah ini membuat contoh tetap singkat. `SaveOriginalImage` menulis byte yang disisipkan asli, memilih ekstensi yang aman dari tipe MIME, dan melewatkan duplikat biner gambar dengan hash SHA-256.
+Metode bantuan di bawah ini membuat contoh tetap singkat. `SaveOriginalImage` menulis byte yang disematkan asli, memilih ekstensi yang aman dari tipe MIME, dan melewati gambar duplikat dengan hash SHA-256.
 
 ```c#
 using Aspose.Slides;
@@ -164,9 +164,11 @@ private static string MakeSafeFileNamePart(string value)
 
 ## **Ekstrak Gambar dari Bingkai Gambar**
 
-Gunakan pendekatan ini untuk gambar yang disisipkan sebagai objek terpisah. Sebuah [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) menyimpan gambarnya di `PictureFormat.Picture.Image`, yang mengembalikan objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) .
+Gunakan pendekatan ini untuk gambar yang disisipkan sebagai objek mandiri. Sebuah [IPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) menyimpan gambarnya di `PictureFormat.Picture.Image`, yang mengembalikan objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) .
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -195,9 +197,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Ekstrak Gambar dari Bentuk yang Diisi Gambar**
 
-Bentuk dapat menggunakan gambar sebagai isian mereka. Periksa tipe isian bentuk terlebih dahulu: jika bukan [FillType.Picture](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/), tidak ada gambar untuk diekstrak dari isian tersebut. Contoh di bawah menangani objek [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) dan menyimpan setiap gambar sebagai PNG melalui [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) .
+Bentuk dapat menggunakan gambar sebagai isian mereka. Periksa jenis isian bentuk terlebih dahulu: jika bukan [FillType.Picture](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/), tidak ada gambar yang dapat diekstrak dari isian tersebut. Contoh di bawah menangani objek [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) , dan menyimpan tiap gambar sebagai PNG melalui [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) .
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -227,9 +231,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Ekstrak Gambar Pratinjau dari Bingkai Objek OLE**
 
-Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ioleobjectframe/) dapat memiliki gambar pengganti yang digunakan PowerPoint sebagai pratinjau objek pada slide. Gambar ini tersedia melalui `SubstitutePictureFormat.Picture.Image`. Mengekstrak gambar ini memberi Anda gambar pratinjau, bukan isi paket OLE yang disisipkan.
+Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ioleobjectframe/) dapat memiliki gambar pengganti yang digunakan PowerPoint sebagai pratinjau objek pada slide. Gambar ini tersedia melalui `SubstitutePictureFormat.Picture.Image`. Mengekstrak gambar ini memberi Anda gambar pratinjau, bukan isi paket OLE yang disematkan.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -265,6 +271,8 @@ using (Presentation presentation = new Presentation(inputPath))
 Sebuah [IVideoFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ivideoframe/) juga dapat menyimpan gambar pratinjau di `PictureFormat.Picture.Image`. Ini adalah poster atau thumbnail yang ditampilkan pada slide, bukan sebuah frame yang didekode dari aliran video.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -300,6 +308,8 @@ using (Presentation presentation = new Presentation(inputPath))
 Sebuah [IAudioFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iaudioframe/) dapat menyimpan thumbnail di `PictureFormat.Picture.Image`. Ini adalah gambar yang ditampilkan untuk objek audio pada slide.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -332,9 +342,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Ekstrak Gambar dari Objek Zoom**
 
-Bentuk [IZoomFrame](https://reference.aspose.com/slides/id/net/aspose.slides/izoomframe/) dan [ISectionZoomFrame](https://reference.aspose.com/slides/id/net/aspose.slides/isectionzoomframe/) dapat menggunakan gambar khusus. Baca `ZoomImage` dari bingkai zoom.
+[IZoomFrame](https://reference.aspose.com/slides/id/net/aspose.slides/izoomframe/) dan [ISectionZoomFrame](https://reference.aspose.com/slides/id/net/aspose.slides/isectionzoomframe/) dapat menggunakan gambar khusus. Baca `ZoomImage` dari bingkai zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -372,9 +384,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Ekstrak Gambar dari Bingkai Zoom Ringkasan**
 
-Sebuah [ISummaryZoomFrame](https://reference.aspose.com/slides/id/net/aspose.slides/isummaryzoomframe/) juga merupakan bentuk. Item bagianannya dapat menggunakan gambar khusus, yang tersedia melalui properti `ZoomImage` setiap bagian zoom ringkasan.
+Sebuah [ISummaryZoomFrame](https://reference.aspose.com/slides/id/net/aspose.slides/isummaryzoomframe/) juga merupakan bentuk. Item bagiannya dapat menggunakan gambar khusus, yang dapat diakses melalui properti `ZoomImage` setiap bagian zoom ringkasan.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -412,9 +426,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Ekstrak Gambar dari Bentuk Tabel**
 
-Sebuah [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) adalah bentuk. Gambar dalam tabel biasanya disimpan sebagai isian gambar pada sel tabel.
+Sebuah [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) adalah sebuah bentuk. Gambar dalam tabel biasanya disimpan sebagai isian gambar di sel tabel.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -454,11 +470,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Ekstrak Gambar dari Bentuk Bagan**
+## **Ekstrak Gambar dari Bentuk Grafik**
 
-Sebuah [IChart](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichart/) adalah bentuk. Contoh di bawah mengekstrak gambar dari isian gambar area bagan.
+Sebuah [IChart](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichart/) adalah sebuah bentuk. Contoh di bawah mengekstrak gambar dari isian gambar area grafik.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +510,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Ekstrak Gambar dari Bentuk SmartArt**
 
-Sebuah objek [ISmartArt](https://reference.aspose.com/slides/id/net/aspose.slides.smartart/ismartart/) adalah bentuk. Bergantung pada tata letak SmartArt, gambar dapat disimpan dalam isian bullet node atau dalam format isian bentuk node.
+Sebuah objek [ISmartArt](https://reference.aspose.com/slides/id/net/aspose.slides.smartart/ismartart/) adalah sebuah bentuk. Tergantung pada tata letak SmartArt, gambar dapat disimpan dalam isian bulatan node atau dalam format isian bentuk node.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -542,11 +562,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Sertakan Gambar di Dalam Bentuk yang Dikelompokkan**
+## **Sertakan Gambar di Dalam Bentuk Berkelompok**
 
-Bentuk yang dikelompokkan memiliki koleksi bentuk mereka sendiri. Pembantu bersama `EnumerateShapes` memiliki opsi `includeGroupedShapes`. Atur ke `true` ketika Anda ingin memeriksa bentuk di dalam objek [IGroupShape](https://reference.aspose.com/slides/id/net/aspose.slides/igroupshape/) . Contoh di bawah mengekstrak gambar dari bingkai gambar, bentuk yang diisi gambar, pratinjau objek OLE, thumbnail bingkai video, dan thumbnail bingkai audio. Untuk menyertakan gambar tabel, bagan, SmartArt, dan zoom ringkasan juga, gunakan kembali logika ekstraksi khusus dari bagian sebelumnya sambil mempertahankan penelusuran bentuk rekursif yang sama.
+Bentuk berkelompok berisi koleksi bentuk mereka sendiri. Pembantu `EnumerateShapes` bersama memiliki opsi `includeGroupedShapes`. Atur menjadi `true` ketika Anda ingin memeriksa bentuk di dalam objek [IGroupShape](https://reference.aspose.com/slides/id/net/aspose.slides/igroupshape/) . Contoh di bawah mengekstrak gambar dari bingkai gambar, bentuk yang diisi gambar, pratinjau objek OLE, thumbnail bingkai video, dan thumbnail bingkai audio. Untuk menyertakan gambar tabel, grafik, SmartArt, dan zoom ringkasan juga, gunakan kembali logika ekstraksi khusus dari bagian sebelumnya sambil mempertahankan penelusuran bentuk rekursif yang sama.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -619,45 +641,45 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Kasus Tepi dan Catatan Praktis**
+## **Kasus Khusus dan Catatan Praktis**
 
-- **Gambar duplikat:** Beberapa bentuk dapat merujuk ke gambar yang sama atau gambar terpisah dengan byte yang identik. Lakukan hash pada [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) sebelum menulis file jika Anda menginginkan satu file output per gambar unik.
-- **Data asli vs. output yang dikonversi:** Menyimpan [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) mempertahankan data JPEG, PNG, GIF, SVG, EMF, atau WMF yang disisipkan. Menyimpan [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) melalui [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) berguna ketika Anda menginginkan format output yang konsisten.
-- **Tipe isian yang tidak didukung:** Bentuk solid, gradien, pola, dan tanpa isian tidak mengandung isian gambar. Periksa [FillType](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/) sebelum membaca `PictureFillFormat`.
-- **Bentuk yang dikelompokkan:** Koleksi bentuk slide tingkat atas tidak meratakan grup. Periksa secara rekursif [IGroupShape.Shapes](https://reference.aspose.com/slides/id/net/aspose.slides/igroupshape/) ketika konten yang dikelompokkan penting.
-- **Pratinjau objek OLE:** Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ioleobjectframe/) dapat menampilkan gambar pratinjau melalui `SubstitutePictureFormat`, tetapi gambar itu hanya pratinjau slide. Itu bukan file yang disisipkan di dalam objek OLE.
-- **Thumbnail bingkai video:** Sebuah [IVideoFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ivideoframe/) dapat menampilkan gambar pratinjau melalui `PictureFormat`, tetapi gambar itu hanya poster yang ditampilkan pada slide. Itu tidak diekstrak dari aliran video.
-- **Thumbnail bingkai audio:** Sebuah [IAudioFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iaudioframe/) dapat menampilkan ikon atau thumbnail melalui `PictureFormat`; itu bukan data audio yang disisipkan.
-- **Gambar zoom:** Bentuk zoom slide, zoom bagian, dan zoom ringkasan dapat menggunakan objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) khusus melalui `ZoomImage`.
-- **Model bentuk bersarang:** Objek tabel, bagan, dan SmartArt mengimplementasikan [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/), tetapi gambar mereka sering disimpan dalam sel tabel bersarang, elemen bagan, atau objek format node SmartArt.
-- **Gambar yang dipangkas atau ditransformasi:** Mengakses [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) memberi Anda sumber gambar yang disimpan. Itu tidak menerapkan pemangkasan, transparansi, pewarnaan ulang, rotasi, atau efek visual lain yang diterapkan oleh bentuk.
+- **Gambar duplikat:** Beberapa bentuk dapat merujuk pada gambar yang sama atau gambar terpisah dengan byte yang identik. Hash [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) sebelum menulis file jika Anda menginginkan satu file output per gambar unik.
+- **Data asli vs. output yang dikonversi:** Menyimpan [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) mempertahankan data JPEG, PNG, GIF, SVG, EMF, atau WMF yang disematkan. Menyimpan [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) melalui [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) berguna ketika Anda menginginkan format output yang konsisten.
+- **Jenis isian yang tidak didukung:** Bentuk padat, gradien, pola, dan tanpa isian tidak mengandung isian gambar. Periksa [FillType](https://reference.aspose.com/slides/id/net/aspose.slides/filltype/) sebelum membaca `PictureFillFormat`.
+- **Bentuk berkelompok:** Koleksi bentuk slide tingkat atas tidak meratakan grup. Periksa secara rekursif [IGroupShape.Shapes](https://reference.aspose.com/slides/id/net/aspose.slides/igroupshape/) ketika konten berkelompok penting.
+- **Pratinjau objek OLE:** Sebuah [IOleObjectFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ioleobjectframe/) dapat menampilkan gambar pratinjau melalui `SubstitutePictureFormat`, tetapi gambar tersebut hanya pratinjau slide. Itu bukan file yang disematkan di dalam objek OLE.
+- **Thumbnail bingkai video:** Sebuah [IVideoFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ivideoframe/) dapat menampilkan gambar pratinjau melalui `PictureFormat`, tetapi gambar tersebut hanya poster yang ditampilkan pada slide. Itu tidak diekstrak dari aliran video.
+- **Thumbnail bingkai audio:** Sebuah [IAudioFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iaudioframe/) dapat menampilkan ikon atau thumbnail melalui `PictureFormat`; itu bukan data audio yang disematkan.
+- **Gambar zoom:** Zoom slide, zoom bagian, dan zoom ringkasan dapat menggunakan objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) khusus melalui `ZoomImage`.
+- **Model bentuk bersarang:** Tabel, grafik, dan objek SmartArt mengimplementasikan [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/), tetapi gambar mereka sering disimpan dalam sel tabel bersarang, elemen grafik, atau objek pemformatan node SmartArt.
+- **Gambar yang dipotong atau ditransformasikan:** Mengakses [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) memberi Anda sumber daya gambar yang disimpan. Itu tidak menerapkan pemotongan, transparansi, perubahan warna, rotasi, atau efek visual lain yang diterapkan oleh bentuk.
 
 ## **FAQ**
 
-**Apakah saya dapat mengekstrak gambar asli tanpa pemangkasan, efek, atau transformasi bentuk?**
+### Bisakah saya mengekstrak gambar asli tanpa pemotongan, efek, atau transformasi bentuk?
 
 Ya. Akses objek [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) dan tulis [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) ke disk. Ini mempertahankan gambar yang dikodekan asli yang disimpan dalam presentasi, bukan cara gambar tersebut dirender pada slide.
 
-**Apakah saya dapat mengekspor setiap gambar yang diekstrak sebagai PNG?**
+### Dapatkah saya mengekspor setiap gambar yang diekstrak sebagai PNG?
 
-Ya. Gunakan [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) untuk mendapatkan objek [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) , kemudian panggil [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) dengan [ImageFormat.Png](https://reference.aspose.com/slides/id/net/aspose.slides/imageformat/). Ini mengonversi output dan mungkin tidak mempertahankan tipe file asli atau data vektor.
+Ya. Gunakan [IPPImage.Image](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) untuk mendapatkan objek [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) , lalu panggil [IImage.Save](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) dengan [ImageFormat.Png](https://reference.aspose.com/slides/id/net/aspose.slides/imageformat/). Ini mengonversi output dan mungkin tidak mempertahankan jenis file atau data vektor asli.
 
-**Bagaimana cara menghindari menyimpan gambar yang sama lebih dari satu kali?**
+### Bagaimana saya menghindari menyimpan gambar yang sama lebih dari sekali?
 
 Gunakan hash dari [IPPImage.BinaryData](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) dan simpan hash tersebut dalam sebuah set. Jika gambar baru memiliki hash yang sudah ada, lewati atau catat referensi lain ke file output yang sudah ada.
 
-**Mengapa beberapa bentuk tidak menghasilkan gambar?**
+### Mengapa beberapa bentuk tidak menghasilkan gambar?
 
-Bingkai gambar, bentuk yang diisi gambar, bingkai objek OLE, bingkai media, bingkai zoom, tabel, bagan, dan objek SmartArt dapat merujuk ke gambar. Beberapa tipe bentuk menampilkan gambar melalui objek format bersarang, sehingga pemeriksaan sederhana `PictureFormat` atau `FillFormat` pada bentuk tidak selalu cukup.
+Bingkai gambar, bentuk yang diisi gambar, bingkai objek OLE, bingkai media, bingkai zoom, tabel, grafik, dan objek SmartArt dapat merujuk pada gambar. Beberapa jenis bentuk menampilkan gambar melalui objek pemformatan bersarang, sehingga pemeriksaan sederhana `PictureFormat` atau `FillFormat` bentuk tidak selalu cukup.
 
-**Apakah saya dapat mengekstrak thumbnail yang ditampilkan untuk bingkai video?**
+### Dapatkah saya mengekstrak thumbnail yang ditampilkan untuk bingkai video?
 
 Ya. Gunakan [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ivideoframe/) dan baca `PictureFormat.Picture.Image`. Ini mengekstrak poster yang disimpan bersama bingkai video, bukan frame yang dihasilkan dari file video.
 
-**Bagaimana saya dapat menentukan bentuk mana yang menggunakan gambar tertentu dari koleksi gambar presentasi?**
+### Bagaimana saya dapat menentukan bentuk mana yang menggunakan gambar tertentu dari koleksi gambar presentasi?
 
 Aspose.Slides tidak menyimpan tautan terbalik dari [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) ke bentuk. Bangun pemetaan selama penelusuran: setiap kali Anda menemukan referensi gambar, catat nomor slide, jalur bentuk, dan hash gambar atau item koleksi.
 
-**Apakah saya dapat mengekstrak gambar yang disisipkan di dalam objek OLE, seperti dokumen terlampir?**
+### Dapatkah saya mengekstrak gambar yang disematkan di dalam objek OLE, seperti dokumen terlampir?
 
-Anda dapat mengekstrak pratinjau slide objek OLE dari [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ioleobjectframe/). Namun, pratinjau tersebut bukan dokumen yang disisipkan itu sendiri. Untuk mengekstrak gambar dari dalam file yang disisipkan, ekstrak data OLE dan periksa dengan alat untuk tipe file tersebut.
+Anda dapat mengekstrak pratinjau slide objek OLE dari [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/id/net/aspose.slides/ioleobjectframe/). Namun, pratinjau tersebut bukan dokumen yang disematkan itu sendiri. Untuk mengekstrak gambar dari dalam file yang disematkan, ekstrak data OLE dan periksa dengan alat yang sesuai untuk jenis file tersebut.

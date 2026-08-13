@@ -12,21 +12,21 @@ keywords:
 - puce image
 - puce personnalisée
 - liste à plusieurs niveaux
-- créer une puce
-- ajouter une puce
-- ajouter une liste
+- créer puce
+- ajouter puce
+- ajouter liste
 - PowerPoint
 - OpenDocument
 - présentation
 - Java
 - Aspose.Slides
-description: "Apprenez à créer et mettre en forme des listes à puces, à images, à plusieurs niveaux et numérotées dans les présentations PowerPoint et OpenDocument en utilisant Aspose.Slides pour Java."
+description: "Apprenez à créer et formater des listes à puces, à image, multiniveaux et numérotées dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour Java."
 ---
 ## **Vue d'ensemble**
 
-Aspose.Slides for Java vous permet de créer et de mettre en forme des listes à puces et numérotées dans les présentations PowerPoint et OpenDocument. Un élément de liste est un paragraphe dont les paramètres de puce sont contrôlés via son format de paragraphe.
+Aspose.Slides for Java vous permet de créer et de formater des listes à puces et numérotées dans les présentations PowerPoint et OpenDocument. Un élément de liste est un paragraphe dont les paramètres de puce sont contrôlés via son format de paragraphe.
 
-Utilisez la méthode [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraph/#getParagraphFormat--) pour accéder aux paramètres de liste au niveau du paragraphe. Le point d’entrée principal est [IParagraphFormat.getBullet](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraphformat/#getBullet--), qui renvoie un objet [IBulletFormat](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/). Avec cet objet, vous pouvez définir le type de puce, le symbole, l’image, la couleur, la taille, le style de numérotation et le numéro de départ.
+Utilisez la méthode IParagraph.getParagraphFormat pour accéder aux paramètres de liste au niveau du paragraphe. Le principal point d'entrée est IParagraphFormat.getBullet, qui renvoie un objet IBulletFormat. Avec cet objet, vous pouvez définir le type de puce, le symbole, l'image, la couleur, la taille, le style de numérotation et le numéro de départ.
 
 Cet article montre comment :
 
@@ -34,15 +34,18 @@ Cet article montre comment :
 - créer une puce image
 - créer une liste à plusieurs niveaux en définissant la profondeur du paragraphe
 - créer une liste numérotée
-- inspecter et modifier le formatage de liste dans une présentation existante
+- inspecter et modifier le formatage des listes dans une présentation existante
 
 ## **Créer une liste à puces**
 
-Pour créer une liste à puces, ajoutez des objets [IParagraph](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraph/) à un [ITextFrame](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframe/) et définissez [IBulletFormat.setType](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#setType-byte-) sur [BulletType.Symbol](https://reference.aspose.com/slides/fr/java/com.aspose.slides/bullettype/#Symbol). Vous pouvez ensuite définir [IBulletFormat.setChar](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#getColor--) et [IBulletFormat.setHeight](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#setHeight-float-) pour contrôler l’apparence de la puce.
+Pour créer une liste à puces, ajoutez des objets IParagraph à un ITextFrame et définissez IBulletFormat.setType sur BulletType.Symbol. Vous pouvez ensuite définir IBulletFormat.setChar, IBulletFormat.getColor et IBulletFormat.setHeight pour contrôler l'apparence de la puce.
 
 Le code Java suivant montre comment créer une liste à puces dans une diapositive :
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -85,11 +88,13 @@ Le résultat :
 
 ## **Créer une liste numérotée**
 
-Utilisez les listes numérotées lorsque l’ordre des éléments est important. Définissez [IBulletFormat.setType](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#setType-byte-) sur [BulletType.Numbered](https://reference.aspose.com/slides/fr/java/com.aspose.slides/bullettype/#Numbered). Vous pouvez également choisir un format de numérotation avec [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) ou définir [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) lorsque la liste doit commencer à une valeur autre que 1.
+Utilisez les listes numérotées lorsque l'ordre des éléments est important. Définissez IBulletFormat.setType sur BulletType.Numbered. Vous pouvez également choisir un format de numérotation avec IBulletFormat.setNumberedBulletStyle ou définir IBulletFormat.setNumberedBulletStartWith lorsque la liste doit commencer à une valeur autre que 1.
 
 Le code Java suivant montre comment créer une liste numérotée dans une diapositive :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -125,23 +130,25 @@ Le résultat :
 
 ## **Créer une puce image**
 
-Aspose.Slides vous permet de remplacer un symbole de puce classique par une image. Les puces image fonctionnent mieux avec des images simples qui restent lisibles à petite taille, comme des icônes ou de petits fichiers PNG transparents.
+Aspose.Slides vous permet de remplacer un symbole de puce standard par une image. Les puces image fonctionnent mieux avec des images simples qui restent lisibles à petite taille, comme des icônes ou de petits fichiers PNG transparents.
 
-{{% alert color="primary" %}}
-Idéalement, si vous prévoyez de remplacer le symbole de puce standard par une image, il est préférable de choisir un graphique simple avec un fond transparent. Ce type d’image convient bien comme symbole de puce personnalisé.
+{{% alert color="info" %}}
+Idéalement, si vous prévoyez de remplacer le symbole de puce standard par une image, il est préférable de choisir un graphique simple avec un fond transparent. Ce type d'images fonctionne bien comme symboles de puce personnalisés.
 
-Gardez à l’esprit que l’image sera réduite à une taille très petite. Pour cette raison, nous vous recommandons fortement de choisir une image qui reste nette et visuellement efficace lorsqu’elle est utilisée comme puce dans une liste.
+Gardez à l'esprit que l'image sera réduite à une taille très petite. Pour cette raison, nous vous recommandons vivement de choisir une image qui reste nette et visuellement efficace lorsqu'elle est utilisée comme puce dans une liste.
 {{% /alert %}}
 
-Pour créer une puce image, ajoutez une image à [Presentation.getImages](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/#getImages--) et affectez l’objet image retourné à [IBulletFormat.getPicture](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#getPicture--). Définissez [IBulletFormat.setType](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ibulletformat/#setType-byte-) sur [BulletType.Picture](https://reference.aspose.com/slides/fr/java/com.aspose.slides/bullettype/#Picture) avant d’affecter l’image.
+Pour créer une puce image, ajoutez une image à Presentation.getImages et attribuez l'objet image renvoyé à IBulletFormat.getPicture. Définissez IBulletFormat.setType sur BulletType.Picture avant d'attribuer l'image.
 
-Supposons que nous ayons une "image.png" :
+Supposons que nous ayons un « image.png » :
 
 ![Une image pour les puces](picture_for_bullets.png)
 
 Le code Java suivant montre comment créer des puces image dans une diapositive :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +187,13 @@ Le résultat :
 
 ## **Créer une liste à plusieurs niveaux**
 
-Utilisez [IParagraphFormat.setDepth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraphformat/#setDepth-short-) pour placer les éléments de liste à différents niveaux. Le niveau 0 est le niveau supérieur, le niveau 1 est imbriqué en dessous, etc.
+Utilisez IParagraphFormat.setDepth pour placer les éléments de liste à différents niveaux. Le niveau 0 est le niveau supérieur, le niveau 1 est imbriqué en dessous, etc.
 
-Le code Java suivant montre comment créer une liste à puces à plusieurs niveaux :
+Le code Java suivant montre comment créer une liste à puces multiniveau :
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -221,15 +230,15 @@ try {
 
 Le résultat :
 
-![La liste à plusieurs niveaux](multilevel_list.png)
+![La liste multiniveau](multilevel_list.png)
 
 ## **Modifier une liste existante**
 
-Pour modifier le formatage d’une liste dans une présentation existante, accédez au paragraphe cible et mettez à jour ses paramètres [IParagraphFormat.getBullet](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraphformat/#getBullet--). Les mêmes propriétés utilisées pour créer des listes peuvent être utilisées pour inspecter ou modifier des listes chargées depuis un fichier PPT, PPTX ou ODP.
-
-Le code Java suivant modifie le premier paragraphe d’un cadre de texte pour utiliser un style de liste numérotée :
+Pour modifier le formatage d'une liste dans une présentation existante, accédez au paragraphe cible et mettez à jour ses paramètres IParagraphFormat.getBullet. Les mêmes propriétés utilisées pour créer des listes peuvent être utilisées pour inspecter ou modifier des listes chargées depuis un fichier PPT, PPTX ou ODP.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -250,14 +259,14 @@ try {
 
 ## **FAQ**
 
-**Les listes à puces et numérotées peuvent-elles être exportées vers PDF ou images ?**
+### Les listes à puces et numérotées peuvent-elles être exportées vers PDF ou images ?
 
 Oui. Aspose.Slides conserve le formatage des listes lorsque le format cible prend en charge la mise en page du texte et les fonctionnalités de puces correspondantes.
 
-**Puis-je modifier les listes dans des présentations existantes ?**
+### Puis-je modifier les listes dans des présentations existantes ?
 
-Oui. Chargez la présentation, accédez au paragraphe cible, inspectez ou mettez à jour ses paramètres [IParagraphFormat.getBullet](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iparagraphformat/#getBullet--), puis enregistrez la présentation.
+Oui. Chargez la présentation, accédez au paragraphe cible, inspectez ou mettez à jour ses paramètres IParagraphFormat.getBullet, puis enregistrez la présentation.
 
-**Les listes peuvent-elles contenir du texte non latin ?**
+### Les listes peuvent-elles contenir du texte non latin ?
 
-Oui. Le texte des éléments de liste peut contenir des caractères Unicode, vous permettant de créer des listes dans des présentations multilingues. Assurez‑vous que les polices utilisées dans la présentation prennent en charge les caractères nécessaires.
+Oui. Le texte des éléments de liste peut contenir des caractères Unicode, vous pouvez donc créer des listes dans des présentations multilingues. Assurez-vous que les polices utilisées dans la présentation prennent en charge les caractères dont vous avez besoin.

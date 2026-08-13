@@ -1,5 +1,5 @@
 ---
-title: Tạo Bảng Bằng VSTO và Aspose.Slides cho .NET
+title: Tạo Bảng bằng VSTO và Aspose.Slides cho .NET
 linktitle: Tạo Bảng
 type: docs
 weight: 50
@@ -10,29 +10,29 @@ keywords:
 - VSTO
 - tự động hoá Office
 - PowerPoint
-- bản trình chiếu
+- trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Di chuyển từ tự động hoá Microsoft Office sang Aspose.Slides for .NET và tạo bảng trong các slide PowerPoint (PPT, PPTX) bằng C# với định dạng linh hoạt."
+description: "Di chuyển từ tự động hoá Microsoft Office sang Aspose.Slides cho .NET và tạo bảng trong các slide PowerPoint (PPT, PPTX) bằng C# với định dạng linh hoạt."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bảng thường được sử dụng để hiển thị dữ liệu trên các slide thuyết trình. Bài viết này trình bày cách tạo một bảng 15 x 15 với kích thước phông chữ 10 một cách lập trình, đầu tiên bằng [VSTO 2008](/slides/vi/net/creating-a-table-on-powerpoint-slide/) và sau đó bằng [Aspose.Slides for .NET](/slides/vi/net/creating-a-table-on-powerpoint-slide/).
+Bảng được sử dụng rộng rãi để hiển thị dữ liệu trên các slide trình chiếu. Bài viết này hướng dẫn cách tạo một bảng 15 x 15 với cỡ phông 10 một cách lập trình, đầu tiên bằng [VSTO 2008](/slides/vi/net/creating-a-table-on-powerpoint-slide/) và sau đó bằng [Aspose.Slides for .NET](/slides/vi/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
-## **Creating Tables**
-#### **VSTO 2008 Example**
+## **Tạo Bảng**
+#### **Ví dụ VSTO 2008**
 Các bước sau sẽ thêm một bảng vào slide Microsoft PowerPoint bằng VSTO:
 
-1. Tạo một bản thuyết trình.
-1. Thêm một slide trống vào bản thuyết trình.
+1. Tạo một bản trình chiếu.
+1. Thêm một slide trống vào bản trình chiếu.
 1. Thêm một bảng 15 x 15 vào slide.
-1. Thêm văn bản vào mỗi ô của bảng với kích thước phông chữ 10.
-1. Lưu bản thuyết trình vào đĩa.
+1. Thêm văn bản vào mỗi ô của bảng với cỡ phông 10.
+1. Lưu bản trình chiếu vào đĩa.
 
 ```c#
-//Tạo một bản thuyết trình
+//Tạo một bản trình chiếu
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application
               .Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 //Thêm một slide trống
@@ -58,12 +58,12 @@ foreach (PowerPoint.Row row in tbl.Rows)
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
         //Thêm một số văn bản
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
-        //Đặt kích thước phông chữ của văn bản là 10
+        //Đặt cỡ phông của văn bản là 10
         tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
     }
 }
 
-//Lưu bản thuyết trình vào đĩa
+//Lưu bản trình chiếu vào đĩa
 pres.SaveAs("d:\\tblVSTO.ppt",
       PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
       Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -71,21 +71,24 @@ pres.SaveAs("d:\\tblVSTO.ppt",
 
 
 
-### **Aspose.Slides for .NET Example**
+### **Ví dụ Aspose.Slides for .NET**
 Các bước sau sẽ thêm một bảng vào slide Microsoft PowerPoint bằng Aspose.Slides:
 
-1. Tạo một bản thuyết trình.
+1. Tạo một bản trình chiếu.
 1. Thêm một bảng 15 x 15 vào slide đầu tiên.
-1. Thêm văn bản vào mỗi ô của bảng với kích thước phông chữ 10.
-1. Ghi bản thuyết trình ra đĩa.
+1. Thêm văn bản vào mỗi ô của bảng với cỡ phông 10.
+1. Ghi bản trình chiếu vào đĩa.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 //Truy cập slide đầu tiên
 ISlide sld = pres.Slides[0];
 
-//Xác định các cột với độ rộng và các hàng với chiều cao
+//Xác định cột với độ rộng và hàng với chiều cao
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
@@ -102,12 +105,12 @@ foreach (IRow row in tbl.Rows)
 		ITextFrame tf = cell.TextFrame;
 		//Thêm một số văn bản
 		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-		//Đặt kích thước phông chữ là 10
+		//Đặt cỡ phông là 10
 		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
 		tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
 	}
 }
 
-//Ghi bản thuyết trình vào đĩa
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+//Ghi bản trình chiếu vào đĩa
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

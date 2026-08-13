@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中從簡報取得形狀的有效屬性
+title: 從 Java 簡報取得形狀有效屬性
 linktitle: 有效屬性
 type: docs
 weight: 50
@@ -7,7 +7,7 @@ url: /zh-hant/java/shape-effective-properties/
 keywords:
 - 形狀屬性
 - 相機屬性
-- 光源組
+- 光源裝置
 - 斜角形狀
 - 文字框
 - 文字樣式
@@ -19,19 +19,21 @@ keywords:
 - Aspose.Slides
 description: "了解 Aspose.Slides for Java 如何計算並套用有效的形狀屬性，以實現精確的 PowerPoint 呈現。"
 ---
-## **概述**
+## **概觀**
 
-本主題說明 **local** 與 **effective** 屬性之間的差異。Local 值是直接在特定格式層級設定的值，例如：
+本主題說明 **local** 與 **effective** 屬性的差異。Local 值是直接在特定格式層級設定的值，例如：
 
-1. 投影片上的文字段屬性。
-1. 佈局或母片投影片中原型圖形的文字樣式（當文字段的文字框圖形具有此樣式時）。
+1. 投影片上文字片段的屬性。
+1. 當文字片段的文字框形狀具有樣式時，版面或母片上原型形狀的文字樣式。
 1. 簡報中的全域文字設定。
 
-Local 值可以在任何層級定義或省略。當 Aspose.Slides 需要最終的「as rendered」格式時，它會解析繼承鏈並返回 **effective** 值。您可以透過在本地格式物件上呼叫 `getEffective` 方法來取得它們。
+Local 值可以在任何層級定義或省略。當 Aspose.Slides 需要最終「呈現」的格式時，它會解析繼承鏈並返回 **effective** 值。您可以透過在本機格式物件上呼叫 `getEffective` 方法取得這些值。
 
-以下範例示範如何取得 effective 值。假設第一張投影片上的第一個圖形是具有文字框且至少包含一個文字段的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IAutoShape)。
+以下範例說明如何取得 effective 值。假設第一張投影片的第一個形狀是一個具有文字框且至少包含一個文字片段的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IAutoShape)。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,17 +51,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Effective 格式資料表示在套用繼承後目前計算出的格式。在目前的實作中，某些 effective 資料物件（例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPortionFormatEffectiveData)）可能會在內部快取。於變更父層或繼承的格式後再次呼叫 `getEffective` 可以重新整理快取的資料，先前取得的物件可能不再代表先前的狀態。如果需要保留 effective 值以供稍後重複使用，請將所需的屬性（例如字型高度、填色、字型樣式或對齊方式）複製到您自己的資料物件中。
+{{% alert color="info" %}}
+Effective formatting data 代表在套用繼承後目前計算出的格式。於目前的實作中，某些 effective data 物件（例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IPortionFormatEffectiveData)）可能會在內部快取。於變更父層或繼承的格式後再次呼叫 `getEffective` 可以重新整理快取的資料，先前取得的物件可能不再代表先前的狀態。若需要保留 effective 值以供之後重複使用，請將必要的屬性（例如字型高度、填色、字型樣式或對齊方式）複製到自己的資料物件中。
 {{% /alert %}}
 
-## **取得相機的有效屬性**
+## **取得相機的 Effective 屬性**
 
-Aspose.Slides 允許您取得相機的 effective 屬性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ICameraEffectiveData) 介面代表一個不可變物件，包含 effective 的相機屬性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ICameraEffectiveData) 實例透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormatEffectiveData) 取得，後者提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormat) 的 effective 值。
+Aspose.Slides 允許您取得相機的 effective 屬性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ICameraEffectiveData) 介面表示一個不可變的物件，內含 effective 相機屬性。透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormatEffectiveData) 可取得 [ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ICameraEffectiveData) 實例，該介面提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormat) 的 effective 值。
 
-以下程式碼範例示範如何取得相機的 effective 屬性。假設第一張投影片上的第一個圖形具有 3D 格式設定。
+以下程式碼範例示範如何取得相機的 effective 屬性。假設第一張投影片的第一個形狀具有 3D 格式。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -80,13 +84,15 @@ try {
 }
 ```
 
-## **取得光源組的有效屬性**
+## **取得光源裝置的 Effective 屬性**
 
-Aspose.Slides 允許您取得光源組的 effective 屬性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ILightRigEffectiveData) 介面代表一個不可變物件，包含 effective 的光源組屬性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ILightRigEffectiveData) 實例透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormatEffectiveData) 取得，後者提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormat) 的 effective 值。
+Aspose.Slides 允許您取得光源裝置的 effective 屬性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ILightRigEffectiveData) 介面表示一個不可變的物件，內含 effective 光源裝置屬性。透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormatEffectiveData) 可取得 [ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ILightRigEffectiveData) 實例，該介面提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormat) 的 effective 值。
 
-以下程式碼範例示範如何取得光源組的 effective 屬性。假設第一張投影片上的第一個圖形具有 3D 格式設定。
+以下程式碼範例示範如何取得光源裝置的 effective 屬性。假設第一張投影片的第一個形狀具有 3D 格式。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,13 +111,15 @@ try {
 }
 ```
 
-## **取得形狀斜角的有效屬性**
+## **取得斜角形狀的 Effective 屬性**
 
-Aspose.Slides 允許您取得形狀斜角的 effective 屬性。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IShapeBevelEffectiveData) 介面代表一個不可變物件，包含形狀斜角的 effective 面部凹凸屬性。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IShapeBevelEffectiveData) 實例透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormatEffectiveData) 取得，後者提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormat) 的 effective 值。
+Aspose.Slides 允許您取得斜角形狀的 effective 屬性。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IShapeBevelEffectiveData) 介面表示一個不可變的物件，內含形狀面部浮雕的 effective 屬性。透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormatEffectiveData) 可取得 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IShapeBevelEffectiveData) 實例，該介面提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IThreeDFormat) 的 effective 值。
 
-以下程式碼範例示範如何取得形狀上方斜角的 effective 屬性。假設第一張投影片上的第一個圖形具有 3D 格式設定。
+以下程式碼範例示範如何取得形狀上斜角 (top bevel) 的 effective 屬性。假設第一張投影片的第一個形狀具有 3D 格式。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -132,13 +140,15 @@ try {
 }
 ```
 
-## **取得文字框的有效屬性**
+## **取得文字框的 Effective 屬性**
 
 使用 Aspose.Slides，您可以取得文字框的 effective 屬性。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ITextFrameFormatEffectiveData) 介面包含文字框的 effective 格式屬性。
 
-以下程式碼範例示範如何取得文字框的 effective 格式屬性。假設第一張投影片上的第一個圖形是具有文字框的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IAutoShape)。
+以下程式碼範例示範如何取得文字框的 effective 格式屬性。假設第一張投影片的第一個形狀是具有文字框的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IAutoShape)。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -167,13 +177,15 @@ try {
 }
 ```
 
-## **取得文字樣式的有效屬性**
+## **取得文字樣式的 Effective 屬性**
 
 使用 Aspose.Slides，您可以取得文字樣式的 effective 屬性。[ITextStyleEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ITextStyleEffectiveData) 介面包含文字樣式的 effective 屬性。
 
-以下程式碼範例示範如何取得文字樣式的 effective 屬性。假設第一張投影片上的第一個圖形是具有文字框的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IAutoShape)。
+以下程式碼範例示範如何取得文字樣式的 effective 屬性。假設第一張投影片的第一個形狀是具有文字框的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IAutoShape)。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -203,9 +215,11 @@ try {
 
 ## **取得 Effective 字型高度值**
 
-使用 Aspose.Slides，您可以取得 effective 的字型高度。以下程式碼示範在簡報不同層級設定本地字型高度後，文字段的 effective 字型高度如何變化。
+使用 Aspose.Slides，您可以取得 effective 字型高度。以下程式碼示範在不同簡報結構層級設定本機字型高度後，文字片段的 effective 字型高度如何變化。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -280,9 +294,11 @@ try {
 
 使用 Aspose.Slides，您可以取得不同表格部分的 effective 填充格式。[IFillFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/IFillFormatEffectiveData) 介面包含 effective 填充格式屬性。儲存格格式的優先權高於列格式，列格式高於欄格式，欄格式高於整表格式。
 
-因此，會使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ICellFormatEffectiveData) 的屬性來繪製表格儲存格。以下程式碼範例示範如何取得不同表格部分的 effective 填充格式。假設第一張投影片上的第一個圖形是 [ITable](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ITable)。
+因此，繪製表格儲存格時會使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ICellFormatEffectiveData) 的屬性。以下程式碼範例示範如何取得不同表格部分的 effective 填充格式。假設第一張投影片的第一個形狀是一個 [ITable](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ITable)。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -302,36 +318,36 @@ try {
 }
 ```
 
-## **FAQ**
+## **常見問題**
 
-**`getEffective` 會回傳快照嗎？**
+### `getEffective` 會返回快照嗎？
 
-不一定。Effective 資料代表套用繼承後計算出的格式，但某些 effective 資料物件可能會在內部被快取。隨後的 `getEffective` 呼叫可能會重新計算格式並刷新快取的資料，因此先前取得的物件不應視為持久的快照。
+不一定。Effective data 代表套用繼承後計算出的格式，但某些 effective data 物件可能在內部被快取。之後再次呼叫 `getEffective` 可能會重新計算格式並刷新快取的資料，因此先前取得的物件不應被視為永久的快照。
 
-**什麼時候需要再次讀取 effective 屬性？**
+### 什麼時候應該重新讀取 effective 屬性？
 
-在變更本地格式、父層樣式、佈局格式、母片格式或簡報層級的預設值之後，再次呼叫 `getEffective`。下一次呼叫會重新評估格式階層，並返回目前的 effective 結果。
+在變更本機格式、父層樣式、版面格式、母片格式或簡報層級的預設值之後，請再次呼叫 `getEffective`。下一次呼叫會重新評估格式階層，並返回目前的 effective 結果。
 
-**變更或移除佈局/母片投影片會影響已取得的 effective 屬性嗎？**
+### 更改或移除版面/母片是否會影響已取得的 effective 屬性？
 
-會，但變更會在下次 `getEffective` 呼叫時才顯現。若父層格式來源被變更或移除，先前取得的 effective 資料可能已過時。再次呼叫 `getEffective` 後，Aspose.Slides 會重新評估格式樹，字型、顏色、大小或其他值可能會改變。
+會，然而變更會在下一次 `getEffective` 呼叫時顯現。如果父層格式來源被變更或移除，先前取得的 effective data 可能已過時。再次呼叫 `getEffective` 後，Aspose.Slides 會重新評估格式樹，導致字型、顏色、大小或其他值可能改變。
 
-**我能透過 effective 資料物件修改值嗎？**
+### 我可以透過 effective data 物件修改值嗎？
 
-不能。Effective 資料物件僅提供計算出的值。請在本地格式物件上進行變更，然後再次取得 effective 值。
+不能。Effective data 物件僅提供計算後的值。請在本機格式物件中進行變更，然後再次取得 effective 值。
 
-**如果屬性在形狀層級、佈局/母片或全域設定都未設定，會發生什麼？**
+### 如果屬性在形狀層級、版面/母片或全域設定皆未設定，會發生什麼？
 
-effective 值由預設機制決定，該機制包含 PowerPoint 與 Aspose.Slides 的預設值。解析出的值會成為目前的 effective 資料的一部份。
+effective 值將由預設機制決定，該機制包含 PowerPoint 與 Aspose.Slides 的預設值。解析出的值會成為目前 effective data 的一部份。
 
-**從 effective 字型值，我能判斷是哪個層級提供的大小或字型嗎？**
+### 從 effective 的字型值，我能判斷是哪個層級提供的大小或字型嗎？
 
-不能直接判斷。Effective 資料只返回最終值。若要找出來源，需檢查文字段、段落、文字框以及佈局、母片與簡報層級的文字樣式的本地值，找出第一個明確定義的層級。
+不能直接得知。Effective data 只回傳最終值。若要找出來源，必須檢查文字片段、段落、文字框以及版面、母片與簡報層級的文字樣式的本機值，找出首次明確定義的層級。
 
-**為什麼 effective 值有時看起來和本地值相同？**
+### 為什麼 effective 值有時與本機值相同？
 
-因為本地值最終即為最終值（未需更高層級的繼承）。在此情況下，effective 值與本地值相同。
+因為本機值最終即為最終值（不需要更高層級的繼承）。在此情況下，effective 值與本機值相同。
 
-**什麼時候使用 effective 屬性，什麼時候只使用本地屬性？**
+### 什麼時候應使用 effective 屬性，什麼時候只使用本機屬性？
 
-當您需要在所有繼承套用後的「實際呈現」結果時，使用 effective 資料，例如對齊顏色、縮排或大小。如果需要在後續格式變更後仍保留這些值，請將所需屬性複製到自己的物件中。若您只想在特定層級修改格式，請變更本地屬性，必要時再讀取 effective 資料以驗證結果。
+當您需要在套用所有繼承後的「實際呈現」結果時，請使用 effective data，例如對齊顏色、縮排或尺寸。若需在之後的格式變更中保留這些值，請將必要的屬性複製到自己的物件中。若要在特定層級變更格式，請修改本機屬性，然後在需要時再次讀取 effective data 以驗證結果。

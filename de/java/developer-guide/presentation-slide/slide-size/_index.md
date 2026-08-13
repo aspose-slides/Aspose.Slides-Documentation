@@ -1,5 +1,5 @@
 ---
-title: Foliengröße einer Präsentation in Java ändern
+title: Ändern der Foliengröße einer Präsentation in Java
 linktitle: Foliengröße
 type: docs
 weight: 70
@@ -16,63 +16,58 @@ keywords:
 - Benutzerdefinierte Foliengröße
 - Spezielle Foliengröße
 - Einzigartige Foliengröße
-- Vollformatfolie
+- Vollgröße-Folie
 - Bildschirmtyp
 - Nicht skalieren
-- Passend skalieren
+- Passend sicherstellen
 - Maximieren
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit Java und Aspose.Slides schnell ändern können, um Präsentationen für jeden Bildschirm zu optimieren, ohne Qualitätsverlust."
+description: "Erfahren Sie, wie Sie Folien in PPT-, PPTX- und ODP-Dateien mit Java und Aspose.Slides schnell skalieren, um Präsentationen für jeden Bildschirm zu optimieren, ohne Qualitätsverlust."
 ---
+## **Einleitung**
 
-## **Foliengrößen in PowerPoint-Präsentationen**
+Aspose.Slides bietet umfassende Werkzeuge, um die Foliengröße und das Seitenverhältnis in PowerPoint‑Präsentationen anzupassen, was sowohl für den Druck als auch für die Anzeige auf dem Bildschirm entscheidend ist.
 
-Aspose.Slides für Java ermöglicht es Ihnen, die Foliengröße oder das Seitenverhältnis in PowerPoint-Präsentationen zu ändern. Wenn Sie Ihre Präsentation drucken oder die Folien auf einem Bildschirm anzeigen möchten, müssen Sie auf die Foliengröße bzw. das Seitenverhältnis achten. 
+Beliebte Foliengrößen und Seitenverhältnisse:
 
-Dies sind die gängigsten Foliengrößen und Seitenverhältnisse:
+- **Standard (4:3 Seitenverhältnis)**: Ideal für ältere Bildschirme und Geräte.
+- **Widescreen (16:9 Seitenverhältnis)**: Empfohlen für moderne Projektoren und Anzeigen.
 
-- **Standard (Seitenverhältnis 4:3)**
+Stellen Sie sicher, dass während Ihrer gesamten Präsentation Konsistenz besteht, da eine einheitliche Foliengröße und ein einheitliches Seitenverhältnis für alle Folien gelten. Für optimale Ergebnisse sollten Sie die Folienabmessungen zu Beginn des Erstellungsprozesses Ihrer Präsentation festlegen, um Komplikationen zu vermeiden.
 
-  Wenn Ihre Präsentation auf relativ älteren Geräten oder Bildschirmen angezeigt oder betrachtet werden soll, können Sie diese Einstellung verwenden. 
+{{% alert color="info" %}} 
+Standardmäßig verwenden mit Aspose.Slides erstellte Präsentationen das Standard‑Seitenverhältnis 4:3.
+{{% /alert %}}
 
-- **Widescreen (Seitenverhältnis 16:9)** 
+## **Ändern der Foliengröße in Präsentationen**
 
-  Wenn Ihre Präsentation auf modernen Projektoren oder Displays gesehen wird, können Sie diese Einstellung verwenden. 
+Dieser Beispielcode zeigt, wie Sie die Foliengröße in einer Präsentation in Java mit Aspose.Slides ändern:
 
-Sie können nicht mehrere Foliengrößeneinstellungen in einer einzigen Präsentation verwenden. Wenn Sie eine Foliengröße für eine Präsentation auswählen, wird diese Einstellung auf alle Folien der Präsentation angewendet. 
-
-Wenn Sie für Ihre Präsentationen eine spezielle Foliengröße verwenden möchten, empfehlen wir dringend, dies frühzeitig zu tun. Idealerweise sollten Sie Ihre bevorzugte Folie zu Beginn festlegen, d. h. beim Einrichten der Präsentation – bevor Sie Inhalte hinzufügen. So vermeiden Sie Komplikationen, die durch (zukünftige) Änderungen der Foliengröße entstehen können. 
-
-{{% alert color="primary" %}} 
-
-Wenn Sie Aspose.Slides verwenden, um eine Präsentation zu erstellen, erhalten alle Folien der Präsentation automatisch die Standardgröße bzw. das Seitenverhältnis 4:3.
-
-{{% /alert %}} 
-
-## **Foliengröße in Präsentationen ändern**
-
-Dieser Beispielcode zeigt, wie Sie die Foliengröße einer Präsentation in Java mit Aspose.Slides ändern:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
+    pres.save("pres-16x9-aspect-ratio.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **Angeben benutzerdefinierter Foliengrößen in Präsentationen**
 
-## **Benutzerdefinierte Foliengrößen in Präsentationen festlegen**
-
-Wenn Sie die gängigen Foliengrößen (4:3 und 16:9) für Ihre Arbeit als ungeeignet empfinden, können Sie eine bestimmte oder einzigartige Foliengröße verwenden. Beispielsweise, wenn Sie Vollformatfolien Ihrer Präsentation auf einem benutzerdefinierten Seitenlayout drucken oder Ihre Präsentation auf bestimmten Bildschirmtypen anzeigen möchten, profitieren Sie wahrscheinlich von einer benutzerdefinierten Größeneinstellung für Ihre Präsentation. 
+Wenn die üblichen Foliengrößen (4:3 und 16:9) für Ihre Arbeit nicht geeignet sind, können Sie eine bestimmte oder eindeutige Foliengröße wählen. Zum Beispiel, wenn Sie Voll‑Size‑Folien aus Ihrer Präsentation auf einem benutzerdefinierten Seitendesign drucken möchten oder wenn Sie die Präsentation auf bestimmten Bildschirmtypen anzeigen wollen, profitieren Sie wahrscheinlich von einer benutzerdefinierten Größeneinstellung.
 
 Dieser Beispielcode zeigt, wie Sie mit Aspose.Slides für Java eine benutzerdefinierte Foliengröße für eine Präsentation in Java festlegen:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // A4-Papiergröße
@@ -82,12 +77,11 @@ try {
 }
 ```
 
+## **Umgang mit Folieninhalt nach Größenänderung**
 
-## **Folieninhalt nach Größenänderung behandeln**
+Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Inhalte der Folien (Bilder oder Objekte usw.) verzerrt werden. Standardmäßig werden die Objekte automatisch so skaliert, dass sie zur neuen Foliengröße passen. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung festlegen, die bestimmt, wie Aspose.Slides mit den Inhalten auf den Folien umgeht.
 
-Nachdem Sie die Foliengröße einer Präsentation geändert haben, können die Inhalte der Folien (Bilder oder Objekte usw.) verzerrt werden. Standardmäßig werden die Objekte automatisch skaliert, damit sie zur neuen Foliengröße passen. Beim Ändern der Foliengröße einer Präsentation können Sie jedoch eine Einstellung festlegen, die bestimmt, wie Aspose.Slides mit den Inhalten der Folien umgeht.
-
-Je nach dem, was Sie beabsichtigen, können Sie eine dieser Einstellungen verwenden:
+Je nach dem, was Sie beabsichtigen, können Sie eine der folgenden Einstellungen verwenden:
 
 - `DoNotScale`
 
@@ -95,14 +89,17 @@ Je nach dem, was Sie beabsichtigen, können Sie eine dieser Einstellungen verwen
 
 - `EnsureFit`
 
-  Wenn Sie zu einer kleineren Foliengröße skalieren und Aspose.Slides die Folienobjekte verkleinern soll, damit sie alle auf die Folien passen (so vermeiden Sie Inhaltsverlust), verwenden Sie diese Einstellung. 
+  Wenn Sie auf eine kleinere Foliengröße skalieren möchten und Aspose.Slides die Objekte der Folien verkleinern soll, damit sie alle auf die Folien passen (so vermeiden Sie Inhaltsverlust), verwenden Sie diese Einstellung.
 
 - `Maximize`
 
-  Wenn Sie zu einer größeren Foliengröße skalieren und Aspose.Slides die Folienobjekte vergrößern soll, damit sie proportional zur neuen Foliengröße werden, verwenden Sie diese Einstellung. 
+  Wenn Sie auf eine größere Foliengröße skalieren möchten und Aspose.Slides die Objekte der Folien vergrößern soll, sodass sie proportional zur neuen Foliengröße sind, verwenden Sie diese Einstellung.
 
-Dieser Beispielcode zeigt, wie Sie die `Maximize`-Einstellung beim Ändern der Größe einer Präsentationsfolie verwenden:
+Dieser Beispielcode zeigt, wie Sie die Einstellung `Maximize` beim Ändern der Foliengröße einer Präsentation verwenden:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -111,21 +108,20 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Kann ich eine benutzerdefinierte Foliengröße mit anderen Einheiten als Zoll (z. B. Punkten oder Millimetern) festlegen?**
+### Kann ich eine benutzerdefinierte Foliengröße mit anderen Einheiten als Zoll festlegen (z. B. Punkte oder Millimeter)?
 
 Ja. Aspose.Slides verwendet intern Punkte, wobei 1 Punkt 1/72 Zoll entspricht. Sie können jede Einheit (wie Millimeter oder Zentimeter) in Punkte umrechnen und die konvertierten Werte zur Definition von Folienbreite und -höhe verwenden.
 
-**Wirkt sich eine sehr große benutzerdefinierte Foliengröße auf Leistung und Speicherverbrauch beim Rendern aus?**
+### Wird eine sehr große benutzerdefinierte Foliengröße die Leistung und den Speicherverbrauch beim Rendern beeinflussen?
 
-Ja. Größere Folienabmessungen (in Punkten) kombiniert mit höherer Render‑Skalierung führen zu erhöhtem Speicherverbrauch und längeren Verarbeitungszeiten. Ziel ist eine praktikable Foliengröße; passen Sie die Render‑Skalierung nur bei Bedarf an, um die gewünschte Ausgabequalität zu erreichen.
+Ja. Größere Folienabmessungen (in Punkten) kombiniert mit höherer Render‑Skala führen zu erhöhtem Speicherverbrauch und längeren Verarbeitungszeiten. Ziel ist eine praktikable Foliengröße, und die Render‑Skala sollte nur bei Bedarf angepasst werden, um die gewünschte Ausgabequalität zu erreichen.
 
-**Kann ich eine nicht‑standardmäßige Foliengröße definieren und dann Folien aus Präsentationen mit unterschiedlichen Größen zusammenführen?**
+### Kann ich eine nicht‑standardmäßige Foliengröße definieren und dann Folien aus Präsentationen zusammenführen, die unterschiedliche Größen haben?
 
-Sie können keine [Präsentationen zusammenführen](/slides/de/java/merge-presentation/), solange sie unterschiedliche Foliengrößen haben – zuerst müssen Sie eine Präsentation auf die Größe der anderen anpassen. Beim Ändern der Foliengröße können Sie über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/java/com.aspose.slides/slidesizescaletype/) festlegen, wie vorhandener Inhalt behandelt wird. Nachdem die Größen angepasst wurden, können Sie Folien zusammenführen und das Format beibehalten.
+Sie können nicht [Präsentationen zusammenführen](/slides/de/java/merge-presentation/), während sie unterschiedliche Foliengrößen haben – zuerst müssen Sie eine Präsentation auf die Größe der anderen ändern. Beim Ändern der Foliengröße können Sie festlegen, wie der vorhandene Inhalt über die Option [SlideSizeScaleType](https://reference.aspose.com/slides/de/java/com.aspose.slides/slidesizescaletype/) behandelt wird. Nach dem Angleichen der Größen können Sie Folien zusammenführen und dabei die Formatierung beibehalten.
 
-**Kann ich Thumbnails für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und werden sie die neue Foliengröße berücksichtigen?**
+### Kann ich Thumbnails für einzelne Formen oder bestimmte Bereiche einer Folie erzeugen, und berücksichtigen sie die neue Foliengröße?
 
-Ja. Aspose.Slides kann Thumbnails für [gesamte Folien](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) sowie für [ausgewählte Formen](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getImage-int-float-float-) erzeugen. Die resultierenden Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider, wodurch ein konsistenter Bildausschnitt und die Geometrie gewährleistet werden.
+Ja. Aspose.Slides kann Thumbnails für [gesamte Folien](https://reference.aspose.com/slides/de/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) sowie für [ausgewählte Formen](https://reference.aspose.com/slides/de/java/com.aspose.slides/shape/#getImage-int-float-float-) erstellen. Die resultierenden Bilder spiegeln die aktuelle Foliengröße und das Seitenverhältnis wider, wodurch ein konsistenter Bildausschnitt und Geometrie gewährleistet sind.

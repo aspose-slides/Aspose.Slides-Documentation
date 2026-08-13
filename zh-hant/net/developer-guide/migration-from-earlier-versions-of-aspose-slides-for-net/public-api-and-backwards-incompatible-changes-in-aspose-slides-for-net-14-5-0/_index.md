@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 14.5.0 的公共 API 與向後不相容變更
+title: Aspose.Slides for .NET 14.5.0 中的公開 API 及向後相容性破壞之變更
 linktitle: Aspose.Slides for .NET 14.5.0
 type: docs
 weight: 70
@@ -16,133 +16,99 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "檢視 Aspose.Slides for .NET 的公共 API 更新與破壞性變更，以順利遷移您的 PowerPoint PPT、PPTX 和 ODP 簡報解決方案。"
+description: "檢視 Aspose.Slides for .NET 的公開 API 更新與破壞性變更，以順利遷移您的 PowerPoint PPT、PPTX 與 ODP 簡報解決方案。"
 ---
-{{% alert color="primary" %}} 
-
-此頁面列出所有在 Aspose.Slides for .NET 14.5.0 API 中[已新增](/slides/zh-hant/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/)的類別、方法、屬性等，以及任何新的[限制](/slides/zh-hant/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/)和其他[變更](/slides/zh-hant/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/)。
-
+{{% alert color="info" %}} 
+此頁面列出所有[已新增](/slides/zh-hant/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) 類別、方法、屬性等，任何新的[限制](/slides/zh-hant/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/)以及其他[變更](/slides/zh-hant/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/)，這些皆是隨著 Aspose.Slides for .NET 14.5.0 API 引入的。
 {{% /alert %}} 
-## **公共 API 與不相容的變更**
+## **公開 API 與向後相容性破壞之變更**
 ### **已新增的介面、類別、屬性與方法**
-#### **已新增 Aspose.Slides.IPresentationInfo 介面和 PresentationInfo 類別**
+#### **已新增 Aspose.Slides.IPresentationInfo 介面與 PresentationInfo 類別**
 表示簡報的資訊。
 
-- Boolean 屬性 IsEncrypted 在簡報被加密時返回 True，否則返回 False。
-- 屬性 LoadFormat 獲得簡報的類型。
+- 布林屬性 IsEncrypted 若簡報已加密則傳回 True，否則傳回 False。
+- 屬性 LoadFormat 取得簡報的類型。
 #### **已新增 Aspose.Slides.IShape.IsGrouped 屬性**
-屬性 Aspose.Slides.IShape.IsGrouped 用於判斷形狀是否為群組的一部分。
+Aspose.Slides.IShape.IsGrouped 屬性決定形狀是否已分組。
 #### **已新增 Aspose.Slides.IShape.ParentGroup 屬性**
-屬性 Aspose.Slides.IShape.ParentGroup 若形狀屬於群組，則返回其父 GroupShape 物件；否則返回 null。
+Aspose.Slides.IShape.ParentGroup 屬性在形狀已分組時傳回其父層 GroupShape 物件，否則傳回 null。
 #### **已新增 Aspose.Slides.IShapeCollection.AddGroupShape() 方法**
-方法 Aspose.Slides.IShapeCollection.AddGroupShape() 會建立新的 GroupShape 並將其加入集合的末尾。  
-當新增形狀時，GroupShape 的框架大小和位置會自動調整以符合內容。
+Aspose.Slides.IShapeCollection.AddGroupShape() 方法建立新 GroupShape 並將其加入集合的末端。新增形狀時，GroupShape 的框架大小與位置會自動調整至內容。
 #### **已新增 Aspose.Slides.IShapeCollection.Clear() 方法**
-方法 Aspose.Slides.IShapeCollection.Clear() 會從集合中移除所有形狀。
+Aspose.Slides.IShapeCollection.Clear() 方法會移除集合中所有形狀。
 #### **已新增 Aspose.Slides.IShapeCollection.InsertGroupShape(int) 方法**
-方法 Aspose.Slides.IShapeCollection.InsertGroupShape(int) 會建立新的 GroupShape，並在指定的索引位置插入到集合中。  
-當新增形狀時，GroupShape 的框架大小和位置會自動調整以符合內容。
-#### **已新增 IPresentationFactory.GetPresentationInfo(string file)、IPresentatoinFactory.GetPresentationInfo(Stream stream) 方法**
-這些方法可在不完整載入簡報的情況下取得簡報檔案或串流的資訊。
+Aspose.Slides.IShapeCollection.InsertGroupShape(int) 方法建立新 GroupShape 並在指定的索引位置插入集合。新增形狀時，GroupShape 的框架大小與位置會自動調整至內容。
+#### **已新增 IPresentationFactory.GetPresentationInfo(string file)、IPresentationFactory.GetPresentationInfo(Stream stream) 方法**
+這些方法允許在不完整載入簡報的情況下取得簡報檔案或資料流的資訊。
 #### **已新增 IPresentationFactory PresentationFactory.Instance 屬性**
-此屬性允許開發人員在不實例化的情況下使用工廠功能。
+此屬性讓開發人員在不實例化的情況下使用工廠功能。
 ### **限制**
-#### **對 IShape.Frame 的限制**
-已針對 IShape.Frame 使用未定義值加入限制。大多數情況下，嘗試將未定義的框架指派給 IShape.Frame 並無意義（尤其是當父 GroupShape 多層巢狀於其他 {{GroupShape}} 時）。例如：
+#### **IShape.Frame 的限制**
+已加入對於使用未定義值於 IShape.Frame 的限制。嘗試將未定義的框架指派給 IShape.Frame 的程式碼在大多數情況下沒有意義（尤其是當父層 GroupShape 多層巢狀於其他 {{GroupShape}} 時）。例如：
 
 ``` csharp
+using Aspose.Slides;
 
- IShape shape = ...;
+Presentation presentation = new Presentation();
+IShape shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
+// 拋出 ArgumentException：框架值必須已定義。
 shape.Frame = new ShapeFrame(float.NaN, float.NaN, float.NaN, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, float.NaN);
-
-
 ``` 
 
-or
+或
 
 ``` csharp
+using Aspose.Slides;
 
- slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
+Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
 
+// 拋出 ArgumentException：x、y、寬度與高度必須已定義。
+slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, float.NaN, float.NaN, float.NaN, float.NaN);
 ``` 
 
-此類程式碼可能導致不明確的情況。因此已對使用未定義的 IShape.Frame 值加入限制。x、y、width、height、flipH、flipV 以及 rotationAngle 必須被定義（且不能設定為 float.NaN 或 NullableBool.NotDefined）。上述範例程式碼現在會拋出 ArgumentException 例外。  
-此限制適用於以下使用情況：
+此類程式碼可能導致不明確的情況。因此已加入對於使用未定義值於 IShape.Frame 的限制。x、y、width、height、flipH、flipV 與 rotationAngle 必須有明確定義（且不可設為 float.NaN 或 NullableBool.NotDefined）。上述範例程式碼現在會拋出 ArgumentException 例外。
+此限制適用於以下使用情境：
 
 ``` csharp
+using Aspose.Slides;
 
- IShape shape = ...;
+Presentation presentation = new Presentation();
+IShapeCollection shapes = presentation.Slides[0].Shapes;
 
-shape.Frame = ...; // 不能為未定義
+// x、y、寬度與高度參數不能為 float.NaN，且 flipH、flipV
+// 不能為 NullableBool.NotDefined：
+IShape shape = shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+shape.Frame = new ShapeFrame(100, 100, 200, 100, NullableBool.False, NullableBool.False, 0);
 
-IShapeCollection shapes = ...;
+// 相同的限制適用於所有建立形狀的方法：
+// AddAudioFrameCD, AddAudioFrameEmbedded, AddAudioFrameLinked, AddAutoShape, AddChart,
+// AddConnector, AddOleObjectFrame, AddPictureFrame, AddSmartArt, AddTable, AddVideoFrame,
+// InsertAudioFrameEmbedded, InsertAudioFrameLinked, InsertAutoShape, InsertChart,
+// InsertConnector, InsertOleObjectFrame, InsertPictureFrame, InsertTable, InsertVideoFrame.
+``` 
 
-// x、y、寬度、高度參數不能為 float.NaN:
+但 IShape.RawFrame 的框架屬性可以未定義。當形狀連結至占位符時，這是合理的。此時未定義的形狀框架值會從父層占位符形狀覆寫。若沒有父層占位符形狀，則該形狀在根據 IShape.RawFrame 評估有效框架時會使用預設值。預設值為 x、y、width、height、flipH、flipV 與 rotationAngle 為 0 與 NullableBool.False。例如：
 
+``` csharp
+using Aspose.Slides;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
+    // 此形狀已連結至占位符
+    IShape shape = presentation.Slides[0].Shapes[0];
 
-    shapes.AddAudioFrameCD(...);
+    shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
 
-    shapes.AddAudioFrameEmbedded(...);
-
-    shapes.AddAudioFrameLinked(...);
-
-    shapes.AddAutoShape(...);
-
-    shapes.AddChart(...);
-
-    shapes.AddConnector(...);
-
-    shapes.AddOleObjectFrame(...);
-
-    shapes.AddPictureFrame(...);
-
-    shapes.AddSmartArt(...);
-
-    shapes.AddTable(...);
-
-    shapes.AddVideoFrame(...);
-
-    shapes.InsertAudioFrameEmbedded(...);
-
-    shapes.InsertAudioFrameLinked(...);
-
-    shapes.InsertAutoShape(...);
-
-    shapes.InsertChart(...);
-
-    shapes.InsertConnector(...);
-
-    shapes.InsertOleObjectFrame(...);
-
-    shapes.InsertPictureFrame(...);
-
-    shapes.InsertTable(...);
-
-    shapes.InsertVideoFrame(...);
-
+    // 現在形狀從占位符繼承 x、y、height、flipH、flipV 值，並覆寫 width=100 與 rotationAngle=0。
 }
-
-
-``` 
-
-但 IShape.RawFrame 的框架屬性可以是未定義的。當形狀連結到占位符時，這是合理的。此時未定義的形狀框架值會被父占位符形狀覆寫。若沒有父占位符形狀，則該形狀在基於其 IShape.RawFrame 評估有效框架時會使用預設值。預設值為 x、y、width、height、flipH、flipV 以及 rotationAngle 為 0 或 NullableBool.False。例如：
-
-``` csharp
-
- IShape shape = ...; // shape 已連結至佔位符
-
-shape.RawFrame = new ShapeFrame(float.NaN, float.NaN, 100, float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0);
-
-// 現在 shape 繼承來自佔位符的 x、y、height、flipH、flipV 值，並覆寫 width=100 與 rotationAngle=0.
-
 ``` 
 ### **已變更的屬性**
-#### **已變更 Aspose.Slides.IShapeCollection.Parent 屬性的名稱與類型**
-- Aspose.Slides.IShapeCollection.Parent 屬性的類型已從 ISlideComponent 改為全新的 IGroupShape 介面。IGroupShape 介面是 ISlideComponent 的衍生介面，故現有程式碼無需調整。
-- Aspose.Slides.IShapeCollection.Parent 屬性的名稱已由 Parent 改為 ParentGroup。
-#### **已變更 Aspose.Slides.IShapeFrame.FlipH 與 .FlipV 屬性的類型**
-- Aspose.Slides.IShapeFrame.FlipH 屬性的類型已從 bool 改為 NullableBool。
-- IShape.Frame 屬性返回一個有效的 IShapeFrame 實例（其所有屬性皆具有已定義的有效值）。
-- IShape.RawFrame 屬性返回 IShapeFrame 的一個實例，其中每個屬性皆可為未定義值（特別是 FlipH 或 FlipV 可為 NullableBool.NotDefined）。
+#### **變更 Aspose.Slides.IShapeCollection.Parent 屬性的名稱與類型**
+- Aspose.Slides.IShapeCollection.Parent 屬性的類型已由 ISlideComponent 變更為新的 IGroupShape 介面。IGroupShape 繼承自 ISlideComponent，現有程式碼無需調整。
+- Aspose.Slides.IShapeCollection.Parent 屬性的名稱已由 Parent 變更為 ParentGroup。
+#### **變更 Aspose.Slides.IShapeFrame.FlipH、FlipV 屬性的類型**
+- Aspose.Slides.IShapeFrame.FlipH 屬性的類型已由 bool 變更為 NullableBool。
+- IShape.Frame 屬性會傳回一個具有所有屬性已定義有效值的 IShapeFrame 實例。
+- IShape.RawFrame 屬性會傳回一個 IShapeFrame 實例，其每個屬性皆可為未定義值（特別是 FlipH 或 FlipV 可為 NullableBool.NotDefined）。

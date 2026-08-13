@@ -1,6 +1,6 @@
 ---
 title: Memformat Teks Menggunakan VSTO dan Aspose.Slides untuk .NET
-linktitle: Format Teks
+linktitle: Memformat Teks
 type: docs
 weight: 30
 url: /id/net/format-text-using-vsto-and-aspose-slides-and-net/
@@ -14,31 +14,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migrasikan dari otomasi Microsoft Office ke Aspose.Slides untuk .NET dan format teks dalam presentasi PowerPoint (PPT, PPTX) dengan kontrol yang tepat."
+description: "Migrasi dari otomasi Microsoft Office ke Aspose.Slides untuk .NET dan memformat teks dalam presentasi PowerPoint (PPT, PPTX) dengan kontrol yang tepat."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Kadang-kadang, Anda perlu memformat teks pada slide secara programatis. Artikel ini menunjukkan cara membaca contoh presentasi dengan beberapa teks pada slide pertama menggunakan [VSTO](/slides/id/net/format-text-using-vsto-and-aspose-slides-and-net/) dan [Aspose.Slides for .NET](/slides/id/net/format-text-using-vsto-and-aspose-slides-and-net/). Kode tersebut memformat teks dalam kotak teks ketiga pada slide sehingga terlihat seperti teks pada kotak teks terakhir.
+Kadang-kadang, Anda perlu memformat teks pada slide secara programatis. Artikel ini menunjukkan cara membaca presentasi contoh dengan beberapa teks pada slide pertama menggunakan [VSTO](/slides/id/net/format-text-using-vsto-and-aspose-slides-and-net/) dan [Aspose.Slides for .NET](/slides/id/net/format-text-using-vsto-and-aspose-slides-and-net/). Kode tersebut memformat teks dalam kotak teks ketiga pada slide agar terlihat seperti teks pada kotak teks terakhir.
 
 {{% /alert %}} 
-## **Formatting Text**
-Baik metode VSTO maupun Aspose.Slides melakukan langkah-langkah berikut:
+## **Memformat Teks**
+Baik metode VSTO maupun Aspose.Slides mengikuti langkah-langkah berikut:
 
 1. Buka presentasi sumber.
 1. Akses slide pertama.
 1. Akses kotak teks ketiga.
-1. Ubah pemformatan teks di kotak teks ketiga.
+1. Ubah format teks dalam kotak teks ketiga.
 1. Simpan presentasi ke disk.
 
-Screenshot di bawah ini menunjukkan slide contoh sebelum dan setelah eksekusi kode VSTO dan Aspose.Slides untuk .NET.
+Tangkapan layar di bawah ini menunjukkan slide contoh sebelum dan sesudah menjalankan kode VSTO dan Aspose.Slides untuk .NET.
 
-**The input presentation** 
+**Presentasi input** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
-### **VSTO Code Example**
+### **Contoh Kode VSTO**
 Kode di bawah ini menunjukkan cara memformat ulang teks pada slide menggunakan VSTO.
 
-**The text reformatted with VSTO** 
+**Teks yang diformat ulang dengan VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_2.png)
 
@@ -58,7 +58,7 @@ pres = Globals.ThisAddIn.Application.Presentations.Open("c:\\source.ppt",
 //Akses slide pertama
 PowerPoint.Slide slide = pres.Slides[1];
 
-//Akses shape ketiga
+//Akses bentuk ketiga
 PowerPoint.Shape shp = slide.Shapes[3];
 
 //Ubah font teksnya menjadi Verdana dan ukuran menjadi 32
@@ -75,13 +75,13 @@ txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 //Ubah warna teks
 txtRange.Font.Color.RGB = 0x00CC3333;
 
-//Ubah warna latar belakang shape
+//Ubah warna latar belakang bentuk
 shp.Fill.ForeColor.RGB = 0x00FFCCCC;
 
-//Pindahkan posisinya secara horizontal
+//Posisikan kembali secara horizontal
 shp.Left -= 70;
 
-//Tulis output ke disk
+//Tuliskan output ke disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -90,26 +90,30 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 
-### **Aspose.Slides for .NET Example**
+### **Contoh Aspose.Slides untuk .NET**
 Untuk memformat teks dengan Aspose.Slides, tambahkan font sebelum memformat teks.
 
-**The output presentation created with Aspose.Slides** 
+**Presentasi output yang dibuat dengan Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_3.png)
 
 
 
 ```c#
- //Buka presentasi
-Presentation pres = new Presentation("c:\\source.ppt");
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-//Akses slide pertama
+ //Buka presentasi
+Presentation pres = new Presentation("source.ppt");
+
+//Access the first slide
 ISlide slide = pres.Slides[0];
 
-//Akses shape ketiga
+//Access the third shape
 IShape shp = slide.Shapes[2];
 
-//Ubah font teksnya menjadi Verdana dan ukuran menjadi 32
+//Change its text's font to Verdana and height to 32
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 IParagraph para = tf.Paragraphs[0];
 IPortion port = para.Portions[0];
@@ -124,14 +128,14 @@ port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontItalic = NullableBool.True;
 
 //Ubah warna teks
-//Atur warna font
+//Set warna font
 port.PortionFormat.FillFormat.FillType = FillType.Solid;
 port.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
-//Ubah warna latar belakang shape
+//Ubah warna latar belakang bentuk
 shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//Tulis output ke disk
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Tuliskan output ke disk
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

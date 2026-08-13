@@ -1,5 +1,5 @@
 ---
-title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 15.10.0
+title: Cambios en la API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 15.10.0
 linktitle: Aspose.Slides para .NET 15.10.0
 type: docs
 weight: 200
@@ -16,25 +16,28 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revisa las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
+description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Esta página enumera todas las clases, métodos, propiedades y demás, [agregados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) y otros cambios introducidos con la API de Aspose.Slides for .NET 15.10.0.
+Esta página enumera todas las clases, métodos, propiedades, etc. [añadidas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) o [eliminadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 15.10.0.
 
 {{% /alert %}} 
 ## **Cambios en la API pública**
-#### **Nuevo VideoPlayerHtmlController añadido para admitir la exportación de archivos multimedia a HTML**
+#### **Se ha añadido un nuevo VideoPlayerHtmlController para soportar la exportación de archivos multimedia a HTML**
 La nueva clase pública VideoPlayerHtmlController se ha añadido al espacio de nombres Aspose.Slides.Export. Usando una instancia de esta clase, el usuario puede exportar archivos de vídeo y audio a HTML.
 Los constructores de VideoPlayerHtmlController aceptan los siguientes parámetros:
 
 path: La ruta donde se generarán los archivos de vídeo y audio  
 fileName: El nombre del archivo HTML  
-baseUri: El URI base que se utilizará para generar enlaces  
+
+baseUri: El URI base que se utilizará para generar los enlaces  
 Ejemplo de uso:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation("example.pptx"))
 
@@ -62,9 +65,12 @@ Ejemplo de uso:
 
 ``` 
 #### **Se ha añadido la API de animación de series de gráficos**
-Se han añadido 2 nuevos métodos a la interfaz Aspose.Slides.Animation.ISequence.
+Se han añadido los dos nuevos métodos a la interfaz Aspose.Slides.Animation.ISequence.
 
 ``` csharp
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+
 
  IEffect AddEffect(IChart chart, EffectChartMajorGroupingType type, int index, EffectType effectType, EffectSubtype subtype, EffectTriggerType triggerType);
 
@@ -72,298 +78,194 @@ IEffect AddEffect(IChart chart, EffectChartMinorGroupingType type, int seriesInd
 
 ``` 
 
-Estos métodos están destinados a soportar animaciones de los elementos del gráfico:
-por serie  
-por categorías  
-por elementos de serie  
-por elementos de categorías  
+Estos métodos están destinados a soportar las animaciones de los elementos del gráfico:
+por series
+por categorías
+por elementos de series
+por elementos de categorías
 
 Se introdujeron los dos nuevos enumerados EffectChartMajorGroupingType y EffectChartMinorGroupingType relacionados con la animación de los elementos del gráfico.
 
-Para añadir una animación de serie al gráfico, se puede usar el siguiente código:
+Para añadir una animación de series al gráfico, se puede usar el siguiente código:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation(inFileName))
+string inFileName = "sample.pptx";
+string outFileName = "output.pptx";
 
+using (Presentation pres = new Presentation(inFileName))
 {
-
     var slide = pres.Slides[0] as Slide;
-
     var shapes = slide.Shapes as ShapeCollection;
-
     var chart = shapes[0] as IChart;
-
     slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None,
-
         EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.BySeries, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.BySeries, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.BySeries, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.BySeries, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     pres.Save(outFileName, SaveFormat.Pptx);
-
 }
-
 ``` 
 
 Animación de categorías:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation(inFileName))
+string inFileName = "sample.pptx";
+string outFileName = "output.pptx";
 
+using (Presentation pres = new Presentation(inFileName))
 {
-
     var slide = pres.Slides[0] as Slide;
-
     var shapes = slide.Shapes as ShapeCollection;
-
     var chart = shapes[0] as IChart;
-
     slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None,
-
         EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.ByCategory, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.ByCategory, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.ByCategory, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMajorGroupingType.ByCategory, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     pres.Save(outFileName, SaveFormat.Pptx);
-
 }
-
 ``` 
 
-Animación de elementos de serie:
+Animación de elementos de series:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation(inFileName))
+string inFileName = "sample.pptx";
+string outFileName = "output.pptx";
 
+using (Presentation pres = new Presentation(inFileName))
 {
-
     var slide = pres.Slides[0] as Slide;
-
     var shapes = slide.Shapes as ShapeCollection;
-
     var chart = shapes[0] as IChart;
-
     slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None,
-
         EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 0, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 0, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 0, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 0, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 1, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 1, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 1, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 1, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 2, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 2, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 2, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInSeries, 2, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     pres.Save(outFileName, SaveFormat.Pptx);
-
 }
-
 ``` 
 
-Animación de elementos de categoría:
+Animación de elementos de categorías:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation(inFileName))
+string inFileName = "sample.pptx";
+string outFileName = "output.pptx";
 
+using (Presentation pres = new Presentation(inFileName))
 {
-
     var slide = pres.Slides[0] as Slide;
-
     var shapes = slide.Shapes as ShapeCollection;
-
     var chart = shapes[0] as IChart;
-
     slide.Timeline.MainSequence.AddEffect(chart, EffectType.Fade, EffectSubtype.None,
-
         EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 0, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 0, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 0, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 0, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 1, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 1, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 1, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 1, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 2, 0,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 2, 1,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 2, 2,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     ((Sequence)slide.Timeline.MainSequence).AddEffect(chart,
-
         EffectChartMinorGroupingType.ByElementInCategory, 2, 3,
-
         EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
     pres.Save(outFileName, SaveFormat.Pptx);
-
 }
-
 ```

@@ -12,52 +12,54 @@ keywords:
 - دسترسی به گره
 - حذف گره
 - موقعیت سفارشی
-- گره دستیار
-- فرمت پرکننده
+- گره کمکی
+- فرمت پر کردن
 - رندر گره
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "مدیریت گره‌های شکل SmartArt در فایل‌های PPT و PPTX با Aspose.Slides برای Java. دریافت نمونه کد واضح و نکات برای بهینه‌سازی ارائه‌های خود."
+description: "مدیریت گره‌های شکل SmartArt در فایل‌های PPT و PPTX با Aspose.Slides برای Java. دریافت نمونه کد واضح و نکات برای ساده‌سازی ارائه‌های شما."
 ---
 ## **مروری کلی**
 
-گرافیک‌های SmartArt در ارائه‌های PowerPoint از طریق گره‌هایی که متن دارند و ساختار نمودار را تعریف می‌کنند، سازماندهی می‌شوند. Aspose.Slides به شما امکان می‌دهد به‌صورت برنامه‌نویسی با این گره‌های SmartArt کار کنید: افزودن گره‌ها و گره‌های فرزند جدید، درج گره‌های فرزند در موقعیت خاص، دسترسی به گره‌های موجود و خواندن متن، سطح و موقعیت آن‌ها.
+گرافیک‌های SmartArt در ارائه‌های PowerPoint از طریق گره‌هایی که متن را شامل می‌شوند و ساختار نمودار را تعریف می‌کنند، سازماندهی می‌شوند. Aspose.Slides به شما امکان می‌دهد به‌صورت برنامه‌نویسی با این گره‌های SmartArt کار کنید: گره‌ها و گره‌های فرزند جدید اضافه کنید، گره‌های فرزند را در موقعیت خاصی وارد کنید، به گره‌های موجود دسترسی پیدا کنید و متن، سطح و موقعیت آن‌ها را بخوانید.
 
-این مقاله نحوه مدیریت گره‌های شکل SmartArt را توضیح می‌دهد. نشان می‌دهد چگونه گره‌ها را حذف کنید، با گره‌های فرزند بر اساس شاخص یا موقعیت کار کنید، یک گره دستیار را به گره عادی تغییر دهید، موقعیت، اندازه و چرخش اشکال گره‌های SmartArt را تنظیم کنید، فرمت پرکننده گره را تنظیم کنید و تصویر بندانگشتی یک گره فرزند SmartArt را تولید کنید.
+این مقاله توضیح می‌دهد چگونه گره‌های شکل SmartArt را مدیریت کنید. نحوه حذف گره‌ها، کار با گره‌های فرزند بر اساس شاخص یا موقعیت، تبدیل یک گره کمکی به گره عادی، تنظیم موقعیت، اندازه و چرخش شکل گره SmartArt، تعیین فرمت پر کردن گره و تولید تصویر بندانگشتی برای گره فرزند SmartArt را نشان می‌دهد.
 
-## **افزودن یک گره SmartArt**
-Aspose.Slides for Java ساده‌ترین API برای مدیریت اشکال SmartArt را به آسان‌ترین شکل ارائه داده است. کد نمونه زیر به شما کمک می‌کند گره و گره فرزند را داخل شکل SmartArt اضافه کنید.
+## **افزودن گره SmartArt**
+Aspose.Slides for Java ساده‌ترین API را برای مدیریت شکل‌های SmartArt به راحت‌ترین روش ارائه کرده است. کد نمونه زیر به شما کمک می‌کند گره و گره فرزند را داخل شکل SmartArt اضافه کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید و ارائه‌ای را که شامل شکل SmartArt است بارگذاری کنید.
-2. با استفاده از شاخص آن، به اسلاید اول دسترسی پیدا کنید.
-3. از طریق همهٔ اشکال داخل اسلاید اول پیمایش کنید.
-4. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، شکل انتخابی را به [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل (typecast) کنید.
-5. در مجموعه گره‌های SmartArt shape **[NodeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt#getAllNodes--)**، یک **[Add a new Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#addNode--)** اضافه کنید و متن را در TextFrame تنظیم کنید.
-6. حالا یک **[Child Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNode#getChildNodes--)** در گره SmartArt تازه اضافه شده **[Add](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#addNode--)** کنید و متن را در TextFrame تنظیم کنید.
-7. ارائه را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید و ارائه را با شکل SmartArt بارگذاری کنید.
+1. با استفاده از Index اسلاید اول را دریافت کنید.
+1. همهٔ شکل‌ها در اسلاید اول را مرور کنید.
+1. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، آن را به نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل (Typecast) کنید.
+1. یک گره جدید را با استفاده از [Add a new Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#addNode--) در مجموعهٔ **NodeCollection** شکل SmartArt اضافه کنید و متن را در TextFrame تنظیم کنید.
+1. حالا یک [**Child Node**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNode#getChildNodes--) را در گره SmartArt تازه اضافه شده اضافه کنید و متن را در TextFrame تنظیم کنید.
+1. ارائه را ذخیره کنید.
 
 ```java
-// بارگذاری ارائه مورد نظر
+import com.aspose.slides.*;
+
+// بارگیری ارائه مورد نظر
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try {
-    // از طریق تمام اشکال داخل اسلاید اول پیمایش کنید
+    // پیمایش هر شکل داخل اسلاید اول
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // بررسی کنید آیا شکل از نوع SmartArt است
+        // بررسی اینکه آیا شکل از نوع SmartArt است
         if (shape instanceof SmartArt) 
         {
-            // تبدیل (typecast) شکل به SmartArt
+            // تبدیل نوع شکل به SmartArt
             SmartArt smart = (SmartArt) shape;
     
-            // افزودن یک گره جدید SmartArt
+            // افزودن گره جدید SmartArt
             SmartArtNode TemNode = (SmartArtNode) smart.getAllNodes().addNode();
     
             // افزودن متن
             TemNode.getTextFrame().setText("Test");
     
-            // افزودن گره فرزند جدید به گره والد. این گره در انتهای مجموعه اضافه خواهد شد
+            // افزودن گره فرزند جدید به گره والد. این گره در انتهای مجموعه اضافه می‌شود
             SmartArtNode newNode = (SmartArtNode) TemNode.getChildNodes().addNode();
     
             // افزودن متن
@@ -73,26 +75,28 @@ try {
 ```
 
 ## **افزودن گره SmartArt در موقعیت خاص**
-در کد نمونهٔ زیر نحوه افزودن گره‌های فرزند متعلق به گره‌های مختلف شکل SmartArt در موقعیت خاص را شرح می‌دهیم.
+در کد نمونهٔ زیر نحوهٔ افزودن گره‌های فرزند متعلق به گره‌های مختلف شکل SmartArt در موقعیت مشخصی توضیح داده شده است.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.
-2. با استفاده از شاخص، به اسلاید اول دسترسی پیدا کنید.
-3. در اسلاید مورد دسترسی، یک شکل SmartArt از نوع **[StackedList](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtLayoutType#StackedList)** اضافه کنید.
-4. به اولین گره در شکل SmartArt اضافه‌شده دسترسی پیدا کنید.
-5. حالا **[Child Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNode#getChildNodes--)** را برای **[Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtNode)** انتخاب‌شده در موقعیت ۲ اضافه کنید و متن آن را تنظیم کنید.
-6. ارائه را ذخیره کنید.
+1. یک نمونه از کلاس Presentation ایجاد کنید.
+1. با استفاده از Index اسلاید اول را دریافت کنید.
+1. یک شکل SmartArt از نوع [**StackedList**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtLayoutType#StackedList) در اسلاید دسترسی یافته اضافه کنید.
+1. به اولین گره در شکل SmartArt اضافه شده دسترسی پیدا کنید.
+1. حالا یک [**Child Node**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNode#getChildNodes--) را برای گره انتخابی در موقعیت 2 اضافه کنید و متن آن را تنظیم کنید.
+1. ارائه را ذخیره کنید.
 
 ```java
-// ایجاد یک نمونه ارائه
+import com.aspose.slides.*;
+
+// ایجاد یک نمونه از ارائه
 Presentation pres = new Presentation();
 try {
     // دسترسی به اسلاید ارائه
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // افزودن IShape از نوع Smart Art
+    // افزودن Smart Art IShape
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
 
-    // دسترسی به گره SmartArt با شاخص 0
+    // دسترسی به گره SmartArt در ایندکس 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
 
     // افزودن گره فرزند جدید در موقعیت 2 در گره والد
@@ -108,36 +112,38 @@ try {
 }
 ```
 
-## **دسترسی به یک گره SmartArt**
-کد نمونهٔ زیر به شما کمک می‌کند به گره‌های داخل شکل SmartArt دسترسی پیدا کنید. توجه داشته باشید که شما نمی‌توانید LayoutType را تغییر دهید زیرا فقط در زمان افزودن شکل SmartArt قابل تنظیم است و فقط برای خواندن است.
+## **دسترسی به گره SmartArt**
+کد نمونه زیر به شما کمک می‌کند به گره‌های داخل شکل SmartArt دسترسی پیدا کنید. لطفاً توجه داشته باشید که نمی‌توانید LayoutType را تغییر دهید زیرا فقط برای خواندن است و تنها هنگام افزودن شکل SmartArt تنظیم می‌شود.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه‌ای را که شامل شکل SmartArt است بارگذاری کنید.
-2. با استفاده از شاخص، به اسلاید اول دسترسی پیدا کنید.
-3. از طریق همهٔ اشکال داخل اسلاید اول پیمایش کنید.
-4. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، شکل انتخابی را به [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
-5. از طریق همهٔ **[Nodes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArt#getAllNodes--)** داخل شکل SmartArt پیمایش کنید.
-6. اطلاعاتی مانند موقعیت گره SmartArt، سطح و متن را دسترسی و نمایش دهید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه را با شکل SmartArt بارگذاری کنید.
+1. با استفاده از Index اسلاید اول را دریافت کنید.
+1. همهٔ شکل‌ها در اسلاید اول را مرور کنید.
+1. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، آن را به نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
+1. تمام **Nodes** داخل شکل SmartArt را مرور کنید.
+1. اطلاعاتی مانند موقعیت گره SmartArt، سطح و متن را دسترسی و نمایش دهید.
 
 ```java
-// ایجاد نمونه کلاس Presentation
+import com.aspose.slides.*;
+
+// ایجاد نمونه از کلاس Presentation
 Presentation pres = new Presentation("SmartArtShape.pptx");
 try {
     // دریافت اسلاید اول
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // پیمایش از طریق تمام اشکال داخل اسلاید اول
+    // پیمایش هر شکل داخل اسلاید اول
     for (IShape shape : slide.getShapes()) 
     {
-        // بررسی کنید آیا شکل از نوع SmartArt است
+        // بررسی اینکه آیا شکل از نوع SmartArt است
         if (shape instanceof ISmartArt) 
         {
-            // تبدیل (typecast) شکل به SmartArt
+            // تبدیل نوع شکل به SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // پیمایش از طریق تمام گره‌های داخل SmartArt
+            // پیمایش تمام گره‌ها داخل SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // دسترسی به گره SmartArt با شاخص i
+                // دسترسی به گره SmartArt در ایندکس i
                 SmartArtNode node = (SmartArtNode) smart.getAllNodes().get_Item(i);
     
                 // چاپ پارامترهای گره SmartArt
@@ -150,40 +156,42 @@ try {
 }
 ```
 
-## **دسترسی به یک گره فرزند SmartArt**
-کد نمونهٔ زیر به شما کمک می‌کند گره‌های فرزند متعلق به گره‌های مختلف شکل SmartArt را دسترسی داشته باشید.
+## **دسترسی به گره فرزند SmartArt**
+کد نمونه زیر به شما کمک می‌کند به گره‌های فرزند متعلق به گره‌های مختلف شکل SmartArt دسترسی پیدا کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه‌ای را که شامل شکل SmartArt است بارگذاری کنید.
-2. با استفاده از شاخص، به اسلاید اول دسترسی پیدا کنید.
-3. از طریق همهٔ اشکال داخل اسلاید اول پیمایش کنید.
-4. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، شکل انتخابی را به [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
-5. از طریق همهٔ **[Nodes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArt#getAllNodes--)** داخل شکل SmartArt پیمایش کنید.
-6. برای هر **[Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtNode)** انتخاب‌شده، از طریق تمام **[Child Nodes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtNode#getChildNodes--)** داخل گره خاص پیمایش کنید.
-7. اطلاعاتی مانند موقعیت **[Child Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNode#getChildNodes--)**، سطح و متن را دسترسی و نمایش دهید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه را با شکل SmartArt بارگذاری کنید.
+1. با استفاده از Index اسلاید اول را دریافت کنید.
+1. همهٔ شکل‌ها در اسلاید اول را مرور کنید.
+1. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، آن را به نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
+1. تمام **Nodes** داخل شکل SmartArt را مرور کنید.
+1. برای هر گره SmartArt انتخاب شده، تمام **Child Nodes** داخل آن گره خاص را مرور کنید.
+1. اطلاعاتی مانند موقعیت، سطح و متن **Child Node** را دسترسی و نمایش دهید.
 
 ```java
-// ایجاد نمونه کلاس Presentation
+import com.aspose.slides.*;
+
+// ایجاد نمونه از کلاس Presentation
 Presentation pres = new Presentation("AccessChildNodes.pptx");
 try {
     // دریافت اسلاید اول
     ISlide slide = pres.getSlides().get_Item(0);
     
-    // پیمایش از طریق تمام اشکال داخل اسلاید اول
+    // پیمایش هر شکل داخل اسلاید اول
     for (IShape shape : slide.getShapes()) 
     {
-        // بررسی کنید آیا شکل از نوع SmartArt است
+        // بررسی اینکه آیا شکل از نوع SmartArt است
         if (shape instanceof ISmartArt) 
         {
-            // تبدیل (typecast) شکل به SmartArt
+            // تبدیل نوع شکل به SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
-            // پیمایش از طریق تمام گره‌های داخل SmartArt
+            // پیمایش تمام گره‌ها داخل SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
-                // دسترسی به گره SmartArt با شاخص i
+                // دسترسی به گره SmartArt در ایندکس i
                 SmartArtNode node0 = (SmartArtNode) smart.getAllNodes().get_Item(i);
                 
-                // پیمایش از طریق گره‌های فرزند در گره SmartArt با شاخص i
+                // پیمایش گره‌های فرزند در گره SmartArt در ایندکس i
                 for (int j = 0; j < node0.getChildNodes().size(); j++) 
                 {
                     // دسترسی به گره فرزند در گره SmartArt
@@ -200,19 +208,21 @@ try {
 }
 ```
 
-## **دسترسی به یک گره فرزند SmartArt در موقعیت خاص**
-در این مثال، نحوه دسترسی به گره‌های فرزند در موقعیت خاصی از گره‌های مربوط به شکل SmartArt را می‌آموزید.
+## **دسترسی به گره فرزند SmartArt در موقعیت خاص**
+در این مثال نحوهٔ دسترسی به گره‌های فرزند در موقعیت‌های خاص متعلق به گره‌های مختلف شکل SmartArt را می‌آموزیم.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.
-2. با استفاده از شاخص، به اسلاید اول دسترسی پیدا کنید.
-3. یک شکل SmartArt از نوع **[StackedList](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtLayoutType#StackedList)** اضافه کنید.
-4. به شکل SmartArt افزوده‌شده دسترسی پیدا کنید.
-5. گره‌ای با شاخص ۰ برای شکل SmartArt دسترسی یافته را دریافت کنید.
-6. حالا با استفاده از متد **get_Item()**، **[Child Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNode#getChildNodes--)** در موقعیت ۱ برای گره SmartArt دسترسی یافته را دریافت کنید.
-7. اطلاعاتی مانند موقعیت **[Child Node](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNode#getChildNodes--)**، سطح و متن را دسترسی و نمایش دهید.
+1. با استفاده از Index اسلاید اول را دریافت کنید.
+1. یک شکل SmartArt از نوع [**StackedList**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtLayoutType#StackedList) اضافه کنید.
+1. به شکل SmartArt اضافه شده دسترسی پیدا کنید.
+1. گره‌ای با شاخص 0 را برای شکل SmartArt دسترسی یافته انتخاب کنید.
+1. حالا با استفاده از متد **get_Item()** گره **Child Node** در موقعیت 1 را برای گره SmartArt دسترسی یافته دریافت کنید.
+1. اطلاعاتی مانند موقعیت، سطح و متن **Child Node** را دسترسی و نمایش دهید.
 
 ```java
-// ایجاد نمونه ارائه
+import com.aspose.slides.*;
+
+// ایجاد نمونه از ارائه
 Presentation pres = new Presentation();
 try {
     // دسترسی به اسلاید اول
@@ -221,7 +231,7 @@ try {
     // افزودن شکل SmartArt در اسلاید اول
     ISmartArt smart = slide.getShapes().addSmartArt(0, 0, 400, 400, SmartArtLayoutType.StackedList);
     
-    // دسترسی به گره SmartArt با شاخص 0
+    // دسترسی به گره SmartArt در ایندکس 0
     ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
     // دسترسی به گره فرزند در موقعیت 1 در گره والد
@@ -235,34 +245,36 @@ try {
 }
 ```
 
-## **حذف یک گره SmartArt**
-در این مثال، نحوه حذف گره‌های داخل شکل SmartArt را می‌آموزید.
+## **حذف گره SmartArt**
+در این مثال نحوهٔ حذف گره‌های داخل شکل SmartArt را می‌آموزیم.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه‌ای را که شامل شکل SmartArt است بارگذاری کنید.
-2. با استفاده از شاخص، به اسلاید اول دسترسی پیدا کنید.
-3. از طریق همهٔ اشکال داخل اسلاید اول پیمایش کنید.
-4. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، شکل انتخابی را به [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
-5. بررسی کنید آیا [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) بیش از ۰ گره دارد.
-6. گره SmartArt مورد نظر برای حذف را انتخاب کنید.
-7. حالا گره انتخاب‌شده را با استفاده از متد **[RemoveNode](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-)** حذف کنید.
-8. ارائه را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه را با شکل SmartArt بارگذاری کنید.
+1. با استفاده از Index اسلاید اول را دریافت کنید.
+1. همهٔ شکل‌ها در اسلاید اول را مرور کنید.
+1. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، آن را به نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
+1. بررسی کنید آیا SmartArt بیش از 0 گره دارد.
+1. گره SmartArt مورد نظر برای حذف را انتخاب کنید.
+1. حالا با استفاده از متد [**RemoveNode**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) گره انتخاب‌شده را حذف کنید.
+1. ارائه را ذخیره کنید.
 
 ```java
-// بارگذاری ارائه مورد نظر
+import com.aspose.slides.*;
+
+// بارگیری ارائه مورد نظر
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // پیمایش از طریق تمام اشکال داخل اسلاید اول
+    // پیمایش هر شکل داخل اسلاید اول
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // بررسی کنید آیا شکل از نوع SmartArt است
+        // بررسی اینکه آیا شکل از نوع SmartArt است
         if (shape instanceof ISmartArt) 
         {
-            // تبدیل شکل به SmartArt
+            // تبدیل نوع شکل به SmartArt
             ISmartArt smart = (ISmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // دسترسی به گره SmartArt با شاخص 0
+                // دسترسی به گره SmartArt در ایندکس 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 // حذف گره انتخاب‌شده
@@ -278,34 +290,36 @@ try {
 }
 ```
 
-## **حذف یک گره SmartArt از موقعیت خاص**
-در این مثال، نحوه حذف گره‌های داخل شکل SmartArt در موقعیت خاصی را می‌آموزید.
+## **حذف گره SmartArt از موقعیت خاص**
+در این مثال نحوهٔ حذف گره‌ها در موقعیت خاصی از داخل شکل SmartArt را می‌آموزیم.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه‌ای را که شامل شکل SmartArt است بارگذاری کنید.
-2. با استفاده از شاخص، به اسلاید اول دسترسی پیدا کنید.
-3. از طریق همهٔ اشکال داخل اسلاید اول پیمایش کنید.
-4. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، شکل انتخابی را به [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
-5. گره شکل SmartArt در شاخص ۰ را انتخاب کنید.
-6. حالا بررسی کنید آیا گره SmartArt انتخاب‌شده بیش از ۲ گره فرزند دارد.
-7. حالا گره در **Position 1** را با استفاده از متد **[RemoveNode](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-)** حذف کنید.
-8. ارائه را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه را با شکل SmartArt بارگذاری کنید.
+1. با استفاده از Index اسلاید اول را دریافت کنید.
+1. همهٔ شکل‌ها در اسلاید اول را مرور کنید.
+1. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، آن را به نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
+1. گره شکل SmartArt در شاخص 0 را انتخاب کنید.
+1. حالا بررسی کنید آیا گره SmartArt انتخاب شده بیش از 2 گره فرزند دارد.
+1. حالا گره در **Position 1** را با استفاده از متد [**RemoveNode**](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-) حذف کنید.
+1. ارائه را ذخیره کنید.
 
 ```java
-// بارگذاری ارائه مورد نظر
+import com.aspose.slides.*;
+
+// بارگیری ارائه مورد نظر
 Presentation pres = new Presentation("AddSmartArtNode.pptx");
 try {
-    // پیمایش از طریق تمام اشکال داخل اسلاید اول
+    // پیمایش هر شکل داخل اسلاید اول
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // بررسی کنید آیا شکل از نوع SmartArt است
+        // بررسی اینکه آیا شکل از نوع SmartArt است
         if (shape instanceof SmartArt) 
         {
-            // تبدیل شکل به SmartArt
+            // تبدیل نوع شکل به SmartArt
             SmartArt smart = (SmartArt) shape;
     
             if (smart.getAllNodes().size() > 0) 
             {
-                // دسترسی به گره SmartArt با شاخص 0
+                // دسترسی به گره SmartArt در ایندکس 0
                 ISmartArtNode node = smart.getAllNodes().get_Item(0);
     
                 if (node.getChildNodes().size() >= 2) 
@@ -324,22 +338,24 @@ try {
 }
 ```
 
-## **تنظیم موقعیت سفارشی برای یک گره فرزند در یک شیء SmartArt**
-اکنون Aspose.Slides for Java از تنظیم خصوصیات **X** (https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShape#setX-float-) و **Y** (https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShape#setY-float-) برای **SmartArtShape** پشتیبانی می‌کند. قطعه کد زیر نشان می‌دهد چگونه موقعیت، اندازه و چرخش سفارشی برای SmartArtShape تنظیم شود؛ همچنین توجه داشته باشید که افزودن گره‌های جدید موجب بازمحاسبهٔ موقعیت و اندازهٔ تمام گره‌ها می‌شود. با تنظیمات موقعیت سفارشی، کاربر می‌تواند گره‌ها را برحسب نیاز تنظیم کند.
+## **تنظیم موقعیت سفارشی برای گره فرزند در شیء SmartArt**
+اکنون Aspose.Slides for Java پشتیبانی از تنظیم ویژگی‌های [SmartArtShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtShape) **X** و **Y** را دارد. بخش کد زیر نشان می‌دهد چگونه موقعیت، اندازه و چرخش سفارشی برای SmartArtShape تنظیم شود؛ همچنین توجه داشته باشید اضافه کردن گره‌های جدید منجر به محاسبهٔ دوبارهٔ موقعیت و اندازهٔ تمام گره‌ها می‌شود. با تنظیمات موقعیت سفارشی، کاربر می‌تواند گره‌ها را بر حسب نیاز تنظیم کند.
 
 ```java
-// ایجاد نمونه کلاس Presentation
+import com.aspose.slides.*;
+
+// ایجاد نمونه از کلاس Presentation
 Presentation pres = new Presentation("SimpleSmartArt.pptx");
 try{
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, SmartArtLayoutType.OrganizationChart);
 
-    // جابه‌جایی شکل SmartArt به موقعیت جدید
+    // حرکت شکل SmartArt به موقعیت جدید
     ISmartArtNode node = smart.getAllNodes().get_Item(1);
     ISmartArtShape shape = node.getShapes().get_Item(1);
     shape.setX(shape.getX() + shape.getWidth() * 2);
     shape.setY(shape.getY() - shape.getHeight() * 2);
 
-    // تغییر پهنای شکل SmartArt
+    // تغییر عرض‌های شکل SmartArt
     node = smart.getAllNodes().get_Item(2);
     shape = node.getShapes().get_Item(1);
     shape.setWidth(shape.getWidth() + shape.getWidth() * 2);
@@ -360,51 +376,53 @@ try{
 }
 ```
 
-## **بررسی یک گره دستیار**
-{{% alert color="primary" %}} 
+## **بررسی گره کمکی**
+{{% alert color="info" %}} 
 
-در این مقاله به بررسی بیشتر ویژگی‌های اشکال SmartArt اضافه‌شده به اسلایدهای ارائه به‌صورت برنامه‌نویسی با استفاده از Aspose.Slides for Java می‌پردازیم.
+در این مقاله ویژگی‌های شکل‌های SmartArt اضافه‌شده به اسلایدهای ارائه به‌صورت برنامه‌نویسی با Aspose.Slides for Java را بررسی می‌کنیم.
 
 {{% /alert %}} 
 
-ما از شکل SmartArt زیر برای بررسی در بخش‌های مختلف این مقاله استفاده می‌کنیم.
+ما از شکل SmartArt منبع زیر برای بررسی در بخش‌های مختلف این مقاله استفاده می‌کنیم.
 
 |![todo:image_alt_text](https://i.imgur.com/FItwczY.png)|
 | :- |
-|**Figure: Source SmartArt shape in slide**|
+|**شکل: SmartArt منبع در اسلاید**|
 
-در کد نمونهٔ زیر نحوه تشخیص **Assistant Nodes** در مجموعه گره‌های SmartArt و تغییر وضعیت آن‌ها را بررسی می‌کنیم.
+در کد نمونهٔ زیر نحوه شناسایی **Assistant Nodes** در مجموعهٔ گره‌های SmartArt و تغییر وضعیت آن‌ها بررسی می‌شود.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه‌ای را که شامل شکل SmartArt است بارگذاری کنید.
-2. با استفاده از شاخص، به اسلاید دوم دسترسی پیدا کنید.
-3. از طریق همهٔ اشکال داخل اسلاید اول پیمایش کنید.
-4. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، شکل انتخابی را به [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
-5. از طریق تمام گره‌های داخل شکل SmartArt پیمایش کنید و بررسی کنید آیا آن‌ها **Assistant Nodes** هستند (https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtNode#isAssistant--).
-6. وضعیت گره دستیار را به گره عادی تغییر دهید.
-7. ارائه را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه را با شکل SmartArt بارگذاری کنید.
+1. با استفاده از Index اسلاید دوم را دریافت کنید.
+1. همهٔ شکل‌ها در اسلاید اول را مرور کنید.
+1. بررسی کنید آیا شکل از نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) است و در صورت بودن، آن را به نوع [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) تبدیل کنید.
+1. تمام گره‌ها در داخل شکل SmartArt را مرور کنید و بررسی کنید آیا آن‌ها **Assistant Nodes** هستند ([isAssistant](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtNode#isAssistant--)).
+1. وضعیت گره کمکی را به گره عادی تغییر دهید.
+1. ارائه را ذخیره کنید.
 
 ```java
-// ایجاد یک نمونه ارائه
+import com.aspose.slides.*;
+
+// ایجاد یک نمونه از ارائه
 Presentation pres = new Presentation("AddNodes.pptx");
 try {
-    // پیمایش از طریق تمام اشکال داخل اسلاید اول
+    // پیمایش هر شکل داخل اسلاید اول
     for (IShape shape : pres.getSlides().get_Item(0).getShapes()) 
     {
-        // بررسی کنید آیا شکل از نوع SmartArt است
+        // بررسی اینکه آیا شکل از نوع SmartArt است
         if (shape instanceof ISmartArt) 
         {
-            // تبدیل شکل به SmartArt
+            // تبدیل نوع شکل به SmartArt
             ISmartArt smart = (SmartArt) shape;
     
-            // پیمایش از طریق تمام گره‌های شکل SmartArt
+            // پیمایش تمام گره‌های شکل SmartArt
             for (int i = 0; i < smart.getAllNodes().size(); i++) 
             {
                 ISmartArtNode node = smart.getAllNodes().get_Item(i);
-                // بررسی کنید آیا گره یک گره دستیار است
+                // بررسی اینکه آیا گره یک گره کمکی است
                 if (node.isAssistant()) 
                 {
-                    // تنظیم گره دستیار به false و تبدیل آن به گره عادی
-                    node.isAssistant();
+                    // تنظیم گره کمکی به false و تبدیل آن به گره عادی
+                    node.setAssistant(false);
                 }
             }
         }
@@ -419,21 +437,24 @@ try {
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
 | :- |
-|**Figure: Assistant Nodes Changed in SmartArt shape inside slide**|
+|**شکل: گره‌های کمکی در SmartArt تغییر یافتند**|
 
-## **تنظیم فرمت پرکنندهٔ گره**
-Aspose.Slides for Java امکان افزودن اشکال SmartArt سفارشی و تنظیم فرمت پرکنندهٔ آن‌ها را فراهم می‌کند. این مقاله توضیح می‌دهد چگونه اشکال SmartArt را ایجاد، دسترسی و فرمت پرکنندهٔ آن‌ها را با استفاده از Aspose.Slides for Java تنظیم کنید.
+## **تنظیم فرمت پر کردن گره**
+Aspose.Slides for Java امکان افزودن شکل‌های سفارشی SmartArt و تنظیم فرمت پر کردن آن‌ها را فراهم می‌کند. این مقاله توضیح می‌دهد چگونه شکل‌های SmartArt را ایجاد، دسترسی و فرمت پر کردن آن‌ها را با استفاده از Aspose.Slides for Java تنظیم کنید.
 
 لطفاً مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.
-2. با استفاده از شاخص، به یک اسلاید دسترسی پیدا کنید.
-3. با تنظیم **[LayoutType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess)**، یک شکل [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) اضافه کنید.
-4. برای گره‌های شکل SmartArt، **[FillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IShape#getFillFormat--)** را تنظیم کنید.
-5. ارائهٔ تغییر یافته را به‌عنوان یک فایل PPTX ذخیره کنید.
+1. یک اسلاید را با استفاده از شاخص آن دریافت کنید.
+1. یک شکل [SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArt) با تنظیم **LayoutType** مناسب اضافه کنید.
+1. **FillFormat** را برای گره‌های شکل SmartArt تنظیم کنید.
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
 
 ```java
-// ایجاد نمونه ارائه
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// ایجاد نمونه‌ای از ارائه
 Presentation pres = new Presentation();
 try {
     // دسترسی به اسلاید
@@ -444,7 +465,7 @@ try {
     ISmartArtNode node = chevron.getAllNodes().addNode();
     node.getTextFrame().setText("Some text");
     
-    // تنظیم رنگ پرکننده گره
+    // تنظیم رنگ پر کردن گره
     for (IShape item : node.getShapes()) 
     {
         item.getFillFormat().setFillType(FillType.Solid);
@@ -458,29 +479,31 @@ try {
 }
 ```
 
-## **تولید تصویر بندانگشتی یک گره فرزند SmartArt**
-توسعه‌دهندگان می‌توانند با دنبال کردن مراحل زیر، تصویر بندانگشتی گره فرزند یک SmartArt را تولید کنند:
+## **ایجاد تصویر بندانگشتی از گره فرزند SmartArt**
+توسعه‌دهندگان می‌توانند با دنبال کردن مراحل زیر تصویر بندانگشتی یک گره فرزند SmartArt را تولید کنند:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید.
-2. یک SmartArt **[Add](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#addNode--)** کنید.
-3. با استفاده از شاخص، به یک گره دسترسی پیدا کنید.
-4. تصویر بندانگشتی را دریافت کنید.
-5. تصویر بندانگشتی را در هر قالب تصویری مورد نظر ذخیره کنید.
+1. یک SmartArt اضافه کنید ([Add SmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ISmartArtNodeCollection#addNode--)).
+1. یک گره را با استفاده از Index آن دریافت کنید.
+1. تصویر بندانگشتی را دریافت کنید.
+1. تصویر بندانگشتی را در هر فرمت تصویری دلخواه ذخیره کنید.
 
 ```java
-// ایجاد نمونه کلاس Presentation که فایل PPTX را نمایندگی می‌کند
+import com.aspose.slides.*;
+
+// ایجاد نمونه‌ای از کلاس Presentation که نمایانگر فایل PPTX است
 Presentation pres = new Presentation();
 try {
     // افزودن SmartArt
     ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
 
-    // دریافت مرجع یک گره با استفاده از شاخص آن
+    // دریافت مرجع یک گره با استفاده از ایندکس آن
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
     // دریافت تصویر بندانگشتی
     IImage slideImage = node.getShapes().get_Item(0).getImage();
 
-    // ذخیره تصویر بندانگشتی
+    // ذخیره‌سازی تصویر بندانگشتی
     try {
           slideImage.save("SmartArt_ChildNote_Thumbnail.png", ImageFormat.Png);
     } finally {
@@ -491,20 +514,20 @@ try {
 }
 ```
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**آیا انیمیشن SmartArt پشتیبانی می‌شود؟**
+### آیا انیمیشن SmartArt پشتیبانی می‌شود؟
 
-بله. SmartArt به‌عنوان یک شکل معمولی در نظر گرفته می‌شود، بنابراین می‌توانید [انیمیشن‌های استاندارد](/slides/fa/java/shape-animation/) (ورودی، خروجی، تأکید، مسیرهای حرکتی) را اعمال کنید و زمان‌بندی را تنظیم کنید. همچنین می‌توانید در صورت نیاز، شکل‌های داخل گره‌های SmartArt را نیز انیمیت کنید.
+بله. SmartArt به‌عنوان یک شکل معمولی در نظر گرفته می‌شود، بنابراین می‌توانید [انیمیشن‌های استاندارد](/slides/fa/java/shape-animation/) (ورود، خروج، تأکید، مسیرهای حرکتی) را اعمال کرده و زمان‌بندی را تنظیم کنید. در صورت نیاز می‌توانید شکل‌های داخل گره‌های SmartArt را نیز انیمیشن کنید.
 
-**چگونه می‌توانم یک SmartArt خاص را در اسلاید به‌دست آورم اگر شناسه داخلی آن ناشناخته باشد؟**
+### چگونه می‌توانم یک SmartArt خاص را در اسلاید پیدا کنم اگر شناسه داخلی آن ناشناخته باشد؟
 
-با اختصاص و جستجو بر اساس [متن جایگزین](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#getAlternativeText--) می‌توانید آن را پیدا کنید. تنظیم AltText متمایز بر روی SmartArt به شما اجازه می‌دهد به‌صورت برنامه‌نویسی بدون وابستگی به شناسه‌های داخلی آن را بیابید.
+با استفاده از [متن جایگزین](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#getAlternativeText--) جستجو کنید. تنظیم یک AltText متمایز بر روی SmartArt به شما امکان می‌دهد آن را برنامه‌نویسی پیدا کنید بدون اتکا به شناسه‌های داخلی.
 
-**آیا ظاهر SmartArt هنگام تبدیل ارائه به PDF حفظ می‌شود؟**
+### آیا ظاهر SmartArt هنگام تبدیل ارائه به PDF حفظ می‌شود؟
 
-بله. Aspose.Slides هنگام [صادرات PDF](/slides/fa/java/convert-powerpoint-to-pdf/)، SmartArt را با دقت بصری بالا رندر می‌کند و چیدمان، رنگ‌ها و اثرات را حفظ می‌نماید.
+بله. Aspose.Slides هنگام [صدور PDF](/slides/fa/java/convert-powerpoint-to-pdf/) SmartArt را با دقت بصری بالا رندر می‌کند و طرح، رنگ‌ها و اثرات را حفظ می‌کند.
 
-**آیا می‌توانم تصویری از کل SmartArt (برای پیش‌نمایش یا گزارش) استخراج کنم؟**
+### آیا می‌توانم تصویر کل SmartArt را استخراج کنم (برای پیش‌نمایش یا گزارش‌ها)؟
 
-بله. می‌توانید یک شکل SmartArt را به [فرمت‌های رستر](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#getImage-int-float-float-) یا به [SVG](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) رندر کنید تا خروجی برداری مقیاس‌پذیر داشته باشید، که برای تصویر بندانگشتی، گزارش‌ها یا استفاده در وب مناسب است.
+بله. می‌توانید یک شکل SmartArt را به فرمت‌های رستر ([raster formats](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#getImage-int-float-float-)) یا به SVG ([SVG](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-)) رندر کنید تا خروجی وکتور مقیاس‌پذیر تولید شود؛ این برای بندانگشتی‌ها، گزارش‌ها یا استفاده در وب مناسب است.

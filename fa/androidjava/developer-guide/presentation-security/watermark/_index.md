@@ -11,45 +11,47 @@ keywords:
 - افزودن واترمارک
 - تغییر واترمارک
 - حذف واترمارک
-- حذف واترمارک
+- پاک کردن واترمارک
 - افزودن واترمارک به PPT
 - افزودن واترمارک به PPTX
 - افزودن واترمارک به ODP
 - حذف واترمارک از PPT
 - حذف واترمارک از PPTX
 - حذف واترمارک از ODP
-- حذف واترمارک از PPT
-- حذف واترمارک از PPTX
-- حذف واترمارک از ODP
-- پاورپوینت
+- پاک کردن واترمارک از PPT
+- پاک کردن واترمارک از PPTX
+- پاک کردن واترمارک از ODP
+- PowerPoint
 - OpenDocument
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "در اندروید با استفاده از جاوا، واترمارک‌های متنی و تصویری را در ارائه‌های PowerPoint و OpenDocument مدیریت کنید تا پیش‌نویس، اطلاعات محرمانه و موارد دیگر را نشان دهند."
+description: "مدیریت واترمارک‌های متنی و تصویری در ارائه‌های PowerPoint و OpenDocument بر روی اندروید با Java برای نشان‌دادن پیش‌نویس، اطلاعات محرمانه و موارد دیگر."
 ---
-## **مقدمه**
+## **معرفی**
 
-**یک واترمارک** در یک ارائه، متن یا تصویر علامتی است که بر روی اسلاید یا در تمام اسلایدهای ارائه استفاده می‌شود. معمولاً از واترمارک برای نشان دادن اینکه ارائه یک پیش‌نویس است (مثلاً واترمارک «Draft»)، حاوی اطلاعات محرمانه است (مثلاً واترمارک «Confidential»)، مشخص کردن شرکت صاحب آن (مثلاً واترمارک «Company Name»)، شناسایی نویسنده ارائه و غیره استفاده می‌شود. واترمارک به جلوگیری از نقض حق‌تألیف کمک می‌کند زیرا نشان می‌دهد که نباید ارائه کپی شود. واترمارک‌ها در هر دو قالب ارائه PowerPoint و OpenOffice استفاده می‌شوند. در Aspose.Slides می‌توانید یک واترمارک به فرمت‌های فایل PowerPoint PPT، PPTX و OpenOffice ODP اضافه کنید.
+**یک واترمارک** در یک ارائه متن یا تصویرمیکانی است که بر روی یک اسلاید یا تمام اسلایدهای ارائه استفاده می‌شود. معمولاً از واترمارک برای نشان دادن اینکه ارائه پیش‌نویس است (مثلاً واترمارک «Draft»)، که شامل اطلاعات محرمانه است (مثلاً واترمارک «Confidential»)، برای تعیین شرکت متعلق به آن (مثلاً واترمارک «Company Name»)، برای شناسایی نویسنده ارائه و غیره استفاده می‌شود. یک واترمارک به جلوگیری از نقض حق‌نشر کمک می‌کند زیرا نشان می‌دهد که ارائه نباید کپی شود. واترمارک‌ها در فرمت‌های ارائه PowerPoint و OpenOffice استفاده می‌شوند. در Aspose.Slides می‌توانید واترمارک را به فرمت‌های فایل PowerPoint PPT، PPTX و OpenOffice ODP اضافه کنید.
 
-در [**Aspose.Slides**](https://products.aspose.com/slides/fa/android-java/)، روش‌های مختلفی برای ایجاد واترمارک در اسناد PowerPoint یا OpenOffice و تغییر طراحی و رفتار آن‌ها وجود دارد. نکته مشترک این است که برای افزودن واترمارک‌های متنی باید از رابط [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) استفاده کنید و برای افزودن واترمارک‌های تصویری، از کلاس [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) یا پر کردن شکل واترمارک با تصویر استفاده نمایید. `PictureFrame` رابط [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) را پیاده‌سازی می‌کند و به شما امکان استفاده از تمام تنظیمات انعطاف‌پذیر شیء شکل را می‌دهد. از آنجا که `ITextFrame` یک شکل نیست و تنظیمات آن محدود است، در یک شیء [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) پیچیده می‌شود.
+در [**Aspose.Slides**](https://products.aspose.com/slides/fa/android-java/) روش‌های مختلفی برای ایجاد واترمارک در اسناد PowerPoint یا OpenOffice و تغییر طراحی و رفتار آن وجود دارد. نکته مشترک این است که برای افزودن واترمارک‌های متنی باید از رابط [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) استفاده کنید و برای افزودن واترمارک‌های تصویری، از کلاس [PictureFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/pictureframe/) یا پر کردن یک شکل واترمارک با تصویر استفاده کنید. `PictureFrame` رابط [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) را پیاده‌سازی می‌کند و به شما امکان استفاده از تمام تنظیمات انعطاف‌پذیر شیء شکل را می‌دهد. از آنجایی که `ITextFrame` یک شکل نیست و تنظیمات آن محدود است، در یک شیء [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) بسته می‌شود.
 
-دو روش برای اعمال واترمارک وجود دارد: روی یک اسلاید منفرد یا روی تمام اسلایدهای ارائه. اسلاید مستر برای اعمال واترمارک به تمام اسلایدهای ارائه استفاده می‌شود — واترمارک به اسلاید مستر اضافه می‌شود، به‌طور کامل در آن طراحی می‌شود و به تمام اسلایدها اعمال می‌شود بدون اینکه مجوز ویرایش واترمارک در اسلایدهای فردی تحت تأثیر قرار گیرد.
+دو روش برای اعمال واترمارک وجود دارد: به یک اسلاید واحد یا به تمام اسلایدهای ارائه. برای افزودن واترمارک به تمام اسلایدهای ارائه از اسلاید مستر استفاده می‌شود — واترمارک به اسلاید مستر اضافه می‌شود، در آنجا به‌طور کامل طراحی می‌شود و بدون تأثیر بر قابلیت ویرایش واترمارک در اسلایدهای جداگانه به تمام اسلایدها اعمال می‌گردد.
 
-به‌طور معمول واترمارک برای ویرایش توسط سایر کاربران غیرقابل دسترس تلقی می‌شود. برای جلوگیری از ویرایش واترمارک (یا بهتر بگوییم شکل والد واترمارک) Aspose.Slides قابلیت قفل‌گذاری بر روی شکل‌ها را ارائه می‌دهد. یک شکل خاص می‌تواند در یک اسلاید عادی یا در اسلاید مستر قفل شود. وقتی شکل واترمارک در اسلاید مستر قفل شود، در تمام اسلایدهای ارائه نیز قفل خواهد بود.
+واترمارک معمولاً برای ویرایش توسط سایر کاربران در دسترس نیست. برای جلوگیری از ویرایش واترمارک (یا بهتر بگوییم شکل والد واترمارک) Aspose.Slides قابلیت قفل‌کردن شکل را فراهم می‌کند. یک شکل خاص می‌تواند در یک اسلاید معمولی یا در اسلاید مستر قفل شود. وقتی شکل واترمارک در اسلاید مستر قفل شود، در تمام اسلایدهای ارائه نیز قفل می‌ماند.
 
-می‌توانید برای واترمارک یک نام تعیین کنید تا در آینده، در صورت نیاز به حذف آن، بتوانید آن را بر اساس نام در شکل‌های اسلاید پیدا کنید.
+می‌توانید برای واترمارک نامی تعیین کنید تا در آینده در صورت نیاز به حذف، آن را بر اساس نام در لیست اشکال اسلاید پیدا کنید.
 
-می‌توانید واترمارک را به هر شکل طراحی کنید؛ با این حال، معمولاً ویژگی‌های مشترکی در واترمارک‌ها وجود دارد، مانند تراز مرکزی، چرخش، موقعیت جلویی و غیره. در مثال‌های زیر نحوه استفاده از این ویژگی‌ها را بررسی خواهیم کرد.
+شما می‌توانید واترمارک را به هر شکلی طراحی کنید؛ با این حال معمولاً ویژگی‌های مشترکی مانند ترازبندی مرکز، چرخش، موقعیت جلو و غیره در واترمارک‌ها وجود دارد. در مثال‌های زیر به چگونگی استفاده از این ویژگی‌ها می‌پردازیم.
 
 ## **واترمارک متنی**
 
-### **افزودن واترمارک متنی به یک اسلاید**
+### **افزودن واترمارک متنی به اسلاید**
 
-برای افزودن واترمارک متنی در PPT، PPTX یا ODP، ابتدا می‌توانید یک شکل به اسلاید اضافه کنید، سپس یک فریم متنی به این شکل اضافه کنید. فریم متنی توسط رابط [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) نمایان می‌شود. این نوع از [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) ارث‌بری نمی‌کند، که مجموعه گسترده‌ای از ویژگی‌ها برای موقعیت‌یابی انعطاف‌پذیر واترمارک دارد. بنابراین، شیء [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) در یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) پیچیده می‌شود. برای افزودن متن واترمارک به شکل، از متد [addTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) همان‌طور که در زیر نشان داده شده استفاده کنید.
+برای افزودن واترمارک متنی در PPT، PPTX یا ODP ابتدا می‌توانید یک شکل به اسلاید اضافه کنید، سپس یک قاب متن به این شکل افزوده شود. قاب متن توسط رابط [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) نمایندگی می‌شود. این نوع از [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) ارث‌بردار نیست و مجموعه وسیعی از ویژگی‌های موقعیت‌یابی انعطاف‌پذیر را فراهم نمی‌کند. بنابراین شیء [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) در یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) بسته می‌شود. برای افزودن متن واترمارک به شکل، از متد [addTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) همان‌طور که در زیر نشان داده شده استفاده کنید.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -61,15 +63,17 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="همچنین" %}} 
+{{% alert color="info" title="همچنین ببینید" %}} 
 - [نحوه استفاده از کلاس TextFrame](/slides/fa/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **افزودن واترمارک متنی به یک ارائه**
 
-اگر می‌خواهید یک واترمارک متنی به تمام ارائه (یعنی همه اسلایدها به‌صورت یک‌جا) اضافه کنید، آن را به [MasterSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterslide/) اضافه کنید. بقیه منطق همانند افزودن واترمارک به یک اسلاید منفرد است — یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) ایجاد کنید و سپس با استفاده از متد [addTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) واترمارک را به آن اضافه کنید.
+اگر می‌خواهید واترمارک متنی را به کل ارائه (یعنی تمام اسلایدها به‌صورت همزمان) اضافه کنید، آن را به [MasterSlide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterslide/) اضافه کنید. بقیه منطق مشابه افزودن واترمارک به یک اسلاید است — یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) ایجاد کنید و سپس با استفاده از متد [addTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) واترمارک را به آن اضافه کنید.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -81,152 +85,261 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="همچنین" %}} 
+{{% alert color="info" title="همچنین ببینید" %}} 
 - [نحوه استفاده از اسلاید مستر](/slides/fa/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **تنظیم شفافیت شکل واترمارک**
 
-به‌طور پیش‌فرض، شکل مستطیلی با رنگ پر و خط استایل می‌شود. خطوط کد زیر، شکل را شفاف می‌کند.
+به‌صورت پیش‌فرض شکل مستطیل با رنگ پر و خط است. خطوط کد زیر شکل را شفاف می‌کند.
 
 ```java
-watermarkShape.getFillFormat().setFillType(FillType.NoFill);
-watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.getFillFormat().setFillType(FillType.NoFill);
+    watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **تنظیم قلم برای واترمارک متنی**
+### **تنظیم فونت برای واترمارک متنی**
 
-می‌توانید قلم واترمارک متنی را همان‌طور که در زیر نشان داده شده تغییر دهید.
+می‌توانید فونت متن واترمارک را همان‌طور که در زیر نشان داده شده تغییر دهید.
 
 ```java
-IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
-textFormat.setLatinFont(new FontData("Arial"));
-textFormat.setFontHeight(50);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    textFormat.setLatinFont(new FontData("Arial"));
+    textFormat.setFontHeight(50);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **تنظیم رنگ متن واترمارک**
 
-برای تنظیم رنگ متن واترمارک، از این کد استفاده کنید:
+برای تنظیم رنگ متن واترمارک از کد زیر استفاده کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
-IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
-fillFormat.setFillType(FillType.Solid);
-fillFormat.getSolidFillColor().setColor(Color.argb(alpha, red, green, blue));
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+    fillFormat.setFillType(FillType.Solid);
+    fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **متمرکز کردن واترمارک متنی**
+### **ترازبندی مرکز واترمارک متنی**
 
-می‌توانید واترمارک را در یک اسلاید مرکز چین کنید، و برای این کار می‌توانید اقدامات زیر را انجام دهید:
+می‌توانید واترمارک را در وسط اسلاید قرار دهید؛ برای این کار می‌توانید به صورت زیر عمل کنید:
 
 ```java
-SizeF slideSize = presentation.getSlideSize().getSize();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-float watermarkWidth = 400;
-float watermarkHeight = 40;
-float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
-float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+String watermarkText = "CONFIDENTIAL";
 
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(
-        ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+    float watermarkWidth = 400;
+    float watermarkHeight = 40;
+    float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
+    float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(
+            ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+} finally {
+    presentation.dispose();
+}
 ```
 
-![واترمارک متن](text_watermark.png)
+تصویر زیر نتایج نهایی را نشان می‌دهد.
+
+![واترمارک متنی](text_watermark.png)
 
 ## **واترمارک تصویری**
 
 ### **افزودن واترمارک تصویری به یک ارائه**
 
-برای افزودن واترمارک تصویری به اسلاید یک ارائه، می‌توانید مراحل زیر را انجام دهید:
+برای افزودن واترمارک تصویری به اسلاید یک ارائه می‌توانید به صورت زیر عمل کنید:
 
 ```java
-InputStream imageStream = new FileInputStream("watermark.png");
-IPPImage image = presentation.getImages().addImage(imageStream);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
-watermarkShape.getFillFormat().setFillType(FillType.Picture);
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    InputStream imageStream = new FileInputStream("watermark.png");
+    IPPImage image = presentation.getImages().addImage(imageStream);
+
+    watermarkShape.getFillFormat().setFillType(FillType.Picture);
+    watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **قفل‌گذاری واترمارک برای جلوگیری از ویرایش**
+### **قفل کردن واترمارک برای جلوگیری از ویرایش**
 
-اگر نیاز به جلوگیری از ویرایش واترمارک دارید، از متد [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) بر روی شکل استفاده کنید. با این خصوصیت می‌توانید شکل را از انتخاب، تغییر اندازه، تغییر موقعیت، گروه‌بندی با سایر عناصر، قفل کردن متن آن برای ویرایش و موارد دیگر محافظت کنید:
+اگر نیاز به جلوگیری از ویرایش واترمارک دارید، از متد [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) بر روی شکل استفاده کنید. با این ویژگی می‌توانید شکل را از انتخاب، تغییر اندازه، جابجایی، گروه‌بندی با عناصر دیگر، قفل کردن متن از ویرایش و موارد دیگر محافظت کنید:
 
 ```java
-// قفل کردن شکل واترمارک برای جلوگیری از تغییر
-watermarkShape.getAutoShapeLock().setSelectLocked(true);
-watermarkShape.getAutoShapeLock().setSizeLocked(true);
-watermarkShape.getAutoShapeLock().setTextLocked(true);
-watermarkShape.getAutoShapeLock().setPositionLocked(true);
-watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    // قفل کردن شکل واترمارک برای جلوگیری از تغییر
+    watermarkShape.getAutoShapeLock().setSelectLocked(true);
+    watermarkShape.getAutoShapeLock().setSizeLocked(true);
+    watermarkShape.getAutoShapeLock().setTextLocked(true);
+    watermarkShape.getAutoShapeLock().setPositionLocked(true);
+    watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **آورده کردن واترمارک به جلو**
+### **آوردن واترمارک به جلو**
 
-در Aspose.Slides، ترتیب Z اشکال می‌تواند از طریق متد [IShapeCollection.reorder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) تنظیم شود. برای این کار، باید این متد را از لیست اسلایدهای ارائه فراخوانی کرده و مرجع شکل و شماره ترتیب آن را به متد پاس کنید. به این ترتیب می‌توانید یک شکل را به جلو یا به پشت اسلاید منتقل کنید. این ویژگی به‌ویژه وقتی مفید است که نیاز به قرار دادن واترمارک در جلو ارائه داشته باشید:
+در Aspose.Slides، ترتیب Z اشکال می‌تواند با متد [IShapeCollection.reorder](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) تنظیم شود. برای این کار باید این متد را از لیست اسلایدهای ارائه فراخوانی کنید و مرجع شکل و شماره ترتیب آن را به متد پاس بدهید. به این ترتیب می‌توانید شکل را به جلو یا به پشت اسلاید بکشید. این ویژگی به‌خصوص زمانی مفید است که بخواهید واترمارک را در جلوی ارائه قرار دهید:
 
 ```java
-int shapeCount = slide.getShapes().size();
-slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    int shapeCount = slide.getShapes().size();
+    slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **تنظیم چرخش واترمارک**
 
-در اینجا یک مثال کد برای تنظیم چرخش واترمارک به‌طوری که به صورت قطری در اسلاید قرار گیرد آورده شده است:
+در ادامه نمونه کدی برای تنظیم چرخش واترمارک به طوری که به صورت مورب بر روی اسلاید قرار گیرد آمده است:
 
 ```java
-double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-watermarkShape.setRotation((float)diagonalAngle);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
+
+    double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+
+    watermarkShape.setRotation((float)diagonalAngle);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **تنظیم نام برای واترمارک**
 
-Aspose.Slides به شما امکان می‌دهد نام یک شکل را تنظیم کنید. با استفاده از نام شکل می‌توانید در آینده به آن دسترسی پیدا کنید تا آن را تغییر یا حذف کنید. برای تنظیم نام شکل واترمارک، آن را به متد [IAutoShape.setName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) اختصاص دهید:
+Aspose.Slides به شما امکان می‌دهد نام یک شکل را تعیین کنید. با استفاده از نام شکل می‌توانید در آینده به آن دسترسی داشته باشید تا آن را اصلاح یا حذف کنید. برای تنظیم نام شکل واترمارک، آن را به متد [IAutoShape.setName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) اختصاص دهید:
 
 ```java
-watermarkShape.setName("watermark");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.setName("watermark");
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **حذف واترمارک**
 
-برای حذف شکل واترمارک، از متد [IAutoShape.getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getName--) برای یافتن آن در شکل‌های اسلاید استفاده کنید. سپس، شکل واترمارک را به متد [IShapeCollection.remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) پاس دهید:
+برای حذف شکل واترمارک، از متد [IAutoShape.getName](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/#getName--) برای یافتن آن در اشکال اسلاید استفاده کنید. سپس شکل واترمارک را به متد [IShapeCollection.remove](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) پاس بدهید:
 
 ```java
-IShape[] slideShapes = slide.getShapes().toArray();
-for (IShape shape : slideShapes) {
-    if ("watermark".equals(shape.getName()))
-    {
-        slide.getShapes().remove(watermarkShape);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("watermarked.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape[] slideShapes = slide.getShapes().toArray();
+    for (IShape shape : slideShapes) {
+        if ("watermark".equals(shape.getName()))
+        {
+            slide.getShapes().remove(shape);
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **سوالات متداول**
 
-**واترمارک چیست و چرا باید از آن استفاده کنم؟**
+### واترمارک چیست و چرا باید از آن استفاده کنم؟
 
-واترمارک یک لایه متنی یا تصویری است که بر روی اسلایدها اعمال می‌شود و به محافظت از مالکیت فکری، تقویت شناخت برند یا جلوگیری از استفاده غیرمجاز از ارائه‌ها کمک می‌کند.
+واترمارک یک پوشش متنی یا تصویری است که بر روی اسلایدها اعمال می‌شود و به محافظت از مالکیت فکری، تقویت شناخت برند یا جلوگیری از استفاده غیرمجاز از ارائه‌ها کمک می‌کند.
 
-**آیا می‌توانم واترمارک را به تمام اسلایدهای یک ارائه اضافه کنم؟**
+### آیا می‌توانم واترمارک را به تمام اسلایدهای یک ارائه اضافه کنم؟
 
-بله، Aspose.Slides به شما امکان می‌دهد به‌صورت برنامه‌نویسی واترمارک را به هر اسلاید یک ارائه اضافه کنید. می‌توانید از روی تمام اسلایدها حلقه بزنید و تنظیمات واترمارک را به صورت جداگانه اعمال کنید.
+بله، Aspose.Slides به شما امکان می‌دهد برنامه‌نویسی کنید و واترمارک را به هر اسلاید از یک ارائه اضافه کنید. می‌توانید به تمام اسلایدها پیمایش کنید و تنظیمات واترمارک را به صورت جداگانه اعمال کنید.
 
-**چگونه می‌توانم شفافیت واترمارک را تنظیم کنم؟**
+### چگونه می‌توانم شفافیت واترمارک را تنظیم کنم؟
 
-می‌توانید شفافیت واترمارک را با تغییر تنظیمات پر شدن ([getFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shape/#getFillFormat--)) شکل تنظیم کنید. این کار اطمینان می‌دهد که واترمارک به‌صورت ملایم ظاهر شده و محتوی اسلاید را مشغول نمی‌کند.
+می‌توانید شفافیت واترمارک را با تغییر تنظیمات پر ([getFillFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/shape/#getFillFormat--)) شکل تنظیم کنید. این کار اطمینان می‌دهد که واترمارک به‌صورت ظریف باقی می‌ماند و مزاحم محتوای اسلاید نمی‌شود.
 
-**چه قالب‌های تصویری برای واترمارک‌ها پشتیبانی می‌شوند؟**
+### چه فرمت‌های تصویری برای واترمارک پشتیبانی می‌شوند؟
 
-Aspose.Slides قالب‌های تصویری مختلفی مانند PNG، JPEG، GIF، BMP، SVG و غیره را پشتیبانی می‌کند.
+Aspose.Slides فرمت‌های تصویری متنوعی مانند PNG، JPEG، GIF، BMP، SVG و موارد دیگر را پشتیبانی می‌کند.
 
-**آیا می‌توانم قلم و سبک یک واترمارک متنی را سفارشی کنم؟**
+### آیا می‌توانم قلم و سبک واترمارک متنی را سفارشی کنم؟
 
-بله، می‌توانید هر قلم، اندازه و سبکی را انتخاب کنید تا با طراحی ارائه شما هماهنگ باشد و سازگاری برند حفظ شود.
+بله، می‌توانید هر قلم، اندازه و سبکی را انتخاب کنید تا با طراحی ارائه شما هماهنگ باشد و سازگاری برند را حفظ کند.
 
-**چگونه موقعیت یا جهت واترمارک را تغییر دهم؟**
+### چگونه می‌توانم موقعیت یا جهت واترمارک را تغییر دهم؟
 
-می‌توانید موقعیت و جهت واترمارک را به‌صورت برنامه‌نویسی با تغییر مختصات، اندازه و خصوصیات چرخش شکل تنظیم کنید.
+می‌توانید موقعیت و جهت واترمارک را با برنامه‌نویسی از طریق اصلاح مختصات، اندازه و خصوصیات چرخش شکل تنظیم کنید.

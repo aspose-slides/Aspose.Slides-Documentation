@@ -1,62 +1,65 @@
 ---
-title: Créer des effets 3D dans les présentations en Java
+title: Créer des effets 3D dans les présentations avec Java
 linktitle: Présentation 3D
 type: docs
 weight: 232
 url: /fr/java/3d-presentation/
 keywords:
 - PowerPoint 3D
-- Présentation 3D
-- Rotation 3D
-- Profondeur 3D
-- Extrusion 3D
-- Dégradé 3D
-- Texte 3D
+- présentation 3D
+- rotation 3D
+- profondeur 3D
+- extrusion 3D
+- dégradé 3D
+- texte 3D
 - PowerPoint
 - présentation
 - Java
 - Aspose.Slides
-description: "Appliquez et rendez les effets 3D aux formes et au texte PowerPoint en Java avec Aspose.Slides. Configurez la camera, l'eclairage, le materiau, l'extrusion, les remplissages et le texte 3D."
+description: "Appliquer et rendre des effets 3D pour les formes et le texte PowerPoint en Java avec Aspose.Slides. Configurer la caméra, l'éclairage, le matériau, l'extrusion, les remplissages et le texte 3D."
 ---
 ## **Vue d'ensemble**
 
-Aspose.Slides for Java peut créer, modifier, conserver et rendre le formatage 3D de type PowerPoint pour les formes et le texte. Cet article couvre les effets 3D tels que la rotation, l'extrusion, les chanfreins, l'éclairage, le matériau, les remplissages en dégradé ou image, et le texte 3D.
+Aspose.Slides for Java peut créer, modifier, conserver et rendre le format 3D de type PowerPoint pour les formes et le texte. Cet article couvre les effets 3D tels que la rotation, l’extrusion, les chanfreins, l’éclairage, le matériau, les remplissages en dégradé ou image, et le texte 3D.
 
-{{% alert color="primary" %}}
-Cet article porte sur les effets de formatage 3D appliqués aux formes et au texte PowerPoint. Il ne s'agit pas d'insérer ou de modifier des fichiers de modèles 3D autonomes. Lorsque vous exportez une diapositive en image, PDF ou HTML, Aspose.Slides rend ces effets 3D dans la sortie 2D exportée.
+{{% alert color="info" %}}
+Cet article porte sur les effets de formatage 3D appliqués aux formes et au texte PowerPoint. Il ne s’agit pas d’insérer ou de modifier des fichiers de modèle 3D autonomes. Lorsque vous exportez une diapositive en image, PDF ou HTML, Aspose.Slides rend ces effets 3D dans le résultat 2D exporté.
 {{% /alert %}}
 
 ## **Concepts de formatage 3D**
 
-Utilisez [IShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/).`getThreeDFormat()` pour appliquer un formatage 3D à une forme. L'objet de format retourné contrôle la scène 3D pour cette forme.
+Utilisez [IShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/).`getThreeDFormat()` pour appliquer le format 3D à une forme. L’objet de format renvoyé contrôle la scène 3D pour cette forme.
 
-Pour le texte, utilisez [ITextFrameFormat](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()`. Cela applique le formatage 3D au cadre de texte au lieu du corps de la forme.
+Pour le texte, utilisez [ITextFrameFormat](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()`. Cela applique le format 3D au cadre de texte plutôt qu’au corps de la forme.
 
-Les membres d'API les plus importants sont :
+Les membres d’API les plus importants sont :
 
-| Membre API | Ce qu'il contrôle | Quand l'utiliser |
+| Membre d’API | Ce qu’il contrôle | Quand l’utiliser |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getCamera--) | Point de vue, type de caméra prédéfini, rotation, zoom et perspective. | Faire pivoter l'objet dans l'espace 3D ou correspondre à un préréglage de rotation 3D de PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getLightRig--) | Préréglage de lumière, direction et rotation de la lumière. | Modifier la façon dont les reflets et les ombres apparaissent sur la surface 3D. |
-| [getMaterial](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getMaterial--) et [setMaterial](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Matériau de surface, tel que plat, mat, plastique ou métal. | Faire paraître la même géométrie plus plate, plus douce, brillante ou métallique. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) et [setExtrusionHeight](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Distance à laquelle la forme s'étend vers l'arrière à partir de sa face avant. | Transformer une forme plane en un objet 3D visiblement épais. |
-| [getExtrusionColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Couleur des côtés extrudés. | Rendre la profondeur visible ou coordonner la couleur des côtés avec le remplissage de face avant. |
-| [getDepth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getDepth--) et [setDepth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Profondeur 3D supplémentaire utilisée par le formatage 3D de PowerPoint. | Ajuster finement la profondeur pour les formes ou le texte, notamment en combinaison avec les paramètres de chanfrein et de matériau. |
-| [getBevelTop](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getBevelTop--) et [getBevelBottom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Arêtes surélevées ou arrondies sur les faces avant et arrière. | Ajouter un bord adouci ou moulé au lieu d'une face plane et nette. |
-| [getContourColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getContourWidth--), et [setContourWidth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Contour autour de l'objet 3D. | Mettre en évidence les limites de l'objet dans le rendu. |
+| [getCamera](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getCamera--) | Point de vue, type de caméra prédéfini, rotation, zoom et perspective. | Faire pivoter l’objet dans l’espace 3D ou appliquer un préréglage de rotation 3D PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getLightRig--) | Préréglage de lumière, direction et rotation de la lumière. | Modifier l’apparence des reflets et des ombres sur la surface 3D. |
+| [getMaterial](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getMaterial--) et [setMaterial](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setMaterial-int-) | Matériau de la surface, tel que plat, mat, plastique ou métal. | Faire paraître la même géométrie plus plate, plus douce, brillante ou métallique. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getExtrusionHeight--) et [setExtrusionHeight](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setExtrusionHeight-double-) | Distance à laquelle la forme s’étend vers l’arrière depuis sa face avant. | Transformer une forme plane en un objet 3D visiblement épais. |
+| [getExtrusionColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getExtrusionColor--) | Couleur des côtés extrudés. | Rendre la profondeur visible ou coordonner la couleur latérale avec le remplissage avant. |
+| [getDepth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getDepth--) et [setDepth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setDepth-double-) | Profondeur 3D supplémentaire utilisée par le formatage 3D PowerPoint. | Ajuster finement la profondeur des formes ou du texte, notamment avec les paramètres de chanfrein et de matériau. |
+| [getBevelTop](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getBevelTop--) et [getBevelBottom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getBevelBottom--) | Bords relevés ou arrondis sur les faces avant et arrière. | Ajouter un bord adouci ou moulé au lieu d’une face plane et nette. |
+| [getContourColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getContourColor--), [getContourWidth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#getContourWidth--), et [setContourWidth](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ithreedformat/#setContourWidth-double-) | Contour autour de l’objet 3D. | Mettre en évidence la frontière de l’objet dans le rendu final. |
 
 ## **Créer une forme 3D**
 
-Une forme nécessite généralement quatre types de paramètres avant d'avoir un aspect 3D convaincant :
+Une forme a généralement besoin de quatre types de paramètres avant d’apparaître réellement en 3D :
 
-- Paramètres de caméra, car la vue frontale par défaut peut masquer l'extrusion.
-- Paramètres d'éclairage, car la lumière rend les faces et les côtés lisibles.
-- Paramètres de matériau, car la surface influence la façon dont la lumière est rendue.
-- Paramètres d'extrusion ou de profondeur, car une forme plane nécessite de l'épaisseur.
+- Paramètres de caméra, car la vue frontale par défaut peut masquer l’extrusion.
+- Paramètres de lumière, car l’éclairage rend les faces et les côtés lisibles.
+- Paramètres de matériau, car la surface influence le rendu de la lumière.
+- Paramètres d’extrusion ou de profondeur, car une forme plane nécessite de l’épaisseur.
 
-L'exemple suivant crée un rectangle, ajoute du texte à sa face avant, applique un formatage 3D, enregistre la présentation au format PPTX et rend la diapositive en image PNG.
+L’exemple suivant crée un rectangle, ajoute du texte sur sa face avant, applique le formatage 3D, enregistre la présentation au format PPTX et rend la diapositive en image PNG.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -90,50 +93,74 @@ try {
 }
 ```
 
-L'image de la diapositive rendue montre le rectangle comme un bloc 3D épais :
+L’image rendue montre le rectangle sous forme d’un bloc 3D épais :
 
-![Rectangle 3D bleu rendu avec texte 3D blanc sur la face avant](img_01_01.png)
+![Rendered blue 3D rectangle with white 3D text on the front face](img_01_01.png)
 
 ## **Faire pivoter une forme avec la caméra**
 
-Dans PowerPoint, la rotation 3D est configurée depuis le volet Rotation 3-D. Les valeurs de rotation X, Y et Z correspondent à la rotation que vous définissez via l'API de la caméra.
+Dans PowerPoint, la rotation 3D est configurée depuis le volet 3‑D Rotation. Les valeurs de rotation X, Y et Z correspondent à la rotation que vous définissez via l’API caméra.
 
-![Volet Rotation 3-D de PowerPoint avec les valeurs de rotation X, Y et Z mises en évidence](img_02_01.png)
+![PowerPoint 3-D Rotation pane with X, Y, and Z rotation values highlighted](img_02_01.png)
 
 Dans Aspose.Slides, définissez le type de caméra et la rotation via le format 3D retourné par `shape.getThreeDFormat()` :
 
 ```java
-shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Utilisez la caméra lorsque vous devez modifier la façon dont le spectateur voit l'objet. Elle ne modifie pas la géométrie 2D de la forme sur la diapositive. Elle change le point de vue 3D utilisé par PowerPoint et par Aspose.Slides lors du rendu.
+Utilisez la caméra lorsque vous devez modifier la façon dont le spectateur voit l’objet. Cela ne modifie pas la géométrie 2D de la forme sur la diapositive ; cela change le point de vue 3D utilisé par PowerPoint et Aspose.Slides lors du rendu.
 
 ## **Ajouter extrusion et profondeur**
 
-L'extrusion donne à une forme un aspect épais en l'étendant derrière la face avant. Dans PowerPoint, le contrôle de profondeur définit cette épaisseur visible, et le contrôle de couleur définit la couleur des faces latérales.
+L’extrusion rend une forme épaisse en l’étendant derrière la face avant. Dans PowerPoint, le contrôle de profondeur définit cette épaisseur visible, et le contrôle de couleur définit la couleur des faces latérales.
 
-![Contrôles de profondeur de PowerPoint associés aux propriétés couleur d'extrusion et hauteur d'extrusion](img_02_02.png)
+![PowerPoint depth controls mapped to extrusion color and extrusion height properties](img_02_02.png)
 
-Définissez la hauteur d'extrusion pour l'épaisseur et la couleur d'extrusion pour la couleur des côtés :
+Définissez la hauteur d’extrusion pour l’épaisseur et la couleur d’extrusion pour la couleur latérale :
 
 ```java
-Color extrusionColor = new Color(128, 0, 128);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-shape.getThreeDFormat().setExtrusionHeight(100);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+
+    Color extrusionColor = new Color(128, 0, 128);
+
+    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+    shape.getThreeDFormat().setExtrusionHeight(100);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Utilisez le paramètre de profondeur lorsque vous devez travailler directement avec la valeur de profondeur de PowerPoint ou combiner la profondeur avec le chanfrein, le matériau et les effets de texte. Dans de nombreux scénarios de forme, la hauteur d'extrusion est le paramètre le plus clair car elle exprime directement l'extrusion visible.
+Utilisez le paramètre de profondeur lorsque vous devez travailler directement avec la valeur de profondeur de PowerPoint ou combiner profondeur avec chanfrein, matériau et effets de texte. Dans de nombreux scénarios de forme, la hauteur d’extrusion est le réglage le plus explicite car elle exprime directement l’extrusion visible.
 
 ## **Utiliser des remplissages en dégradé ou image avec des effets 3D**
 
-Le formatage 3D est indépendant du remplissage de la forme. Vous pouvez appliquer une couleur unie, un dégradé, un motif ou un remplissage image à la face avant tout en utilisant les mêmes paramètres de caméra, lumière, matériau et extrusion.
+Le formatage 3D est indépendant du remplissage de la forme. Vous pouvez appliquer une couleur unie, un dégradé, un motif ou un remplissage image à la face avant tout en conservant les mêmes paramètres de caméra, lumière, matériau et extrusion.
 
-Cet exemple applique un remplissage en dégradé à la forme et une couleur d'extrusion plus sombre aux côtés :
+Cet exemple applique un remplissage en dégradé à la forme et une couleur d’extrusion plus sombre aux côtés :
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -167,38 +194,52 @@ try {
 }
 ```
 
-Le rendu conserve le dégradé sur la face avant et rend séparément l'extrusion :
+Le rendu conserve le dégradé sur la face avant et rend l’extrusion séparément :
 
-![Rectangle 3D rendu avec un remplissage dégradé du bleu à l'orange et extrusion orange](img_02_03.png)
+![Rendered 3D rectangle with a blue-to-orange gradient fill and orange extrusion](img_02_03.png)
 
-Pour utiliser un remplissage image à la place, ajoutez l'image à la présentation et affectez‑la au remplissage de la forme :
+Pour utiliser un remplissage image, ajoutez l’image à la présentation et affectez‑la au remplissage de la forme :
 
 ```java
-java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
-byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
-IPPImage image = presentation.getImages().addImage(imageData);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-shape.getFillFormat().setFillType(FillType.Picture);
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
 
-Color extrusionColor = new Color(255, 140, 0);
-shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-shape.getThreeDFormat().setExtrusionHeight(150);
-shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+    java.nio.file.Path imagePath = java.nio.file.Paths.get("image.jpg");
+    byte[] imageData = java.nio.file.Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageData);
+
+    shape.getFillFormat().setFillType(FillType.Picture);
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+    Color extrusionColor = new Color(255, 140, 0);
+    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+    shape.getThreeDFormat().setExtrusionHeight(150);
+    shape.getThreeDFormat().getExtrusionColor().setColor(extrusionColor);
+} finally {
+    presentation.dispose();
+}
 ```
 
-L'image est rendue sur la face avant, tandis que l'extrusion est rendue comme la surface latérale 3D :
+L’image est rendue sur la face avant, tandis que l’extrusion apparaît comme la surface latérale 3D :
 
-![Rectangle 3D rendu avec un remplissage photo sur la face avant et extrusion orange](img_02_04.png)
+![Rendered 3D rectangle with a photo fill on the front face and orange extrusion](img_02_04.png)
 
 ## **Appliquer le formatage 3D au texte**
 
-Le formatage 3D d'une forme affecte le corps de la forme. Le formatage 3D du texte affecte le cadre de texte. Cela est utile pour des effets de type WordArt où les lettres elles‑mêmes nécessitent extrusion, matériau, éclairage et paramètres de caméra.
+Le formatage 3D d’une forme affecte le corps de la forme. Le formatage 3D du texte affecte le cadre de texte. Ceci est utile pour des effets de type WordArt où chaque lettre doit être extrudée, dotée de matériau, d’éclairage et de paramètres de caméra.
 
-L'exemple suivant crée du texte avec un remplissage à motif, applique une transformation WordArt et configure les paramètres 3D sur [ITextFrameFormat](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframeformat/):
+L’exemple suivant crée du texte avec un remplissage motif, applique une transformation WordArt et configure les paramètres 3D sur [ITextFrameFormat](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframeformat/) :
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 final float imageScale = 2;
 
 Presentation presentation = new Presentation();
@@ -241,43 +282,43 @@ try {
 }
 ```
 
-Le texte est rendu comme une lettrine 3D courbée et extrudée :
+Le texte est rendu comme des lettres 3D courbées et extrudées :
 
-![Texte 3D rendu avec une transformation WordArt arquée, remplissage à motif orange et extrusion sombre](img_02_05.png)
+![Rendered 3D text with an arched WordArt transform, orange pattern fill, and dark extrusion](img_02_05.png)
 
-## **Comportement d'exportation et de rendu**
+## **Comportement à l’exportation et au rendu**
 
-Aspose.Slides conserve le formatage 3D lors de l'enregistrement aux formats PowerPoint tels que PPTX. Lors du rendu ou de l'exportation vers des formats à mise en page fixe, la scène 3D est rasterisée ou dessinée dans la sortie sous forme de résultat 2D. Cela s'applique lorsque vous rendez des diapositives en [PNG](/slides/fr/java/convert-powerpoint-to-png/), exportez en [PDF](/slides/fr/java/convert-powerpoint-to-pdf/), exportez en [HTML](/slides/fr/java/convert-powerpoint-to-html/), ou générez des images pour la [conversion vidéo](/slides/fr/java/convert-powerpoint-to-video/).
+Aspose.Slides préserve le formatage 3D lors de l’enregistrement aux formats PowerPoint tels que PPTX. Lors du rendu ou de l’exportation vers des formats à mise en page fixe, la scène 3D est rasterisée ou dessinée dans la sortie sous forme de résultat 2D. Cela s’applique lorsque vous rendez des diapositives en [PNG](/slides/fr/java/convert-powerpoint-to-png/), exportez en [PDF](/slides/fr/java/convert-powerpoint-to-pdf/), exportez en [HTML](/slides/fr/java/convert-powerpoint-to-html/), ou générez des images pour la [conversion vidéo](/slides/fr/java/convert-powerpoint-to-video/).
 
-Gardez ces points à l'esprit :
+Gardez ces points à l’esprit :
 
-- Les images et PDF exportés ne sont pas interactifs. L'objet ne peut pas être pivoté par le spectateur après l'exportation.
-- L'apparence finale dépend de la combinaison de la caméra, du dispositif d'éclairage, du matériau, de l'extrusion, du remplissage et du redimensionnement de la diapositive.
+- Les images et PDF exportés ne sont pas interactifs. L’objet ne peut pas être pivoté par le spectateur après l’exportation.
+- L’apparence finale dépend de la combinaison caméra, rig de lumière, matériau, extrusion, remplissage et mise à l’échelle de la diapositive.
 - Si vous devez inspecter les valeurs de formatage héritées ou basées sur le thème, lisez les [propriétés de forme effectives](/slides/fr/java/shape-effective-properties/).
-- Certains formats de sortie ne peuvent pas stocker le formatage 3D éditable de PowerPoint. Dans ces formats, le résultat visuel est rendu plutôt que conservé comme paramètres 3D éditables.
+- Certains formats de sortie ne peuvent pas stocker le formatage 3D PowerPoint éditable. Dans ces formats, le résultat visuel est rendu plutôt que conservé comme paramètre 3D éditable.
 
 ## **FAQ**
 
-**Aspose.Slides peut‑il créer des présentations 3D interactives ?**
+### Aspose.Slides peut‑il créer des présentations 3D interactives ?
 
-Aspose.Slides crée et rend les effets 3D de PowerPoint pour les formes et le texte. Il ne rend pas les images, PDF ou pages HTML exportés interactifs sous forme de scènes 3D que le spectateur pourrait faire pivoter. En PPTX, le formatage 3D reste éditable dans PowerPoint lorsque le format le supporte.
+Aspose.Slides crée et rend les effets 3D PowerPoint pour les formes et le texte. Il ne rend pas les images, PDF ou pages HTML exportés interactifs : le spectateur ne peut pas pivoter la scène 3D. En PPTX, le formatage 3D reste éditable dans PowerPoint lorsque le format le prend en charge.
 
-**Quelle est la différence entre un modèle 3D et un effet 3D ?**
+### Quelle est la différence entre un modèle 3D et un effet 3D ?
 
-Un modèle 3D est un objet 3D séparé inséré dans une présentation. Un effet 3D est un formatage appliqué à une forme ou un texte PowerPoint standard, tel que la rotation, l'extrusion, le chanfrein, l'éclairage et le matériau. Cet article traite des effets 3D.
+Un modèle 3D est un objet 3D séparé inséré dans la présentation. Un effet 3D est un formatage appliqué à une forme ou un texte PowerPoint ordinaire, tel que rotation, extrusion, chanfrein, éclairage et matériau. Cet article traite des effets 3D.
 
-**Quels paramètres sont requis pour une forme 3D visible ?**
+### Quels paramètres sont nécessaires pour qu’une forme 3D soit visible ?
 
-Au minimum, définissez une rotation de caméra et soit l'extrusion, soit la profondeur. En pratique, définissez également un dispositif d'éclairage et un matériau afin que les faces rendues possèdent des reflets et des ombres clairement visibles.
+Au minimum, définissez une rotation de caméra et soit l’extrusion soit la profondeur. En pratique, ajoutez également un rig de lumière et un matériau afin que les faces rendues affichent des reflets et des ombres nets.
 
-**Puis‑je appliquer des effets 3D à la fois aux formes et au texte ?**
+### Puis‑je appliquer des effets 3D aux formes et au texte ?
 
 Oui. Utilisez [IShape](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishape/).`getThreeDFormat()` pour le corps de la forme et [ITextFrameFormat](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itextframeformat/).`getThreeDFormat()` pour le texte.
 
-**Les effets 3D apparaîtront‑ils lors de l'exportation vers des images, PDF, HTML ou des images vidéo ?**
+### Les effets 3D apparaissent‑ils lors de l’exportation vers des images, PDF, HTML ou images vidéo ?
 
-Oui. Aspose.Slides rend les effets 3D lors de la création d'images de diapositives, de la sortie PDF, de la sortie HTML et des images utilisées pour la conversion vidéo. La sortie exportée contient l'apparence rendue, et non un objet 3D éditable.
+Oui. Aspose.Slides rend les effets 3D lors de la génération d’images de diapositives, de la sortie PDF, HTML et des images utilisées pour la conversion vidéo. La sortie exportée contient l’apparence rendue, pas un objet 3D éditable.
 
-**Puis‑je lire les valeurs 3D finales après l'application de l'héritage et des paramètres du thème ?**
+### Puis‑je lire les valeurs 3D finales après l’héritage et les paramètres du thème ?
 
-Oui. Utilisez les API de formatage effectif décrites dans [Shape Effective Properties](/slides/fr/java/shape-effective-properties/) pour lire les valeurs finales de caméra, dispositif d'éclairage, chanfrein et autres valeurs 3D.
+Oui. Utilisez les API de formatage effectif décrites dans [Shape Effective Properties](/slides/fr/java/shape-effective-properties/) pour lire les valeurs finales de caméra, rig de lumière, chanfrein et autres paramètres 3D.

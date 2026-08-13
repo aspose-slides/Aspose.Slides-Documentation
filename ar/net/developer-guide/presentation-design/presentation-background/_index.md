@@ -1,5 +1,5 @@
 ---
-title: إدارة خلفيات العرض التقديمي في .NET
+title: إدارة خلفيات العروض التقديمية في .NET
 linktitle: خلفية الشريحة
 type: docs
 weight: 20
@@ -18,81 +18,93 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint و OpenDocument باستخدام Aspose.Slides لـ .NET، مع نصائح برمجية لتعزيز عروضك التقديمية."
+description: "تعرّف على كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET، مع نصائح برمجية لتحسين عروضك التقديمية."
 ---
+## **مقدمة**
 
-## **نظرة عامة**
+الألوان الصلبة، والتدرجات، والصور تُستخدم عادةً كخلفيات للشرائح. يمكنك تعيين الخلفية لـ **شريحة عادية** (شريحة واحدة) أو **شريحة رئيسية** (تطبق على عدة شرائح في آن واحد).
 
-الألوان الصلبة، التدريجية، والصور تُستخدم عادةً كخلفيات للشرائح. يمكنك تعيين الخلفية لشريحة **عادية** (شريحة واحدة) أو شريحة **رئيسية** (تنطبق على عدة شرائح في آن واحد).
-
-![PowerPoint background](powerpoint-background.png)
+![خلفية PowerPoint](powerpoint-background.png)
 
 ## **تعيين خلفية بلون صلب لشريحة عادية**
 
-Aspose.Slides يتيح لك تعيين لون صلب كخلفية لشريحة محددة في عرض تقديمي — حتى إذا كان العرض يستخدم شريحة رئيسية. التغيير يطبق فقط على الشريحة المختارة.
+يتيح لك Aspose.Slides تعيين لون صلب كخلفية لشريحة معينة في عرض تقديمي — حتى إذا كان العرض يستخدم شريحة رئيسية. ينطبق التغيير فقط على الشريحة المحددة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) لخلفية الشريحة إلى `Solid`.
-4. استخدام الخاصية [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) على [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) لتحديد لون الخلفية الصلب.
-5. احفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+2. قم بتعيين [BackgroundType](https://reference.aspose.com/slides/ar/net/aspose.slides/backgroundtype/) إلى `OwnBackground` .
+3. قم بتعيين خلفية الشريحة [FillType](https://reference.aspose.com/slides/ar/net/aspose.slides/filltype/) إلى `Solid` .
+4. استخدم الخاصية [SolidFillColor](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/solidfillcolor/) على [FillFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/) لتحديد لون الخلفية الصلب .
+5. احفظ العرض المعدل.
+
+المثال التالي بلغة C# يوضح كيفية تعيين لون أزرق صلب كخلفية لشريحة عادية:
 
 ```cs
-// إنشاء نسخة من فئة Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// إنشاء مثيل من فئة Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // تعيين لون خلفية الشريحة إلى الأزرق.
+    // ضبط لون خلفية الشريحة إلى اللون الأزرق.
     slide.Background.Type = BackgroundType.OwnBackground;
     slide.Background.FillFormat.FillType = FillType.Solid;
     slide.Background.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // حفظ العرض التقديمي إلى القرص.
+    // حفظ العرض التقديمي على القرص.
     presentation.Save("SolidColorBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-
 ## **تعيين خلفية بلون صلب لشريحة رئيسية**
 
-Aspose.Slides يسمح لك بتعيين لون صلب كخلفية لشريحة رئيسية في عرض تقديمي. الشريحة الرئيسية تعمل كقالب يتحكم في تنسيق جميع الشرائح، لذا عند اختيار لون صلب لخلفية الشريحة الرئيسية، يطبق على كل شريحة.
+يتيح لك Aspose.Slides تعيين لون صلب كخلفية للشريحة الرئيسية في عرض تقديمي. تعمل الشريحة الرئيسية كقالب يتحكم في تنسيق جميع الشرائح، لذا عندما تختار لونًا صلبًا لخلفية الشريحة الرئيسية، يتم تطبيقه على كل شريحة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) للشريحة الرئيسية (عبر `masters`) إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) لخلفية الشريحة إلى `Solid`.
-4. استخدام الخاصية [SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/fillformat/solidfillcolor/) لتحديد لون الخلفية الصلب.
-5. احفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+2. قم بتعيين [BackgroundType](https://reference.aspose.com/slides/ar/net/aspose.slides/backgroundtype/) لشريحة الرئيس (من خلال `masters`) إلى `OwnBackground` .
+3. قم بتعيين خلفية الشريحة الرئيسية [FillType](https://reference.aspose.com/slides/ar/net/aspose.slides/filltype/) إلى `Solid` .
+4. استخدم [SolidFillColor](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/solidfillcolor/) لتحديد لون الخلفية الصلب .
+5. احفظ العرض المعدل.
 
 ```cs
-// إنشاء نسخة من فئة Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// إنشاء مثيل من فئة Presentation.
 using (Presentation presentation = new Presentation())
 {
     IMasterSlide masterSlide = presentation.Masters[0];
 
-    // تعيين لون خلفية الشريحة الرئيسية إلى الأخضر الغابي.
+    // تعيين لون خلفية الشريحة الرئيسية إلى أخضر غابي.
     masterSlide.Background.Type = BackgroundType.OwnBackground;
     masterSlide.Background.FillFormat.FillType = FillType.Solid;
     masterSlide.Background.FillFormat.SolidFillColor.Color = Color.ForestGreen;
 
-    // حفظ العرض التقديمي إلى القرص.
+    // حفظ العرض التقديمي على القرص.
     presentation.Save("MasterSlideBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-
 ## **تعيين خلفية متدرجة لشريحة**
 
-التدرج هو تأثير رسومي يتم إنشاؤه بتغيير اللون تدريجيًا. عند استخدامه كخلفية للشريحة، يمكن أن تجعل العروض تبدو أكثر إبداعًا واحترافية. Aspose.Slides يتيح لك تعيين لون متدرج كخلفية للشرائح.
+التدرج هو تأثير رسومي يُنشأ بتغير تدريجي في اللون. عند استخدامه كخلفية للشفرة، يمكن للتدرجات أن تجعل العروض تبدو أكثر فنًا واحترافية. يتيح لك Aspose.Slides تعيين لون متدرج كخلفية للشرائح.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) لخلفية الشريحة إلى `Gradient`.
-4. استخدام الخاصية [GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/gradientformat/) على [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) لتكوين إعدادات التدرج المفضلة.
-5. احفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+2. قم بتعيين [BackgroundType](https://reference.aspose.com/slides/ar/net/aspose.slides/backgroundtype/) إلى `OwnBackground` .
+3. قم بتعيين خلفية الشريحة [FillType](https://reference.aspose.com/slides/ar/net/aspose.slides/filltype/) إلى `Gradient` .
+4. استخدم الخاصية [GradientFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/gradientformat/) على [FillFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/) لتكوين الإعدادات المتدرجة المفضلة لديك .
+5. احفظ العرض المعدل.
+
+المثال التالي بلغة C# يوضح كيفية تعيين لون متدرج كخلفية لشريحة:
 
 ```cs
-// إنشاء نسخة من فئة Presentation.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// إنشاء مثيل من فئة Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -102,26 +114,30 @@ using (Presentation presentation = new Presentation())
     slide.Background.FillFormat.FillType = FillType.Gradient;
     slide.Background.FillFormat.GradientFormat.TileFlip = TileFlip.FlipBoth;
 
-    // حفظ العرض التقديمي إلى القرص.
+    // حفظ العرض التقديمي على القرص.
     presentation.Save("GradientBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
-
-## **تعيين صورة كخلفية للشريحة**
+## **تعيين صورة كخلفية للشفرة**
 
 بالإضافة إلى التعبئات الصلبة والمتدرجة، يتيح لك Aspose.Slides استخدام الصور كخلفيات للشرائح.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/net/aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) لخلفية الشريحة إلى `Picture`.
-4. تحميل الصورة التي تريد استخدامها كخلفية للشفرة.
-5. إضافة الصورة إلى مجموعة الصور في العرض التقديمي.
-6. استخدام الخاصية [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/picturefillformat/) على [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/fillformat/) لتعيين الصورة كخلفية.
-7. احفظ العرض التقديمي المعدل.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) .
+2. قم بتعيين [BackgroundType](https://reference.aspose.com/slides/ar/net/aspose.slides/backgroundtype/) إلى `OwnBackground` .
+3. قم بتعيين خلفية الشريحة [FillType](https://reference.aspose.com/slides/ar/net/aspose.slides/filltype/) إلى `Picture` .
+4. حمل الصورة التي تريد استخدامها كخلفية للشفرة .
+5. أضف الصورة إلى مجموعة صور العرض .
+6. استخدم الخاصية [PictureFillFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/picturefillformat/) على [FillFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/) لتعيين الصورة كخلفية .
+7. احفظ العرض المعدل .
+
+المثال التالي بلغة C# يوضح كيفية تعيين صورة كخلفية لشريحة:
 
 ```c#
-// إنشاء نسخة من فئة Presentation.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// إنشاء مثيل من فئة Presentation.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -133,20 +149,23 @@ using (Presentation presentation = new Presentation())
 
     // تحميل الصورة.
     IImage image = Images.FromFile("Tulips.jpg");
-    // إضافة الصورة إلى مجموعة الصور في العرض التقديمي.
+    // إضافة الصورة إلى مجموعة صور العرض التقديمي.
     IPPImage ppImage = presentation.Images.AddImage(image);
     image.Dispose();
 
     slide.Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
-    // حفظ العرض التقديمي إلى القرص.
+    // حفظ العرض التقديمي على القرص.
     presentation.Save("ImageAsBackground.pptx", SaveFormat.Pptx);
 }
 ```
 
+المثال التالي يوضح كيفية تعيين نوع تعبئة الخلفية إلى صورة مكررة وتعديل خصائص التكرار:
 
-العينة البرمجية التالية توضح كيفية تعيين نوع ملء الخلفية إلى صورة متكررة وتعديل خصائص التكرار:
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -160,11 +179,11 @@ using (Presentation presentation = new Presentation())
     using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
         ppImage = presentation.Images.AddImage(newImage);
 
-    // تعيين الصورة المستخدمة لملء الخلفية.
+    // تعيين الصورة المستخدمة لتعبئة الخلفية.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
     backPictureFillFormat.Picture.Image = ppImage;
 
-    // تعيين وضع ملء الصورة إلى تجانب وضبط خصائص البلاط.
+    // تعيين وضع تعبئة الصورة إلى تجانب وضبط خصائص التبليط.
     backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     backPictureFillFormat.TileOffsetX = 15f;
     backPictureFillFormat.TileOffsetY = 15f;
@@ -177,56 +196,72 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}}
-اقرأ المزيد: [**Tile Picture As Texture**](/slides/ar/net/shape-formatting/#tile-picture-as-texture).
+اقرأ المزيد: [**صورة مبلّطة كنقشة**](/slides/ar/net/shape-formatting/#tile-picture-as-texture).
+
 {{% /alert %}}
 
 ### **تغيير شفافية صورة الخلفية**
 
-قد ترغب في تعديل شفافية صورة خلفية الشريحة لتبرز محتويات الشريحة. الكود التالي بـ C# يوضح كيفية تغيير شفافية صورة خلفية الشريحة:
+قد ترغب في تعديل شفافية صورة خلفية الشريحة لجعل محتويات الشريحة تبرز. الكود التالي بلغة C# يوضح لك كيفية تغيير الشفافية لصورة خلفية الشريحة:
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Effects;
+using Aspose.Slides.Export;
+
 var transparencyValue = 30; // على سبيل المثال.
 
-// احصل على مجموعة عمليات تحويل الصورة.
-var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
-
-// ابحث عن تأثير شفافية ثابت النسبة مئوي موجود.
-var transparencyOperation = null as IAlphaModulateFixed;
-foreach (var operation in imageTransform)
+using (Presentation presentation = new Presentation("ImageAsBackground.pptx"))
 {
-    if (operation is IAlphaModulateFixed alphaModulateFixed)
+    ISlide slide = presentation.Slides[0];
+
+    // الحصول على مجموعة عمليات تحويل الصورة.
+    var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
+
+    // العثور على تأثير شفافية ثابت النسبة المئوية موجود.
+    var transparencyOperation = null as IAlphaModulateFixed;
+    foreach (var operation in imageTransform)
     {
-        transparencyOperation = alphaModulateFixed;
-        break;
+        if (operation is IAlphaModulateFixed alphaModulateFixed)
+        {
+            transparencyOperation = alphaModulateFixed;
+            break;
+        }
     }
-}
 
-// تعيين قيمة الشفافية الجديدة.
-if (transparencyOperation == null)
-{
-    imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.Amount = (100 - transparencyValue);
+    // تعيين قيمة الشفافية الجديدة.
+    if (transparencyOperation == null)
+    {
+        imageTransform.AddAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else
+    {
+        transparencyOperation.Amount = (100 - transparencyValue);
+    }
+
+    presentation.Save("ImageBackgroundTransparency.pptx", SaveFormat.Pptx);
 }
 ```
 
-
 ## **الحصول على قيمة خلفية الشريحة**
 
-Aspose.Slides يوفر الواجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/) لاسترجاع القيم الفعلية لخلفية الشريحة. هذه الواجهة تكشف عن [FillFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/fillformat/) و [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/ibackgroundeffectivedata/effectformat/) الفعليين.
+يوفر Aspose.Slides الواجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ibackgroundeffectivedata/) لاسترجاع القيم الفعلية لخلفية الشريحة. تُظهر هذه الواجهة الـ [FillFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ibackgroundeffectivedata/fillformat/) والـ [EffectFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ibackgroundeffectivedata/effectformat/) الفعليين.
 
-باستخدام خاصية `background` في فئة [BaseSlide](https://reference.aspose.com/slides/net/aspose.slides/baseslide/) ، يمكنك الحصول على الخلفية الفعلية لشريحة.
+باستخدام الخاصية `background` للصف `BaseSlide`، يمكنك الحصول على الخلفية الفعلية لشريحة.
+
+المثال التالي بلغة C# يوضح كيفية الحصول على قيمة الخلفية الفعلية لشريحة:
 
 ```cs
-// إنشاء نسخة من فئة Presentation.
+using Aspose.Slides;
+
+// إنشاء مثيل من فئة Presentation.
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];  
 
-    // استرجاع الخلفية الفعلية مع مراعاة الشريحة الرئيسية، التخطيط، والموضوع.
+    // استرجاع الخلفية الفعلية مع الأخذ في الاعتبار الرئيس، التخطيط، والسمة.
     IBackgroundEffectiveData effBackground = slide.Background.GetEffective();
 
     if (effBackground.FillFormat.FillType == FillType.Solid)
@@ -236,13 +271,12 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 }
 ```
 
-
 ## **الأسئلة المتكررة**
 
-**هل يمكنني إعادة تعيين خلفية مخصصة واستعادة خلفية القالب/التخطيط؟**
+### هل يمكنني إعادة تعيين خلفية مخصصة واستعادة خلفية السمة/التخطيط؟
 
-نعم. قم بإزالة التعبئة المخصصة للشفرة، وسيتم وراثة الخلفية مرة أخرى من شريحة [layout](/slides/ar/net/slide-layout/)/[master](/slides/ar/net/slide-master/) المقابلة (أي، [theme background](/slides/ar/net/presentation-theme/)).
+نعم. أزل التعبئة المخصصة للشفرة، وستُستَرجع الخلفية مرة أخرى من شريحة [التخطيط](/slides/ar/net/slide-layout/)/[الرئيسية](/slides/ar/net/slide-master/) المقابلة (أي [خلفية السمة](/slides/ar/net/presentation-theme/)).
 
-**ماذا يحدث للخلفية إذا غيرت قالب العرض التقديمي لاحقًا؟**
+### ماذا يحدث للخلفية إذا غيرت سمة العرض لاحقًا؟
 
-إذا كانت الشريحة تحتوي على تعبئتها الخاصة، ستبقى دون تغيير. إذا كانت الخلفية مستوردة من [layout](/slides/ar/net/slide-layout/)/[master](/slides/ar/net/slide-master/)، فستُحدَّث لتتماشى مع [new theme](/slides/ar/net/presentation-theme/).
+إذا كانت الشريحة تحتوي على تعبئة خاصة بها، فستظل دون تغيير. إذا كانت الخلفية مُستَمدة من [التخطيط](/slides/ar/net/slide-layout/)/[الرئيسية](/slides/ar/net/slide-master/)، فستُحدّث لتطابق [السمة الجديدة](/slides/ar/net/presentation-theme/).

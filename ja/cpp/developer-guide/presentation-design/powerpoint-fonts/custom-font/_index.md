@@ -1,44 +1,64 @@
 ---
 title: C++ で PowerPoint フォントをカスタマイズ
-linktitle: カスタムフォント
+linktitle: カスタム フォント
 type: docs
 weight: 20
 url: /ja/cpp/custom-font/
 keywords:
 - フォント
-- カスタムフォント
+- カスタム フォント
 - 外部フォント
 - フォントをロード
 - フォントを管理
-- フォントフォルダー
+- フォント フォルダー
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して PowerPoint スライドのフォントをカスタマイズし、プレゼンテーションをシャープでデバイス間でも一貫性のあるものに保ちます。"
+description: "Aspose.Slides for C++ を使用して PowerPoint スライドのフォントをカスタマイズし、あらゆるデバイスでプレゼンテーションを鮮明かつ一貫性のある状態に保ちます。"
 ---
+## **概要**
 
-{{% alert color="primary" %}} 
-Aspose Slides は、次のフォントを [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/) を使用してロードできます。
+Aspose.Slides を使用すると、OS にインストールせずにプレゼンテーションでカスタムフォントを使用できます。カスタムフォルダーからフォントを読み込んだり、ドキュメントレベルのフォント ソースで特定のプレゼンテーションにフォントを提供したり、バイナリ データから直接外部フォントを読み込んだりできます。
 
-* TrueType (.ttf) および TrueType Collection (.ttc) フォント。詳しくは [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照してください。
-* OpenType (.otf) フォント。詳しくは [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照してください。
+読み込まれたフォントは、プレゼンテーションが PDF や画像、その他のサポートされている形式にレンダリングまたはエクスポートされる際に使用されます。これにより、異なる環境間でプレゼンテーションの出力が一貫します。この記事では、Aspose.Slides が使用するフォント フォルダーの確認方法と、外部フォントの使用後にフォント キャッシュをクリアする方法も説明します。
+
+レンダリング用にカスタムフォントを登録することは、フォントを PPTX ファイルに埋め込むこととは別です。フォントをプレゼンテーション自体に保存する必要がある場合は、フォント埋め込み機能を明示的に使用してください。
+
+{{% alert color="info" %}} 
+
+Aspose Slides は、[FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/loadexternalfonts/) を使用して次のフォントを読み込むことができます。
+
+* TrueType (.ttf) および TrueType Collection (.ttc) フォント。詳細は [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照してください。
+
+* OpenType (.otf) フォント。詳細は [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照してください。
 
 {{% /alert %}}
 
-## **Load Custom Fonts**
+## **カスタムフォントのロード**
 
-Aspose.Slides は、システムにインストールせずにプレゼンテーションで使用されるフォントをロードできます。これにより、PDF や画像などのエクスポート出力が環境間で一貫した外観になります。フォントはカスタム ディレクトリからロードされます。
+Aspose.Slides を使用すると、システムにインストールせずにプレゼンテーションで使用するフォントをロードできます。これにより、PDF、画像、その他のサポート形式へのエクスポート出力が環境間で一貫した見た目になります。フォントはカスタム ディレクトリからロードされます。
 
-1. フォント ファイルが格納されたフォルダーを 1 つ以上指定します。
-2. 静的な [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/) メソッドを呼び出して、これらのフォルダーからフォントをロードします。
-3. プレゼンテーションをロードし、レンダリング/エクスポートします。
-4. [FontsLoader.clearCache](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/clearcache/) を呼び出してフォント キャッシュをクリアします。
+1. フォント ファイルが格納されているフォルダーを 1 つ以上指定します。  
+2. 静的メソッド [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/loadexternalfonts/) を呼び出して、これらのフォルダーからフォントをロードします。  
+3. プレゼンテーションをロードし、レンダリング/エクスポートします。  
+4. [FontsLoader.clearCache](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/clearcache/) を呼び出してフォント キャッシュをクリアします。
 
-以下のコード例は、フォントのロード プロセスを示しています:
+以下のコード例は、フォントのロード手順を示しています。
+
 ```cpp
-// カスタムフォントファイルが含まれるフォルダーを定義します。
+#include <DOM/Fonts/FontsLoader.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// カスタムフォントファイルが格納されているフォルダーを定義します。
+String externalFontFolder = u"assets/fonts";
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
 
 // 指定されたフォルダーからカスタムフォントをロードします。
@@ -46,7 +66,7 @@ FontsLoader::LoadExternalFonts(fontFolders);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// ロードしたフォントを使用してプレゼンテーションをレンダリング/エクスポートします（例: PDF、画像、または他の形式）。
+// ロードされたフォントを使用してプレゼンテーションをレンダリング/エクスポートします（例: PDF、画像、またはその他の形式）。
 presentation->Save(u"output.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 
@@ -54,31 +74,47 @@ presentation->Dispose();
 FontsLoader::ClearCache();
 ```
 
+{{% alert color="info" title="注" %}}
 
-{{% alert color="info" title="Note" %}}
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfonts/) はフォント検索パスに追加のフォルダーを設定しますが、フォントの初期化順序は変更しません。フォントは以下の順序で初期化されます。
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/loadexternalfonts/) はフォント検索パスに追加フォルダーを設定しますが、フォントの初期化順序は変更しません。  
+フォントは次の順序で初期化されます。
 
-1. デフォルトの OS フォント パス。
-1. [FontsLoader](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/) を介してロードされたパス。
+1. デフォルトの OS フォント パス。  
+1. [FontsLoader](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/) でロードされたパス。
 
 {{%/alert %}}
 
-## **Get Custom Font Folders**
-Aspose.Slides は、フォント フォルダーを検索できるように [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) を提供します。このメソッドは `LoadExternalFonts` メソッドで追加されたフォルダーとシステム フォント フォルダーを返します。
+## **カスタム フォント フォルダーの取得**
 
-この C++ コードは、[FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/getfontfolders/) の使用方法を示しています:
+Aspose.Slides は、[FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/getfontfolders/) を提供して、フォント フォルダーを取得できるようにします。このメソッドは、`LoadExternalFonts` メソッドで追加されたフォルダーとシステムのフォント フォルダーを返します。
+
+この C++ コードは、[FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/getfontfolders/) メソッドの使用方法を示しています。
+
 ``` cpp
+#include <DOM/Fonts/FontsLoader.h>
+using namespace Aspose::Slides;
+
 // この行はフォントファイルがチェックされるフォルダーを出力します。
-// それらはLoadExternalFontsメソッドで追加されたフォルダーとシステムのフォントフォルダーです。
+// それらは LoadExternalFonts メソッドで追加されたフォルダーとシステムのフォントフォルダーです。
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
+## **プレゼンテーションで使用するカスタム フォントの指定**
 
-## **Specify Custom Fonts Used with a Presentation**
-Aspose.Slides は、プレゼンテーションで使用する外部フォントを指定できるように [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) プロパティを提供します。
+Aspose.Slides は、[LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) プロパティを提供し、プレゼンテーションで使用する外部フォントを指定できます。
 
-この C++ コードは、[LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) プロパティの使用方法を示しています:
+この C++ コードは、[LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) プロパティの使用例を示しています。
+
 ``` cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
 auto memoryFont2 = File::ReadAllBytes(u"customfonts\\CustomFont2.ttf");
 
@@ -87,17 +123,27 @@ loadOptions->get_DocumentLevelFontSources()->set_FontFolders(System::MakeArray<S
 loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<ArrayPtr<uint8_t>>({memoryFont1, memoryFont2}));
 {
     auto presentation = System::MakeObject<Presentation>(u"MyPresentation.pptx", loadOptions);
-    //プレゼンテーションで作業します
-    //CustomFont1、CustomFont2 および assets\fonts と global\fonts フォルダーおよびそのサブフォルダー内のフォントはすべてプレゼンテーションで使用可能です
+    // プレゼンテーションを操作します
+    // CustomFont1、CustomFont2 と assets\fonts および global\fonts フォルダーとそのサブフォルダー内のフォントがプレゼンテーションで利用可能です
 }
 ```
 
+## **フォントの外部管理**
 
-## **Manage Fonts Externally**
-Aspose.Slides は、外部フォントをバイト配列にロードできるように [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsloader/loadexternalfont/) メソッドを提供します。
+Aspose.Slides は、[FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fontsloader/loadexternalfont/) メソッドを提供し、外部フォントをバイト配列としてロードできます。
 
-この C++ コードは、バイト配列フォントのロード プロセスを示しています:
+この C++ コードは、バイト配列でフォントをロードする手順を示しています。
+
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 // ドキュメントディレクトリへのパス
 const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
 const String templatePath = u"../templates/AccessSlides.pptx";
@@ -113,25 +159,24 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(memoryfontsLocation
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOptions);
 ```
 
-
 ## **FAQ**
 
-**Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?**
+### カスタムフォントはすべての形式 (PDF、PNG、SVG、HTML) へのエクスポートに影響しますか？
 
 はい。接続されたフォントは、すべてのエクスポート形式でレンダラーによって使用されます。
 
-**Are custom fonts automatically embedded into the resulting PPTX?**
+### カスタムフォントは自動的に生成された PPTX に埋め込まれますか？
 
-いいえ。レンダリング用にフォントを登録することと、PPTX に埋め込むことは同じではありません。プレゼンテーション ファイル内にフォントを保持する必要がある場合は、明示的な [embedding features](/slides/ja/cpp/embedded-font/) を使用してください。
+いいえ。レンダリング用にフォントを登録することは、PPTX に埋め込むこととは異なります。フォントをプレゼンテーション文件内に保持したい場合は、明示的な [埋め込み機能](/slides/ja/cpp/embedded-font/) を使用してください。
 
-**Can I control fallback behavior when a custom font lacks certain glyphs?**
+### カスタムフォントに特定のグリフがない場合のフォールバック 動作を制御できますか？
 
-はい。[font substitution](/slides/ja/cpp/font-substitution/)、[replacement rules](/slides/ja/cpp/font-replacement/)、[fallback sets](/slides/ja/cpp/fallback-font/) を構成して、要求されたグリフが欠落している場合に使用されるフォントを正確に定義できます。
+はい。[フォント置換](/slides/ja/cpp/font-substitution/)、[置換ルール](/slides/ja/cpp/font-replacement/)、[フォールバック セット](/slides/ja/cpp/fallback-font/) を構成して、要求されたグリフが欠落しているときに使用するフォントを正確に定義できます。
 
-**Can I use fonts in Linux/Docker containers without installing them system-wide?**
+### Linux/Docker コンテナーでシステム全体にインストールせずにフォントを使用できますか？
 
-はい。独自のフォント フォルダーを指すか、バイト配列からフォントをロードしてください。これにより、コンテナ イメージ内でシステム フォント ディレクトリへの依存がなくなります。
+はい。独自のフォント フォルダーを指定するか、バイト配列からフォントをロードします。これにより、コンテナー イメージ内のシステム フォント ディレクトリへの依存がなくなります。
 
-**What about licensing—can I embed any custom font without restrictions?**
+### ライセンスについて—制限なしに任意のカスタムフォントを埋め込めますか？
 
-フォントのライセンス遵守はご利用者の責任です。ライセンス条件はさまざまで、埋め込みや商用利用を禁止するものもあります。出力物を配布する前に必ずフォントの EULA を確認してください。
+フォントのライセンス遵守は利用者の責任です。ライセンス条件は製品によって異なり、埋め込みや商用利用を禁止しているものもあります。出力を配布する前に必ずフォントの EULA を確認してください。

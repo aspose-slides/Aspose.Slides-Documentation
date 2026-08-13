@@ -1,5 +1,5 @@
 ---
-title: Převod prezentací PowerPoint na video v Javě
+title: Převod PowerPoint prezentací na video v Javě
 linktitle: PowerPoint na video
 type: docs
 weight: 130
@@ -21,36 +21,34 @@ keywords:
 - uložit PPTX jako MP4
 - exportovat PPT do MP4
 - exportovat PPTX do MP4
-- konverze videa
+- převod videa
 - PowerPoint
 - Java
 - Aspose.Slides
-description: "Zjistěte, jak převést prezentace PowerPoint na video v Javě. Objevte ukázkový kód a automatizační techniky, které zjednoduší váš pracovní postup."
+description: "Zjistěte, jak převést PowerPoint prezentace na video v Javě. Objevte ukázkový kód a automatizační techniky pro zefektivnění vašeho pracovního postupu."
 ---
 ## **Úvod**
 
-Převodem vaší prezentace PowerPoint nebo OpenDocument na video získáte:
+Převodem vaší PowerPoint nebo OpenDocument prezentace na video získáte:
 
-**Zvýšená přístupnost:** Všechna zařízení, bez ohledu na platformu, jsou standardně vybavena přehrávači videa, což uživatelům usnadňuje otevření nebo přehrání videí ve srovnání s tradičními prezentačními aplikacemi.
+**Zvýšená přístupnost:** Všechna zařízení, bez ohledu na platformu, jsou standardně vybavena video přehrávači, což usnadňuje uživatelům otevírat nebo přehrávat videa ve srovnání s tradičními prezentačními aplikacemi.
 
-**Širší dosah:** Videa vám umožňují oslovit širší publikum a představit informace v poutavějším formátu. Průzkumy a statistiky ukazují, že lidé raději sledují a konzumují video obsah než jiné formy, což činí vaše sdělení účinnějším.
+**Širší dosah:** Videa vám umožňují oslovit větší publikum a prezentovat informace atraktivnějším způsobem. Průzkumy a statistiky ukazují, že lidé raději sledují a konzumují video obsah než jiné formáty, což činí vaši zprávu účinnější.
 
-{{% alert color="primary" %}} 
-
-Můžete si vyzkoušet náš [**Online převaděč PowerPoint na video**](https://products.aspose.app/slides/cs/conversion/ppt-to-word), protože se jedná o živou a účinnou implementaci popsaného postupu.
-
+{{% alert color="info" %}} 
+Možná budete chtít vyzkoušet náš [**PowerPoint do Video online převaděč**](https://products.aspose.app/slides/cs/video), protože je to živá a efektivní implementace procesu popsaného zde.
 {{% /alert %}} 
 
-## **Převod PowerPoint na video v Aspose.Slides**
+## **PowerPoint na Video převod v Aspose.Slides**
 
-V [Aspose.Slides 22.11](https://docs.aspose.com/slides/cs/java/aspose-slides-for-java-22-11-release-notes/), jsme implementovali podporu převodu prezentace na video. 
+Ve [Aspose.Slides 22.11](https://docs.aspose.com/slides/cs/java/aspose-slides-for-java-22-11-release-notes/) jsme implementovali podporu převodu prezentace na video.
 
-* Použijte **Aspose.Slides** k vygenerování sady snímků (z prezentačních slidů), které odpovídají určitému FPS (snímky za sekundu)
-* Použijte utility třetí strany, jako je **ffmpeg** ([pro java](https://github.com/bramp/ffmpeg-cli-wrapper)), k vytvoření videa na základě snímků. 
+* Použijte **Aspose.Slides** k vygenerování sady snímků (z prezentačních slidů), které odpovídají určitému FPS (snímkům za sekundu)
+* Použijte externí nástroj, jako je **ffmpeg** ([pro java](https://github.com/bramp/ffmpeg-cli-wrapper)), k vytvoření videa ze snímků. 
 
-### **Převod PowerPoint na video**
+### **Převést PowerPoint na video**
 
-1. Přidejte toto do svého souboru POM:
+1. Přidejte následující do svého souboru POM:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -61,13 +59,17 @@ V [Aspose.Slides 22.11](https://docs.aspose.com/slides/cs/java/aspose-slides-for
 
 2. Stáhněte ffmpeg [zde](https://ffmpeg.org/download.html).
 
-4. Spusťte Java kód pro převod PowerPoint na video.
+4. Spusťte Java kód pro převod PowerPointu na video.
 
-Ukázkový Java kód vám ukazuje, jak převést prezentaci (obsahující obrázek a dva animační efekty) na video:
+Tento Java kód vám ukazuje, jak převést prezentaci (obsahující obrázek a dva animační efekty) na video:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // Přidá tvar se smajlíkem a poté jej animuje
+    // Přidá tvar usmívající se a pak jej animuje
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -101,7 +103,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Nakonfigurujte složku binárek ffmpeg. Viz tato stránka: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Nastavte složku binárek ffmpeg. Viz tato stránka: https://github.com/rosenbjerg/FFMpegCore#installation
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -122,35 +124,45 @@ try {
 
 ## **Video efekty**
 
-Můžete použít animace na objekty na slidech a použít přechody mezi slidey. 
+Můžete použít animace na objekty na slidech a používat přechody mezi slidy. 
 
-{{% alert color="primary" %}} 
-
-Můžete si přečíst tyto články: [Animace PowerPoint](https://docs.aspose.com/slides/cs/java/powerpoint-animation/), [Animace tvaru](https://docs.aspose.com/slides/cs/java/shape-animation/), a [Efekt tvaru](https://docs.aspose.com/slides/cs/java/shape-effect/).
-
+{{% alert color="info" %}} 
+Možná budete chtít zobrazit tyto články: [Animace PowerPoint](https://docs.aspose.com/slides/cs/java/powerpoint-animation/), [Animace tvaru](https://docs.aspose.com/slides/cs/java/shape-animation/), a [Efekt tvaru](https://docs.aspose.com/slides/cs/java/shape-effect/).
 {{% /alert %}} 
 
-Animace a přechody dělají prezentace poutavějšími a zajímavějšími – a totéž platí i pro videa. Přidejme další slide a přechod do kódu předchozí prezentace:
+Animace a přechody činí slideshow atraktivnější a zajímavější — a totéž platí i pro videa. Přidejme další slide a přechod do kódu pro předchozí prezentaci:
 ```java
-// Přidá tvar se smajlíkem a animuje jej
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+Presentation presentation = new Presentation();
+try {
+    // Přidá tvar úsměvu a animuje jej
 
-// Přidá nový snímek a animovaný přechod
+    // ...
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    // Přidá nový slide a animovaný přechod
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides také podporuje animaci textu. Animujeme tedy odstavce na objektech, které se objeví jeden po druhém (s prodlevou nastavenu na sekundu):
+Aspose.Slides také podporuje animaci textu. Takže animujeme odstavce na objektech, které se objeví jeden po druhém (se zpožděním nastaveným na jednu sekundu):
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Přidá text a animace
@@ -172,12 +184,10 @@ try {
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -226,17 +236,19 @@ try {
 
 ## **Třídy pro převod videa**
 
-Aby vám Aspose.Slides umožnil provádět úlohy převodu PowerPoint na video, poskytuje třídy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationanimationsgenerator/) a [PresentationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationplayer/).
+Aby vám Aspose.Slides umožnil provádět úkoly převodu PowerPointu na video, poskytuje třídy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationanimationsgenerator/) a [PresentationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationplayer/).
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationanimationsgenerator/) vám umožňuje nastavit velikost snímku pro video (které bude vytvořeno později) prostřednictvím svého konstruktoru. Pokud předáte instanci prezentace, použije se `Presentation.SlideSize` a generuje animace, které používá [PresentationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationplayer/).
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationanimationsgenerator/) vám umožňuje nastavit velikost snímku pro video (které bude vytvořeno později) prostřednictvím jeho konstruktoru. Pokud předáte instanci prezentace, použije se `Presentation.SlideSize` a vygeneruje animace, které používá [PresentationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationplayer/).
 
-Když jsou animace generovány, pro každou následující animaci je vytvořena událost `NewAnimation`, která má parametr [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/). Poslední představuje třídu, která reprezentuje přehrávač pro samostatnou animaci.
+Když jsou animace vygenerovány, pro každou následnou animaci je vytvořen událost `NewAnimation`, která má parametr [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/). Ten představuje třídu, která reprezentuje přehrávač pro samostatnou animaci.
 
-Pro práci s [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/), se používá vlastnost [Duration](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (úplná doba animace) a metoda [SetTimePosition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) . Každá pozice animace je nastavena v rozmezí *0 až doba*, a poté metoda `GetFrame` vrátí BufferedImage, který odpovídá stavu animace v daném okamžiku:
+Pro práci s [IPresentationAnimationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/) se používá vlastnost [Duration](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (celková délka animace) a metoda [SetTimePosition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-). Každá pozice animace je nastavena v rozsahu *0 až duration* a poté metoda `getFrame` vrátí [IImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/), který odpovídá stavu animace v daném okamžiku:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Přidá tvar se smajlíkem a animuje jej
+    // Přidá tvar úsměvu a animuje jej
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -249,21 +261,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // počáteční stav animace
-            try {
-                // bitmapa počátečního stavu animace
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // bitmapa počátečního stavu animace
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // konečný stav animace
-            try {
-                // poslední snímek animace
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // poslední snímek animace
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // vygeneruje animace - toto vyvolá výše zpracované události
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -272,8 +281,10 @@ try {
 }
 ```
 
-Aby se všechny animace v prezentaci přehrály najednou, používá se třída [PresentationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationplayer/). Tato třída v konstruktoru přijímá instanci [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationanimationsgenerator/), FPS pro efekty a poté volá událost `FrameTick` pro všechny animace, aby byly přehrány:
+Pro přehrání všech animací v prezentaci najednou se používá třída [PresentationPlayer](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationplayer/). Tato třída přijímá instanci [PresentationAnimationsGenerator](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationanimationsgenerator/) a FPS pro efekty ve svém konstruktoru a poté volá událost `FrameTick` pro všechny animace, aby byly přehrány:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -282,11 +293,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -300,11 +307,11 @@ try {
 }
 ```
 
-Následně lze vygenerované snímky sestavit do videa. Viz sekce [Convert PowerPoint to Video](https://docs.aspose.com/slides/cs/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Poté mohou být vygenerované snímky zkompilovány do videa. Viz sekce [Převést PowerPoint na video](https://docs.aspose.com/slides/cs/java/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Podporované animace a efekty**
 
-**Vstupní**:
+**Vstup**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -322,7 +329,7 @@ Následně lze vygenerované snímky sestavit do videa. Viz sekce [Convert Power
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Emphasis**:
+**Důraz**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -340,7 +347,7 @@ Následně lze vygenerované snímky sestavit do videa. Viz sekce [Convert Power
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**Exit**:
+**Odchod**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -357,7 +364,7 @@ Následně lze vygenerované snímky sestavit do videa. Viz sekce [Convert Power
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Motion Paths**:
+**Cesty pohybu**:
 
 | Typ animace | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -370,14 +377,14 @@ Následně lze vygenerované snímky sestavit do videa. Viz sekce [Convert Power
 
 ## **Často kladené otázky**
 
-**Je možné převést prezentace chráněné heslem?**
+### Je možné převést prezentace chráněné heslem?
 
 Ano, Aspose.Slides umožňuje pracovat s [prezentacemi chráněnými heslem](/slides/cs/java/password-protected-presentation/). Při zpracování takových souborů musíte poskytnout správné heslo, aby knihovna mohla získat přístup k obsahu prezentace.
 
-**Podporuje Aspose.Slides použití v cloudových řešeních?**
+### Podporuje Aspose.Slides použití v cloudových řešeních?
 
-Ano, Aspose.Slides lze integrovat do cloudových aplikací a služeb. Knihovna je navržena tak, aby fungovala v serverových prostředích, zajišťuje vysoký výkon a škálovatelnost pro dávkové zpracování souborů.
+Ano, Aspose.Slides lze integrovat do cloudových aplikací a služeb. Knihovna je navržena tak, aby fungovala v serverových prostředích, což zajišťuje vysoký výkon a škálovatelnost při dávkovém zpracování souborů.
 
-**Existují při převodu omezení velikosti prezentací?**
+### Existují nějaká omezení velikosti prezentací během převodu?
 
-Aspose.Slides je schopen zpracovávat prakticky jakékoli velikosti prezentací. Při práci s velmi velkými soubory mohou být vyžadovány další systémové prostředky a někdy se doporučuje prezentaci optimalizovat pro zlepšení výkonu.
+Aspose.Slides je schopen zpracovat prezentace téměř jakékoli velikosti. Při práci s velmi velkými soubory však může být potřeba více systémových zdrojů a někdy se doporučuje optimalizovat prezentaci pro zlepšení výkonu.

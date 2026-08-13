@@ -10,12 +10,12 @@ keywords:
 - การนำเสนอ
 - C++
 - Aspose.Slides
-description: "สร้าง, แก้ไขและแปลงการนำเสนอใน C++—ไม่จำเป็นต้องใช้ PowerPoint. Aspose.Slides รองรับ PPT, PPTX และ ODP พร้อมการส่งออก SVG/PDF อย่างรวดเร็ว."
+description: "สร้าง, แก้ไข, และแปลงการนำเสนอใน C++ - ไม่ต้องใช้ PowerPoint. Aspose.Slides รองรับ PPT, PPTX, และ ODP พร้อมการส่งออก SVG/PPDF อย่างเร็ว."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for C++ เป็นไลบรารีคลาสที่ช่วยให้แอปพลิเคชัน C++ สามารถอ่านและเขียนเอกสารนำเสนอได้โดยไม่ต้องใช้ Microsoft PowerPoint® หรือโปรแกรมอื่น ๆ. Aspose.Slides for C++ อนุญาตให้จัดการข้อความ, รูปร่าง, ตารางและแอนิเมชัน, เพิ่มเสียงและวิดีโอในสไลด์, ดูตัวอย่างสไลด์, ส่งออกสไลด์เป็นรูปแบบ SVG, PDF และอื่น ๆ
+Aspose.Slides for C++ เป็นไลบรารีคลาสที่ช่วยให้แอปพลิเคชัน C++ สามารถอ่านและเขียนเอกสารงานนำเสนอได้โดยไม่ต้องใช้ Microsoft PowerPoint® หรือโปรแกรมอื่น ๆ. Aspose.Slides for C++ ช่วยให้จัดการข้อความ, รูปร่าง, ตารางและแอนิเมชัน, เพิ่มเสียงและวิดีโอในสไลด์, ดูตัวอย่างสไลด์, ส่งออกสไลด์เป็นรูปแบบ SVG, PDF และอื่น ๆ
 
-Latest API Reference can be found at [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/th/cpp/).
+สามารถดูอ้างอิง API ล่าสุดได้ที่ [อ้างอิง API ของ Aspose.Slides for C++](https://reference.aspose.com/slides/th/cpp/).
 
 {{% /alert %}}

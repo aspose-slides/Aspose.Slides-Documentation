@@ -4,19 +4,21 @@ type: docs
 weight: 10
 url: /pl/jasperreports/technical-support/
 ---
-{{% alert color="primary" %}} 
-Aspose zapewnia nieograniczone bezpłatne wsparcie techniczne dla wszystkich swoich produktów. Wsparcie jest dostępne dla wszystkich użytkowników, w tym wersji ewaluacyjnej.
+{{% alert color="info" %}} 
+
+Aspose zapewnia nieograniczone bezpłatne wsparcie techniczne dla wszystkich swoich produktów. Wsparcie jest dostępne dla wszystkich użytkowników, w tym wersji ewaluacyjnych.
+
 {{% /alert %}} 
 
 Jeśli potrzebujesz pomocy z Aspose.Slides for JasperReports, rozważ następujące opcje:
 
 - Głównym kanałem wsparcia jest [**Aspose.Forum**](https://forum.aspose.com/c/slides/pl/11). Opublikuj swoje pytanie na forum Aspose.Slides, a zostanie ono odpowiedziane w ciągu kilku godzin. Pytania są odpowiadane bezpośrednio przez zespół wsparcia Aspose.Slides.
-- Należy pamiętać, że Aspose nie świadczy wsparcia technicznego telefonicznie. Telefoniczne wsparcie jest dostępne wyłącznie w przypadku pytań dotyczących sprzedaży i zakupu.
-- Oczekując odpowiedzi na forum, prosimy wziąć pod uwagę różnice stref czasowych.
+- Należy zauważyć, że Aspose nie oferuje wsparcia technicznego telefonicznie. Telefoniczne wsparcie jest dostępne wyłącznie w kwestiach sprzedaży i zakupu.
+- Oczekując odpowiedzi na forum, proszę uwzględnić różnice stref czasowych.
 
-Jeśli masz problem z Aspose.Slides for JasperReports, postępuj zgodnie z poniższymi prostymi krokami, aby upewnić się, że zostanie rozwiązany w najefektywniejszy sposób:
+Jeśli masz problem z Aspose.Slides for JasperReports, postępuj zgodnie z poniższymi prostymi krokami, aby upewnić się, że zostanie rozwiązany w najbardziej efektywny sposób:
 
-- Upewnij się, że używasz najnowszej wersji Aspose.Slides for JasperReports przed zgłoszeniem problemu; zobacz pobieranie Aspose.Slides, aby dowiedzieć się o najnowszej wersji.
-- Przejrzyj fora, tę dokumentację oraz odniesienie do API przed zgłoszeniem problemu; być może twoje pytanie już zostało odpowiedziane.
-- Podczas zgłaszania problemu dołącz oryginalny dokument oraz ewentualnie fragment kodu, który powoduje problem. Jeśli musisz dołączyć wiele plików, spakuj je do jednego archiwum ZIP. Dołączanie dokumentów w Aspose.Forums jest bezpieczne, ponieważ dostęp do załączonych plików mają tylko ty i deweloperzy Aspose.
-- Prosimy zgłaszać jeden problem w jednym wątku. Jeśli masz kolejny problem, zgłoś go w oddzielnym wątku.
+- Upewnij się, że używasz najnowszej wersji Aspose.Slides for JasperReports przed zgłoszeniem problemu; zobacz sekcję pobierania Aspose.Slides, aby dowiedzieć się o najnowszej wersji.
+- Przejrzyj fora, tę dokumentację i odniesienie API przed zgłoszeniem problemu; być może Twoje pytanie już zostało odpowiedziane.
+- Zgłaszając problem, dołącz oryginalny dokument oraz ewentualnie fragment kodu powodującego problem. Jeśli musisz dołączyć wiele plików, spakuj je do jednego archiwum ZIP. Bezpiecznie jest dołączać dokumenty w Aspose.Forums, ponieważ dostęp do załączonych plików mają tylko Ty i programiści Aspose.
+- Staraj się zgłaszać jeden problem na wątek. Jeśli masz kolejny problem, zgłoś go w osobnym wątku.

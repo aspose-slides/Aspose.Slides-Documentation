@@ -1,14 +1,14 @@
 ---
-title: Aspose.Slides for .NET 15.8.0 nyilvános API és visszafelé nem kompatibilis változások
-linktitle: Aspose.Slides for .NET 15.8.0
+title: "Nyilvános API és visszafelé nem kompatibilis változások az Aspose.Slides for .NET 15.8.0-ban"
+linktitle: "Aspose.Slides for .NET 15.8.0"
 type: docs
 weight: 190
 url: /hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
 keywords:
 - migráció
-- örökölt kód
+- régi kód
 - modern kód
-- örökölt megközelítés
+- régi megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
@@ -16,18 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for .NET nyilvános API frissítéseit és visszafelé nem kompatibilis változásait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át a nyilvános API frissítéseket és a szakadásokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) osztályt, metódust, tulajdonságot és hasonlókat, valamint az Aspose.Slides for .NET 15.8.0 API-val bevezetett egyéb változásokat.
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) osztályt, metódust, tulajdonságot stb., valamint az Aspose.Slides for .NET 15.8.0 API-val bevezetett egyéb változásokat.
 
-{{% /alert %}} 
-## **Nyilvános API-változások**
-#### **A DoughnutHoleSize tulajdonság hozzá lett adva az IChartSeries és a ChartSeries típusokhoz**
-Megadja a cukorka diagram lyukának méretét.
+{{% /alert %}}
+## **Nyilvános API módosítások**
+#### **A DoughnutHoleSize tulajdonság hozzá lett adva az IChartSeries és a ChartSeries osztályokhoz**
+Megadja a fánk diagram lyukának méretét.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -40,5 +44,4 @@ Megadja a cukorka diagram lyukának méretét.
    pres.Save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
 }
-
 ```

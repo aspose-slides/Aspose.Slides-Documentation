@@ -1,14 +1,14 @@
 ---
-title: Public API i zmiany niekompatybilne wstecz w Aspose.Slides dla .NET 14.10.0
+title: Publiczne API i zmiany niekompatybilne wstecz w Aspose.Slides dla .NET 14.10.0
 linktitle: Aspose.Slides dla .NET 14.10.0
 type: docs
 weight: 120
 url: /pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
 - migracja
-- kod dziedziczony
+- kod legacy
 - nowoczesny kod
-- dziedziczony podejście
+- podejście legacy
 - nowoczesne podejście
 - PowerPoint
 - OpenDocument
@@ -16,34 +16,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Przeglądaj aktualizacje publicznego API oraz zmiany łamiące w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Zapoznaj się z aktualizacjami publicznego API oraz zmianami niekompatybilnymi w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint (PPT, PPTX) i ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ta strona wymienia wszystkie [dodane](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) lub [usunięte](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) klasy, metody, właściwości i tak dalej, a także inne zmiany wprowadzone w API Aspose.Slides for .NET 14.10.0.
+Ta strona zawiera wszystkie [dodane](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) lub [usunięte](/slides/pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) klasy, metody, właściwości i inne zmiany wprowadzone w API Aspose.Slides for .NET 14.10.0.
 
 {{% /alert %}} 
 ## **Zmiany publicznego API**
 #### **Dodano typ pola Footer w Aspose.Slides.FieldType**
-Typ pola Footer został dodany w celu umożliwienia tworzenia pól tego typu oraz prawidłowej serializacji prezentacji.
-#### **Usunięto element wyliczeniowy ShapeElementFillSource.Own**
-Element wyliczeniowy ShapeElementFillSource.Own został usunięty jako duplikat. Zamiast ShapeElementFillSource.Own należy używać ShapeElementFillSource.Shape.
-#### **Dodano metody usuwania punktów danych wykresu i kategorii**
-Dodano następujące metody, które umożliwiają usuwanie punktu danych wykresu z kolekcji punktów danych wykresu:
+Typ pola Footer został dodany, aby umożliwić tworzenie pól tego typu oraz prawidłową serializację prezentacji.
+#### **Element wyliczenia ShapeElementFillSource.Own został usunięty**
+Element wyliczenia ShapeElementFillSource.Own został usunięty jako duplikat. Zamiast ShapeElementFillSource.Own użyj ShapeElementFillSource.Shape.
+#### **Dodano metody usuwania punktów danych i kategorii wykresu**
+Dodano następujące metody, które pozwalają usuwać punkt danych wykresu z kolekcji punktów danych:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-Dodano następującą metodę, która umożliwia usunięcie kategorii wykresu z zawierającej ją kolekcji:
+Dodano następującą metodę, która pozwala usuwać kategorię wykresu z kolekcji zawierającej ją:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
     chart.ChartData.Categories[0].Remove(); //usuń za pomocą ChartCategory.Remove()
@@ -51,23 +52,18 @@ IChartCategory.Remove()
     chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //usuń za pomocą ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
         ser.DataPoints[0].Remove();//usuń za pomocą ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 #### **Usunięto przestarzałe właściwości Aspose.Slides.ParagraphFormat**
-Właściwości BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle zostały usunięte. Były oznaczone jako przestarzałe już dawno temu.
-#### **Usunięto nieużyteczne i przestarzałe konstruktory**
+Usunięto właściwości BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle. Zostały oznaczone jako przestarzałe już dawno temu.
+#### **Usunięto niepotrzebne i przestarzałe konstruktory**
 Usunięto następujące konstruktory:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)

@@ -1,5 +1,5 @@
 ---
-title: VBA Projelerini .NET’te Sunumlarda Yönetme
+title: Sunumlarda VBA Projelerini .NET'te Yönetme
 linktitle: VBA ile Sunum
 type: docs
 weight: 250
@@ -7,7 +7,7 @@ url: /tr/net/presentation-via-vba/
 keywords:
 - makro
 - VBA
-- VBA makro
+- VBA makrosu
 - makro ekle
 - makro kaldır
 - makro çıkar
@@ -20,37 +20,43 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "VBA ile PowerPoint ve OpenDocument sunumlarını Aspose.Slides for .NET kullanarak oluşturmayı ve manipüle etmeyi keşfedin ve iş akışınızı kolaylaştırın."
+description: "Aspose.Slides for .NET ile VBA kullanarak PowerPoint ve OpenDocument sunumlarını oluşturma ve düzenleme yöntemlerini keşfedin, iş akışınızı hızlandırın."
 ---
 ## **Giriş**
 
-The [Aspose.Slides.Vba](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/) ad alanı, makrolar ve VBA kodlarıyla çalışmak için sınıfları ve arabirimleri içerir.
+Aspose.Slides.Vba ad alanı, makrolar ve VBA kodlarıyla çalışmak için sınıflar ve arabirimler içerir.
 
 {{% alert title="Note" color="warning" %}} 
 
-When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+Makrolar içeren bir sunumu farklı bir dosya biçimine (PDF, HTML vb.) dönüştürdüğünüzde, Aspose.Slides tüm makroları yok sayar (makrolar oluşan dosyaya taşınmaz).
 
-When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
+Sunuma makro eklediğinizde veya makro içeren bir sunumu yeniden kaydettiğinizde, Aspose.Slides makroların baytlarını sadece yazar.
 
-Aspose.Slides **never** runs the macros in a presentation.
+Aspose.Slides **asla** bir sunumdaki makroları çalıştırmaz.
 
 {{% /alert %}}
 
 ## **VBA Makroları Ekle**
 
-Aspose.Slides, VBA projeleri (ve proje referansları) oluşturmanıza ve mevcut modülleri düzenlemenize olanak tanıyan [VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/vbaproject/) sınıfını sağlar. Sunum içinde gömülü VBA'yı yönetmek için [IVbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/ivbaproject/) arabirimini kullanabilirsiniz.
+Aspose.Slides, VBA projeleri (ve proje başvuruları) oluşturmanıza ve mevcut modülleri düzenlemenize olanak tanıyan [VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/vbaproject/) sınıfını sağlar. Sunuma gömülü VBA’yı yönetmek için [IVbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/ivbaproject/) arabirimini kullanabilirsiniz.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. [VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) yapıcısını kullanarak yeni bir VBA projesi ekleyin.
-3. VbaProject'e bir modül ekleyin.
-4. Modülün kaynak kodunu ayarlayın.
-5. <stdole> başvurularını ekleyin.
-6. **Microsoft Office** başvurularını ekleyin.
-7. Başvuruları VBA projesi ile ilişkilendirin.
-8. Sunumu kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Yeni bir VBA projesi eklemek için [VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) yapıcı metodunu kullanın.  
+1. VbaProject’e bir modül ekleyin.  
+1. Modül kaynak kodunu ayarlayın.  
+1. Referansları <stdole> ekleyin.  
+1. Referansları **Microsoft Office** ekleyin.  
+1. Referansları VBA projesiyle ilişkilendirin.  
+1. Sunumu kaydedin.  
+
+Bu C# kodu, bir sunuma sıfırdan VBA makrosu eklemenizi gösterir:
 
 ```c#
-    // Sunum sınıfının bir örneğini oluşturur
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
+// Sunum sınıfının bir örneğini oluşturur
 using (Presentation presentation = new Presentation())
 {
     // Yeni bir VBA Projesi oluşturur
@@ -58,8 +64,8 @@ using (Presentation presentation = new Presentation())
 
     // VBA projesine boş bir modül ekler
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-  
-    // Modülün kaynak kodunu ayarlar
+
+    // Modül kaynak kodunu ayarlar
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
     // <stdole> için bir referans oluşturur
@@ -74,49 +80,58 @@ using (Presentation presentation = new Presentation())
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
-            
     // Sunumu kaydeder
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ücretsiz bir web uygulaması olan **Aspose** [Macro Remover](https://products.aspose.app/slides/tr/remove-macros) ile PowerPoint, Excel ve Word belgelerindeki makroları kaldırabilirsiniz. 
+**Aspose** [Macro Remover](https://products.aspose.app/slides/tr/remove-macros) ücretsiz bir web uygulamasıdır ve PowerPoint, Excel ve Word belgelerinden makroları kaldırmak için kullanılabilir. 
 
 {{% /alert %}} 
 
 ## **VBA Makrolarını Kaldır**
 
-[Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı altındaki [VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/vbaproject/) özelliğini kullanarak bir VBA makrosunu kaldırabilirsiniz.
+[Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının altındaki [VbaProject](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/vbaproject/) özelliğini kullanarak bir VBA makrosunu kaldırabilirsiniz.
 
-1. Makroyu içeren sunumu yükleyerek bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. Macro modülüne erişin ve kaldırın.
-3. Değiştirilmiş sunumu kaydedin.
+1. Makro içeren bir sunumu yükleyerek [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Macro modülüne erişin ve onu kaldırın.  
+1. Değiştirilmiş sunumu kaydedin.  
+
+Bu C# kodu, bir VBA makrosunu nasıl kaldıracağınızı gösterir:
 
 ```c#
-    // Makroyu içeren sunumu yükler
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Makroyu içeren sunumu yükler
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    // Vba modülüne erişir ve kaldırır 
+    // Vba modülüne erişir ve kaldırır
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
     // Sunumu kaydeder
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
 ## **VBA Makrolarını Çıkar**
 
-1. Makroyu içeren sunumu yükleyerek bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. Sunumun bir VBA Projesi içerip içermediğini kontrol edin.
-3. VBA Projesinde bulunan tüm modülleri döngüyle gezerek makroları görüntüleyin.
+1. Makro içeren bir sunumu yükleyerek [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Sunumun bir VBA Projesi içerip içermediğini kontrol edin.  
+1. VBA Projesinde bulunan tüm modülleri döngüyle gezerek makroları görüntüleyin.  
+
+Bu C# kodu, makrolar içeren bir sunumdan VBA makrolarını nasıl çıkaracağınızı gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
     // Makroyu içeren sunumu yükler
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
-	if (pres.VbaProject != null) // Sunumun bir VBA Projesi içerip içermediğini kontrol eder
+	if (pres.VbaProject != null) // Sunumun VBA Projesi içerip içermediğini kontrol eder
 	{
 		foreach (IVbaModule module in pres.VbaProject.Modules)
 		{
@@ -127,15 +142,17 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
-## **Bir VBA Projesinin Şifre Koruması Olup Olmadığını Kontrol Et**
+## **Bir VBA Projesinin Parola Koruması Olup Olmadığını Kontrol Et**
 
-[IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) özelliğini kullanarak bir projenin özelliklerinin şifre korumalı olup olmadığını belirleyebilirsiniz.
+[IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) özelliğini kullanarak bir projenin özelliklerinin parola korumalı olup olmadığını belirleyebilirsiniz.
 
-1. Makro içeren bir sunumu yükleyerek bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. Sunumun bir [VBA projesi](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/vbaproject/) içerip içermediğini kontrol edin.
-3. VBA projesinin şifre korumalı olup olmadığını kontrol ederek özelliklerini görüntüleyin.
+1. Makro içeren bir sunumu yükleyerek [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. Sunumun bir [VBA projesi](https://reference.aspose.com/slides/tr/net/aspose.slides.vba/vbaproject/) içerip içermediğini kontrol edin.  
+3. VBA projesinin özelliklerini görüntülemek için projenin parola korumalı olup olmadığını kontrol edin.  
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
     if (presentation.VbaProject != null) // Sunumun bir VBA projesi içerip içermediğini kontrol eder.
@@ -150,14 +167,14 @@ using (Presentation presentation = new Presentation("VBA.pptm"))
 
 ## **SSS**
 
-**Sunumu PPTX olarak kaydedersem makrolar ne olur?**
+### Sunumu PPTX olarak kaydedersem makrolar ne olur?
 
-Makrolar PPTX VBA'yı desteklemediği için kaldırılacaktır. Makroları korumak için PPTM, PPSM veya POTM formatını seçin.
+Makrolar PPTX VBA’yı desteklemediği için kaldırılacaktır. Makroları korumak için PPTM, PPSM veya POTM formatını seçin.
 
-**Aspose.Slides bir sunum içinde makroları, örneğin veri yenilemek için çalıştırabilir mi?**
+### Aspose.Slides bir sunum içinde makroları çalıştırabilir mi, örneğin verileri yenilemek gibi?
 
-Hayır. Kütüphane asla VBA kodunu çalıştırmaz; yürütme yalnızca uygun güvenlik ayarlarına sahip PowerPoint içinde mümkündür.
+Hayır. Kütüphane VBA kodunu asla çalıştırmaz; yürütme yalnızca uygun güvenlik ayarlarına sahip PowerPoint içinde mümkündür.
 
-**VBA koduna bağlı ActiveX denetimlerini kullanmak destekleniyor mu?**
+### VBA koduna bağlı ActiveX denetimleriyle çalışmak destekleniyor mu?
 
-Evet, mevcut [ActiveX kontrollerine](/slides/tr/net/activex/) erişebilir, özelliklerini değiştirebilir ve kaldırabilirsiniz. Bu, makroların ActiveX ile etkileşime girdiği durumlarda faydalıdır.
+Evet, mevcut [ActiveX controls](/slides/tr/net/activex/) erişebilir, özelliklerini değiştirebilir ve kaldırabilirsiniz. Bu, makroların ActiveX ile etkileşime girdiği durumlarda faydalıdır.

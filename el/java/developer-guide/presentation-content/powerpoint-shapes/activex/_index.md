@@ -1,45 +1,47 @@
 ---
-title: "Διαχείριση ActiveX Controls σε Παρουσιάσεις με Java"
-linktitle: "ActiveX"
+title: Διαχείριση ελέγχων ActiveX σε παρουσιάσεις χρησιμοποιώντας Java
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /el/java/activex/
 keywords:
-- "ActiveX"
-- "Έλεγχος ActiveX"
-- "Διαχείριση ActiveX"
-- "Προσθήκη ActiveX"
-- "Τροποποίηση ActiveX"
-- "Πρόγραμμα Αναπαραγωγής Μέσων"
-- "PowerPoint"
-- "Παρουσίαση"
-- "Java"
-- "Aspose.Slides"
-description: "Μάθετε πώς το Aspose.Slides for Java αξιοποιεί το ActiveX για την αυτοματοποίηση και βελτίωση των παρουσιάσεων PowerPoint, παρέχοντας στους προγραμματιστές ισχυρό έλεγχο των διαφάνειων."
+- ActiveX
+- έλεγχος ActiveX
+- διαχείριση ActiveX
+- προσθήκη ActiveX
+- τροποποίηση ActiveX
+- πρόγραμμα αναπαραγωγής πολυμέσων
+- PowerPoint
+- παρουσίαση
+- Java
+- Aspose.Slides
+description: "Μάθετε πώς το Aspose.Slides για Java αξιοποιεί το ActiveX για την αυτοματοποίηση και βελτίωση παρουσιάσεων PowerPoint, παρέχοντας στους προγραμματιστές ισχυρό έλεγχο στις διαφάνειες."
 ---
 ## **Εισαγωγή**
 
-Τα ActiveX controls χρησιμοποιούνται σε παρουσιάσεις. Το Aspose.Slides for Java σάς επιτρέπει να προσθέτετε και να διαχειρίζεστε ActiveX controls, αλλά είναι ελαφρώς πιο δύσκολα στη διαχείριση σε σχέση με τα κανονικά σχήματα παρουσίασης. Έχουμε υλοποιήσει υποστήριξη για προσθήκη του Media Player Active control στο Aspose.Slides. Σημειώστε ότι τα ActiveX controls δεν είναι σχήματα· δεν αποτελούν μέρος του [IShapeCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/). Αντίθετα, είναι μέρος του ξεχωριστού [IControlCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrolcollection/) . Σε αυτό το θέμα, θα σας δείξουμε πώς να εργαστείτε με αυτά. 
+Οι έλεγχοι ActiveX χρησιμοποιούνται σε παρουσιάσεις. Το Aspose.Slides για Java σας επιτρέπει να προσθέτετε και να διαχειρίζεστε ελέγχους ActiveX, αλλά είναι λίγο πιο δύσκολο να τους διαχειριστείτε σε σύγκριση με τα κανονικά σχήματα παρουσίασης. Υλοποιήσαμε υποστήριξη για την προσθήκη ελέγχου Media Player Active στο Aspose.Slides. Σημειώστε ότι οι έλεγχοι ActiveX δεν είναι σχήματα· δεν αποτελούν μέρος της [IShapeCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/). Αντί αυτού είναι μέρος της ξεχωριστής [IControlCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrolcollection/). Σε αυτό το θέμα, θα σας δείξουμε πώς να εργάζεστε με αυτά. 
 
-## **Προσθήκη ενός Media Player ActiveX Control σε μια Διαφάνεια**
-Για να προσθέσετε ένα Media Player ActiveX control, κάντε τα εξής:
+## **Προσθήκη ελέγχου Media Player ActiveX σε διαφάνεια**
+Για να προσθέσετε έναν έλεγχο Media Player ActiveX, κάντε τα εξής:
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation) και δημιουργήστε ένα κενό αντικείμενο παρουσίασης.  
-2. Προσπελάστε τη διαφάνεια‑στόχο στην [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation).  
-3. Προσθέστε το Media Player ActiveX control χρησιμοποιώντας τη μέθοδο [addControl](https://reference.aspose.com/slides/el/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) που εκτίθεται από το [IControlCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrolcollection/).  
-4. Προσπελάστε το Media Player ActiveX control και ορίστε τη διαδρομή του βίντεο χρησιμοποιώντας τις ιδιότητές του.  
-5. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.  
+1. Πρόσβαση στη διαφάνεια‑στόχο στην [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation).  
+1. Προσθέστε τον έλεγχο Media Player ActiveX χρησιμοποιώντας τη μέθοδο [addControl](https://reference.aspose.com/slides/el/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) που εκτίθεται από το [IControlCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrolcollection/).  
+1. Πρόσβαση στον έλεγχο Media Player ActiveX και ορίστε τη διαδρομή του βίντεο χρησιμοποιώντας τις ιδιότητές του.  
+1. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.  
 
-Αυτό το δείγμα κώδικα, βασισμένο στα παραπάνω βήματα, δείχνει πώς να προσθέσετε ένα Media Player ActiveX Control σε μια διαφάνεια:
+Αυτό το δείγμα κώδικα, βασισμένο στα παραπάνω βήματα, δείχνει πώς να προσθέσετε έλεγχο Media Player ActiveX σε μια διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+
 // Δημιουργία κενής παρουσίασης
 Presentation pres = new Presentation();
 try {
-    // Προσθήκη του ελέγχου Media Player ActiveX
+    // Προσθήκη ελέγχου Media Player ActiveX
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Πρόσβαση στον έλεγχο Media Player ActiveX και ορισμός της διαδρομής βίντεο
+    // Πρόσβαση στον έλεγχο Media Player ActiveX και ορισμός διαδρομής βίντεο
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // Αποθήκευση της παρουσίασης
@@ -49,28 +51,36 @@ try {
 }
 ```
 
-## **Τροποποίηση ενός ActiveX Control**
-{{% alert color="primary" %}} 
+## **Τροποποίηση ελέγχου ActiveX**
+{{% alert color="info" %}} 
 
-Το Aspose.Slides for Java 7.1.0 και νεότερες εκδόσεις διαθέτουν στοιχεία για τη διαχείριση ActiveX controls. Μπορείτε να προσπελάσετε το ήδη προστεθέν ActiveX control στην παρουσίασή σας και να το τροποποιήσετε ή να το διαγράψετε μέσω των ιδιοτήτων του.
+Το Aspose.Slides για Java 7.1.0 και νεότερες εκδοχές είναι εξοπλισμένα με στοιχεία για τη διαχείριση ελέγχων ActiveX. Μπορείτε να αποκτήσετε πρόσβαση στον ήδη προστεθέν έλεγχο ActiveX στην παρουσίασή σας και να τον τροποποιήσετε ή να τον διαγράψετε μέσω των ιδιοτήτων του.
 
 {{% /alert %}} 
 
-Για να διαχειριστείτε ένα απλό ActiveX control όπως ένα πλαίσιο κειμένου και ένα απλό κουμπί εντολής σε μια διαφάνεια, κάντε τα εξής:
+Για να διαχειριστείτε έναν απλό έλεγχο ActiveX όπως ένα πλαίσιο κειμένου και ένα απλό κουμπί εντολής σε μια διαφάνεια, κάντε τα εξής:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation) και φορτώστε την παρουσίαση που περιέχει ActiveX controls.  
-2. Λάβετε μια αναφορά σε διαφάνεια με βάση το δείκτη της.  
-3. Προσπελάστε τα ActiveX controls στη διαφάνεια ανακτώντας το [IControlCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrolcollection/).  
-4. Προσπελάστε το ActiveX control TextBox1 χρησιμοποιώντας το αντικείμενο [IControl](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrol/).  
-5. Αλλάξτε τις ιδιότητες του ActiveX control TextBox1 που περιλαμβάνουν το κείμενο, τη γραμματοσειρά, το ύψος γραμματοσειράς και τη θέση του πλαισίου.  
-6. Προσπελάστε τον δεύτερο έλεγχο πρόσβασης που ονομάζεται CommandButton1.  
-7. Αλλάξτε τη λεζάντα του κουμπιού, τη γραμματοσειρά και τη θέση.  
-8. Μετακινήστε τη θέση των πλαισίων των ActiveX controls.  
-9. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.  
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation) και φορτώστε την παρουσίαση που περιέχει ελέγχους ActiveX.  
+1. Λάβετε μια αναφορά στη διαφάνεια με βάση τον δείκτη της.  
+1. Πρόσβαση στους ελέγχους ActiveX στη διαφάνεια μέσω της [IControlCollection](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrolcollection/).  
+1. Πρόσβαση στον έλεγχο TextBox1 ActiveX χρησιμοποιώντας το αντικείμενο [IControl](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrol/).  
+1. Αλλάξτε τις ιδιότητες του ελέγχου TextBox1 ActiveX που περιλαμβάνουν κείμενο, γραμματοσειρά, ύψος γραμματοσειράς και θέση πλαισίου.  
+1. Πρόσβαση στον δεύτερο έλεγχο που ονομάζεται CommandButton1.  
+1. Αλλάξτε τη λεζάντα του κουμπιού, τη γραμματοσειρά και τη θέση.  
+1. Μετατοπίστε τη θέση των πλαισίων των ελέγχων ActiveX.  
+1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.  
 
-Αυτό το δείγμα κώδικα, βασισμένο στα παραπάνω βήματα, δείχνει πώς να διαχειριστείτε ένα απλό ActiveX control: 
+Αυτό το δείγμα κώδικα, βασισμένο στα παραπάνω βήματα, δείχνει πώς να διαχειριστείτε έναν απλό έλεγχο ActiveX: 
 
 ```java
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 // Πρόσβαση στην παρουσίαση με ελέγχους ActiveX
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
@@ -84,8 +94,8 @@ try {
         String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // Αλλαγή αντικαταστατικής εικόνας. Το PowerPoint θα αντικαταστήσει αυτήν την εικόνα κατά την ενεργοποίηση του ActiveX,
-        // έτσι μερικές φορές είναι εντάξει να αφήσετε την εικόνα αμετάβλητη.
+        // Αλλαγή εικονιδίου υποκατάστασης. Το PowerPoint θα αντικαταστήσει αυτήν την εικόνα κατά την ενεργοποίηση του ActiveX,
+        // οπότε κάποιες φορές είναι εντάξει να αφήσετε την εικόνα αμετάβλητη.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -122,13 +132,13 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // Αλλαγή λεζάντας κουμπιού
+    // Αλλαγή λεζάντας του κουμπιού
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // Αλλαγή αντικαταστάτη
+        // Αλλαγή υποκατάστασης
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -165,7 +175,7 @@ try {
                 control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
             }
 
-            // μετακίνηση 100 μονάδων κάτω
+            // μετακίνηση 100 σημείων προς τα κάτω
             for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
                 IShapeFrame frame = ctl.getFrame();
                 ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
@@ -182,16 +192,16 @@ try {
         }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Το Aspose.Slides διατηρεί τα ActiveX controls κατά την ανάγνωση και επανεγγραφή αν δεν μπορούν να εκτελεστούν στο Java runtime;**
+### Διατηρεί το Aspose.Slides τους ελέγχους ActiveX κατά την ανάγνωση και αποθήκευση εάν δεν μπορούν να εκτελεστούν στο περιβάλλον Java;
 
-Ναι. Το Aspose.Slides τα αντιμετωπίζει ως μέρος της παρουσίασης και μπορεί να διαβάσει/τροποποιήσει τις ιδιότητές τους και τα πλαίσια· η εκτέλεση των ελέγχων δεν απαιτείται για τη διατήρησή τους.
+Ναι. Το Aspose.Slides τους θεωρεί μέρος της παρουσίασης και μπορεί να διαβάσει/τροποποιήσει τις ιδιότητες και τα πλαίσια τους· η εκτέλεση των ελέγχων δεν απαιτείται για τη διατήρησή τους.
 
-**Πώς διαφέρουν τα ActiveX controls από τα αντικείμενα OLE σε μια παρουσίαση;**
+### Πώς διαφέρουν οι έλεγχοι ActiveX από τα αντικείμενα OLE σε μια παρουσίαση;
 
-Τα ActiveX controls είναι διαδραστικά διαχειριζόμενα στοιχεία (κουμπιά, πλαίσια κειμένου, media player), ενώ το [OLE](/slides/el/java/manage-ole/) αναφέρεται σε ενσωματωμένα αντικείμενα εφαρμογών (π.χ. ένα φύλλο εργασίας Excel). Αποθηκεύονται και αντιμετωπίζονται διαφορετικά και έχουν διαφορετικά μοντέλα ιδιοτήτων.
+Οι έλεγχοι ActiveX είναι διαδραστικοί διαχειριζόμενοι έλεγχοι (κουμπιά, πλαίσια κειμένου, media player), ενώ το [OLE](/slides/el/java/manage-ole/) αναφέρεται σε ενσωματωμένα αντικείμενα εφαρμογών (π.χ. φύλλο εργασίας Excel). Αποθηκεύονται και διαχειρίζονται διαφορετικά και έχουν διαφορετικό μοντέλο ιδιοτήτων.
 
-**Λειτουργούν τα γεγονότα ActiveX και οι μακροεντολές VBA αν το αρχείο έχει τροποποιηθεί από το Aspose.Slides;**
+### Λειτουργούν τα γεγονότα ActiveX και τα μακροεντολές VBA εάν το αρχείο έχει τροποποιηθεί από το Aspose.Slides;
 
-Το Aspose.Slides διατηρεί την υπάρχουσα σήμανση και τα μεταδεδομένα· ωστόσο, τα γεγονότα και οι μακροεντολές εκτελούνται μόνο στο PowerPoint σε Windows όταν η ασφάλεια το επιτρέπει. Η βιβλιοθήκη δεν εκτελεί VBA.
+Το Aspose.Slides διατηρεί την υπάρχουσα σήμανση και μεταδεδομένα· ωστόσο, τα γεγονότα και οι μακροεντολές εκτελούνται μόνο μέσα στο PowerPoint στα Windows όταν η ασφάλεια το επιτρέπει. Η βιβλιοθήκη δεν εκτελεί VBA.

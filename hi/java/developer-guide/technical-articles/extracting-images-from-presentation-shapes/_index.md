@@ -1,32 +1,32 @@
 ---
-title: Java में प्रेजेंटेशन आकारों से छवियों को निकालें
-linktitle: आकार से छवि
+title: Java में प्रेजेंटेशन आकारों से चित्र निकालें
+linktitle: आकार से चित्र
 type: docs
 weight: 100
 url: /hi/java/extracting-images-from-presentation-shapes/
 keywords:
-- छवि निकालें
-- छवि प्राप्त करें
+- चित्र निकालें
+- चित्र प्राप्त करें
 - PowerPoint
 - OpenDocument
-- प्रस्तुति
+- प्रेजेंटेशन
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java के साथ PowerPoint और OpenDocument प्रस्तुतियों में आकारों से छवियाँ निकालें - तेज़, कोड‑मित्र समाधान।"
+description: "PowerPoint और OpenDocument प्रेजेंटेशन में आकारों से चित्र निकालें Aspose.Slides for Java के साथ - तेज, कोड‑मैत्रीपूर्ण समाधान।"
 ---
-## **अवलोकन**
+## **Overview**
 
-प्रेजेंटेशन में छवियाँ कई प्रकार के आकारों में दिखाई दे सकती हैं: सामान्य चित्र फ्रेम के रूप में, आकारों पर लागू चित्र भराव के रूप में, OLE ऑब्जेक्ट प्रीव्यू छवियों के रूप में, वीडियो या ऑडियो फ्रेम थंबनेल के रूप में, ज़ूम छवियों के रूप में, या तालिका, चार्ट और SmartArt आकारों के भीतर नेस्टेड छवियों के रूप में। Aspose.Slides उन छवियों को प्रेजेंटेशन इमेज कलेक्शन में संग्रहीत करता है, जो [IImageCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimagecollection/) और [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) ऑब्जेक्ट्स के माध्यम से उपलब्ध हैं।
+प्रेजेंटेशन में छवियां कई आकार प्रकारों में दिखाई दे सकती हैं: सामान्य चित्र फ्रेम के रूप में, आकारों पर लागू चित्र फ़िल्स के रूप में, OLE ऑब्जेक्ट प्रीव्यू छवियों के रूप में, वीडियो या ऑडियो फ्रेम थंबनेल के रूप में, ज़ूम छवियों के रूप में, या तालिका, चार्ट और SmartArt आकारों के भीतर नेस्टेड छवियों के रूप में। Aspose.Slides इन छवियों को प्रेजेंटेशन इमेज कलेक्शन में संग्रहीत करता है, जिसे [IImageCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iimagecollection/) और [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/) ऑब्जेक्ट्स के माध्यम से एक्सपोज़ किया गया है।
 
-यदि आपको केवल प्रेजेंटेशन में एम्बेडेड प्रत्येक छवि संसाधन को एक्सपोर्ट करने की आवश्यकता है, तो `presentation.getImages()` के माध्यम से इटररेट करें। यह लेख एक अलग कार्य पर केंद्रित है: स्लाइड्स में जहाँ छवियों का उपयोग किया गया है, उन आकारों को ट्रैवर्स करना, ताकि सहेजी गई फ़ाइलों में स्लाइड संख्या, आकार स्थिति, और स्रोत प्रकार (चित्र फ्रेम, भराव छवि, मीडिया प्रीव्यू, OLE प्रीव्यू, या ज़ूम छवि) जैसी उपयोगी जानकारी बनी रहे।
+यदि आपको केवल प्रेजेंटेशन में एम्बेडेड प्रत्येक इमेज रिसोर्स को एक्सपोर्ट करना है, तो `presentation.getImages()` पर इटरेट करें। यह लेख एक अलग कार्य पर केंद्रित है: स्लाइड्स पर जहाँ छवियां उपयोग की गई हैं, उन आकारों को ट्रैवर्स करना, ताकि सेव की गई फ़ाइलें स्लाइड नंबर, आकार की स्थिति और स्रोत प्रकार (चित्र फ्रेम, फ़िल इमेज, मीडिया प्रीव्यू, OLE प्रीव्यू, या ज़ूम इमेज) जैसे उपयोगी संदर्भ रख सकें।
 
-{{% alert title="Tip" color="primary" %}}
-[IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getBinaryData--) का उपयोग करके मूल एन्कोडेड छवि डेटा और फ़ाइल प्रकार को संरक्षित रखें। जब आप आउटपुट को PNG जैसे विशिष्ट प्रारूप में सामान्यीकृत करना चाहते हैं, तो [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimage/#save-java.lang.String-int-) के साथ उपयोग करें।
+{{% alert title="Tip" color="info" %}}
+मूल एन्कोडेड इमेज डेटा और फ़ाइल प्रकार को संरक्षित करने के लिए [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getBinaryData--) का उपयोग करें। विशिष्ट फ़ॉर्मेट जैसे PNG में आउटपुट को सामान्यीकृत करने के लिए [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iimage/#save-java.lang.String-int-) के साथ उपयोग करें।
 {{% /alert %}}
 
-## **साझा सहायक विधियां**
+## **Shared Helper Methods**
 
-नीचे दी गई सहायक विधियां उदाहरणों को छोटा रखती हैं। `saveOriginalImage` मूल एम्बेडेड बाइट्स लिखता है, MIME प्रकार से सुरक्षित एक्सटेंशन चुनता है, और SHA-256 हैश द्वारा डुप्लिकेट छवि बाइनरी को छोड़ देता है।
+नीचे दिए गए हेल्पर मेथड्स उदाहरणों को संक्षिप्त रखते हैं। `saveOriginalImage` मूल एम्बेडेड बाइट्स को लिखता है, MIME प्रकार से एक सुरक्षित एक्सटेंशन चुनता है, और SHA-256 हैश के द्वारा डुप्लिकेट इमेज बाइनरी को छोड़ देता है।
 
 ```java
 import com.aspose.slides.*;
@@ -222,11 +222,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **चित्र फ्रेम से छवियों को निकालें**
+## **Extract Images from Picture Frames**
 
-यह विधि उन चित्रों के लिए उपयोग करें जो स्वतंत्र ऑब्जेक्ट के रूप में डाली गई हैं। एक [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) अपनी चित्र को `getPictureFormat().getPicture().getImage()` में रखता है, जो एक [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) ऑब्जेक्ट लौटाता है।
+जब चित्र स्वतंत्र ऑब्जेक्ट के रूप में सम्मिलित किए गए हों, इस दृष्टिकोण का उपयोग करें। एक [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ipictureframe/) अपनी चित्र को `getPictureFormat().getPicture().getImage()` में संग्रहीत करता है, जो एक [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/) ऑब्जेक्ट लौटाता है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -266,11 +271,15 @@ finally
 }
 ```
 
-## **चित्र-भरे शैलियों से छवियों को निकालें**
+## **Extract Images from Picture-Filled Shapes**
 
-आकार चित्र को अपने भराव के रूप में उपयोग कर सकते हैं। सबसे पहले आकार के भराव प्रकार की जांच करें: यदि वह [FillType.Picture](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) नहीं है, तो उस भराव से कोई चित्र नहीं निकाला जा सकता। नीचे का उदाहरण [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) ऑब्जेक्ट्स को संभालता है और प्रत्येक छवि को PNG के रूप में [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getImage--) द्वारा सेव करता है।
+आकार चित्र को फ़िल के रूप में उपयोग कर सकते हैं। पहले आकार के फ़िल प्रकार की जाँच करें: यदि यह [FillType.Picture](https://reference.aspose.com/slides/hi/java/com.aspose.slides.filltype/) नहीं है, तो उस फ़िल से निकालने के लिए कोई चित्र नहीं है। नीचे का उदाहरण [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iautoshape/) ऑब्जेक्ट्स को संभालता है और प्रत्येक छवि को PNG के रूप में [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getImage--) के माध्यम से सेव करता है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -312,11 +321,16 @@ finally
 }
 ```
 
-## **OLE ऑब्जेक्ट फ्रेम से प्रीव्यू छवियों को निकालें**
+## **Extract Preview Images from OLE Object Frames**
 
-एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ioleobjectframe/) के पास एक प्रतिस्थापन चित्र हो सकता है जिसे PowerPoint स्लाइड पर ऑब्जेक्ट के प्रीव्यू के रूप में उपयोग करता है। यह चित्र `getSubstitutePictureFormat().getPicture().getImage()` के माध्यम से उपलब्ध है। इस चित्र को निकालने से आपको प्रीव्यू छवि मिलती है, न कि एम्बेडेड OLE पैकेज की सामग्री।
+एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ioleobjectframe/) में एक प्रतिस्थापन चित्र हो सकता है जिसे PowerPoint स्लाइड पर ऑब्जेक्ट के प्रीव्यू के रूप में उपयोग करता है। यह चित्र `getSubstitutePictureFormat().getPicture().getImage()` के माध्यम से उपलब्ध है। इस चित्र को निकालने से आपको प्रीव्यू इमेज मिलती है, एम्बेडेड OLE पैकेज की सामग्री नहीं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -360,11 +374,16 @@ finally
 }
 ```
 
-## **वीडियो फ्रेम से प्रीव्यू छवियों को निकालें**
+## **Extract Preview Images from Video Frames**
 
-एक [IVideoFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ivideoframe/) भी `getPictureFormat().getPicture().getImage()` में प्रीव्यू छवि रख सकता है। यह स्लाइड पर दिखाया गया पोस्टर या थंबनेल है, न कि वीडियो स्ट्रीम से डिकोड किया गया फ्रेम।
+एक [IVideoFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ivideoframe/) भी `getPictureFormat().getPicture().getImage()` में प्रीव्यू चित्र संग्रहीत कर सकता है। यह स्लाइड पर दिखाया गया पोस्टर या थंबनेल है, वीडियो स्ट्रीम से डिकोड किया गया फ्रेम नहीं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -408,11 +427,16 @@ finally
 }
 ```
 
-## **ऑडियो फ्रेम से प्रीव्यू छवियों को निकालें**
+## **Extract Preview Images from Audio Frames**
 
-एक [IAudioFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iaudioframe/) `getPictureFormat().getPicture().getImage()` में थंबनेल रख सकता है। यह स्लाइड पर ऑडियो ऑब्जेक्ट के लिए दिखायी गयी छवि है।
+एक [IAudioFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iaudioframe/) `getPictureFormat().getPicture().getImage()` में थंबनेल संग्रहीत कर सकता है। यह स्लाइड पर ऑडियो ऑब्जेक्ट के लिए दिखाया गया चित्र है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -456,11 +480,16 @@ finally
 }
 ```
 
-## **ज़ूम ऑब्जेक्ट्स से छवियों को निकालें**
+## **Extract Images from Zoom Objects**
 
-[IZoomFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/izoomframe/) और [ISectionZoomFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isectionzoomframe/) आकार कस्टम छवियों का उपयोग कर सकते हैं। ज़ूम फ्रेम से `getZoomImage()` पढ़ें।
+[IZoomFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.izoomframe/) और [ISectionZoomFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.isectionzoomframe/) आकार कस्टम छवियों का उपयोग कर सकते हैं। ज़ूम फ्रेम से `getZoomImage()` पढ़ें।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -517,11 +546,16 @@ finally
 }
 ```
 
-## **समरी ज़ूम फ्रेम से छवियों को निकालें**
+## **Extract Images from Summary Zoom Frames**
 
-एक [ISummaryZoomFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isummaryzoomframe/) भी एक आकार है। इसके सेक्शन आइटम कस्टम छवियों का उपयोग कर सकते हैं, जिन्हें प्रत्येक समरी ज़ूम सेक्शन की `getZoomImage()` मेथड के माध्यम से एक्सपोज़ किया जाता है।
+एक [ISummaryZoomFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.isummaryzoomframe/) भी एक आकार है। इसकी सेक्शन आइटम्स कस्टम छवियों का उपयोग कर सकते हैं, जो प्रत्येक सारांश ज़ूम सेक्शन के `getZoomImage()` मेथड द्वारा एक्सपोज़ किया जाता है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -571,11 +605,16 @@ finally
 }
 ```
 
-## **टेबल शैलियों से छवियों को निकालें**
+## **Extract Images from Table Shapes**
 
-एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itable/) एक आकार है। तालिका में छवियाँ आमतौर पर तालिका कोशिकाओं में चित्र भराव के रूप में संग्रहीत होती हैं।
+एक [ITable](https://reference.aspose.com/slides/hi/java/com.aspose.slides.itable/) एक आकार है। तालिका में छवियां आमतौर पर तालिका सेल में चित्र फ़िल के रूप में संग्रहीत होती हैं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -631,11 +670,16 @@ finally
 }
 ```
 
-## **चार्ट शैलियों से छवियों को निकालें**
+## **Extract Images from Chart Shapes**
 
-एक [IChart](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichart/) एक आकार है। नीचे का उदाहरण चार्ट क्षेत्र के चित्र भराव से छवि निकालता है।
+एक [IChart](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ichart/) एक आकार है। नीचे का उदाहरण चार्ट एरिया की चित्र फ़िल से छवि निकालता है।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -680,11 +724,16 @@ finally
 }
 ```
 
-## **स्मार्टआर्ट शैलियों से छवियों को निकालें**
+## **Extract Images from SmartArt Shapes**
 
-एक [ISmartArt](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ismartart/) ऑब्जेक्ट एक आकार है। SmartArt लेआउट के आधार पर, छवियाँ नोड बुलेट भराव में या नोड आकारों के भराव फॉर्मैट में संग्रहीत हो सकती हैं।
+एक [ISmartArt](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ismartart/) ऑब्जेक्ट एक आकार है। SmartArt लेआउट के अनुसार, छवियां नोड बुलेट फ़िल्स या नोड आकारों के फ़िल फॉर्मेट्स में संग्रहीत हो सकती हैं।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -750,11 +799,16 @@ finally
 }
 ```
 
-## **समूहित शैलियों के अंदर छवियों को शामिल करें**
+## **Include Images Inside Grouped Shapes**
 
-समूहित आकार अपनी स्वयं की आकार संग्रह रखते हैं। साझा `enumerateShapes` सहायक में `includeGroupedShapes` विकल्प होता है। जब आप [IGroupShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/igroupshape/) ऑब्जेक्ट्स के भीतर आकारों का निरीक्षण करना चाहते हैं, तो इसे `true` सेट करें। नीचे का उदाहरण चित्र फ्रेम, चित्र-भरे आकार, OLE ऑब्जेक्ट प्रीव्यू, वीडियो फ्रेम थंबनेल और ऑडियो फ्रेम थंबनेल से छवियों को निकालता है। तालिका, चार्ट, SmartArt और समरी ज़ूम छवियों को भी शामिल करने के लिए, पिछले सेक्शन की विशेषीकृत एक्सट्रैक्शन लॉजिक को पुनः उपयोग करें और उसी पुनरावर्ती आकार ट्रैवर्सल को रखें।
+ग्रुप्ड शेप्स अपनी स्वयं की आकार कलेक्शन रखती हैं। साझा `enumerateShapes` हेल्पर में `includeGroupedShapes` विकल्प है। इसे `true` सेट करें जब आप [IGroupShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides.igroupshape/) ऑब्जेक्ट्स के भीतर आकारों की जाँच करना चाहते हैं। नीचे का उदाहरण चित्र फ्रेम, चित्र-फ़िल्ड आकार, OLE ऑब्जेक्ट प्रीव्यू, वीडियो फ्रेम थंबनेल और ऑडियो फ्रेम थंबनेल से छवियां निकालता है। तालिका, चार्ट, SmartArt और सारांश ज़ूम छवियों को भी शामिल करने के लिए, पिछले सेक्शनों से विशिष्ट एक्सट्रैक्शन लॉजिक को पुन: उपयोग करें जबकि वही रीकर्सिव आकार ट्रैवर्सल बनाए रखें।
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -845,45 +899,45 @@ finally
 }
 ```
 
-## **किनारे के केस और व्यावहारिक नोट्स**
+## **Edge Cases and Practical Notes**
 
-- **Duplicate images:** कई आकार एक ही छवि का संदर्भ दे सकते हैं या अलग-अलग छवियाँ जिनके बाइट समान हों। फ़ाइलें लिखने से पहले [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getBinaryData--) का हैश लें यदि आप प्रत्येक विशिष्ट छवि के लिए एक आउटपुट फ़ाइल चाहते हैं।
-- **Original data vs. converted output:** [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getBinaryData--) को सहेजने से एम्बेडेड JPEG, PNG, GIF, SVG, EMF या WMF डेटा संरक्षित रहता है। [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimage/#save-java.lang.String-int-) के साथ सहेजना उपयोगी है जब आप एकसमान आउटपुट फ़ॉर्मेट चाहते हैं।
-- **Unsupported fill types:** सॉलिड, ग्रेडिएंट, पैटर्न और नो-फ़िल आकार में चित्र भराव नहीं होता। `getPictureFillFormat()` पढ़ने से पहले [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) की जाँच करें।
-- **Grouped shapes:** शीर्ष‑स्तर स्लाइड आकार संग्रह समूहों को फ्लैट नहीं करता। जब समूहित सामग्री महत्वपूर्ण हो, तब [IGroupShape.getShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/igroupshape/#getShapes--) को पुनरावर्ती रूप से निरीक्षण करें।
-- **OLE object previews:** एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ioleobjectframe/) `getSubstitutePictureFormat()` के माध्यम से एक प्रीव्यू छवि उजागर कर सकता है, लेकिन यह केवल स्लाइड प्रीव्यू है। यह OLE ऑब्जेक्ट के भीतर एम्बेडेड फ़ाइल नहीं है।
-- **Video frame thumbnails:** एक [IVideoFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ivideoframe/) `getPictureFormat()` के माध्यम से प्रीव्यू छवि उजागर कर सकता है, लेकिन यह केवल स्लाइड पर दिखाया गया पोस्टर है। यह वीडियो स्ट्रीम से निकाली गई फ्रेम नहीं है।
-- **Audio frame thumbnails:** एक [IAudioFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iaudioframe/) `getPictureFormat()` के माध्यम से एक आइकन या थंबनेल उजागर कर सकता है; यह एम्बेडेड ऑडियो डेटा नहीं है।
-- **Zoom images:** स्लाइड ज़ूम, सेक्शन ज़ूम और समरी ज़ूम आकार कस्टम [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) ऑब्जेक्ट्स का उपयोग कर सकते हैं, जिन्हें `getZoomImage()` से प्राप्त किया जाता है।
-- **Nested shape models:** टेबल, चार्ट और SmartArt ऑब्जेक्ट्स [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) को इम्प्लीमेंट करते हैं, लेकिन उनकी छवियाँ अक्सर नेस्टेड टेबल सेल, चार्ट एलिमेंट या SmartArt नोड फॉर्मैटिंग ऑब्जेक्ट्स में संग्रहीत होती हैं।
-- **Cropped or transformed pictures:** [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) तक पहुँचने से आपको संग्रहीत मूल छवि संसाधन मिलता है। यह आकार द्वारा लागू क्रॉपिंग, ट्रांसपैरेंसी, री‑कलरिंग, रोटेशन या अन्य विज़ुअल इफ़ेक्ट्स को रेंडर नहीं करता।
+- **Duplicate images:** कई आकार एक ही छवि का संदर्भ दे सकते हैं या अलग-अलग छवियां हो सकती हैं जिनके बाइट्स समान हों। यदि आप प्रत्येक अद्वितीय छवि के लिए एक आउटपुट फ़ाइल चाहते हैं तो फ़ाइल लिखने से पहले [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getBinaryData--) का हैश लें।
+- **Original data vs. converted output:** [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getBinaryData--) को सेव करने से एम्बेडेड JPEG, PNG, GIF, SVG, EMF या WMF डेटा बना रहता है। [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getImage--) को [IImage.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iimage/#save-java.lang.String-int-) के साथ सेव करने से एकसमान आउटपुट फ़ॉर्मेट जैसे PNG प्राप्त होता है।
+- **Unsupported fill types:** सॉलिड, ग्रेडिएंट, पैटर्न और नो-फ़िल आकारों में चित्र फ़िल नहीं होता। पढ़ने से पहले [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides.filltype/) की जाँच करें कि `getPictureFillFormat()` लागू है या नहीं।
+- **Grouped shapes:** शीर्ष‑स्तरीय स्लाइड आकार कलेक्शन समूहों को फ्लैट नहीं करता। जब समूहित सामग्री महत्वपूर्ण हो तो [IGroupShape.getShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides.igroupshape/#getShapes--) को रीकर्सिवली.inspect करें।
+- **OLE object previews:** एक [IOleObjectFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ioleobjectframe/) `getSubstitutePictureFormat()` के माध्यम से प्रीव्यू चित्र प्रदान कर सकता है, लेकिन वह केवल स्लाइड प्रीव्यू है, एम्बेडेड फ़ाइल नहीं।
+- **Video frame thumbnails:** एक [IVideoFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ivideoframe/) `getPictureFormat()` के माध्यम से प्रीव्यू चित्र दे सकता है, लेकिन वह केवल स्लाइड पर दिखाया गया पोस्टर है, वीडियो स्ट्रीम से निकालना नहीं।
+- **Audio frame thumbnails:** एक [IAudioFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iaudioframe/) `getPictureFormat()` के माध्यम से आइकन या थंबनेल प्रदान कर सकता है; यह एम्बेडेड ऑडियो डेटा नहीं है।
+- **Zoom images:** स्लाइड ज़ूम, सेक्शन ज़ूम और सारांश ज़ूम आकार कस्टम [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/) ऑब्जेक्ट्स को `getZoomImage()` के माध्यम से उपयोग कर सकते हैं।
+- **Nested shape models:** तालिका, चार्ट और SmartArt ऑब्जेक्ट्स [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ishape/) को इम्प्लीमेंट करते हैं, लेकिन उनकी छवियां अक्सर नेस्टेड तालिका सेल, चार्ट एलीमेंट या SmartArt नोड फॉर्मेटिंग ऑब्जेक्ट्स में संग्रहीत होती हैं।
+- **Cropped or transformed pictures:** [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/) तक पहुंचने से आपको संग्रहीत इमेज रिसोर्स मिलता है। यह आकार द्वारा लागू क्रॉपिंग, ट्रांसपैरेंसी, री‑कलरिंग, रोटेशन या अन्य विज़ुअल इफ़ेक्ट को रेंडर नहीं करता।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या मैं मूल छवि को बिना क्रॉपिंग, प्रभाव या आकार परिवर्तन के निकाल सकता हूँ?**
+### Can I extract the original image without cropping, effects, or shape transformations?
 
-हाँ। [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) ऑब्जेक्ट तक पहुँचें और [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getBinaryData--) को डिस्क पर लिखें। यह प्रेजेंटेशन में संग्रहीत मूल एन्कोडेड छवि को संरक्षित करता है, न कि स्लाइड पर छवि के रेंडर किए जाने के तरीके को।
+Yes. Access the [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/) object and write [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getBinaryData--) to disk. This preserves the original encoded image stored in the presentation, not the way the image is rendered on the slide.
 
-**क्या मैं प्रत्येक निकाली गई छवि को PNG के रूप में एक्सपोर्ट कर सकता हूँ?**
+### Can I export every extracted image as PNG?
 
-हाँ। [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getImage--) का उपयोग करके एक [IImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimage/) ऑब्जेक्ट प्राप्त करें, और फिर [IImage.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iimage/#save-java.lang.String-int-) को [ImageFormat.Png](https://reference.aspose.com/slides/hi/java/com.aspose.slides/imageformat/) के साथ कॉल करें। यह आउटपुट को परिवर्तित करता है और मूल फ़ाइल प्रकार या वेक्टर डेटा को संरक्षित नहीं कर सकता।
+Yes. Use [IPPImage.getImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getImage--) to get an [IImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iimage/) object, and then call [IImage.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides.iimage/#save-java.lang.String-int-) with [ImageFormat.Png](https://reference.aspose.com/slides/hi/java/com.aspose.slides.imageformat/). This converts the output and may not preserve the original file type or vector data.
 
-**मैं कैसे सुनिश्चित करूँ कि एक ही छवि को कई बार सहेजा न जाए?**
+### How do I avoid saving the same image more than once?
 
-[IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/#getBinaryData--) का हैश बनाएँ और उसे एक सेट में रखें। यदि नई छवि का हैश पहले से मौजूद है, तो उसे स्किप करें या मौजूदा आउटपुट फ़ाइल का दूसरा संदर्भ रिकॉर्ड करें।
+Use a hash of [IPPImage.getBinaryData](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/#getBinaryData--) and keep the hashes in a set. If a new image has a hash that already exists, skip it or record another reference to the existing output file.
 
-**कुछ आकारों से छवि क्यों नहीं निकाली जा सकती?**
+### Why do some shapes not produce an image?
 
-चित्र फ्रेम, चित्र‑भरे आकार, OLE ऑब्जेक्ट फ्रेम, मीडिया फ्रेम, ज़ूम फ्रेम, टेबल, चार्ट और SmartArt ऑब्जेक्ट्स छवियों का संदर्भ दे सकते हैं। कुछ आकार प्रकार नेस्टेड फॉर्मैटिंग ऑब्जेक्ट्स के माध्यम से छवियों को उजागर करते हैं, इसलिए केवल `getPictureFormat()` या आकार का `getFillFormat()` जाँचना हमेशा पर्याप्त नहीं हो सकता।
+Picture frames, picture-filled shapes, OLE object frames, media frames, zoom frames, tables, charts, and SmartArt objects can reference images. Some shape types expose images through nested formatting objects, so a simple `getPictureFormat()` or shape `getFillFormat()` check is not always enough.
 
-**क्या मैं वीडियो फ्रेम के लिए दिखाए गए थंबनेल को निकाल सकता हूँ?**
+### Can I extract the thumbnail shown for a video frame?
 
-हाँ। [IVideoFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ivideoframe/) का उपयोग करके `getPictureFormat().getPicture().getImage()` पढ़ें। यह वीडियो फ्रेम के साथ संग्रहीत पोस्टर छवि को निकालता है, न कि वीडियो फ़ाइल से उत्पन्न कोई फ्रेम।
+Yes. Use [IVideoFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ivideoframe/) and read `getPictureFormat().getPicture().getImage()`. This extracts the poster image stored with the video frame, not a frame generated from the video file.
 
-**मैं कैसे निर्धारित करूँ कि कौन से आकार प्रेजेंटेशन इमेज कलेक्शन की विशिष्ट छवि का उपयोग करते हैं?**
+### How can I determine which shapes use a specific image from the presentation image collection?
 
-Aspose.Slides में [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) से आकारों की रिवर्स लिंक नहीं रखी जाती। ट्रैवर्सल के दौरान एक मैपिंग बनाएं: जब भी आप कोई छवि संदर्भ पाएँ, स्लाइड संख्या, आकार पाथ और छवि के हैश या कलेक्शन आइटम को रिकॉर्ड करें।
+Aspose.Slides does not store reverse links from [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ippimage/) to shapes. Build a mapping during traversal: whenever you find an image reference, record the slide number, shape path, and image hash or collection item.
 
-**क्या मैं OLE ऑब्जेक्ट्स के भीतर एम्बेडेड छवियों, जैसे जुड़ी हुई दस्तावेज़ों, को निकाल सकता हूँ?**
+### Can I extract images embedded inside OLE objects, such as attached documents?
 
-आप [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--) से OLE ऑब्जेक्ट का स्लाइड प्रीव्यू निकाल सकते हैं। हालांकि, वह प्रीव्यू एम्बेडेड दस्तावेज़ स्वयं नहीं है। एम्बेडेड फ़ाइल के भीतर की छवियों को निकालने के लिए, OLE डेटा को एक्सट्रैक्ट करें और उस फ़ाइल प्रकार के लिए उपयुक्त टूल्स से जांचें।
+You can extract the OLE object's slide preview from [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--). However, that preview is not the embedded document itself. To extract images from inside the embedded file, extract the OLE data and inspect it with tools for that file type.

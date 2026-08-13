@@ -1,30 +1,30 @@
 ---
 title: Aspose.Slides for JasperReports
-second_title: Τεκμηρίωση Aspose.Slides
-description: Το Aspose.Slides for JasperReports είναι μια βιβλιοθήκη ειδικά σχεδιασμένη και αναπτυγμένη για προγραμματιστές που χρειάζονται να εξάγουν εύκολα αναφορές από το JasperReports σε μορφές Microsoft PowerPoint Presentation (PPT) και Microsoft PowerPoint Show (PPS) στις εφαρμογές Java τους.
+second_title: Aspose.Slides for JasperReports
+description: Aspose.Slides for JasperReports είναι μια βιβλιοθήκη ειδικά σχεδιασμένη και αναπτυγμένη για προγραμματιστές που χρειάζονται εύκολη εξαγωγή αναφορών από το JasperReports σε μορφές Microsoft PowerPoint Presentation (PPT) και Microsoft PowerPoint Show (PPS) στις εφαρμογές Java τους.
 type: docs
 weight: 70
 url: /el/jasperreports/
 is_root: true
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-![Λογότυπο Προϊόντος Aspose.Slides for JasperReports](home_1.png)
+![Λογότυπο προϊόντος Aspose.Slides for JasperReports](home_1.png)
 
 **Καλώς ήρθατε στο Aspose.Slides for JasperReports**
 
-Το Aspose.Slides for JasperReports είναι μια βιβλιοθήκη ειδικά σχεδιασμένη και αναπτυγμένη για προγραμματιστές που χρειάζονται να εξάγουν εύκολα αναφορές από το JasperReports σε μορφές Microsoft PowerPoint Presentation (PPT) και Microsoft PowerPoint Show (PPS) στις εφαρμογές Java τους. Όλες οι λειτουργίες των αναφορών μετατρέπονται με το υψηλότερο βαθμό ακρίβειας σε παρουσιάσεις Microsoft PowerPoint. Το Aspose.Slides for JasperReports περιλαμβάνει υποστήριξη για JasperReports 5+.
+Το Aspose.Slides for JasperReports είναι μια βιβλιοθήκη ειδικά σχεδιασμένη και αναπτυγμένη για προγραμματιστές που χρειάζονται εύκολη εξαγωγή αναφορών από το JasperReports σε μορφές Microsoft PowerPoint Presentation (PPT) και Microsoft PowerPoint Show (PPS) στις εφαρμογές Java τους. Όλες οι δυνατότητες των αναφορών μετατρέπονται με το υψηλότερο επίπεδο ακρίβειας σε παρουσιάσεις Microsoft PowerPoint. Το Aspose.Slides for JasperReports περιλαμβάνει υποστήριξη για JasperReports 5+.
 
 {{% /alert %}}
 
 ## **Aspose.Slides for JasperReports Πόροι**
 
-Ακολουθούν οι σύνδεσμοι προς κάποιους χρήσιμους πόρους που μπορεί να χρειαστείτε για την ολοκλήρωση των εργασιών σας.
+Ακολουθούν οι σύνδεσμοι σε μερικές χρήσιμες πηγές που μπορεί να χρειαστείτε για την ολοκλήρωση των καθηκόντων σας.
 
-- [Aspose.Slides for JasperReports Διαδικτυακή Τεκμηρίωση](/slides/el/jasperreports/)
-- [Aspose.Slides for JasperReports Χαρακτηριστικά](/slides/el/jasperreports/features/)
-- [Aspose.Slides for JasperReports Σημειώματα Έκδοσης](https://releases.aspose.com/slides/el/jasperreport/release-notes/)
-- [Aspose.Slides for JasperReports Σελίδα Προϊόντος](https://products.aspose.com/slides/el/jasperreports/)
+- [Τεκμηρίωση online του Aspose.Slides for JasperReports](/slides/el/jasperreports/)
+- [Δυνατότητες Aspose.Slides for JasperReports](/slides/el/jasperreports/features/)
+- [Σημειώσεις έκδοσης Aspose.Slides for JasperReports](https://releases.aspose.com/slides/el/jasperreport/release-notes/)
+- [Σελίδα προϊόντος Aspose.Slides for JasperReports](https://products.aspose.com/slides/el/jasperreports/)
 - [Λήψη Aspose.Slides for JasperReports](https://releases.aspose.com/slides/el/jasperreport/)
-- [Aspose.Slides for JasperReports Δωρεάν Φόρουμ Υποστήριξης](https://forum.aspose.com/c/slides/el/11)
-- [Aspose.Slides for JasperReports Πληρωμένη Υποστήριξη Helpdesk](https://helpdesk.aspose.com/)
+- [Δωρεάν φόρουμ υποστήριξης Aspose.Slides for JasperReports](https://forum.aspose.com/c/slides/el/11)
+- [Πληρωμένο helpdesk υποστήριξης Aspose.Slides for JasperReports](https://helpdesk.aspose.com/)

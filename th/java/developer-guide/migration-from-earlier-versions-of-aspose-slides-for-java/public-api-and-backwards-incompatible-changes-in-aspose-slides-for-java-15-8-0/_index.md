@@ -1,32 +1,34 @@
 ---
-title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ Java 15.8.0
-linktitle: Aspose.Slides สำหรับ Java 15.8.0
+title: "API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for Java 15.8.0"
+linktitle: "Aspose.Slides for Java 15.8.0"
 type: docs
 weight: 160
 url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
 keywords:
-- การย้ายข้อมูล
-- โค้ดรุ่นเก่า
-- โค้ดสมัยใหม่
-- แนวทางรุ่นเก่า
-- แนวทางสมัยใหม่
-- PowerPoint
-- OpenDocument
-- งานนำเสนอ
-- Java
-- Aspose.Slides
-description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการทำลายใน Aspose.Slides สำหรับ Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณได้อย่างราบรื่น."
+  - "การย้าย"
+  - "โค้ดเก่า"
+  - "โค้ดสมัยใหม่"
+  - "แนวทางเก่า"
+  - "แนวทางสมัยใหม่"
+  - "PowerPoint"
+  - "OpenDocument"
+  - "การนำเสนอ"
+  - "Java"
+  - "Aspose.Slides"
+description: "รีวิวการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดการแตกหักใน Aspose.Slides for Java เพื่อการย้ายไปใช้โซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP อย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการทั้งหมด [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) หรือ [ลบ](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) ของคลาส, เมธอด, คุณสมบัติ ฯลฯ และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for Java 15.8.0 API.
+หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่ [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) หรือ [ลบ](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for Java 15.8.0 API.
 
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง API สาธารณะ**
-#### **เมธอด getDoughnutHoleSize(), setDoughnutHoleSize(byte) ได้รับการเพิ่มลงใน IChartSeries และ ChartSeries**
-ระบุขนาดของรูในแผนภูมิดอนัท.
+#### **เมธอด getDoughnutHoleSize(), setDoughnutHoleSize(byte) ได้ถูกเพิ่มเข้าไปใน IChartSeries และ ChartSeries**
+ระบุขนาดของรูในแผนภูม่าวงแหวน.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

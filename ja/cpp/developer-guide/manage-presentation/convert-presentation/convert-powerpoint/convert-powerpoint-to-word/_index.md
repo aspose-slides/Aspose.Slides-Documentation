@@ -1,6 +1,6 @@
 ---
-title: C++ で PowerPoint プレゼンテーションを Word 文書に変換
-linktitle: PowerPoint を Word に変換
+title: C++ で PowerPoint プレゼンテーションを Word ドキュメントに変換
+linktitle: PowerPoint から Word へ
 type: docs
 weight: 110
 url: /ja/cpp/convert-powerpoint-to-word/
@@ -10,60 +10,86 @@ keywords:
 - スライドを変換
 - PPT を変換
 - PPTX を変換
-- PowerPoint を Word に変換
-- プレゼンテーションを Word に変換
-- スライドを Word に変換
-- PPT を Word に変換
-- PPTX を Word に変換
-- PowerPoint を DOCX に変換
-- プレゼンテーションを DOCX に変換
-- スライドを DOCX に変換
-- PPT を DOCX に変換
-- PPTX を DOCX に変換
-- PowerPoint を DOC に変換
-- プレゼンテーションを DOC に変換
-- スライドを DOC に変換
-- PPT を DOC に変換
-- PPTX を DOC に変換
+- PowerPoint から Word へ
+- プレゼンテーションから Word へ
+- スライドから Word へ
+- PPT から Word へ
+- PPTX から Word へ
+- PowerPoint から DOCX へ
+- プレゼンテーションから DOCX へ
+- スライドから DOCX へ
+- PPT から DOCX へ
+- PPTX から DOCX へ
+- PowerPoint から DOC へ
+- プレゼンテーションから DOC へ
+- スライドから DOC へ
+- PPT から DOC へ
+- PPTX から DOC へ
 - PPT を DOCX として保存
 - PPTX を DOCX として保存
 - PPT を DOCX にエクスポート
 - PPTX を DOCX にエクスポート
 - C++
 - Aspose.Slides
-description: "C++ で Aspose.Slides を使用して、PowerPoint の PPT および PPTX スライドを編集可能な Word 文書に変換し、レイアウト、画像、書式設定を正確に保持します。"
+description: Aspose.Slides を使用して、C++ で PowerPoint の PPT および PPTX スライドを編集可能な Word ドキュメントに変換し、正確なレイアウト、画像、書式設定を保持します。
 ---
+## **概要**
 
-プレゼンテーション（PPT または PPTX）からテキストコンテンツや情報を新しい方法で使用する予定がある場合、プレゼンテーションを Word（DOC または DOCX）に変換すると利点があります。
+プレゼンテーション（PPTまたはPPTX）からテキストコンテンツや情報を新しい方法で使用することを検討している場合、プレゼンテーションをWord（DOCまたはDOCX）に変換するとメリットがあります。
 
 * Microsoft PowerPoint と比較すると、Microsoft Word アプリはコンテンツ向けのツールや機能がより充実しています。
-* Word の編集機能に加えて、コラボレーション、印刷、共有機能も強化されています。
+* Word の編集機能に加えて、コラボレーション、印刷、共有機能の向上も利用できます。
 
-{{% alert color="primary" %}}
-スライドのテキストコンテンツを活用して得られるメリットを確認するために、当社の[**Presentation to Word Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) を試してみてください。
-{{% /alert %}}
+{{% alert color="info" %}} 
+
+スライドのテキストコンテンツを操作することで得られるメリットを確認するために、[**スライドからWordへのオンライン変換ツール**](https://products.aspose.app/slides/ja/conversion/ppt-to-word)を試してみてください。
+
+{{% /alert %}} 
 
 ## **Aspose.Slides と Aspose.Words**
 
-PowerPoint ファイル（PPTX または PPT）を Word（DOCX または DOC）に変換するには、[Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) と [Aspose.Words for C++](https://products.aspose.com/words/cpp/) の両方が必要です。
+PowerPoint ファイル（PPTX または PPT）を Word（DOCX または DOC）に変換するには、[Aspose.Slides for C++](https://products.aspose.com/slides/ja/cpp/) と [Aspose.Words for C++](https://products.aspose.com/words/cpp/) の両方が必要です。
 
-単独 API としての [Aspose.Slides](https://products.aspose.app/slides) for C++ は、プレゼンテーションからテキストを抽出する機能を提供します。
+スタンドアロン API として、C++ 用の [Aspose.Slides](https://products.aspose.app/slides) は、プレゼンテーションからテキストを抽出する機能を提供します。
 
-[Aspose.Words](https://docs.aspose.com/words/cpp/) は高度な文書処理 API で、アプリケーションが Microsoft Word を使用せずに、文書の生成、変更、変換、レンダリング、印刷、その他のタスクを実行できます。
+[Aspose.Words](https://docs.aspose.com/words/cpp/) は、Microsoft Word を使用せずに、アプリケーションが文書を生成、変更、変換、レンダリング、印刷し、その他の処理を行える高度なドキュメント処理 API です。
 
-## **PowerPoint プレゼンテーションを Word 文書に変換**
+## **PowerPoint プレゼンテーションを Word ドキュメントへ変換**
 
-PowerPoint を Word に変換するには、以下のコードスニペットを使用してください。
+以下のコードスニペットを使用して、PowerPoint を Word に変換します。
+
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <Aspose.Words.Cpp/BreakType.h>
+#include <Aspose.Words.Cpp/Document.h>
+#include <Aspose.Words.Cpp/DocumentBuilder.h>
+#include <DOM/AutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
 auto doc = MakeObject<Aspose::Words::Document>();
 auto builder = MakeObject<Aspose::Words::DocumentBuilder>(doc);
 
 for (const auto& slide : presentation->get_Slides())
 {
-    // スライド画像を生成して挿入します
+    // スライド画像をバイト配列ストリームとして生成します
     auto image = slide->GetImage(1.0f, 1.0f);
-    builder->InsertImage(image);
+    auto imageStream = MakeObject<System::IO::MemoryStream>();
+    image->Save(imageStream, Aspose::Slides::ImageFormat::Png);
+    image->Dispose();
+
+    builder->InsertImage(imageStream->ToArray());
 
     // スライドのテキストを挿入します
     for (const auto& shape : slide->get_Shapes())
@@ -77,15 +103,17 @@ for (const auto& slide : presentation->get_Slides())
 
     builder->InsertBreak(Aspose::Words::BreakType::PageBreak);
 }
-```
 
+doc->Save(u"output.docx");
+presentation->Dispose();
+```
 
 ## **FAQ**
 
-**PowerPoint と OpenDocument プレゼンテーションを Word 文書に変換するためにインストールが必要なコンポーネントは何ですか？**
+### PowerPoint および OpenDocument プレゼンテーションを Word ドキュメントに変換するために必要なコンポーネントは何ですか？
 
-プロジェクトに [Aspose.Slides for C++](https://releases.aspose.com/slides/cpp/) と [Aspose.Words for C++](https://releases.aspose.com/words/cpp/) の各パッケージを追加するだけです。両ライブラリは単独 API として動作し、Microsoft Office をインストールする必要はありません。
+プロジェクトに [Aspose.Slides for C++](https://releases.aspose.com/slides/ja/cpp/) と [Aspose.Words for C++](https://releases.aspose.com/words/cpp/) の各パッケージを追加するだけで済みます。両ライブラリはスタンドアロン API として動作し、Microsoft Office をインストールする必要はありません。
 
-**すべての PowerPoint および OpenDocument プレゼンテーション形式がサポートされていますか？**
+### すべての PowerPoint および OpenDocument プレゼンテーション形式がサポートされていますか？
 
-Aspose.Slides は [すべてのプレゼンテーション形式](/slides/ja/cpp/supported-file-formats/) をサポートしており、PPT、PPTX、ODP などの一般的なファイルタイプが含まれます。これにより、さまざまなバージョンの Microsoft PowerPoint で作成されたプレゼンテーションを扱うことができます。
+Aspose.Slides は、PPT、PPTX、ODP、その他の一般的なファイル形式を含むすべてのプレゼンテーション形式を[すべてのプレゼンテーション形式をサポート](/slides/ja/cpp/supported-file-formats/)しています。これにより、さまざまなバージョンの Microsoft PowerPoint で作成されたプレゼンテーションを扱うことができます。

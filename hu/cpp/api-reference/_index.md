@@ -10,14 +10,12 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Készítsen, szerkesszen és konvertáljon prezentációkat C++-ban – PowerPoint nélkül. Az Aspose.Slides támogatja a PPT, PPTX és ODP formátumokat, gyors SVG/PDF exporttal."
+description: "Készítsen, szerkesszen és konvertáljon prezentációkat C++-ban — nincs szükség PowerPoint-ra. Az Aspose.Slides támogatja a PPT, PPTX és ODP formátumokat, gyors SVG/PDF exporttal."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for C++ egy osztálykönyvtár, amely lehetővé teszi C++ alkalmazások számára, hogy prezentációs 
-dokumentumokat olvassanak és írjanak anélkül, hogy a Microsoft PowerPoint®-ot vagy más programot használnának. Aspose.Slides for C++ lehetővé teszi a szöveg, alakzatok, 
-táblázatok és animációk kezelését, hang és videó hozzáadását a diákhoz, a diák előnézetét, a diák exportálását SVG vagy PDF formátumba és egyebeket.
+Aspose.Slides for C++ egy osztálykönyvtár, amely lehetővé teszi a C++ alkalmazások számára, hogy prezentációs dokumentumokat olvaszanak és írjanak anélkül, hogy a Microsoft PowerPoint® vagy más programot használnának. Az Aspose.Slides for C++ lehetővé teszi a szöveg, alakzatok, táblázatok és animációk kezelését, hang és videó hozzáadását a diákhoz, a diák előnézetét, a diák exportálását SVG, PDF formátumba és egyebeket.
 
-Legújabb API referencia megtalálható a [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/hu/cpp/).
+Legújabb API-referencia megtalálható a [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/hu/cpp/).
 
 {{% /alert %}}

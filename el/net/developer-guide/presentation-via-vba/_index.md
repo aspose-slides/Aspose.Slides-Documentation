@@ -5,22 +5,22 @@ type: docs
 weight: 250
 url: /el/net/presentation-via-vba/
 keywords:
-- μακροεντολή
-- VBA
-- μακροεντολή VBA
-- προσθήκη μακροεντολής
-- αφαίρεση μακροεντολής
-- εξαγωγή μακροεντολής
-- προσθήκη VBA
-- αφαίρεση VBA
-- εξαγωγή VBA
-- PowerPoint
-- OpenDocument
-- παρουσίαση
-- .NET
-- C#
-- Aspose.Slides
-description: "Ανακαλύψτε πώς να δημιουργείτε και να επεξεργάζεστε παρουσιάσεις PowerPoint και OpenDocument μέσω VBA με το Aspose.Slides για .NET, ώστε να βελτιώσετε τη ροή εργασίας σας."
+  - μακροεντολή
+  - VBA
+  - Μακροεντολή VBA
+  - Προσθήκη μακροεντολής
+  - Αφαίρεση μακροεντολής
+  - Εξαγωγή μακροεντολής
+  - Προσθήκη VBA
+  - Αφαίρεση VBA
+  - Εξαγωγή VBA
+  - PowerPoint
+  - OpenDocument
+  - παρουσίαση
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Ανακαλύψτε πώς να δημιουργείτε και να επεξεργάζεστε παρουσιάσεις PowerPoint και OpenDocument μέσω VBA με το Aspose.Slides για .NET ώστε να βελτιώσετε τη ροή εργασιών σας."
 ---
 ## **Εισαγωγή**
 
@@ -28,40 +28,42 @@ description: "Ανακαλύψτε πώς να δημιουργείτε και �
 
 {{% alert title="Note" color="warning" %}} 
 
-Όταν μετατρέπετε μια παρουσίαση που περιέχει μακροεντολές σε διαφορετική μορφή αρχείου (PDF, HTML κ.λπ.), το Aspose.Slides αγνοεί όλες τις μακροεντολές (οι μακροεντολές δεν μεταφέρονται στο προκύπτον αρχείο).
+Κατά τη μετατροπή μιας παρουσίασης που περιέχει μακροεντολές σε διαφορετική μορφή αρχείου (PDF, HTML κ.λπ.), το Aspose.Slides αγνοεί όλες τις μακροεντολές (οι μακροεντολές δεν μεταφέρονται στο τελικό αρχείο).
 
-Όταν προσθέτετε μακροεντολές σε μια παρουσίαση ή αποθηκεύετε εκ νέου μια παρουσίαση που περιέχει μακροεντολές, το Aspose.Slides απλώς γράφει τα byte των μακροεντολών.
+Όταν προσθέτετε μακροεντολές σε μια παρουσίαση ή επαναποθηκεύετε μια παρουσίαση που περιέχει μακροεντολές, το Aspose.Slides απλώς γράφει τα bytes των μακροεντολών.
 
 Το Aspose.Slides **ποτέ** δεν εκτελεί τις μακροεντολές σε μια παρουσίαση.
 
 {{% /alert %}}
 
-## **Προσθήκη Μακροεντολών VBA**
+## **Προσθήκη μακροεντολών VBA**
 
-Το Aspose.Slides παρέχει την κλάση [VbaProject](https://reference.aspose.com/slides/el/net/aspose.slides.vba/vbaproject/) ώστε να μπορείτε να δημιουργείτε έργα VBA (και αναφορές έργων) και να επεξεργάζεστε υπάρχουσες μονάδες. Μπορείτε να χρησιμοποιήσετε τη διεπαφή [IVbaProject](https://reference.aspose.com/slides/el/net/aspose.slides.vba/ivbaproject/) για να διαχειρίζεστε το ενσωματωμένο VBA σε μια παρουσίαση.
+Το Aspose.Slides παρέχει την κλάση [VbaProject](https://reference.aspose.com/slides/el/net/aspose.slides.vba/vbaproject/) για να δημιουργήσετε έργα VBA (και αναφορές έργων) και να επεξεργαστείτε υπάρχοντα modules. Μπορείτε να χρησιμοποιήσετε τη διεπαφή [IVbaProject](https://reference.aspose.com/slides/el/net/aspose.slides.vba/ivbaproject/) για να διαχειριστείτε το VBA που είναι ενσωματωμένο σε μια παρουσίαση.
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-2. Χρησιμοποιήστε τον κατασκευαστή [VbaProject](https://reference.aspose.com/slides/el/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) για να προσθέσετε ένα νέο έργο VBA.
-3. Προσθέστε μια μονάδα στο VbaProject.
-4. Ορίστε τον πηγαίο κώδικα της μονάδας.
-5. Προσθέστε αναφορές στο <stdole>.
-6. Προσθέστε αναφορές στο **Microsoft Office**.
-7. Συσχετίστε τις αναφορές με το VBA project.
-8. Αποθηκεύστε την παρουσίαση.
-
-Αυτός ο κώδικας C# δείχνει πώς να προσθέσετε μια μακροεντολή VBA από την αρχή σε μια παρουσίαση:
+1. Δημιουργήστε μια παρουσία του κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
+1. Χρησιμοποιήστε τον κατασκευαστή [VbaProject](https://reference.aspose.com/slides/el/net/aspose.slides.vba/vbaproject/vbaproject/#constructor) για να προσθέσετε ένα νέο έργο VBA.
+1. Προσθέστε ένα module στο VbaProject.
+1. Ορίστε τον κώδικα πηγής του module.
+1. Προσθέστε αναφορές στο <stdole>.
+1. Προσθέστε αναφορές στο **Microsoft Office**.
+1. Συσχετίστε τις αναφορές με το VBA project.
+1. Αποθηκεύστε την παρουσίαση.
 
 ```c#
-    // Δημιουργεί μια παρουσία της κλάσης παρουσίασης
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Vba;
+
+// Δημιουργεί μια παρουσία της κλάσης παρουσίασης
 using (Presentation presentation = new Presentation())
 {
     // Δημιουργεί ένα νέο έργο VBA
     presentation.VbaProject = new VbaProject();
 
-    // Προσθέτει μια κενή μονάδα στο έργο VBA
+    // Προσθέτει ένα κενό module στο έργο VBA
     IVbaModule module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-  
-    // Ορίζει τον πηγαίο κώδικα της μονάδας
+
+    // Ορίζει τον κώδικα πηγής του module
     module.SourceCode = @"Sub Test(oShape As Shape) MsgBox ""Test"" End Sub";
 
     // Δημιουργεί μια αναφορά στο <stdole>
@@ -76,51 +78,52 @@ using (Presentation presentation = new Presentation())
     presentation.VbaProject.References.Add(stdoleReference);
     presentation.VbaProject.References.Add(officeReference);
 
-            
     // Αποθηκεύει την παρουσίαση
-    presentation.Save(dataDir + "AddVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("AddVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ίσως θελήσετε να ρίξετε μια ματιά στο **Aspose** [Macro Remover](https://products.aspose.app/slides/el/remove-macros), μια δωρεάν διαδικτυακή εφαρμογή που χρησιμοποιείται για την αφαίρεση μακροεντολών από έγγραφα PowerPoint, Excel και Word.
+Μπορεί να θέλετε να εξετάσετε το **Aspose** [Macro Remover](https://products.aspose.app/slides/el/remove-macros), μια δωρεάν διαδικτυακή εφαρμογή που χρησιμοποιείται για την αφαίρεση μακροεντολών από αρχεία PowerPoint, Excel και Word.
 
 {{% /alert %}} 
 
-## **Αφαίρεση Μακροεντολών VBA**
+## **Αφαίρεση μακροεντολών VBA**
 Χρησιμοποιώντας την ιδιότητα [VbaProject](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/vbaproject/) της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/), μπορείτε να αφαιρέσετε μια μακροεντολή VBA.
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και φορτώστε την παρουσίαση που περιέχει τη μακροεντολή.
-2. Πρόσβαση στη μονάδα Macro και αφαίρεση της.
-3. Αποθηκεύστε την τροποποιημένη παρουσίαση.
-
-Αυτός ο κώδικας C# δείχνει πώς να αφαιρέσετε μια μακροεντολή VBA:
+1. Προσεγγίστε το module Macro και αφαιρέστε το.
+1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
 ```c#
-    // Φορτώνει την παρουσίαση που περιέχει τη μακροεντολή
-using (Presentation presentation = new Presentation(dataDir + "VBA.pptm"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Φορτώνει την παρουσίαση που περιέχει τη μακροεντολή
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    // Πρόσβαση στη μονάδα Vba και αφαίρεση της
+    // Προσπελαύνει το module Vba και το αφαιρεί
     presentation.VbaProject.Modules.Remove(presentation.VbaProject.Modules[0]);
 
     // Αποθηκεύει την παρουσίαση
-    presentation.Save(dataDir + "RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
+    presentation.Save("RemovedVBAMacros_out.pptm", SaveFormat.Pptm);
 }
 ```
 
-## **Εξαγωγή Μακροεντολών VBA**
+## **Εξαγωγή μακροεντολών VBA**
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και φορτώστε την παρουσίαση που περιέχει τη μακροεντολή.
 2. Ελέγξτε αν η παρουσίαση περιέχει ένα VBA Project.
-3. Περιηγηθείτε σε όλες τις μονάδες που περιέχονται στο VBA Project για να δείτε τις μακροεντολές.
-
-Αυτός ο κώδικας C# δείχνει πώς να εξαγάγετε μακροεντολές VBA από μια παρουσίαση που περιέχει μακροεντολές:
+3. Επανάληψη σε όλα τα modules που περιέχονται στο VBA Project για προβολή των μακροεντολών.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Vba;
+
     // Φορτώνει την παρουσίαση που περιέχει τη μακροεντολή
 using (Presentation pres = new Presentation("VBA.pptm"))
 {
-	if (pres.VbaProject != null) // Ελέγχει εάν η Παρουσίαση περιέχει Έργο VBA
+	if (pres.VbaProject != null) // Ελέγχει αν η παρουσίαση περιέχει ένα έργο VBA
 	{
 		foreach (IVbaModule module in pres.VbaProject.Modules)
 		{
@@ -131,17 +134,20 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
-## **Έλεγχος Εάν Ένα VBA Project Είναι Προστατευμένο με Κωδικό**
-Χρησιμοποιώντας την ιδιότητα [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/el/net/aspose.slides.vba/ivbaproject/ispasswordprotected/), μπορείτε να καθορίσετε αν οι ιδιότητες ενός έργου είναι προστατευμένες με κωδικό.
+## **Έλεγχος εάν ένα VBA Project είναι προστατευμένο με κωδικό**
+
+Χρησιμοποιώντας την ιδιότητα [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/el/net/aspose.slides.vba/ivbaproject/ispasswordprotected/), μπορείτε να προσδιορίσετε εάν οι ιδιότητες ενός έργου είναι προστατευμένες με κωδικό.
 
 1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και φορτώστε μια παρουσίαση που περιέχει μακροεντολή.
 2. Ελέγξτε αν η παρουσίαση περιέχει ένα [VBA project](https://reference.aspose.com/slides/el/net/aspose.slides.vba/vbaproject/).
-3. Ελέγξτε αν το VBA project είναι προστατευμένο με κωδικό για να δείτε τις ιδιότητές του.
+3. Ελέγξτε αν το VBA project είναι προστατευμένο με κωδικό για προβολή των ιδιοτήτων του.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    if (presentation.VbaProject != null) // Ελέγχει εάν η παρουσίαση περιέχει έργο VBA.
+    if (presentation.VbaProject != null) // Έλεγχος αν η παρουσίαση περιέχει ένα έργο VBA.
     {
         if (presentation.VbaProject.IsPasswordProtected)
         {
@@ -151,16 +157,16 @@ using (Presentation presentation = new Presentation("VBA.pptm"))
 }
 ```
 
-## **ΣΥΝΗΘΕΣΤΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Τι συμβαίνει με τις μακροεντολές αν αποθηκεύσω την παρουσίαση ως PPTX;**
+### Τι συμβαίνει με τις μακροεντολές αν αποθηκεύσω την παρουσίαση ως PPTX;
 
 Οι μακροεντολές θα αφαιρεθούν επειδή το PPTX δεν υποστηρίζει VBA. Για να διατηρήσετε τις μακροεντολές, επιλέξτε PPTM, PPSM ή POTM.
 
-**Μπορεί το Aspose.Slides να εκτελέσει μακροεντολές μέσα σε μια παρουσίαση, για παράδειγμα για ανανέωση δεδομένων;**
+### Μπορεί το Aspose.Slides να εκτελεί μακροεντολές μέσα σε μια παρουσίαση, για παράδειγμα, για ανανέωση δεδομένων;
 
-Όχι. Η βιβλιοθήκη ποτέ δεν εκτελεί κώδικα VBA· η εκτέλεση είναι δυνατή μόνο μέσα στο PowerPoint με τις κατάλληλες ρυθμίσεις ασφαλείας.
+Όχι. Η βιβλιοθήκη δεν εκτελεί ποτέ κώδικα VBA· η εκτέλεση είναι δυνατή μόνο στο PowerPoint με τις κατάλληλες ρυθμίσεις ασφαλείας.
 
-**Υποστηρίζεται η εργασία με ελέγχους ActiveX που συνδέονται με κώδικα VBA;**
+### Υποστηρίζεται η εργασία με στοιχεία ActiveX που συνδέονται με κώδικα VBA;
 
-Ναι, μπορείτε να αποκτήσετε πρόσβαση σε υπάρχοντες [ελέγχους ActiveX](/slides/el/net/activex/), να τροποποιήσετε τις ιδιότητές τους και να τους αφαιρέσετε. Αυτό είναι χρήσιμο όταν οι μακροεντολές αλληλεπιδρούν με ActiveX.
+Ναι, μπορείτε να προσπελάσετε υπάρχοντα [ελεγκτές ActiveX](/slides/el/net/activex/), να τροποποιήσετε τις ιδιότητές τους και να τα αφαιρέσετε. Αυτό είναι χρήσιμο όταν οι μακροεντολές αλληλεπιδρούν με ActiveX.

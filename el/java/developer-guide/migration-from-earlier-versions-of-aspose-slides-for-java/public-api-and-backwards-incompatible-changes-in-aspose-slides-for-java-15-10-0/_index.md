@@ -1,11 +1,11 @@
 ---
-title: Δημόσιο API και Ασυμβατές Αλλαγές Πίσω Συμβατότητας στο Aspose.Slides για Java 15.10.0
-linktitle: Aspose.Slides για Java 15.10.0
+title: Δημόσιο API και Αντισυμβατότητες σε Aspose.Slides for Java 15.10.0
+linktitle: Aspose.Slides for Java 15.10.0
 type: docs
 weight: 180
 url: /el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
 keywords:
-- μετάβαση
+- μετανάστευση
 - παλαιός κώδικας
 - σύγχρονος κώδικας
 - παλαιά προσέγγιση
@@ -15,16 +15,14 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Αξιολογήστε τις ενημερώσεις του δημόσιου API και τις σημαντικές αλλαγές στο Aspose.Slides για Java ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP σας."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των αλλαγών που διακόπτουν στο Aspose.Slides for Java για ομαλή μετάβαση των λύσεων παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-{{% alert color="primary" %}}
-
-Αυτή η σελίδα καταγράφει όλες τις [added](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) ή [removed](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) τάξεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το API Aspose.Slides for Java 15.10.0.
-
+{{% alert color="info" %}} 
+Αυτή η σελίδα παραθέτει όλες τις [προστέθηκαν](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) ή [αφαιρέθηκαν](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το Aspose.Slides for Java 15.10.0 API.
 {{% /alert %}} 
-## **Δημόσιες αλλαγές API**
-#### **Το API κίνησης σειράς γραφήματος προστέθηκε στο ISequence**
-Οι νέες 2 μέθοδοι προστέθηκαν στη διεπαφή com.aspose.slides.ISequence.
+## **Αλλαγές δημόσιου API**
+#### **Το API κίνησης σειρών διαγράμματος προστέθηκε στο ISequence**
+Οι νέες 2 μέθοδοι έχουν προστεθεί στη διεπαφή com.aspose.slides.ISequence.
 
 ``` java
 
@@ -34,20 +32,24 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 ```
 
-Αυτές οι μέθοδοι προορίζονται να υποστηρίξουν τις κινήσεις των στοιχείων του γραφήματος:
+Αυτές οι μέθοδοι προορίζονται να υποστηρίξουν τις κινήσεις των στοιχείων του διαγράμματος:
 
-ανά σειρά
-ανά κατηγορίες
-ανά στοιχεία σειράς
-ανά στοιχεία κατηγοριών
+κατά σειρά
+κατά κατηγορίες
+κατά στοιχεία σειράς
+κατά στοιχεία κατηγοριών
 
-Τα δύο νέα enums EffectChartMajorGroupingType και EffectChartMinorGroupingType που σχετίζονται με την κίνηση των στοιχείων του γραφήματος εισήχθησαν.
+Τα δύο νέα enums EffectChartMajorGroupingType και EffectChartMinorGroupingType που σχετίζονται με την κίνηση των στοιχείων του διαγράμματος εισήχθησαν.
 
-Για να προσθέσετε κίνηση σειράς στο γράφημα, μπορεί να χρησιμοποιηθεί ο ακόλουθος κώδικας:
+Για να προσθέσετε κίνηση σειράς στο διάγραμμα μπορεί να χρησιμοποιηθεί ο παρακάτω κώδικας. Το διάγραμμα στο αρχείο παραδείγματος έχει τρεις σειρές, έτσι προστίθεται ένα εφέ για κάθε δείκτη από 0 έως 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -79,12 +81,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -98,8 +94,12 @@ try {
 Κίνηση κατηγοριών:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -152,8 +152,12 @@ try
 Κίνηση στοιχείων σειράς:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -254,8 +258,12 @@ try
 Κίνηση στοιχείων κατηγοριών:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -353,17 +361,19 @@ try
 
 ```
 #### **Νέο com.aspose.slides.VideoPlayerHtmlController προστέθηκε για την υποστήριξη εξαγωγής αρχείων πολυμέσων σε HTML**
-Η νέα δημόσια κλάση com.aspose.slides.VideoPlayerHtmlController προστέθηκε. Χρησιμοποιώντας το παράδειγμα αυτής της κλάσης, ο χρήστης μπορεί να εξάγει βίντεο και αρχεία ήχου σε HTML.
+Η νέα δημόσια κλάση com.aspose.slides.VideoPlayerHtmlController προστέθηκε. Χρησιμοποιώντας ένα αντικείμενο αυτής της κλάσης, ο χρήστης μπορεί να εξάγει αρχεία βίντεο και ήχου σε HTML.
 
-Οι κατασκευαστές του VideoPlayerHtmlController δέχονται τα παρακάτω παραμέτρους:
+Οι κατασκευαστές του VideoPlayerHtmlController δέχονται τις ακόλουθες παραμέτρους:
 
-path: Η διαδρομή όπου θα δημιουργηθούν τα αρχεία βίντεο και ήχου  
-fileName: Το όνομα του αρχείου HTML  
-baseUri: Το βασικό URI που θα χρησιμοποιηθεί για τη δημιουργία συνδέσμων  
+path: Η διαδρομή όπου θα δημιουργηθούν τα αρχεία βίντεο και ήχου (ο φάκελος πρέπει να υπάρχει ήδη)
+fileName: Το όνομα του αρχείου HTML
+baseUri: Το βασικό URI που θα χρησιμοποιηθεί για τη δημιουργία συνδέσμων
 
 Παράδειγμα χρήσης:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -371,7 +381,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

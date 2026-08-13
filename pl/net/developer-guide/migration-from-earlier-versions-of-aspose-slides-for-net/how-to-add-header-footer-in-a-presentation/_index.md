@@ -8,9 +8,9 @@ keywords:
 - migracja
 - dodaj nagłówek
 - dodaj stopkę
-- kod legacy
+- kod starszy
 - nowoczesny kod
-- podejście legacy
+- stare podejście
 - nowoczesne podejście
 - PowerPoint
 - OpenDocument
@@ -18,14 +18,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak dodać nagłówki i stopki w prezentacjach PowerPoint PPT, PPTX i ODP w .NET, korzystając zarówno ze starszych, jak i nowoczesnych interfejsów API Aspose.Slides."
+description: "Dowiedz się, jak dodać nagłówki i stopki w prezentacjach PowerPoint PPT, PPTX i ODP w .NET, używając zarówno starszych, jak i nowoczesnych interfejsów API Aspose.Slides."
 ---
-{{% alert color="primary" %}} 
-Zostało wydane nowe [Aspose.Slides for .NET API](/slides/pl/net/), które umożliwia generowanie dokumentów PowerPoint od podstaw oraz edytowanie istniejących.
+{{% alert color="info" %}} 
+
+Nowe [Aspose.Slides for .NET API](/slides/pl/net/) zostało wydane i teraz ten jedyny produkt obsługuje możliwość generowania dokumentów PowerPoint od podstaw oraz edytowania istniejących.
+
 {{% /alert %}} 
-## **Obsługa starszego kodu**
-Aby używać kodu legacy opracowanego w wersjach Aspose.Slides for .NET starszych niż 13.x, musisz wprowadzić niewielkie zmiany w swoim kodzie, a będzie on działał jak dotąd. Wszystkie klasy, które znajdowały się w starszych wersjach Aspose.Slides for .NET w przestrzeniach nazw Aspose.Slide i Aspose.Slides.Pptx, zostały teraz połączone w jedną przestrzeń nazw Aspose.Slides. Zapoznaj się z poniższym prostym fragmentem kodu dodającym nagłówek i stopkę w prezentacji w starszym API Aspose.Slides i postępuj zgodnie z krokami opisującymi, jak migrować do nowego, połączonego API.
-## **Podejście legacy Aspose.Slides for .NET**
+## **Wsparcie dla starszego kodu**
+Aby korzystać ze starszego kodu opracowanego w wersjach Aspose.Slides for .NET wcześniejszych niż 13.x, musisz wprowadzić niewielkie zmiany w swoim kodzie, a kod będzie działał tak jak wcześniej. Wszystkie klasy, które były dostępne w starej wersji Aspose.Slides for .NET w przestrzeniach nazw Aspose.Slide i Aspose.Slides.Pptx, zostały teraz połączone w jedną przestrzeń nazw Aspose.Slides. Proszę przyjrzeć się poniższemu prostemu fragmentowi kodu służącemu do dodawania nagłówka i stopki w prezentacji w starszym API Aspose.Slides oraz postępować zgodnie z opisanymi krokami migracji do nowego, połączonego API.
+## **Starsze podejście Aspose.Slides for .NET**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
@@ -35,10 +37,10 @@ sourcePres.UpdateSlideNumberFields = true;
 //Aktualizacja pól daty i czasu
 sourcePres.UpdateDateTimeFields = true;
 
-//Pokaż placeholder daty i czasu
+//Pokaż miejsce na datę i czas
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Pokaż placeholder stopki
+//Pokaż miejsce na stopkę
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
 //Pokaż numer slajdu
@@ -47,11 +49,13 @@ sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 //Ustaw widoczność nagłówka i stopki na slajdzie tytułowym
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Zapisz prezentację na dysku
+//Zapisz prezentację na dysk
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //Utwórz prezentację
 Presentation pres = new Presentation();
 
@@ -82,12 +86,17 @@ hf.HeaderText = "Header Text";
 //Ustaw tekst stopki
 hf.FooterText = "Footer Text";
 
-//Zapisz prezentację na dysku
+//Zapisz prezentację na dysk
 pres.Write("HeadFoot.ppt");
 ```
 
+
+
 ## **Nowe podejście Aspose.Slides for .NET 13.x**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
     //Ustawianie właściwości widoczności nagłówka i stopki
@@ -96,16 +105,16 @@ using (Presentation sourcePres = new Presentation())
     //Aktualizacja pól daty i czasu
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Pokaż placeholder daty i czasu
+    //Pokaż miejsce na datę i czas
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //Pokaż placeholder stopki
+    //Pokaż miejsce na stopkę
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
     //Ustaw widoczność nagłówka i stopki na slajdzie tytułowym
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
-    //Zapisz prezentację na dysku
+    //Zapisz prezentację na dysk
     sourcePres.Save("NewSource.pptx", SaveFormat.Pptx);
 }
 ```

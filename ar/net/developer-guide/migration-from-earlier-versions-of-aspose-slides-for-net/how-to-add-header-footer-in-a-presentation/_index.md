@@ -8,8 +8,8 @@ keywords:
 - ترحيل
 - إضافة رأس
 - إضافة تذييل
-- شفرة قديمة
-- شفرة حديثة
+- كود قديم
+- كود حديث
 - نهج قديم
 - نهج حديث
 - PowerPoint
@@ -18,47 +18,44 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعلم كيفية إضافة رؤوس وتذييلات إلى عروض PowerPoint بصيغ PPT و PPTX و ODP في .NET باستخدام كلٍ من واجهات Aspose.Slides القديمة والحديثة."
+description: "تعلم كيفية إضافة الرؤوس والتذييلات في عروض PowerPoint بصيغة PPT و PPTX و ODP في .NET باستخدام كل من واجهات برمجة التطبيقات القديمة والحديثة لـ Aspose.Slides."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديد الآن ويدعم هذا المنتج القدرة على إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الموجودة.
+تم إصدار نسخة جديدة من [Aspose.Slides for .NET API](/slides/ar/net/) الآن وتدعم هذه المنتج الواحد القدرة على إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الموجودة.
+
 {{% /alert %}} 
-## **الدعم للشفرة القديمة**
-من أجل استخدام الشفرة القديمة التي تم تطويرها باستخدام إصدارات Aspose.Slides for .NET التي تسبق 13.x، تحتاج إلى إجراء بعض التغييرات الطفيفة في الكود وسيعمل الكود كما كان مسبقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديم تحت مساحات الأسماء Aspose.Slide و Aspose.Slides.Pptx تم الآن دمجها في مساحة الاسم الواحدة Aspose.Slides. يرجى إلقاء نظرة على المقتطف البسيط التالي لإضافة رأس وتذييل في العرض التقديمي باستخدام Aspose.Slides API القديمة واتبع الخطوات التي تصف كيفية التحويل إلى الواجهة المدمجة الجديدة.
-## **النهج القديم لـ Aspose.Slides for .NET**
+## **دعم الكود القديم**
+لكي تستخدم الكود القديم الذي تم تطويره باستخدام إصدارات Aspose.Slides for .NET السابقة للنسخة 13.x، تحتاج إلى إجراء بعض التغييرات البسيطة في الكود الخاص بك وسيعمل الكود كما كان سابقًا. جميع الأصناف التي كانت موجودة في Aspose.Slides for .NET القديم تحت مساحات الأسماء Aspose.Slide و Aspose.Slides.Pptx تم دمجها الآن في مساحة اسم واحدة وهي Aspose.Slides. يرجى إلقاء نظرة على مقتطف الشيفرة البسيط التالي لإضافة ترويسية وتذييل في العرض التقديمي باستخدام Aspose.Slides API القديمة وتابع الخطوات التي تصف كيفية الانتقال إلى API المدمج الجديد.
+## **نهج Aspose.Slides for .NET القديم**
 ```c#
 PresentationEx sourcePres = new PresentationEx();
 
-//تعيين خصائص رؤية رأس وتذييل الشريحة
-//تحديث حقول التاريخ والوقت
-//إظهار عنصر نائب للتاريخ والوقت
-//إظهار عنصر نائب للتذييل
-//إظهار رقم الشريحة
-//تعيين رؤية رأس وتذييل الشريحة في شريحة العنوان
-//كتابة العرض التقديمي إلى القرص
+//تعيين خصائص رؤية الرأس والتذييل
 sourcePres.UpdateSlideNumberFields = true;
 
-//Update the Date Time Fields
+//تحديث حقول التاريخ والوقت
 sourcePres.UpdateDateTimeFields = true;
 
-//Show date time placeholder
+//إظهار عنصر نائبي التاريخ والوقت
 sourcePres.HeaderFooterManager.IsDateTimeVisible = true;
 
-//Show the footer place holder
+//إظهار عنصر نائبي التذييل
 sourcePres.HeaderFooterManager.IsFooterVisible = true;
 
-//Show Slide Number
+//إظهار رقم الشريحة
 sourcePres.HeaderFooterManager.IsSlideNumberVisible = true;
 
-//Set the  header footer visibility on Title Slide
+//تعيين رؤية الرأس والتذييل على شريحة العنوان
 sourcePres.HeaderFooterManager.SetVisibilityOnTitleSlide(true);
 
-//Write the presentation to the disk
+//كتابة العرض التقديمي إلى القرص
 sourcePres.Write("NewSource.pptx");
 ```
 
 ```c#
+using Aspose.Slides;
+
 //إنشاء العرض التقديمي
 Presentation pres = new Presentation();
 
@@ -94,23 +91,27 @@ pres.Write("HeadFoot.ppt");
 ```
 
 
-## **النهج الجديد لـ Aspose.Slides for .NET 13.x**
+
+## **نهج Aspose.Slides for .NET 13.x الجديد**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation sourcePres = new Presentation())
 {
-    //تعيين خصائص رؤية رأس وتذييل الشريحة
+    //تعيين خصائص رؤية الرأس والتذييل
     sourcePres.HeaderFooterManager.SetAllSlideNumbersVisibility(true);
 
     //تحديث حقول التاريخ والوقت
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //إظهار عنصر نائب للتاريخ والوقت
+    //إظهار عنصر نائبي التاريخ والوقت
     sourcePres.HeaderFooterManager.SetAllDateTimesVisibility(true);
 
-    //إظهار عنصر نائب للتذييل
+    //إظهار عنصر نائبي التذييل
     sourcePres.HeaderFooterManager.SetAllFootersVisibility(true);
     
-    //تعيين  رؤية رأس وتذييل الشريحة في شريحة العنوان
+    //تعيين رؤية الرأس والتذييل على شريحة العنوان
     sourcePres.HeaderFooterManager.SetVisibilityOnAllTitleSlides(true);
 
     //كتابة العرض التقديمي إلى القرص

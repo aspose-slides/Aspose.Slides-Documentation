@@ -4,13 +4,13 @@ type: docs
 weight: 45
 url: /nl/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Om Aspose.Slides voor JasperReports te integreren met JasperServer, moeten er enkele extra stappen worden genomen en moeten de configuratiebestanden van JasperServer worden bijgewerkt. Dit artikel legt uit hoe.
+Om Aspose.Slides for JasperReports te integreren met JasperServer, is het nodig om verschillende extra stappen te nemen en de JasperServer‑configuratiebestanden bij te werken. Dit artikel legt uit hoe.
 
 {{% /alert %}} 
 
-1. Voeg nieuwe exporteerder‑eigenschappen toe aan het **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** configuratiebestand.
+1. Voeg nieuwe exportereigenschappen toe aan het **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**‑configuratiebestand.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -27,13 +27,13 @@ Om Aspose.Slides voor JasperReports te integreren met JasperServer, moeten er en
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- voeg dit item toe aan exporterConfigMap -->
+    <!-- voeg deze entry toe aan exporterConfigMap -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
 2. Kopieer **aspose.slides.jasperreports.jar** naar **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Om de lettertype‑mappingfunctie te gebruiken, werk **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** bij zoals hieronder.
+3. Om de functie voor lettertypekoppeling te gebruiken, werk je **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** bij zoals hieronder.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

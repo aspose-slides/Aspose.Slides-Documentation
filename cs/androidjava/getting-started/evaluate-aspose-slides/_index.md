@@ -1,15 +1,15 @@
 ---
-title: Vyzkoušejte Aspose.Slides
+title: Vyhodnocení Aspose.Slides
 type: docs
 weight: 130
 url: /cs/androidjava/evaluate-aspose-slides/
 keywords:
-- vyzkoušet Aspose.Slides
-- testování Aspose.Slides
-- verze pro vyzkoušení
-- plná funkcionalita
-- vodoznak vyzkoušení
-- zakoupit Aspose.Slides
+- vyhodnotit Aspose.Slides
+- vyhodnocení Aspose.Slides
+- verze pro vyhodnocení
+- plná funkčnost
+- vodotisk pro vyhodnocení
+- nákup Aspose.Slides
 - omezení
 - PowerPoint
 - OpenDocument
@@ -17,34 +17,34 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Vyzkoušejte Aspose.Slides pro Android pomocí Javy a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) — začněte svou bezplatnou zkušební verzi."
+description: "Vyhodnoťte Aspose.Slides pro Android pomocí Javy a prozkoumejte funkce API pro prezentace PowerPoint (PPT, PPTX) a OpenDocument (ODP) — zahajte bezplatnou zkušební verzi."
 ---
-## **Aspose.Slides – zkušební verze**
+## **Aspose.Slides Vyhodnocení**
 
-Můžete snadno stáhnout Aspose.Slides k vyzkoušení. Balíček pro vyzkoušení je stejný jako zakoupený balíček. Vyzkoušejte verzi, která se po přidání několika řádků kódu pro aktivaci licence automaticky stane licencovanou.
+Aspose.Slides můžete snadno stáhnout k vyhodnocení. Vyhodnocovací balíček je stejný jako zakoupený balíček. Vyhodnocovací verze se jednoduše stane licencovanou poté, co přidáte několik řádků kódu pro aplikaci licence.
 
-Vyzkoušejte verze Aspose.Slides (bez specifikované licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení vkládá do horní části dokumentu vodoznak „evaluation“. Při extrahování textu z prezentací jste také omezeni na jeden snímek.
+Vyhodnocovací verze Aspose.Slides (bez určené licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení vloží vodotisk vyhodnocení do horní části dokumentu. Při extrahování textu z prezentačních snímků jste také omezeni na jeden snímek.
 
 ![todo:image_alt_text](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}}
-Pokud chcete testovat Aspose.Slides bez omezení zkušební verze, můžete požádat o 30‑denní dočasnou licenci. Viz [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
+{{% alert color="info" %}}
+Pokud chcete testovat Aspose.Slides bez omezení vyhodnocovací verze, můžete požádat o 30denní dočasnou licenci. Viz [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license)
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Mohu v režimu vyzkoušení testovat více prezentací paralelně v různých vláknech?**
+### Mohu testovat více prezentací paralelně napříč různými vlákny v režimu vyhodnocení?
 
-Ano. Můžete zpracovávat různé dokumenty paralelně; neměli byste sdílet stejný objekt prezentace [napříč vlákny](/slides/cs/androidjava/multithreading/). Režim vyzkoušení na to nemá vliv.
+Ano. Můžete zpracovávat různé dokumenty paralelně; neměli byste sdílet stejný objekt prezentace [napříč vlákny](/slides/cs/androidjava/multithreading/). Režim vyhodnocení to neovlivňuje.
 
-**Musím instalovat Microsoft PowerPoint, abych mohl knihovnu vyzkoušet na serveru nebo v CI?**
+### Musím nainstalovat Microsoft PowerPoint, abych vyhodnocoval knihovnu na serveru nebo v CI?
 
-Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani pro vyzkoušení, ani pro produkci.
+Ne. Aspose.Slides je samostatný engine a nevyžaduje instalaci PowerPointu ani při vyhodnocení, ani v produkci.
 
-**Mohu v režimu vyzkoušení plně otestovat konverzi PPT/PPTX do PDF a obrázků?**
+### Mohu plně testovat konverzi PPT/PPTX do PDF a obrázků v režimu vyhodnocení?
 
-Ano. [Konvertory](/slides/cs/androidjava/convert-presentation/) fungují; výstup bude obsahovat vodoznak.
+Ano. [Konvertory](/slides/cs/androidjava/convert-presentation/) fungují; výstup bude obsahovat vodotisk.
 
-**Mohu použít dočasnou licenci pro zátěžové testy bez vodoznaku?**
+### Mohu použít dočasnou licenci pro zátěžové testování bez vodotisku?
 
-Ano. 30‑denní dočasná licence odstraňuje omezení režimu vyzkoušení a umožňuje testovat bez vodoznaku.
+Ano. 30denní dočasná licence odstraňuje omezení režimu vyhodnocení a umožňuje testování bez vodotisku.

@@ -1,46 +1,46 @@
 ---
-title: สร้างและฝังแผนภูมิ Excel เป็น OLE Object โดยใช้ VSTO และ Aspose.Slides for .NET
-linktitle: สร้างและฝังแผนภูมิ Excel เป็น OLE Objects
+title: สร้างและฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ด้วย VSTO และ Aspose.Slides สำหรับ .NET
+linktitle: สร้างและฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE
 type: docs
 weight: 70
 url: /th/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 keywords:
 - สร้างแผนภูมิ
 - ฝังแผนภูมิ Excel
-- วัตถุ OLE
-- การย้าย
+- อ็อบเจ็กต์ OLE
+- การย้ายข้อมูล
 - VSTO
-- ระบบอัตโนมัติของ Office
+- การทำงานอัตโนมัติของ Office
 - PowerPoint
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ย้ายจากระบบอัตโนมัติของ Microsoft Office ไปยัง Aspose.Slides for .NET และฝังแผนภูมิ Excel เป็นวัตถุ OLE ลงในสไลด์ PowerPoint (PPT, PPTX) ด้วย C#."
+description: "ย้ายจากการทำงานอัตโนมัติของ Microsoft Office ไปยัง Aspose.Slides สำหรับ .NET และฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ลงในสไลด์ PowerPoint (PPT, PPTX) ด้วย C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
- แผนภูมิคือการแสดงภาพข้อมูลของคุณและถูกใช้กันอย่างแพร่หลายในสไลด์การนำเสนอ บทความนี้จะแสดงโค้ดเพื่อสร้างและฝังแผนภูมิ Excel เป็น OLE Object ในสไลด์ Microsoft PowerPoint อย่างอัตโนมัติโดยใช้ [VSTO](/slides/th/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) และ [Aspose.Slides for .NET](/slides/th/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+แผนภูมิเป็นการแสดงภาพข้อมูลของคุณและใช้กันอย่างแพร่หลายในการนำเสนอในสไลด์ บทความนี้จะแสดงโค้ดเพื่อสร้างและฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ในสไลด์ PowerPoint อย่างอัตโนมัติโดยใช้ [VSTO](/slides/th/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)และ[Aspose.Slides for .NET](/slides/th/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **สร้างและฝังแผนภูมิ Excel**
-ตัวอย่างโค้ดสองชุดด้านล่างยาวและละเอียดเนื่องจากงานที่อธิบายนั้นซับซ้อน คุณจะสร้างเวิร์กบุ๊ค Microsoft Excel, สร้างแผนภูมิ แล้วสร้างพรีเซนเทชัน Microsoft PowerPoint ที่คุณจะฝังแผนภูมิลงไป OLE Object มีลิงก์ไปยังเอกสารต้นฉบับ ดังนั้นผู้ใช้ที่ดับเบิลคลิกไฟล์ที่ฝังไว้จะเปิดไฟล์และแอปพลิเคชันของมัน
+ตัวอย่างโค้ดสองชุดด้านล่างค่อนข้างยาวและละเอียดเนื่องจากงานที่อธิบายมีความซับซ้อน คุณจะสร้าง Microsoft Excel workbook, สร้างแผนภูมิและจากนั้นสร้าง Microsoft PowerPoint presentation ที่คุณจะฝังแผนภูมิเข้าไป อ็อบเจ็กต์ OLE จะมีลิงก์ไปยังเอกสารต้นฉบับ ดังนั้นผู้ใช้ที่ดับเบิลคลิกไฟล์ที่ฝังไว้จะเปิดไฟล์และแอปพลิเคชันของมัน
 ## **ตัวอย่าง VSTO**
-ใช้ VSTO ขั้นตอนต่อไปนี้จะถูกดำเนินการ:
+โดยใช้ VSTO ขั้นตอนต่อไปนี้จะถูกดำเนินการ:
 
-1. สร้างอินสแตนซ์ของอ็อบเจกต์ Microsoft Excel ApplicationClass
-1. สร้างเวิร์กบุ๊คใหม่ที่มีชีตหนึ่งชีต
-1. เพิ่มแผนภูมิเข้าในชีต
-1. บันทึกเวิร์กบุ๊ค
-1. เปิดเวิร์กบุ๊ค Excel ที่มีชีตพร้อมข้อมูลแผนภูมิ
-1. รับคอลเลกชัน ChartObjects สำหรับชีตนั้น
-1. รับแผนภูมิที่จะคัดลอก
-1. สร้างพรีเซนเทชัน Microsoft PowerPoint
-1. เพิ่มสไลด์เปล่าลงในพรีเซนเทชัน
-1. คัดลอกแผนภูมิจากชีต Excel ไปยังคลิปบอร์ด
-1. วางแผนภูมิลงในพรีเซนเทชัน PowerPoint
+1. สร้างอินสแตนซ์ของอ็อบเจ็กต์ Microsoft Excel ApplicationClass
+1. สร้าง workbook ใหม่ที่มีแผ่นงานหนึ่งแผ่น
+1. เพิ่มแผนภูมิลงในแผ่นงาน
+1. บันทึก workbook
+1. เปิด Excel workbook ที่มีแผ่นงานที่มีข้อมูลแผนภูมิ
+1. ดึงคอลเลกชัน ChartObjects ของแผ่นงาน
+1. ดึงแผนภูมิที่ต้องการคัดลอก
+1. สร้าง Microsoft PowerPoint presentation
+1. เพิ่มสไลด์เปล่าลงใน presentation
+1. คัดลอกแผนภูมิจากแผ่นงาน Excel ไปยังคลิปบอร์ด
+1. วางแผนภูมิลงใน PowerPoint presentation
 1. กำหนดตำแหน่งแผนภูมิบนสไลด์
-1. บันทึกพรีเซนเทชัน
+1. บันทึก presentation
 
 ```c#
 CreateNewChartInExcel();
@@ -75,17 +75,17 @@ static void CreateNewChartInExcel()
 
     try
     {
-        // สร้างอินสแตนซ์ของอ็อบเจกต์ Excel ApplicationClass.
+        // สร้างอินสแตนซ์ของอ็อบเจ็กต์ Excel ApplicationClass.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // สร้างเวิร์กบุ๊คใหม่ที่มีชีตหนึ่งชีต.
+        // สร้าง workbook ใหม่ที่มีแผ่นงานหนึ่งแผ่น.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
-        // เปลี่ยนชื่อของชีต.
+        // เปลี่ยนชื่อของแผ่นงาน.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // แทรกข้อมูลบางส่วนสำหรับแผนภูมิลงในชีต.
+        // แทรกข้อมูลบางส่วนสำหรับแผนภูมิลงในแผ่นงาน.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
         //     2    N. America  1.5     2       1.5     2.5
@@ -122,10 +122,10 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // รับช่วงที่เก็บข้อมูลแผนภูมิ.
+        // ดึงช่วงที่บรรจุข้อมูลแผนภูมิ.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
-        // รับคอลเลกชัน ChartObjects สำหรับชีต.
+        // ดึงคอลเลกชัน ChartObjects สำหรับแผ่นงาน.
         xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
         // เพิ่มแผนภูมิลงในคอลเลกชัน.
@@ -136,7 +136,7 @@ static void CreateNewChartInExcel()
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
-        // บันทึกเวิร์กบุ๊ค.
+        // บันทึก workbook.
         newWorkbook.SaveAs(paramWorkbookPath, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, xlNS.XlSaveAsAccessMode.xlNoChange, paramMissing, paramMissing, paramMissing, paramMissing, paramMissing);
     }
@@ -158,13 +158,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // ประกาศตัวแปรเพื่อเก็บอ้างอิงถึงอ็อบเจกต์ของ PowerPoint.
+    // ประกาศตัวแปรเพื่อเก็บการอ้างอิงไปยังอ็อบเจ็กต์ PowerPoint.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // ประกาศตัวแปรเพื่อเก็บอ้างอิงถึงอ็อบเจกต์ของ Excel.
+    // ประกาศตัวแปรเพื่อเก็บการอ้างอิงไปยังอ็อบเจ็กต์ Excel.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -183,44 +183,44 @@ static void UseCopyPaste()
         // สร้างอินสแตนซ์ของ Excel.
         excelApplication = new xlNS.ApplicationClass();
 
-        // เปิดเวิร์กบุ๊ค Excel ที่มีชีตที่มีข้อมูลแผนภูมิ.
+        // เปิด Excel workbook ที่มีแผ่นงานที่ประกอบด้วยข้อมูลแผนภูมิ.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // ดึงชีตที่มีแผนภูมิ.
+        // ดึงแผ่นงานที่มีแผนภูมิ.
         targetSheet =
             (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
-        // ดึงคอลเลกชัน ChartObjects ของชีต.
+        // ดึงคอลเลกชัน ChartObjects สำหรับแผ่นงาน.
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // ดึงแผนภูมิที่ต้องการคัดลอก.
+        // ดึงแผนภูมิที่จะคัดลอก.
         existingChartObject =
             (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
-        // สร้างพรีเซนเทชัน PowerPoint.
+        // สร้าง PowerPoint presentation.
         pptPresentation =
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
 
-        // เพิ่มสไลด์เปล่าลงในพรีเซนเทชัน.
+        // เพิ่มสไลด์เปล่าลงใน presentation.
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // คัดลอกแผนภูมิจากชีต Excel ไปยังคลิปบอร์ด.
+        // คัดลอกแผนภูมิจากแผ่นงาน Excel ไปยังคลิปบอร์ด.
         existingChartObject.Copy();
 
-        // วางแผนภูมิลงในพรีเซนเทชัน PowerPoint.
+        // วางแผนภูมิลงใน PowerPoint presentation.
         shapeRange = pptSlide.Shapes.Paste();
 
         // กำหนดตำแหน่งแผนภูมิบนสไลด์.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
-        // บันทึกพรีเซนเทชัน.
+        // บันทึก presentation.
         pptPresentation.SaveAs(paramPresentationPath, pptNS.PpSaveAsFileType.ppSaveAsOpenXMLPresentation, Microsoft.Office.Core.MsoTriState.msoTrue);
     }
     catch (Exception ex)
@@ -229,37 +229,37 @@ static void UseCopyPaste()
     }
     finally
     {
-        // ปล่อยอ็อบเจกต์สไลด์ของ PowerPoint.
+        // ปล่อยอ็อบเจ็กต์สไลด์ PowerPoint.
         shapeRange = null;
         pptSlide = null;
 
-        // ปิดและปล่อยอ็อบเจกต์ Presentation.
+        // ปิดและปล่อยอ็อบเจ็กต์ Presentation.
         if (pptPresentation != null)
         {
             pptPresentation.Close();
             pptPresentation = null;
         }
 
-        // ปิด PowerPoint และปล่อยอ็อบเจกต์ ApplicationClass.
+        // ออกจาก PowerPoint และปล่อยอ็อบเจ็กต์ ApplicationClass.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
             powerpointApplication = null;
         }
 
-        // ปล่อยอ็อบเจกต์ Excel.
+        // ปล่อยอ็อบเจ็กต์ Excel.
         targetSheet = null;
         chartObjects = null;
         existingChartObject = null;
 
-        // ปิดและปล่อยอ็อบเจกต์ Workbook ของ Excel.
+        // ปิดและปล่อยอ็อบเจ็กต์ Excel Workbook.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
             excelWorkBook = null;
         }
 
-        // ปิด Excel และปล่อยอ็อบเจกต์ ApplicationClass.
+        // ออกจาก Excel และปล่อยอ็อบเจ็กต์ ApplicationClass.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -278,52 +278,62 @@ static void UseCopyPaste()
 
 
 ## **ตัวอย่าง Aspose.Slides for .NET**
-ใช้ Aspose.Slides for .NET ขั้นตอนต่อไปนี้จะถูกดำเนินการ:
+โดยใช้ Aspose.Slides for .NET ขั้นตอนต่อไปนี้จะถูกดำเนินการ:
 
-1. สร้างเวิร์กบุ๊คโดยใช้ Aspose.Cells for .NET
+1. สร้าง workbook ด้วย Aspose.Cells for .NET
 1. สร้างแผนภูมิ Microsoft Excel
-1. ตั้งค่า Size ของ OLE สำหรับแผนภูมิ Excel
-1. รับภาพของแผนภูมิ
-1. ฝังแผนภูมิ Excel เป็น OLE Object ภายในพรีเซนเทชัน PPTX ด้วย Aspose.Slides for .NET
-1. แทนที่ภาพวัตถุที่เปลี่ยนแปลงด้วยภาพที่ได้จากขั้นตอนที่ 3 เพื่อแก้ไขปัญหา object changed
-1. เขียนพรีเซนเทชันผลลัพธ์ลงดิสก์ในรูปแบบ PPTX
+1. กำหนดขนาด OLE ของแผนภูมิ Excel
+1. ดึงภาพของแผนภูมิ
+1. ฝังแผนภูมิ Excel เป็นอ็อบเจ็กต์ OLE ภายในการนำเสนอ PPTX โดยใช้ Aspose.Slides for .NET
+1. แทนที่ภาพของวัตถุที่เปลี่ยนแปลงด้วยภาพที่ได้รับในขั้นตอนที่ 3 เพื่อจัดการปัญหาวัตถุที่เปลี่ยนแปลง
+1. บันทึกการนำเสนอผลลัพธ์ลงดิสก์ในรูปแบบ PPTX
 
 
 
 ```c#
-//ขั้นตอน - 1: สร้างแผนภูมิ excel using Aspose.Cells
+using System.Drawing;
+using Aspose.Slides;
+
+//Step - 1: สร้างแผนภูมิ Excel ด้วย Aspose.Cells
 //--------------------------------------------------
-//สร้างเวิร์กบุ๊ค
+//Create a workbook
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
 //Add an excel chart
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//ขั้นตอน - 2: ตั้งค่า OLE size ของแผนภูมิโดยใช้ Aspose.Cells
+//Step - 2: ตั้งค่าขนาด OLE ของแผนภูมิ โดยใช้ Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//ขั้นตอน - 3: รับภาพของแผนภูมิด้วย Aspose.Cells
+//Step - 3: รับภาพของแผนภูมิด้วย Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//บันทึกเวิร์กบุ๊คลงสตรีม
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
-//ขั้นตอน - 4 และ 5
+//Step - 4  AND 5
 //-----------------------------------------------------------
-//ขั้นตอน - 4: ฝังแผนภูมิเป็น OLE object ภายใน .ppt presentation using Aspose.Slides
+//Step - 4: ฝังแผนภูมิเป็นอ็อบเจ็กต์ OLE ภายในการนำเสนอ .ppt โดยใช้ Aspose.Slides
 //-----------------------------------------------------------
-//ขั้นตอน - 5: แทนที่ภาพที่เปลี่ยนแปลงของวัตถุด้วยภาพที่ได้จากขั้นตอนที่ 3 เพื่อแก้ไขปัญหา Object Changed Issue
+//Step - 5: แทนที่ภาพของวัตถุที่เปลี่ยนแปลงด้วยภาพที่ได้จากขั้นตอนที่ 3 เพื่อแก้ไขปัญหา Object Changed Issue
 //-----------------------------------------------------------
-//สร้างพรีเซนเทชัน
+//Create a presentation
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//เพิ่มเวิร์กบุ๊คลงสไลด์
+//Add the workbook on slide
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//ขั้นตอน - 6: เขียนพรีเซนเทชันผลลัพธ์ลงดิสก์
+//Step - 6: เขียนการนำเสนอผลลัพธ์ลงดิสก์
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -351,7 +361,7 @@ static void AddExcelChartInPresentation(Presentation presentation, ISlide slide,
 ```c#
 static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int chartCols)
 {
-    //อาร์เรย์ของชื่อเซลล์
+    //อาเรย์ของชื่อเซลล์
     string[] cellsName = new string[]
       {
   "A1", "A2", "A3", "A4",
@@ -361,7 +371,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
   "E1", "E2", "E3", "E4"
       };
 
-    //อาร์เรย์ของข้อมูลเซลล์
+    //อาเรย์ของข้อมูลเซลล์
     int[] cellsValue = new int[]
       {
  67,86,68,91,
@@ -370,7 +380,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //เพิ่มแผ่นงานใหม่เพื่อใส่ข้อมูลลงในเซลล์
+    //เพิ่มเวิร์กชีตใหม่เพื่อใส่ข้อมูลลงในเซลล์
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
@@ -382,18 +392,18 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //เพิ่มแผ่นงานแผนภูมิ
+    //เพิ่มชีตแผนภูมิ
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //เพิ่มแผนภูมิใน ChartSheet โดยใช้ชุดข้อมูลจาก DataSheet
+    //เพิ่มแผนภูมิใน ChartSheet ด้วยชุดข้อมูลจาก DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //ตั้งค่า ChartSheet ให้เป็นแผ่นงานที่ทำงานอยู่
+    //ตั้งค่า ChartSheet ให้เป็นชีตที่ทำงานอยู่
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides para Xamarin
+title: "Aspose.Slides para Xamarin"
 type: docs
 weight: 150
 url: /pt/net/aspose-slides-for-xamarin/
@@ -13,36 +13,37 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Crie aplicativos móveis Xamarin em C# para visualizar, editar e converter apresentações com Aspose.Slides, suportando recursos avançados para PPT, PPTX e ODP no Android."
+description: "Crie aplicativos móveis Xamarin em C# para visualizar, editar e converter apresentações com Aspose.Slides, com suporte a recursos avançados para PPT, PPTX e ODP no Android."
 ---
 ## **Introdução**
 
-Xamarin é um framework usado para desenvolvimento móvel em .NET C#. Xamarin possui ferramentas e bibliotecas que estendem as capacidades da plataforma .NET. Ele permite que os desenvolvedores criem aplicativos para o sistema operacional **Android**.
+Xamarin é um framework usado para desenvolvimento móvel em .NET C#. Xamarin possui ferramentas e bibliotecas que ampliam as capacidades da plataforma .NET. Ele permite que desenvolvedores criem aplicativos para o sistema operacional **Android**.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Para desenvolvimento em Xamarin, os programadores podem usar seus ambientes de desenvolvimento habituais (C#, Visual Studio e bibliotecas de terceiros).
 
 {{% /alert %}}
 
-A API Aspose.Slides funciona na plataforma Xamarin. Para isso, o pacote Aspose.Slides .NET adiciona um DLL separado para Xamarin. Aspose.Slides for Xamarin suporta a maioria dos recursos disponíveis na versão .NET:
+A API Aspose.Slides funciona na plataforma Xamarin. Para isso, o pacote Aspose.Slides .NET adiciona uma DLL separada para Xamarin. Aspose.Slides for Xamarin suporta a maioria dos recursos disponíveis na versão .NET:
 
-- converter e visualizar apresentações.  
-- editar conteúdos em apresentações: texto, formas, gráficos, SmartArt, áudio/vídeo, fontes, etc.  
-- tratar/manusear animação, efeitos 2D, WordArt, etc.  
-- tratar/manusear metadados e propriedades do documento.  
+- conversão e visualização de apresentações.  
+- edição de conteúdo em apresentações: texto, formas, gráficos, SmartArt, áudio/vídeo, fontes, etc.  
+- manipulação de animação, efeitos 2D, WordArt, etc.  
+- manipulação de metadados e propriedades de documento.  
 - impressão, clonagem, mesclagem, comparação, divisão, etc.
 
-Fornecemos uma comparação de todos os recursos em outra seção próximo ao final desta página.
+Fornecemos uma comparação dos recursos completos em outra seção próxima ao final desta página.
 
 Na API Aspose.Slides for Xamarin, as classes, namespaces, lógica e comportamento são tão semelhantes quanto possível à versão .NET. Você pode migrar suas aplicações Aspose.Slides .NET para Xamarin com custos mínimos.
 
+
 ## **Exemplo Rápido**
-Você pode usar Aspose.Slides for Xamarin para construir e utilizar sua aplicação C# através do Slides for Android.
+Você pode usar Aspose.Slides for Xamarin para criar e utilizar sua aplicação C# através do Slides for Android.
 
-Estamos fornecendo um exemplo de aplicação Android via Xamarin que usa Aspose.Slides para exibir slides de apresentação e adiciona uma nova forma no slide ao tocar. Você pode encontrar o código completo dos exemplos no [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
+Estamos fornecendo um exemplo de aplicação Android via Xamarin que usa Aspose.Slides para exibir slides de apresentação e adiciona uma nova forma ao slide ao toque. Você pode encontrar o código‑fonte completo dos exemplos no [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-Vamos começar criando um aplicativo Xamarin Android:
+Vamos começar criando um Aplicativo Xamarin Android:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
@@ -97,7 +98,11 @@ Primeiro, criamos um layout de conteúdo que conterá uma visualização de imag
 Aqui, referenciamos a biblioteca "Aspose.Slides.Droid.dll" que inclui uma apresentação de exemplo ("HelloWorld.pptx") nos Assets da aplicação Xamarin e adicionamos sua inicialização ao MainActivity:
 
 **C# - MainActivity.cs - Inicialização**
+
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -134,7 +139,11 @@ public class MainActivity : AppCompatActivity
 Vamos adicionar a função para exibir os slides Anterior e Próximo ao tocar nos botões:
 
 **C# - MainActivity.cs - Exibir slides ao clicar nos botões Anterior e Próximo**
+
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -267,6 +276,7 @@ public class MainActivity : AppCompatActivity
 Por fim, vamos implementar uma função para adicionar uma forma elíptica ao tocar no slide:
 
 **C# - MainActivity.cs - Adicionar elipse ao clicar no slide**
+
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
 {
@@ -297,27 +307,28 @@ Por fim, vamos implementar uma função para adicionar uma forma elíptica ao to
 ```
 
 Cada clique no slide da apresentação adiciona uma elipse de cor aleatória:
+
 ![todo:image_alt_text](https://lh4.googleusercontent.com/RhjFHm6SgzOkXaehKhsY8q7SRZLFC7vV8_jyw-Gy4Scy68wTMg_apLZ3vPzRLOt1eEw_zUZmLlVhJ8oTGCg10dRNAETLSClRTBEyj2MWuefNpJI4i7WLIe0x8A7xuh4CV91loLKi)
 
 
-## **Recursos Compatíveis**
+## **Recursos Suportados**
 
 |**RECURSOS**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
-|**Recursos de apresentação**:| | |
+|**Recursos de apresentação:**| | |
 |Criar novas apresentações|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Abrir/salvar formatos PowerPoint 97 - 2003|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Abrir/salvar formatos PowerPoint 2007|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formatos PowerPoint 97 - 2003 abrir/salvar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formatos PowerPoint 2007 abrir/salvar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Suporte a extensões PowerPoint 2010|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Suporte a extensões PowerPoint 2013|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Suporte a recursos PowerPoint 2016|restrito|restrito|
-|Suporte a recursos PowerPoint 2019|restrito|restrito|
+|Suporte a recursos PowerPoint 2016|restricted|restricted|
+|Suporte a recursos PowerPoint 2019|restricted|restricted|
 |Conversão PPT para PPTX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Conversão PPTX para PPT|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX em PPT|restrito|restrito|
+|PPTX em PPT|restricted|restricted|
 |Processamento de temas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Processamento de macros|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Processamento de propriedades do documento|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Processamento de propriedades de documentos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Proteção por senha|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Extração rápida de texto|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Incorporação de fontes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -328,56 +339,56 @@ Cada clique no slide da apresentação adiciona uma elipse de cor aleatória:
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|restrito|restrito|
-|SWF|restrito|restrito|
+|ODP|restricted|restricted|
+|SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Formatos de importação:**| | |
-|HTML|restrito|restrito|
+|HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Recursos de slides mestre:**| | |
-|Acesso a todos os slides mestre existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Criar/remover slides mestre|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Clonar slides mestre|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Recursos de layout de slides:**| | |
-|Acesso a todos os layouts de slides existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Criar/remover layouts de slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Clonar layouts de slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Recursos de slide:**| | |
-|Acesso a todos os slides existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Acessar todos os slides mestres existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Criar/remover slides mestres|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Clonar slides mestres|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Recursos de slides de layout:**| | |
+|Acessar todos os slides de layout existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Criar/remover slides de layout|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Clonar slides de layout|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Recursos de slides:**| | |
+|Acessar todos os slides existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Criar/remover slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Clonar slides|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Exportar slides para imagens|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Criar/editar/remover seções de slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Recursos de notas de slide:**| | |
-|Acesso a todas as notas de slide existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Recursos de forma:**| | |
-|Acesso a todas as formas do slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Recursos de slides de notas:**| | |
+|Acessar todos os slides de notas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Recursos de formas:**| | |
+|Acessar todas as formas de slide|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Adicionar novas formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Clonar formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Exportar formas individuais para imagens|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Tipos de forma suportados:**| | |
-|Todos os tipos de forma predefinidos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Quadros de imagem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Tipos de formas suportados:**| | |
+|Todos os tipos de formas predefinidas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Molduras de imagem|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tabelas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Gráficos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Diagramas legados|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Diagrama legado|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, objetos ActiveX|restrito|restrito|
-|Quadros de vídeo|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Quadros de áudio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Objetos OLE, ActiveX|restricted|restricted|
+|Molduras de vídeo|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Molduras de áudio|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Conectores|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Recursos de grupo de formas:**| | |
-|Acesso a grupos de formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Criar grupos de formas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Desagrupar grupos de formas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Recursos de efeitos de forma:**| | |
-|Efeitos 2D|restrito|restrito|
+|**Recursos de formas agrupadas:**| | |
+|Acessar formas agrupadas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Criar formas agrupadas|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Desagrupar formas agrupadas existentes|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Recursos de efeitos de formas:**| | |
+|Efeitos 2D|restricted|restricted|
 |Efeitos 3D|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Recursos de texto:**| | |
 |Formatação de parágrafos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Formatação de trechos|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formatação de porções|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Recursos de animação:**| | |
 |Exportar animação para SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Exportar animação para HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

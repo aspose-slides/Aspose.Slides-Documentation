@@ -1,6 +1,6 @@
 ---
-title: ادغام کارآمد ارائه‌ها در Android
-linktitle: ادغام ارائه‌ها
+title: به‌صورت مؤثر ارائه‌ها را در اندروید ترکیب کنید
+linktitle: ترکیب ارائه‌ها
 type: docs
 weight: 40
 url: /fa/androidjava/merge-presentation/
@@ -17,49 +17,51 @@ keywords:
 - ترکیب PPT
 - ترکیب PPTX
 - ترکیب ODP
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "به‌سهولة ادغام ارائه‌های PowerPoint (PPT، PPTX) و OpenDocument (ODP) با Aspose.Slides برای Android از طریق Java، و بهینه‌سازی گردش کار شما."
+description: "به‌سادگی ارائه‌های PowerPoint (PPT, PPTX) و OpenDocument (ODP) را با Aspose.Slides برای اندروید از طریق جاوا ادغام کنید و جریان کاری خود را بهینه کنید."
 ---
-## **مرور کلی**
+## **Overview**
 
-ادغام ارائه‌های PowerPoint و OpenDocument یک وظیفه‌ی رایج در بسیاری از برنامه‌های Android است، به‌خصوص هنگام تولید گزارش‌ها، ترکیب اسلایدها از منابع مختلف، یا خودکارسازی گردش کار ارائه‌ها. Aspose.Slides یک API قدرتمند و آسان‌استفاده برای ترکیب چندین فایل PPT، PPTX یا ODP در یک ارائه‌ی واحد بدون نیاز به نصب Microsoft PowerPoint، LibreOffice یا OpenOffice فراهم می‌کند.
+ادغام ارائه‌های PowerPoint و OpenDocument یک کار معمول در بسیاری از برنامه‌های Android است، به‌ویژه هنگام تولید گزارش‌ها، ترکیب اسلایدها از منابع مختلف یا خودکارسازی گردش کار ارائه‌ها. Aspose.Slides یک API قدرتمند و آسان‌استفاده برای ترکیب چندین فایل PPT، PPTX یا ODP در یک ارائه واحد فراهم می‌کند بدون نیاز به نصب Microsoft PowerPoint، LibreOffice یا OpenOffice.
 
-در این راهنما، نحوه‌ی ادغام ارائه‌های PowerPoint و OpenDocument را با تنها چند خط کد یاد می‌گیرید. مثال‌های آماده‑استفاده ارائه می‌شود و نحوه حفظ قالب‌بندی اسلایدها، لایوت‌ها و سایر عناصر ارائه در طول فرآیند ادغام نشان داده می‌شود.
+در این راهنما، یاد خواهید گرفت چگونه ارائه‌های PowerPoint و OpenDocument را با چند خط کد ادغام کنید. مثال‌های آماده برای استفاده در دسترس است و نشان می‌دهد چگونه قالب‌بندی، چینش‌ها و سایر عناصر ارائه را در طول فرآیند ادغام حفظ کنید.
 
-چه برنامه‌ای سازمانی و پیشرفته بسازید و چه یک ابزار ساده‌ٔ خودکارسازی، Aspose.Slides ادغام ارائه‌ها را سریع، قابل‌اعتماد و مقیاس‌پذیر می‌کند. Aspose.Slides امکان ادغام ارائه‌ها را به روش‌های مختلف فراهم می‌کند. می‌توانید ارائه‌ها را همراه با تمام شکل‌ها، سبک‌ها، متن، قالب‌بندی، نظرات، انیمیشن‌ها و موارد دیگر ترکیب کنید—بدون نگرانی دربارهٔ از دست رفتن کیفیت یا داده‌ها.
+چه برنامه‌ای سطح سازمانی بسازید و چه ابزار ساده‌ای برای خودکارسازی، Aspose.Slides ادغام ارائه‌ها را سریع، قابل‌اعتماد و مقیاس‌پذیر می‌سازد. Aspose.Slides امکان ادغام ارائه‌ها را به روش‌های مختلف فراهم می‌کند. می‌توانید ارائه‌ها را با تمام اشکال، سبک‌ها، متن، قالب‌بندی، نظرات، انیمیشن‌ها و موارد دیگر ترکیب کنید — بدون نگرانی دربارهٔ کاهش کیفیت یا داده‌ها.
 
-{{% alert color="primary" %}}
-See also:[Clone Slides](https://docs.aspose.com/slides/fa/androidjava/clone-slides/)
+{{% alert color="info" %}}
+همچنین ببینید: [Clone Slides](https://docs.aspose.com/slides/fa/androidjava/clone-slides/)
 {{% /alert %}}
 
-### **مواردی که می‌توان ادغام کرد**
+### **What Can Be Merged**
 
-با Aspose.Slides می‌توانید
+با Aspose.Slides می‌توانید 
 
-* کل ارائه‌ها را ادغام کنید. تمام اسلایدهای موجود در ارائه‌ها در یک ارائه جمع می‌شوند
-* اسلایدهای خاص را ادغام کنید. اسلایدهای انتخابی در یک ارائه قرار می‌گیرند
-* ارائه‌ها را در یک فرمت (مثلاً PPT به PPT، PPTX به PPTX و غیره) یا در فرمت‌های متفاوت (مثلاً PPT به PPTX، PPTX به ODP و غیره) به‌یکدیگر متصل کنید
+* تمام ارائه‌ها را ادغام کنید. تمام اسلایدهای موجود در ارائه‌ها در یک ارائه جمع می‌شوند
+* اسلایدهای خاص را ادغام کنید. اسلایدهای انتخاب‌شده در یک ارائه قرار می‌گیرند
+* ارائه‌ها را در یک فرمت (PPT به PPT، PPTX به PPTX و غیره) و در فرمت‌های مختلف (PPT به PPTX، PPTX به ODP و غیره) به یکدیگر ترکیب کنید. 
 
-### **گزینه‌های ادغام**
+### **Merging Options**
 
-می‌توانید گزینه‌هایی اعمال کنید که تعیین می‌کند:
+می‌توانید گزینه‌هایی اعمال کنید که تعیین می‌کند 
 
-* هر اسلاید در ارائهٔ خروجی دارای سبک منحصر به فردی باشد
-* یک سبک خاص برای تمام اسلایدهای ارائهٔ خروجی استفاده شود
+* هر اسلاید در ارائه خروجی سبک منحصر به فردی حفظ کند
+* یک سبک خاص برای تمام اسلایدهای ارائه خروجی استفاده شود. 
 
-برای ادغام ارائه‌ها، Aspose.Slides متدهای [AddClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) را از اینترفیس [ISlideCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection) فراهم می‌کند. چندین پیاده‌سازی برای متدهای `AddClone` وجود دارد که پارامترهای فرآیند ادغام را تعریف می‌کند. هر شیء Presentation دارای کالکشن [Slides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation#getSlides--) است، بنابراین می‌توانید متد `AddClone` را از ارائه‌ای که می‌خواهید اسلایدها به آن اضافه شوند، فراخوانی کنید.
+برای ادغام ارائه‌ها، Aspose.Slides متدهای [AddClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (از رابط [ISlideCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection)) را فراهم می‌کند. چندین پیاده‌سازی از متدهای `AddClone` وجود دارد که پارامترهای فرآیند ادغام ارائه را تعریف می‌کنند. هر شیء Presentation یک مجموعه [Slides](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation#getSlides--) دارد، بنابراین می‌توانید متد `AddClone` را از ارائه‌ای که می‌خواهید اسلایدها به آن اضافه شوند، فراخوانی کنید.
 
-متد `AddClone` یک شیء `ISlide` برمی‌گرداند که کلون اسلاید منبع است. اسلایدهای ارائهٔ خروجی به سادگی کپی‌ای از اسلایدهای منبع هستند. بنابراین می‌توانید به اسلایدهای حاصل تغییراتی اعمال کنید (مثلاً اعمال سبک یا گزینه‌های قالب‌بندی یا لایوت) بدون این‌که ارائه‌های منبع تحت تأثیر قرار گیرند.
+متد `AddClone` یک شیء `ISlide` بازمی‌گرداند که یک کلون از اسلاید منبع است. اسلایدهای ارائه خروجی صرفاً کپی‌ای از اسلایدهای منبع هستند. بنابراین می‌توانید تغییرات لازم (مانند اعمال سبک‌ها یا گزینه‌های قالب‌بندی یا چینش‌ها) را بر روی اسلایدهای حاصل انجام دهید بدون اینکه نگران تأثیر بر روی ارائه‌های منبع باشید. 
 
-## **ادغام ارائه‌ها**
+## **Merge Presentations** 
 
-Aspose.Slides متد [**AddClone(ISlide)**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) را فراهم می‌کند که امکان ترکیب اسلایدها را فراهم می‌سازد در حالی که اسلایدها لایوت و سبک خود را حفظ می‌کنند (پارامترهای پیش‌فرض).
+Aspose.Slides متد [**AddClone(ISlide)**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) را ارائه می‌دهد که به شما اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که اسلایدها چینش و سبک‌های خود را حفظ می‌کنند (پارامترهای پیش‌فرض).
 
 این کد Java نشان می‌دهد چگونه ارائه‌ها را ادغام کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
@@ -77,20 +79,22 @@ try {
 }
 ```
 
-## **ادغام ارائه‌ها با یک Slide Master**
+## **Merge Presentations with a Slide Master**
 
-Aspose.Slides متد [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) را فراهم می‌کند که امکان ترکیب اسلایدها را همراه با اعمال یک قالب Slide Master ارائه می‌دهد. به این ترتیب، در صورت نیاز می‌توانید سبک اسلایدهای ارائهٔ خروجی را تغییر دهید.
+Aspose.Slides متد [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) را فراهم می‌کند که به شما اجازه می‌دهد اسلایدها را ترکیب کنید در حالی که قالب مستر اسلاید ارائه اعمال می‌شود. به این ترتیب، در صورت نیاز می‌توانید سبک اسلایدهای ارائه خروجی را تغییر دهید.
 
 این کد Java عملیات توصیف‌شده را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
     try {
         for(ISlide slide : pres2.getSlides())
         {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
+            pres1.getSlides().addClone(slide, pres1.getMasters().get_Item(0), true);
         }
     } finally {
         if (pres2 != null) pres2.dispose();
@@ -102,24 +106,26 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-طرح لایوت برای Slide Master به‌صورت خودکار تعیین می‌شود. هنگامی که لایوت مناسب نتواند تعیین شود، در صورتی که پارامتر Boolean `allowCloneMissingLayout` متد `AddClone` برابر true باشد، لایوت اسلاید منبع استفاده می‌شود. در غیر این‌صورت، استثنای [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PptxEditException) پرتاب می‌شود.
+چینش اسلاید برای مستر اسلاید به‌صورت خودکار تعیین می‌شود. وقتی چینش مناسب قابل تشخیص نیست، اگر پارامتر بولی `allowCloneMissingLayout` متد `AddClone` روی true تنظیم شده باشد، چینش اسلاید منبع استفاده می‌شود. در غیر این صورت، استثنای [PptxEditException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/PptxEditException) پرتاب خواهد شد.
 {{% /alert %}}
 
-اگر می‌خواهید اسلایدهای ارائهٔ خروجی لایوت متفاوتی داشته باشند، به‌جای آن هنگام ادغام از متد [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) استفاده کنید.
+اگر می‌خواهید اسلایدهای ارائه خروجی چینش متفاوتی داشته باشند، هنگام ادغام از متد [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) استفاده کنید.
 
-## **ادغام اسلایدهای خاص از ارائه‌ها**
+## **Merge Specific Slides from Presentations**
 
-ادغام اسلایدهای خاص از چندین ارائه برای ایجاد دک‌های سفارشی مفید است. Aspose.Slides for Android via Java به شما امکان می‌دهد تنها اسلایدهای مورد نیاز را انتخاب و وارد کنید. API قالب‌بندی، لایوت و طراحی اسلایدهای اصلی را حفظ می‌کند.
+ادغام اسلایدهای خاص از چندین ارائه برای ساخت دک‌های سفارشی مفید است. Aspose.Slides for Android via Java به شما اجازه می‌دهد فقط اسلایدهای مورد نیاز را انتخاب و وارد کنید. API قالب‌بندی، چینش و طراحی اسلایدهای اصلی را حفظ می‌کند.
 
-کد Java زیر یک ارائهٔ جدید می‌سازد، اسلایدهای عنوان از دو ارائه دیگر اضافه می‌کند و نتیجه را در یک فایل ذخیره می‌نماید:
+کد Java زیر یک ارائه جدید ایجاد می‌کند، اسلایدهای عنوان را از دو ارائه دیگر اضافه می‌کند و نتیجه را در فایلی ذخیره می‌نماید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     presentation.getSlides().removeAt(0);
-    
+
     ISlide slide1 = getTitleSlide(presentation1);
 
     if (slide1 != null)
@@ -138,6 +144,8 @@ try {
 }
 ```
 ```java
+import com.aspose.slides.*;
+
 static ISlide getTitleSlide(IPresentation presentation) {
     for (ISlide slide : presentation.getSlides()) {
         if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
@@ -148,18 +156,20 @@ static ISlide getTitleSlide(IPresentation presentation) {
 }
 ```
 
-## **ادغام ارائه‌ها با یک Slide Layout**
+## **Merge Presentations with a Slide Layout**
 
-این کد Java نشان می‌دهد چگونه اسلایدها را از ارائه‌ها ترکیب کنید در حالی که لایوت دلخواه خود را بر روی آن‌ها اعمال می‌کنید تا یک ارائهٔ خروجی به‌دست آید:
+این کد Java نشان می‌دهد چگونه اسلایدها را از ارائه‌ها ترکیب کنید در حالی که چینش دلخواه خود را بر روی آن‌ها اعمال می‌کنید تا یک ارائه خروجی به‌دست آید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
     try {
         for(ISlide slide : pres2.getSlides())
         {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+            pres1.getSlides().addClone(slide, pres1.getLayoutSlides().get_Item(0));
         }
     } finally {
         if (pres2 != null) pres2.dispose();
@@ -171,17 +181,19 @@ try {
 
 ```
 
-## **ادغام ارائه‌ها با اندازه‌های اسلاید متفاوت**
+## **Merge Presentations with Different Slide Sizes**
 
 {{% alert title="Note" color="warning" %}} 
 نمی‌توانید ارائه‌ها را با اندازه‌های اسلاید متفاوت ادغام کنید. 
 {{% /alert %}}
 
-برای ادغام 2 ارائه با اندازه‌های اسلاید متفاوت، باید یکی از ارائه‌ها را طوری تغییر اندازه دهید که با اندازهٔ ارائه‌ دیگری مطابقت داشته باشد.
+برای ادغام ۲ ارائه با اندازه اسلاید متفاوت، باید یکی از ارائه‌ها را به‌گونه‌ای تغییر اندازه دهید تا با اندازه ارائه دیگر منطبق شود.
 
-این نمونه کد عمل توصیف‌شده را نشان می‌دهد:
+این کد نمونه عملیات توصیف‌شده را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
@@ -201,11 +213,13 @@ try {
 }
 ```
 
-## **ادغام اسلایدها به یک بخش از ارائه**
+## **Merge Slides to a Presentation Section**
 
-این کد Java نشان می‌دهد چگونه یک اسلاید خاص را به یک بخش در ارائه ادغام کنید:
+این کد Java نشان می‌دهد چگونه یک اسلاید خاص را به بخشی در یک ارائه ادغام کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
@@ -223,22 +237,22 @@ try {
 }
 ```
 
-اسلاید در انتهای بخش اضافه می‌شود.
+اسلاید در انتهای بخش اضافه می‌شود. 
 
-{{% alert title="Tip" color="primary" %}}
-Aspose یک برنامه وب رایگان به نام [FREE Collage](https://products.aspose.app/slides/fa/collage) ارائه می‌دهد. با استفاده از این سرویس آنلاین می‌توانید [JPG به JPG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG به PNG را ترکیب کنید، [شبکه‌های تصویری](https://products.aspose.app/slides/fa/collage/photo-grid) بسازید و غیره.
+{{% alert title="Tip" color="info" %}}
+Aspose یک برنامه وب رایگان **Collage** ارائه می‌دهد https://products.aspose.app/slides/fa/collage. با استفاده از این سرویس آنلاین می‌توانید [JPG به JPG](https://products.aspose.app/slides/fa/collage/jpg) یا PNG به PNG ترکیب کنید، شبکه‌های عکسی بسازید و غیره.
 {{% /alert %}}
 
-## **سوالات متداول**
+## **FAQ**
 
-**آیا محدودیتی برای تعداد اسلایدها هنگام ادغام ارائه‌ها وجود دارد؟**
+### آیا محدودیتی در تعداد اسلایدها هنگام ادغام ارائه‌ها وجود دارد؟
 
-بدون محدودیت‌های سخت‌گیرانه. Aspose.Slides می‌تواند فایل‌های بزرگ را مدیریت کند، اما عملکرد به اندازه فایل و منابع سیستم وابسته است. برای ارائه‌های بسیار بزرگ توصیه می‌شود از JVM 64‑bit استفاده کنید و حافظه Heap کافی تخصیص دهید.
+محدودیت سخت‌گیرانه‌ای نیست. Aspose.Slides می‌تواند فایل‌های بزرگ را پردازش کند، اما عملکرد به حجم فایل و منابع سیستم وابسته است. برای ارائه‌های بسیار بزرگ استفاده از JVM ۶۴‑بیتی و تخصیص کافی حافظه heap توصیه می‌شود.
 
-**آیا می‌توانم ارائه‌ها را با ویدئو یا صداهای جاسازی‌شده ادغام کنم؟**
+### آیا می‌توانم ارائه‌ها را با ویدیو یا صدا تعبیه‌شده ادغام کنم؟
 
-بله، Aspose.Slides محتوای چندرسانه‌ای جاسازی‌شده در اسلایدها را حفظ می‌کند، اما ممکن است اندازهٔ نهایی ارائه به‌طور قابل‌توجهی بزرگ‌تر شود.
+بله، Aspose.Slides محتوای چندرسانه‌ای تعبیه‌شده در اسلایدها را حفظ می‌کند، اما ممکن است فایل نهایی به‌طور قابل‌توجهی بزرگ‌تر شود.
 
-**آیا فونت‌ها هنگام ادغام ارائه‌ها حفظ می‌شوند؟**
+### آیا فونت‌ها هنگام ادغام ارائه‌ها حفظ می‌شوند؟
 
-بله. فونت‌های استفاده‌شده در ارائه‌های منبع در فایل خروجی حفظ می‌شوند به شرطی که بر روی سیستم نصب شده باشند یا [embedded](/slides/fa/androidjava/embedded-font/).
+بله. فونت‌های استفاده‌شده در ارائه‌های منبع در فایل خروجی حفظ می‌شوند، به شرط آنکه بر روی سیستم نصب باشند یا [embedded](/slides/fa/androidjava/embedded-font/).

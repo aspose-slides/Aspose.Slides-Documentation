@@ -1,37 +1,39 @@
 ---
-title: "الحصول على خصائص الشكل الفعّالة من العروض التقديمية في جافا"
-linktitle: "خصائص فعّالة"
+title: الحصول على خصائص الشكل الفعّالة من العروض التقديمية في Java
+linktitle: الخصائص الفعّالة
 type: docs
 weight: 50
 url: /ar/java/shape-effective-properties/
 keywords:
-  - "خصائص الشكل"
-  - "خصائص الكاميرا"
-  - "جهاز إضاءة"
-  - "شكل الحدّ"
-  - "إطار النص"
-  - "نمط النص"
-  - "ارتفاع الخط"
-  - "تنسيق التعبئة"
-  - "PowerPoint"
-  - "العرض التقديمي"
-  - "Java"
-  - "Aspose.Slides"
-description: "اكتشف كيف تقوم Aspose.Slides for Java بحساب وتطبيق خصائص الشكل الفعّالة للحصول على عرض دقيق في PowerPoint."
+- خصائص الشكل
+- خصائص الكاميرا
+- نظام الإضاءة
+- شكل الحافة
+- إطار النص
+- نمط النص
+- ارتفاع الخط
+- تنسيق التعبئة
+- PowerPoint
+- العرض التقديمي
+- Java
+- Aspose.Slides
+description: "اكتشف كيف يقوم Aspose.Slides for Java بحساب وتطبيق خصائص الشكل الفعّالة لتحقيق عرض PowerPoint دقيق."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة الفرق بين الخصائص **المحلية** و **الفعّالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً على مستوى تنسيق معين، مثل:
+هذا الموضوع يوضح الفرق بين الخصائص **المحلية** و **الفعّالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً في مستوى تنسيق معين، مثل:
 
-1. خصائص الجزء على شريحة.
-1. أنماط نص الشكل النموذجي على تخطيط أو شريحة رئيسية، عندما يحتوي إطار نص الجزء على شكل.
-1. إعدادات النص العامة في العرض التقديمي.
+1. خصائص الجزء في الشريحة.
+1. أنماط نص الشكل النموذجي في تخطيط أو شريحة رئيسية، عندما يكون لشكل إطار النص للجزء واحد.
+1. إعدادات النص العالمية في العرض التقديمي.
 
-يمكن تعريف القيم المحلية أو إغفالها على أي مستوى. عندما تحتاج Aspose.Slides إلى تنسيق «كما هو معروض» النهائي، فإنها تحل سلسلة الوراثة وتعيد القيم **الفعّالة**. يمكنك الحصول عليها عن طريق استدعاء طريقة `getEffective` على كائن التنسيق المحلي.
+يمكن تعريف القيم المحلية أو إغفالها في أي مستوى. عندما يحتاج Aspose.Slides إلى التنسيق النهائي "كما يُعرض"، يقوم بحل سلسلة الوراثة ويعيد القيم **الفعّالة**. يمكنك الحصول عليها باستدعاء طريقة `getEffective` على كائن التنسيق المحلي.
 
 المثال التالي يوضح كيفية الحصول على القيم الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص وعلى الأقل جزء واحد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,17 +51,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-تمثل بيانات التنسيق الفعّال التنسيق المحسوب الحالي بعد تطبيق الوراثة. في التطبيق الحالي، قد يتم تخزين بعض كائنات البيانات الفعّالة مؤقتًا داخليًا، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPortionFormatEffectiveData). استدعاء `getEffective` مرة أخرى بعد تغيير التنسيق الأب أو الموروث يمكنه تحديث البيانات المخزنة مؤقتًا، وقد لا يمثل الكائن الذي تم الحصول عليه مسبقًا الحالة السابقة. إذا كنت بحاجة إلى الاحتفاظ بالقيم الفعّالة لإعادة استخدامها لاحقًا، قم بنسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن البيانات الخاص بك.
+{{% alert color="info" %}}
+تمثل بيانات التنسيق الفعّالة التنسيق المحسوب الحالي بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعّالة، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPortionFormatEffectiveData)، مؤقتًا داخليًا. استدعاء `getEffective` مرة أخرى بعد تغيير التنسيق الأب أو الموروث يمكنه تحديث البيانات المخزنة، وقد لا يمثل الكائن الذي تم الحصول عليه سابقًا الحالة السابقة. إذا كنت بحاجة إلى حفظ القيم الفعّالة لإعادة استخدامها لاحقًا، انسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن البيانات الخاص بك.
 {{% /alert %}}
 
 ## **الحصول على الخصائص الفعّالة للكاميرا**
 
-تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة للكاميرا. تمثل الواجهة [ICameraEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعّالة. يتم إتاحة مثال [ICameraEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICameraEffectiveData) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
+يسمح Aspose.Slides لك بالحصول على الخصائص الفعّالة للكاميرا. تمثل واجهة [ICameraEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICameraEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص كاميرا فعّالة. يتم إظهار نسخة من [ICameraEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICameraEffectiveData) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
 
-يعرض المثال البرمجي التالي كيفية الحصول على الخصائص الفعّالة للكاميرا. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+يعرض المقتطف البرمجي التالي كيفية الحصول على الخصائص الفعّالة للكاميرا. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -80,13 +84,15 @@ try {
 }
 ```
 
-## **الحصول على الخصائص الفعّالة لجهاز الإضاءة**
+## **الحصول على الخصائص الفعّالة لجهاز إضاءة**
 
-تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لجهاز الإضاءة. تمثل الواجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص جهاز الإضاءة الفعّالة. يتم إتاحة مثال [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ILightRigEffectiveData) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
+يسمح Aspose.Slides لك بالحصول على الخصائص الفعّالة لجهاز الإضاءة. تمثل واجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ILightRigEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص جهاز إضاءة فعّالة. يتم إظهار نسخة من [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ILightRigEffectiveData) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
 
-يعرض المثال البرمجي التالي كيفية الحصول على الخصائص الفعّالة لجهاز الإضاءة. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+يعرض المقتطف البرمجي التالي كيفية الحصول على الخصائص الفعّالة لجهاز الإضاءة. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,13 +111,15 @@ try {
 }
 ```
 
-## **الحصول على الخصائص الفعّالة للحدب (Bevel) في الشكل**
+## **الحصول على الخصائص الفعّالة لتدرّج الشكل**
 
-تتيح لك Aspose.Slides الحصول على الخصائص الفعّالة لحدب الشكل. تمثل الواجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الحدّ الفعّالة للشكل. يتم إتاحة مثال [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeBevelEffectiveData) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
+يسمح Aspose.Slides لك بالحصول على الخصائص الفعّالة لتدرّج الشكل. تمثل واجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeBevelEffectiveData) كائنًا غير قابل للتغيير يحتوي على خصائص الوجه المرفوعة الفعّالة لشكل ما. يتم إظهار نسخة من [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IShapeBevelEffectiveData) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormatEffectiveData)، التي توفر القيم الفعّالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IThreeDFormat).
 
-يعرض المثال البرمجي التالي كيفية الحصول على الخصائص الفعّالة للحدّ العلوي للشكل. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+يعرض المقتطف البرمجي التالي كيفية الحصول على الخصائص الفعّالة لتدرّج الجزء العلوي للشكل. يفترض أن الشكل الأول في الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -134,11 +142,13 @@ try {
 
 ## **الحصول على الخصائص الفعّالة لإطار النص**
 
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لإطار النص. تحتوي الواجهة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITextFrameFormatEffectiveData) على خصائص تنسيق إطار النص الفعّالية.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لإطار النص. تحتوي واجهة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITextFrameFormatEffectiveData) على خصائص تنسيق إطار النص الفعّالة.
 
-يعرض المثال البرمجي التالي كيفية الحصول على خصائص تنسيق إطار النص الفعّالية. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص.
+يعرض المقتطف البرمجي التالي كيفية الحصول على خصائص تنسيق إطار النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -169,11 +179,13 @@ try {
 
 ## **الحصول على الخصائص الفعّالة لنمط النص**
 
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لنمط النص. تحتوي الواجهة [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITextStyleEffectiveData) على خصائص نمط النص الفعّالية.
+باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعّالة لنمط النص. تحتوي واجهة [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITextStyleEffectiveData) على خصائص نمط النص الفعّالة.
 
-يعرض المثال البرمجي التالي كيفية الحصول على خصائص نمط النص الفعّالية. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص.
+يعرض المقتطف البرمجي التالي كيفية الحصول على خصائص نمط النص الفعّالة. يفترض أن الشكل الأول في الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IAutoShape) يحتوي على إطار نص.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -201,11 +213,13 @@ try {
 }
 ```
 
-## **الحصول على قيمة ارتفاع الخط الفعّال**
+## **الحصول على قيمة ارتفاع الخط الفعّالة**
 
 باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعّال. يوضح الكود التالي كيف يتغير ارتفاع الخط الفعّال للجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -276,13 +290,15 @@ try {
 }
 ```
 
-## **الحصول على تنسيق التعبئة الفعّال للجدول**
+## **الحصول على تنسيق التعبئة الفعّال لجدول**
 
-باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. تحتوي الواجهة [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IFillFormatEffectiveData) على خصائص تنسيق التعبئة الفعّالية. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنسيق الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بالكامل.
+باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. تحتوي واجهة [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IFillFormatEffectiveData) على خصائص تنسيق التعبئة الفعّالة. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنسيق الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بأكمله.
 
-وبالتالي، تُستخدم خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICellFormatEffectiveData) لرسم خلية الجدول. يعرض المثال البرمجي التالي كيفية الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول في الشريحة الأولى هو [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable).
+وبالتالي، تُستخدم خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ICellFormatEffectiveData) لرسم خلية الجدول. يعرض المقتطف البرمجي التالي كيفية الحصول على تنسيق التعبئة الفعّال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول في الشريحة الأولى هو [ITable](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ITable).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -304,34 +320,34 @@ try {
 
 ## **الأسئلة المتكررة**
 
-**هل تُعيد `getEffective` لقطة؟**
+### هل تُعيد `getEffective` لقطة ثابتة؟
 
-ليس دائمًا. تمثل البيانات الفعّالة التنسيق المحسوب بعد تطبيق الوراثة، لكن قد يتم تخزين بعض كائنات البيانات الفعّالة مؤقتًا داخليًا. قد يعيد استدعاء `getEffective` التالي حساب التنسيق وتحديث البيانات المخزنة مؤقتًا، لذا لا ينبغي اعتبار الكائن الذي تم الحصول عليه مسبقًا كلقطة ثابتة.
+ليس دائمًا. تمثل البيانات الفعّالة التنسيق المحسوب بعد تطبيق الوراثة، لكن بعض كائنات البيانات الفعّالة قد تُخزن مؤقتًا داخليًا. قد يعيد استدعاء `getEffective` لاحقًا إعادة حساب التنسيق وتحديث البيانات المخزنة، لذا لا ينبغي اعتبار الكائن الذي تم الحصول عليه مسبقًا كلقطة دائمة.
 
-**متى يجب عليّ قراءة الخصائص الفعّالة مرة أخرى؟**
+### متى يجب قراءة الخصائص الفعّالة مرة أخرى؟
 
-استدعِ `getEffective` مرة أخرى بعد تغيير التنسيق المحلي أو أنماط الأب أو تنسيق التخطيط أو تنسيق الرئيسي أو الإعدادات الافتراضية على مستوى العرض التقديمي. ستقوم الاستدعاء التالي بإعادة تقييم شجرة التنسيق وتعيد النتيجة الفعّالية الحالية.
+استدعِ `getEffective` مرة أخرى بعد تغيير تنسيق محلي أو أنماط أب، أو تنسيق تخطيط، أو تنسيق رئيس، أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيُعيد الاستدعاء التالي تقييم شجرة التنسيق ويُعيد النتيجة الفعّالة الحالية.
 
-**هل يؤثر تغيير أو إزالة شريحة تخطيط/رئيسية على الخصائص الفعّالية التي تم استرجاعها بالفعل؟**
+### هل يؤثر تعديل أو إزالة شريحة تخطيط/رئيس على الخصائص الفعّالة التي تم استرجاعها مسبقًا؟
 
-نعم، لكن يتم انعكاس التغيير في الاستدعاء التالي لـ `getEffective`. إذا تم تغيير أو إزالة مصدر تنسيق أب، قد تصبح البيانات الفعّالة التي تم الحصول عليها مسبقًا قديمة. بمجرد استدعاء `getEffective` مرة أخرى، تعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير الخطوط أو الألوان أو الأحجام أو القيم الأخرى الناتجة.
+نعم، لكن سيظهر التغيير في الاستدعاء التالي لـ `getEffective`. إذا تم تعديل مصدر تنسيق أب أو إزالته، قد تصبح البيانات الفعّالة التي تم الحصول عليها سابقًا قديمة. بمجرد استدعاء `getEffective` مرة أخرى، يعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير الخطوط والألوان والأحجام أو القيم الأخرى الناتجة.
 
-**هل يمكنني تعديل القيم عبر كائنات البيانات الفعّالة؟**
+### هل يمكنني تعديل القيم عبر كائنات البيانات الفعّالة؟
 
-لا. كائنات البيانات الفعّالة تعرض القيم المحسوبة فقط. يجب إجراء التغييرات في كائنات التنسيق المحلي، ثم الحصول على القيم الفعّالة مرة أخرى.
+لا. تكشف كائنات البيانات الفعّالة القيم المحسوبة فقط. يجب إجراء التغييرات في كائنات التنسيق المحلي، ثم الحصول على القيم الفعّالة مرة أخرى.
 
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل أو في التخطيط/الرئيسية أو في الإعدادات العامة؟**
+### ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل ولا في التخطيط/الرئيس ولا في الإعدادات العالمية؟
 
-يتم تحديد القيمة الفعّالة من خلال آلية القيم الافتراضية، والتي تشمل القيم الافتراضية في PowerPoint و Aspose.Slides. تصبح تلك القيمة المحسومة جزءًا من البيانات الفعّالة الحالية.
+يُحدد القيمة الفعّالة بواسطة آلية الافتراضية، التي تشمل إعدادات PowerPoint و Aspose.Slides الافتراضية. تصبح القيمة المُستخرجة جزءًا من البيانات الفعّالة الحالية.
 
-**هل يمكنني، من قيمة الخط الفعّالية، معرفة أي مستوى قد وفر الحجم أو نوع الخط؟**
+### من قيمة الخط الفعّالة، هل يمكنني معرفة المستوى الذي وفر الحجم أو الخط؟
 
-ليس مباشرة. تُعيد البيانات الفعّالة القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية في الجزء، الفقرة، إطار النص، وأنماط النص في التخطيط، الرئيسي، ومستوى العرض التقديمي لترى أين تظهر التعريف الصريح الأول.
+ليس مباشرة. تُعيد البيانات الفعّالة القيمة النهائية. لتحديد المصدر، تحقق من القيم المحلية في الجزء، الفقرة، إطار النص، وأنماط النص في التخطيط، والرئيس، ومستوى العرض التقديمي لمعرفة أين تظهر التعريف الصريح الأول.
 
-**لماذا تبدو القيم الفعّالة أحيانًا مطابقة للقيم المحلية؟**
+### لماذا تبدو القيم الفعّالة أحيانًا مطابقة تمامًا للقيم المحلية؟
 
-لأن القيمة المحلية أصبحت نهائية (لم يلزم أي وراثة من مستويات أعلى). في مثل هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
+لأن القيمة المحلية انتهت إلى أن تكون النهائية (لم تكن هناك حاجة إلى وراثة من مستوى أعلى). في هذه الحالات، تتطابق القيمة الفعّالة مع القيمة المحلية.
 
-**متى يجب عليّ استخدام الخصائص الفعّالة، ومتى أعمل فقط بالقيم المحلية؟**
+### متى يجب استخدام الخصائص الفعّالة، ومتى أكتفي بالخصائص المحلية؟
 
-استخدم البيانات الفعّالة عندما تحتاج إلى النتيجة «كما هي معروضة» بعد تطبيق جميع الوراثات، مثل محاذاة الألوان أو الهوامش أو الأحجام. إذا أردت الحفاظ على تلك القيم بغض النظر عن التغييرات اللاحقة في التنسيق، قم بنسخ الخصائص المطلوبة إلى كائن خاص بك. إذا كنت تحتاج إلى تغيير التنسيق على مستوى معين، عدّل الخصائص المحلية ثم، إذا لزم الأمر، اقرأ البيانات الفعّالة مرة أخرى للتحقق من النتيجة.
+استخدم البيانات الفعّالة عندما تحتاج إلى النتيجة "كما تُعرض" بعد تطبيق كل الوراثات، مثل محاذاة الألوان أو الهوامش أو الأحجام. إذا كنت بحاجة إلى الحفاظ على تلك القيم بغض النظر عن التغييرات المستقبلية في التنسيق، انسخ الخصائص المطلوبة إلى كائنك الخاص. إذا كنت تريد تعديل التنسيق على مستوى معين، غيّر الخصائص المحلية ثم، إذا لزم الأمر، اقرأ البيانات الفعّالة مرة أخرى للتحقق من النتيجة.

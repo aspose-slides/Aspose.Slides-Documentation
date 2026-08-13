@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunumlarını .NET'te Videoya Dönüştürme
+title: .NET'te PowerPoint Sunumlarını Videoya Dönüştürme
 linktitle: PowerPoint'ten Videoya
 type: docs
 weight: 130
@@ -12,7 +12,7 @@ keywords:
 - PowerPoint'ten videoya
 - sunumdan videoya
 - PPT'den videoya
-- PPTX'ten videoya
+- PPTX'den videoya
 - PowerPoint'ten MP4'e
 - sunumdan MP4'e
 - PPT'den MP4'e
@@ -26,52 +26,58 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET'te PowerPoint sunumlarını videoya nasıl dönüştüreceğinizi öğrenin. İş akışınızı hızlandırmak için örnek C# kodu ve otomasyon tekniklerini keşfedin."
+description: "PowerPoint sunumlarını .NET'te videoya nasıl dönüştüreceğinizi öğrenin. İş akışınızı hızlandırmak için örnek C# kodu ve otomasyon tekniklerini keşfedin."
 ---
 ## **Giriş**
 
-PowerPoint ya da OpenDocument sunumunuzu videoya dönüştürerek şunları elde edersiniz:
+PowerPoint veya OpenDocument sunumunuzu videoya dönüştürerek şu avantajları elde edersiniz:
 
-**Arttırılmış erişilebilirlik:** Tüm cihazlar, platformdan bağımsız olarak, varsayılan olarak video oynatıcılarıyla gelir, bu da kullanıcıların geleneksel sunum uygulamalarına göre videoları açmasını veya oynatmasını kolaylaştırır.
+**Artan erişilebilirlik:** Tüm cihazlar, platformdan bağımsız olarak, varsayılan olarak video oynatıcıya sahiptir, bu da geleneksel sunum uygulamalarına göre videoların açılmasını veya oynatılmasını kolaylaştırır.
 
-**Daha geniş erişim:** Videolar, daha geniş bir izleyici kitlesine ulaşmanızı ve bilgiyi daha ilgi çekici bir formatta sunmanızı sağlar. Anketler ve istatistikler, insanların diğer formatlara göre video içeriğini izlemeyi ve tüketmeyi tercih ettiğini gösterir, bu da mesajınızın daha etkili olmasını sağlar.
+**Daha geniş kitleye ulaşım:** Videolar, daha büyük bir izleyici kitlesine ulaşmanızı ve bilgileri daha etkileyici bir formatta sunmanızı sağlar. Anketler ve istatistikler, insanların diğer biçimlere göre video içeriğini izlemeyi ve tüketmeyi tercih ettiğini gösterir, bu da mesajınızın etkisini artırır.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
+{{% /alert %}} 
 
-Aşağıdaki [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/tr/video) göz atın çünkü burada açıklanan sürecin canlı ve etkili bir uygulamasını sunar.
+{{% alert color="info" %}} 
+{{% /alert %}} 
+
+{{% alert color="info" %}} 
+
+Kontrol edin: [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/tr/video) çünkü buradaki sürecin canlı ve etkili bir uygulamasını sunar.
 
 {{% /alert %}} 
 
 Aspose.Slides for .NET'te sunumları videoya dönüştürme desteği ekledik.
 
-* Aspose.Slides for .NET'i kullanarak sunum slaytlarından belirli bir kare hızı (FPS) ile çerçeveler oluşturun.  
-* Ardından, ffmpeg gibi bir üçüncü taraf yardımcı programı kullanarak bu çerçeveleri bir videoya derleyin.
+* Aspose.Slides for .NET'i kullanarak sunum slaytlarından belirli bir kare hızı (FPS) ile kareler oluşturun.
+* Ardından, bu kareleri bir video dosyasına derlemek için ffmpeg gibi üçüncü taraf bir yardımcı program kullanın.
 
-## **PowerPoint Sunumunu Videoya Dönüştürme**
+## **PowerPoint Sunumunu Video'ya Dönüştürme**
 
-1. Projenize Aspose.Slides ve FFMpegCore kütüphanesini eklemek için `dotnet add package` komutunu kullanın:  
-   * `dotnet add package Aspose.Slides.NET --version 22.11.0` çalıştırın  
-   * `dotnet add package FFMpegCore --version 4.8.0` çalıştırın  
-2. ffmpeg'i [buradan](https://ffmpeg.org/download.html) indirin.  
-3. FFMpegCore, indirilen ffmpeg'in yolunu belirtmenizi ister (örneğin, "C:\tools\ffmpeg" klasörüne çıkarıldı):  
+1. Projeye Aspose.Slides ve FFMpegCore kütüphanesini eklemek için `dotnet add package` komutunu kullanın:
+   * `dotnet add package Aspose.Slides.NET --version 22.11.0` komutunu çalıştırın
+   * `dotnet add package FFMpegCore --version 4.8.0` komutunu çalıştırın
+2. ffmpeg'i [buradan](https://ffmpeg.org/download.html) indirin.
+3. FFMpegCore, indirilen ffmpeg'in yolunu (örn. "C:\tools\ffmpeg" dizinine çıkarıldı) belirtmenizi ister:  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
-4. PowerPoint‑to‑video dönüşüm kodunu çalıştırın.
+4. PowerPoint‑to‑video dönüştürme kodunu çalıştırın.
 
-Bu C# kodu, bir şekil ve iki animasyon efekti içeren bir sunumu videoya dönüştürmeyi gösterir:
+Aşağıdaki C# kodu, bir şekil ve iki animasyon etkisi içeren bir sunumu videoya nasıl dönüştüreceğinizi gösterir:
 
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
-using FFMpegCore; // daha önce C:\tools\ffmpeg'e çıkardığımız FFmpeg ikili dosyalarını kullanacak.
+using FFMpegCore; // daha önce C:\tools\ffmpeg klasörüne çıkardığımız FFmpeg ikili dosyalarını kullanacaktır.
 using Aspose.Slides.Animation;
 
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Bir gülümseme şekli ekleyin ve ardından animasyon ekleyin.
+    // Bir gülümseme şekli ekleyin ve ardından onu canlandırın.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -108,32 +114,38 @@ using (Presentation presentation = new Presentation())
 
 ## **Video Efektleri**
 
-Aspose.Slides for .NET kullanarak bir PowerPoint sunumunu videoya dönüştürürken, çıkışın görsel kalitesini artırmak için çeşitli video efektleri uygulayabilirsiniz. Bu efektler, final videoda slaytların görünümünü pürüzsüz geçişler, animasyonlar ve diğer görsel öğeler ekleyerek kontrol etmenizi sağlar. Bu bölüm, mevcut video efekt seçeneklerini açıklar ve nasıl uygulanacağını gösterir.
+Aspose.Slides for .NET kullanarak bir PowerPoint sunumunu videoya dönüştürürken, çıkışın görsel kalitesini artırmak için çeşitli video efektleri uygulayabilirsiniz. Bu efektler, slaytların videoda sorunsuz geçişler, animasyonlar ve diğer görsel öğeler ekleyerek nasıl görüneceğini kontrol etmenizi sağlar. Bu bölüm, mevcut video efekti seçeneklerini açıklar ve bunların nasıl uygulanacağını gösterir.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bakınız:  
-- [C# ile PowerPoint Sunumlarını Animasyonlarla Geliştirme]((https://docs.aspose.com/slides/tr/net/powerpoint-animation/))  
-- [Şekil Animasyonu]((https://docs.aspose.com/slides/tr/net/shape-animation/))  
-- [C# Kullanarak PowerPoint'te Şekil Efektlerini Uygulama]((https://docs.aspose.com/slides/tr/net/shape-effect/))
+Bakınız:
+- [C# ile PowerPoint Sunumlarını Animasyonlarla Zenginleştirme](https://docs.aspose.com/slides/tr/net/powerpoint-animation/)
+- [Şekil Animasyonu](https://docs.aspose.com/slides/tr/net/shape-animation/)
+- [C# Kullanarak PowerPoint’te Şekil Efektleri Uygulama](https://docs.aspose.com/slides/tr/net/shape-effect/)
 
 {{% /alert %}} 
 
-Animasyonlar ve geçişler slayt gösterilerini daha ilgi çekici hâle getirir — videolar için de aynı şey geçerlidir. Önceki sunum koduna bir slayt ve geçiş ekleyelim:
+Animasyonlar ve geçişler slayt gösterilerini daha ilgi çekici ve eğlenceli hâle getirir — videolar için de aynı şey geçerlidir. Önceki sunum koduna bir slayt ve geçiş ekleyelim:
 
 ```c#
-// Bir gülümseme şekli ekleyin ve animasyon uygulayın.
-// ...
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
 
-// Yeni bir slayt ekleyin ve animasyonlu bir geçiş ekleyin.
-ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
-newSlide.Background.Type = BackgroundType.OwnBackground;
-newSlide.Background.FillFormat.FillType = FillType.Solid;
-newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
-newSlide.SlideShowTransition.Type = TransitionType.Push;
+using (Presentation presentation = new Presentation())
+{
+    // Bir gülümseme şekli ekleyin ve canlandırın (yukarıdaki koda bakın).
+
+    // Yeni bir slayt ekleyin ve animasyonlu bir geçiş ekleyin.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
-Aspose.Slides ayrıca metin animasyonlarını da destekler. Bu örnekte, nesneler üzerindeki paragraf ları birbiri ardına, aralarında bir saniyelik gecikme olacak şekilde animasyonluyoruz:
+Aspose.Slides aynı zamanda metin animasyonlarını da destekler. Bu örnekte, nesneler üzerindeki paragrafları birbiri ardına, aralarında bir saniyelik gecikme olacak şekilde canlandırıyoruz:
 
 ```c#
 using System.Collections.Generic;
@@ -146,7 +158,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Metin ve animasyonlar ekle.
+    // Metin ve animasyon ekleyin.
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
     Paragraph para1 = new Paragraph();
     para1.Portions.Add(new Portion("Aspose Slides for .NET"));
@@ -203,20 +215,24 @@ using (Presentation presentation = new Presentation())
 
 ## **Video Dönüştürme Sınıfları**
 
-PowerPoint‑to‑video dönüşüm görevlerini etkinleştirmek için Aspose.Slides for .NET, [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationanimationsgenerator/) ve [PresentationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationplayer/) sınıflarını sağlar.
+PowerPoint‑to‑video dönüşüm görevlerini etkinleştirmek için Aspose.Slides for .NET, [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationanimationsgenerator/) ve [PresentationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationplayer/) sınıflarını sunar.
 
-`PresentationAnimationsGenerator`, video için çerçeve boyutunu (daha sonra oluşturulacak) ve saniyedeki kare (FPS) değerini kurucusu aracılığıyla ayarlamanıza olanak tanır. Bir sunum örneği geçirirseniz, `Presentation.SlideSize` kullanılacak ve bu sınıf, [PresentationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationplayer/) tarafından kullanılan animasyonları üretir.
+`PresentationAnimationsGenerator`, video için kare boyutunu (daha sonra oluşturulacak) ve FPS (saniyedeki kare sayısı) değerini kurucu aracılığıyla ayarlamanıza izin verir. Bir sunum örneği geçirirseniz, onun `Presentation.SlideSize` özelliği kullanılır ve oluşturulan animasyonlar [PresentationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationplayer/) tarafından kullanılır.
 
-Animasyonlar üretildiğinde, her ardışık animasyon için bir `NewAnimation` olayı tetiklenir; bu olay bir [IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipresentationanimationplayer/) parametresi içerir. Bu sınıf, tek bir animasyonun oynatıcısını temsil eder.
+Animasyonlar oluşturulduğunda, her bir sonraki animasyon için bir `NewAnimation` olayı tetiklenir; bu olay bir [IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipresentationanimationplayer/) parametresi içerir. Bu sınıf, tek bir animasyon için oynatıcıyı temsil eder.
 
-[IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipresentationanimationplayer/) ile çalışırken, tam animasyon süresini veren `Duration` özelliğini ve `SetTimePosition` metodunu kullanırsınız. Her animasyon konumu *0 ile duration* aralığında ayarlanır ve `GetFrame` metodu o noktadaki animasyon durumunu gösteren bir Bitmap döndürür.
+[IPresentationAnimationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipresentationanimationplayer/) ile çalışmak için [Duration](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipresentationanimationplayer/duration/) özelliğini (animasyonun toplam süresini verir) ve [SetTimePosition](https://reference.aspose.com/slides/tr/net/aspose.slides.export/ipresentationanimationplayer/settimeposition/) metodunu kullanırsınız. Her animasyon konumu *0 ile duration* aralığında ayarlanır ve `GetFrame` metodu o anda animasyon durumunu gösteren bir Bitmap döndürür.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // Bir gülümseme şekli ekleyin ve animasyon uygulayın.
+    // Bir gülümseme şekli ekleyin ve canlandırın.
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -234,20 +250,23 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // Animasyonun ilk durumu.
-            Bitmap bitmap = animationPlayer.GetFrame();  // Animasyonun ilk durumu bitmap'i.
+            animationPlayer.SetTimePosition(0);        // Animasyonun ilk durumu.
+            IImage image = animationPlayer.GetFrame(); // Animasyonun ilk durumu resmi.
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // Animasyonun son durumu.
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // Animasyonun son karesi.
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // Animasyonun son durumu.
+            IImage lastImage = animationPlayer.GetFrame();             // Animasyonun son çerçevesi.
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
-Tüm animasyonların aynı anda oynatılmasını sağlamak için [PresentationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationplayer/) sınıfı kullanılır. Bu sınıf, kurucusunda bir [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationanimationsgenerator/) örneği ve efektler için bir FPS değeri alır, ardından tüm animasyonları oynatmak için `FrameTick` olayını tetikler:
+Tüm animasyonların aynı anda oynatılması için [PresentationPlayer](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationplayer/) sınıfı kullanılır. Bu sınıf, bir [PresentationAnimationsGenerator](https://reference.aspose.com/slides/tr/net/aspose.slides.export/presentationanimationsgenerator/) örneği ve efektler için bir FPS değeri alır, ardından tüm animasyonlar için `FrameTick` olayını tetikleyerek bunları oynatır:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -262,153 +281,153 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-Oluşturulan çerçeveler daha sonra birleştirilerek video üretilir. Bununla ilgili ayrıntıyı [PowerPoint Sunumunu Videoya Dönüştürme](/slides/tr/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video) bölümünde bulabilirsiniz.
+Oluşturulan kareler daha sonra bir video dosyasına derlenebilir. Bkz. [PowerPoint Sunumunu Video'ya Dönüştürme](/slides/tr/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video) bölümü.
 
 ## **Desteklenen Animasyonlar ve Efektler**
 
-Aspose.Slides for .NET kullanarak bir PowerPoint sunumunu videoya dönüştürürken, çıkışta hangi animasyonların ve efektlerin desteklendiğini anlamak önemlidir. Aspose.Slides, solma, kaydırma, yakınlaştırma ve döndürme gibi yaygın giriş, çıkış ve vurgu efektlerinin geniş bir yelpazesini destekler. Ancak bazı ileri düzey veya özel animasyonlar tam olarak korunmayabilir ya da final videoda farklı görünebilir. Aşağıda desteklenen animasyon ve efektler özetlenmiştir.
+Aspose.Slides for .NET kullanarak bir PowerPoint sunumunu videoya dönüştürürken, çıktıda hangi animasyon ve efektlerin desteklendiğini anlamak önemlidir. Aspose.Slides, fade, fly in, zoom ve spin gibi yaygın giriş, çıkış ve vurgu efektlerinin geniş bir yelpazesini destekler. Ancak, bazı gelişmiş veya özel animasyonlar tam olarak korunmayabilir ya da videoda farklı görünebilir. Bu bölüm, desteklenen animasyon ve efektleri özetler.
 
 **Giriş**:
 
-| Animasyon Tipi | Aspose.Slides | PowerPoint |
+| Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Görünme** | ![not supported](x.png) | ![supported](v.png) |
-| **Soldurma** | ![supported](v.png) | ![supported](v.png) |
-| **Uçuş İçeri** | ![supported](v.png) | ![supported](v.png) |
-| **Yüzme İçeri** | ![supported](v.png) | ![supported](v.png) |
-| **Bölünme** | ![supported](v.png) | ![supported](v.png) |
-| **Silme** | ![supported](v.png) | ![supported](v.png) |
-| **Şekil** | ![supported](v.png) | ![supported](v.png) |
-| **Tekerlek** | ![supported](v.png) | ![supported](v.png) |
-| **Rastgele Çubuklar** | ![supported](v.png) | ![supported](v.png) |
-| **Büyü & Dön** | ![not supported](x.png) | ![supported](v.png) |
-| **Yakınlaştırma** | ![supported](v.png) | ![supported](v.png) |
-| **Dönme** | ![supported](v.png) | ![supported](v.png) |
-| **Sıçrama** | ![supported](v.png) | ![supported](v.png) |
+| **Appear** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fade** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Fly In** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Float In** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Split** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Wipe** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shape** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Wheel** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Random Bars** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Grow & Turn** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Zoom** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Swivel** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Bounce** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
 **Vurgu**:
 
-| Animasyon Tipi | Aspose.Slides | PowerPoint |
+| Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Darbe** | ![not supported](x.png) | ![supported](v.png) |
-| **Renk Darbesi** | ![not supported](x.png) | ![supported](v.png) |
-| **Osilasyon** | ![supported](v.png) | ![supported](v.png) |
-| **Dönme** | ![supported](v.png) | ![supported](v.png) |
-| **Büyü/Küçül** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturasyon** | ![not supported](x.png) | ![supported](v.png) |
-| **Karanlıklaştırma** | ![not supported](x.png) | ![supported](v.png) |
-| **Aydınlatma** | ![not supported](x.png) | ![supported](v.png) |
-| **Şeffaflık** | ![not supported](x.png) | ![supported](v.png) |
-| **Nesne Rengi** | ![not supported](x.png) | ![supported](v.png) |
-| **Tamamlayıcı Renk** | ![not supported](x.png) | ![supported](v.png) |
-| **Çizgi Rengi** | ![not supported](x.png) | ![supported](v.png) |
-| **Dolgu Rengi** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Color Pulse** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Teeter** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Spin** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Grow/Shrink** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Desaturate** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Darken** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Lighten** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Transparency** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Object Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Complementary Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Line Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fill Color** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
 
 **Çıkış**:
 
-| Animasyon Tipi | Aspose.Slides | PowerPoint |
+| Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Kaybolma** | ![not supported](x.png) | ![supported](v.png) |
-| **Soldurma** | ![supported](v.png) | ![supported](v.png) |
-| **Uçuş Dışarı** | ![supported](v.png) | ![supported](v.png) |
-| **Yüzme Dışarı** | ![supported](v.png) | ![supported](v.png) |
-| **Bölünme** | ![supported](v.png) | ![supported](v.png) |
-| **Silme** | ![supported](v.png) | ![supported](v.png) |
-| **Şekil** | ![supported](v.png) | ![supported](v.png) |
-| **Rastgele Çubuklar** | ![supported](v.png) | ![supported](v.png) |
-| **Küçül & Dön** | ![not supported](x.png) | ![supported](v.png) |
-| **Yakınlaştırma** | ![supported](v.png) | ![supported](v.png) |
-| **Dönme** | ![supported](v.png) | ![supported](v.png) |
-| **Sıçrama** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fade** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Fly Out** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Float Out** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Split** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Wipe** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shape** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Random Bars** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shrink & Turn** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Zoom** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Swivel** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Bounce** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
 **Hareket Yolları**:
 
-| Animasyon Tipi | Aspose.Slides | PowerPoint |
+| Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Çizgiler** | ![supported](v.png) | ![supported](v.png) |
-| **Kemerler** | ![supported](v.png) | ![supported](v.png) |
-| **Dönüşler** | ![supported](v.png) | ![supported](v.png) |
-| **Şekiller** | ![supported](v.png) | ![supported](v.png) |
-| **Döngüler** | ![supported](v.png) | ![supported](v.png) |
-| **Özel Yol** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Arcs** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Turns** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shapes** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Loops** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Custom Path** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
 ## **Desteklenen Slayt Geçiş Efektleri**
 
-Slayt geçiş efektleri, bir videoda slaytlar arasındaki değişiklikleri pürüzsüz ve görsel açıdan çekici hâle getirmede önemli bir rol oynar. Aspose.Slides for .NET, orijinal sunumunuzun akışını ve stilini korumak için çeşitli yaygın geçiş efektlerini destekler. Aşağıda dönüşüm sırasında desteklenen geçiş efektleri listelenmiştir.
+Slayt geçiş efektleri, videoda slaytlar arasında sorunsuz ve görsel olarak çekici değişimler oluşturmak için önemli bir rol oynar. Aspose.Slides for .NET, orijinal sunumunuzun akışını ve stilini korumaya yardımcı olmak için yaygın olarak kullanılan çeşitli geçiş efektlerini destekler. Bu bölüm, dönüşüm sırasında hangi geçiş efektlerinin desteklendiğini vurgular.
 
-**İnce**:
+**Subtle (Hafif)**:
 
-| Geçiş Tipi | Aspose.Slides | PowerPoint |
+| Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Morph** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Push** | ![supported](v.png) | ![supported](v.png) |
-| **Pull** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Reveal** | ![not supported](x.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![not supported](x.png) | ![supported](v.png) |
-| **Uncover** | ![not supported](x.png) | ![supported](v.png) |
-| **Cover** | ![supported](v.png) | ![supported](v.png) |
-| **Flash** | ![supported](v.png) | ![supported](v.png) |
-| **Strips** | ![supported](v.png) | ![supported](v.png) |
+| **Morph** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fade** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Push** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Pull** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Wipe** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Split** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Reveal** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Random Bars** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Shape** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Uncover** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Cover** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Flash** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Strips** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
-**Heyecanlı**:
+**Exciting (Heyecanlı)**:
 
-| Geçiş Tipi | Aspose.Slides | PowerPoint |
+| Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Fall Over** | ![not supported](x.png) | ![supported](v.png) |
-| **Drape** | ![not supported](x.png) | ![supported](v.png) |
-| **Curtains** | ![not supported](x.png) | ![supported](v.png) |
-| **Wind** | ![not supported](x.png) | ![supported](v.png) |
-| **Prestige** | ![not supported](x.png) | ![supported](v.png) |
-| **Fracture** | ![not supported](x.png) | ![supported](v.png) |
-| **Crush** | ![not supported](x.png) | ![supported](v.png) |
-| **Peel Off** | ![not supported](x.png) | ![supported](v.png) |
-| **Page Curl** | ![not supported](x.png) | ![supported](v.png) |
-| **Airplane** | ![not supported](x.png) | ![supported](v.png) |
-| **Origami** | ![not supported](x.png) | ![supported](v.png) |
-| **Dissolve** | ![supported](v.png) | ![supported](v.png) |
-| **Checkerboard** | ![not supported](x.png) | ![supported](v.png) |
-| **Blinds** | ![not supported](x.png) | ![supported](v.png) |
-| **Clock** | ![supported](v.png) | ![supported](v.png) |
-| **Ripple** | ![not supported](x.png) | ![supported](v.png) |
-| **Honeycomb** | ![not supported](x.png) | ![supported](v.png) |
-| **Glitter** | ![not supported](x.png) | ![supported](v.png) |
-| **Vortex** | ![not supported](x.png) | ![supported](v.png) |
-| **Shred** | ![not supported](x.png) | ![supported](v.png) |
-| **Switch** | ![not supported](x.png) | ![supported](v.png) |
-| **Flip** | ![not supported](x/png) | ![supported](v.png) |
-| **Gallery** | ![not supported](x.png) | ![supported](v.png) |
-| **Cube** | ![not supported](x.png) | ![supported](v.png) |
-| **Doors** | ![not supported](x.png) | ![supported](v.png) |
-| **Box** | ![not supported](x.png) | ![supported](v.png) |
-| **Comb** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Random** | ![not supported](x.png) | ![supported](v.png) |
+| **Fall Over** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Drape** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Curtains** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Wind** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Prestige** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fracture** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Crush** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Peel Off** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Page Curl** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Airplane** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Origami** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Dissolve** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Checkerboard** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Blinds** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Clock** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Ripple** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Honeycomb** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Glitter** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Vortex** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Shred** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Switch** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Flip** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Gallery** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Cube** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Doors** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Box** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Comb** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Zoom** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Random** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
 
-**Dinamik İçerik**:
+**Dynamic Content (Dinamik İçerik)**:
 
-| Geçiş Tipi | Aspose.Slides | PowerPoint |
+| Animasyon Türü | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pan** | ![not supported](x.png) | ![supported](v.png) |
-| **Ferris Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Conveyor** | ![not supported](x.png) | ![supported](v.png) |
-| **Rotate** | ![not supported](x.png) | ![supported](v.png) |
-| **Orbit** | ![not supported](x.png) | ![supported](v.png) |
-| **Fly Through** | ![supported](v.png) | ![supported](v.png) |
+| **Pan** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Ferris Wheel** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
+| **Conveyor** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Rotate** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Orbit** | ![desteklenmiyor](x.png) | ![destekleniyor](v.png) |
+| **Fly Through** | ![destekleniyor](v.png) | ![destekleniyor](v.png) |
 
-## **Sıkça Sorulan Sorular**
+## **SSS**
 
-**Şifre korumalı sunumları dönüştürmek mümkün mü?**
+### Şifre korumalı sunumları dönüştürmek mümkün mü?
 
-Evet, Aspose.Slides for .NET şifreyle korunan sunumlarla çalışmaya izin verir. Bu dosyaları işlerken doğru şifreyi sağlamanız gerekir; böylece kütüphane sunumun içeriğine erişebilir.
+Evet, Aspose.Slides for .NET şifre korumalı sunumlarla çalışmayı destekler. Bu dosyaları işlerken doğru şifreyi sağlayarak kütüphanenin sunum içeriğine erişmesini sağlamalısınız.
 
-**Aspose.Slides for .NET bulut çözümlerinde kullanılabilir mi?**
+### Aspose.Slides for .NET bulut çözümlerinde kullanılabilir mi?
 
-Evet, Aspose.Slides for .NET bulut uygulamaları ve hizmetlerine entegre edilebilir. Kütüphane, sunucu ortamlarında çalışmak üzere tasarlanmıştır ve toplu dosya işleme için yüksek performans ve ölçeklenebilirlik sunar.
+Evet, Aspose.Slides for .NET bulut uygulamaları ve servislerine entegre edilebilir. Kütüphane, sunucu ortamlarında yüksek performans ve ölçeklenebilirlik sağlayacak şekilde tasarlanmıştır, bu da dosyaların toplu işlenmesi için idealdir.
 
-**Dönüştürme sırasında sunumların boyutlarıyla ilgili sınırlamalar var mı?**
+### Dönüştürme sırasında sunumların boyutlarıyla ilgili bir sınırlama var mı?
 
-Aspose.Slides for .NET neredeyse herhangi bir boyuttaki sunumu işleyebilir. Ancak çok büyük dosyalarla çalışırken ek sistem kaynaklarına ihtiyaç duyulabilir ve performansı artırmak için sunumu optimize etmek önerilir.
+Aspose.Slides for .NET neredeyse her boyutta sunumu işleyebilir. Ancak, çok büyük dosyalarla çalışırken ek sistem kaynaklarına ihtiyaç duyulabilir ve performansı artırmak için sunumu optimize etmeniz önerilir.

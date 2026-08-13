@@ -5,7 +5,7 @@ weight: 150
 url: /sv/net/aspose-slides-for-xamarin/
 keywords:
 - Xamarin
-- mobil utveckling
+- mobilutveckling
 - Android
 - PowerPoint
 - OpenDocument
@@ -13,29 +13,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Skapa Xamarin mobila appar i C# för att visa, redigera och konvertera presentationer med Aspose.Slides, med stöd för omfattande funktioner för PPT, PPTX och ODP på Android."
+description: "Skapa Xamarin-mobila appar i C# för att visa, redigera och konvertera presentationer med Aspose.Slides, med stöd för rika funktioner för PPT, PPTX och ODP på Android."
 ---
 ## **Introduktion**
 
-Xamarin är ett ramverk som används för mobilutveckling i .NET C#. Xamarin har verktyg och bibliotek som utökar funktionerna i .NET-plattformen. Det låter utvecklare skapa applikationer för **Android**‑operativsystemet. 
+Xamarin är ett ramverk som används för mobilutveckling i .NET C#. Xamarin har verktyg och bibliotek som utökar .NET-plattformens möjligheter. Det gör det möjligt för utvecklare att bygga applikationer för **Android**‑operativsystemet. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 För utveckling i Xamarin kan programmerare använda sina vanliga utvecklingsmiljöer (C#, Visual Studio och tredjepartsbibliotek).
 
 {{% /alert %}}
 
-Aspose.Slides API fungerar på Xamarin‑plattformen. För att uppnå detta lägger Aspose.Slides .NET‑paketet till en separat DLL för Xamarin. Aspose.Slides för Xamarin stödjer de flesta funktionerna som finns i .NET‑versionen:
+Aspose.Slides API fungerar på Xamarin‑plattformen. För att uppnå detta lägger Aspose.Slides .NET‑paketet till en separat DLL för Xamarin. Aspose.Slides för Xamarin stöder de flesta funktionerna som finns i .NET‑versionen:
 
-- konvertera och visa presentationer.
-- redigera innehåll i presentationer: text, former, diagram, SmartArt, ljud/video, teckensnitt osv.
-- hantera animation, 2D‑effekter, WordArt osv.
-- hantera metadata och dokumentegenskaper.
-- skrivning, kloning, sammanslagning, jämförelse, delning osv.
+- konvertering och visning av presentationer.
+- redigering av innehåll i presentationer: text, former, diagram, SmartArt, ljud/video, teckensnitt etc.
+- hantering av animation, 2D‑effekter, WordArt etc.
+- hantering av metadata och dokumentegenskaper.
+- utskrift, kloning, sammanslagning, jämförelse, delning etc.
 
-Vi har tillhandahållit en jämförelse av alla funktioner i ett annat avsnitt nära slutet av denna sida.
+Vi har tillhandahållit en jämförelse av de fullständiga funktionerna i ett annat avsnitt nära botten av denna sida.
 
-I Aspose.Slides för Xamarin API är klasser, namnrymder, logik och beteende så lika .NET‑versionen som möjligt. Du kan migrera dina Aspose.Slides .NET‑applikationer till Xamarin med minimal kostnad.
+I Aspose.Slides för Xamarin API är klasser, namnrum, logik och beteende så lika som möjligt den .NET‑versionen. Du kan migrera dina Aspose.Slides .NET‑applikationer till Xamarin med minimala kostnader.
 
 
 ## **Snabbt exempel**
@@ -99,11 +99,14 @@ Först skapar vi en innehållslayout som kommer att innehålla en bildvy, Prev�
 
 
 
-Här refererar vi till biblioteket "Aspose.Slides.Droid.dll" som innehåller en exempel­presentation ("HelloWorld.pptx") i Xamarin‑applikationens Assets och lägger till dess initialisering i MainActivity:
+Här refererar vi till biblioteket "Aspose.Slides.Droid.dll" som innehåller en exempelpresentation ("HelloWorld.pptx") i Xamarin‑applikationens Assets och lägger till dess initiering i MainActivity:
 
 **C# - MainActivity.cs - Initiering**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -137,11 +140,14 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
-Låt oss lägga till funktionen för att visa Prev‑ och Next‑bilder vid knapptryckning:
+Låt oss lägga till funktionen för att visa Prev‑ och Next‑bilderna när knapparna trycks:
 
 **C# - MainActivity.cs - Visa bilder vid Prev‑ och Next‑knappklick**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -273,7 +279,7 @@ public class MainActivity : AppCompatActivity
 
 
 
-Slutligen implementerar vi en funktion för att lägga till en ellipsform vid beröring av bilden:
+Slutligen, låt oss implementera en funktion för att lägga till en ellipsform vid beröring av bilden:
 
 **C# - MainActivity.cs - Lägg till ellips vid bildklick**
 
@@ -313,37 +319,37 @@ Varje klick på presentationsbilden lägger till en ellips med slumpmässig fär
 
 ## **Stödda funktioner**
 
-|**FUNKTIONER**|**Aspose.Slides för .NET**|**Aspose.Slides för Xamarin**|
+|**FUNKTIONER**|**Aspose.Slides for .NET**|**Aspose.Slides for Xamarin**|
 | :- | :- | :- |
 |**Presentationsegenskaper:**| | |
 |Skapa nya presentationer|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97‑2003‑format öppna/spara|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2007‑format öppna/spara|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2010‑tilläggsstöd|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2013‑tilläggsstöd|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2016‑funktioner stöd|begränsad|begränsad|
-|PowerPoint 2019‑funktioner stöd|begränsad|begränsad|
-|PPT till PPTX‑konvertering|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX till PPT‑konvertering|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX i PPT|begränsad|begränsad|
-|Tema‑behandling|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Makro‑behandling|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dokumentegenskaps‑behandling|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 97‑2003-format öppna/spara|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PowerPoint 2007-format öppna/spara|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Stöd för PowerPoint 2010‑tillägg|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Stöd för PowerPoint 2013‑tillägg|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Stöd för PowerPoint 2016‑funktioner|restricted|restricted|
+|Stöd för PowerPoint 2019‑funktioner|restricted|restricted|
+|PPT‑till‑PPTX‑konvertering|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX‑till‑PPT‑konvertering|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|PPTX i PPT|restricted|restricted|
+|Bearbetning av teman|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Bearbetning av makron|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Bearbetning av dokumentegenskaper|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Lösenordsskydd|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Snabb textutvinning|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Snabb textutdragning|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Inbäddning av teckensnitt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Kommentar‑rendering|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Avbrytning av långvariga uppgifter|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Rendering av kommentarer|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Avbrytande av långvariga uppgifter|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Exportformat:**| | |
 |PDF|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |XPS|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF|{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP|begränsad|begränsad|
-|SWF|begränsad|begränsad|
+|ODP|restricted|restricted|
+|SWF|restricted|restricted|
 |SVG|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Importformat:**| | |
-|HTML|begränsad|begränsad|
+|HTML|restricted|restricted|
 |ODP|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Master‑bildfunktioner:**| | |
@@ -358,11 +364,11 @@ Varje klick på presentationsbilden lägger till en ellips med slumpmässig fär
 |Åtkomst till alla befintliga bilder|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Skapa/ta bort bilder|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klona bilder|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Exportera bilder till bilder|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Exportera bilder till bildformat|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Skapa/redigera/ta bort bildsektioner|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Anteckningsbildsfunktioner:**| | |
-|Åtkomst till alla befintliga anteckningsbilder|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Formfunktioner:**| | |
+|**Notebildfunktioner:**| | |
+|Åtkomst till alla befintliga notebilder|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Form‑funktioner:**| | |
 |Åtkomst till alla bildformer|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Lägga till nya former|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Klona former|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -375,20 +381,20 @@ Varje klick på presentationsbilden lägger till en ellips med slumpmässig fär
 |SmartArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Äldre diagram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|OLE, ActiveX‑objekt|begränsad|begränsad|
-|Videoram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Ljudram|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Anslutningar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Gruppformfunktioner:**| | |
+|OLE, ActiveX‑objekt|restricted|restricted|
+|Videoramar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Ljudramar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Kopplingar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Gruppforms‑funktioner:**| | |
 |Åtkomst till gruppformer|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Skapa gruppformer|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Avgruppning av befintliga gruppformer|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Formeffektsfunktioner:**| | |
-|2D‑effekter|begränsad|begränsad|
+|Dela upp befintliga gruppformer|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|**Form‑effektfunktioner:**| | |
+|2D‑effekter|restricted|restricted|
 |3D‑effekter|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Textfunktioner:**| | |
 |Formatering av stycken|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Formatering av delar|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Formatering av portioner|{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Animationsfunktioner:**| | |
 |Exportera animation till SWF|{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Exportera animation till HTML|{{< emoticons/cross >}}|{{< emoticons/cross >}}|

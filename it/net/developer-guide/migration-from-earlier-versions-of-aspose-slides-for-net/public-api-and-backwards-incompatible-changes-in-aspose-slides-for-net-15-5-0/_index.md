@@ -1,5 +1,5 @@
 ---
-title: API pubbliche e modifiche incompatibili retroattive in Aspose.Slides per .NET 15.5.0
+title: Modifiche all'API pubblica e incompatibili retroattive in Aspose.Slides per .NET 15.5.0
 linktitle: Aspose.Slides per .NET 15.5.0
 type: docs
 weight: 160
@@ -16,25 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Rivedi gli aggiornamenti dell'API pubblica e le modifiche che introducono rotture in Aspose.Slides per .NET per migrare senza problemi le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Esamina gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per .NET per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Questa pagina elenca tutti gli [aggiunti](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) o [rimossi](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) classi, metodi, proprietà e così via, e le altre modifiche introdotte con l'API di Aspose.Slides per .NET 15.5.0.
+Questa pagina elenca tutte le classi, i metodi, le proprietà e così via [aggiunti](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) o [rimossi](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/), e le altre modifiche introdotte con l'API di Aspose.Slides per .NET 15.5.0.
 
 {{% /alert %}} 
 ## **Modifiche all'API pubblica**
-#### **Classe CommonSlideViewProperties e Interfaccia ICommonSlideViewProperties sono state aggiunte**
-La classe Aspose.Slides.CommonSlideViewProperties e l'interfaccia Aspose.Slides.ICommonSlideViewProperties rappresentano le proprietà comuni della vista diapositiva (attualmente le opzioni di scala della vista).
+#### **Classe CommonSlideViewProperties e interfaccia ICommonSlideViewProperties sono state aggiunte**
+La classe Aspose.Slides.CommonSlideViewProperties e l'interfaccia Aspose.Slides.ICommonSlideViewProperties rappresentano le proprietà comuni di visualizzazione delle diapositive (attualmente le opzioni di scala della visualizzazione).
 #### **Proprietà IAxis.LabelOffset è stata aggiunta**
 La proprietà IAxis.LabelOffset specifica la distanza delle etichette dall'asse. Si applica all'asse di categoria o di data.
-#### **Proprietà IChartTextBlockFormat.AutofitType è stata aggiunta**
-La modifica di questa proprietà può influire solo su queste parti del grafico: DataLabel e DataLabelFormat (supporto completo in PowerPoint 2013; in PowerPoint 2007 non ha alcun effetto durante il rendering).
-#### **Proprietà IChartTextBlockFormat.WrapText è stata aggiunta**
-La modifica di questa proprietà può influire solo su queste parti del grafico: DataLabel e DataLabelFormat (supporto completo in PowerPoint 2007/2013).
-#### **Proprietà Margin sono state aggiunte a IChartTextBlockFormat**
-La modifica di queste proprietà può influire solo su queste parti del grafico: DataLabel e DataLabelFormat (supporto completo in PowerPoint 2013; in PowerPoint 2007 non ha alcun effetto durante il rendering).
-#### **Proprietà ViewProperties.NotesViewProperties è stata aggiunta**
-È stata aggiunta la proprietà Aspose.Slides.ViewProperties.NotesViewProperties. Specifica le proprietà comuni della vista associate alla modalità visualizzazione note.
-#### **Proprietà ViewProperties.SlideViewProperties è stata aggiunta**
-È stata aggiunta la proprietà Aspose.Slides.ViewProperties.SlideViewProperties. Specifica le proprietà comuni della vista associate alla modalità visualizzazione diapositiva.
+#### **Proprietà IChartTextBlockFormat.AutofitType aggiunta**
+La modifica di questa proprietà può produrre un certo effetto solo per queste parti del grafico: DataLabel e DataLabelFormat (supporto completo in PowerPoint 2013; in PowerPoint 2007 non ha effetto durante il rendering).
+#### **Proprietà IChartTextBlockFormat.WrapText aggiunta**
+La modifica di questa proprietà può produrre un certo effetto solo per queste parti del grafico: DataLabel e DataLabelFormat (supporto completo in PowerPoint 2007/2013).
+#### **Proprietà Margin aggiunte a IChartTextBlockFormat**
+La modifica di queste proprietà può produrre un certo effetto solo per queste parti del grafico: DataLabel e DataLabelFormat (supporto completo in PowerPoint 2013; in PowerPoint 2007 non ha effetto durante il rendering).
+#### **Proprietà ViewProperties.NotesViewProperties aggiunta**
+È stata aggiunta la proprietà Aspose.Slides.ViewProperties.NotesViewProperties. Specifica le proprietà di visualizzazione comuni associate alla modalità di visualizzazione delle note.
+#### **Proprietà ViewProperties.SlideViewProperties aggiunta**
+È stata aggiunta la proprietà Aspose.Slides.ViewProperties.SlideViewProperties. Specifica le proprietà di visualizzazione comuni associate alla modalità di visualizzazione della diapositiva.

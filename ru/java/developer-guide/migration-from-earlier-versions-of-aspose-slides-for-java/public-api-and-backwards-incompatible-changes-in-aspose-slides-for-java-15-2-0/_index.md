@@ -1,43 +1,56 @@
 ---
-title: Публичное API и некорректные изменения в Aspose.Slides для Java 15.2.0
+title: Публичный API и несовместимые изменения в Aspose.Slides for Java 15.2.0
+linktitle: Aspose.Slides for Java 15.2.0
 type: docs
 weight: 110
 url: /ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/
+keywords:
+- миграция
+- унаследованный код
+- современный код
+- унаследованный подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Обзор обновлений публичного API и несовместимых изменений в Aspose.Slides for Java, позволяющий плавно мигрировать ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+Эта страница перечисляет все [added](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) классы, методы, свойства и т.д., а также новые ограничения и другие [changes](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) введённые в API Aspose.Slides for Java 15.2.0.
 
-Эта страница содержит все [добавленные](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) классы, методы, свойства и так далее, новые ограничения и другие [изменения](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/), введенные с API Aspose.Slides для Java 15.2.0.
+{{% /alert %}} {{% alert color="info" %}} 
 
-{{% /alert %}} {{% alert color="primary" %}} 
-
-Существуют известные проблемы с некоторыми маркерами изображений и объектами WordArt, которые будут исправлены в Aspose.Slides для Java 15.2.0.
+Известны проблемы с некоторыми графическими маркерами и объектами WordArt, которые будут исправлены в Aspose.Slides for Java 15.2.0.
 
 {{% /alert %}} 
-## **Изменения в публичном API**
-### **Добавлены методы addDataPointForDoughnutSeries**
-Добавлены два перегруженных метода IChartDataPointCollection.addDataPointForDoughnutSeries() для добавления точек данных в серии типа Doughnut.
-### **Класс com.aspose.slides.SmartArtShape унаследован от класса com.aspose.slides.GeometryShape**
-Класс com.aspose.slides.SmartArtShape унаследован от класса com.aspose.slides.GeometryShape. Это изменение улучшает объектную модель Aspose.Slides и добавляет новые функции в класс SmartArtShape.
-### **Изменены методы IGradientStopCollection.add(...) и IGradientStopCollection.insert(...)**
-Подпись метода IGradientStop add(float position, int presetColor) заменена на подпись IGradientStop addPresetColor(float position, int presetColor).
+## **Изменения публичного API**
+### **Методы addDataPointForDoughnutSeries были добавлены**
+Были добавлены два перегруженных метода IChartDataPointCollection.addDataPointForDoughnutSeries() для добавления точек данных в серии типа Doughnut.
+### **Класс com.aspose.slides.SmartArtShape теперь наследуется от класса com.aspose.slides.GeometryShape**
+Класс com.aspose.slides.SmartArtShape теперь наследуется от класса com.aspose.slides.GeometryShape. ... Это изменение улучшает объектную модель Aspose.Slides и добавляет новые возможности классу SmartArtShape.
+### **Методы IGradientStopCollection.add(...) и IGradientStopCollection.insert(...) были изменены**
+Подпись IGradientStop add(float position, int presetColor) заменена на подпись IGradientStop addPresetColor(float position, int presetColor).
 
-Подпись метода коллекции IGradientStopCollection IGradientStop add(float position, SchemeColor schemeColor) заменена на подпись IGradientStop addSchemeColor(float position, int schemeColor).
+Подпись метода IGradientStopCollection IGradientStop add(float position, SchemeColor schemeColor) заменена на подпись IGradientStop addSchemeColor(float position, int schemeColor).
 
-Подпись метода коллекции IGradientStopCollection void insert(int index, float position, int presetColor) заменена на подпись void insertPresetColor(int index, float position, int presetColor).
+Подпись метода IGradientStopCollection void insert(int index, float position, int presetColor) заменена на подпись void insertPresetColor(int index, float position, int presetColor).
 
-Подпись метода коллекции IGradientStopCollection void insert(int index, float position, SchemeColor schemeColor) заменена на подпись void insertSchemeColor(int index, float position, int schemeColor).
-### **Метод java.awt.Color getAutomaticSeriesColor() добавлен в com.aspose.slides.IChartSeries**
-Метод getAutomaticSeriesColor() возвращает автоматический цвет серии на основе индекса серии и стиля диаграммы. Этот цвет используется по умолчанию, если FillType равен NotDefined.
-﻿
+Подпись метода IGradientStopCollection void insert(int index, float position, SchemeColor schemeColor) заменена на подпись void insertSchemeColor(int index, float position, int schemeColor).
+### **Метод java.awt.Color getAutomaticSeriesColor() был добавлен в com.aspose.slides.IChartSeries**
+Метод getAutomaticSeriesColor() возвращает автоматический цвет серии на основе индекса серии и стиля диаграммы. Этот цвет используется по умолчанию, если FillType равно NotDefined.
 
 ``` java
+import com.aspose.slides.*;
 
- Презентация pres = новая Презентация();
+
+ Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
 
-для (int i = 0; i < chart.getChartData().getSeries().size(); i++)
+for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
 
 {
 
@@ -46,8 +59,8 @@ IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Clust
 }
 
 ```
-### **Метод для удаления точек данных диаграммы и категорий диаграммы по индексу добавлен**
-Метод IChartDataPointCollection.removeAt(int index) добавлен для удаления точки данных диаграммы по индексу.
-Метод IChartCategoryCollection.removeAt(int index) добавлен для удаления категории диаграммы по индексу.
-### **Значение PptXPptY добавлено в перечисление com.aspose.slides.PropertyType**
-Значение PptXPptY добавлено в перечисление com.aspose.slides.PropertyType в рамках исправления проблемы сериализации.
+### **Добавлен метод для удаления точки данных диаграммы и категории диаграммы по их индексу**
+Метод IChartDataPointCollection.removeAt(int index) был добавлен для удаления точки данных диаграммы по её индексу.
+Метод IChartCategoryCollection.removeAt(int index) был добавлен для удаления категории диаграммы по её индексу.
+### **Значение PptXPptY было добавлено в перечисление com.aspose.slides.PropertyType**
+Значение PptXPptY было добавлено в перечисление com.aspose.slides.PropertyType в рамках исправления проблемы сериализации.

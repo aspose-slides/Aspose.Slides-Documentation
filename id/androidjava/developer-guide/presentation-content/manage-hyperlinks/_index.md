@@ -5,8 +5,8 @@ type: docs
 weight: 20
 url: /id/androidjava/manage-hyperlinks/
 keywords:
-- tambah URL
-- tambah hyperlink
+- tambahkan URL
+- tambahkan hyperlink
 - buat hyperlink
 - format hyperlink
 - hapus hyperlink
@@ -16,7 +16,7 @@ keywords:
 - hyperlink bentuk
 - hyperlink gambar
 - hyperlink video
-- hyperlink dapat diubah
+- hyperlink yang dapat diubah
 - PowerPoint
 - OpenDocument
 - presentasi
@@ -27,15 +27,17 @@ description: "Kelola hyperlink dengan mudah dalam presentasi PowerPoint dan Open
 ---
 ## **Pendahuluan**
 
-Hyperlink adalah referensi ke sebuah objek, data, atau tempat dalam sesuatu. Berikut ini adalah hyperlink umum dalam Presentasi PowerPoint:
+Hyperlink adalah referensi ke objek atau data atau tempat dalam sesuatu. Berikut ini adalah hyperlink umum dalam Presentasi PowerPoint:
 
 * Tautan ke situs web di dalam teks, bentuk, atau media
 * Tautan ke slide
 
-Aspose.Slides for Android via Java memungkinkan Anda melakukan banyak tugas yang melibatkan hyperlink dalam presentasi.
+Aspose.Slides untuk Android melalui Java memungkinkan Anda melakukan banyak tugas yang melibatkan hyperlink dalam presentasi.
 
-{{% alert color="primary" %}} 
-Anda mungkin ingin mencoba Aspose sederhana, [editor PowerPoint online gratis.](https://products.aspose.app/slides/id/editor)
+{{% alert color="info" %}} 
+
+Anda mungkin ingin mencoba Aspose sederhana, [editor PowerPoint daring gratis.](https://products.aspose.app/slides/id/editor)
+
 {{% /alert %}} 
 
 ## **Tambahkan Hyperlink URL**
@@ -45,6 +47,8 @@ Anda mungkin ingin mencoba Aspose sederhana, [editor PowerPoint online gratis.](
 Kode Java ini menunjukkan cara menambahkan hyperlink situs web ke teks:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -63,9 +67,11 @@ try {
 
 ### **Tambahkan Hyperlink URL ke Bentuk atau Bingkai**
 
-Contoh kode ini dalam Java menunjukkan cara menambahkan hyperlink situs web ke sebuah bentuk:
+Kode contoh ini dalam Java menunjukkan cara menambahkan hyperlink situs web ke bentuk:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -81,37 +87,43 @@ try {
 
 ### **Tambahkan Hyperlink URL ke Media**
 
-Aspose.Slides memungkinkan Anda menambahkan hyperlink ke file gambar, audio, dan video. 
+Aspose.Slides memungkinkan Anda menambahkan hyperlink ke file gambar, audio, dan video.
 
-Contoh kode ini menunjukkan cara menambahkan hyperlink ke sebuah **gambar**:
+Kode contoh ini menunjukkan cara menambahkan hyperlink ke **gambar**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Menambahkan gambar ke presentasi
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// Membuat frame gambar pada slide 1 berdasarkan gambar yang telah ditambahkan sebelumnya
+	// Membuat bingkai gambar di slide 1 berdasarkan gambar yang sebelumnya ditambahkan
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Contoh kode ini menunjukkan cara menambahkan hyperlink ke sebuah **file audio**:
+Kode contoh ini menunjukkan cara menambahkan hyperlink ke **file audio**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -127,9 +139,14 @@ try {
 }
 ```
 
-Contoh kode ini menunjukkan cara menambahkan hyperlink ke sebuah **video**:
+Kode contoh ini menunjukkan cara menambahkan hyperlink ke **video**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -145,17 +162,22 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
+
 Anda mungkin ingin melihat *[Kelola OLE](/slides/id/androidjava/manage-ole/)*.
+
 {{% /alert %}}
 
 ## **Gunakan Hyperlink untuk Membuat Daftar Isi**
 
-Karena hyperlink memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakannya untuk membuat daftar isi. 
+Karena hyperlink memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakannya untuk membuat daftar isi.
 
-Contoh kode ini menunjukkan cara membuat daftar isi dengan hyperlink:
+Kode contoh ini menunjukkan cara membuat daftar isi dengan hyperlink:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -188,11 +210,14 @@ try {
 
 ### **Warna**
 
-Dengan properti [ColorSource](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) dalam antarmuka [IHyperlink](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlink), Anda dapat mengatur warna untuk hyperlink dan juga mendapatkan informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan yang melibatkan properti ini tidak berlaku pada versi PowerPoint yang lebih lama.
+Dengan properti [ColorSource](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) dalam antarmuka [IHyperlink](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlink), Anda dapat mengatur warna untuk hyperlink dan juga memperoleh informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan yang melibatkan properti ini tidak berlaku untuk versi PowerPoint yang lebih lama.
 
-Contoh kode ini menunjukkan operasi di mana hyperlink dengan warna berbeda ditambahkan ke slide yang sama:
+Kode contoh ini menunjukkan operasi di mana hyperlink dengan warna berbeda ditambahkan ke slide yang sama:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -220,14 +245,16 @@ try {
 Kode Java ini menunjukkan cara menghapus hyperlink dari teks dalam slide presentasi:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -249,7 +276,9 @@ try {
 Kode Java ini menunjukkan cara menghapus hyperlink dari bentuk dalam slide presentasi: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -264,7 +293,7 @@ try {
 
 ## **Hyperlink yang Dapat Diubah**
 
-Kelas [Hyperlink](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Hyperlink) bersifat dapat diubah. Dengan kelas ini, Anda dapat mengubah nilai properti berikut:
+Kelas [Hyperlink](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/Hyperlink) bersifat mutable. Dengan kelas ini, Anda dapat mengubah nilai properti berikut:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -272,9 +301,11 @@ Kelas [Hyperlink](https://reference.aspose.com/slides/id/androidjava/com.aspose.
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip‑nya nanti:
+Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip-nya kemudian:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -285,6 +316,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Mengubah tooltip hyperlink yang sudah ditambahkan
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -293,7 +327,7 @@ try {
 
 ## **Properti yang Didukung dalam IHyperlinkQueries**
 
-Anda dapat mengakses [IHyperlinkQueries](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlinkQueries) dari presentasi, slide, atau teks yang memiliki hyperlink yang didefinisikan.
+Anda dapat mengakses [IHyperlinkQueries](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IHyperlinkQueries) dari sebuah presentasi, slide, atau teks tempat hyperlink didefinisikan.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -308,14 +342,14 @@ Kelas [IHyperlinkQueries](https://reference.aspose.com/slides/id/androidjava/com
 
 ## **FAQ**
 
-**Bagaimana saya dapat membuat navigasi internal bukan hanya ke sebuah slide, tetapi ke “section” atau slide pertama dari sebuah section?**
+### Bagaimana cara membuat navigasi internal tidak hanya ke slide, tetapi ke "bagian" atau slide pertama dari sebuah bagian?
 
-Section di PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk “menavigasi ke sebuah section”, Anda biasanya menautkan ke slide pertamanya.
+Bagian di PowerPoint merupakan pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk "menavigasi ke sebuah bagian", Anda biasanya menautkan ke slide pertamanya.
 
-**Apakah saya dapat melampirkan hyperlink ke elemen master slide sehingga berfungsi pada semua slide?**
+### Bisakah saya menempelkan hyperlink pada elemen master slide sehingga berfungsi di semua slide?
 
-Ya. Elemen master slide dan layout mendukung hyperlink. Tautan tersebut muncul pada slide anak dan dapat diklik selama presentasi.
+Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan tersebut muncul pada slide turunan dan dapat diklik selama presentasi.
 
-**Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
+### Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?
 
-In [PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/) and [HTML](/slides/id/androidjava/convert-powerpoint-to-html/), yes—links are generally preserved. When exporting to [images](/slides/id/androidjava/convert-powerpoint-to-png/) and [video](/slides/id/androidjava/convert-powerpoint-to-video/), clickability will not carry over due to the nature of those formats (raster frames/video do not support hyperlinks).
+Dalam [PDF](/slides/id/androidjava/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/androidjava/convert-powerpoint-to-html/), ya—tautan umumnya dipertahankan. Saat mengekspor ke [gambar](/slides/id/androidjava/convert-powerpoint-to-png/) dan [video](/slides/id/androidjava/convert-powerpoint-to-video/), kemampuan mengklik tidak akan terbawa karena sifat format tersebut (frame raster/video tidak mendukung hyperlink).

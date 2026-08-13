@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση υπερσυνδέσμων παρουσίασης σε Java
-linktitle: Διαχείριση υπερσυνδέσμου
+title: Διαχείριση Υπερσυνδέσμων Παρουσίασης σε Java
+linktitle: Διαχείριση Υπερσυνδέσμου
 type: docs
 weight: 20
 url: /el/java/manage-hyperlinks/
@@ -22,30 +22,32 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε άψογα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για Java—βελτιώστε την αλληλεπίδραση και τη ροή εργασίας σε λίγα λεπτά."
+description: "Διαχειριστείτε εύκολα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για Java—βελτιώστε την αλληλεπίδραση και τη ροή εργασίας σε λίγα λεπτά."
 ---
 ## **Εισαγωγή**
 
-Ένας υπερσύνδεσμος είναι μια αναφορά σε αντικείμενο ή δεδομένα ή σε θέση σε κάτι. Αυτοί είναι κοινά υπερσύνδεσμοι σε παρουσιάσεις PowerPoint:
+Ένα υπερσύνδεσμο είναι μια αναφορά σε ένα αντικείμενο ή δεδομένα ή σε μια θέση σε κάτι. Αυτά είναι συνηθισμένοι υπερσύνδεσμοι σε παρουσιάσεις PowerPoint:
 
-* Σύνδεσμοι σε ιστότοπους μέσα σε κείμενα, σχήματα ή πολυμέσα
-* Σύνδεσμοι σε διαφάνειες
+* Συνδέσεις σε ιστοτόπους μέσα σε κείμενα, σχήματα ή μέσα
+* Συνδέσεις σε διαφάνειες
 
-Aspose.Slides for Java επιτρέπει την εκτέλεση πολλών εργασιών που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
+Aspose.Slides for Java σας επιτρέπει να εκτελείτε πολλές εργασίες που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Μπορεί να θέλετε να δείτε το απλό, δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας PowerPoint της Aspose, [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας PowerPoint.](https://products.aspose.app/slides/el/editor)
+Μπορείτε να ρίξετε μια ματιά στο απλό, [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας PowerPoint.](https://products.aspose.app/slides/el/editor)
 
 {{% /alert %}} 
 
-## **Προσθήκη URL υπερσυνδέσμων**
+## **Προσθήκη υπερσυνδέσμων URL**
 
-### **Προσθήκη URL υπερσυνδέσμων σε κείμενο**
+### **Προσθήκη υπερσυνδέσμων URL σε κείμενο**
 
-Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστότοπου σε κείμενο:
+Αυτός ο κώδικας Java σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε κείμενο:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -62,11 +64,13 @@ try {
 }
 ```
 
-### **Προσθήκη URL υπερσυνδέσμων σε Σχήματα ή Πλαίσια**
+### **Προσθήκη υπερσυνδέσμων URL σε σχήματα ή πλαίσια**
 
-Αυτό το δείγμα κώδικα σε Java δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστότοπου σε σχήμα:
+Αυτό το δείγμα κώδικα σε Java σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε σχήμα:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -80,22 +84,24 @@ try {
 }
 ```
 
-### **Προσθήκη URL υπερσυνδέσμων σε Πολυμέσα**
+### **Προσθήκη υπερσυνδέσμων URL σε μέσα**
 
-Το Aspose.Slides σάς επιτρέπει να προσθέτετε υπερσυνδέσμους σε εικόνες, αρχεία ήχου και βίντεο.
+Το Aspose.Slides σας επιτρέπει να προσθέσετε υπερσυνδέσμους σε εικόνες, ήχο και αρχεία βίντεο. 
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια **εικόνα**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια **εικόνα**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Προσθέτει εικόνα στην παρουσίαση
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
 	// Δημιουργεί πλαίσιο εικόνας στη διαφάνεια 1 βάσει της προηγουμένως προστιθέμενης εικόνας
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
@@ -104,15 +110,19 @@ try {
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **αρχείο ήχου**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **αρχείο ήχου**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -128,9 +138,14 @@ try {
 }
 ```
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **βίντεο**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **βίντεο**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -146,19 +161,22 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
-Μπορεί να θέλετε να δείτε *[Διαχείριση OLE](/slides/el/java/manage-ole/)*.
+Ίσως θέλετε να δείτε *[Διαχείριση OLE](/slides/el/java/manage-ole/)*.
 
 {{% /alert %}}
 
-## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
+## **Χρήση υπερσυνδέσμων για δημιουργία πίνακα περιεχομένων**
 
-Δεδομένου ότι οι υπερσύνδεσμοι σας επιτρέπουν να προσθέτετε αναφορές σε αντικείμενα ή θέσεις, μπορείτε να τους χρησιμοποιήσετε για να δημιουργήσετε έναν πίνακα περιεχομένων. 
+Καθώς οι υπερσύνδεσμοι σας επιτρέπουν να προσθέτετε αναφορές σε αντικείμενα ή θέσεις, μπορείτε να τους χρησιμοποιήσετε για να δημιουργήσετε έναν πίνακα περιεχομένων. 
 
-Αυτό το δείγμα κώδικα δείχνει πώς να δημιουργήσετε έναν πίνακα περιεχομένων με υπερσυνδέσμους:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να δημιουργήσετε έναν πίνακα περιεχομένων με υπερσυνδέσμους:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -187,15 +205,18 @@ try {
 }
 ```
 
-## **Μορφοποίηση Υπερσυνδέσμων**
+## **Μορφοποίηση υπερσυνδέσμων**
 
 ### **Χρώμα**
 
-Με την ιδιότητα ColorSource στη διεπαφή IHyperlink, μπορείτε να ορίσετε το χρώμα για τους υπερσυνδέσμους και επίσης να λάβετε τις πληροφορίες χρώματος από τους υπερσυνδέσμους. Η δυνατότητα εισήχθη για πρώτη φορά στο PowerPoint 2019, επομένως οι αλλαγές που αφορούν αυτήν την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις του PowerPoint.
+Με την ιδιότητα [ColorSource](https://reference.aspose.com/slides/el/java/com.aspose.slides/Hyperlink#setColorSource-int-) στο interface [IHyperlink](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlink), μπορείτε να ορίσετε το χρώμα για υπερσυνδέσμους και επίσης να λάβετε πληροφορίες χρώματος από τους υπερσυνδέσμους. Η δυνατότητα εισήχθη για πρώτη φορά στο PowerPoint 2019, οπότε αλλαγές που αφορούν την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις PowerPoint.
 
-Αυτό το δείγμα κώδικα παρουσιάζει μια λειτουργία όπου υπερσύνδεσμοι με διαφορετικά χρώματα προστέθηκαν στην ίδια διαφάνεια:
+Αυτό το δείγμα κώδικα δείχνει μια λειτουργία όπου υπερσύνδεσμοι με διαφορετικά χρώματα προστέθηκαν στην ίδια διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -216,21 +237,23 @@ try {
 }
 ```
 
-## **Αφαίρεση Υπερσυνδέσμων από Παρουσιάσεις**
+## **Αφαίρεση υπερσυνδέσμων από παρουσιάσεις**
 
-### **Αφαίρεση Υπερσυνδέσμων από κείμενο**
+### **Αφαίρεση υπερσυνδέσμων από κείμενο**
 
-Αυτός ο κώδικας Java δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από κείμενο σε διαφάνεια παρουσίασης:
+Αυτός ο κώδικας Java σας δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από κείμενο σε διαφάνεια παρουσίασης:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -247,12 +270,14 @@ try {
 }
 ```
 
-### **Αφαίρεση Υπερσυνδέσμων από Σχήματα ή Πλαίσια**
+### **Αφαίρεση υπερσυνδέσμων από σχήματα ή πλαίσια**
 
-Αυτός ο κώδικας Java δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από ένα σχήμα σε διαφάνεια παρουσίασης: 
+Αυτός ο κώδικας Java σας δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από σχήμα σε διαφάνεια παρουσίασης: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -265,9 +290,9 @@ try {
 }
 ```
 
-## **Mutable Hyperlink**
+## **Μεταβλητός υπερσύνδεσμος**
 
-Η κλάση Hyperlink είναι μεταβλητή. Με αυτήν την κλάση, μπορείτε να αλλάξετε τις τιμές για τις παρακάτω ιδιότητες:
+Η κλάση [Hyperlink](https://reference.aspose.com/slides/el/java/com.aspose.slides/Hyperlink) είναι μεταβλητή. Με αυτήν την κλάση, μπορείτε να αλλάξετε τις τιμές για αυτές τις ιδιότητες:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -275,9 +300,11 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Το απόσπασμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε διαφάνεια και να επεξεργαστείτε το tooltip του αργότερα:
+Το απόσπασμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε διαφάνεια και να επεξεργαστείτε το tooltip αργότερα:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -288,37 +315,40 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Αλλάζει το tooltip του υπερσυνδέσμου που έχει ήδη προστεθεί
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **Supported Properties in IHyperlinkQueries**
+## **Υποστηριζόμενες ιδιότητες στο IHyperlinkQueries**
 
-Μπορείτε να έχετε πρόσβαση στην IHyperlinkQueries από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο ορίζεται ο υπερσύνδεσμος. 
+Μπορείτε να αποκτήσετε πρόσβαση στο [IHyperlinkQueries](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlinkQueries) από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο ορίζεται ο υπερσύνδεσμος. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/el/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/el/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/el/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-Η κλάση IHyperlinkQueries υποστηρίζει αυτές τις μεθόδους και ιδιότητες: 
+Η κλάση [IHyperlinkQueries](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlinkQueries) υποστηρίζει αυτές τις μεθόδους και ιδιότητες: 
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/el/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-## **FAQ**
+## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
 
-**Πώς μπορώ να δημιουργήσω εσωτερική πλοήγηση όχι μόνο σε μια διαφάνεια, αλλά και σε μια «ενότητα» ή στην πρώτη διαφάνεια μιας ενότητας;**
+### Πώς μπορώ να δημιουργήσω εσωτερική πλοήγηση όχι μόνο σε διαφάνεια, αλλά σε «ενότητα» ή στην πρώτη διαφάνεια μιας ενότητας;
 
-Οι ενότητες στο PowerPoint είναι ομάδες διαφανειών· η πλοήγηση στοχεύει τεχνικά σε μια συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε μια ενότητα», συνήθως συνδέεστε στην πρώτη της διαφάνεια.
+Οι ενότητες στο PowerPoint είναι ομαδοποιήσεις διαφανειών· η πλοήγηση τεχνικά στοχεύει σε συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε ενότητα», συνήθως συνδέεστε με την πρώτη της διαφάνεια.
 
-**Μπορώ να συσχετίσω έναν υπερσύνδεσμο με στοιχεία της κύριας διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+### Μπορώ να συνδέσω έναν υπερσύνδεσμο σε στοιχεία κύριας διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;
 
-Ναι. Τα στοιχεία της κύριας διαφάνειας και του διατάξης υποστηρίζουν υπερσυνδέσμους. Αυτοί οι σύνδεσμοι εμφανίζονται στις παιδικές διαφάνειες και είναι κλικαρίσιμα κατά τη διάρκεια της παρουσίασης.
+Ναι. Τα στοιχεία της κύριας διαφάνειας και του προτύπου υποστηρίζουν υπερσυνδέσμους. Τέτοιου είδους συνδέσμους εμφανίζονται στις παιδικές διαφάνειες και είναι κλικάριστα κατά την προβολή της παρουσίασης.
 
-**Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
+### Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;
 
-Στο [PDF](/slides/el/java/convert-powerpoint-to-pdf/) και το [HTML](/slides/el/java/convert-powerpoint-to-html/), ναι—οι σύνδεσμοι συνήθως διατηρούνται. Όταν εξάγετε σε [εικόνες](/slides/el/java/convert-powerpoint-to-png/) ή [βίντεο](/slides/el/java/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν μεταφέρεται λόγω της φύσης αυτών των μορφών (πλαίσια raster/βίντεο δεν υποστηρίζουν υπερσυνδέσμους).
+Στα [PDF](/slides/el/java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/java/convert-powerpoint-to-html/), ναι—οι σύνδεσμοι διατηρούνται γενικά. Κατά την εξαγωγή σε [εικόνες](/slides/el/java/convert-powerpoint-to-png/) και [βίντεο](/slides/el/java/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν θα μεταφερθεί λόγω της φύσης αυτών των μορφών (τα ραστερικά πλαίσια/βίντεο δεν υποστηρίζουν υπερσυνδέσμους).

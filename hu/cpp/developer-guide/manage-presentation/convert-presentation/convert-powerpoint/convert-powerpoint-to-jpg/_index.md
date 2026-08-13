@@ -6,48 +6,54 @@ weight: 60
 url: /hu/cpp/convert-powerpoint-to-jpg/
 keywords:
 - PowerPoint konvertálása
-- bemutató konvertálása
+- prezentáció konvertálása
 - dia konvertálása
 - PPT konvertálása
 - PPTX konvertálása
 - PowerPoint JPG-re
-- bemutató JPG-re
+- prezentáció JPG-re
 - dia JPG-re
 - PPT JPG-re
 - PPTX JPG-re
 - PowerPoint mentése JPG-ként
-- bemutató mentése JPG-ként
+- prezentáció mentése JPG-ként
 - dia mentése JPG-ként
 - PPT mentése JPG-ként
 - PPTX mentése JPG-ként
-- PPT exportálása JPG-re
-- PPTX exportálása JPG-re
+- PPT exportálása JPG-be
+- PPTX exportálása JPG-be
 - C++
 - Aspose.Slides
-description: "Konvertálja a PowerPoint (PPT, PPTX) diákat magas minőségű JPG képekké C++-ban az Aspose.Slides segítségével gyors és megbízható kódpéldákkal."
+description: "Konvertálja a PowerPoint (PPT, PPTX) diákat magas minőségű JPG képekké C++-ban az Aspose.Slides segítségével, gyors és megbízható kódpéldákkal."
 ---
 ## **Bevezetés**
 
-A PowerPoint és OpenDocument bemutatók JPG képekké konvertálása segíti a diák megosztását, a teljesítmény optimalizálását és a tartalom weboldalakba vagy alkalmazásokba beágyazását. Az Aspose.Slides for C++ lehetővé teszi a PPTX, PPT és ODP fájlok magas minőségű JPEG képekké alakítását. Ez az útmutató a különböző konvertálási módszereket ismerteti.
+A PowerPoint és OpenDocument előadásokat JPG képekké konvertálni segít a diák megosztásában, a teljesítmény optimalizálásában és a tartalom weboldalakba vagy alkalmazásokba beágyazásában. Az Aspose.Slides for C++ lehetővé teszi, hogy a PPTX, PPT és ODP fájlokat magas minőségű JPEG képekké alakítsa. Ez az útmutató különböző konverziós módszereket magyaráz.
 
-Ezekkel a funkciókkal könnyen megvalósíthatja saját bemutató megjelenítőjét, és minden diára készíthet bélyegképet. Ez hasznos lehet, ha meg szeretné védeni a bemutató diákat a másolástól, vagy csak olvasás‑csak módú bemutatót szeretne mutatni. Az Aspose.Slides lehetővé teszi, hogy az egész bemutatót vagy egy adott diát konvertálja képek formátumába.
+Ezekkel a funkciókkal egyszerű saját előadás-megjelenítő megvalósítása és minden dia miniatűrjének létrehozása. Hasznos lehet, ha meg szeretné védeni a diák másolásától, vagy csak olvasás‑csak‑módú megjelenítést szeretne. Az Aspose.Slides lehetővé teszi a teljes előadás vagy egy adott dia képpé konvertálását.
 
-## **Bemutató diák JPG képekké konvertálása**
-
-Az alábbiakban a PPT, PPTX vagy ODP fájl JPG‑be konvertálásának lépései:
+## **Prezentációs diákat JPG képekké konvertálása**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/) osztályból.
-1. Szerezze be a [ISlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/) típusú dia objektumát a bemutató diasorozatából.
-1. Készítsen képet a diákról a [ISlide.GetImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/) metódus segítségével.
-1. Hívja meg az [IImage.Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/save/) metódust a kép objektumon. Adja meg a kimeneti fájlnevet és a képformátumot argumentumként.
+2. Szerezze meg a [ISlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/) típusú diaobjektumot az előadás dia‑gyűjteményéből.
+3. Készítsen képet a díáról a [ISlide.GetImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/) metódus segítségével.
+4. Hívja meg az [IImage.Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/save/) metódust a képobjektumon. Adja meg a kimeneti fájlnevet és a képformátumot argumentumként.
 
-{{% alert color="primary" %}} 
-
-**Megjegyzés:** A PPT, PPTX vagy ODP JPG‑re konvertálása eltér a többi formátumra történő konvertálástól az Aspose.Slides for C++ API‑ban. Más formátumok esetén általában a [IPresentation.Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/save/) metódust használja. JPG konvertálásához azonban az [IImage.Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/save/) metódust kell alkalmazni.
-
+{{% alert color="info" %}} 
+**Megjegyzés:** A PPT, PPTX vagy ODP JPG konvertálása eltér a többi formátumba történő konvertálástól az Aspose.Slides for C++ API‑ban. A többi formátumnál általában a [IPresentation.Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/save/) metódust használja. JPG konvertálásához a [IImage.Save](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimage/save/) metódust kell használni.
 {{% /alert %}} 
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 float scaleX = 1.0f;
 float scaleY = scaleX;
 
@@ -55,10 +61,10 @@ auto presentation = MakeObject<Presentation>(u"PowerPoint-Presentation.ppt");
 
 for (auto&& slide : presentation->get_Slides())
 {
-    // A megadott méretezésű diakép létrehozása.
+    // Készítsen diaképet a megadott mérettel.
     auto image = slide->GetImage(scaleX, scaleY);
 
-    // A kép mentése lemezre JPEG formátumban.
+    // Mentse a képet lemezre JPEG formátumban.
     auto fileName = String::Format(u"Slide_{0}.jpg", slide->get_SlideNumber());
     image->Save(fileName, ImageFormat::Jpeg);
 
@@ -68,21 +74,32 @@ for (auto&& slide : presentation->get_Slides())
 presentation->Dispose();
 ```
 
-## **Diák JPG‑be konvertálása testreszabott méretekkel**
+## **Diák JPG-re konvertálása testreszabott méretekkel**
 
-Az eredményül kapott JPG képek méretének módosításához a képméretet a [ISlide.GetImage(Size)](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/#islidegetimagesystemdrawingsize-method) metódusba adva állíthatja be. Ez lehetővé teszi, hogy a képek meghatározott szélesség‑ és magasságértékekkel legyenek létrehozva, biztosítva, hogy a kimenet megfeleljen a felbontási és képarány követelményeinek. Ez a rugalmasság különösen hasznos webalkalmazások, jelentések vagy dokumentációk számára, ahol pontos képméretek szükségesek.
+A kimeneti JPG képek méretének módosításához a [ISlide.GetImage(Size)](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/getimage/#islidegetimagesystemdrawingsize-method) metódusba adhatja át a kívánt méretet. Ez lehetővé teszi, hogy konkrét szélesség‑ és magasságértékekkel generáljon képeket, biztosítva, hogy a kimenet megfeleljen a felbontási és aránykövetelményeknek. Ez a rugalmasság különösen hasznos webalkalmazások, jelentések vagy dokumentációk képgenerálásánál, ahol pontos képméretek szükségesek.
 
 ```cpp
-Size imageSize(1200, 800);
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+System::Drawing::Size imageSize(1200, 800);
 
 auto presentation = MakeObject<Presentation>(u"PowerPoint-Presentation.pptx");
 
 for (auto&& slide : presentation->get_Slides())
 {
-    // A megadott méretű diakép létrehozása.
+    // Készítsen diaképet a megadott mérettel.
     auto image = slide->GetImage(imageSize);
 
-    // A kép mentése lemezre JPEG formátumban.
+    // Mentse a képet lemezre JPEG formátumban.
     auto fileName = System::String::Format(u"Slide_{0}.jpg", slide->get_SlideNumber());
     image->Save(fileName, ImageFormat::Jpeg);
 
@@ -92,17 +109,31 @@ for (auto&& slide : presentation->get_Slides())
 presentation->Dispose();
 ```
 
-## **Kommentárok megjelenítése a diák képként történő mentésekor**
+## **Megjegyzések renderelése dia képként való mentéskor**
 
-Az Aspose.Slides for C++ egy olyan funkciót kínál, amely lehetővé teszi a megjegyzések megjelenítését a bemutató diáin, amikor azokat JPG képekké konvertálja. Ez a funkció különösen hasznos az PowerPoint bemutatókban a közreműködők által hozzáadott jegyzetek, visszajelzések vagy megbeszélések megőrzésére. Ha ezt az opciót engedélyezi, a megjegyzések láthatóak lesznek a létrehozott képeken, így egyszerűbbé válik a visszajelzés áttekintése és megosztása anélkül, hogy meg kellene nyitni az eredeti bemutató fájlt.
+Az Aspose.Slides for C++ egy olyan funkciót biztosít, amely lehetővé teszi a megjegyzések megjelenítését a diákon JPG képpé konvertálás közben. Ez különösen hasznos a PowerPoint‑ban a kollaborátorok által hozzáadott megjegyzések, visszajelzések vagy megbeszélések megőrzéséhez. Ennek az opciónak az engedélyezésével a megjegyzések láthatóak lesznek a generált képeken, megkönnyítve a visszajelzés áttekintését és megosztását anélkül, hogy az eredeti előadás‑fájlt meg kellene nyitni.
 
-Tegyük fel, hogy van egy "sample.pptx" nevű bemutató fájlunk, amely egy megjegyzéseket tartalmazó diát tartalmaz:
+Tegyük fel, hogy van egy „sample.pptx” nevű előadásfájl, amely egy megjegyzésekkel rendelkező diát tartalmaz:
 
-![A diával megjegyzésekkel](slide_with_comments.png)
+![A megjegyzésekkel rendelkező dia](slide_with_comments.png)
 
 A következő C++ kód a diát JPG képpé konvertálja a megjegyzések megőrzése mellett:
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 float scaleX = 2.0f;
 float scaleY = scaleX;
 
@@ -113,13 +144,13 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
     commentOptions->set_CommentsAreaWidth(200);
     commentOptions->set_CommentsAreaColor(Color::get_DarkOrange());
 
-    // A dia megjegyzéseihez beállítja a lehetőségeket.
+    // Állítsa be a dia megjegyzéseihez a beállításokat.
     auto options = MakeObject<RenderingOptions>();
     options->set_SlidesLayoutOptions(commentOptions);
 
-    // Az első diát képpé konvertálja.
+    // Konvertálja az első diát képpé.
     auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-        
+
     image->Save(u"Slide_1.jpg", ImageFormat::Jpeg);
     image->Dispose();
 }
@@ -127,43 +158,39 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
 presentation->Dispose();
 ```
 
-Eredmény:
+Az eredmény:
 
 ![A megjegyzésekkel ellátott JPG kép](image_with_comments.png)
 
 ## **Lásd még**
 
-- [PowerPoint konvertálása GIF‑be](/slides/hu/cpp/convert-powerpoint-to-animated-gif/)
-- [PowerPoint konvertálása PNG‑be](/slides/hu/cpp/convert-powerpoint-to-png/)
-- [PowerPoint konvertálása TIFF‑be](/slides/hu/cpp/convert-powerpoint-to-tiff/)
-- [PowerPoint konvertálása SVG‑be](/slides/hu/cpp/render-a-slide-as-an-svg-image/)
+- [PowerPoint konvertálása GIF-re](/slides/hu/cpp/convert-powerpoint-to-animated-gif/)
+- [PowerPoint konvertálása PNG-re](/slides/hu/cpp/convert-powerpoint-to-png/)
+- [PowerPoint konvertálása TIFF-re](/slides/hu/cpp/convert-powerpoint-to-tiff/)
+- [PowerPoint konvertálása SVG-re](/slides/hu/cpp/render-a-slide-as-an-svg-image/)
 
-{{% alert color="primary" %}} 
-
-Az Aspose.Slides hogyan konvertálja a PowerPoint-ot JPG képekké, úgy nézheti meg, ha kipróbálja ezeket az ingyenes online konvertereket: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/hu/conversion/pptx-to-jpg) és [PPT to JPG](https://products.aspose.app/slides/hu/conversion/ppt-to-jpg). 
-
+{{% alert color="info" %}} 
+Azt szeretné megtudni, hogyan konvertálja az Aspose.Slides a PowerPointot JPG képekké, próbálja ki ezeket az ingyenes online konvertereket: PowerPoint [PPTX JPG-re](https://products.aspose.app/slides/hu/conversion/pptx-to-jpg) és [PPT JPG-re](https://products.aspose.app/slides/hu/conversion/ppt-to-jpg). 
 {{% /alert %}}
 
-![Ingyenes online PPTX‑t JPG‑be konvertáló](ppt-to-jpg.png)
+![Ingyenes online PPTX JPG konverter](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
+Aspose egy [FREE Collage web app](https://products.aspose.app/slides/hu/collage) kínál. Ezzel az online szolgáltatással egyesítheti a [JPG to JPG](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG to PNG képeket, létrehozhat [photo grids](https://products.aspose.app/slides/hu/collage/photo-grid), és így tovább. 
 
-Az Aspose egy [INGYENES Collage webalkalmazást](https://products.aspose.app/slides/hu/collage) kínál. Ezzel az online szolgáltatással [JPG‑t JPG‑be](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG‑t PNG‑be képeket egyesíthet, [fotórácsokat](https://products.aspose.app/slides/hu/collage/photo-grid) hozhat létre, stb.
-
-Az ebben a cikkben leírt ugyanazokkal az elvekkel képeket konvertálhat az egyik formátumból a másikba. További információkért tekintse meg ezeket az oldalakat: konvertálás [kép JPG‑re](https://products.aspose.com/slides/hu/cpp/conversion/image-to-jpg/); konvertálás [JPG képből](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-image/); konvertálás [JPG PNG‑re](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-png/), konvertálás [PNG JPG‑re](https://products.aspose.com/slides/hu/cpp/conversion/png-to-jpg/); konvertálás [PNG SVG‑re](https://products.aspose.com/slides/hu/cpp/conversion/png-to-svg/), konvertálás [SVG PNG‑re](https://products.aspose.com/slides/hu/cpp/conversion/svg-to-png/).
-
+Ugyanazokkal a cikkben leírt elvekkel képeket konvertálhat egyik formátumból a másikba. További információkért tekintse meg ezeket az oldalakat: convert [image to JPG](https://products.aspose.com/slides/hu/cpp/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/hu/cpp/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/hu/cpp/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/hu/cpp/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/hu/cpp/conversion/svg-to-png/).
 {{% /alert %}}
 
 ## **GYIK**
 
-**Támogatja ez a módszer a kötegelt konvertálást?**
+### Támogatja ez a módszer a kötegelt konverziót?
 
-Igen, az Aspose.Slides lehetővé teszi több dia egyidejű JPG‑re konvertálását egyetlen műveletben.
+Igen, az Aspose.Slides lehetővé teszi több dia kötegelt JPG‑re konvertálását egyetlen műveletben.
 
-**A konvertálás támogatja a SmartArt, diagramok és egyéb összetett objektumok kezelését?**
+### A konverzió támogatja a SmartArt‑ot, diagramokat és egyéb összetett objektumokat?
 
-Igen, az Aspose.Slides az összes tartalmat megjeleníti, beleértve a SmartArt‑ot, diagramokat, táblázatokat, alakzatokat és egyebeket. Azonban a renderelés pontossága kissé eltérhet a PowerPoint‑tól, különösen egyéni vagy hiányzó betűtípusok használata esetén.
+Igen, az Aspose.Slides minden tartalmat renderel, beleértve a SmartArt‑ot, diagramokat, táblázatokat, alakzatokat és egyebeket. Azonban a renderelés pontossága némileg eltérhet a PowerPoint‑tól, különösen egyedi vagy hiányzó betűkészletek használata esetén.
 
-**Vannak korlátozások a feldolgozható diák számában?**
+### Van korlátozás a feldolgozható diák számát illetően?
 
-Az Aspose.Slides önmagában nem szab szigorú korlátot a feldolgozható diák számára. Azonban nagy méretű bemutatók vagy nagy felbontású képek esetén memóriahiány hiba léphet fel.
+Az Aspose.Slides önmagában nem állapít meg szigorú korlátot a feldolgozható diák számára. Nagy előadások vagy magas felbontású képek esetén memóriahiányos hibával találkozhat.

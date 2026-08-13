@@ -1,35 +1,37 @@
 ---
-title: Ridimensiona forme su diapositive di presentazione
+title: Ridimensiona forme nelle diapositive della presentazione
 type: docs
 weight: 110
 url: /it/java/re-sizing-shapes-on-slide/
 keywords:
-- ridimensiona forma
-- cambia dimensione forma
+- ridimensionare forma
+- modificare dimensione forma
 - PowerPoint
 - OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Ridimensiona facilmente forme su diapositive PowerPoint e OpenDocument con Aspose.Slides per Java—automatizza le regolazioni del layout delle diapositive e aumenta la produttività."
+description: "Ridimensiona facilmente le forme su diapositive PowerPoint e OpenDocument con Aspose.Slides per Java—automatizza le regolazioni del layout delle diapositive e aumenta la produttività."
 ---
 ## **Panoramica**
 
-Una delle domande più comuni dei clienti di Aspose.Slides per Java è come ridimensionare le forme in modo che, quando le dimensioni della diapositiva cambiano, i dati non vengano tagliati. Questo breve articolo tecnico mostra come farlo.
+Una delle domande più comuni dei clienti di Aspose.Slides per Java è come ridimensionare le forme in modo che, quando le dimensioni della diapositiva cambiano, i dati non vengano tagliati. Questo breve articolo tecnico mostra come fare.
 
-## **Ridimensionare le forme**
+## **Ridimensiona forme**
 
-Per evitare che le forme vengano disallineate quando le dimensioni della diapositiva cambiano, aggiorna la posizione e le dimensioni di ogni forma in modo che si conformino al nuovo layout della diapositiva.
+Per impedire che le forme si disallineino quando le dimensioni della diapositiva cambiano, aggiorna la posizione e le dimensioni di ciascuna forma in modo che si conformino al nuovo layout della diapositiva.
 
 ```java
-// Carica il file di presentazione.
+import com.aspose.slides.*;
+
+// Carica il file della presentazione.
 Presentation presentation = new Presentation("sample.ppt");
 try {
     // Ottieni le dimensioni originali della diapositiva.
     float currentHeight = (float) presentation.getSlideSize().getSize().getHeight();
     float currentWidth = (float) presentation.getSlideSize().getSize().getWidth();
 
-    // Modifica le dimensioni della diapositiva senza scalare le forme esistenti.
+    // Modifica le dimensioni della diapositiva senza ridimensionare le forme esistenti.
     presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.DoNotScale);
 
     // Ottieni le nuove dimensioni della diapositiva.
@@ -39,7 +41,7 @@ try {
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // Ridimensiona e riposiziona le forme su ogni diapositiva.
+    // Ridimensiona e riposiziona le forme in ogni diapositiva.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
             
@@ -60,13 +62,17 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Se una diapositiva contiene una tabella, il codice sopra non funzionerà correttamente. In tal caso, ogni cella della tabella deve essere ridimensionata.
+{{% alert color="info" %}} 
+
+Le tabelle non richiedono trattamenti speciali: impostare larghezza e altezza di una tabella ridimensiona proporzionalmente le sue colonne e righe, quindi ridimensionare nuovamente le altezze delle righe e le larghezze delle colonne applicherebbe il rapporto due volte.
+
 {{% /alert %}} 
 
-Utilizza il codice seguente per ridimensionare le diapositive che contengono tabelle. Per le tabelle, impostare la larghezza o l’altezza è un caso speciale: è necessario regolare le altezze delle righe e le larghezze delle colonne individuali per modificare le dimensioni complessive della tabella.
+Il codice sopra modifica solo le forme sulle diapositive. Le diapositive master e le diapositive di layout mantengono le proprie forme, quindi scalale anch'esse quando desideri che l'intera presentazione segua le nuove dimensioni della diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Ottieni le dimensioni originali della diapositiva.
@@ -117,17 +123,6 @@ try {
             // Scala la posizione della forma.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -140,30 +135,30 @@ finally {
 
 ## **FAQ**
 
-**Perché le forme si distorcono o vengono tagliate dopo aver ridimensionato una diapositiva?**
+### Perché le forme si deformano o vengono tagliate dopo il ridimensionamento di una diapositiva?
 
-Quando si ridimensiona una diapositiva, le forme mantengono la loro posizione e dimensione originali a meno che la scala non venga modificata esplicitamente. Questo può causare il ritaglio del contenuto o il disallineamento delle forme.
+Quando una diapositiva viene ridimensionata, le forme mantengono la loro posizione e dimensione originali a meno che la scala non venga modificata esplicitamente. Questo può causare il taglio del contenuto o il disallineamento delle forme.
 
-**Il codice fornito funziona per tutti i tipi di forma?**
+### Il codice fornito funziona per tutti i tipi di forma?
 
-L’esempio base funziona per la maggior parte dei tipi di forma (caselle di testo, immagini, grafici, ecc.). Tuttavia, per le tabelle è necessario gestire righe e colonne separatamente, poiché altezza e larghezza di una tabella sono determinate dalle dimensioni delle singole celle.
+Sì. Impostare l'altezza e la larghezza funziona allo stesso modo per caselle di testo, immagini, grafici e tabelle.
 
-**Come ridimensionare le tabelle quando si ridimensiona una diapositiva?**
+### Come ridimensionare le tabelle quando si ridimensiona una diapositiva?
 
-È necessario iterare tutte le righe e le colonne della tabella e ridimensionare le loro altezze e larghezze in modo proporzionale, come mostrato nel secondo esempio di codice.
+Ridimensiona la forma della tabella stessa, esattamente come qualsiasi altra forma. Le sue righe e colonne si ridimensionano proporzionalmente, quindi non scalarle nuovamente in seguito.
 
-**Questo ridimensionamento funziona per le diapositive master e per le diapositive di layout?**
+### Questo ridimensionamento funziona per le diapositive master e di layout?
 
-Sì, ma dovresti anche iterare attraverso [Master](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getMasters--) e [Diapositive di layout](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getLayoutSlides--) e applicare la stessa logica di scaling alle loro forme per garantire coerenza nella presentazione.
+Sì, ma dovresti anche iterare attraverso [Masters](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getMasters--) e [Layout slides](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getLayoutSlides--) e applicare la stessa logica di ridimensionamento alle loro forme per garantire la coerenza dell'intera presentazione.
 
-**Posso cambiare l’orientamento di una diapositiva (ritratto/paesaggio) insieme al ridimensionamento?**
+### Posso cambiare l'orientamento di una diapositiva (ritratto/paesaggio) insieme al ridimensionamento?
 
-Sì. Puoi utilizzare [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#setOrientation-int-) per cambiare l’orientamento. Assicurati di impostare la logica di scaling di conseguenza per preservare il layout.
+Sì. È possibile utilizzare [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidesize/#setOrientation-int-) per cambiare l'orientamento. Assicurati di impostare la logica di ridimensionamento di conseguenza per preservare il layout.
 
-**Esiste un limite alle dimensioni della diapositiva che posso impostare?**
+### Esiste un limite alle dimensioni della diapositiva che posso impostare?
 
 Aspose.Slides supporta dimensioni personalizzate, ma dimensioni molto grandi possono influire sulle prestazioni o sulla compatibilità con alcune versioni di PowerPoint.
 
-**Come posso impedire che le forme con rapporto d’aspetto fisso si distorcano?**
+### Come posso impedire che le forme con rapporto d'aspetto fisso si deformino?
 
-Puoi verificare il metodo `getAspectRatioLocked` della forma prima di applicare lo scaling. Se è bloccato, regola la larghezza o l’altezza in modo proporzionale anziché scalarli singolarmente.
+È possibile verificare il metodo `getAspectRatioLocked` della forma prima del ridimensionamento. Se è bloccato, regola larghezza o altezza proporzionalmente anziché scalarle singolarmente.

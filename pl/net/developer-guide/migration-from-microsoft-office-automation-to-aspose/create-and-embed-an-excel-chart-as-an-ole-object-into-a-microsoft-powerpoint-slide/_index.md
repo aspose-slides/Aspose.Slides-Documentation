@@ -1,5 +1,5 @@
 ---
-title: Tworzenie i osadzanie wykresów Excel jako obiektów OLE przy użyciu VSTO i Aspose.Slides for .NET
+title: Tworzenie i osadzanie wykresów Excel jako obiektów OLE przy użyciu VSTO i Aspose.Slides dla .NET
 linktitle: Tworzenie i osadzanie wykresów Excel jako obiektów OLE
 type: docs
 weight: 70
@@ -16,31 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migruj z automatyzacji Microsoft Office do Aspose.Slides for .NET i osadzaj wykresy Excel jako obiekty OLE w slajdach PowerPoint (PPT, PPTX) w C#."
+description: "Przejdź z automatyzacji Microsoft Office na Aspose.Slides dla .NET i osadzaj wykresy Excel jako obiekty OLE w slajdach PowerPoint (PPT, PPTX) w C#."
 ---
-{{% alert color="primary" %}} 
-
-Wykresy są wizualną reprezentacją Twoich danych i są szeroko stosowane w slajdach prezentacji. Ten artykuł pokaże Ci kod tworzący i osadzający wykres Excel jako obiekt OLE w slajdzie PowerPoint, programowo, przy użyciu [VSTO](/slides/pl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) oraz [Aspose.Slides for .NET](/slides/pl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
-
+{{% alert color="info" %}} 
+Charts are visual representations of your data and widely used in presentation slides. This article will show you the code to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide programmatically by using [VSTO](/slides/pl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) and [Aspose.Slides for .NET](/slides/pl/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 {{% /alert %}} 
-## **Tworzenie i osadzanie wykresu Excel**
-Dwa poniższe przykłady kodu są długie i szczegółowe, ponieważ opisują skomplikowane zadanie. Tworzysz skoroszyt Microsoft Excel, tworzysz wykres, a następnie tworzysz prezentację Microsoft PowerPoint, do której osadzisz wykres. Obiekty OLE zawierają odnośniki do oryginalnego dokumentu, więc użytkownik, który dwukrotnie kliknie osadzony plik, uruchomi plik i jego aplikację.
-## **Przykład VSTO**
-Korzystając z VSTO, wykonuje się następujące kroki:
+## **Creating and Embedding an Excel Chart**
+The two code examples below are long and detailed because the task they're describing is involved. You create a Microsoft Excel workbook, create a chart and then create the Microsoft PowerPoint presentation that you'll embed the chart into. OLE objects contain links to the original document so a user that double-clicks the embedded file will launch the file and it's application.
+## **VSTO Example**
+Using VSTO, the following steps are performed:
 
-1. Utwórz instancję obiektu Microsoft Excel ApplicationClass.
-1. Utwórz nowy skoroszyt z jedną arkuszem.
-1. Dodaj wykres do arkusza.
-1. Zapisz skoroszyt.
-1. Otwórz skoroszyt Excel zawierający arkusz z danymi wykresu.
-1. Pobierz kolekcję ChartObjects dla arkusza.
-1. Pobierz wykres do skopiowania.
-1. Utwórz prezentację Microsoft PowerPoint.
-1. Dodaj pusty slajd do prezentacji.
-1. Skopiuj wykres z arkusza Excel do schowka.
-1. Wklej wykres do prezentacji PowerPoint.
-1. Umieść wykres na slajdzie.
-1. Zapisz prezentację.
+1. Create an instance of the Microsoft Excel ApplicationClass object.
+1. Create a new workbook with one sheet in it.
+1. Add chart to the sheet.
+1. Save the workbook.
+1. Open the Excel workbook containing the worksheet with the chart data.
+1. Get the ChartObjects collection for the sheet.
+1. Get the chart to copy.
+1. Create a Microsoft PowerPoint presentation.
+1. Add a blank slide to the presentation.
+1. Copy the chart from the Excel worksheet to the clipboard.
+1. Paste the chart into the PowerPoint presentation.
+1. Position the chart on the slide.
+1. Save the presentation.
 
 ```c#
 CreateNewChartInExcel();
@@ -78,14 +76,14 @@ static void CreateNewChartInExcel()
         // Utwórz instancję obiektu Excel ApplicationClass.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // Utwórz nowy skoroszyt z 1 arkuszem.
+        // Utwórz nowy skoroszyt z jednym arkuszem.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
         // Zmień nazwę arkusza.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // Wstaw nieco danych dla wykresu do arkusza.
+        // Wstaw dane dla wykresu do arkusza.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
         //     2    N. America  1.5     2       1.5     2.5
@@ -132,7 +130,7 @@ static void CreateNewChartInExcel()
         xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
         newChartObject.Name = "Sales Chart";
 
-        // Utwórz nowy wykres z danych.
+        // Utwórz nowy wykres na podstawie danych.
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
@@ -158,13 +156,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Zadeklaruj zmienne przechowujące referencje do obiektów PowerPoint.
+    // Zadeklaruj zmienne przechowujące odniesienia do obiektów PowerPoint.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Zadeklaruj zmienne przechowujące referencje do obiektów Excel.
+    // Zadeklaruj zmienne przechowujące odniesienia do obiektów Excel.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -180,7 +178,7 @@ static void UseCopyPaste()
         // Utwórz instancję PowerPoint.
         powerpointApplication = new pptNS.ApplicationClass();
 
-        // Utwórz instancję Excel.
+        // Utwórz instancję Excela.
         excelApplication = new xlNS.ApplicationClass();
 
         // Otwórz skoroszyt Excel zawierający arkusz z danymi wykresu.
@@ -189,7 +187,7 @@ static void UseCopyPaste()
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // Pobierz arkusz, który zawiera wykres.
+        // Pobierz arkusz zawierający wykres.
         targetSheet =
             (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
@@ -240,7 +238,7 @@ static void UseCopyPaste()
             pptPresentation = null;
         }
 
-        // Zamknij PowerPoint i zwolnij obiekt ApplicationClass.
+        // Zakończ PowerPoint i zwolnij obiekt ApplicationClass.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
@@ -259,7 +257,7 @@ static void UseCopyPaste()
             excelWorkBook = null;
         }
 
-        // Zamknij Excel i zwolnij obiekt ApplicationClass.
+        // Zakończ Excel i zwolnij obiekt ApplicationClass.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -277,20 +275,21 @@ static void UseCopyPaste()
 
 
 
-## **Przykład Aspose.Slides for .NET**
-Korzystając z Aspose.Slides for .NET, wykonuje się następujące kroki:
+## **Aspose.Slides for .NET Example**
+Using Aspose.Slides for .NET, the following steps are performed:
 
-1. Utwórz skoroszyt przy użyciu Aspose.Cells for .NET.
-1. Utwórz wykres Microsoft Excel.
-1. Ustaw rozmiar OLE wykresu Excel.
-1. Uzyskaj obraz wykresu.
-1. Osadź wykres Excel jako obiekt OLE w prezentacji PPTX przy użyciu Aspose.Slides for .NET.
-1. Zastąp zmieniony obraz obiektu obrazem uzyskanym w kroku 3, aby rozwiązać problem zmiany obiektu.
-1. Zapisz wynikową prezentację na dysk w formacie PPTX.
-
-
+1. Create a workbook using Aspose.Cells for .NET.
+1. Create a Microsoft Excel chart.
+1. Set the OLE size of the Excel Chart.
+1. Get an image of the chart.
+1. Embed the Excel chart as an OLE Object inside PPTX presentation using Aspose.Slides for .NET.
+1. Replace the object changed image with the image obtained in step 3 to cater for the object changed issue.
+1. Write the output presentation to disk in PPTX format.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Krok - 1: Utwórz wykres Excel przy użyciu Aspose.Cells
 //--------------------------------------------------
 //Utwórz skoroszyt
@@ -299,24 +298,27 @@ Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Krok - 2: Ustaw rozmiar OLE wykresu. przy użyciu Aspose.Cells
+//Krok - 2: Ustaw rozmiar OLE wykresu przy użyciu Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Krok - 3: Pobierz obraz wykresu przy użyciu Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Zapisz skoroszyt do strumienia
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
-//Krok - 4  I 5
+//Krok - 4 i 5
 //-----------------------------------------------------------
 //Krok - 4: Osadź wykres jako obiekt OLE w prezentacji .ppt przy użyciu Aspose.Slides
 //-----------------------------------------------------------
-//Krok - 5: Zamień zmieniony obraz obiektu na obraz uzyskany w kroku 3, aby rozwiązać problem zmiany obiektu
+//Krok - 5: Zastąp obraz zmienionego obiektu obrazem uzyskanym w kroku 3, aby rozwiązać problem zmienionego obiektu
 //-----------------------------------------------------------
 //Utwórz prezentację
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Dodaj skoroszyt na slajd
+//Dodaj skoroszyt na slajdzie
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
 //Krok - 6: Zapisz wynikową prezentację na dysku
 //-----------------------------------------------------------
@@ -324,6 +326,10 @@ pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;

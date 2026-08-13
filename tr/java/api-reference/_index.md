@@ -10,12 +10,12 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Java'da sunumları oluşturun, düzenleyin ve dönüştürün—PowerPoint gerekmez. Aspose.Slides, PPT, PPTX ve ODP'yi hızlı SVG/PDF dışa aktarma ile destekler."
+description: "Java'da sunum oluşturun, düzenleyin ve dönüştürün - PowerPoint gerekmez. Aspose.Slides, PPT, PPTX ve ODP formatlarını hızlı SVG/PDF dışa aktarımıyla destekler."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java, Java uygulamalarının Microsoft PowerPoint® veya diğerlerini kullanmadan sunum belgelerini okumasına ve yazmasına olanak tanıyan bir sınıf kitaplığıdır. Aspose.Slides for Java, metin, şekiller, tablolar ve animasyonları yönetmeye, slaytlara ses ve video eklemeye, slaytları önizlemeye, slaytları SVG, PDF formatına ve daha fazlasına dışa aktarmaya izin verir.
+Aspose.Slides for Java, Java uygulamalarının Microsoft PowerPoint® veya diğer programları kullanmadan sunum belgelerini okumasını ve yazmasını sağlayan bir sınıf kitaplığıdır. Aspose.Slides for Java, metin, şekiller, tablolar ve animasyonları yönetmeyi, slaytlara ses ve video eklemeyi, slaytları ön izlemeyi, slaytları SVG, PDF formatına ve daha fazlasına dışa aktarmayı sağlar.
 
-En son API Referansı şu adreste bulunabilir: [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/tr/java).
+En son API Referansı, [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/tr/java) adresinde bulunabilir.
 
 {{% /alert %}}

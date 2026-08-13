@@ -12,26 +12,28 @@ keywords:
 - PPT به HTML5
 - PPTX به HTML5
 - ODP به HTML5
-- ذخیره PPT به صورت HTML5
-- ذخیره PPTX به صورت HTML5
-- ذخیره ODP به صورت HTML5
-- صادرات PPT به HTML5
-- صادرات PPTX به HTML5
-- صادرات ODP به HTML5
-- اندروید
-- جاوا
+- ذخیره PPT به عنوان HTML5
+- ذخیره PPTX به عنوان HTML5
+- ذخیره ODP به عنوان HTML5
+- صادر کردن PPT به HTML5
+- صادر کردن PPTX به HTML5
+- صادر کردن ODP به HTML5
+- Android
+- Java
 - Aspose.Slides
-description: "صادرات ارائه‌های PowerPoint و OpenDocument به HTML5 واکنش‌گرا با Aspose.Slides برای اندروید از طریق جاوا. حفظ قالب‌بندی، انیمیشن‌ها و تعامل."
+description: "صادر کردن ارائه‌های PowerPoint و OpenDocument به HTML5 واکنش‌گرا با Aspose.Slides برای اندروید از طریق Java. حفظ قالب‌بندی، انیمیشن‌ها و تعاملی بودن."
 ---
 ## **بررسی کلی**
 
-این مقاله نحوه تبدیل ارائه‌های PowerPoint به HTML5 با استفاده از Aspose.Slides را توضیح می‌دهد. در آن به صادرات پایه HTML5 بدون افزونه‌های وب یا وابستگی‌های اضافی، و همچنین گزینه‌های کنترل انیمیشن‌های شکل و تغییرات اسلاید پرداخته می‌شود. مقاله همچنین فرآیند استاندارد خروجی PowerPoint به HTML را نشان می‌دهد، توضیح می‌دهد چگونه خروجی HTML5 را در حالت نمای اسلاید تولید کنید، و نشان می‌دهد چطور می‌توان با تنظیم چیدمان، نظرات را در سند صادر شده گنجاند.
+این مقاله توضیح می‌دهد که چگونه ارائه‌های PowerPoint را با استفاده از Aspose.Slides به HTML5 تبدیل کنید. این مقاله، صادرات پایه HTML5 بدون افزونه‌های وب یا وابستگی‌های اضافی را پوشش می‌دهد و همچنین گزینه‌هایی برای کنترل انیمیشن‌های شکل و انتقال اسلایدها ارائه می‌کند. همچنین فرآیند استاندارد صادرات PowerPoint به HTML را نشان می‌دهد، توضیح می‌دهد که چگونه خروجی HTML5 را در حالت نمای اسلاید تولید کنید و نحوه گنجاندن نظرات در سند صادره را از طریق پیکربندی چیدمان آن نشان می‌دهد.
 
 ## **صادرات PowerPoint به HTML5**
 
-این کد Java نحوه صادرات یک ارائه به HTML5 بدون افزونه‌های وب و وابستگی‌ها را نشان می‌دهد:
+این کد Java نشان می‌دهد که چگونه یک ارائه را بدون افزونه‌های وب و وابستگی‌ها به HTML5 صادر کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -40,13 +42,15 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 در این حالت، HTML تمیزی دریافت می‌کنید. 
 {{% /alert %}}
 
-اگر بخواهید تنظیمات انیمیشن‌های شکل و تغییرات اسلاید را به این روش مشخص کنید:
+ممکن است بخواهید تنظیمات انیمیشن‌های شکل و انتقال اسلایدها را به این روش مشخص کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -64,6 +68,8 @@ try {
 این کد Java فرآیند استاندارد تبدیل PowerPoint به HTML را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -72,7 +78,7 @@ try {
 }
 ```
 
-در این حالت، محتوای ارائه با استفاده از SVG به شکلی مانند زیر رندر می‌شود:
+در این حالت، محتوای ارائه از طریق SVG به شکل زیر رندر می‌شود:
 
 ```html
 <body>
@@ -84,17 +90,19 @@ try {
 </body>
 ```
 
-{{% alert title="توجه" color="warning" %}} 
-هنگامی که از این روش برای صادرات PowerPoint به HTML استفاده می‌کنید، به دلیل رندرینگ SVG، نمی‌توانید سبک‌ها را اعمال کنید یا عناصر خاص را انیمیت کنید. 
+{{% alert title="Note" color="warning" %}} 
+هنگامی که از این روش برای صادرات PowerPoint به HTML استفاده می‌کنید، به دلیل رندر SVG، قادر نخواهید بود سبک‌ها را اعمال کنید یا عناصر خاص را متحرک کنید. 
 {{% /alert %}}
 
 ## **صادرات PowerPoint به نمای اسلاید HTML5**
 
-**Aspose.Slides** امکان تبدیل یک ارائه PowerPoint به سند HTML5 را فراهم می‌کند که در آن اسلایدها به صورت نمای اسلاید نمایش داده می‌شوند. در این حالت، هنگام باز کردن فایل HTML5 حاصل در مرورگر، ارائه در حالت نمای اسلاید بر روی صفحه وب دیده می‌شود. 
+**Aspose.Slides** به شما امکان می‌دهد یک ارائه PowerPoint را به سند HTML5 تبدیل کنید که در آن اسلایدها در حالت نمای اسلاید نمایش داده می‌شوند. در این حالت، هنگامی که فایل HTML5 حاصل را در مرورگر باز می‌کنید، ارائه را به صورت نمای اسلاید در صفحه وب می‌بینید. 
 
 این کد Java فرآیند صادرات PowerPoint به نمای اسلاید HTML5 را نشان می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -109,38 +117,43 @@ try {
 
 ## **تبدیل یک ارائه به سند HTML5 با نظرات**
 
-نظرات در PowerPoint ابزاری هستند که به کاربران اجازه می‌دهند نکات یا بازخورد خود را بر روی اسلایدهای ارائه بگذارند. این ویژگی به‌ویژه در پروژه‌های مشترک مفید است، جایی که افراد مختلف می‌توانند پیشنهادات یا توضیحات خود را به عناصر خاص اسلاید اضافه کنند بدون آنکه محتوی اصلی را تغییر دهند. هر نظر نام نویسنده را نمایش می‌دهد و ردیابی صاحب نظر را آسان می‌کند.
+نظرات در PowerPoint ابزاری هستند که به کاربران اجازه می‌دهند یادداشت‌ها یا بازخوردهایی بر روی اسلایدهای ارائه بگذارند. این نظرات به‌ویژه در پروژه‌های مشترک مفید هستند، چرا که چندین نفر می‌توانند پیشنهادات یا توضیحات خود را به عناصر خاص اسلایدها اضافه کنند بدون اینکه محتوای اصلی را تغییر دهند. هر نظر نام نویسنده را نشان می‌دهد، که ردیابی کننده‌ای برای شناختن اینکه چه کسی نظر را گذاشته است، فراهم می‌کند.
 
-فرض کنیم ارائه PowerPoint زیر را در فایل «sample.pptx» ذخیره کرده‌ایم.
+فرض کنید ارائه PowerPoint زیر در فایل "sample.pptx" ذخیره شده است.
 
 ![دو نظر بر روی اسلاید ارائه](two_comments_pptx.png)
 
-زمانی که یک ارائه PowerPoint را به سند HTML5 تبدیل می‌کنید، به‌راحتی می‌توانید تعیین کنید که آیا نظرات موجود در ارائه در سند خروجی گنجانده شوند یا نه. برای این کار، باید پارامترهای نمایش نظرات را در متد `getNotesCommentsLayouting` کلاس [Html5Options](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/) مشخص کنید.
+هنگامی که یک ارائه PowerPoint را به سند HTML5 تبدیل می‌کنید، می‌توانید به سادگی تعیین کنید که آیا نظرات موجود در ارائه در سند خروجی گنجانده شوند یا نه. برای این کار، باید پارامترهای نمایش نظرات را به متد `setSlidesLayoutOptions` از کلاس [Html5Options](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/) پاس دهید.
 
-مثال کد زیر یک ارائه را به سند HTML5 تبدیل می‌کند که نظرات در سمت راست اسلایدها نمایش داده می‌شوند.
+مثال کد زیر یک ارائه را به سند HTML5 تبدیل می‌کند که نظرات به سمت راست اسلایدها نمایش داده می‌شوند.
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-سند «output.html» در تصویر زیر نشان داده شده است.
+سند "output.html" در تصویر زیر نشان داده شده است.
 
-![نظرات در سند HTML5 خروجی](two_comments_html5.png)
+![نظرات در سند خروجی HTML5](two_comments_html5.png)
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم کنترل کنم که انیمیشن‌های اشیاء و تغییرات اسلاید در HTML5 اجرا شوند یا خیر؟**
+### آیا می‌توانم کنترل کنم که آیا انیمیشن‌های اشیا و انتقال اسلایدها در HTML5 اجرا شوند؟
 
-بله، HTML5 گزینه‌های جداگانه‌ای برای فعال یا غیرفعال کردن [shape animations](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) و [slide transitions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) فراهم می‌کند.
+بله، HTML5 گزینه‌های جداگانه‌ای برای فعال یا غیرفعال کردن [انیمیشن‌های شکل](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) و [انتقال‌های اسلاید](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) فراهم می‌کند.
 
-**آیا خروجی نظرات پشتیبانی می‌شود و می‌توان آنها را نسبت به اسلاید در کجا قرار داد؟**
+### آیا خروجی نظرات پشتیبانی می‌شود و می‌توان آنها را نسبت به اسلاید کجا قرار داد؟
 
-بله، می‌توان نظرات را در HTML5 اضافه کرد و از طریق [layout settings](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) برای یادداشت‌ها و نظرات، موقعیت آنها (مثلاً در سمت راست اسلاید) را تعیین کرد.
+بله، می‌توان نظرات را در HTML5 افزود و از طریق [تنظیمات چیدمان](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) برای یادداشت‌ها و نظرات، آنها را (مثلاً به سمت راست اسلاید) موقعیت‌دهی کرد.
 
-**آیا می‌توانم لینک‌هایی که JavaScript فراخوانی می‌کنند را برای دلایل امنیتی یا CSP حذف کنم؟**
+### آیا می‌توانم لینک‌هایی که JavaScript فراخوانی می‌کنند را برای دلایل امنیتی یا CSP رد کنم؟
 
-بله، یک [setting](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) وجود دارد که اجازه می‌دهد در زمان ذخیره‌سازی، پیوندهای حاوی فراخوانی‌های JavaScript را نادیده بگیرید. این کار به رعایت سیاست‌های امنیتی سخت کمک می‌کند.
+بله، یک [تنظیم](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) وجود دارد که به شما اجازه می‌دهد در زمان ذخیره‌سازی، پیوندهای حاوی فراخوانی JavaScript را نادیده بگیرید. این به رعایت سیاست‌های امنیتی سخت کمک می‌کند.

@@ -12,75 +12,78 @@ keywords:
 - aktualizovat graf
 - rozptýlený graf
 - koláčový graf
-- spojnicový graf
-- graf stromové mapy
+- čárový graf
+- mapový graf
 - akciový graf
-- krabicový a fousový graf
-- trychový graf
-- sluneční paprskový graf
+- box a whisker graf
+- trychtýřový graf
+- sunburst graf
 - histogramový graf
-- radiový graf
-- graf s více kategoriemi
+- radarový graf
+- vícekategoriový graf
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Android. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu v jazyce Java."
+description: "Vytvořte a přizpůsobte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro Android. Přidejte, formátujte a upravujte grafy s praktickými příklady kódu v jazyce Java."
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak pomocí Aspose.Slides vytvářet a přizpůsobovat grafy. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování tak, aby odpovídaly vašim specifickým požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte solidní pochopení toho, jak integrovat dynamické generování grafů do vašich aplikací a zjednodušit tvorbu prezentací řízených daty.
+Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování tak, aby odpovídaly vašim konkrétním požadavkům na design. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci sérií, os a legend. Dodržením tohoto průvodce získáte pevné pochopení, jak integrovat dynamické generování grafů do vašich aplikací, což zjednoduší proces vytváření prezentací řízených daty.
 
-## **Vytvořit graf**
-Grafy pomáhají lidem rychle vizualizovat data a získávat postřehy, které nemusí být okamžitě zřejmé z tabulky nebo kalkulační tabulky. 
+## **Vytvoření grafu**
+Grafy pomáhají lidem rychle vizualizovat data a získat přehledy, které nemusí být okamžitě zřejmé z tabulky nebo tabulkového procesoru. 
 
 **Proč vytvářet grafy?**
 
-Pomocí grafů můžete
+Používáním grafů můžete
 
-* agregovat, zhušťovat nebo sumarizovat velké množství dat na jednom snímku v prezentaci
-* odhalovat vzorce a trendy v datech
-* odhadovat směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření
-* odhalovat odlehlé hodnoty, odchylky, chyby, nesmyslná data atd.
+* agregovat, zhušťovat nebo shrnovat velké množství dat na jediném snímku v prezentaci
+* odhalovat vzory a trendy v datech
+* odhadovat směr a dynamiku dat v čase nebo vzhledem ke konkrétní měrné jednotce
+* identifikovat odlehlé hodnoty, aberrace, odchylky, chyby, nesmyslná data atd.
 * komunikovat nebo prezentovat složitá data
 
-V PowerPointu můžete grafy vytvářet pomocí funkce Vložit, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet běžné grafy (založené na populárních typech) i vlastní grafy. 
+V PowerPointu můžete vytvářet grafy pomocí funkce vložení, která poskytuje šablony pro návrh mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet běžné grafy (založené na populárních typech grafů) i vlastní grafy. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aby bylo možné vytvářet grafy, Aspose.Slides poskytuje třídu [ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType). Pole v této třídě odpovídají různým typům grafů.
+Aby vám umožnil vytvářet grafy, Aspose.Slides poskytuje třídu [ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType). Polia pod touto třídou odpovídají různým typům grafů.
 
 {{% /alert %}} 
 
 ### **Vytvořit běžné grafy**
 
-_Steps: Create Chart_
+_Kroky: Vytvořit graf_
 - <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint graf v Javě</strong></a>
 - <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Kroky:</em> Vytvořit graf v prezentaci v Javě</strong></a>
 - <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s grafem v Javě</strong></a>
 
-_Code Steps:_
+Kódu kroky:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s některými daty a uveďte požadovaný typ grafu. 
+2. Získejte referenci na snímek pomocí jeho indexu.
+3. Přidejte graf s nějakými daty a zadejte preferovaný typ grafu. 
 4. Přidejte název grafu. 
-5. Přístup k pracovním listům dat grafu. 
-6. Vymažte všechny výchozí řady a kategorie. 
-7. Přidejte nové řady a kategorie. 
-8. Přidejte nová data pro řady grafu. 
-9. Přidejte barvu výplně pro řady grafu. 
-10. Přidejte popisky pro řady grafu. 
+5. Získejte přístup k pracovním listu s daty grafu.
+6. Vymažte všechny výchozí série a kategorie.
+7. Přidejte nové série a kategorie.
+8. Přidejte nová data grafu pro série grafu.
+9. Přidejte barvu výplně pro série grafu.
+10. Přidejte popisky pro série grafu. 
 11. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento Java kód ukazuje, jak vytvořit běžný graf:
+Tento Java kód vám ukazuje, jak vytvořit běžný graf:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor PPTX
 Presentation pres = new Presentation();
 try {
-    // Přistoupí k prvnímu snímku
+    // Přistupuje k prvnímu snímku
     ISlide sld = pres.getSlides().get_Item(0);
     
     // Přidá graf s výchozími daty
@@ -90,24 +93,21 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    
-    // Nastaví první řadu, aby zobrazovala hodnoty
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setTitle(true);
     
     // Nastaví index pro datový list grafu
     int defaultWorksheetIndex = 0;
     
-    // Získá pracovní list dat grafu
+    // Získá pracovní list s daty grafu
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Odstraní výchozí generované řady a kategorie
+    // Odstraní výchozí generované série a kategorie
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    // Přidá nové řady
+    // Přidá nové série
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
@@ -116,32 +116,32 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Získá první řadu grafu
+    // Získá první sérii grafu
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Nyní naplní data řady
+    // Nyní vyplní data série
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Nastaví výplňovou barvu pro řadu
+    // Nastaví barvu výplně pro sérii
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Získá druhou řadu grafu
+    // Získá druhou sérii grafu
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Naplní data řady
+    // Vyplní data série
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Nastaví výplňovou barvu pro řadu
+    // Nastaví barvu výplně pro sérii
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Vytvoří vlastní popisky pro každou kategorii nové řady
-    // Nastaví první popisek tak, aby zobrazoval název kategorie
+    //Create vlastní popisky pro každou kategorii nové série
+    // Nastaví první popisek, aby zobrazoval název kategorie
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -162,69 +162,71 @@ try {
 ```
 
 ### **Vytvořit rozptýlené grafy**
-Rozptýlené grafy (také známé jako rozptylové diagramy nebo grafy x‑y) se často používají k ověření vzorců nebo k demonstraci korelací mezi dvěma proměnnými. 
+Rozptýlené grafy (také známé jako rozptýlené diagramy nebo x‑y grafy) se často používají ke kontrole vzorů nebo demonstraci korelací mezi dvěma proměnnými. 
 
 Můžete chtít použít rozptýlený graf, když 
 
-* máte párová číselná data
-* máte 2 proměnné, které spolu dobře souvisejí
-* chcete zjistit, zda jsou 2 proměnné propojené
-* máte nezávislou proměnnou s více hodnotami pro závislou proměnnou
+* máte spárovaná číselná data
+* máte 2 proměnné, které spolu dobře souvisí
+* chcete zjistit, zda jsou 2 proměnné související
+* máte nezávislou proměnnou, která má více hodnot pro závislou proměnnou
 
 <a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Kroky:</em> Vytvořit rozptýlený graf v Javě</strong></a> |
 <a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint rozptýlený graf v Javě</strong></a> |
 <a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s rozptýleným grafem v Javě</strong></a>
 
-1. Postupujte podle kroků uvedených výše v [Vytvoření běžných grafů](#creating-normal-charts)
-2. Pro třetí krok, Přidejte graf s některými daty a uveďte typ grafu jako jeden z následujících
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Představuje rozptýlený graf s značkami._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Představuje rozptýlený graf spojovaný křivkami se značkami._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Představuje rozptýlený graf spojovaný křivkami bez značek._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Představuje rozptýlený graf spojovaný úsečkami se značkami._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Představuje rozptýlený graf spojovaný úsečkami bez značek._
+1. Prosím, následujte kroky uvedené výše v [Vytvoření běžných grafů](#creating-normal-charts)
+2. Pro třetí krok, přidejte graf s nějakými daty a zadejte typ grafu jako jeden z následujících
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _Representuje rozptýlený graf se značkami._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Representuje rozptýlený graf spojený křivkami, se značkami dat._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Representuje rozptýlený graf spojený křivkami, bez značek dat._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Representuje rozptýlený graf spojený úsečkami, se značkami dat._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Representuje rozptýlený graf spojený úsečkami, bez značek dat._
 
-Tento Java kód ukazuje, jak vytvořit rozptýlené grafy s různými sériemi značek: 
+Tento Java kód vám ukazuje, jak vytvořit rozptýlené grafy s různými sériemi značek: 
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor PPTX
 Presentation pres = new Presentation();
 try {
-    // Přistoupí k prvnímu snímku
+    // Přistupuje k prvnímu snímku
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Vytvoří výchozí graf
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Získá index výchozího pracovního listu dat grafu
+    // Získá výchozí index pracovního listu s daty grafu
     int defaultWorksheetIndex = 0;
     
-    // Získá pracovní list dat grafu
+    // Získá pracovní list s daty grafu
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Odstraní ukázkovou řadu
+    // Odstraní ukázkové série
     chart.getChartData().getSeries().clear();
     
-    // Přidá nové řady
+    // Přidá nové série
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Získá první řadu grafu
+    // Získá první sérii grafu
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Přidá nový bod (1:3) do řady
+    // Přidá nový bod (1:3) do série
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
     // Přidá nový bod (2:10)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // Změní typ řady
+    // Změní typ série
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Změní značku řady grafu
+    // Změní značku série grafu
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // Získá druhou řadu grafu
+    // Získá druhou sérii grafu
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Přidá nový bod (5:2) tam
@@ -239,7 +241,7 @@ try {
     // Přidá nový bod (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Změní značku řady grafu
+    // Změní značku série grafu
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -251,32 +253,35 @@ try {
 
 ### **Vytvořit koláčové grafy**
 
-Koláčové grafy se nejlépe používají k zobrazení vztahu část‑celkem v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, možná budete raději použít sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však data obsahují mnoho částí nebo štítků, můžete zvážit použití sloupcového grafu.
 
 <a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Kroky:</em> Vytvořit koláčový graf v Javě</strong></a> |
 <a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint koláčový graf v Javě</strong></a> |
 <a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s koláčovým grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu.
 3. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě [ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).Pie).
-4. Přístup k datům grafu pomocí [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data do řad grafu.
-8. Přidejte nové body do grafu a přizpůsobte barvy sektorů koláčového grafu.
-9. Nastavte popisky pro řady.
-10. Nastavte čáry ukazatele pro popisky řad.
-11. Nastavte úhel otočení koláčového grafu.
-12. Uložte upravenou prezentaci do souboru PPTX
+4. Získejte přístup k datovému sešitu grafu [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data pro série grafu.
+8. Přidejte nové body pro graf a přizpůsobte barvy sektoru koláčového grafu.
+9. Nastavte popisky pro série.
+10. Nastavte čáry vodítek pro popisky sérií.
+11. Nastavte úhel otáčení pro slajdy s koláčovým grafem.
+12. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento Java kód ukazuje, jak vytvořit koláčový graf:
+Tento Java kód vám ukazuje, jak vytvořit koláčový graf:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Vytvoří instanci třídy prezentace, která představuje soubor PPTX
 Presentation pres = new Presentation();
 try {
-    // Přistoupí k prvnímu snímku
+    // Přistupuje k prvnímu snímku
     ISlide slides = pres.getSlides().get_Item(0);
     
     // Přidá graf s výchozími daty
@@ -288,16 +293,13 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Nastaví první řadu, aby zobrazovala hodnoty
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
     // Nastaví index pro datový list grafu
     int defaultWorksheetIndex = 0;
     
-    // Získá pracovní list dat grafu
+    // Získá pracovní list s daty grafu
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Odstraní výchozí generované řady a kategorie
+    // Odstraní výchozí generované série a kategorie
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -306,16 +308,16 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // Přidá nové řady
+    // Přidá nové série
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    //Naplní data řady
+    //Vyplní data série
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Nefunguje v nové verzi
-    // Přidání nových bodů a nastavení barvy sektoru
+    // Nepracuje v nové verzi
+    // Přidávání nových bodů a nastavení barvy sektoru
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -352,7 +354,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Vytvoří vlastní popisky pro každou kategorii nové řady
+    // Vytvoří vlastní popisky pro každou kategorii nové série
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -380,22 +382,20 @@ try {
 }
 ```
 
-### **Vytvořit spojnicové grafy**
+### **Vytvořit čárové grafy**
 
-Spojnicové grafy (také známé jako spojnicové diagramy) se nejlépe hodí v situacích, kdy chcete zobrazit změny hodnot v čase. Pomocí spojnicového grafu můžete porovnávat velké objemy dat najednou, sledovat změny a trendy v čase, zvýrazňovat odchylky v sériích dat atd.
+Čárové grafy (také známé jako čárové diagramy) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v průběhu času. Pomocí čárového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit odchylky v datových sériích atd.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
+1. Získejte referenci na snímek pomocí jeho indexu.
 1. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě `ChartType.Line`).
-1. Přístup k datům grafu pomocí IChartDataWorkbook.
-1. Vymažte výchozí řady a kategorie.
-1. Přidejte nové řady a kategorie.
-1. Přidejte nová data do řad grafu.
-1. Uložte upravenou prezentaci do souboru PPTX
+1. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento Java kód ukazuje, jak vytvořit spojnicový graf:
+Tento Java kód vám ukazuje, jak vytvořit čárový graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -406,37 +406,46 @@ try {
 }
 ```
 
-Ve výchozím nastavení jsou body na spojnicovém grafu spojeny rovnými souvislými čarami. Pokud chcete, aby byly body spojeny čárkovanou čarou, můžete specifikovat požadovaný typ čáry takto:
+Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými souvislými čarami. Pokud chcete, aby byly body spojeny pomlčkami, můžete zadat preferovaný typ čáry takto:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-### **Vytvořit grafy stromové mapy**
+### **Vytvořit mapové grafy (Tree Map)**
 
-Grafy stromové mapy jsou nejvhodnější pro prodejní data, kdy chcete zobrazit relativní velikost kategorií a zároveň rychle upozornit na položky, které významně přispívají do každé kategorie. 
+Mapové grafy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost datových kategorií a (současně) rychle upozornit na položky, které jsou velkými přispěvateli do každé kategorie. 
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Kroky:</em> Vytvořit graf stromové mapy v Javě</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint graf stromové mapy v Javě</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s grafem stromové mapy v Javě</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Kroky:</em> Vytvořit mapový graf v Javě</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint mapový graf v Javě</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s mapovým grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu.
 3. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě [ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).TreeMap).
-4. Přístup k datům grafu pomocí [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data do řad grafu.
-8. Uložte upravenou prezentaci do souboru PPTX
+4. Získejte přístup k datovému sešitu grafu [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data pro série grafu.
+8. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento Java kód ukazuje, jak vytvořit graf stromové mapy:
+Tento Java kód vám ukazuje, jak vytvořit mapový graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -489,25 +498,27 @@ try {
 }
 ```
 
-### **Vytvořit akciové grafy**
+### **Vytvořit akciové grafy (Stock)**
 
 <a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Kroky:</em> Vytvořit akciový graf v Javě</strong></a> |
 <a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint akciový graf v Javě</strong></a> |
 <a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s akciovým grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu.
 3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Přístup k datům grafu pomocí [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data do řad grafu.
-8. Specifikujte formát HiLowLines.
-9. Uložte upravenou prezentaci do souboru PPTX
+4. Získejte přístup k datovému sešitu grafu [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data pro série grafu.
+8. Určete formát HiLowLines.
+9. Uložte upravenou prezentaci jako soubor PPTX
 
-Ukázkový Java kód pro vytvoření akciového grafu:
+Ukázkový Java kód používaný k vytvoření akciového grafu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -561,24 +572,26 @@ try {
 }
 ```
 
-### **Vytvořit krabicové a fousové grafy**
+### **Vytvořit grafy Box and Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Kroky:</em> Vytvořit krabicový a fousový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint krabicový a fousový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s krabicovým a fousovým grafem v Javě</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Kroky:</em> Vytvořit Box and Whisker graf v Javě</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint Box and Whisker graf v Javě</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s Box and Whisker grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu.
 3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Přístup k datům grafu pomocí [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data do řad grafu.
-8. Uložte upravenou prezentaci do souboru PPTX
+4. Získejte přístup k datovému sešitu grafu [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data pro série grafu.
+8. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento Java kód ukazuje, jak vytvořit krabicový a fousový graf:
+Tento Java kód vám ukazuje, jak vytvořit Box and Whisker graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -616,20 +629,22 @@ try {
 }
 ```
 
-### **Vytvořit trychové grafy**
+### **Vytvořit trychtýřové grafy (Funnel)**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Kroky:</em> Vytvořit trychový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint trychový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s trychovým grafem v Javě</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Kroky:</em> Vytvořit trychtýřový graf v Javě</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint trychtýřový graf v Javě</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s trychtýřovým grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu.
 3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).Funnel).
-4. Uložte upravenou prezentaci do souboru PPTX
+4. Uložte upravenou prezentaci jako soubor PPTX
 
-Java kód ukazuje, jak vytvořit trychový graf:
+Java kód vám ukazuje, jak vytvořit trychtýřový graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -662,20 +677,22 @@ try {
 }
 ```
 
-### **Vytvořit sluneční paprskové grafy**
+### **Vytvořit sluneční paprsek (Sunburst) grafy**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Kroky:</em> Vytvořit sluneční paprskový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint sluneční paprskový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s slunečním paprskovým grafem v Javě</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Kroky:</em> Vytvořit Sunburst graf v Javě</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint Sunburst graf v Javě</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s Sunburst grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu.
 3. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě [ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).sunburst).
-4. Uložte upravenou prezentaci do souboru PPTX
+4. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento Java kód ukazuje, jak vytvořit sluneční paprskový graf:
+Tento Java kód vám ukazuje, jak vytvořit Sunburst graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -733,16 +750,18 @@ try {
 <a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s histogramovým grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
+2. Získejte referenci na snímek pomocí jeho indexu.
 3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).Histogram).
-4. Přístup k datům grafu pomocí [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Uložte upravenou prezentaci do souboru PPTX
+4. Získejte přístup k datovému sešitu grafu [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento Java kód ukazuje, jak vytvořit histogramový graf:
+Tento Java kód vám ukazuje, jak vytvořit histogramový graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -760,7 +779,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -768,20 +787,22 @@ try {
 }
 ```
 
-### **Vytvořit radiové grafy**
+### **Vytvořit radiační (Radar) grafy**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Kroky:</em> Vytvořit radiový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint radiový graf v Javě</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s radiovým grafem v Javě</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Kroky:</em> Vytvořit Radar graf v Javě</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint Radar graf v Javě</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s Radar grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu. 
-3. Přidejte graf s některými daty a uveďte požadovaný typ grafu (`ChartType.Radar` v tomto případě).
-4. Uložte upravenou prezentaci do souboru PPTX
+2. Získejte referenci na snímek pomocí jeho indexu. 
+3. Přidejte graf s nějakými daty a zadejte preferovaný typ grafu (`ChartType.Radar` v tomto případě).
+4. Uložte upravenou prezentaci jako soubor PPTX
 
-Tento Java kód ukazuje, jak vytvořit radiový graf:
+Tento Java kód vám ukazuje, jak vytvořit Radar graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -791,24 +812,26 @@ try {
 }
 ```
 
-### **Vytvořit grafy s více kategoriemi**
+### **Vytvořit vícekategoriové grafy**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Kroky:</em> Vytvořit graf s více kategoriemi v Javě</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint graf s více kategoriemi v Javě</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s grafem s více kategoriemi v Javě</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Kroky:</em> Vytvořit vícekategoriový graf v Javě</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint vícekategoriový graf v Javě</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s vícekategoriovým grafem v Javě</strong></a>
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu. 
+2. Získejte referenci na snímek pomocí jeho indexu. 
 3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ChartType).ClusteredColumn).
-4. Přístup k datům grafu pomocí [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
-5. Vymažte výchozí řady a kategorie.
-6. Přidejte nové řady a kategorie.
-7. Přidejte nová data do řad grafu.
-8. Uložte upravenou prezentaci do souboru PPTX.
+4. Získejte přístup k datovému sešitu grafu [IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataWorkbook).
+5. Vymažte výchozí série a kategorie.
+6. Přidejte nové série a kategorie.
+7. Přidejte nová data pro série grafu.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento Java kód ukazuje, jak vytvořit graf s více kategoriemi:
+Tento Java kód vám ukazuje, jak vytvořit vícekategoriový graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -835,7 +858,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // Přidání řady
+    // Přidání sérií
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -857,15 +880,17 @@ try {
 
 ### **Vytvořit mapové grafy**
 
-Mapový graf je vizualizace oblasti obsahující data. Mapové grafy jsou nejvhodnější pro porovnávání dat nebo hodnot napříč geografickými regiony.
+Mapový graf je vizualizace oblasti obsahující data. Mapové grafy jsou nejvhodnější pro porovnání dat nebo hodnot napříč geografickými regiony.
 
 <a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Kroky:</em> Vytvořit mapový graf v Javě</strong></a> |
 <a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint mapový graf v Javě</strong></a> |
 <a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Kroky:</em> Vytvořit PowerPoint prezentaci s mapovým grafem v Javě</strong></a>
 
-Tento Java kód ukazuje, jak vytvořit mapový graf:
+Tento Java kód vám ukazuje, jak vytvořit mapový graf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -877,13 +902,16 @@ try {
 
 ### **Vytvořit kombinované grafy**
 
-Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma nebo více datovými sadami, což vám pomůže identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo prověřit rozdíly mezi dvěma nebo více datovými sadami, což pomáhá identifikovat vztahy mezi nimi.
 
-![The combination chart](combination_chart.png)
+![Kombinovaný graf](combination_chart.png)
 
 Následující Java kód ukazuje, jak vytvořit kombinovaný graf zobrazený výše v PowerPoint prezentaci:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -905,7 +933,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Nastavte název grafu.
+    // Nastaví název grafu.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -914,24 +942,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // Nastavte legendu grafu.
+    // Nastaví legendu grafu.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Odstraňte výchozí vygenerované řady a kategorie.
+    // Odstraní výchozí generované série a kategorie.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // Přidejte nové kategorie.
+    // Přidá nové kategorie.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Přidejte první řadu.
+    // Přidá první sérii.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -978,28 +1006,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // Nastavte vodorovnou osu.
+    // Nastaví vodorovnou osu.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // Nastavte svislou osu.
+    // Nastaví svislou osu.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Nastavte barvu hlavních svislých mřížkových čar.
+    // Nastaví barvu hlavních mřížkových čar svislé osy.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // Nastavte sekundární vodorovnou osu.
+    // Nastaví sekundární vodorovnou osu.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -1007,11 +1035,11 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // Nastavte sekundární svislou osu.
+    // Nastaví sekundární svislou osu.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    secondaryVerticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
@@ -1034,67 +1062,70 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Kroky:</em> Aktualizovat graf v prezentaci v Javě</strong></a> |
 <a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Kroky:</em> Aktualizovat PowerPoint prezentaci s grafem v Javě</strong></a>
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation), která představuje prezentaci obsahující graf, který chcete aktualizovat.
-2. Získejte odkaz na snímek pomocí jeho Indexu.
-3. Projděte všechny tvary a najděte požadovaný graf.
-4. Přístup k pracovním listům dat grafu.
-5. Upravit data řad grafu změnou hodnot řad.
-6. Přidejte novou řadu a naplňte ji daty.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) představující prezentaci obsahující graf, který chcete aktualizovat.
+2. Získejte referenci na snímek pomocí jeho indexu.
+3. Prohledejte všechny tvary a najděte požadovaný graf.
+4. Získejte přístup k datovému listu grafu.
+5. Modifikujte data sérií grafu změnou hodnot sérií.
+6. Přidejte novou sérii a naplňte ji daty.
 7. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento Java kód ukazuje, jak aktualizovat graf:
+Tento Java kód vám ukazuje, jak aktualizovat graf:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Otevře prezentaci, která obsahuje graf k aktualizaci
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Získat první snímek
+    // Získá první snímek
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Získat graf s výchozími daty
+    // Získá graf ze snímku
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Nastavení indexu listu dat grafu
+    // Nastavení indexu listu s daty grafu
     int defaultWorksheetIndex = 0;
 
-    // Získání pracovního listu dat grafu
+    // Získání pracovního listu s daty grafu
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
     // Změna názvu kategorie grafu
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Získat první řadu grafu
+    // Získá první sérii grafu
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // Nyní aktualizuje data řady
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifikace názvu řady
+    // Nyní aktualizuje data série
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Úprava názvu série
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Získat druhou řadu grafu
+    // Získá druhou sérii grafu
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // Nyní aktualizuje data řady
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifikace názvu řady
+    // Nyní aktualizuje data série
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Úprava názvu série
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // Nyní přidává novou řadu
+    // Nyní přidává novou sérii
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Získat třetí řadu grafu
+    // Získá třetí sérii grafu
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // Nyní naplňuje data řady
+    // Nyní vyplňuje data série
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Uložit prezentaci s grafem
+    // Uloží prezentaci s grafem
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -1103,18 +1134,21 @@ try {
 
 ## **Nastavit datový rozsah pro graf**
 
-Pro nastavení datového rozsahu pro graf postupujte následovně:
+Pro nastavení datového rozsahu grafu postupujte takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation), která představuje prezentaci obsahující graf.
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Projděte všechny tvary a najděte požadovaný graf.
-4. Přístup k datům grafu a nastavení rozsahu.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) představující prezentaci obsahující graf.
+2. Získejte referenci na snímek pomocí jeho indexu.
+3. Prohledejte všechny tvary a najděte požadovaný graf.
+4. Získejte přístup k datům grafu a nastavte rozsah.
 5. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento Java kód ukazuje, jak nastavit datový rozsah pro graf:
+Tento Java kód vám ukazuje, jak nastavit datový rozsah pro graf:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Otevře prezentaci, která obsahuje graf
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1128,11 +1162,13 @@ try {
 ```
 
 ## **Použít výchozí značky v grafech**
-Když použijete výchozí značku v grafech, každá řada grafu získá jiný výchozí symbol značky automaticky.
+Když použijete výchozí značku v grafech, každá série grafu získá automaticky odlišný výchozí symbol značky.
 
-Tento Java kód ukazuje, jak automaticky nastavit značku řady grafu:
+Tento Java kód vám ukazuje, jak automaticky nastavit značku série grafu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1155,10 +1191,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Získat druhou řadu grafu
+    // Získá druhou sérii grafu
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Nyní naplňuji data řady
+    // Nyní vyplňuji data série
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1173,20 +1209,20 @@ try {
 }
 ```
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
-**Jaké typy grafů podporuje Aspose.Slides?**
+### Jaké typy grafů podporuje Aspose.Slides?
 
-Aspose.Slides podporuje širokou škálu [chart types](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/), včetně sloupcových, spojnicových, koláčových, plošných, rozptylových, histogramových, radiových a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides podporuje širokou škálu [typů grafů](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/charttype/), včetně sloupcových, čárových, koláčových, oblastních, rozptýlených, histogramových, radaru a mnoha dalších. Tato flexibilita vám umožňuje vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
-**Jak přidat nový graf do snímku?**
+### Jak přidám nový graf do snímku?
 
-Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) , načtete požadovaný snímek podle jeho indexu a poté zavoláte metodu pro přidání grafu, přičemž specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) reprezentující prezentaci, získáte požadovaný snímek podle jeho indexu a poté zavoláte metodu pro přidání grafu, kde specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
-**Jak mohu aktualizovat data zobrazovaná v grafu?**
+### Jak mohu aktualizovat data zobrazovaná v grafu?
 
-Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat přístupem k jeho datovému sešitu ([IChartDataWorkbook](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdataworkbook/)), vymazáním výchozích sérií a kategorií a následným přidáním vlastních dat. To vám umožní obnovit graf tak, aby odrážel nejnovější data.
 
-**Je možné přizpůsobit vzhled grafu?**
+### Je možné přizpůsobit vzhled grafu?
 
-Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další [formatting elements](/slides/cs/androidjava/chart-entities/) tak, aby vzhled grafu odpovídal vašim konkrétním požadavkům na design.
+Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další [formátovací prvky](/slides/cs/androidjava/chart-entities/), aby vzhled grafu odpovídal vašim specifickým požadavkům na design.

@@ -1,19 +1,19 @@
 ---
-title: Nhập bản trình bày từ PDF hoặc HTML trên Android
-linktitle: Nhập Bản Trình Bày
+title: Nhập bản trình chiếu từ PDF hoặc HTML trên Android
+linktitle: Nhập bản trình chiếu
 type: docs
 weight: 60
 url: /vi/androidjava/import-presentation/
 keywords:
-- nhập bản trình bày
+- nhập bản trình chiếu
 - nhập slide
 - nhập PDF
 - nhập HTML
-- PDF sang bản trình bày
+- PDF sang bản trình chiếu
 - PDF sang PPT
 - PDF sang PPTX
 - PDF sang ODP
-- HTML sang bản trình bày
+- HTML sang bản trình chiếu
 - HTML sang PPT
 - HTML sang PPTX
 - HTML sang ODP
@@ -22,23 +22,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Nhập tài liệu PDF và HTML vào các bản trình bày PowerPoint và OpenDocument trong Java với Aspose.Slides cho Android để xử lý slide liền mạch, hiệu suất cao."
+description: "Nhập các tài liệu PDF và HTML vào bản trình chiếu PowerPoint và OpenDocument trong Java với Aspose.Slides cho Android để xử lý slide mượt mà, hiệu suất cao."
 ---
 ## **Giới thiệu**
 
-Sử dụng [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/vi/androidjava/), bạn có thể nhập các bài thuyết trình từ các tệp ở định dạng khác. Aspose.Slides cung cấp lớp [SlideCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/slidecollection/) cho phép bạn nhập các bài thuyết trình từ PDF, tài liệu HTML, v.v.
+Sử dụng [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/vi/androidjava/), bạn có thể nhập các bài thuyết trình từ các tệp ở các định dạng khác. Aspose.Slides cung cấp lớp [SlideCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/slidecollection/) để cho phép bạn nhập các bài thuyết trình từ PDF, tài liệu HTML, v.v.
 
 ## **Nhập PowerPoint từ PDF**
 
-Trong trường hợp này, bạn sẽ chuyển đổi một tệp PDF thành bản trình bày PowerPoint.
+Trong trường hợp này, bạn sẽ chuyển đổi một tệp PDF thành bản trình chiếu PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/).
 2. Gọi phương thức [addFromPdf()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) và truyền tệp PDF.
-3. Sử dụng phương thức [save()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) để lưu tệp dưới định dạng PowerPoint.
+3. Sử dụng phương thức [save()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) để lưu tệp ở định dạng PowerPoint.
+
+Đoạn mã Java sau minh họa thao tác chuyển PDF sang PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -48,17 +52,25 @@ try {
 }
 ```
 
-{{% alert  title="Tip" color="primary" %}}Bạn có thể muốn kiểm tra **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/vi/import/pdf-to-powerpoint) web app vì nó là một triển khai trực tiếp của quy trình được mô tả ở đây.{{% /alert %}}
+{{% alert  title="Mẹo" color="info" %}} 
+Bạn có thể muốn thử ứng dụng web **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/vi/import/pdf-to-powerpoint) vì đây là một triển khai thực tế của quy trình được mô tả ở đây. 
+{{% /alert %}} 
 
 ## **Nhập PowerPoint từ HTML**
 
-Trong trường hợp này, bạn sẽ chuyển đổi một tài liệu HTML thành bản trình bày PowerPoint.
+Trong trường hợp này, bạn sẽ chuyển đổi một tài liệu HTML thành bản trình chiếu PowerPoint.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/).
-2. Gọi phương thức [addFromHtml()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) và truyền tệp HTML.
-3. Sử dụng phương thức [save()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) để lưu tệp dưới định dạng PowerPoint.
+2. Gọi phương thức [addFromHtml()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) và truyền một luồng chứa tài liệu HTML.
+3. Sử dụng phương thức [save()](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) để lưu tệp ở định dạng PowerPoint.
+
+Đoạn mã Java sau minh họa thao tác chuyển HTML sang PowerPoint: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -77,6 +89,6 @@ try {
 
 ## **FAQ**
 
-**Các bảng có được giữ lại khi nhập PDF không, và có thể cải thiện việc phát hiện chúng không?**
+### Các bảng có được giữ lại khi nhập PDF không, và việc phát hiện chúng có thể được cải thiện không?
 
-Các bảng có thể được phát hiện trong quá trình nhập; [PdfImportOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfimportoptions/) bao gồm phương thức [setDetectTables](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) cho phép nhận dạng bảng. Hiệu quả phụ thuộc vào cấu trúc của PDF.
+Các bảng có thể được phát hiện trong quá trình nhập; [PdfImportOptions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfimportoptions/) bao gồm phương thức [setDetectTables](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) để bật nhận dạng bảng. Hiệu quả phụ thuộc vào cấu trúc của PDF.

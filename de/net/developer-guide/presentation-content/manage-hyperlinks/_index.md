@@ -1,5 +1,5 @@
 ---
-title: Präsentations-Hyperlinks in .NET verwalten
+title: Verwalten von Präsentations-Hyperlinks in .NET
 linktitle: Hyperlink verwalten
 type: docs
 weight: 20
@@ -12,7 +12,7 @@ keywords:
 - Hyperlink entfernen
 - Hyperlink aktualisieren
 - Text-Hyperlink
-- Folien-Hyperlink
+- Folie-Hyperlink
 - Form-Hyperlink
 - Bild-Hyperlink
 - Video-Hyperlink
@@ -23,26 +23,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Verwalten Sie Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mühelos mit Aspose.Slides für .NET - steigern Sie Interaktivität und Workflow in wenigen Minuten."
+description: "Verwalten Sie Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mühelos mit Aspose.Slides für .NET - erhöhen Sie Interaktivität und Arbeitsabläufe in wenigen Minuten."
 ---
+## **Einleitung**
 
-Ein Hyperlink ist eine Referenz zu einem Objekt, Daten oder einem Ort in etwas. Dies sind gängige Hyperlinks in PowerPoint‑Präsentationen:
+Ein Hyperlink ist ein Verweis auf ein Objekt, Daten oder einen Ort in etwas. Dies sind häufige Hyperlinks in PowerPoint‑Präsentationen:
 
-* Links zu Websites in Texten, Formen oder Medien
+* Links zu Websites innerhalb von Texten, Formen oder Medien
 * Links zu Folien
 
-Aspose.Slides für .NET ermöglicht Ihnen die Durchführung vieler Aufgaben rund um Hyperlinks in Präsentationen.
+Aspose.Slides für .NET ermöglicht es Ihnen, viele Aufgaben im Zusammenhang mit Hyperlinks in Präsentationen auszuführen.
 
-{{% alert color="primary" %}} 
-Vielleicht möchten Sie den einfachen Aspose, [kostenlosen Online‑PowerPoint‑Editor.](https://products.aspose.app/slides/editor) ausprobieren.
+{{% alert color="info" %}} 
+Sie möchten vielleicht Aspose simple, [kostenlosen Online-PowerPoint-Editor.](https://products.aspose.app/slides/de/editor)
 {{% /alert %}} 
 
-## **URL‑Hyperlinks hinzufügen**
+## **URL-Hyperlinks hinzufügen**
 
-### **URL‑Hyperlinks zu Text hinzufügen**
+### **URL-Hyperlinks zu Text hinzufügen**
 
-Dieser C#‑Code zeigt Ihnen, wie Sie einen Website‑Hyperlink zu einem Text hinzufügen:
+Dieser C#‑Code zeigt Ihnen, wie Sie einem Text einen Website‑Hyperlink hinzufügen:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -55,32 +60,38 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+### **URL-Hyperlinks zu Formen oder Rahmen hinzufügen**
 
-### **URL‑Hyperlinks zu Formen oder Rahmen hinzufügen**
+Dieser Beispielcode in C# zeigt Ihnen, wie Sie einem Shape einen Website‑Hyperlink hinzufügen:
 
-Dieses Beispiel in C# zeigt Ihnen, wie Sie einen Website‑Hyperlink zu einer Form hinzufügen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
     
     shape.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
-    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspise APIs";
+    shape.HyperlinkClick.Tooltip = "More than 70% Fortune 100 companies trust Aspose APIs";
 
     pres.Save("pres-out.pptx", SaveFormat.Pptx);
 }
 ```
 
+### **URL-Hyperlinks zu Medien hinzufügen**
 
-### **URL‑Hyperlinks zu Medien hinzufügen**
+Aspose.Slides ermöglicht es, Hyperlinks zu Bildern, Audio‑ und Videodateien hinzuzufügen. 
 
-Aspose.Slides ermöglicht das Hinzufügen von Hyperlinks zu Bild-, Audio‑ und Video‑Dateien. 
+Dieser Beispielcode zeigt Ihnen, wie Sie einem **Bild** einen Hyperlink hinzufügen:
 
-Dieses Beispiel zeigt Ihnen, wie Sie einen Hyperlink zu einem **Bild** hinzufügen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
-    // Fügt ein Bild zur Präsentation hinzu
+    // Fügt Bild zur Präsentation hinzu
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
     // Erstellt Bildrahmen auf Folie 1 basierend auf dem zuvor hinzugefügten Bild
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
@@ -92,9 +103,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+Dieser Beispielcode zeigt Ihnen, wie Sie einer **Audiodatei** einen Hyperlink hinzufügen:
 
-Dieses Beispiel zeigt Ihnen, wie Sie einen Hyperlink zu einer **Audiodatei** hinzufügen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -107,9 +121,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+Dieser Beispielcode zeigt Ihnen, wie Sie einem **Video** einen Hyperlink hinzufügen:
 
-Dieses Beispiel zeigt Ihnen, wie Sie einen Hyperlink zu einem **Video** hinzufügen:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -122,17 +139,21 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-Vielleicht möchten Sie *[OLE verwalten](https://docs.aspose.com/slides/net/manage-ole/)* sehen.
+{{%  alert  title="Tip"  color="info"  %}} 
+Vielleicht möchten Sie *[OLE verwalten](https://docs.aspose.com/slides/de/net/manage-ole/)* sehen.
 {{% /alert %}}
 
-## **Hyperlinks verwenden, um ein Inhaltsverzeichnis zu erstellen**
+## **Hyperlinks zum Erstellen eines Inhaltsverzeichnisses verwenden**
 
-Da Hyperlinks es Ihnen ermöglichen, Verweise auf Objekte oder Orte hinzuzufügen, können Sie sie zum Erstellen eines Inhaltsverzeichnisses verwenden.
+Da Hyperlinks es ermöglichen, Verweise auf Objekte oder Orte hinzuzufügen, können Sie sie zum Erstellen eines Inhaltsverzeichnisses verwenden. 
 
-Dieses Beispiel zeigt Ihnen, wie Sie ein Inhaltsverzeichnis mit Hyperlinks erstellen:
+Dieser Beispielcode zeigt Ihnen, wie Sie ein Inhaltsverzeichnis mit Hyperlinks erstellen:
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -159,15 +180,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-
 ## **Hyperlinks formatieren**
 
 ### **Farbe**
 
-Mit der [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/colorsource)‑Eigenschaft im [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink)‑Interface können Sie die Farbe für Hyperlinks festlegen und auch Farb­informationen aus Hyperlinks abrufen. Die Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft nicht für ältere PowerPoint‑Versionen gelten.
+Mit der [ColorSource](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink/properties/colorsource) Eigenschaft im [IHyperlink](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink) Interface können Sie die Farbe für Hyperlinks festlegen und auch Farbinformationen von Hyperlinks abrufen. Die Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft nicht für ältere PowerPoint‑Versionen gelten.
 
-Dieses Beispiel demonstriert einen Vorgang, bei dem Hyperlinks mit unterschiedlichen Farben zur selben Folie hinzugefügt wurden:
+Dieser Beispielcode demonstriert einen Vorgang, bei dem Hyperlinks mit unterschiedlichen Farben zur gleichen Folie hinzugefügt wurden:
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -184,21 +209,23 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
+### **Ton**
 
+Aspose.Slides stellt diese Eigenschaften bereit, um einen Hyperlink mit einem Ton zu betonen:
+- [IHyperlink.Sound](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink/properties/sound) 
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
-### **Sound**
+#### **Hyperlink‑Ton hinzufügen**
 
-Aspose.Slides bietet diese Eigenschaften, um einen Hyperlink mit einem Sound zu betonen:
-- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/sound) 
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
+Dieser C#‑Code zeigt Ihnen, wie Sie den Hyperlink festlegen, der einen Ton abspielt, und ihn mit einem anderen Hyperlink stoppt:
 
-#### **Hyperlink‑Sound hinzufügen**
-
-Dieser C#‑Code zeigt Ihnen, wie Sie einen Hyperlink festlegen, der einen Sound abspielt, und ihn mit einem anderen Hyperlink stoppt:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
-	// Fügt neue Audiodatei zur Audiosammlung der Präsentation hinzu
+	// Fügt neue Audio zur Präsentations-Audiosammlung hinzu
 	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
 
 	ISlide firstSlide = pres.Slides[0];
@@ -207,54 +234,59 @@ using (Presentation pres = new Presentation())
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// Überprüft den Hyperlink auf "Kein Sound"
+	// Prüft den Hyperlink auf "Kein Ton"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// Setzt den Hyperlink, der Sound abspielt
+		// Setzt den Hyperlink, der Ton abspielt
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
-	// Fügt die leere Folie hinzu
+	// Fügt die leere Folie hinzu 
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
 	// Fügt neue Form mit dem NoAction-Hyperlink hinzu
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// Setzt das Flag "Vorherigen Sound stoppen" für den Hyperlink
+	// Setzt das Hyperlink-Flag "Vorherigen Ton stoppen"
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 }
 ```
 
+#### **Hyperlink‑Ton extrahieren**
 
-#### **Hyperlink‑Sound extrahieren**
+Dieser C#‑Code zeigt Ihnen, wie Sie den in einem Hyperlink verwendeten Ton extrahieren:
 
-Dieser C#‑Code zeigt Ihnen, wie Sie den in einem Hyperlink verwendeten Sound extrahieren:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// Holt den Hyperlink der ersten Form
+	// Ruft den Hyperlink der ersten Form ab
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
 	{
-		// Extrahiert den Hyperlink-Sound als Byte-Array
+		// Extrahiert den Hyperlink-Ton in ein Byte-Array
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
 ```
-
 
 ## **Hyperlinks aus Präsentationen entfernen**
 
 ### **Hyperlinks aus Text entfernen**
 
 Dieser C#‑Code zeigt Ihnen, wie Sie den Hyperlink aus einem Text in einer Präsentationsfolie entfernen:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -277,11 +309,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-
 ### **Hyperlinks aus Formen oder Rahmen entfernen**
 
 Dieser C#‑Code zeigt Ihnen, wie Sie den Hyperlink aus einer Form in einer Präsentationsfolie entfernen:
+
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -293,18 +328,21 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-
 ## **Veränderbarer Hyperlink**
 
-Die Klasse [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink) ist veränderbar. Mit dieser Klasse können Sie die Werte folgender Eigenschaften ändern:
+Die [Hyperlink](https://reference.aspose.com/slides/de/net/aspose.slides/hyperlink) Klasse ist veränderbar. Mit dieser Klasse können Sie die Werte für diese Eigenschaften ändern:
 
-- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/targetframe)
-- [IHyperlink.Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/tooltip)
-- [IHyperlink.History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/history)
-- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/properties/highlightclick)
+- [IHyperlink.TargetFrame](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink/properties/targetframe)
+- [IHyperlink.Tooltip](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink/properties/tooltip)
+- [IHyperlink.History](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink/properties/history)
+- [IHyperlink.HighlightClick](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Das Code‑Snippet zeigt Ihnen, wie Sie einer Folie einen Hyperlink hinzufügen und dessen Tooltip später bearbeiten:
+Das Code‑Snippet zeigt Ihnen, wie Sie einer Folie einen Hyperlink hinzufügen und später dessen Tooltip bearbeiten:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -321,32 +359,31 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 ## **Unterstützte Eigenschaften in IHyperlinkQueries**
 
-Sie können IHyperlinkQueries aus einer Präsentation, Folie oder einem Text, für den der Hyperlink definiert ist, zugreifen. 
+Sie können IHyperlinkQueries von einer Präsentation, Folie oder einem Text aus abrufen, für den der Hyperlink definiert ist. 
 
-- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
-- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
-- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/properties/hyperlinkqueries)
+- [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
+- [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/de/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
+- [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/de/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-Die Klasse IHyperlinkQueries unterstützt folgende Methoden und Eigenschaften: 
+Die IHyperlinkQueries‑Klasse unterstützt diese Methoden und Eigenschaften: 
 
-- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
-- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
-- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
-- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
+- [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
+- [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
+- [IHyperlinkQueries.GetAnyHyperlinks();](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlinkqueries/methods/getanyhyperlinks)
+- [IHyperlinkQueries.RemoveAllHyperlinks();](https://reference.aspose.com/slides/de/net/aspose.slides/ihyperlinkqueries/methods/removeallhyperlinks)
 
 ## **FAQ**
 
-**Wie kann ich eine interne Navigation nicht nur zu einer Folie, sondern zu einem "Abschnitt" oder der ersten Folie eines Abschnitts erstellen?**
+### Wie kann ich eine interne Navigation nicht nur zu einer Folie, sondern zu einem „Abschnitt“ oder zur ersten Folie eines Abschnitts erstellen?
 
-Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation zielt technisch auf eine bestimmte Folie. Um zu einem "Abschnitt" zu navigieren, verlinkt man in der Regel auf dessen erste Folie.
+Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation zielt technisch auf eine bestimmte Folie. Um zu einem Abschnitt zu „navigieren“, verlinken Sie in der Regel auf dessen erste Folie.
 
-**Kann ich einem Element der Masterfolie einen Hyperlink zuweisen, sodass er auf allen Folien funktioniert?**
+### Kann ich einem Element der Masterfolie einen Hyperlink hinzufügen, sodass er auf allen Folien funktioniert?
 
-Ja. Elemente der Masterfolie und des Layouts unterstützen Hyperlinks. Diese Links erscheinen auf den untergeordneten Folien und sind während der Bildschirmanzeige klickbar.
+Ja. Master‑Folien‑ und Layout‑Elemente unterstützen Hyperlinks. Solche Links erscheinen auf den Unterfolien und sind während der Präsentation anklickbar.
 
-**Werden Hyperlinks beim Exportieren in PDF, HTML, Bilder oder Video beibehalten?**
+### Werden Hyperlinks beim Exportieren zu PDF, HTML, Bildern oder Video beibehalten?
 
-In [PDF](/slides/de/net/convert-powerpoint-to-pdf/) und [HTML](/slides/de/net/convert-powerpoint-to-html/) ja – Links werden im Allgemeinen beibehalten. Beim Exportieren zu [Bildern](/slides/de/net/convert-powerpoint-to-png/) und [Video](/slides/de/net/convert-powerpoint-to-video/) bleibt die Klickbarkeit aufgrund des Formats nicht erhalten (Raster‑Frames/Video unterstützen keine Hyperlinks).
+In [PDF](/slides/de/net/convert-powerpoint-to-pdf/) und [HTML](/slides/de/net/convert-powerpoint-to-html/) ja – Links werden in der Regel beibehalten. Beim Exportieren zu [Bildern](/slides/de/net/convert-powerpoint-to-png/) und [Video](/slides/de/net/convert-powerpoint-to-video/) wird die Klickbarkeit nicht übernommen, da diese Formate (Raster‑Frames/Video) keine Hyperlinks unterstützen.

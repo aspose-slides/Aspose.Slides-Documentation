@@ -1,5 +1,5 @@
 ---
-title: API publique et changements incompatibles rétroactifs dans Aspose.Slides pour .NET 14.2.0
+title: API publique et modifications incompatibles rétroactives dans Aspose.Slides pour .NET 14.2.0
 linktitle: Aspose.Slides pour .NET 14.2.0
 type: docs
 weight: 40
@@ -16,17 +16,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Passez en revue les mises à jour de l'API publique et les changements rupturaux dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentations PowerPoint PPT, PPTX et ODP."
+description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
+## **API publique et modifications incompatibles rétroactives**
+{{% alert color="info" %}} 
 
-## **API publique et changements incompatibles rétroactifs**
-{{% alert color="primary" %}} 
-
-Nous avons apporté des modifications à l'API Aspose.Slides pour .NET 14.2.0. Certaines propriétés et méthodes ont été supprimées et d'autres ont été déplacées vers d'autres espaces de noms.
+Nous avons apporté des modifications à l'API Aspose.Slides pour .NET 14.2.0. Certaines propriétés et méthodes ont été supprimées et d'autres ont été déplacées vers un autre espace de noms.
 
 {{% /alert %}} 
 ### **Méthodes Aspose.Slides.IPresentation.Write(…) supprimées**
-Ces méthodes enregistraient les objets Presentation uniquement au format de fichier PPTX. Dans la nouvelle API, la classe Presentation permet de travailler avec tous les formats. Il est possible d'utiliser les méthodes Presentation.Save(…) pour enregistrer les objets Presentation dans tous les formats pris en charge.
+Ces méthodes écrivaient des objets Presentation uniquement dans des fichiers au format PPTX. Dans la nouvelle API, la classe Presentation sert à travailler avec tous les formats. Il est possible d'utiliser les méthodes Presentation.Save(…) pour enregistrer les objets Presentation dans tous les formats pris en charge.
 ### **Classes liées aux styles de thème déplacées vers l'espace de noms Aspose.Slides.Theme**
 Les classes suivantes ont été déplacées de l'espace de noms Aspose.Slides vers l'espace de noms Aspose.Slides.Theme.
 

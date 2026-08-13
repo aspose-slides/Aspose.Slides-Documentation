@@ -1,5 +1,5 @@
 ---
-title: เสริมการนำเสนอ PowerPoint ด้วยแอนิเมชันบน Android
+title: เพิ่มการนำเสนอ PowerPoint ด้วยแอนิเมชันบน Android
 linktitle: แอนิเมชัน PowerPoint
 type: docs
 weight: 150
@@ -16,7 +16,7 @@ keywords:
 - ไทม์ไลน์แอนิเมชัน
 - แอนิเมชันเชิงโต้ตอบ
 - แอนิเมชันแบบกำหนดเอง
-- แอนิเมชันรูปทรง
+- แอนิเมชันรูปร่าง
 - แผนภูมิแอนิเมชัน
 - ข้อความแอนิเมชัน
 - รูปทรงแอนิเมชัน
@@ -32,21 +32,21 @@ description: "สำรวจความสามารถของ Aspose.Slid
 ---
 ## **บทนำ**
 
-เนื่องจากการนำเสนอมีจุดประสงค์เพื่อแสดงสิ่งใดสิ่งหนึ่ง ลักษณะภาพและพฤติกรรมเชิงโต้ตอบจึงได้รับการพิจารณาตลอดเวลาเมื่อสร้างมัน
+เนื่องจากการนำเสนอมีวัตถุประสงค์เพื่อแสดงบางอย่าง ลักษณะภาพและพฤติกรรมเชิงโต้ตอบจึงได้รับการพิจารณาเสมอในขณะสร้าง
 
-**PowerPoint animation** มีบทบาทสำคัญในการทำให้การนำเสนอน่าสนใจและดึงดูดผู้ชม. Aspose.Slides for Android via Java มีตัวเลือกหลากหลายในการเพิ่มแอนิเมชันให้กับการนำเสนอ PowerPoint:
+**PowerPoint animation** มีบทบาทสำคัญในการทำให้การนำเสนอน่าสนใจและดึงดูดผู้ชม Aspose.Slides for Android via Java มีตัวเลือกมากมายสำหรับการเพิ่มแอนิเมชันในงานนำเสนอ PowerPoint:
 
-- ใช้เอฟเฟกต์แอนิเมชัน PowerPoint ประเภทต่างๆ กับรูปทรง, แผนภูมิ, ตาราง, วัตถุ OLE และองค์ประกอบการนำเสนออื่นๆ
-- ใช้หลายเอฟเฟกต์แอนิเมชัน PowerPoint บนรูปทรงเดียว
-- ใช้ไทม์ไลน์แอนิเมชันเพื่อควบคุมเอฟเฟกต์แอนิเมชัน
-- สร้างแอนิเมชันแบบกำหนดเอง
+- ใช้เอฟเฟกต์แอนิเมชัน PowerPoint ประเภทต่าง ๆ กับรูปร่าง, แผนภูมิ, ตาราง, OLE Objects และองค์ประกอบการนำเสนออื่น ๆ.
+- ใช้เอฟเฟกต์แอนิเมชัน PowerPoint หลายแบบบนรูปร่างหนึ่งรูป.
+- ใช้ไทม์ไลน์ของแอนิเมชันเพื่อควบคุมเอฟเฟกต์แอนิเมชัน.
+- สร้างแอนิเมชันแบบกำหนดเอง.
 
-ใน Aspose.Slides for Android via Java สามารถนำเอฟเฟกต์แอนิเมชันต่าง ๆ ไปใช้กับรูปทรงได้ ทุกองค์ประกอบบนสไลด์รวมถึงข้อความ, รูปภาพ, วัตถุ OLE, ตาราง เป็นต้น ถือเป็นรูปทรง ดังนั้นเราจึงสามารถใช้เอฟเฟกต์แอนิเมชันกับทุกองค์ประกอบของสไลด์
+ใน Aspose.Slides for Android via Java สามารถใช้เอฟเฟกต์แอนิเมชันหลายแบบกับรูปร่างได้ เนื่องจากทุกองค์ประกอบบนสไลด์รวมถึงข้อความ, รูปภาพ, OLE Object, ตาราง เป็นต้น ถูกพิจารณาเป็นรูปร่าง ดังนั้นเราจึงสามารถใช้เอฟเฟกต์แอนิเมชันกับทุกองค์ประกอบของสไลด์ได้
 
 ## **เอฟเฟกต์แอนิเมชัน**
-Aspose.Slides รองรับ **150+ เอฟเฟกต์แอนิเมชัน**, รวมถึงเอฟเฟกต์แอนิเมชันพื้นฐานเช่น Bounce, PathFootball, Zoom effect และเอฟเฟกต์แอนิเมชันเฉพาะเช่น OLEObjectShow, OLEObjectOpen คุณสามารถดูรายการเต็มของเอฟเฟกต์แอนิเมชันใน [**EffectType**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttype/) enumeration.
+Aspose.Slides รองรับ **150+ เอฟเฟกต์แอนิเมชัน**, รวมถึงเอฟเฟกต์พื้นฐานเช่น Bounce, PathFootball, เอฟเฟกต์ Zoom และเอฟเฟกต์เฉพาะเช่น OLEObjectShow, OLEObjectOpen คุณสามารถดูรายการเต็มของเอฟเฟกต์แอนิเมชันได้ใน [**EffectType**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/effecttype/)enumeration.
 
-นอกจากนี้ เอฟเฟกต์แอนิเมชันเหล่านี้สามารถใช้ร่วมกันกับพวกมันได้:
+นอกจากนี้ เอฟเฟกต์แอนิเมชันเหล่านี้สามารถนำมาใช้ร่วมกันได้ด้วย:
 - [ColorEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/CommandEffect)
 - [FilterEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FilterEffect)
@@ -57,51 +57,49 @@ Aspose.Slides รองรับ **150+ เอฟเฟกต์แอนิเ�
 - [SetEffect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/SetEffect)
 
 ## **แอนิเมชันแบบกำหนดเอง**
-เป็นไปได้ที่จะสร้าง **แอนิเมชันแบบกำหนดเอง** ของคุณใน Aspose.Slides วิธีนี้ทำได้โดยการรวมพฤติกรรมหลาย ๆ อย่างเข้าด้วยกันเป็นแอนิเมชันแบบกำหนดใหม่
+คุณสามารถสร้าง **แอนิเมชันแบบกำหนดเอง** ของคุณใน Aspose.Slides ได้  
+วิธีนี้ทำได้โดยการรวมพฤติกรรมหลายอย่างเข้าด้วยกันเป็นแอนิเมชันแบบกำหนดใหม่
 
-[**Behavior**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Behavior) เป็นหน่วยสร้างของเอฟเฟกต์แอนิเมชัน PowerPoint ทุกเอฟเฟกต์แอนิเมชันจริง ๆ แล้วคือชุดของพฤติกรรมที่ประกอบเข้าด้วยกันเป็นกลยุทธ์เดียว คุณสามารถรวมพฤติกรรมเข้ากับแอนิเมชันแบบกำหนดเองหนึ่งครั้งและนำกลับมาใช้ใหม่ในงานนำเสนออื่น หากคุณเพิ่มพฤติกรรมใหม่ลงในเอฟเฟกต์แอนิเมชัน PowerPoint มาตรฐาน จะกลายเป็นแอนิเมชันแบบกำหนดเองอีกหนึ่งตัว อย่างเช่น คุณสามารถเพิ่มพฤติกรรมทำซ้ำให้กับแอนิเมชันเพื่อให้ทำซ้ำหลายครั้ง
+[**Behavior**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Behavior) เป็นหน่วยสร้างของเอฟเฟกต์แอนิเมชัน PowerPoint ใด ๆ ทุกเอฟเฟกต์แอนิเมชันจริง ๆ แล้วเป็นชุดของพฤติกรรมที่รวมเป็นกลยุทธ์หนึ่ง คุณสามารถรวมพฤติกรรมเข้ากับแอนิเมชันแบบกำหนดเองครั้งเดียวและใช้ซ้ำในงานนำเสนออื่น หากคุณเพิ่มพฤติกรรมใหม่ลงในเอฟเฟกต์แอนิเมชัน PowerPoint มาตรฐาน จะกลายเป็นแอนิเมชันแบบกำหนดใหม่ ตัวอย่างเช่น คุณสามารถเพิ่มพฤติกรรม repeat ให้กับแอนิเมชันเพื่อให้ทำซ้ำหลายครั้ง
 
-[**Animation Point**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Point) คือจุดที่ควรนำพฤติกรรมไปใช้
+[**Animation Point**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Point) คือจุดที่ควรใช้พฤติกรรม
 
 ## **ไทม์ไลน์แอนิเมชัน**
-[**Sequence**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Sequence) คือคอลเลกชันของเอฟเฟกต์แอนิเมชันที่นำไปใช้กับรูปทรงเฉพาะ
+[**Sequence**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Sequence) คือคอลเลกชันของเอฟเฟกต์แอนิเมชันที่ใช้กับรูปร่างเฉพาะ
 
-[**Timeline**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/AnimationTimeLine) คือชุดของ Sequence ที่ใช้ในสไลด์เฉพาะ เป็นเอนจินแอนิเมชันตั้งแต่ PowerPoint 2002 ในเวอร์ชัน PowerPoint ก่อนหน้านี้ การเพิ่มเอฟเฟกต์แอนิเมชันลงในงานนำเสนอเป็นเรื่องที่ท้าทายและทำได้เพียงด้วยวิธีแก้ปัญหาต่าง ๆ Timeline มาแทนที่คลาส AnimationSettings เก่าและให้โมเดลวัตถุที่ชัดเจนยิ่งขึ้นสำหรับแอนิเมชัน PowerPoint สไลด์หนึ่งสามารถมีไทม์ไลน์แอนิเมชันได้เพียงหนึ่งเดียว
+[**Timeline**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/AnimationTimeLine) คือชุดของ Sequence ที่ใช้ในสไลด์เฉพาะ เป็นเอนจินแอนิเมชันที่มีตั้งแต่ PowerPoint 2002 ในเวอร์ชัน PowerPoint ก่อนหน้า การเพิ่มเอฟเฟกต์แอนิเมชันเข้าสู่การนำเสนอเป็นเรื่องท้าทายและทำได้เพียงวิธีแก้ปัญหาต่าง ๆ Timeline มาแทนที่คลาส AnimationSettings เก่าและให้โมเดลวัตถุที่ชัดเจนมากขึ้นสำหรับแอนิเมชัน PowerPoint สไลด์หนึ่งสามารถมีไทม์ไลน์แอนิเมชันได้เพียงหนึ่งชุด
 
 ## **แอนิเมชันเชิงโต้ตอบ**
-[**Trigger**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/EffectTriggerType) อนุญาตให้กำหนดการกระทำของผู้ใช้ (เช่น การคลิกปุ่ม) ที่จะทำให้แอนิเมชันบางอย่างเริ่มต้น Triggers เพิ่มเข้ามาในรุ่น PowerPoint ล่าสุดเท่านั้น
+[**Trigger**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/EffectTriggerType) ช่วยกำหนดการกระทำของผู้ใช้ (เช่น การคลิกปุ่ม) ที่ทำให้แอนิเมชันบางอย่างเริ่มทำงาน Triggers ถูกเพิ่มเข้ามาในเวอร์ชัน PowerPoint ล่าสุดเท่านั้น
 
-## **แอนิเมชันรูปทรง**
-Aspose.Slides อนุญาตให้ใช้แอนิเมชันกับรูปทรงซึ่งอาจเป็นข้อความ, สี่เหลี่ยม, เส้น, กรอบ, วัตถุ OLE เป็นต้น
+## **แอนิเมชันรูปร่าง**
+Aspose.Slides อนุญาตให้ใช้แอนิเมชันกับรูปร่าง ซึ่งอาจเป็นข้อความ, สี่เหลี่ยม, เส้น, กรอบ, OLE Object เป็นต้น
 
-{{% alert color="primary" %}} 
-Read more [**เกี่ยวกับแอนิเมชันรูปทรง**](/slides/th/androidjava/shape-animation/).
+{{% alert color="info" %}} 
+อ่านต่อ [**เกี่ยวกับแอนิเมชันรูปร่าง**](/slides/th/androidjava/shape-animation/).
 {{% /alert %}}
 
-## **แผนภูมิแบบแอนิเมชัน**
-เพื่อสร้างแผนภูมิแบบแอนิเมชัน คุณควรใช้คลาสเดียวกันกับรูปทรงทั้งหมด อย่างไรก็ตาม สามารถใช้แอนิเมชัน PowerPoint ได้เฉพาะบนหมวดหมู่แผนภูมิหรือซีรีส์ของแผนภูมิเท่านั้น คุณยังสามารถนำเอฟเฟกต์แอนิเมชันไปใช้กับองค์ประกอบหมวดหมู่หรือซีรีส์ได้
+## **แผนภูมิแอนิเมชัน**
+เพื่อสร้างแผนภูมิที่มีแอนิเมชัน คุณควรใช้คลาสเดียวกับที่ใช้กับรูปร่างทั้งหมด อย่างไรก็ตาม สามารถใช้แอนิเมชัน PowerPoint ได้เฉพาะบนหมวดหมู่ของแผนภูมิหรือซีรีส์ของแผนภูมิ คุณยังสามารถใช้เอฟเฟกต์แอนิเมชันกับองค์ประกอบหมวดหมู่หรือซีรีส์ได้เช่นกัน
 
-{{% alert color="primary" %}} 
-Read more [**เกี่ยวกับแผนภูมิแบบแอนิเมชัน**](/slides/th/androidjava/animated-charts/).
+{{% alert color="info" %}} 
+อ่านต่อ [**เกี่ยวกับแผนภูมิแอนิเมชัน**](/slides/th/androidjava/animated-charts/).
 {{% /alert %}}
 
-## **ข้อความแบบแอนิเมชัน**
-ยกเว้นข้อความแบบแอนิเมชันแล้ว ยังสามารถนำแอนิเมชันไปใช้กับย่อหน้าด้วย
+## **ข้อความแอนิเมชัน**
+นอกจากข้อความแอนิเมชันแล้ว ยังสามารถใช้แอนิเมชันกับย่อหน้าได้เช่นกัน
 
-{{% alert color="primary" %}} 
-Read more [**เกี่ยวกับข้อความแบบแอนิเมชัน**](/slides/th/androidjava/animated-text/).
+{{% alert color="info" %}} 
+อ่านต่อ [**เกี่ยวกับข้อความแอนิเมชัน**](/slides/th/androidjava/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**การแอนิเมชันจะคงไว้เมื่อส่งออกเป็น PDF หรือไม่?**
+### การแอนิเมชันจะยังคงอยู่เมื่อนำออกเป็น PDF หรือไม่?
+ไม่. PDF เป็นรูปแบบแบบคงที่ ดังนั้นแอนิเมชันและ [slide transitions](/slides/th/androidjava/slide-transition/) จะไม่ทำงาน หากต้องการการเคลื่อนไหว ให้ส่งออกเป็น [HTML5](/slides/th/androidjava/export-to-html5/), [animated GIF](/slides/th/androidjava/convert-powerpoint-to-animated-gif/), หรือ [video](/slides/th/androidjava/convert-powerpoint-to-video/) แทน
 
-ไม่ PDF เป็นรูปแบบแบบคงที่ ดังนั้นแอนิเมชันและ [slide transitions](/slides/th/androidjava/slide-transition/) จะไม่เล่น หากต้องการการเคลื่อนไหว ให้ส่งออกเป็น [HTML5](/slides/th/androidjava/export-to-html5/), [animated GIF](/slides/th/androidjava/convert-powerpoint-to-animated-gif/), หรือ [video](/slides/th/androidjava/convert-powerpoint-to-video/) แทน
+### ฉันสามารถแปลงการนำเสนอที่มีแอนิเมชันเป็นวิดีโอและควบคุมอัตราเฟรมและขนาดเฟรมได้หรือไม่?
+ได้. คุณสามารถ [render the presentation as frames](/slides/th/androidjava/convert-powerpoint-to-video/) แล้วเข้ารหัสเป็นวิดีโอ (เช่น ผ่าน ffmpeg) โดยเลือก FPS และความละเอียด แอนิเมชันและ slide transitions จะทำงานระหว่างการเรนเดอร์
 
-**ฉันสามารถแปลงการนำเสนอแบบแอนิเมชันเป็นวิดีโอและควบคุมอัตราเฟรมและขนาดเฟรมได้หรือไม่?**
-
-ใช่ คุณสามารถ [render the presentation as frames](/slides/th/androidjava/convert-powerpoint-to-video/) และเข้ารหัสเป็นวิดีโอ (เช่น ผ่าน ffmpeg) โดยเลือก FPS และความละเอียด แอนิเมชันและ slide transitions จะเล่นระหว่างการเรนเดอร์
-
-**แอนิเมชันจะคงสภาพเดิมเมื่อติดตั้งกับ ODP (ไม่ใช่เพียง PPTX) หรือไม่?**
-
-PPT, PPTX, และ ODP รองรับการ [reading](/slides/th/androidjava/open-presentation/) และ [writing](/slides/th/androidjava/save-presentation/) แต่ความแตกต่างของรูปแบบหมายความว่าเอฟเฟกต์บางอย่างอาจแสดงหรือทำงานแตกต่างกันเล็กน้อย ตรวจสอบกรณีสำคัญด้วยตัวอย่างจริง
+### แอนิเมชันจะคงอยู่เมื่อติดต่อกับ ODP (ไม่ใช่แค่ PPTX) หรือไม่?
+รองรับ PPT, PPTX และ ODP สำหรับ [reading](/slides/th/androidjava/open-presentation/) และ [writing](/slides/th/androidjava/save-presentation/) แต่ความแตกต่างของรูปแบบอาจทำให้เอฟเฟกต์บางอย่างแสดงหรือทำงานแตกต่างกันเล็กน้อย ตรวจสอบกรณีสำคัญด้วยตัวอย่างจริง

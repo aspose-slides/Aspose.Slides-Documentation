@@ -1,6 +1,6 @@
 ---
-title: Prezentációk mentése Olvasásvédett módban Java-val
-linktitle: Olvasásvédett prezentáció
+title: Prezentációk mentése csak olvasási módban Java használatával
+linktitle: Csak olvasásra szóló prezentáció
 type: docs
 weight: 30
 url: /hu/java/read-only-presentation/
@@ -13,26 +13,28 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "A PowerPoint fájlok (PPT, PPTX) betöltése és mentése csak olvasásra módban az Aspose.Slides for Java segítségével, pontos diavetítéseket biztosítva anélkül, hogy módosítaná a prezentációkat."
+description: "Töltse be és mentse a PowerPoint fájlokat (PPT, PPTX) csak olvasási módban az Aspose.Slides for Java segítségével, pontos diavetítéseket kínálva anélkül, hogy módosítaná a prezentációkat."
 ---
 ## **Bevezetés**
 
-A PowerPoint 2019-ben a Microsoft bevezette az **Always Open Read-Only** beállítást, amely a felhasználók által a prezentációk védelmére használható lehetőségek egyike. Érdemes lehet ezt az Olvasásvédett beállítást használni egy prezentáció védelmére, ha
+A PowerPoint 2019-ben a Microsoft bevezette a **Always Open Read-Only** beállítást, mint egyet azok közül a lehetőségek közül, amelyeket a felhasználók a bemutatóik védelmére használhatnak. Érdemes lehet ezt a csak olvasható beállítást használni egy bemutató védelmére, ha
 
-- meg akarod akadályozni a véletlen szerkesztéseket, és a prezentáció tartalmát biztonságban szeretnéd tartani.  
-- szeretnéd jelezni a felhasználóknak, hogy a megadott prezentáció a végleges változat.
+- Meg szeretné akadályozni a véletlen szerkesztéseket, és a bemutató tartalmát biztonságban tartani. 
+- Tájékoztatni szeretné a felhasználókat arról, hogy a biztosított bemutató a végleges változat. 
 
-Miután kiválasztottad a **Always Open Read-Only** opciót egy prezentációhoz, a felhasználók a prezentáció megnyitásakor a **Read-Only** ajánlást látják, és egy ilyen üzenetet kaphatnak: *A véletlen módosítások elkerülése érdekében a szerző ezt a fájlt csak olvasásra állította be.*
+Miután a **Always Open Read-Only** lehetőséget kiválasztja egy bemutatóhoz, a felhasználók a bemutató megnyitásakor a **Read-Only** javaslatot látják, és egy ilyen üzenetet kaphatnak: *A véletlen módosítások megelőzése érdekében a szerző beállította a fájlt csak olvasásra.*
 
-A **Read-Only** ajánlás egy egyszerű, de hatékony elrettentő eszköz, amely megakadályozza a szerkesztést, mivel a felhasználóknak fel kell oldaniuk azt, mielőtt szerkeszthetnék a prezentációt. Ha nem szeretnéd, hogy a felhasználók változtatásokat hajtsanak végre, és ezt udvariasan szeretnéd közölni, a **Read-Only** ajánlás jó lehetőség lehet számodra.  
+A **Read-Only** javaslat egy egyszerű, mégis hatékony elriasztó, amely megakadályozza a szerkesztést, mivel a felhasználóknak egy feladatot kell elvégezniük a javaslat eltávolításához, mielőtt szerkeszthetnék a bemutatót. Ha nem szeretné, hogy a felhasználók módosítsák a bemutatót, és ezt udvariasan szeretné jelezni, a **Read-Only** javaslat jó lehetőség lehet. 
 
-> Ha egy **Read-Only** védelemmel ellátott prezentációt egy régebbi Microsoft PowerPoint alkalmazásban nyitnak meg – amely nem támogatja a legújabb funkciót – a **Read-Only** ajánlás figyelmen kívül marad (a prezentáció normál módon nyílik meg).
+> Ha egy **Read-Only** védelemmel ellátott bemutatót egy régebbi Microsoft PowerPoint alkalmazásban nyitják meg – amely nem támogatja a nemrég bevezetett funkciót – a **Read-Only** javaslat figyelmen kívül marad (a bemutató normál módon nyílik meg).
 
-## **Olvasásvédett mód alkalmazása**
+## **Csak olvasás mód alkalmazása**
 
-Az Aspose.Slides for Java lehetővé teszi, hogy egy prezentációt **Read-Only** állapotba állíts, ami azt jelenti, hogy a felhasználók (a prezentáció megnyitása után) a **Read-Only** ajánlást látják. Az alábbi példa kódrészlet megmutatja, hogyan állítható be egy prezentáció **Read-Only** módra Java‑ban az Aspose.Slides használatával:
+Az Aspose.Slides for Java lehetővé teszi, hogy egy bemutatót **Read-Only** állapotba állítson, ami azt jelenti, hogy a felhasználók (miután megnyitják a bemutatót) a **Read-Only** javaslatot látják. Ez a példa kód bemutatja, hogyan állítható be egy bemutató **Read-Only** módba Java-ban az Aspose.Slides használatával:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getProtectionManager().setReadOnlyRecommended(true);
@@ -42,24 +44,26 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-**Megjegyzés**: A **Read-Only** ajánlás csupán arra szolgál, hogy elriassza a szerkesztést vagy megakadályozza a véletlen módosításokat egy PowerPoint‑prezentációban. Ha egy motivált személy – aki tudja, mit csinál – úgy dönt, hogy szerkeszti a prezentációt, könnyen eltávolíthatja az Olvasásvédett beállítást. Ha komolyan meg kell akadályoznod a jogosulatlan szerkesztést, jobb, ha [szigorúbb védelmet alkalmazol, amely titkosítást és jelszavakat is tartalmaz](https://docs.aspose.com/slides/hu/java/password-protected-presentation/). 
+{{% alert color="info" %}} 
+
+**Megjegyzés**: A **Read-Only** javaslat egyszerűen arra szolgál, hogy elriassza a szerkesztést vagy megakadályozza a felhasználókat a véletlen változtatásokban egy PowerPoint bemutatóban. Ha egy motivált személy—aki tudja, mit csinál—úgy dönt, hogy szerkeszti a bemutatót, könnyen eltávolíthatja a csak olvasás beállítást. Ha komolyan meg kell akadályoznia a jogosulatlan szerkesztést, jobb, ha [szigorúbb védelmek, amelyek titkosítást és jelszavakat tartalmaznak](https://docs.aspose.com/slides/hu/java/password-protected-presentation/). 
+
 {{% /alert %}} 
 
-## **Gyakran ismételt kérdések**
+## **GYIK**
 
-**Miért különbözik a „Read-Only recommended” a teljes jelszavas védelemtől?**
+### Hogyan különbözik a 'Read-Only recommended' a teljes jelszóvédelemtől?
 
-A „Read-Only recommended” csak egy javaslatot jelenít meg a fájl olvasásvédett módban történő megnyitására, és könnyen megkerülhető. A [jelszavas védelem](/slides/hu/java/password-protected-presentation/) ténylegesen korlátozza a megnyitást vagy a szerkesztést, és akkor megfelelő, ha valódi biztonsági ellenőrzésekre van szükség.
+'Read-Only recommended' csak egy javaslatot jelenít meg a fájl csak olvasás módú megnyitására, és könnyen megkerülhető. [Jelszóvédelem](/slides/hu/java/password-protected-presentation/) valójában korlátozza a megnyitást vagy a szerkesztést, és akkor megfelelő, ha valódi biztonsági ellenőrzésekre van szükség.
 
-**A „Read-Only recommended” kombinálható-e vízjelekkel a szerkesztés további elriasztására?**
+### Kombinálható a 'Read-Only recommended' vízjelekkel a szerkesztés további megakadályozására?
 
-Igen. Az ajánlás párosítható a [vízjelekkel](/slides/hu/java/watermark/) vizuális elrettentőként; különálló mechanizmusok, amelyek jól együttműködnek.
+Igen. A javaslat párosítható a [vízjelek](/slides/hu/java/watermark/) vizuális elriasztóval; különálló mechanizmusok, amelyek jól együtt működnek.
 
-**Még egy makró vagy külső eszköz módosíthatja a fájlt, ha az ajánlás be van kapcsolva?**
+### Módosíthat egy makró vagy külső eszköz a fájlt, ha a javaslat engedélyezve van?
 
-Igen. Az ajánlás nem akadályozza a programozott módosításokat. Az automatizált szerkesztések megakadályozásához használd a [jelszavakat és titkosítást](/slides/hu/java/password-protected-presentation/).
+Igen. A javaslat nem akadályozza a programozott változtatásokat. Az automatizált szerkesztés megakadályozásához használja a [jelszavak és titkosítás](/slides/hu/java/password-protected-presentation/). 
 
-**Hogyan viszonyul a „Read-Only recommended” az `isEncrypted` és `isWriteProtected` metódusokhoz?**
+### Hogyan kapcsolódik a 'Read-Only recommended' az 'isEncrypted' és 'isWriteProtected' metódusokhoz?
 
-Más jelzések. A „Read-Only recommended” egy lágy, opcionális felhívás; a [isWriteProtected](https://reference.aspose.com/slides/hu/java/com.aspose.slides/protectionmanager/#isWriteProtected--) és a [isEncrypted](https://reference.aspose.com/slides/hu/java/com.aspose.slides/protectionmanager/#isEncrypted--) tényleges írási vagy olvasási korlátozásokat jeleznek, amelyek jelszavakon vagy titkosításon alapulnak.
+Ezek különböző jelek. A 'Read-Only recommended' egy puha, opcionális felkérdezés; [isWriteProtected](https://reference.aspose.com/slides/hu/java/com.aspose.slides/protectionmanager/#isWriteProtected--) és [isEncrypted](https://reference.aspose.com/slides/hu/java/com.aspose.slides/protectionmanager/#isEncrypted--) valós írási vagy olvasási korlátozásokat jelölnek, amelyek jelszavaktól vagy titkosítástól függenek.

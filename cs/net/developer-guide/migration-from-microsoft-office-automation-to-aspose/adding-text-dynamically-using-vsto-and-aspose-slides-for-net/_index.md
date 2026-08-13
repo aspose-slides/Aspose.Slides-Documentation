@@ -1,28 +1,28 @@
 ---
-title: Dynamické přidávání textu pomocí VSTO a Aspose.Slides pro .NET
-linktitle: Dynamické přidávání textu
+title: Přidávání textu dynamicky pomocí VSTO a Aspose.Slides pro .NET
+linktitle: Přidávání textu dynamicky
 type: docs
 weight: 20
 url: /cs/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
 keywords:
-  - přidat text
-  - migrace
-  - VSTO
-  - automatizace Office
-  - PowerPoint
-  - prezentace
-  - .NET
-  - C#
-  - Aspose.Slides
-description: "Podívejte se, jak migrovat z automatizace Microsoft Office na Aspose.Slides pro .NET a přidat dynamický text do prezentací PowerPoint (PPT, PPTX) v C#."
+- přidat text
+- migrace
+- VSTO
+- automatizace Office
+- PowerPoint
+- prezentace
+- .NET
+- C#
+- Aspose.Slides
+description: "Viz, jak migrovat z automatizace Microsoft Office na Aspose.Slides pro .NET a přidat dynamický text do prezentací PowerPoint (PPT, PPTX) v C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Běžnou úlohou, kterou vývojáři často potřebují splnit, je dynamické přidávání textu do snímků. Tento článek ukazuje příklady kódu pro dynamické přidávání textu pomocí [VSTO](/slides/cs/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) a [Aspose.Slides for .NET](/slides/cs/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
+Obvyklý úkol, který vývojáři mají za úkol splnit, je přidávání textu do snímků dynamicky. Tento článek ukazuje příklady kódu pro dynamické přidávání textu pomocí [VSTO](/slides/cs/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) a [Aspose.Slides for .NET](/slides/cs/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 
 {{% /alert %}} 
 ## **Přidávání textu dynamicky**
-Both methods follow these steps:
+Obě metody následují tyto kroky:
 
 1. Vytvořte prezentaci.
 1. Přidejte prázdný snímek.
@@ -30,7 +30,7 @@ Both methods follow these steps:
 1. Nastavte nějaký text.
 1. Uložte prezentaci.
 ## **Příklad kódu VSTO**
-The code snippets below results in a presentation with a plain slide and a string of text on it.
+Níže uvedené úryvky kódu vytvářejí prezentaci s jednoduchým snímkem a řetězcem textu na něm.
 
 **Prezentace vytvořená ve VSTO** 
 
@@ -70,26 +70,29 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ## **Příklad Aspose.Slides pro .NET**
-The code snippets below use Aspose.Slides to create a presentation with a plain slide and a string of text on it.
+Níže uvedené úryvky kódu používají Aspose.Slides k vytvoření prezentace s jednoduchým snímkem a řetězcem textu na něm.
 
 **Prezentace vytvořená pomocí Aspose.Slides pro .NET** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Vytvořte prezentaci
 Presentation pres = new Presentation();
 
 //Prázdný snímek je přidán ve výchozím nastavení, když vytvoříte
 //prezentaci z výchozího konstruktoru
-//Takže není potřeba přidávat žádný prázdný snímek
+//Takže nepotřebujeme přidávat žádný prázdný snímek
 ISlide sld = pres.Slides[1];
 
 //Přidejte textové pole
-//Pro jeho přidání nejprve přidáme obdélník
+//Pro přidání nejprve přidáme obdélník
 IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 1200, 800, 3200, 370);
 
-//Skryjte jeho čáru
+//Skrýt jeho čáru
 shp.LineFormat.Style = LineStyle.NotDefined;
 
 //Pak přidejte textový rámec uvnitř něj
@@ -102,6 +105,6 @@ IPortion port = tf.Paragraphs[0].Portions[0];
 port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
-//Write the output to disk
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Zapište výstup na disk
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

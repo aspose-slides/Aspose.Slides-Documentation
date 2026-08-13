@@ -1,54 +1,56 @@
 ---
-title: افزودن آب‌نشان به ارائه‌ها در Java
-linktitle: آب‌نشان
+title: افزودن واترمارک به ارائه‌ها در جاوا
+linktitle: واترمارک
 type: docs
 weight: 40
 url: /fa/java/watermark/
 keywords:
-- آب‌نشان
-- آب‌نشان متنی
-- آب‌نشان تصویری
-- افزودن آب‌نشان
-- تغییر آب‌نشان
-- حذف آب‌نشان
-- حذف آب‌نشان
-- افزودن آب‌نشان به PPT
-- افزودن آب‌نشان به PPTX
-- افزودن آب‌نشان به ODP
-- حذف آب‌نشان از PPT
-- حذف آب‌نشان از PPTX
-- حذف آب‌نشان از ODP
-- حذف آب‌نشان از PPT
-- حذف آب‌نشان از PPTX
-- حذف آب‌نشان از ODP
-- PowerPoint
+- واترمارک
+- واترمارک متنی
+- واترمارک تصویری
+- افزودن واترمارک
+- تغییر واترمارک
+- حذف واترمارک
+- پاک کردن واترمارک
+- افزودن واترمارک به PPT
+- افزودن واترمارک به PPTX
+- افزودن واترمارک به ODP
+- حذف واترمارک از PPT
+- حذف واترمارک از PPTX
+- حذف واترمارک از ODP
+- پاک کردن واترمارک از PPT
+- پاک کردن واترمارک از PPTX
+- پاک کردن واترمارک از ODP
+- پاورپوینت
 - OpenDocument
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "آب‌نشانی‌های متنی و تصویری را در ارائه‌های PowerPoint و OpenDocument با استفاده از Java مدیریت کنید تا پیش‌نویس، اطلاعات محرمانه، حق کپی‌رایت و موارد دیگر را نشان دهند."
+description: "مدیریت واترمارک‌های متنی و تصویری در ارائه‌های PowerPoint و OpenDocument با استفاده از جاوا برای نشان دادن پیش‌نویس، اطلاعات محرمانه، حق تکثیر و موارد دیگر."
 ---
-## **معرفی**
+## **مقدمه**
 
-**یک آب‌نشان** در یک ارائه متنی یا تصویری است که بر روی یک اسلاید یا تمام اسلایدهای ارائه قرار می‌گیرد. معمولاً برای نشان دادن اینکه ارائه پیش‌نویس است (به عنوان مثال، آب‌نشان «پیش‌نویس»)، حاوی اطلاعات محرمانه است (آب‌نشان «محرمانه»)، تعلق به شرکت خاصی دارد (آب‌نشان «نام شرکت»)، شناسایی نویسنده ارائه و غیره استفاده می‌شود. آب‌نشان به جلوگیری از نقض حق تکثیر کمک می‌کند زیرا نشان می‌دهد که ارائه نباید کپی شود. آب‌نشان‌ها هم در قالب‌های PowerPoint و هم OpenOffice استفاده می‌شوند. در Aspose.Slides می‌توانید آب‌نشان را به فایل‌های PPT، PPTX و ODP اضافه کنید.
+**یک واترمارک** در یک ارائه متنی یا تصویری است که بر روی یک اسلاید یا در تمام اسلایدهای ارائه استفاده می‌شود. معمولاً واترمارک برای نشان دادن اینکه ارائه یک پیش‌نویس است (مثلاً واترمارک «Draft»)، حاوی اطلاعات محرمانه است (مثلاً واترمارک «Confidential»)، مشخص کردن شرکت مربوطه (مثلاً واترمارک «Company Name»)، شناسایی نویسنده ارائه و غیره به کار می‌رود. واترمارک به جلوگیری از نقض حق تکثیر کمک می‌کند زیرا نشان می‌دهد که ارائه نباید کپی شود. واترمارک‌ها در فرمت‌های PowerPoint و OpenOffice استفاده می‌شوند. در Aspose.Slides می‌توانید واترمارک را به فرمت‌های PPT، PPTX و ODP اضافه کنید.
 
-در [**Aspose.Slides**](https://products.aspose.com/slides/fa/java/) روش‌های مختلفی برای ایجاد آب‌نشان در اسناد PowerPoint یا OpenOffice و تغییر طراحی و رفتار آن‌ها وجود دارد. جنبه مشترک این است که برای افزودن آب‌نشان متنی باید از رابط [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) استفاده کنید و برای افزودن آب‌نشان تصویری از کلاس [PictureFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pictureframe/) یا پر کردن یک شکل آب‌نشان با تصویر استفاده نمایید. `PictureFrame` رابط [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) را پیاده‌سازی می‌کند و به شما امکان استفاده از تنظیمات انعطاف‌پذیر شیء شکل را می‌دهد. از آنجا که `ITextFrame` یک شکل نیست و تنظیمات محدودی دارد، در یک شیء [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) پیچیده می‌شود.
+در [**Aspose.Slides**](https://products.aspose.com/slides/fa/java/)، روش‌های متنوعی برای ایجاد واترمارک در اسناد PowerPoint یا OpenOffice و تغییر طراحی و رفتار آن‌ها وجود دارد. نکتهٔ مشترک این است که برای افزودن واترمارک متنی باید از رابط [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) استفاده کنید و برای افزودن واترمارک تصویری، از کلاس [PictureFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/pictureframe/) یا پر کردن شکل واترمارک با تصویر استفاده کنید. `PictureFrame` رابط [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) را پیاده‌سازی می‌کند و به شما اجازه می‌دهد از تمام تنظیمات انعطاف‌پذیر شیء شکل استفاده کنید. از آنجا که `ITextFrame` یک شکل نیست و تنظیمات آن محدود است، در یک شیء [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) پیچیده می‌شود.
 
-دو روش برای اعمال آب‌نشان وجود دارد: به یک اسلاید واحد یا به تمام اسلایدهای ارائه. اسلاید مستر برای اعمال آب‌نشان به تمام اسلایدها استفاده می‌شود — آب‌نشان به اسلاید مستر اضافه می‌شود، کاملاً در آنجا طراحی می‌شود و به تمام اسلایدها اعمال می‌شود بدون اینکه اجازه ویرایش آب‌نشان در اسلایدهای جداگانه تحت تأثیر قرار گیرد.
+دو روش برای اعمال واترمارک وجود دارد: به یک اسلاید واحد یا به تمام اسلایدهای ارائه. از Slide Master برای افزودن واترمارک به تمام اسلایدهای ارائه استفاده می‌شود — واترمارک به Slide Master اضافه می‌شود، در آنجا به‌طور کامل طراحی می‌شود و به تمام اسلایدها اعمال می‌شود بدون اینکه امکان ویرایش واترمارک در اسلایدهای جداگانه تحت تأثیر قرار گیرد.
 
-آب‌نشان معمولاً برای ویرایش توسط سایر کاربران در دسترس نیست. برای جلوگیری از ویرایش آب‌نشان (یا بهتر بگوییم شکل والد آب‌نشان) Aspose.Slides قابلیت قفل کردن شکل را فراهم می‌کند. یک شکل خاص می‌تواند در اسلاید معمولی یا در اسلاید مستر قفل شود. وقتی شکل آب‌نشان در اسلاید مستر قفل شود، در تمام اسلایدهای ارائه قفل می‌ماند.
+معمولاً واترمارک به‌عنوان غیرقابل ویرایش برای سایر کاربران در نظر گرفته می‌شود. برای جلوگیری از ویرایش واترمارک (یا به‌عبارت دیگر شکل والد واترمارک)، Aspose.Slides قابلیت قفل‌کردن شکل را فراهم می‌کند. یک شکل خاص می‌تواند در یک اسلاید عادی یا در Slide Master قفل شود. وقتی شکل واترمارک در Slide Master قفل شود، در تمام اسلایدهای ارائه نیز قفل می‌شود.
 
-می‌توانید نامی برای آب‌نشان تعیین کنید تا در آینده، اگر بخواهید آن را حذف کنید، بتوانید آن را بر پایه نام در لیست اشکال اسلاید پیدا کنید.
+می‌توانید برای واترمارک یک نام تنظیم کنید تا در آینده، اگر می‌خواهید آن را حذف کنید، بتوانید بر اساس نام آن را در اشکال اسلاید پیدا کنید.
 
-آب‌نشان می‌تواند به هر شکلی طراحی شود؛ اما معمولاً ویژگی‌های مشترکی مانند تراز وسط، چرخش، قرارگیری در جلو و غیره دارد. در مثال‌های زیر نحوه استفاده از این ویژگی‌ها را بررسی می‌کنیم.
+می‌توانید واترمارک را به هر شکلی طراحی کنید؛ اما معمولاً ویژگی‌های مشترکی مانند تراز وسط، چرخش، موقعیت جلو و غیره در واترمارک‌ها وجود دارد. در مثال‌های زیر به نحوه استفاده از این ویژگی‌ها می‌پردازیم.
 
-## **آب‌نشان متنی**
+## **واترمارک متنی**
 
-### **افزودن آب‌نشان متنی به یک اسلاید**
+### **افزودن واترمارک متنی به یک اسلاید**
 
-برای افزودن آب‌نشان متنی در PPT، PPTX یا ODP، ابتدا می‌توانید یک شکل به اسلاید اضافه کنید، سپس یک فریم متن به این شکل اضافه کنید. فریم متن توسط رابط [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) نمایندگی می‌شود. این نوع از [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) به ارث نمی‌برد، که مجموعه گسترده‌ای از خصوصیات برای موقعیت‌یابی انعطاف‌پذیر آب‌نشان فراهم می‌کند. لذا شیٔ [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) در یک شیٔ [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) بسته می‌شود. برای افزودن متن آب‌نشان به شکل، از متد [addTextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) همان‌طور که در زیر نشان داده شده استفاده کنید.
+برای افزودن واترمارک متنی در PPT، PPTX یا ODP ابتدا می‌توانید یک شکل به اسلاید اضافه کنید، سپس یک فریم متنی به این شکل اضافه کنید. فریم متنی توسط رابط [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) نمایندگی می‌شود. این نوع از [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/) ارث‌برداری نمی‌کند، در حالی که [IShape] مجموعهٔ گسترده‌ای از ویژگی‌ها برای موقعیت‌یابی انعطاف‌پذیر واترمارک دارد. بنابراین، شیء [ITextFrame] در یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) پیچیده می‌شود. برای افزودن متن واترمارک به شکل، از متد [addTextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) همان‌طور که در زیر نشان داده شده استفاده کنید.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -60,15 +62,17 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [How to Use the TextFrame Class](/slides/fa/java/text-formatting/)
+{{% alert color="info" title="See also" %}} 
+- [چگونه از کلاس TextFrame استفاده کنیم](/slides/fa/java/text-formatting/)
 {{% /alert %}}
 
-### **افزودن آب‌نشان متنی به یک ارائه**
+### **افزودن واترمارک متنی به یک ارائه**
 
-اگر می‌خواهید آب‌نشان متنی را به تمام اسلایدهای ارائه (یعنی همزمان به همه اسلایدها) اضافه کنید، آن را به [MasterSlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/masterslide/) اضافه کنید. منطق باقی‌مانده همانند افزودن آب‌نشان به یک اسلاید است — ابتدا یک شیٔ [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) ایجاد کنید و سپس با استفاده از متد [addTextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) آب‌نشان را به آن اضافه کنید.
+اگر می‌خواهید واترمارک متنی را به کل ارائه (یعنی تمام اسلایدها به‌صورت همزمان) اضافه کنید، آن را به [MasterSlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/masterslide/) اضافه کنید. بقیه منطق مشابه افزودن واترمارک به یک اسلاید است — یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/) ایجاد کنید و سپس با استفاده از متد [addTextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) واترمارک را به آن اضافه کنید.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -80,46 +84,81 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [How to Use the Slide Master](/slides/fa/java/slide-master/)
+{{% alert color="info" title="See also" %}} 
+- [چگونه از Slide Master استفاده کنیم](/slides/fa/java/slide-master/)
 {{% /alert %}}
 
-### **تنظیم شفافیت شکل آب‌نشان**
+### **تنظیم شفافیت شکل واترمارک**
 
-به طور پیش‌فرض، شکل مستطیل با رنگ پر و خط است. خطوط کد زیر شکل را شفاف می‌کند.
+به‌صورت پیش‌فرض، شکل مستطیل با رنگ پر و خط سبک‌دار شده است. خطوط کد زیر شکل را شفاف می‌کنند.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.getFillFormat().setFillType(FillType.NoFill);
 watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+presentation.dispose();
 ```
 
-### **تنظیم فونت برای آب‌نشان متنی**
+### **تنظیم قلم برای واترمارک متنی**
 
-می‌توانید فونت متن آب‌نشان را همان‌طور که در زیر نشان داده شده تغییر دهید.
+می‌توانید قلم واترمارک متنی را همان‌طور که در زیر نشان داده شده تغییر دهید.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new FontData("Arial"));
 textFormat.setFontHeight(50);
+
+presentation.dispose();
 ```
 
-### **تنظیم رنگ متن آب‌نشان**
+### **تنظیم رنگ متن واترمارک**
 
-برای تنظیم رنگ متن آب‌نشان از کد زیر استفاده کنید:
+برای تنظیم رنگ متن واترمارک از کد زیر استفاده کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 fillFormat.setFillType(FillType.Solid);
 fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+
+presentation.dispose();
 ```
 
-### **وسط‌چین کردن آب‌نشان متنی**
+### **مرکزکردن واترمارک متنی**
 
-امکان وسط‌چین کردن آب‌نشان روی اسلاید وجود دارد و برای این کار می‌توانید اقدامات زیر را انجام دهید:
+امکان مرکز کردن واترمارک روی اسلاید وجود دارد و برای این کار می‌توانید به صورت زیر عمل کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+String watermarkText = "CONFIDENTIAL";
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 
 float watermarkWidth = 400;
@@ -131,103 +170,158 @@ IAutoShape watermarkShape = slide.getShapes().addAutoShape(
         ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
 
 ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+
+presentation.dispose();
 ```
 
-تصویر زیر نتیجه نهایی را نشان می‌دهد.
+تصویر زیر نتیجهٔ نهایی را نشان می‌دهد.
 
-![آب‌نشان متنی](text_watermark.png)
+![واترمارک متنی](text_watermark.png)
 
-## **آب‌نشان تصویری**
+## **واترمارک تصویری**
 
-### **افزودن آب‌نشان تصویری به یک ارائه**
+### **افزودن واترمارک تصویری به یک ارائه**
 
-برای افزودن آب‌نشان تصویری به اسلاید یک ارائه می‌توانید مراحل زیر را انجام دهید:
+برای افزودن واترمارک تصویری به یک اسلاید ارائه می‌توانید به صورت زیر عمل کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 InputStream imageStream = new FileInputStream("watermark.png");
 IPPImage image = presentation.getImages().addImage(imageStream);
 
 watermarkShape.getFillFormat().setFillType(FillType.Picture);
 watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+presentation.dispose();
 ```
 
-### **قفل کردن آب‌نشان برای جلوگیری از ویرایش**
+### **قفل کردن واترمارک از ویرایش**
 
-اگر نیاز به جلوگیری از ویرایش آب‌نشان دارید، از متد [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/#getAutoShapeLock--) بر روی شکل استفاده کنید. با این ویژگی می‌توانید شکل را از انتخاب، تغییر اندازه، جابجایی، گروه‌بندی با عناصر دیگر، قفل کردن متن برای ویرایش و موارد دیگر محافظت کنید:
+اگر نیاز به جلوگیری از ویرایش واترمارک دارید، از متد [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iautoshape/#getAutoShapeLock--) بر روی شکل استفاده کنید. با این ویژگی می‌توانید از انتخاب، تغییر اندازه، جابجایی، گروه‌بندی با عناصر دیگر، قفل کردن متن از ویرایش و موارد دیگر محافظت کنید:
 
 ```java
-// قفل کردن شکل آب‌نشان برای جلوگیری از تغییر
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+// قفل کردن شکل واترمارک از ویرایش
 watermarkShape.getAutoShapeLock().setSelectLocked(true);
 watermarkShape.getAutoShapeLock().setSizeLocked(true);
 watermarkShape.getAutoShapeLock().setTextLocked(true);
 watermarkShape.getAutoShapeLock().setPositionLocked(true);
 watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+
+presentation.dispose();
 ```
 
-### **آوردن آب‌نشان به جلو**
+### **آوردن واترمارک به جلو**
 
-در Aspose.Slides می‌توانید ترتیب Z اشکال را با استفاده از متد [IShapeCollection.reorder](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) تنظیم کنید. برای این کار باید این متد را از لیست اسلایدهای ارائه فراخوانی کنید و مرجع شکل و شماره ترتیب آن را به متد پاس دهید. به این ترتیب می‌توانید شکل را به جلو یا به عقب اسلاید منتقل کنید. این امکان به‌ویژه وقتی مفید است که بخواهید آب‌نشان را در جلوی محتوا قرار دهید:
+در Aspose.Slides می‌توان ترتیب Z اشکال را از طریق متد [IShapeCollection.reorder](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) تنظیم کرد. برای این کار کافی است این متد را از لیست اسلایدهای ارائه فراخوانی کنید و مرجع شکل و شماره ترتیب آن را به متد پاس دهید. به این ترتیب می‌توانید شکلی را به جلو یا به عقب اسلاید منتقل کنید. این قابلیت به‌خصوص زمانی مفید است که نیاز داشته باشید واترمارک را در جلوی دیگر محتواها قرار دهید:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+
+presentation.dispose();
 ```
 
-### **تنظیم چرخش آب‌نشان**
+### **تنظیم چرخش واترمارک**
 
-در زیر نمونه کدی برای تنظیم چرخش آب‌نشان به طوری که به صورت مورب بر روی اسلاید قرار گیرد، آورده شده است:
+در ادامه نمونه کدی برای تنظیم چرخش واترمارک به‌طوری که به صورت قطری در سراسر اسلاید قرار گیرد آورده شده است:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+Dimension2D slideSize = presentation.getSlideSize().getSize();
+
 double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
 watermarkShape.setRotation((float)diagonalAngle);
+
+presentation.dispose();
 ```
 
-### **تنظیم نام برای آب‌نشان**
+### **تعیین نام برای یک واترمارک**
 
-Aspose.Slides به شما امکان می‌دهد نام یک شکل را تعیین کنید. با استفاده از نام شکل می‌توانید در آینده به آن دسترسی پیدا کنید تا تغییر یا حذف کنید. برای تنظیم نام شکل آب‌نشان، مقدار را به متد [IAutoShape.setName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setName-java.lang.String-) پاس دهید:
+Aspose.Slides به شما امکان می‌دهد نام یک شکل را تنظیم کنید. با استفاده از نام شکل می‌توانید در آینده به‌راحتی آن را برای ویرایش یا حذف پیدا کنید. برای تنظیم نام شکل واترمارک، آن را به متد [IAutoShape.setName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#setName-java.lang.String-) پاس دهید:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.setName("watermark");
+
+presentation.dispose();
 ```
 
-### **حذف آب‌نشان**
+### **حذف یک واترمارک**
 
-برای حذف شکل آب‌نشان، از متد [IAutoShape.getName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getName--) برای یافتن آن در اشکال اسلاید استفاده کنید. سپس شکل آب‌نشان را به متد [IShapeCollection.remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) پاس دهید:
+برای حذف شکل واترمارک، از متد [IAutoShape.getName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishape/#getName--) برای یافتن آن در اشکال اسلاید استفاده کنید. سپس شکل واترمارک را به متد [IShapeCollection.remove](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) پاس دهید:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+
+ISlide slide = presentation.getSlides().get_Item(0);
+
 IShape[] slideShapes = slide.getShapes().toArray();
 for (IShape shape : slideShapes) {
     if ("watermark".equals(shape.getName()))
     {
-        slide.getShapes().remove(watermarkShape);
+        slide.getShapes().remove(shape);
     }
 }
+
+presentation.dispose();
 ```
 
-## **پرسش‌های رایج**
+## **پرسش‌های متداول**
 
-**آب‌نشان چیست و چرا باید از آن استفاده کنم؟**
+### واترمارک چیست و چرا باید از آن استفاده کنم؟
 
-آب‌نشان یک پوشش متنی یا تصویری است که بر روی اسلایدها اعمال می‌شود و به محافظت از مالکیت فکری، افزایش شناخت برند یا جلوگیری از استفاده غیرمجاز از ارائه‌ها کمک می‌کند.
+واترمارک یک لایهٔ متنی یا تصویری است که بر روی اسلایدها اعمال می‌شود و به محافظت از مالکیت فکری، ارتقاء شناخت برند یا جلوگیری از استفادهٔ غیرمجاز از ارائه‌ها کمک می‌کند.
 
-**آیا می‌توانم آب‌نشان را به تمام اسلایدهای یک ارائه اضافه کنم؟**
+### آیا می‌توانم واترمارک را به تمام اسلایدهای یک ارائه اضافه کنم؟
 
-بله، Aspose.Slides به شما امکان می‌دهد برنامه‌نویسی کنید و آب‌نشان را به هر اسلاید از یک ارائه اضافه کنید. می‌توانید از طریق تمام اسلایدها تکرار کنید و تنظیمات آب‌نشان را به‌صورت جداگانه اعمال نمایید.
+بله، Aspose.Slides امکان افزودن برنامه‌نویسی‌شده واترمارک به هر اسلاید از یک ارائه را فراهم می‌کند. می‌توانید به‌صورت حلقه‌ای تمام اسلایدها را پیمایش کنید و تنظیمات واترمارک را به‌صورت جداگانه اعمال کنید.
 
-**چگونه می‌توانم شفافیت آب‌نشان را تنظیم کنم؟**
+### چگونه می‌توانم شفافیت واترمارک را تنظیم کنم؟
 
-با تغییر تنظیمات پر (متد [getFillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#getFillFormat--)) شکل می‌توانید شفافیت آب‌نشان را تنظیم کنید. این کار باعث می‌شود آب‌نشان به‌صورت ملایم باشد و توجه را از محتوای اسلاید منحرف نکند.
+با تغییر تنظیمات پر (مانند متد [getFillFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#getFillFormat--)) شکل می‌توانید شفافیت واترمارک را تنظیم کنید. این کار باعث می‌شود واترمارک به‌صورت ملایم ظاهر شود و تمرکز مخاطب را از محتوای اسلاید منحرف نکند.
 
-**چه فرمت‌های تصویری برای آب‌نشان پشتیبانی می‌شوند؟**
+### چه فرمت‌های تصویری برای واترمارک پشتیبانی می‌شوند؟
 
-Aspose.Slides انواع فرمت‌های تصویری مانند PNG، JPEG، GIF، BMP، SVG و غیره را پشتیبانی می‌کند.
+Aspose.Slides از فرمت‌های مختلف تصویری مانند PNG، JPEG، GIF، BMP، SVG و غیره پشتیبانی می‌کند.
 
-**آیا می‌توانم فونت و سبک آب‌نشان متنی را سفارشی کنم؟**
+### آیا می‌توانم قلم و سبک واترمارک متنی را سفارشی کنم؟
 
-بله، می‌توانید هر فونت، اندازه و سبکی را انتخاب کنید تا با طراحی ارائه شما هماهنگ باشد و برند شما را متناسب سازد.
+بله، می‌توانید هر قلم، اندازه و استایلی را انتخاب کنید تا با طراحی ارائه‌تان هماهنگ باشد و یکپارچگی برند را حفظ کنید.
 
-**چگونه موقعیت یا جهت‌گیری آب‌نشان را تغییر دهم؟**
+### چگونه می‌توانم موقعیت یا جهت واترمارک را تغییر دهم؟
 
-می‌توانید موقعیت و جهت‌گیری آب‌نشان را به‌صورت برنامه‌نویسی با تغییر مختصات، اندازه و خصوصیات چرخش شکل تنظیم کنید.
+می‌توانید با برنامه‌نویسی موقعیت و جهت واترمارک را با تغییر مختصات، اندازه و ویژگی‌های چرخش شکل تنظیم کنید.

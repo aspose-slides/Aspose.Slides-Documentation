@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda Şekil Animasyonlarını .NET'te Uygulama
+title: Sunumlarda Şekil Animasyonlarını .NET'te Uygula
 linktitle: Şekil Animasyonu
 type: docs
 weight: 60
@@ -27,86 +27,95 @@ description: "Aspose.Slides for .NET ile PowerPoint sunumlarında şekil animasy
 ---
 ## **Giriş**
 
-Animasyonlar, metinlere, görüntülere, şekillere veya [grafiklere](/slides/tr/net/animated-charts/) uygulanabilen görsel efektlerdir. Sunumlara ya da bunların bileşenlerine hayat verir.
+Animasyonlar, metinlere, görsellere, şekillere veya [grafiklere](/slides/tr/net/animated-charts/) uygulanabilen görsel efektlerdir. Sunumlara veya sunum öğelerine hayat verir. 
 
-## **Sunumlarda Neden Animasyon Kullanılır?**
+## **Sunumlarda Animasyon Kullanmanın Nedenleri?**
 
 * bilgi akışını kontrol edin
 * önemli noktaları vurgulayın
-* izleyicilerinizin ilgisini veya katılımını artırın
-* içeriği daha kolay okunur, özümsenir veya işlenir hâle getirin
+* dinleyicilerinizin ilgisini veya katılımını artırın
+* içeriği okumayı, özümsenmeyi veya işlemeyi daha kolay hale getirin
 * okuyucularınızın veya izleyicilerinizin dikkatini sunumdaki önemli bölümlere çekin
 
-PowerPoint, **giriş**, **çıkış**, **vurgu** ve **hareket yolu** kategorileri içinde animasyonlar ve animasyon efektleri için çok sayıda seçenek ve araç sunar.
+PowerPoint, **giriş**, **çıkış**, **vurgulama** ve **hareket yolları** kategorilerinde animasyonlar ve animasyon efektleri için birçok seçenek ve araç sunar. 
 
 ## **Aspose.Slides'da Animasyonlar**
 
-* Aspose.Slides, animasyonlarla çalışmak için gerekli sınıf ve türleri [Aspose.Slides.Animation](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/) ad alanı altında sağlar,
-* Aspose.Slides, **150'den fazla animasyon efekti** ni [EffectType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effecttype)枚 (enum) altında sunar. Bu efektler temelde PowerPoint'te kullanılan aynı (veya eşdeğer) efektlerdir.
+* Aspose.Slides, animasyonlarla çalışmak için gereken sınıfları ve tipleri [Aspose.Slides.Animation](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/) ad alanı altında sağlar,
+* Aspose.Slides, [EffectType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effecttype) enum'ı altında **150'den fazla animasyon efekti** sağlar. Bu efektler, PowerPoint'te kullanılan (veya eşdeğer) efektlerle temelde aynıdır. 
 
 ## **Bir Metin Kutusuna Animasyon Uygulama**
 
-Aspose.Slides for .NET, bir şeklin içindeki metne animasyon uygulamanıza olanak tanır.
+Aspose.Slides for .NET, bir şeklin metnine animasyon uygulamanıza olanak tanır. 
 
-1. [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeks üzerinden alın.  
+1. Bir [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) sınıfının örneğini oluşturun.  
+2. Bir slaytın referansını indeks üzerinden alın.  
 3. Bir `rectangle` [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape) ekleyin.  
-4. [IAutoShape.TextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/properties/textframe) içine metin ekleyin.  
-5. Efektlerin ana dizisini alın.  
-6. [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape) üzerine bir animasyon efekti ekleyin.  
+4. Metni [IAutoShape.TextFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape/properties/textframe) ekleyin.  
+5. Ana bir efekt dizisini alın.  
+6. [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape) bir animasyon efekti ekleyin.  
 7. [TextAnimation.BuildType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/textanimation/properties/buildtype) özelliğini [BuildType Enumeration](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/buildtype) değerine ayarlayın.  
-8. Sunumu bir PPTX dosyası olarak diske yazın.
+8. Sunumu bir PPTX dosyası olarak diske yazın.  
 
-Bu C# kodu, `Fade` efektini AutoShape'e uygulamayı ve metin animasyonunu *By 1st Level Paragraphs* değerine ayarlamayı gösterir:
+Bu C# kodu, `Fade` efektini AutoShape'e uygulamayı ve metin animasyonunu *By 1st Level Paragraphs* değerine ayarlamayı gösterir:  
 
 ```c#
-// Bir sunum dosyasını temsil eden sunum sınıfını örnekler.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler.
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
-    
-    // Yeni AutoShape'ı metinle ekler
+
+    // Yeni bir AutoShape'i metinle ekler
     IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
+    // Paragraf bazlı inşa için geçiş yapılacak şey olması için üç paragraf ekler.
     ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+    textFrame.Text = "First paragraph";
+    textFrame.Paragraphs.Add(new Paragraph { Text = "Second paragraph" });
+    textFrame.Paragraphs.Add(new Paragraph { Text = "Third paragraph" });
 
     // Slaytın ana dizisini alır.
     ISequence sequence = sld.Timeline.MainSequence;
 
-    // Şekle Fade animasyon efektini ekler
+    // Şekle Fade animasyon efekti ekler
     IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Şekil metnini 1. seviye paragraflara göre animasyonlar
+    // Şekil metnini birinci seviye paragraflara göre animasyonlandırır
     effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
 
     // PPTX dosyasını diske kaydeder
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
+    pres.Save("AnimTextBox_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
-Metne animasyon uygulamanın yanı sıra tek bir [Paragraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph) üzerine de animasyon uygulayabilirsiniz. [**Animasyonlu Metin**](/slides/tr/net/animated-text/) bölümüne bakın.
+Metne animasyon uygulamanın yanı sıra tek bir [Paragraph](https://reference.aspose.com/slides/tr/net/aspose.slides/iparagraph) öğesine de animasyon uygulayabilirsiniz. [**Animasyonlu Metin**](/slides/tr/net/animated-text/) adresine bakın.  
 
 {{% /alert %}} 
 
-## **PictureFrame'e Animasyon Uygulama**
+## **Bir PictureFrame'e Animasyon Uygulama**
 
-1. [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeks üzerinden alın.  
-3. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe) ekleyin ya da alın.  
-5. Efektlerin ana dizisini alın.  
-6. [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe) üzerine bir animasyon efekti ekleyin.  
-8. Sunumu bir PPTX dosyası olarak diske yazın.
-
-Bu C# kodu, bir picture frame'e `Fly` efektini uygulamayı gösterir:
+1. Bir [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) sınıfının örneğini oluşturun.  
+2. Bir slaytın referansını indeks üzerinden alın.  
+3. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe) ekleyin veya edinin.  
+5. Ana efekt dizisini alın.  
+6. [PictureFrame](https://reference.aspose.com/slides/tr/net/aspose.slides/ipictureframe) bir animasyon efekti ekleyin.  
+8. Sunumu bir PPTX dosyası olarak diske yazın.  
 
 ```c#
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekler.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler.
 using (Presentation pres = new Presentation())
 {
-    // Sunumun resim koleksiyonuna eklenecek resmi yükler
+    // Sunumun görüntü koleksiyonuna eklenecek resmi yükler
     IImage image = Images.FromFile("aspose-logo.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
@@ -117,7 +126,7 @@ using (Presentation pres = new Presentation())
     // Slaytın ana dizisini alır.
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Resim çerçevesine Soldan Uçuş animasyon efektini ekler
+    // Resim çerçevesine Soldan Uçuş animasyon efekti ekler
     IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // PPTX dosyasını diske kaydeder
@@ -127,24 +136,27 @@ using (Presentation pres = new Presentation())
 
 ## **Bir Şekle Animasyon Uygulama**
 
-1. [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeks üzerinden alın.  
+1. Bir [Presentation](http://www.aspose.com/api/net/slides/tr/aspose.slides/) sınıfının örneğini oluşturun.  
+2. Bir slaytın referansını indeks üzerinden alın.  
 3. Bir `rectangle` [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape) ekleyin.  
 4. Bir `Bevel` [IAutoShape](https://reference.aspose.com/slides/tr/net/aspose.slides/iautoshape) ekleyin (bu nesne tıklandığında animasyon oynatılır).  
-5. Bevel şekli üzerinde bir efekt dizisi oluşturun.  
+5. `Bevel` şekli üzerinde bir efekt dizisi oluşturun.  
 6. Özel bir `UserPath` oluşturun.  
-7. `UserPath`'e hareket etmek için komutlar ekleyin.  
-8. Sunumu bir PPTX dosyası olarak diske yazın.
-
-Bu C# kodu, bir şekle `PathFootball` (yol futbolu) efektini uygulamayı gösterir:
+7. `UserPath`'e hareket komutları ekleyin.  
+8. Sunumu bir PPTX dosyası olarak diske yazın.  
 
 ```c#
-// Bir sunum dosyasını temsil eden Presentation sınıfını örnekler.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler.
 using (Presentation pres = new Presentation())
 {
     ISlide sld = pres.Slides[0];
 
-    // Varolan şekil için sıfırdan PathFootball efekti oluşturur.
+    // Mevcut şekil için sıfırdan PathFootball efekti oluşturur.
     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
 
     ashp.AddTextFrame("Animated TextBox");
@@ -153,13 +165,13 @@ using (Presentation pres = new Presentation())
     pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
                            EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-    // "button" türünde bir şey oluşturur.
+    // Bir çeşit "buton" oluşturur.
     IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
 
     // Buton için bir efekt dizisi oluşturur.
     ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
 
-    // Özel bir kullanıcı yolu oluşturur. Nesnemiz sadece butona tıklandıktan sonra hareket ettirilecektir.
+    // Özel bir kullanıcı yolu oluşturur. Nesnemiz sadece butona tıklandıktan sonra hareket ettirilecek.
     IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
     // Oluşturulan yol boş olduğundan hareket komutları ekler.
@@ -172,20 +184,23 @@ using (Presentation pres = new Presentation())
     motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
     motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-    // PPTX dosyasını diske yazar.
+    // PPTX dosyasını diske yazar
     pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Bir Şekle Uygulanan Animasyon Efektlerini Alma**
+## **Bir Şekle Uygulanan Animasyon Efektlerini Al**
 
-Aşağıdaki örnekler, bir şekle uygulanan tüm animasyon efektlerini almak için [ISequence](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/isequence/) arabirimindeki `GetEffectsByShape` metodunun nasıl kullanılacağını gösterir.
+Aşağıdaki örnekler, bir şekle uygulanan tüm animasyon efektlerini almak için [ISequence](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/isequence/) arayüzündeki `GetEffectsByShape` yönteminin nasıl kullanılacağını gösterir.  
 
-**Örnek 1: Normal bir slaytta bir şekle uygulanan animasyon efektlerini al**
+**Örnek 1: Normal bir slaytta bir şekle uygulanan animasyon efektlerini alın**
 
-Daha önce, PowerPoint sunumlarına şekiller eklemek için animasyon efektleri eklemeyi öğrenmiştiniz. Aşağıdaki örnek kod, `AnimExample_out.pptx` sunumundaki ilk normal slayttaki ilk şekle uygulanan efektleri nasıl alacağınızı gösterir.
+Daha önce, PowerPoint sunumlarına şekiller için animasyon efektleri eklemeyi öğrendiniz. Aşağıdaki örnek kod, `AnimExample_out.pptx` sunumundaki ilk normal slayttaki ilk şekle uygulanan efektleri nasıl alacağınızı gösterir.  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
 {
     ISlide firstSlide = presentation.Slides[0];
@@ -206,23 +221,28 @@ using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
 
 **Örnek 2: Yer tutuculardan miras alınanlar dahil tüm animasyon efektlerini alın**
 
-Normal bir slayttaki bir şeklin, yer tutucu (placeholder)ları düzen slaytı ve/veya ana slaytta bulunuyorsa ve bu yer tutuculara animasyon efektleri eklenmişse, slayt gösterisi sırasında şeklin tüm efektleri, yer tutuculardan miras alınanlar dahil oynatılır.
+Eğer normal bir slayttaki bir şeklin, düzen slaytı ve/veya ana slayt üzerindeki yer tutucuları varsa ve bu yer tutuculara animasyon efektleri eklenmişse, şeklin tüm efektleri slayt gösterisi sırasında, yer tutuculardan miras alınanlar dahil, oynatılacaktır.  
 
-Diyelim ki içinde yalnızca bir altbilgi şekli ve metni "Made with Aspose.Slides" olan bir PowerPoint sunum dosyamız `sample.pptx` ve bu şekle **Random Bars** efekti uygulanmış.
+Diyelim ki `sample.pptx` adlı bir PowerPoint sunum dosyamız var; bu dosya tek bir slayt içeriyor ve sadece altbilgi şekli içinde "Made with Aspose.Slides" metni bulunuyor ve şekle **Random Bars** efekti uygulanmış.  
 
-![Slayt şekli animasyon efekti](slide-shape-animation.png)
+![Slayt şekil animasyon efekti](slide-shape-animation.png)  
 
-Ayrıca altbilgi yer tutucusuna **layout** slaytında **Split** efektinin uygulandığını varsayalım.
+Ayrıca, **layout** slaydındaki altbilgi yer tutucusuna **Split** efektinin uygulandığını varsayalım.  
 
-![Düzen şekli animasyon efekti](layout-shape-animation.png)
+![Düzen şekil animasyon efekti](layout-shape-animation.png)  
 
-Ve sonunda, **master** slaytındaki altbilgi yer tutucusuna **Fly In** efekti uygulanmıştır.
+Son olarak, **master** slaydındaki altbilgi yer tutucusuna **Fly In** efekti uygulanmıştır.  
 
-![Ana slayt şekli animasyon efekti](master-shape-animation.png)
+![Ana slayt şekil animasyon efekti](master-shape-animation.png)  
 
-Aşağıdaki örnek kod, [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) arabirimindeki `GetBasePlaceholder` metodunu kullanarak şekil yer tutucularına erişmeyi ve altbilgi şekline uygulanan animasyon efektlerini, layout ve master slaytlarda bulunan yer tutuculardan miras alınanlar dahil, nasıl alacağınızı gösterir.
+Aşağıdaki örnek kod, [IShape](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/) arayüzündeki `GetBasePlaceholder` yöntemini kullanarak şekil yer tutucularına erişmeyi ve altbilgi şekline uygulanan animasyon efektlerini, düzen ve ana slaytlardaki yer tutuculardan miras alınanlar dahil, almayı gösterir.  
 
 ```cs
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -244,8 +264,18 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     PrintEffects(layoutShapeEffects);
     PrintEffects(shapeEffects);
 }
+
+static void PrintEffects(IEnumerable<IEffect> effects)
+{
+    foreach (IEffect effect in effects)
+    {
+        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+    }
+}
 ```
 ```cs
+using Aspose.Slides.Animation;
+
 static void PrintEffects(IEnumerable<IEffect> effects)
 {
     foreach (IEffect effect in effects)
@@ -263,37 +293,37 @@ Split VerticalIn
 RandomBars Horizontal
 ```
 
-## **Animasyon Efekti Zamanlama Özelliklerini Değiştirme**
+## **Animasyon Efekti Zamanlama Özelliklerini Değiştir**
 
-Aspose.Slides for .NET, bir animasyon efektinin Zamanlama özelliklerini değiştirmenize olanak tanır.
+Aspose.Slides for .NET, bir animasyon efektinin Zamanlama özelliklerini değiştirmenize olanak tanır.  
 
-Bu, Microsoft PowerPoint'teki Animasyon Zamanlama bölmesi ve genişletilmiş menüsüdür:
+Bu, Microsoft PowerPoint'teki Animasyon Zamanlaması bölmesi ve genişletilmiş menüdür:  
 
-![Animasyon Zamanlama](shape-animation.png)
+![Animasyon Zamanlaması görüntüsü](shape-animation.png)  
 
-Bu, PowerPoint Zamanlama **Start** açılır listesi, [Effect.Timing.TriggerType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/properties/triggertype) özelliği ile eşleşir.
+- PowerPoint Zamanlaması **Start** açılır listesi, [Effect.Timing.TriggerType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/properties/triggertype) özelliğiyle eşleşir.  
+- PowerPoint Zamanlaması **Duration**, [Effect.Timing.Duration](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/properties/duration) özelliğiyle eşleşir. Bir animasyonun süresi (saniye cinsinden), animasyonun bir döngüyü tamamlaması için geçen toplam zamandır.  
+- PowerPoint Zamanlaması **Delay**, [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/properties/triggerdelaytime) özelliğiyle eşleşir.  
+- PowerPoint Zamanlaması **Repeat** açılır listesi aşağıdaki özelliklerle eşleşir:  
+  * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/repeatcount) özelliği, efektin tekrarlanma *sayısını* açıklar;  
+  * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/repeatuntilendslide) bayrağı, efektin slayt sonuna kadar tekrarlanıp tekrarlanmayacağını belirtir;  
+  * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/repeatuntilnextclick) bayrağı, efektin bir sonraki tıklamaya kadar tekrarlanıp tekrarlanmayacağını belirtir.  
+- PowerPoint Zamanlaması **Rewind when done playing** onay kutusu, [Effect.Timing.Rewind](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/rewind/) özelliğiyle eşleşir.  
 
-- PowerPoint Zamanlama **Duration** (Süre), [Effect.Timing.Duration](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/properties/duration) özelliği ile eşleşir. Bir animasyonun süresi (saniye cinsinden), animasyonun bir döngüyü tamamlaması için gereken toplam zamandır.
+Efekt Zamanlama özelliklerini değiştirmek için şu adımları izleyin:  
 
-- PowerPoint Zamanlama **Delay** (Gecikme), [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/properties/triggerdelaytime) özelliği ile eşleşir.
+1. Animasyon efektini [Apply](#apply-animation-to-shape) edin veya alın.  
+2. İhtiyacınız olan [Effect.Timing](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effect/properties/timing) özelliklerine yeni değerler atayın.  
+3. Değiştirilmiş PPTX dosyasını kaydedin.  
 
-- PowerPoint Zamanlama **Repeat** açılır listesi şu özelliklerle eşleşir:
-  * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/repeatcount) özelliği, efektin *sayısını* tanımlar;
-  * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/repeatuntilendslide) bayrağı, efektin slayt sonuna kadar tekrarlanıp tekrarlanmayacağını belirtir;
-  * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/repeatuntilnextclick) bayrağı, efektin bir sonraki tıklamaya kadar tekrarlanıp tekrarlanmayacağını belirtir.
-
-- PowerPoint Zamanlama **Rewind when done playing** (Oynatma tamamlandığında geri sar) onay kutusu, [Effect.Timing.Rewind](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itiming/rewind/) özelliği ile eşleşir.
-
-Efekt Zamanlama özelliklerini şu şekilde değiştirirsiniz:
-
-1. [Apply](#apply-animation-to-shape) ya da animasyon efektini alın.  
-2. Gereken [Effect.Timing](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effect/properties/timing) özelliklerine yeni değerler atayın.  
-3. Değiştirilmiş PPTX dosyasını kaydedin.
-
-Bu C# kodu işlemi göstermektedir:
+Bu C# kodu işlemi gösterir:  
 
 ```c#
- // Bir sunum dosyasını temsil eden sunum sınıfını örnekler.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler.
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
     // Slaytın ana dizisini alır.
@@ -302,50 +332,51 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
     // Ana dizinin ilk efektini alır.
     IEffect effect = sequence[0];
 
-    // Efektin TriggerType'ını tıklamayla başlaması için değiştirir
+    // Efektin TriggerType değerini tıklamayla başlaması için değiştirir.
     effect.Timing.TriggerType = EffectTriggerType.OnClick;
 
-    // Efektin süresini değiştirir
+    // Efektin süresini değiştirir.
     effect.Timing.Duration = 3f;
 
-    // Efektin TriggerDelayTime değerini değiştirir
+    // Efektin tetikleme gecikme süresini değiştirir.
     effect.Timing.TriggerDelayTime = 0.5f;
 
-    // Efektin Repeat değeri "none" ise
+    // Eğer efektin Repeat (tekrar) değeri "none" ise
     if (effect.Timing.RepeatCount == 1f)
     {
-        // Efektin Repeat değerini "Bir Sonraki Tıklamaya Kadar" olarak değiştirir
+        // Efektin Repeat özelliğini "Sonraki Tıklamaya Kadar" olarak değiştirir.
         effect.Timing.RepeatUntilNextClick = true;
     }
     else
     {
-        // Efektin Repeat değerini "Slayt Sonuna Kadar" olarak değiştirir
+        // Efektin Repeat özelliğini "Slayt Sonuna Kadar" olarak değiştirir.
         effect.Timing.RepeatUntilEndSlide = true;
     }
 
-    // Efektin Rewind özelliğini etkinleştirir
+    // Efektin Rewind (geri sar) özelliğini açar.
         effect.Timing.Rewind = true;
     
-    // PPTX dosyasını diske kaydeder
+    // PPTX dosyasını diske kaydeder.
     pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Animasyon Efekti Sesleri**
+## **Animasyon Efekti Sesi**
 
-Aspose.Slides, animasyon efektlerinde seslerle çalışmanızı sağlayan şu özellikleri sunar:
-
+Aspose.Slides, animasyon efektlerinde seslerle çalışmanıza olanak tanıyan şu özellikleri sağlar:  
 - [IEffect.Sound](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effect/sound/)  
-- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effect/stopprevioussound/)  
+- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effect/stopprevioussound/) 
 
-### **Bir Animasyon Efekti Sesi Ekleme**
-
-Bu C# kodu, bir animasyon efekti sesini eklemeyi ve bir sonraki efekt başladığında sesi durdurmayı gösterir:
+### **Animasyon Efekti Sesi Ekle**
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 {
-	// Sunumun ses koleksiyonuna ses ekler
+	// Sunuma ses ekler
 	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
 
 	ISlide firstSlide = pres.Slides[0];
@@ -366,7 +397,7 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 	// Slaytın ilk etkileşimli dizisini alır.
 	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
 
-	// Efektin "Önceki Sesi Durdur" bayrağını ayarlar
+	// Efektin "Önceki sesi durdur" bayrağını ayarlar
 	interactiveSequence[0].StopPreviousSound = true;
 
 	// PPTX dosyasını diske yazar
@@ -374,17 +405,18 @@ using (Presentation pres = new Presentation("AnimExample_out.pptx"))
 }
 ```
 
-### **Bir Animasyon Efekti Sesini Çıkarma**
+### **Animasyon Efekti Sesini Çıkar**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeks üzerinden alın.  
-3. Efektlerin ana dizisini alın.  
-4. Her bir animasyon efektine gömülü [Sound](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effect/sound/) öğesini çıkarın.
-
-Bu C# kodu, bir animasyon efektine gömülü sesi nasıl çıkaracağınızı gösterir:
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
+2. Bir slaytın referansını indeks üzerinden alın.  
+3. Ana efekt dizisini alın.  
+4. [Sound](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/effect/sound/) öğesini her animasyon efektine gömülü olarak çıkarın.  
 
 ```c#
-// Sunum dosyasını temsil eden bir Presentation sınıfını örnekler.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler.
 using (Presentation presentation = new Presentation("EffectSound.pptx"))
 {
     ISlide slide = presentation.Slides[0];
@@ -397,7 +429,7 @@ using (Presentation presentation = new Presentation("EffectSound.pptx"))
         if (effect.Sound == null)
             continue;
 
-        // Etki sesini byte dizisine çıkarır
+        // Efekt sesini bayt dizisi olarak çıkarır
         byte[] audio = effect.Sound.BinaryData;
     }
 }
@@ -405,25 +437,28 @@ using (Presentation presentation = new Presentation("EffectSound.pptx"))
 
 ## **Animasyondan Sonra**
 
-Aspose.Slides for .NET, bir animasyon efektinin After animation (animasyondan sonra) özelliğini değiştirmenize olanak tanır.
+Aspose.Slides for .NET, bir animasyon efektinin After animation (Animasyondan Sonra) özelliğini değiştirmenize olanak tanır.  
 
-Bu, Microsoft PowerPoint'teki Animasyon Efekti bölmesi ve genişletilmiş menüdür:
+![Animasyondan Sonra görüntüsü](shape-after-animation.png)  
 
-![Animasyon Efekti](shape-after-animation.png)
+PowerPoint Efekti **After animation** açılır listesi aşağıdaki özelliklerle eşleşir:  
 
-PowerPoint Efekti **After animation** açılır listesi şu özelliklerle eşleşir:
+- [IEffect.AfterAnimationType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/afteranimationtype/) özelliği, After animation tipini tanımlar:  
+  * PowerPoint **More Colors** seçeneği, [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir;  
+  * PowerPoint **Don't Dim** öğesi, [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir (varsayılan animasyondan sonra tipi);  
+  * PowerPoint **Hide After Animation** öğesi, [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir;  
+  * PowerPoint **Hide on Next Mouse Click** öğesi, [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) tipine karşılık gelir;  
+- [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/afteranimationcolor/) özelliği, animasyondan sonraki bir renk biçimini tanımlar. Bu özellik, [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) tipiyle birlikte çalışır. Tipi başka bir değere değiştirirseniz, animasyondan sonraki renk temizlenir.  
 
-- [IEffect.AfterAnimationType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/afteranimationtype/) özelliği, animasyondan sonraki türü tanımlar:
-  * PowerPoint **More Colors** seçeneği, [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) türüyle eşleşir;
-  * PowerPoint **Don't Dim** seçeneği, [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) türüyle eşleşir (varsayılan animasyondan sonraki tür);
-  * PowerPoint **Hide After Animation** seçeneği, [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) türüyle eşleşir;
-  * PowerPoint **Hide on Next Mouse Click** seçeneği, [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) türüyle eşleşir;
-- [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/afteranimationcolor/) özelliği, animasyondan sonraki renk formatını tanımlar. Bu özellik, [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/afteranimationtype/) türüyle birlikte çalışır. Türü başka bir değere değiştirirseniz, animasyondan sonraki renk temizlenir.
-
-Bu C# kodu, bir animasyondan sonra efektini nasıl değiştireceğinizi gösterir:
+Bu C# kodu, bir animasyondan sonraki efekti nasıl değiştireceğinizi gösterir:  
 
 ```c#
-// Sunum dosyasını temsil eden bir Presentation sınıfını örnekler
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler
 using (Presentation pres = new Presentation("AnimImage_out.pptx"))
 {
     ISlide firstSlide = pres.Slides[0];
@@ -431,10 +466,10 @@ using (Presentation pres = new Presentation("AnimImage_out.pptx"))
     // Ana dizinin ilk efektini alır
     IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
 
-    // After animation tipini Color olarak değiştirir
+    // Animasyondan sonraki türü Renk olarak değiştirir
     firstEffect.AfterAnimationType = AfterAnimationType.Color;
 
-    // After animation karartma rengini ayarlar
+    // Animasyondan sonraki karartma rengini ayarlar
     firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
 
     // PPTX dosyasını diske yazar
@@ -442,27 +477,29 @@ using (Presentation pres = new Presentation("AnimImage_out.pptx"))
 }
 ```
 
-## **Metni Animasyonlu Hale Getirme**
+## **Metni Animasyonlu Hale Getir**
 
-Aspose.Slides, bir animasyon efektinin *Animate text* (Metni animasyonla) bloğu ile çalışmanızı sağlayan şu özellikleri sunar:
+Aspose.Slides, bir animasyon efektinin *Animate text* (Metni Animasyonlu) bloğuyla çalışmanıza olanak tanıyan şu özellikleri sağlar:  
 
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/animatetexttype/) özelliği, efektin animasyon metni tipini tanımlar. Şekil metni şu şekilde animasyonlanabilir:
-  * Hepsi bir anda ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/animatetexttype/) tipi)
-  * Kelime kelime ([AnimateTextType.ByWord](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/animatetexttype/) tipi)
-  * Harf harf ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/animatetexttype/) tipi)
-- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/delaybetweentextparts/) özellik, animasyonlu metin parçaları (kelimeler veya harfler) arasındaki gecikmeyi ayarlar. Pozitif değer, efekt süresinin yüzde olarak belirtilmesini, negatif değer ise saniye cinsinden gecikmeyi belirtir.
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/animatetexttype/) özelliği, efektin animasyon metin tipini tanımlar. Şekil metni şu şekilde animasyonlanabilir:  
+  * Hepsi birden ([AnimateTextType.AllAtOnce] tipi)  
+  * Kelime kelime ([AnimateTextType.ByWord] tipi)  
+  * Harf harf ([AnimateTextType.ByLetter] tipi)  
+- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/delaybetweentextparts/) animasyonlu metin parçaları (kelimeler veya harfler) arasındaki gecikmeyi ayarlar. Pozitif değer, efekt süresinin yüzdesini belirtir. Negatif değer saniye cinsinden gecikmeyi belirtir.  
 
-Efekt Animate text özelliklerini şu şekilde değiştirebilirsiniz:
+Efektin Animate text (Metni Animasyonlu) özelliklerini şu şekilde değiştirebilirsiniz:  
 
-1. [Apply](#apply-animation-to-shape) ya da animasyon efektini alın.  
-2. [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itextanimation/buildtype/) özelliğini, *By Paragraphs* animasyon modunu kapatmak için [BuildType.AsOneObject](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/buildtype/) değerine ayarlayın.  
-3. [IEffect.AnimateTextType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/animatetexttype/) ve [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/ieffect/delaybetweentextparts/) özellikleri için yeni değerler belirleyin.  
-4. Değiştirilmiş PPTX dosyasını kaydedin.
-
-Bu C# kodu işlemi göstermektedir:
+1. Animasyon efektini [Apply](#apply-animation-to-shape) edin veya alın.  
+2. [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/tr/net/aspose.slides.animation/itextanimation/buildtype/) özelliğini [BuildType.AsOneObject] değerine ayarlayarak *By Paragraphs* animasyon modunu devre dışı bırakın.  
+3. [IEffect.AnimateTextType] ve [IEffect.DelayBetweenTextParts] özelliklerine yeni değerler atayın.  
+4. Değiştirilmiş PPTX dosyasını kaydedin.  
 
 ```c#
-// Bir sunum dosyasını temsil eden bir Presentation sınıfını örnekler.
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Sunum dosyasını temsil eden bir Presentation sınıfı örnekler.
 using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
 {
     ISlide firstSlide = pres.Slides[0];
@@ -470,13 +507,13 @@ using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
     // Ana dizinin ilk efektini alır
     IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
 
-    // Efektin Text animation tipini "As One Object" olarak değiştirir
+    // Efektin Metin animasyon tipini "As One Object" olarak değiştirir
     firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
 
     // Efektin Animate text tipini "By word" olarak değiştirir
     firstEffect.AnimateTextType = AnimateTextType.ByWord;
 
-    // Kelime arasındaki gecikmeyi efekt süresinin %20'si olarak ayarlar
+    // Kelimeler arasındaki gecikmeyi efekt süresinin %20'si olarak ayarlar
     firstEffect.DelayBetweenTextParts = 20f;
 
     // PPTX dosyasını diske yazar
@@ -486,14 +523,14 @@ using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
 
 ## **SSS**
 
-**Sunumu web'e yayınlarken animasyonların korunmasını nasıl sağlayabilirim?**
+### Sunumu web’e yayınlarken animasyonların korunmasını nasıl sağlayabilirim?
 
-[Export to HTML5](/slides/tr/net/export-to-html5/) ve şekil ([shape](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animateshapes/)) ve geçiş ([transition](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animatetransitions/)) animasyonlarından sorumlu [options](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/) seçeneklerini etkinleştirin. Düz HTML slayt animasyonlarını oynatmaz, HTML5 ise oynatır.
+[HTML5'e Dışa Aktar](/slides/tr/net/export-to-html5/) ve şekil ([şekil](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animateshapes/)) ve geçiş ([geçiş](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animatetransitions/)) animasyonlarından sorumlu [seçenekler](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/) etkinleştirin. Düz HTML slayt animasyonlarını oynatmaz, HTML5 ise oynatır.  
 
-**Şekillerin z-sırası (katman sırası) değiştirilmesi animasyonu nasıl etkiler?**
+### Şekillerin z-sırasını (katman sırasını) değiştirmek animasyonu nasıl etkiler?
 
-Animasyon ve çizim sırası birbirinden bağımsızdır: bir efekt, görünme/görünmez olma zamanlamasını ve tipini kontrol ederken, [z-order](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/zorderposition/) hangi nesnenin diğerini kapatacağını belirler. Görünür sonuç, bu iki faktörün birleşimiyle tanımlanır. (Bu, genel PowerPoint davranışıdır; Aspose.Slides efekt‑ve‑şekil modeli aynı mantığı izler.)
+Animasyon ve çizim sırası bağımsızdır: bir efekt, görünme/görünme kaybolma zamanlamasını ve tipini kontrol eder, [z-order](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/zorderposition/) ise nelerin neyi örtüştüğünü belirler. Görünür sonuç, bu ikisinin birleşimiyle tanımlanır. (Bu, genel PowerPoint davranışıdır; Aspose.Slides efektler‑ve‑şekiller modeli aynı mantığı izler.)  
 
-**Belirli efektler için animasyonları videoya dönüştürürken sınırlamalar var mı?**
+### Belirli efektler için animasyonları videoya dönüştürürken sınırlamalar var mı?
 
-Genel olarak, [animasyonlar desteklenir](/slides/tr/net/convert-powerpoint-to-video/), ancak nadir durumlarda veya belirli efektlerde farklı renderlanabilir. Kullandığınız efektler ve kütüphane sürümü ile test etmeniz önerilir.
+Genel olarak, [animasyonlar desteklenir](/slides/tr/net/convert-powerpoint-to-video/), ancak nadir durumlarda veya belirli efektlerde farklı işlenebilir. Kullanmakta olduğunuz efektlerle ve kullandığınız kütüphane sürümüyle test etmeniz önerilir.

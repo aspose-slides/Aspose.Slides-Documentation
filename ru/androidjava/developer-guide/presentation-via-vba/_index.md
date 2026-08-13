@@ -1,5 +1,5 @@
 ---
-title: Управление VBA‑проектами в презентациях на Android
+title: Управление VBA проектами в презентациях на Android
 linktitle: Презентация через VBA
 type: docs
 weight: 250
@@ -22,32 +22,38 @@ keywords:
 - Aspose.Slides
 description: "Узнайте, как создавать и управлять презентациями PowerPoint и OpenDocument через VBA с помощью Aspose.Slides для Android на Java, чтобы оптимизировать ваш рабочий процесс."
 ---
+## **Введение**
+
+Aspose.Slides предоставляет классы и интерфейсы для работы с макросами и кодом VBA.
 
 {{% alert title="Note" color="warning" %}} 
 
-Когда вы конвертируете презентацию, содержащую макросы, в другой файловый формат (PDF, HTML и т.д.), Aspose.Slides игнорирует все макросы (макросы не переносятся в полученный файл).
+При конвертации презентации, содержащей макросы, в другой формат файла (PDF, HTML и т.д.) Aspose.Slides игнорирует все макросы (они не переносятся в результирующий файл).
 
-Когда вы добавляете макросы в презентацию или сохраняете повторно презентацию, содержащую макросы, Aspose.Slides просто записывает байты макросов.
+При добавлении макросов в презентацию или повторном сохранении презентации, содержащей макросы, Aspose.Slides просто записывает байты макросов.
 
-Aspose.Slides **никогда** не выполняет макросы в презентации.
+Aspose.Slides **никогда** не запускает макросы в презентации.
 
 {{% /alert %}}
 
-## **Добавить VBA‑макросы**
+## **Добавление VBA‑макросов**
 
-Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/) для создания VBA‑проектов (и их ссылок) и редактирования существующих модулей. Вы можете использовать интерфейс [IVbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivbaproject/) для управления VBA, встроенным в презентацию.
+Aspose.Slides предоставляет класс [VbaProject](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/vbaproject/) позволяющий создавать VBA‑проекты (и ссылки на проекты) и редактировать существующие модули. Вы можете использовать интерфейс [IVbaProject](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ivbaproject/) для управления VBA, внедрённым в презентацию.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/#VbaProject--) для добавления нового VBA‑проекта.
-1. Добавьте модуль в VbaProject.
-1. Установите исходный код модуля.
-1. Добавьте ссылки на <stdole>.
-1. Добавьте ссылки на **Microsoft Office**.
-1. Свяжите ссылки с VBA‑проектом.
-1. Сохраните презентацию.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation).
+2. Используйте конструктор [VbaProject](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/vbaproject/#VbaProject--) для добавления нового VBA‑проекта.
+3. Добавьте модуль в VbaProject.
+4. Установите исходный код модуля.
+5. Добавьте ссылки на <stdole>.
+6. Добавьте ссылки на **Microsoft Office**.
+7. Свяжите ссылки с VBA‑проектом.
+8. Сохраните презентацию.
 
-Этот код на Java показывает, как добавить VBA‑макрос с нуля в презентацию:
+Этот Java‑код показывает, как добавить VBA‑макрос с нуля в презентацию:
+
 ```java
+import com.aspose.slides.*;
+
 // Создаёт экземпляр класса презентации
 Presentation pres = new Presentation();
 try {
@@ -57,7 +63,7 @@ try {
     // Добавляет пустой модуль в проект VBA
     IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
     
-    // Задаёт исходный код модуля
+    // Устанавливает исходный код модуля
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
     // Создаёт ссылку на <stdole>
@@ -78,27 +84,29 @@ try {
 }
 ```
 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Возможно, вам будет интересен **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), бесплатное веб‑приложение, используемое для удаления макросов из документов PowerPoint, Excel и Word. 
+Вы можете ознакомиться с **Aspose** [Macro Remover](https://products.aspose.app/slides/ru/remove-macros), который представляет собой бесплатное веб‑приложение для удаления макросов из документов PowerPoint, Excel и Word. 
 
 {{% /alert %}} 
 
-## **Удалить VBA‑макросы**
+## **Удаление VBA‑макросов**
 
-Используя свойство [VbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getVbaProject--) класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation), вы можете удалить VBA‑макрос.
+Используя свойство [VbaProject](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#getVbaProject--) класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation), вы можете удалить VBA‑макрос.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
-1. Получите доступ к модулю Macro и удалите его.
-1. Сохраните изменённую презентацию.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
+2. Получите доступ к модулю Macro и удалите его.
+3. Сохраните изменённую презентацию.
 
-Этот код на Java показывает, как удалить VBA‑макрос:
+Этот Java‑код показывает, как удалить VBA‑макрос:
+
 ```java
+import com.aspose.slides.*;
+
 // Загружает презентацию, содержащую макрос
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // Получает модуль Vba и удаляет его
+    // Доступается к модулю Vba и удаляет его 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
     // Сохраняет презентацию
@@ -108,19 +116,21 @@ try {
 }
 ```
 
+## **Извлечение VBA‑макросов**
 
-## **Извлечь VBA‑макросы**
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation) и загрузите презентацию, содержащую макрос.
 2. Проверьте, содержит ли презентация VBA‑проект.
-3. Пройдите в цикле по всем модулям, содержащимся в VBA‑проекте, чтобы просмотреть макросы.
+3. Пройдитесь по всем модулям, содержащимся в VBA‑проекте, чтобы просмотреть макросы.
 
-Этот код на Java показывает, как извлечь VBA‑макросы из презентации, содержащей макросы:
+Этот Java‑код показывает, как извлечь VBA‑макросы из презентации, содержащей макросы:
+
 ```java
+import com.aspose.slides.*;
+
 // Загружает презентацию, содержащую макрос
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // Проверяет, содержит ли презентация VBA-проект
+    if (pres.getVbaProject() != null) // Проверяет, содержит ли презентация проект VBA
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -133,18 +143,20 @@ try {
 }
 ```
 
+## **Проверка защиты VBA‑проекта паролем**
 
-## **Проверить, защищён ли VBA‑проект паролем**
+Используя метод [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--), вы можете определить, защищены ли свойства проекта паролем.
 
-С помощью метода [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) вы можете определить, защищены ли свойства проекта паролем.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
-2. Проверьте, содержит ли презентация [VBA project](https://reference.aspose.com/slides/androidjava/com.aspose.slides/vbaproject/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/) и загрузите презентацию, содержащую макрос.
+2. Проверьте, содержит ли презентация [VBA‑проект](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/vbaproject/).
 3. Проверьте, защищён ли VBA‑проект паролем, чтобы просмотреть его свойства.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
-    if (presentation.getVbaProject() != null) { // Проверьте, содержит ли презентация VBA‑проект.
+    if (presentation.getVbaProject() != null) { // Проверяет, содержит ли презентация проект VBA.
         if (presentation.getVbaProject().isPasswordProtected()) {
             System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
@@ -155,17 +167,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Что происходит с макросами, если я сохраняю презентацию как PPTX?**
+### Что происходит с макросами, если сохранить презентацию как PPTX?
 
 Макросы будут удалены, так как PPTX не поддерживает VBA. Чтобы сохранить макросы, выберите PPTM, PPSM или POTM.
 
-**Может ли Aspose.Slides выполнять макросы внутри презентации, например, обновлять данные?**
+### Может ли Aspose.Slides выполнять макросы внутри презентации, например, обновлять данные?
 
-Нет. Библиотека никогда не выполняет код VBA; выполнение возможно только внутри PowerPoint при соответствующих настройках безопасности.
+Нет. Библиотека никогда не исполняет код VBA; выполнение возможно лишь в PowerPoint при соответствующих настройках безопасности.
 
-**Поддерживается ли работа с элементами управления ActiveX, связанными с кодом VBA?**
+### Поддерживается ли работа с элементами управления ActiveX, связанными с кодом VBA?
 
-Да, вы можете получить доступ к существующим [ActiveX controls](/slides/ru/androidjava/activex/), изменять их свойства и удалять их. Это полезно, когда макросы взаимодействуют с ActiveX.
+Да, вы можете получать доступ к существующим [ActiveX controls](/slides/ru/androidjava/activex/), изменять их свойства и удалять их. Это полезно, когда макросы взаимодействуют с ActiveX.

@@ -1,41 +1,40 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET 15.5.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides for .NET 15.5.0
 linktitle: Aspose.Slides لـ .NET 15.5.0
 type: docs
 weight: 160
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/
 keywords:
-- الهجرة
-- الكود القديم
-- الكود الحديث
-- النهج القديم
-- النهج الحديث
+- الترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "استعرض تحديثات واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides لـ .NET لتتمكن من ترحيل حلول عروض PowerPoint PPT و PPTX و ODP بسلاسة."
+description: "استعرض تحديثات API العامة والتغييرات الجذرية في Aspose.Slides for .NET لتتمكن من ترحيل حلول العروض التقديمية PowerPoint PPT و PPTX و ODP بسلاسة."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-هذه الصفحة تسرد جميع الفئات، والطرق، والخصائص وما إلى ذلك التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/)، وغيرها من التغييرات التي تم تقديمها مع Aspose.Slides for .NET 15.5.0 API.
+تُظهر هذه الصفحة جميع الفئات أو الأساليب أو الخصائص وما إلى ذلك التي تم [المضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) أو [المزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) بها، والتغييرات الأخرى التي تم إدخالها مع Aspose.Slides for .NET 15.5.0 API.
 
 {{% /alert %}} 
-## **التغييرات العامة لواجهة برمجة التطبيقات**
+## **التغييرات العامة في API**
 #### **تم إضافة فئة CommonSlideViewProperties والواجهة ICommonSlideViewProperties**
-تمثل فئة Aspose.Slides.CommonSlideViewProperties والواجهة Aspose.Slides.ICommonSlideViewProperties خصائص عرض الشريحة المشتركة (حاليًا خيارات مقياس العرض).
+تمثل فئة Aspose.Slides.CommonSlideViewProperties والواجهة Aspose.Slides.ICommonSlideViewProperties خصائص عرض الشريحة العامة (حاليًا خيارات مقياس العرض).
 #### **تم إضافة الخاصية IAxis.LabelOffset**
-خاصية IAxis.LabelOffset تحدد مسافة العلامات عن المحور. تُطبق على محور الفئة أو التاريخ.
+تحدد الخاصية IAxis.LabelOffset المسافة بين التسميات والمحور. تُطبق على محاور الفئات أو التاريخ.
 #### **تم إضافة الخاصية IChartTextBlockFormat.AutofitType**
-تغيير هذه الخاصية قد يؤثر فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ لا يوجد تأثير في PowerPoint 2007).
+يمكن أن يؤدي تغيير هذه الخاصية إلى تأثير معين فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ في PowerPoint 2007 لا يؤثر على العرض).
 #### **تم إضافة الخاصية IChartTextBlockFormat.WrapText**
-تغيير هذه الخاصية قد يؤثر فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2007/2013).
-#### **تم إضافة خصائص الهوامش إلى IChartTextBlockFormat**
-تغيير هذه الخصائص قد يؤثر فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ لا يوجد تأثير في PowerPoint 2007).
+يمكن أن يؤدي تعديل هذه الخاصية إلى تأثير معين فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2007/2013).
+#### **تمت إضافة خصائص الهامش إلى IChartTextBlockFormat**
+يمكن أن يؤدي تغيير هذه الخصائص إلى تأثير معين فقط على أجزاء المخطط التالية: DataLabel و DataLabelFormat (دعم كامل في PowerPoint 2013؛ في PowerPoint 2007 لا يؤثر على العرض).
 #### **تم إضافة الخاصية ViewProperties.NotesViewProperties**
-تم إضافة خاصية Aspose.Slides.ViewProperties.NotesViewProperties. تُحدد الخصائص العامة لعرض وضع الملاحظات.
+تمت إضافة الخاصية Aspose.Slides.ViewProperties.NotesViewProperties. تحدد الخصائص العامة للعرض المرتبطة بوضع عرض الملاحظات.
 #### **تم إضافة الخاصية ViewProperties.SlideViewProperties**
-تم إضافة خاصية Aspose.Slides.ViewProperties.SlideViewProperties. تُحدد الخصائص العامة لعرض وضع الشريحة.
+تمت إضافة الخاصية Aspose.Slides.ViewProperties.SlideViewProperties. تحدد الخصائص العامة للعرض المرتبطة بوضع عرض الشريحة.

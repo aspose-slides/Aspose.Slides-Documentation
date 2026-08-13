@@ -1,14 +1,14 @@
 ---
-title: Δημόσιο API και Ασυμβίβαστες Αλλαγές στο Aspose.Slides για .NET 15.1.0
+title: Δημόσιο API και Μη Συμβατές Μεταβολές στην Aspose.Slides για .NET 15.1.0
 linktitle: Aspose.Slides για .NET 15.1.0
 type: docs
 weight: 130
 url: /el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
 keywords:
-- μετάβαση
+- μετανάστευση
 - κληρονομικός κώδικας
 - σύγχρονος κώδικας
-- παραδοσιακή προσέγγιση
+- κληρονομική προσέγγιση
 - σύγχρονη προσέγγιση
 - PowerPoint
 - OpenDocument
@@ -16,22 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των κρίσιμων αλλαγών στο Aspose.Slides για .NET, ώστε να μεταβιβάσετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των μη συμβατών αλλαγών στην Aspose.Slides για .NET, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Αυτή η σελίδα παραθέτει όλα τα [προστιθέμενα](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) ή [απομακρυσμένα](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το API του Aspose.Slides για .NET 15.1.0.
+Αυτή η σελίδα καταγράφει όλες τις [προστιθέμενες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) ή [αφαιρεθείσες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) κλάσεις, μεθόδους, ιδιότητες κ.ά., και άλλες αλλαγές που εισήχθησαν με το Aspose.Slides for .NET 15.1.0 API.
 
 {{% /alert %}} 
 ## **Δημόσιο API Αλλαγές**
-#### **Προστέθηκε η λειτουργικότητα αντικατάστασης γραμματοσειρών**
-Προστέθηκε η δυνατότητα αντικατάστασης γραμματοσειράς παγκοσμίως σε όλη την παρουσίαση και προσωρινά για την απόδοση.
+#### **Η Λειτουργικότητα Υποκατάστασης Γραμματοσειρών Προστέθηκε**
+Έχει προστεθεί η δυνατότητα αντικατάστασης γραμματοσειράς παγκοσμίως σε όλη την παρουσίαση και προσωρινά για απόδοση.
 
-Νέα ιδιότητα "FontsManager" της κλάσης Presentation εισήχθη. Η κλάση FontsManager περιλαμβάνει τα ακόλουθα μέλη:
+Εισήχθη νέα ιδιότητα "FontsManager" της κλάσης Presentation. Η κλάση FontsManager έχει τα ακόλουθα μέλη:
 
 **IFontSubstRuleCollection FontSubstRuleList** Ιδιότητα
 
-Αυτή η συλλογή από αντικείμενα IFontSubstRule χρησιμοποιείται για την αντικατάσταση γραμματοσειρών κατά την απόδοση. Το IFontSubstRule διαθέτει τις ιδιότητες SourceFont και DestFont που υλοποιούν τη διεπαφή IFontData και την ιδιότητα ReplaceFontCondition που επιτρέπει την επιλογή της συνθήκης αντικατάστασης ("WhenInaccessible" ή "Always").
+Αυτή η συλλογή των αντικειμένων IFontSubstRule χρησιμοποιείται για την υποκατάσταση γραμματοσειρών κατά την απόδοση. Το IFontSubstRule διαθέτει τις ιδιότητες SourceFont και DestFont που υλοποιούν τη διεπαφή IFontData και την ιδιότητα ReplaceFontCondition που επιτρέπει την επιλογή συνθήκης αντικατάστασης ("WhenInaccessible" ή "Always").
 
 **IFontData[] GetFonts()** Μέθοδος
 
@@ -39,11 +39,14 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
 **ReplaceFont** Μέθοδοι
 
-Χρησιμοποιείται για τη μόνιμη αντικατάσταση μιας γραμματοσειράς στην παρουσίαση.  
+Χρησιμοποιείται για τη μόνιμη αντικατάσταση γραμματοσειράς στην παρουσίαση.  
 
-Το παρακάτω παράδειγμα δείχνει πώς να αντικαταστήσετε γραμματοσειρά στην παρουσίαση:
+Το παρακάτω παράδειγμα δείχνει πώς να αντικαταστήσετε τη γραμματοσειρά στην παρουσίαση:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -58,9 +61,11 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
 ``` 
 
-Ένα άλλο παράδειγμα δείχνει την αντικατάσταση γραμματοσειράς για απόδοση όταν δεν είναι προσπελάσιμο:
+Ένα άλλο παράδειγμα δείχνει την υποκατάσταση γραμματοσειρών για απόδοση όταν δεν είναι προσβάσιμη:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -78,8 +83,8 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Η γραμματοσειρά Arial θα χρησιμοποιηθεί αντί της SomeRareFont όταν δεν είναι προσπελάσιμη
+            // Η γραμματοσειρά Arial θα χρησιμοποιηθεί αντί για την SomeRareFont όταν δεν είναι προσβάσιμη
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ```

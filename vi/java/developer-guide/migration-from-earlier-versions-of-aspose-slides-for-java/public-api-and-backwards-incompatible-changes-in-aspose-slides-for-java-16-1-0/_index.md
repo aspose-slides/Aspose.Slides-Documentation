@@ -1,35 +1,33 @@
 ---
-title: API công khai và các thay đổi không tương thích ngược trong Aspose.Slides for Java 16.1.0
-linktitle: Aspose.Slides for Java 16.1.0
+title: API công khai và các thay đổi không tương thích ngược trong Aspose.Slides cho Java 16.1.0
+linktitle: Aspose.Slides cho Java 16.1.0
 type: docs
 weight: 200
 url: /vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
 keywords:
 - di chuyển
-- mã kế thừa
+- mã cũ
 - mã hiện đại
-- phương pháp kế thừa
+- phương pháp cũ
 - phương pháp hiện đại
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Xem xét các cập nhật API công khai và các thay đổi gây phá vỡ trong Aspose.Slides cho Java để di chuyển suôn sẻ các giải pháp bản trình chiếu PowerPoint PPT, PPTX và ODP của bạn."
+description: "Xem lại các cập nhật API công khai và các thay đổi gây phá vỡ trong Aspose.Slides cho Java để di chuyển suôn sẻ các giải pháp bản trình chiếu PowerPoint PPT, PPTX và ODP của bạn."
 ---
-{{% alert color="primary" %}} 
-
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các thành phần khác [đã thêm](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) hoặc [đã xóa](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/), và các thay đổi khác được giới thiệu trong API Aspose.Slides for Java 16.1.0.
-
+{{% alert color="info" %}} 
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các thành phần khác đã được [added](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) hoặc [removed](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/), cũng như các thay đổi khác được giới thiệu trong API Aspose.Slides cho Java 16.1.0.
 {{% /alert %}} 
 ## **Thay đổi API công khai**
 
-
 #### **Các phương thức getRotationAngle() và setRotationAngle() đã được thêm vào các giao diện IChartTextBlockFormat và ITextFrameFormat**
-Các phương thức getRotationAngle() và setRotationAngle() đã được thêm vào các giao diện com.aspose.slides.IChartTextBlockFormat và com.aspose.slides.ITextFrameFormat.
-Chúng cung cấp quyền truy cập vào góc xoay tùy chỉnh được áp dụng cho văn bản trong khung bao.
+Các phương thức getRotationAngle() và setRotationAngle() đã được thêm vào các giao diện com.aspose.slides.IChartTextBlockFormat và com.aspose.slides.ITextFrameFormat. Chúng cung cấp quyền truy cập vào việc xoay tùy chỉnh được áp dụng cho văn bản bên trong hộp bao quanh.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

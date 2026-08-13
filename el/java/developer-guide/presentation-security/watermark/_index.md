@@ -26,29 +26,31 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε υδατογραφήματα κειμένου και εικόνας σε παρουσιάσεις PowerPoint και OpenDocument με Java για να υποδείξετε πρόχειρο, εμπιστευτικές πληροφορίες, πνευματικά δικαιώματα και άλλα."
+description: "Διαχειριστείτε υδατογραφήματα κειμένου και εικόνας σε παρουσιάσεις PowerPoint και OpenDocument σε Java για να υποδείξετε ένα πρόχειρο, εμπιστευτικές πληροφορίες, πνευματικά δικαιώματα και άλλα."
 ---
 ## **Εισαγωγή**
 
-**Υδατογράφημα** σε μια παρουσίαση είναι ένδειξη κειμένου ή εικόνας που χρησιμοποιείται σε μια διαφάνεια ή σε όλες τις διαφάνειες της παρουσίασης. Συνήθως, το υδατογράφημα χρησιμοποιείται για να υποδείξει ότι η παρουσίαση είναι πρόχειρη (π.χ. υδατογράφημα «Πρόχειρο»), ότι περιέχει εμπιστευτικές πληροφορίες (π.χ. υδατογράφημα «Εμπιστευτικό»), για να προσδιορίσει σε ποια εταιρεία ανήκει (π.χ. υδατογράφημα «Όνομα Εταιρείας»), για να αναγνωριστεί ο συγγραφέας της παρουσίασης κ.ά. Το υδατογράφημα βοηθά στην αποτροπή παραβίασης πνευματικών δικαιωμάτων, υποδηλώνοντας ότι η παρουσίαση δεν πρέπει να αντιγραφεί. Τα υδατογραφία χρησιμοποιούνται τόσο σε μορφές PowerPoint όσο και σε μορφές OpenOffice. Στο Aspose.Slides, μπορείτε να προσθέσετε υδατογράφημα σε αρχεία PowerPoint PPT, PPTX και OpenOffice ODP.
+**Υδατογράφημα** σε μια παρουσίαση είναι ένα σήμα κειμένου ή εικόνας που χρησιμοποιείται σε μια διαφάνεια ή σε όλες τις διαφάνειες της παρουσίασης. Συνήθως, ένα υδατογράφημα χρησιμοποιείται για να υποδείξει ότι η παρουσίαση είναι πρόχειρη (π.χ., υδατογράφημα «Πρόχειρο»), ότι περιέχει εμπιστευτικές πληροφορίες (π.χ., υδατογράφημα «Εμπιστευτικό»), για να προσδιοριστεί η εταιρεία στην οποία ανήκει (π.χ., υδατογράφημα «Όνομα Εταιρείας»), για την ταυτοποίηση του συγγραφέα της παρουσίασης κ.λπ. Ένα υδατογράφημα βοηθά στην αποτροπή παραβίασης πνευματικών δικαιωμάτων υποδεικνύοντας ότι η παρουσίαση δεν πρέπει να αντιγραφεί. Τα υδατογραφήματα χρησιμοποιούνται τόσο σε μορφές παρουσίασης PowerPoint όσο και OpenOffice. Στο Aspose.Slides, μπορείτε να προσθέσετε ένα υδατογράφημα σε αρχεία PowerPoint PPT, PPTX και OpenOffice ODP.
 
-Στο [**Aspose.Slides**](https://products.aspose.com/slides/el/java/), υπάρχουν διάφοροι τρόποι δημιουργίας υδατογραφιών σε έγγραφα PowerPoint ή OpenOffice και τροποποίησης του σχεδιασμού και της συμπεριφοράς τους. Το κοινό στοιχείο είναι ότι για την προσθήκη υδατογραφιών κειμένου πρέπει να χρησιμοποιήσετε τη διεπαφή [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/), ενώ για την προσθήκη υδατογραφιών εικόνας, χρησιμοποιήστε την κλάση [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/) ή γεμίστε ένα σχήμα υδατογραφήματος με εικόνα. Η `PictureFrame` υλοποιεί τη διεπαφή [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) και επιτρέπει τη χρήση όλων των ευέλικτων ρυθμίσεων του αντικειμένου σχήματος. Δεδομένου ότι η `ITextFrame` δεν είναι σχήμα και οι ρυθμίσεις της είναι περιορισμένες, τυλίγεται σε ένα αντικείμενο [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/).
+Στο [**Aspose.Slides**](https://products.aspose.com/slides/el/java/), υπάρχουν διάφοροι τρόποι δημιουργίας υδατογραφημάτων σε έγγραφα PowerPoint ή OpenOffice και τροποποίησης του σχεδιασμού και της συμπεριφοράς τους. Το κοινό στοιχείο είναι ότι για την προσθήκη υδατογραφημάτων κειμένου, πρέπει να χρησιμοποιήσετε τη διεπαφή [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/), και για την προσθήκη υδατογραφημάτων εικόνας, χρησιμοποιήστε την κλάση [PictureFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/pictureframe/) ή γεμίστε ένα σχήμα υδατογράφημα με εικόνα. Η `PictureFrame` υλοποιεί τη διεπαφή [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/) επιτρέποντας τη χρήση όλων των ευέλικτων ρυθμίσεων του αντικειμένου σχήματος. Δεδομένου ότι η `ITextFrame` δεν είναι σχήμα και οι ρυθμίσεις της είναι περιορισμένες, τυλίγεται σε ένα αντικείμενο [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/).
 
-Υπάρχουν δύο τρόποι εφαρμογής υδατογραφήματος: σε μία μόνο διαφάνεια ή σε όλες τις διαφάνειες της παρουσίασης. Ο Δάσκαλος Διαφανειών (Slide Master) χρησιμοποιείται για την εφαρμογή υδατογραφήματος σε όλες τις διαφάνειες — το υδατογράφημα προστίθεται στον Δάσκαλο Διαφανειών, σχεδιάζεται πλήρως εκεί και εφαρμόζεται σε όλες τις διαφάνειες χωρίς να επηρεάζεται η δυνατότητα τροποποίησης του υδατογραφήματος σε μεμονωμένες διαφάνειες.
+Υπάρχουν δύο τρόποι εφαρμογής υδατογράφηματος: σε μία μόνο διαφάνεια ή σε όλες τις διαφάνειες της παρουσίασης. Ο Διαχειριστής Διαφανειών (Slide Master) χρησιμοποιείται για την εφαρμογή υδατογράφηματος σε όλες τις διαφάνειες — το υδατογράφημα προστίθεται στον Διαχειριστή Διαφανειών, σχεδιάζεται ολοκληρωμένα εκεί και εφαρμόζεται σε όλες τις διαφάνειες χωρίς να επηρεάζει την άδεια τροποποίησης του υδατογράφηματος σε μεμονωμένες διαφάνειες.
 
-Ένα υδατογράφημα συνήθως θεωρείται μη επεξεργάσιμο από άλλους χρήστες. Για να αποτρέψετε την επεξεργασία του υδατογραφήματος (ή του γονικού του σχήματος), το Aspose.Slides παρέχει λειτουργικότητα κλειδώματος σχήματος. Ένα συγκεκριμένο σχήμα μπορεί να κλειδωθεί σε κανονική διαφάνεια ή σε Δάσκαλο Διαφανειών. Όταν το σχήμα του υδατογραφήματος κλειδωθεί στον Δάσκαλο Διαφανειών, θα κλειδωθεί σε όλες τις διαφάνειες της παρουσίασης.
+Το υδατογράφημα θεωρείται συνήθως μη διαθέσιμο για επεξεργασία από άλλους χρήστες. Για να αποτρέψετε την επεξεργασία του υδατογράφηματος (ή καλύτερα του γονικού σχήματος του υδατογράφημα), το Aspose.Slides παρέχει λειτουργία κλειδώματος σχήματος. Ένα συγκεκριμένο σχήμα μπορεί να κλειδ ωθεί σε κανονική διαφάνεια ή σε Διαχειριστή Διαφανειών. Όταν το σχήμα του υδατογράφημα κλειδ ωθεί στον Διαχειριστή Διαφανειών, κλειδ ωθεί σε όλες τις διαφάνειες της παρουσίασης.
 
-Μπορείτε να ορίσετε όνομα για το υδατογράφημα ώστε στο μέλλον, εάν θέλετε να το διαγράψετε, να το βρείτε στις διαφάνειες με βάση το όνομα.
+Μπορείτε να ορίσετε όνομα για το υδατογράφημα ώστε στο μέλλον, αν θέλετε να το διαγράψετε, να το εντοπίσετε στις διαφάνειες με βάση το όνομα.
 
-Μπορείτε να σχεδιάσετε το υδατογράφημα με οποιονδήποτε τρόπο· ωστόσο, υπάρχουν κοινά χαρακτηριστικά, όπως στοίχιση στο κέντρο, περιστροφή, θέση στο προσκήνιο κ.λπ. Θα δούμε πώς να τα χρησιμοποιήσουμε στα παραδείγματα παρακάτω.
+Μπορείτε να σχεδιάσετε το υδατογράφημα με οποιονδήποτε τρόπο· ωστόσο, συνήθως τα υδατογραφήματα έχουν κοινά χαρακτηριστικά, όπως στοίχιση κέντρου, περιστροφή, θέση στο προσκήνιο κ.λπ. Θα εξετάσουμε πώς να τα χρησιμοποιήσουμε στα παραδείγματα που ακολουθούν.
 
 ## **Υδατογράφημα Κειμένου**
 
-### **Προσθήκη Υδατογράφηματος Κειμένου σε Διαφάνεια**
+### **Προσθήκη Υδατογραφήματος Κειμένου σε Διαφάνεια**
 
-Για να προσθέσετε υδατογράφημα κειμένου σε PPT, PPTX ή ODP, μπορείτε πρώτα να προσθέσετε ένα σχήμα στη διαφάνεια και, στη συνέχεια, ένα πλαίσιο κειμένου στο σχήμα αυτό. Το πλαίσιο κειμένου αντιπροσωπεύεται από τη διεπαφή [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/). Αυτός ο τύπος δεν κληρονομεί από το [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/), το οποίο παρέχει εκτενή σύνολο ιδιοτήτων τοποθέτησης του υδατογραφήματος με ευέλικτο τρόπο. Συνεπώς, το αντικείμενο [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/) τυλίγεται σε ένα αντικείμενο [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/). Για να προσθέσετε κείμενο υδατογραφήματος στο σχήμα, χρησιμοποιήστε τη μέθοδο [addTextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) όπως φαίνεται παρακάτω.
+Για να προσθέσετε ένα υδατογράφημα κειμένου σε PPT, PPTX ή ODP, μπορείτε πρώτα να προσθέσετε ένα σχήμα στη διαφάνεια, στη συνέχεια να προσθέσετε ένα πλαίσιο κειμένου σε αυτό το σχήμα. Το πλαίσιο κειμένου αντιπροσωπεύεται από τη διεπαφή [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/). Αυτός ο τύπος δεν κληρονομείται από την [IShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/), η οποία διαθέτει ευρύ σύνολο ιδιοτήτων για την τοποθέτηση του υδατογράφημα με ευέλικτο τρόπο. Συνεπώς, το αντικείμενο [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/) τυλίγεται σε ένα αντικείμενο [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/). Για να προσθέσετε κείμενο υδατογράφημα στο σχήμα, χρησιμοποιήστε τη μέθοδο [addTextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) όπως φαίνεται παρακάτω.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -60,15 +62,17 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="Δείτε επίσης" %}} 
+{{% alert color="info" title="Δείτε επίσης" %}} 
 - [Πώς να χρησιμοποιήσετε την κλάση TextFrame](/slides/el/java/text-formatting/)
 {{% /alert %}}
 
-### **Προσθήκη Υδατογράφηματος Κειμένου σε Ολόκληρη Παρουσίαση**
+### **Προσθήκη Υδατογραφήματος Κειμένου σε Παρουσίαση**
 
-Εάν θέλετε να προσθέσετε υδατογράφημα κειμένου σε ολόκληρη την παρουσίαση (δηλαδή σε όλες τις διαφάνειες ταυτόχρονα), προσθέστε το στο [MasterSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/masterslide/). Η υπόλοιπη λογική είναι η ίδια με την προσθήκη υδατογραφήματος σε μία διαφάνεια — δημιουργήστε ένα αντικείμενο [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/) και κατόπιν προσθέστε το υδατογράφημα με τη μέθοδο [addTextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
+Αν θέλετε να προσθέσετε ένα υδατογράφημα κειμένου σε ολόκληρη την παρουσίαση (δηλαδή σε όλες τις διαφάνειες ταυτόχρονα), προσθέστε το στο [MasterSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/masterslide/). Η υπόλοιπη λογική είναι η ίδια όπως όταν προσθέτετε υδατογράφημα σε μία διαφάνεια — δημιουργήστε ένα αντικείμενο [IAutoShape](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/) και στη συνέχεια προσθέστε το υδατογράφημα χρησιμοποιώντας τη μέθοδο [addTextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -80,46 +84,81 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="Δείτε επίσης" %}} 
+{{% alert color="info" title="Δείτε επίσης" %}} 
 - [Πώς να χρησιμοποιήσετε το Slide Master](/slides/el/java/slide-master/)
 {{% /alert %}}
 
-### **Ορισμός Διαφάνειας Σχήματος Υδατογραφήματος**
+### **Ορισμός Διαφανούς Σχήματος Υδατογράφηματος**
 
-Από προεπιλογή, το ορθογώνιο σχήμα έχει χρώματα γεμίσματος και περιγράμματος. Οι παρακάτω γραμμές κώδικα κάνουν το σχήμα διαφανές.
+Από προεπιλογή, το σχήμα του ορθογωνίου μορφοποιείται με χρώματα γεμίσματος και περιγράμματος. Οι ακόλουθες γραμμές κώδικα κάνουν το σχήμα διαφανές.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.getFillFormat().setFillType(FillType.NoFill);
 watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+presentation.dispose();
 ```
 
 ### **Ορισμός Γραμματοσειράς για Υδατογράφημα Κειμένου**
 
-Μπορείτε να αλλάξετε τη γραμματοσειρά του υδατογραφήματος κειμένου όπως φαίνεται παρακάτω.
+Μπορείτε να αλλάξετε τη γραμματοσειρά του υδατογράφημα κειμένου όπως φαίνεται παρακάτω.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new FontData("Arial"));
 textFormat.setFontHeight(50);
+
+presentation.dispose();
 ```
 
-### **Ορισμός Χρώματος Κειμένου Υδατογραφήματος**
+### **Ορισμός Χρώματος Κειμένου Υδατογράφηματος**
 
-Για να ορίσετε το χρώμα του κειμένου του υδατογραφήματος, χρησιμοποιήστε τον ακόλουθο κώδικα:
+Για να ορίσετε το χρώμα του κειμένου του υδατογράφημα, χρησιμοποιήστε αυτόν τον κώδικα:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 fillFormat.setFillType(FillType.Solid);
 fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+
+presentation.dispose();
 ```
 
-### **Στοίχιση Υδατογραφήματος Κειμένου στο Κέντρο**
+### **Κεντράρισμα Υδατογραφήματος Κειμένου**
 
-Είναι δυνατόν να κεντράρετε το υδατογράφημα σε μια διαφάνεια, και για αυτό μπορείτε να κάνετε τα εξής:
+Είναι δυνατόν να κεντράρετε το υδατογράφημα σε μια διαφάνεια, και για αυτό μπορείτε να κάνετε το εξής:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+String watermarkText = "CONFIDENTIAL";
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 
 float watermarkWidth = 400;
@@ -131,103 +170,158 @@ IAutoShape watermarkShape = slide.getShapes().addAutoShape(
         ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
 
 ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+
+presentation.dispose();
 ```
 
 Η παρακάτω εικόνα δείχνει το τελικό αποτέλεσμα.
 
-![The text watermark](text_watermark.png)
+![Το υδατογράφημα κειμένου](text_watermark.png)
 
 ## **Υδατογράφημα Εικόνας**
 
 ### **Προσθήκη Υδατογραφήματος Εικόνας σε Παρουσίαση**
 
-Για να προσθέσετε υδατογράφημα εικόνας σε διαφάνεια παρουσίασης, μπορείτε να ακολουθήσετε τα παρακάτω βήματα:
+Για να προσθέσετε ένα υδατογράφημα εικόνας σε διαφάνεια παρουσίασης, μπορείτε να κάνετε το ακόλουθο:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 InputStream imageStream = new FileInputStream("watermark.png");
 IPPImage image = presentation.getImages().addImage(imageStream);
 
 watermarkShape.getFillFormat().setFillType(FillType.Picture);
 watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+presentation.dispose();
 ```
 
-### **Κλείδωμα Υδατογραφήματος από Επεξεργασία**
+### **Κλείδωμα Υδατογράφηματος από Επεξεργασία**
 
-Εάν χρειάζεται να αποτρέψετε την επεξεργασία ενός υδατογραφήματος, χρησιμοποιήστε τη μέθοδο [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/#getAutoShapeLock--) στο σχήμα. Με αυτήν την ιδιότητα, μπορείτε να προστατεύσετε το σχήμα από επιλογή, αλλαγή μεγέθους, μετακίνηση, ομαδοποίηση με άλλα στοιχεία, κλείδωμα του κειμένου από επεξεργασία και πολλά άλλα:
+Αν είναι απαραίτητο να αποτρέψετε την επεξεργασία ενός υδατογράφημα, χρησιμοποιήστε τη μέθοδο [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/el/java/com.aspose.slides/iautoshape/#getAutoShapeLock--) στο σχήμα. Με αυτήν την ιδιότητα, μπορείτε να προστατεύσετε το σχήμα από επιλογή, αλλαγή μεγέθους, μετακίνηση, ομαδοποίηση με άλλα στοιχεία, κλείδωμα του κειμένου από επεξεργασία και πολλά άλλα:
 
 ```java
-// Κλείδωμα του σχήματος υδατογραφήματος από τροποποίηση
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+// Κλείδωμα του σχήματος υδατογράφημα από τροποποίηση
 watermarkShape.getAutoShapeLock().setSelectLocked(true);
 watermarkShape.getAutoShapeLock().setSizeLocked(true);
 watermarkShape.getAutoShapeLock().setTextLocked(true);
 watermarkShape.getAutoShapeLock().setPositionLocked(true);
 watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+
+presentation.dispose();
 ```
 
-### **Μεταφορά Υδατογραφήματος στην Προσκήνιο**
+### **Μεταφορά Υδατογράφηματος στην Πρόσθια Θέση**
 
-Στο Aspose.Slides, η σειρά Z των σχημάτων μπορεί να οριστεί μέσω της μεθόδου [IShapeCollection.reorder](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). Για να το κάνετε αυτό, καλέστε τη μέθοδο από τη λίστα διαφανειών της παρουσίασης και περάστε την αναφορά του σχήματος και τον αριθμό σειράς του. Με αυτόν τον τρόπο είναι δυνατόν να φέρετε ένα σχήμα στην προσοχή ή να το στείλετε στο βάθος της διαφάνειας. Η δυνατότητα αυτή είναι ιδιαίτερα χρήσιμη όταν χρειάζεται να τοποθετήσετε το υδατογράφημα μπροστά από την παρουσίαση:
+Στο Aspose.Slides, η σειρά Z των σχημάτων μπορεί να οριστεί μέσω της μεθόδου [IShapeCollection.reorder](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). Για να το κάνετε αυτό, πρέπει να καλέσετε αυτή τη μέθοδο από τη λίστα των διαφανειών της παρουσίασης και να περάσετε την αναφορά του σχήματος και τον αριθμό της σειράς στη μέθοδο. Με αυτόν τον τρόπο, είναι δυνατόν να φέρετε ένα σχήμα στην πρόσοψη ή να το στείλετε στο παρασκήνιο της διαφάνειας. Αυτή η λειτουργία είναι ιδιαίτερα χρήσιμη εάν χρειάζεται να τοποθετήσετε ένα υδατογράφημα μπροστά από την παρουσίαση:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+
+presentation.dispose();
 ```
 
-### **Ορισμός Περιστροφής Υδατογραφήματος**
+### **Ορισμός Περιστροφής Υδατογράφημα**
 
-Ακολουθεί παράδειγμα κώδικα για την προσαρμογή της περιστροφής του υδατογραφήματος ώστε να τοποθετηθεί διαγώνια στην διαφάνεια:
+Ακολουθεί ένα παράδειγμα κώδικα για το πώς να ρυθμίσετε την περιστροφή του υδατογράφημα ώστε να τοποθετηθεί διαγώνια στην διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+Dimension2D slideSize = presentation.getSlideSize().getSize();
+
 double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
 watermarkShape.setRotation((float)diagonalAngle);
+
+presentation.dispose();
 ```
 
 ### **Ορισμός Ονόματος για Υδατογράφημα**
 
-Το Aspose.Slides επιτρέπει τον ορισμό ονόματος σχήματος. Με τη χρήση του ονόματος σχήματος, μπορείτε να το προσπελάσετε στο μέλλον για τροποποίηση ή διαγραφή. Για να ορίσετε το όνομα του σχήματος υδατογραφήματος, καλέστε τη μέθοδο [IAutoShape.setName](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#setName-java.lang.String-):
+Το Aspose.Slides σας επιτρέπει να ορίσετε το όνομα ενός σχήματος. Με τη χρήση του ονόματος του σχήματος, μπορείτε να το προσπελάσετε στο μέλλον για να το τροποποιήσετε ή να το διαγράψετε. Για να ορίσετε το όνομα του σχήματος του υδατογράφημα, αντιστοιχίστε το στη μέθοδο [IAutoShape.setName](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#setName-java.lang.String-):
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.setName("watermark");
+
+presentation.dispose();
 ```
 
-### **Αφαίρεση Υδατογραφήματος**
+### **Αφαίρεση Υδατογράφημα**
 
-Για να αφαιρέσετε το σχήμα του υδατογραφήματος, χρησιμοποιήστε τη μέθοδο [IAutoShape.getName](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getName--) για να το βρείτε στα σχήματα της διαφάνειας. Στη συνέχεια, περάστε το σχήμα υδατογραφήματος στη μέθοδο [IShapeCollection.remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
+Για να αφαιρέσετε το σχήμα του υδατογράφημα, χρησιμοποιήστε τη μέθοδο [IAutoShape.getName](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishape/#getName--) για να το βρείτε στα σχήματα της διαφάνειας. Στη συνέχεια, περάστε το σχήμα του υδατογράφημα στη μέθοδο [IShapeCollection.remove](https://reference.aspose.com/slides/el/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+
+ISlide slide = presentation.getSlides().get_Item(0);
+
 IShape[] slideShapes = slide.getShapes().toArray();
 for (IShape shape : slideShapes) {
     if ("watermark".equals(shape.getName()))
     {
-        slide.getShapes().remove(watermarkShape);
+        slide.getShapes().remove(shape);
     }
 }
+
+presentation.dispose();
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Τι είναι το υδατογράφημα και γιατί πρέπει να το χρησιμοποιήσω;**
+### Τι είναι ένα υδατογράφημα και γιατί πρέπει να το χρησιμοποιήσω;
 
-Το υδατογράφημα είναι μια επικάλυψη κειμένου ή εικόνας που εφαρμόζεται στις διαφάνειες και βοηθά στην προστασία της πνευματικής ιδιοκτησίας, στην ενίσχυση της αναγνωρισιμότητας της μάρκας ή στην αποτροπή μη εξουσιοδοτημένης χρήσης των παρουσιάσεων.
+Ένα υδατογράφημα είναι μια επικάλυψη κειμένου ή εικόνας που εφαρμόζεται στις διαφάνειες και βοηθά στην προστασία της πνευματικής ιδιοκτησίας, στην ενίσχυση της αναγνώρισης της μάρκας ή στην πρόληψη μη εξουσιοδοτημένης χρήσης των παρουσιάσεων.
 
-**Μπορώ να προσθέσω υδατογράφημα σε όλες τις διαφάνειες μιας παρουσίασης;**
+### Μπορώ να προσθέσω ένα υδατογράφημα σε όλες τις διαφάνειες μιας παρουσίασης;
 
-Ναι, το Aspose.Slides επιτρέπει τον προγραμματισμό προσθήκης υδατογραφήματος σε κάθε διαφάνεια μιας παρουσίασης. Μπορείτε να επαναλάβετε τη διαδικασία για όλες τις διαφάνειες και να εφαρμόσετε τις ρυθμίσεις υδατογραφήματος ξεχωριστά.
+Ναι, το Aspose.Slides σας επιτρέπει να προσθέσετε προγραμματιστικά ένα υδατογράφημα σε κάθε διαφάνεια μιας παρουσίασης. Μπορείτε να διατρέξετε όλες τις διαφάνειες και να εφαρμόσετε τις ρυθμίσεις του υδατογράφημα ξεχωριστά.
 
-**Πώς μπορώ να ρυθμίσω τη διαφάνεια του υδατογραφήματος;**
+### Πώς μπορώ να προσαρμόσω τη διαφάνεια του υδατογράφημα;
 
-Μπορείτε να ρυθμίσετε τη διαφάνεια του υδατογραφήματος τροποποιώντας τις ρυθμίσεις γεμίσματος ([getFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/shape/#getFillFormat--)) του σχήματος. Αυτό εξασφαλίζει ότι το υδατογράφημα είναι διακριτικό και δεν αποσπά την προσοχή από το περιεχόμενο της διαφάνειας.
+Μπορείτε να προσαρμόσετε τη διαφάνεια του υδατογράφημα τροποποιώντας τις ρυθμίσεις γεμίσματος ([getFillFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/shape/#getFillFormat--)) του σχήματος. Αυτό διασφαλίζει ότι το υδατογράφημα είναι διακριτικό και δεν αποσπά την προσοχή από το περιεχόμενο της διαφάνειας.
 
-**Ποιες μορφές εικόνας υποστηρίζονται για υδατογραφήματα;**
+### Ποιες μορφές εικόνας υποστηρίζονται για υδατογραφήματα;
 
-Το Aspose.Slides υποστηρίζει διάφορες μορφές εικόνας όπως PNG, JPEG, GIF, BMP, SVG κ.ά.
+Το Aspose.Slides υποστηρίζει διάφορες μορφές εικόνας όπως PNG, JPEG, GIF, BMP, SVG και άλλες.
 
-**Μπορώ να προσαρμόσω τη γραμματοσειρά και το στυλ ενός υδατογραφήματος κειμένου;**
+### Μπορώ να προσαρμόσω τη γραμματοσειρά και το στυλ ενός υδατογράφημα κειμένου;
 
-Ναι, μπορείτε να επιλέξετε οποιαδήποτε γραμματοσειρά, μέγεθος και στυλ ώστε να ταιριάζει με το σχέδιο της παρουσίασής σας και να διατηρεί τη συνέπεια της μάρκας.
+Ναι, μπορείτε να επιλέξετε οποιαδήποτε γραμματοσειρά, μέγεθος και στυλ για να ταιριάζει με το σχεδιασμό της παρουσίασής σας και να διατηρήσει τη συνέπεια της μάρκας.
 
-**Πώς αλλάζω τη θέση ή τον προσανατολισμό ενός υδατογραφήματος;**
+### Πώς αλλάζω τη θέση ή τον προσανατολισμό ενός υδατογράφημα;
 
-Μπορείτε να προσαρμόσετε τη θέση και τον προσανατολισμό του υδατογραφήματος προγραμματιστικά τροποποιώντας τις συντεταγμένες, το μέγεθος και τις ιδιότητες περιστροφής του σχήματος.
+Μπορείτε να προσαρμόσετε τη θέση και τον προσανατολισμό του υδατογράφημα προγραμματιστικά τροποποιώντας τις συντεταγμένες, το μέγεθος και τις ιδιότητες περιστροφής του σχήματος.

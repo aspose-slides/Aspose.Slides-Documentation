@@ -1,12 +1,12 @@
 ---
-title: Создание и встраивание диаграмм Excel в виде OLE‑объектов с VSTO и Aspose.Slides для .NET
+title: Создание и встраивание диаграмм Excel в виде OLE‑объектов с помощью VSTO и Aspose.Slides for .NET
 linktitle: Создание и встраивание диаграмм Excel в виде OLE‑объектов
 type: docs
 weight: 70
 url: /ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 keywords:
 - создать диаграмму
-- встраивание диаграммы Excel
+- встроить диаграмму Excel
 - OLE‑объект
 - миграция
 - VSTO
@@ -16,19 +16,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Мигрировать с автоматизации Microsoft Office на Aspose.Slides для .NET и встраивать диаграммы Excel в виде OLE‑объектов в слайды PowerPoint (PPT, PPTX) на C#."
+description: "Перейдите от автоматизации Microsoft Office к Aspose.Slides for .NET и встраивайте диаграммы Excel в виде OLE‑объектов в слайды PowerPoint (PPT, PPTX) на C#."
 ---
-
-{{% alert color="primary" %}} 
-Диаграммы являются визуальными представлениями ваших данных и широко используются в презентационных слайдах. В этой статье показан код для создания и встраивания диаграммы Excel в виде OLE‑объекта в слайд PowerPoint программно с помощью [VSTO](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides for .NET](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+{{% alert color="info" %}} 
+Диаграммы являются визуальными представлениями ваших данных и широко используются в презентационных слайдах. В этой статье будет показан код для программного создания и вставки диаграммы Excel в качестве OLE‑объекта в слайд PowerPoint с использованием [VSTO](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides for .NET](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 {{% /alert %}} 
-## **Создание и встраивание диаграммы Excel**
-Два примера кода ниже длинные и подробные, потому что описываемая задача сложна. Вы создаете книгу Microsoft Excel, создаете диаграмму, а затем создаете презентацию Microsoft PowerPoint, в которую вставляете диаграмму. OLE‑объекты содержат ссылки на исходный документ, поэтому пользователь, дважды щёлкнув встраиваемый файл, запустит файл и его приложение.
+## **Создание и вставка диаграммы Excel**
+Оба приведённых ниже примера кода длинные и детальные, потому что описываемая задача сложна. Вы создаёте книгу Microsoft Excel, создаёте диаграмму, а затем создаёте презентацию Microsoft PowerPoint, в которую вставите диаграмму. OLE‑объекты содержат ссылки на оригинальный документ, поэтому пользователь, дважды щёлкнув встроенный файл, запустит файл и его приложение.
 ## **Пример VSTO**
-Using VSTO, the following steps are performed:
+Используя VSTO, выполняются следующие шаги:
 
 1. Создайте экземпляр объекта Microsoft Excel ApplicationClass.
-1. Создайте новую книгу с одним листом.
+1. Создайте новую книгу Excel с одним листом.
 1. Добавьте диаграмму на лист.
 1. Сохраните книгу.
 1. Откройте книгу Excel, содержащую лист с данными диаграммы.
@@ -40,6 +39,7 @@ Using VSTO, the following steps are performed:
 1. Вставьте диаграмму в презентацию PowerPoint.
 1. Разместите диаграмму на слайде.
 1. Сохраните презентацию.
+
 ```c#
 CreateNewChartInExcel();
 UseCopyPaste();
@@ -55,7 +55,7 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Объявить переменную для экземпляра Excel ApplicationClass.
+    // Объявить переменную для экземпляра класса Excel ApplicationClass.
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
     // Объявить переменные для параметров метода Workbooks.Open.
@@ -76,20 +76,20 @@ static void CreateNewChartInExcel()
         // Создать экземпляр объекта Excel ApplicationClass.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // Создать новую книгу с 1 листом.
+        // Создать новую книгу Excel с 1 листом.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
-        // Переименовать лист.
+        // Изменить имя листа.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
         // Вставить данные для диаграммы в лист.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
-        //     2    N. America  1.5     2       1.5     2.5
-        //     3    S. America  2       1.75    2       2
-        //     4    Europe      2.25    2       2.5     2
-        //     5    Asia        2.5     2.5     2       2.75
+        //     2    Северная Америка  1.5     2       1.5     2.5
+        //     3    Южная Америка  2       1.75    2       2
+        //     4    Европа      2.25    2       2.5     2
+        //     5    Азия        2.5     2.5     2       2.75
 
         SetCellValue(targetSheet, "A2", "N. America");
         SetCellValue(targetSheet, "A3", "S. America");
@@ -156,13 +156,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Объявить переменные, содержащие ссылки на объекты PowerPoint.
+    // Объявить переменные для хранения ссылок на объекты PowerPoint.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Объявить переменные, содержащие ссылки на объекты Excel.
+    // Объявить переменные для хранения ссылок на объекты Excel.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -214,7 +214,7 @@ static void UseCopyPaste()
         // Вставить диаграмму в презентацию PowerPoint.
         shapeRange = pptSlide.Shapes.Paste();
 
-        // Разместить диаграмму на слайде.
+        // Расположить диаграмму на слайде.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
@@ -231,7 +231,7 @@ static void UseCopyPaste()
         shapeRange = null;
         pptSlide = null;
 
-        // Закрыть и освободить объект презентации.
+        // Закрыть и освободить объект Presentation.
         if (pptPresentation != null)
         {
             pptPresentation.Close();
@@ -250,7 +250,7 @@ static void UseCopyPaste()
         chartObjects = null;
         existingChartObject = null;
 
-        // Закрыть и освободить объект книги Excel.
+        // Закрыть и освободить объект Workbook Excel.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
@@ -275,51 +275,63 @@ static void UseCopyPaste()
 
 
 
-
 ## **Пример Aspose.Slides for .NET**
-Using Aspose.Slides for .NET, the following steps are performed:
+Используя Aspose.Slides for .NET, выполняются следующие шаги:
 
 1. Создайте книгу с помощью Aspose.Cells for .NET.
 1. Создайте диаграмму Microsoft Excel.
-1. Установите размер OLE диаграммы Excel.
+1. Установите размер OLE для диаграммы Excel.
 1. Получите изображение диаграммы.
-1. Встроьте диаграмму Excel в виде OLE‑объекта в презентацию PPTX с помощью Aspose.Slides for .NET.
+1. Вставьте диаграмму Excel в качестве OLE‑объекта в презентацию PPTX с использованием Aspose.Slides for .NET.
 1. Замените изображение изменённого объекта изображением, полученным на шаге 3, чтобы решить проблему изменения объекта.
 1. Запишите полученную презентацию на диск в формате PPTX.
+
+
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 //Шаг - 1: Создать диаграмму Excel с помощью Aspose.Cells
 //--------------------------------------------------
-//Создать книгу
+//Создать рабочую книгу
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Add an excel chart
+//Добавить диаграмму Excel
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Шаг - 2: Установить размер OLE диаграммы. using Aspose.Cells
+//Шаг - 2: Установить размер OLE диаграммы. с помощью Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Шаг - 3: Получить изображение диаграммы с помощью Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Save the workbook to stream
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Сохранить рабочую книгу в поток
 MemoryStream wbStream = wb.SaveToStream();
-//Шаг - 4  AND 5
+//Шаг - 4 И 5
 //-----------------------------------------------------------
-//Шаг - 4: Встроить диаграмму как OLE объект внутри .ppt презентации используя Aspose.Slides
+//Шаг - 4: Встроить диаграмму как OLE‑объект в презентацию .ppt с использованием Aspose.Slides
 //-----------------------------------------------------------
-//Шаг - 5: Заменить изменённое изображение объекта изображением, полученным в шаге 3, чтобы решить проблему Object Changed Issue
+//Шаг - 5: Заменить изображение изменённого объекта изображением, полученным на шаге 3, чтобы решить проблему изменения объекта
 //-----------------------------------------------------------
-//Create a presentation
+//Создать презентацию
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Add the workbook on slide
+//Добавить рабочую книгу на слайд
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Шаг - 6: Записать полученную презентацию на диск
+//Шаг - 6: Сохранить полученную презентацию на диск
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -357,7 +369,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
   "E1", "E2", "E3", "E4"
       };
 
-    //Массив значений ячеек
+    //Массив данных ячеек
     int[] cellsValue = new int[]
       {
  67,86,68,91,
@@ -371,25 +383,25 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //Заполнить DataSheet данными
+    //Заполнить лист DataSheet данными
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //Добавить лист диаграммы
+    //Добавить лист с диаграммой
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //Добавить диаграмму на ChartSheet с данными из DataSheet
+    //Добавить диаграмму на лист ChartSheet с рядами данных из листа DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //Установить ChartSheet активным листом
+    //Установить лист ChartSheet активным
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

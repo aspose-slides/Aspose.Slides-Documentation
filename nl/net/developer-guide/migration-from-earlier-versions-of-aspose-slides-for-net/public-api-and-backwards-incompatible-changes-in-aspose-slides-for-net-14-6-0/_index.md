@@ -6,31 +6,35 @@ weight: 80
 url: /nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
 - migratie
-- legacycode
+- verouderde code
 - moderne code
-- legacybenadering
-- moderne benadering
+- verouderde aanpak
+- moderne aanpak
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Bekijk de openbare API-updates en breaking changes in Aspose.Slides voor .NET om uw PowerPoint PPT-, PPTX- en ODP-presentatie-oplossingen soepel te migreren."
+description: "Bekijk de publieke API-updates en brekende wijzigingen in Aspose.Slides voor .NET om uw PowerPoint PPT-, PPTX- en ODP-presentatieoplossingen soepel te migreren."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Deze pagina geeft een overzicht van alle [toegevoegd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) klassen, methoden, eigenschappen en zo verder, eventuele nieuwe [beperkingen](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) en andere [wijzigingen](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) geïntroduceerd met de Aspose.Slides voor .NET 14.6.0 API.
+Deze pagina geeft een overzicht van alle [toegevoegd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) klassen, methoden, eigenschappen enz., van eventuele nieuwe [beperkingen](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) en andere [wijzigingen](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) geïntroduceerd met de Aspose.Slides for .NET 14.6.0 API.
 
 {{% /alert %}} 
 ## **Openbare API-wijzigingen**
 ### **Toegevoegde interfaces, methoden en eigenschappen**
-#### **Toegevoegde de Aspose.Slides.Charts.IErrorBarsFormat interface**
+#### **Toegevoegde interface Aspose.Slides.Charts.IErrorBarsFormat**
 Dit vertegenwoordigt de foutbalken van een grafieksreeks.
 
-In het geval van een aangepast waardetype, gebruik je de ErrorBarCustomValues‑eigenschap van het specifieke datapunten in de DataPoints‑collectie van de reeks om een waarde op te geven.
+In het geval van een aangepast waardetype, gebruik je de eigenschap ErrorBarCustomValues van het specifieke datapunt in de DataPoints-collectie van de reeks om een waarde op te geven.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -63,12 +67,15 @@ In het geval van een aangepast waardetype, gebruik je de ErrorBarCustomValues‑
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Toegevoegde de Aspose.Slides.Charts.IErrorBarsCustomValues interface**
-Wanneer de IErrorBarsFormat.ValueType‑eigenschap gelijk is aan Custom, gebruik je de ErrorBarCustomValues‑eigenschap van het specifieke datapunten in de DataPoints‑collectie om een waarde op te geven.
+#### **Toegevoegde interface Aspose.Slides.Charts.IErrorBarsCustomValues**
+Wanneer de eigenschap IErrorBarsFormat.ValueType gelijk is aan Custom, gebruik je de eigenschap ErrorBarCustomValues van het specifieke datapunt in de DataPoints-collectie om een waarde op te geven.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -117,12 +124,15 @@ Wanneer de IErrorBarsFormat.ValueType‑eigenschap gelijk is aan Custom, gebruik
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Toegevoegde de Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues interface**
-Specificeert typen waarden in de lijst van ChartDataPoint.ErrorBarsCustomValues‑eigenschappen.
+#### **Toegevoegde interface Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+Specificeert de typen waarden in de lijst van eigenschap ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -171,10 +181,9 @@ Specificeert typen waarden in de lijst van ChartDataPoint.ErrorBarsCustomValues�
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Toegevoegde de Aspose.Slides.IShapeCollection.AddClone(...), en .InsertClone(...) methoden**
-De volgende methoden voegen een kopie van een opgegeven vorm toe/plaatsen in de collectie. 
+#### **Toegevoegde methoden Aspose.Slides.IShapeCollection.AddClone(...), en .InsertClone(...)**
+De volgende methoden voegen een kopie van een opgegeven vorm toe aan/inserten in de collectie. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -184,8 +193,10 @@ De volgende methoden voegen een kopie van een opgegeven vorm toe/plaatsen in de 
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -210,12 +221,13 @@ De volgende methoden voegen een kopie van een opgegeven vorm toe/plaatsen in de 
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Toegevoegde de ViewType enum, IViewProperties interface, ViewProperties klasse en IPresentation.ViewProperties eigenschap**
-De IPresentation.ViewProperty stelt ontwikkelaars in staat het weergavetype van de presentatie en de zichtbaarheid van notities te wijzigen wanneer een presentatie wordt geopend in PowerPoint.
+#### **Toegevoegde ViewType-enum, IViewProperties-interface, ViewProperties-klasse en IPresentation.ViewProperties-eigenschappen**
+De IPresentation.ViewProperty stelt ontwikkelaars in staat om het weergavetype van de presentatie en de zichtbaarheid van notities aan te passen wanneer een presentatie wordt geopend in PowerPoint.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -224,5 +236,4 @@ De IPresentation.ViewProperty stelt ontwikkelaars in staat het weergavetype van 
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

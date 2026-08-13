@@ -1,20 +1,20 @@
 ---
 title: Správa OLE v prezentacích na Androidu
-linktitle: Spravovat OLE
+linktitle: Správa OLE
 type: docs
 weight: 40
 url: /cs/androidjava/manage-ole/
 keywords:
 - OLE objekt
-- Propojení a vložení objektu
+- Propojení a vkládání objektů
 - přidat OLE
 - vložit OLE
 - přidat objekt
 - vložit objekt
 - přidat soubor
 - vložit soubor
-- propojený objekt
-- propojený soubor
+- odkazovaný objekt
+- odkazovaný soubor
 - změnit OLE
 - ikona OLE
 - název OLE
@@ -26,39 +26,46 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Optimalizujte správu OLE objektů v souborech PowerPoint a OpenDocument pomocí Aspose.Slides pro Android pomocí Javy. Vkládejte, aktualizujte a exportujte OLE obsah bez problémů."
+description: "Optimalizujte správu OLE objektů v PowerPointu a souborech OpenDocument pomocí Aspose.Slides pro Android přes Java. Vkládejte, aktualizujte a exportujte OLE obsah snadno."
 ---
 ## **Úvod**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-OLE (Object Linking & Embedding) je technologie společnosti Microsoft, která umožňuje umístit data a objekty vytvořené v jedné aplikaci do jiné aplikace pomocí odkazu nebo vložení. 
+OLE (Object Linking & Embedding) je technologie společnosti Microsoft, která umožňuje umístit data a objekty vytvořené v jedné aplikaci do jiné aplikace pomocí propojení nebo vložení. 
 
 {{% /alert %}} 
 
-Představte si graf vytvořený v MS Excel. Ten je poté umístěn na snímek PowerPointu. Tento excelový graf se považuje za OLE objekt. 
+Představte si graf vytvořený v MS Excel. Tento graf je následně umístěn do snímku PowerPointu. Tento Excel graf se považuje za OLE objekt. 
 
-- OLE objekt se může zobrazovat jako ikona. V tomto případě při dvojitém kliknutí na ikonu otevře graf v přidružené aplikaci (Excel) nebo se zobrazí výzva k výběru aplikace pro otevření či úpravu objektu. 
-- OLE objekt může zobrazovat svůj skutečný obsah, například obsah grafu. V tomto případě se graf aktivuje v PowerPointu, načte se rozhraní grafu a můžete upravovat data grafu přímo v PowerPointu.
+- OLE objekt se může zobrazit jako ikona. V takovém případě, když ikonu dvakrát kliknete, otevře se graf v příslušné aplikaci (Excel), nebo budete vyzváni k výběru aplikace pro otevření či úpravu objektu. 
+- OLE objekt může zobrazit svůj skutečný obsah, například obsah grafu. V takovém případě se graf aktivuje v PowerPointu, načte se rozhraní grafu a můžete v PowerPointu upravovat data grafu. 
 
-[Aspose.Slides pro Android pomocí Java](https://products.aspose.com/slides/cs/androidjava/) umožňuje vkládat OLE objekty do snímků jako OLE objektové rámy ([OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/cs/androidjava/) umožňuje vložit OLE objekty do snímků jako OLE rámce objektů ([OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame)).
 
-## **Přidání OLE objektových rámců do snímků**
+## **Přidání OLE rámců objektů do snímků**
 
-Předpokládejme, že jste již vytvořili graf v Microsoft Excel a chcete jej vložit do snímku jako OLE objektový rámec pomocí Aspose.Slides pro Android pomocí Java. Můžete to udělat takto:
+Předpokládejme, že jste již vytvořili graf v Microsoft Excel a chcete jej vložit do snímku jako OLE rámec objektu pomocí Aspose.Slides for Android via Java, můžete to provést takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation). 
-2. Získejte odkaz na snímek podle jeho indexu. 
-3. Načtěte soubor Excel jako pole bajtů. 
-4. Přidejte [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame) na snímek s polem bajtů a dalšími informacemi o OLE objektu. 
-5. Uložte upravenou prezentaci jako soubor PPTX. 
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Načtěte soubor Excel jako pole bytů.
+1. Přidejte [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame) do snímku a zahrňte pole bytů a další informace o OLE objektu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-V níže uvedeném příkladu jsme přidali graf ze souboru Excel na snímek jako OLE objektový rámec pomocí Aspose.Slides pro Android pomocí Java.  
-**Poznámka** že konstruktor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleEmbeddedDataInfo) přijímá rozšíření vkládaného objektu jako druhý parametr. Toto rozšíření umožňuje PowerPointu správně interpretovat typ souboru a zvolit správnou aplikaci pro otevření tohoto OLE objektu.
+V následujícím příkladu jsme přidali graf ze souboru Excel do snímku jako OLE rámec objektu pomocí Aspose.Slides for Android via Java.  
+**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
-```java 
+```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.awt.geom.Dimension2D;
+
 Presentation presentation = new Presentation();
-SizeF slideSize = presentation.getSlideSize().getSize();
+Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
 // Připravit data pro OLE objekt.
@@ -70,43 +77,46 @@ dis.readFully(fileData);
 
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-// Přidat OLE objektový rámec do snímku.
-slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
+// Přidat OLE rámec objektu do snímku.
+slide.getShapes().addOleObjectFrame(0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-### **Přidání propojených OLE objektových rámců**
+### **Přidání odkazovaných OLE rámců objektů**
 
-Aspose.Slides pro Android pomocí Java umožňuje přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame) bez vkládání dat, pouze s odkazem na soubor.
+Aspose.Slides for Android via Java umožňuje přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame) bez vložení dat, ale pouze s odkazem na soubor.
 
-Tento Java kód ukazuje, jak přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame) s propojeným souborem Excel na snímek:
+Tento Java kód ukazuje, jak přidat [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame) s odkazovaným souborem Excel do snímku:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Přidat OLE objektový rámec s propojeným souborem Excel.
+// Přidat OLE rámec objektu s odkazovaným souborem Excel.
 slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx");
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Přístup k OLE objektovým rámcům**
+## **Přístup k OLE rámcům objektů**
 
-Pokud je OLE objekt již vložený do snímku, můžete jej snadno najít nebo získat přístup takto:
+Pokud je OLE objekt již vložen do snímku, můžete jej snadno najít nebo získat tímto způsobem:
 
-1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation). 
-2. Získejte odkaz na snímek pomocí jeho indexu. 
-3. Získejte tvar [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame).  
-   V našem příkladu jsme použili dříve vytvořený PPTX, který má na prvním snímku pouze jeden tvar. Tento objekt jsme pak *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/). To byl požadovaný OLE objektový rámec, ke kterému jsme chtěli přistoupit. 
-4. Jakmile je OLE objektový rámec získán, můžete nad ním provádět libovolnou operaci. 
+1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přistupte k tvaru [OleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/OleObjectFrame). V našem příkladu jsme použili dříve vytvořený PPTX, který má na prvním snímku pouze jeden tvar. Poté jsme tento objekt *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/). To byl požadovaný OLE rámec objektu, ke kterému jsme chtěli přistoupit.
+4. Jakmile je OLE rámec objektu přístupný, můžete na něm provádět libovolné operace.
 
-V níže uvedeném příkladu jsou přístup k OLE objektovému rámci (objekt grafu Excel vložený do snímku) a k jeho souborovým datům.
+V následujícím příkladu je přístup k OLE rámci objektu (Excel graf vložený do snímku) a k jeho souborovým datům.
 
 ```java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -124,13 +134,15 @@ if (shape instanceof IOleObjectFrame) {
 }
 ```
 
-### **Přístup k vlastnostem propojeného OLE objektového rámce**
+### **Přístup k vlastnostem odkazovaného OLE rámce objektu**
 
-Aspose.Slides umožňuje přístup k vlastnostem propojeného OLE objektového rámce.
+Aspose.Slides umožňuje přístup k vlastnostem odkazovaného OLE rámce objektu.
 
-Tento Java kód ukazuje, jak zjistit, zda je OLE objekt propojený, a potom získat cestu k propojenému souboru:
+Tento Java kód ukazuje, jak zkontrolovat, zda je OLE objekt odkazovaný, a poté získat cestu k odkazovanému souboru:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -138,12 +150,12 @@ IShape shape = slide.getShapes().get_Item(0);
 if (shape instanceof IOleObjectFrame) {
     IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
 
-    // Zkontrolovat, zda je OLE objekt propojen.
+    // Zkontrolovat, zda je OLE objekt odkazovaný.
     if (oleFrame.isObjectLink()) {
-        // Vytisknout úplnou cestu k propojenému souboru.
+        // Vytisknout úplnou cestu k odkazovanému souboru.
         System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
 
-        // Vytisknout relativní cestu k propojenému souboru, pokud existuje.
+        // Vytisknout relativní cestu k odkazovanému souboru, pokud existuje.
         // Pouze prezentace PPT mohou obsahovat relativní cestu.
         if (oleFrame.getLinkPathRelative() != null && !oleFrame.getLinkPathRelative().isEmpty()) {
             System.out.println("OLE object frame relative path: " + oleFrame.getLinkPathRelative());
@@ -156,27 +168,32 @@ presentation.dispose();
 
 ## **Změna dat OLE objektu**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-V této sekci ukázkový kód níže používá [Aspose.Cells pro Android pomocí Java](/cells/androidjava/). 
+V této sekci níže uvedený ukázkový kód používá [Aspose.Cells for Android via Java](/cells/androidjava/).
 
 {{% /alert %}}
 
-Pokud je OLE objekt již vložený do snímku, můžete k němu snadno přistoupit a upravit jeho data takto:
+Pokud je OLE objekt již vložen do snímku, můžete jej snadno získat a upravit jeho data tímto způsobem:
 
-1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation). 
-2. Získejte odkaz na snímek podle jeho indexu. 
-3. Získejte tvar OLE objektového rámce.  
-   V našem příkladu jsme použili dříve vytvořený PPTX, který má na prvním snímku jeden tvar. Tento objekt jsme pak *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/). To byl požadovaný OLE objektový rámec, ke kterému jsme chtěli přistoupit. 
-4. Jakmile je OLE objektový rámec získán, můžete nad ním provádět libovolnou operaci. 
-5. Vytvořte objekt `Workbook` a získejte přístup k OLE datům. 
-6. Získejte požadovaný `Worksheet` a upravte data. 
-7. Uložte aktualizovaný `Workbook` do proudu. 
-8. Změňte data OLE objektu z proudu. 
+1. Načtěte prezentaci s vloženým OLE objektem vytvořením instance třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) .
+2. Získejte odkaz na snímek pomocí jeho indexu. 
+3. Přistupte k tvaru OLE rámce objektu. V našem příkladu jsme použili dříve vytvořený PPTX, který má na prvním snímku jeden tvar. Poté jsme tento objekt *přetypovali* na [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/). To byl požadovaný OLE rámec objektu, ke kterému jsme chtěli přistoupit.
+4. Jakmile je OLE rámec objektu přístupný, můžete na něm provádět libovolné operace.
+5. Vytvořte objekt `Workbook` a přistupte k OLE datům.
+6. Přistupte k požadovanému `Worksheet` a upravte data.
+7. Uložte aktualizovaný `Workbook` do proudu.
+8. Změňte data OLE objektu ze streamu.
 
-V níže uvedeném příkladu je přístup k OLE objektovému rámci (objekt grafu Excel vložený do snímku) a souborová data jsou upravena tak, aby aktualizovala data grafu.
+V následujícím příkladu je přístup k OLE rámci objektu (Excel graf vložený do snímku) a modifikace jeho souborových dat k aktualizaci dat grafu.
 
 ```java 
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -186,12 +203,12 @@ if (shape instanceof IOleObjectFrame) {
 
     ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
 
-    // Přečíst data OLE objektu jako objekt Workbook.
+    // Načíst data OLE objektu jako objekt Workbook.
     Workbook workbook = new Workbook(oleStream);
 
     ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
 
-    // Upravit data sešitu.
+    // Upravit data workbooku.
     workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
     workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
     workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -200,7 +217,7 @@ if (shape instanceof IOleObjectFrame) {
     OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
     workbook.save(newOleStream, fileOptions);
 
-    // Změnit data objektu OLE rámce.
+    // Změnit data OLE rámce objektu.
     IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 }
@@ -211,11 +228,17 @@ presentation.dispose();
 
 ## **Vložení dalších typů souborů do snímků**
 
-Kromě excelových grafů Aspose.Slides pro Android pomocí Java umožňuje vložit do snímků i další typy souborů. Například můžete vložit HTML, PDF a ZIP soubory jako objekty. Když uživatel dvojklikne na vložený objekt, automaticky se otevře v příslušném programu nebo je uživateli nabídnuta možnost vybrat vhodný program pro otevření.
+Kromě Excel grafů umožňuje Aspose.Slides for Android via Java vložit do snímků i jiné typy souborů. Například můžete vložit HTML, PDF a ZIP soubory jako objekty. Když uživatel dvakrát klikne na vložený objekt, automaticky se otevře v příslušném programu, nebo je uživatel vyzván k výběru vhodného programu pro jeho otevření.
 
 Tento Java kód ukazuje, jak vložit HTML a ZIP do snímku:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -243,11 +266,13 @@ presentation.dispose();
 
 ## **Nastavení typů souborů pro vložené objekty**
 
-Při práci s prezentacemi můžete potřebovat nahradit staré OLE objekty novými nebo nahradit nepodporovaný OLE objekt podporovaným. Aspose.Slides pro Android pomocí Java umožňuje nastavit typ souboru pro vložený objekt, což vám umožní aktualizovat data rámce OLE nebo jeho rozšíření.
+Při práci s prezentacemi může být nutné nahradit staré OLE objekty novými nebo nahradit nepodporovaný OLE objekt podporovaným. Aspose.Slides for Android via Java umožňuje nastavit typ souboru pro vložený objekt, což vám umožní aktualizovat data OLE rámce nebo jeho příponu.
 
 Tento Java kód ukazuje, jak nastavit typ souboru pro vložený OLE objekt na `zip`:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -264,13 +289,19 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Nastavení obrázků ikon a titulků pro vložené objekty**
+## **Nastavení obrázků ikon a titulů pro vložené objekty**
 
-Po vložení OLE objektu je automaticky přidáno náhledové zobrazení sestávající z ikony. Tento náhled vidí uživatelé před tím, než objekt otevřou. Pokud chcete v náhledu použít konkrétní obrázek a text, můžete pomocí Aspose.Slides pro Android pomocí Java nastavit obrázek ikony a titulek.
+Po vložení OLE objektu se automaticky přidá náhled sestávající z obrázku ikony. Tento náhled je to, co uživatelé vidí před přístupem nebo otevřením OLE objektu. Pokud chcete v náhledu použít konkrétní obrázek a text, můžete nastavit obrázek ikony a titul pomocí Aspose.Slides for Android via Java.
 
-Tento Java kód ukazuje, jak nastavit obrázek ikony a titulek pro vložený objekt:
+Tento Java kód ukazuje, jak nastavit obrázek ikony a titul pro vložený objekt:
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -283,7 +314,7 @@ DataInputStream dis = new DataInputStream(bis);
 dis.readFully(imageData);
 IPPImage oleImage = presentation.getImages().addImage(imageData);
 
-// Nastavit titulek a obrázek pro náhled OLE.
+// Set a title and the image for the OLE preview.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(true);
@@ -292,25 +323,41 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Zabránit změně velikosti a pozice OLE objektového rámce**
+## **Zabránění změny velikosti a přesunu OLE rámce objektu**
 
-Po přidání propojeného OLE objektu do snímku prezentace se při otevření v PowerPointu může zobrazit výzva k aktualizaci odkazů. Kliknutí na tlačítko „Aktualizovat odkazy“ může změnit velikost a umístění OLE objektového rámce, protože PowerPoint aktualizuje data z propojeného OLE objektu a obnoví náhled. Chcete‑li zabránit výzvě k aktualizaci dat objektu, nastavte metodě `setUpdateAutomatic` rozhraní [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/) hodnotu `false`:
+Po přidání odkazovaného OLE objektu do snímku prezentace, když prezentaci otevřete v PowerPointu, může se zobrazit zpráva s výzvou k aktualizaci odkazů. Kliknutí na tlačítko "Update Links" může změnit velikost a polohu OLE rámce objektu, protože PowerPoint aktualizuje data z odkazovaného OLE objektu a obnoví náhled objektu. Aby se PowerPoint neptal na aktualizaci dat objektu, nastavte metodu `setUpdateAutomatic` rozhraní [IOleObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ioleobjectframe/) na `false`:
 
 ```java
-oleFrame.setUpdateAutomatic(false);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+    oleFrame.setUpdateAutomatic(false);
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Extrahování vložených souborů**
 
-Aspose.Slides pro Android pomocí Java umožňuje extrahovat soubory vložené do snímků jako OLE objekty takto:
+Aspose.Slides for Android via Java umožňuje extrahovat soubory vložené do snímků jako OLE objekty tímto způsobem:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) obsahující OLE objekty, které chcete extrahovat. 
-2. Projděte všechny tvary v prezentaci a získejte tvary typu [OLEObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/oleobjectframe). 
-3. Získejte data vložených souborů z OLE objektových rámců a zapište je na disk. 
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation) obsahující OLE objekty, které chcete extrahovat.
+2. Projděte všechny tvary v prezentaci a přistupte k tvarům [OLEObjectFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/oleobjectframe).
+3. Přistupte k datům vložených souborů z OLE rámců objektů a zapište je na disk.
 
 Tento Java kód ukazuje, jak extrahovat soubory vložené do snímku jako OLE objekty:
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -334,18 +381,18 @@ presentation.dispose();
 
 ## **FAQ**
 
-**Bude OLE obsah vykreslen při exportu snímků do PDF/obrázků?**
+### Bude OLE obsah vykreslen při exportu snímků do PDF/obrázků?
 
-To, co je viditelné na snímku, se vykreslí – ikona/náhradní obrázek (náhled). „Živý“ OLE obsah není při vykreslování prováděn. V případě potřeby nastavte vlastní náhledový obrázek, aby exportovaný PDF vypadal podle očekávání.
+Co je na snímku viditelné, je vykresleno – ikona/náhradní obrázek (náhled). „Živý“ OLE obsah není při vykreslování prováděn. V případě potřeby nastavte vlastní náhledový obrázek, aby se v exportovaném PDF objevil očekávaný vzhled.
 
-**Jak mohu zamknout OLE objekt na snímku, aby jej uživatelé nemohli v PowerPointu přesouvat nebo upravovat?**
+### Jak mohu zamknout OLE objekt na snímku, aby ho uživatelé nemohli přesouvat/editovat v PowerPointu?
 
-Uzamkněte tvar: Aspose.Slides poskytuje zamykání na úrovni tvaru. Nejde o šifrování, ale efektivně zabraňuje neúmyslným úpravám a přesunu.
+Uzamkněte tvar: Aspose.Slides poskytuje zamykání na úrovni tvaru. Nejedná se o šifrování, ale efektivně zabraňuje nechtěným úpravám a přesunu.
 
-**Proč se propojený Excel objekt „přeskočí“ nebo změní velikost, když otevřu prezentaci?**
+### Proč se odkazovaný Excel objekt „přeskočí“ nebo změní velikost, když otevřu prezentaci?
 
-PowerPoint může obnovit náhled propojeného OLE. Pro stabilní vzhled použijte osvědčená řešení popsaná v [Working Solution for Worksheet Resizing](/slides/cs/androidjava/working-solution-for-worksheet-resizing/) – buď přizpůsobte rámec rozsahu, nebo škálujte rozsah na pevný rámec a nastavte vhodný náhradní obrázek.
+PowerPoint může obnovit náhled odkazovaného OLE. Pro stabilní vzhled postupujte podle praktik [Working Solution for Worksheet Resizing](/slides/cs/androidjava/working-solution-for-worksheet-resizing/) – buď přizpůsobte rámec rozsahu, nebo škálujte rozsah na pevný rámec a nastavte vhodný náhradní obrázek.
 
-**Budou relativní cesty pro propojené OLE objekty zachovány ve formátu PPTX?**
+### Zůstanou relativní cesty pro odkazované OLE objekty zachovány v formátu PPTX?
 
-V PPTX není informace o „relativní cestě“ k dispozici – uložená je pouze úplná cesta. Relativní cesty se vyskytují ve starším formátu PPT. Pro přenositelnost upřednostněte spolehlivé absolutní cesty/nebo přístupné URI nebo vložení.
+V PPTX není informace o „relativní cestě“ dostupná – pouze plná cesta. Relativní cesty jsou k dispozici ve starším formátu PPT. Pro přenositelnost upřednostněte spolehlivé absolutní cesty/přístupné URI nebo vkládání.

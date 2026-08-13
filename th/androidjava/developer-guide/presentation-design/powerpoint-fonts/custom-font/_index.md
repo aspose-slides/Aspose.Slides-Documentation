@@ -1,12 +1,12 @@
 ---
 title: ปรับแต่งฟอนต์ PowerPoint บน Android
-linktitle: ฟอนต์ที่กำหนดเอง
+linktitle: ฟอนต์กำหนดเอง
 type: docs
 weight: 20
 url: /th/androidjava/custom-font/
 keywords:
 - ฟอนต์
-- ฟอนต์ที่กำหนดเอง
+- ฟอนต์กำหนดเอง
 - ฟอนต์ภายนอก
 - โหลดฟอนต์
 - จัดการฟอนต์
@@ -17,49 +17,54 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "ปรับแต่งฟอนต์ในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java เพื่อให้การนำเสนอของคุณคมชัดและสอดคล้องกันในทุกอุปกรณ์."
+description: "ปรับแต่งฟอนต์ในสไลด์ PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java เพื่อให้พรีเซนเทชันของคุณดูคมชัดและสอดคล้องกันบนทุกอุปกรณ์."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณใช้ฟอนต์ที่กำหนดเองในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบปฏิบัติการ คุณสามารถโหลดฟอนต์จากโฟลเดอร์ที่กำหนดเอง, ระบุฟอนต์สำหรับงานนำเสนอเฉพาะผ่าน document-level font sources, หรือโหลดฟอนต์ภายนอกจากข้อมูลไบต์โดยตรง
+Aspose.Slides ให้คุณใช้ฟอนต์แบบกำหนดเองในงานพรีเซนเทชันโดยไม่ต้องติดตั้งบนระบบปฏิบัติการ คุณสามารถโหลดฟอนต์จากโฟลเดอร์ที่กำหนดเอง, จัดหา ฟอนต์สำหรับพรีเซนเทชันเฉพาะผ่านแหล่งฟอนต์ระดับเอกสาร, หรือโหลดฟอนต์ภายนอกโดยตรงจากข้อมูลไบต์
 
-ฟอนต์ที่โหลดแล้วจะถูกใช้เมื่อทำการเรนเดอร์หรือส่งออกงานนำเสนอ เช่น ส่งออกเป็น PDF, รูปภาพ, และรูปแบบอื่นที่รองรับ ซึ่งช่วยให้ผลลัพธ์ของงานนำเสนอคงที่ในสภาพแวดล้อมที่ต่างกัน บทความนี้ยังอธิบายวิธีตรวจสอบโฟลเดอร์ฟอนต์ที่ Aspose.Slides ใช้และวิธีล้างแคชฟอนต์หลังจากทำงานกับฟอนต์ภายนอก
+ฟอนต์ที่โหลดจะถูกใช้เมื่องานพรีเซนเทชันถูกเรนเดอร์หรือส่งออก เช่นเป็น PDF, รูปภาพ, และรูปแบบที่สนับสนุนอื่น ๆ สิ่งนี้ช่วยให้ผลลัพธ์ของพรีเซนเทชันคงที่ในสภาพแวดล้อมต่าง ๆ บทความยังอธิบายวิธีตรวจสอบโฟลเดอร์ฟอนต์ที่ Aspose.Slides ใช้และวิธีล้างแคชฟอนต์หลังจากทำงานกับฟอนต์ภายนอก
 
-การลงทะเบียนฟอนต์ที่กำหนดเองสำหรับการเรนเดอร์เป็นกระบวนการแยกจากการฝังฟอนต์ลงในไฟล์ PPTX หากต้องการให้ฟอนต์ถูกจัดเก็บภายในงานนำเสนอเอง ให้ใช้คุณสมบัติการฝังฟอนต์โดยตรง
+การลงทะเบียนฟอนต์แบบกำหนดเองสำหรับการเรนเดอร์จะแยกจากการฝังฟอนต์ลงในไฟล์ PPTX หากต้องการเก็บฟอนต์ภายในพรีเซนเทชันเอง ให้ใช้คุณลักษณะการฝังฟอนต์อย่างชัดเจน
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose Slides ช่วยให้คุณโหลดฟอนต์เหล่านี้โดยใช้เมธอด [loadExternalFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+Aspose Slides ให้คุณโหลดฟอนต์เหล่านี้โดยใช้เมธอด [loadExternalFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
-* ฟอนต์ TrueType (.ttf) และ TrueType Collection (.ttc) ดูเพิ่มเติมที่ [TrueType](https://en.wikipedia.org/wiki/TrueType)
+* TrueType (.ttf) และ TrueType Collection (.ttc) ฟอนต์. ดูที่ [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* ฟอนต์ OpenType (.otf) ดูเพิ่มเติมที่ [OpenType](https://en.wikipedia.org/wiki/OpenType)
+* OpenType (.otf) ฟอนต์. ดูที่ [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
-## **โหลดฟอนต์ที่กำหนดเอง**
+## **โหลดฟอนต์แบบกำหนดเอง**
 
-Aspose.Slides ช่วยให้คุณโหลดฟอนต์ที่ใช้ในงานนำเสนอโดยไม่ต้องติดตั้งบนระบบ นี่จะมีผลต่อผลลัพธ์การส่งออกเช่น PDF, รูปภาพ, และรูปแบบที่รองรับอื่น ๆ เพื่อให้เอกสารที่ได้มีลักษณะสอดคล้องกันในทุกสภาพแวดล้อม ฟอนต์จะถูกโหลดจากไดเรกทอรีที่กำหนดเอง
+Aspose.Slides ให้คุณโหลดฟอนต์ที่ใช้ในพรีเซนเทชันโดยไม่ต้องติดตั้งบนระบบ สิ่งนี้ส่งผลต่อผลลัพธ์การส่งออก เช่น PDF, รูปภาพ, และรูปแบบที่สนับสนุนอื่น ๆ เพื่อให้เอกสารที่ได้ดูสม่ำเสมอในสภาพแวดล้อมต่าง ๆ ฟอนต์จะถูกโหลดจากไดเรกทอรีที่กำหนดเอง
 
 1. ระบุหนึ่งหรือหลายโฟลเดอร์ที่มีไฟล์ฟอนต์
 2. เรียกเมธอดสแตติก [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) เพื่อโหลดฟอนต์จากโฟลเดอร์เหล่านั้น
-3. โหลดและทำการเรนเดอร์/ส่งออกงานนำเสนอ
+3. โหลดและเรนเดอร์/ส่งออกพรีเซนเทชัน
 4. เรียก [FontsLoader.clearCache](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/FontsLoader#clearCache--) เพื่อล้างแคชฟอนต์
 
-ตัวอย่างโค้ดต่อไปนี้สาธิตกระบวนการโหลดฟอนต์:
+ตัวอย่างโค้ดต่อไปนี้แสดงกระบวนการโหลดฟอนต์:
 
 ```java
-// กำหนดโฟลเดอร์ที่มีไฟล์ฟอนต์ที่กำหนดเอง.
+import com.aspose.slides.*;
+
+// กำหนดโฟลเดอร์ที่มีไฟล์ฟอนต์แบบกำหนดเอง.
+String externalFontFolder1 = "assets/fonts";
+String externalFontFolder2 = "global/fonts";
+
 String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
-// โหลดฟอนต์ที่กำหนดเองจากโฟลเดอร์ที่ระบุ.
+// โหลดฟอนต์แบบกำหนดเองจากโฟลเดอร์ที่ระบุ.
 FontsLoader.loadExternalFonts(fontFolders);
 
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
-    
-    // เรนเดอร์/ส่งออกงานนำเสนอ (เช่น เป็น PDF, รูปภาพ หรือรูปแบบอื่น) โดยใช้ฟอนต์ที่โหลด.
+
+    // เรนเดอร์/ส่งออกพรีเซนเทชัน (เช่น PDF, รูปภาพ หรือรูปแบบอื่น) โดยใช้ฟอนต์ที่โหลด.
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
@@ -71,35 +76,38 @@ try {
 
 {{% alert color="info" title="Note" %}}
 
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) เพิ่มโฟลเดอร์เพิ่มเติมในเส้นทางค้นหาฟอนต์ แต่ไม่ได้เปลี่ยนลำดับการเริ่มต้นฟอนต์
-ฟอนต์จะถูกเริ่มต้นตามลำดับนี้:
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) เพิ่มโฟลเดอร์เพิ่มเติมไปยังเส้นทางค้นหาฟอนต์, แต่ไม่ได้เปลี่ยนลำดับการเริ่มต้นฟอนต์ ฟอนต์จะเริ่มต้นตามลำดับนี้:
 
 1. เส้นทางฟอนต์เริ่มต้นของระบบปฏิบัติการ
-1. เส้นทางที่โหลดผ่าน [FontsLoader](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/)
+1. เส้นทางที่โหลดผ่าน [FontsLoader](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/).
 
 {{%/alert %}}
 
-## **รับโฟลเดอร์ฟอนต์ที่กำหนดเอง**
+## **รับโฟลเดอร์ฟอนต์แบบกำหนดเอง**
+Aspose.Slides มีเมธอด [getFontFolders](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) เพื่อให้คุณค้นหาโฟลเดอร์ฟอนต์ เมธอดนี้จะคืนค่าโฟลเดอร์ที่เพิ่มผ่านเมธอด LoadExternalFonts และโฟลเดอร์ฟอนต์ของระบบ
 
-Aspose.Slides มีเมธอด [getFontFolders](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) เพื่อให้คุณค้นหาโฟลเดอร์ฟอนต์ เมธอดนี้จะคืนค่าโฟลเดอร์ที่เพิ่มผ่านเมธอด `LoadExternalFonts` และโฟลเดอร์ฟอนต์ของระบบ
-
-โค้ด Java ตัวอย่างต่อไปนี้แสดงวิธีใช้ [getFontFolders](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#getFontFolders--):
+โค้ด Java นี้แสดงวิธีใช้ [getFontFolders](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#getFontFolders--):
 
 ```java
+import com.aspose.slides.*;
+
 // บรรทัดนี้แสดงโฟลเดอร์ที่ค้นหาไฟล์ฟอนต์.
-// เหล่านั้นคือโฟลเดอร์ที่เพิ่มผ่านเมธอด LoadExternalFonts และโฟลเดอร์ฟอนต์ของระบบ.
+// นั้นคือโฟลเดอร์ที่เพิ่มผ่านเมธอด LoadExternalFonts และโฟลเดอร์ฟอนต์ของระบบ.
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
-## **ระบุฟอนต์ที่กำหนดเองที่ใช้กับงานนำเสนอ**
+## **ระบุฟอนต์แบบกำหนดเองที่ใช้ร่วมกับพรีเซนเทชัน**
+Aspose.Slides มีคุณสมบัติ [setDocumentLevelFontSources](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) เพื่อให้คุณระบุฟอนต์ภายนอกที่จะใช้ร่วมกับพรีเซนเทชัน
 
-Aspose.Slides มีพร็อพเพอร์ตี้ [setDocumentLevelFontSources](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) เพื่อให้คุณระบุฟอนต์ภายนอกที่ต้องการใช้กับงานนำเสนอ
-
-โค้ด Java ตัวอย่างต่อไปนี้แสดงวิธีใช้ [setDocumentLevelFontSources](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
+โค้ด Java นี้แสดงวิธีใช้ [setDocumentLevelFontSources](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-):
 
 ```java
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+byte[] memoryFont1 = Files.readAllBytes(Paths.get("customfonts/CustomFont1.ttf"));
+byte[] memoryFont2 = Files.readAllBytes(Paths.get("customfonts/CustomFont2.ttf"));
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });
@@ -107,8 +115,8 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
-    // ทำงานกับงานนำเสนอ
-    // CustomFont1, CustomFont2, และฟอนต์จากโฟลเดอร์ assets\fonts & global\fonts รวมถึงโฟลเดอร์ย่อยของมันสามารถใช้ในงานนำเสนอได้
+    // ทำงานกับพรีเซนเทชัน
+    // CustomFont1, CustomFont2, และฟอนต์จากโฟลเดอร์ assets\fonts & global\fonts รวมถึงโฟลเดอร์ย่อยของมันสามารถใช้ในพรีเซนเทชันได้
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -118,9 +126,13 @@ try {
 
 Aspose.Slides มีเมธอด [loadExternalFont](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) เพื่อให้คุณโหลดฟอนต์ภายนอกจากข้อมูลไบต์
 
-โค้ด Java ตัวอย่างต่อไปนี้สาธิตกระบวนการโหลดฟอนต์จากอาเรย์ไบต์:
+โค้ด Java นี้แสดงกระบวนการโหลดฟอนต์จากอาเรย์ไบต์:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
@@ -129,7 +141,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        // ฟอนต์ภายนอกที่โหลดในช่วงอายุการทำงานของงานนำเสนอ
+        // ฟอนต์ภายนอกถูกโหลดตลอดอายุการทำงานของพรีเซนเทชัน
     } finally {
         
     }
@@ -142,22 +154,22 @@ finally
 
 ## **คำถามที่พบบ่อย**
 
-**ฟอนต์ที่กำหนดเองส่งผลต่อการส่งออกไปยังทุกรูปแบบ (PDF, PNG, SVG, HTML) หรือไม่?**
+### ฟอนต์กำหนดเองส่งผลต่อการส่งออกไปยังทุกรูปแบบหรือไม่ (PDF, PNG, SVG, HTML)?
 
-ใช่. ฟอนต์ที่เชื่อมต่อจะถูกใช้โดยเรนเดอร์เมอร์ในทุกรูปแบบการส่งออก
+ใช่ ฟอนต์ที่เชื่อมต่อจะถูกใช้โดยเรนเดอร์ในทุกรูปแบบการส่งออก
 
-**ฟอนต์ที่กำหนดเองจะถูกฝังโดยอัตโนมัติในไฟล์ PPTX ที่ได้หรือไม่?**
+### ฟอนต์กำหนดเองถูกฝังอัตโนมัติในไฟล์ PPTX ที่ได้หรือไม่?
 
-ไม่. การลงทะเบียนฟอนต์สำหรับการเรนเดอร์ไม่เท่ากับการฝังฟอนต์ลงใน PPTX หากต้องการให้ฟอนต์อยู่ในไฟล์งานนำเสนอเอง ต้องใช้ [embedding features](/slides/th/androidjava/embedded-font/)
+ไม่ การลงทะเบียนฟอนต์เพื่อการเรนเดอร์ไม่เท่ากับการฝังลงใน PPTX หากต้องการให้ฟอนต์อยู่ภายในไฟล์พรีเซนเทชัน คุณต้องใช้ [คุณลักษณะการฝัง](/slides/th/androidjava/embedded-font/)
 
-**ฉันสามารถควบคุมพฤติกรรม fallback เมื่อฟอนต์ที่กำหนดเองไม่มี glyph บางตัวได้หรือไม่?**
+### ฉันสามารถควบคุมพฤติกรรม fallback เมื่อฟอนต์กำหนดไม่มี glyph บางตัวหรือไม่?
 
-ได้. กำหนดค่า [font substitution](/slides/th/androidjava/font-substitution/), [replacement rules](/slides/th/androidjava/font-replacement/), และ [fallback sets](/slides/th/androidjava/fallback-font/) เพื่อระบุฟอนต์ที่ใช้เมื่อ glyph ที่ต้องการไม่มีอยู่
+ได้ คุณสามารถตั้งค่า [font substitution](/slides/th/androidjava/font-substitution/), [replacement rules](/slides/th/androidjava/font-replacement/), และ [fallback sets](/slides/th/androidjava/fallback-font/) เพื่อกำหนดว่าฟอนต์ใดจะใช้เมื่อ glyph ที่ต้องการไม่มีอยู่
 
-**ฉันสามารถใช้ฟอนต์ในคอนเทนเนอร์ Linux/Docker โดยไม่ต้องติดตั้งระบบ-wide ได้หรือไม่?**
+### ฉันสามารถใช้ฟอนต์ในคอนเทนเนอร์ Linux/Docker โดยไม่ต้องติดตั้งทั่วระบบได้หรือไม่?
 
-ได้. เพียงชี้ไปที่โฟลเดอร์ฟอนต์ของคุณเองหรือโหลดฟอนต์จากอาเรย์ไบต์ ซึ่งจะลบการพึ่งพาโฟลเดอร์ฟอนต์ของระบบในอิมเมจคอนเทนเนอร์ออก
+ได้ ให้ชี้ไปยังโฟลเดอร์ฟอนต์ของคุณเองหรือโหลดฟอนต์จากอาเรย์ไบต์ สิ่งนี้จะลบการพึ่งพาโฟลเดอร์ฟอนต์ของระบบในอิมเมจของคอนเทนเนอร์
 
-**เรื่องลิขสิทธิ์—ฉันสามารถฝังฟอนต์ที่กำหนดเองใดก็ได้โดยไม่มีข้อจำกัดหรือไม่?**
+### แล้วเรื่องลิขสิทธิ์ล่า—ฉันสามารถฝังฟอนต์กำหนดเองใด ๆ ได้โดยไม่มีข้อจำกัดหรือไม่?
 
-คุณต้องรับผิดชอบต่อการปฏิบัติตามเงื่อนไขลิขสิทธิ์ของฟอนต์ เงื่อนไขอาจแตกต่างกัน; บางใบอนุญาตห้ามการฝังหรือการใช้งานเพื่อการค้า ตรวจสอบ EULA ของฟอนต์ก่อนนำผลลัพธ์ไปแจกจ่ายเสมอ
+คุณต้องรับผิดชอบต่อการปฏิบัติตามลิขสิทธิ์ของฟอนต์ เงื่อนไขแตกต่างกัน; บางลิขสิทธิ์ห้ามการฝังหรือการใช้ในเชิงพาณิชย์ ควรตรวจสอบ EULA ของฟอนต์เสมอก่อนแจกจ่ายผลลัพธ์

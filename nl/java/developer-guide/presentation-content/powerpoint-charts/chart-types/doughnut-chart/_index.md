@@ -1,40 +1,44 @@
 ---
-title: Donutgrafieken aanpassen in presentaties met Java
+title: Aanpassen van donutgrafieken in presentaties met Java
 linktitle: Donutgrafiek
 type: docs
 weight: 30
 url: /nl/java/doughnut-chart/
 keywords:
 - donutgrafiek
-- centrale opening
-- grootte van de opening
+- middengat
+- grootte van het gat
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek hoe u donutgrafieken maakt en aanpast in Aspose.Slides for Java, met ondersteuning voor PowerPoint-formaten voor dynamische presentaties."
+description: "Ontdek hoe je donutgrafieken maakt en aanpast in Aspose.Slides voor Java, met ondersteuning voor PowerPoint-formaten voor dynamische presentaties."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe u werkt met een donutgrafiek in Aspose.Slides door de grafiek aan een dia toe te voegen, de grootte van de centrale opening in te stellen en de presentatie op te slaan. Het richt zich op de `setDoughnutHoleSize`-methode en toont de basisstappen die nodig zijn om dit grafiektype in code aan te passen.
+Dit artikel laat zien hoe je met een donutgrafiek in Aspose.Slides werkt door de grafiek aan een dia toe te voegen, de grootte van het centrale gat in te stellen en de presentatie op te slaan. Het richt zich op de `setDoughnutHoleSize`‑methode en toont de basisstappen die nodig zijn om dit type grafiek in code aan te passen.
 
-Het bevat ook een korte FAQ die gerelateerde donutgrafiek‑scenario's behandelt, zoals het gebruik van meerdere series om meerdere ringen te creëren, werken met explodeerde donutgrafieken en het exporteren van een grafiek als rasterafbeelding of SVG.
+Het bevat ook een korte FAQ over gerelateerde donut‑grafiekscenario's, zoals het gebruiken van meerdere reeksen om meerdere ringen te maken, werken met geëxplodeerde donutgrafieken en het exporteren van een grafiek als rasterafbeelding of SVG.
 
-## **Specificeer de centrale opening in een donutgrafiek**
-{{% alert color="primary" %}} 
-Aspose.Slides for Java ondersteunt nu het specificeren van de grootte van de opening in een donutgrafiek. In dit onderwerp laten we met een voorbeeld zien hoe u de grootte van de opening in een donutgrafiek kunt specificeren.
+## **Geef de middengat op in een donutgrafiek**
+{{% alert color="info" %}} 
+
+Aspose.Slides voor Java ondersteunt nu het specificeren van de grootte van het gat in een donutgrafiek. In dit onderwerp laten we met een voorbeeld zien hoe je de grootte van het gat in een donutgrafiek opgeeft.
+
 {{% /alert %}} 
 
-Om de grootte van de opening in een donutgrafiek te specificeren, volgt u de onderstaande stappen:
+Om de grootte van het gat in een donutgrafiek op te geven, volg je de onderstaande stappen:
 
-1. Instantieser een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation)-object.
-2. Voeg een donutgrafiek toe aan de dia.
-3. Specificeer de grootte van de opening in een donutgrafiek.
-4. Schrijf de presentatie naar schijf.
+1. Instantieer een [Presentatie](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation)‑object.
+1. Voeg een donutgrafiek toe aan de dia.
+1. Geef de grootte van het gat in de donutgrafiek op.
+1. Schrijf de presentatie naar schijf.
 
-In het onderstaande voorbeeld hebben we de grootte van de opening in een donutgrafiek ingesteld.
+In het hieronder gegeven voorbeeld hebben we de grootte van het gat in een donutgrafiek ingesteld.
 
 ```java
+import com.aspose.slides.*;
+
 // Maak een instantie van de Presentation-klasse
 Presentation pres = new Presentation();
 try {
@@ -51,14 +55,14 @@ try {
 
 ## **FAQ**
 
-**Kan ik een meerlagige donut met meerdere ringen maken?**
+### Kan ik een gelaagde donut maken met meerdere ringen?
 
-Ja. Voeg meerdere series toe aan één donutgrafiek – elke serie wordt een aparte ring. De volgorde van de ringen wordt bepaald door de volgorde van de series in de collectie.
+Ja. Voeg meerdere reeksen toe aan één donutgrafiek — elke reeks wordt een aparte ring. De volgorde van de ringen wordt bepaald door de volgorde van de reeksen in de collectie.
 
-**Wordt een "exploded" donut (gescheiden segmenten) ondersteund?**
+### Wordt een “geëxplodeerde” donut (gescheiden segmenten) ondersteund?
 
-Ja. Er is een Exploded Doughnut-[grafiektype](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/) en een explosie‑eigenschap op datapunten; u kunt individuele segmenten scheiden.
+Ja. Er is een Exploded Doughnut‑[chart type](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/) en een explosie‑eigenschap op datapunten; je kunt individuele segmenten scheiden.
 
-**Hoe kan ik een afbeelding van een donutgrafiek (PNG/SVG) voor een rapport verkrijgen?**
+### Hoe krijg ik een afbeelding van een donutgrafiek (PNG/SVG) voor een rapport?
 
-Een grafiek is een vorm; u kunt deze renderen naar een [rasterafbeelding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shape/#getImage-int-float-float-) of de grafiek exporteren naar een [SVG‑afbeelding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).
+Een grafiek is een vorm; je kunt deze renderen naar een [rasterafbeelding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shape/#getImage-int-float-float-) of de grafiek exporteren naar een [SVG‑afbeelding](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

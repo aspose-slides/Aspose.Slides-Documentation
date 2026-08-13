@@ -1,6 +1,6 @@
 ---
-title: ดึงภาพจากรูปทรงในงานนำเสนอด้วย Java
-linktitle: ภาพจากรูปทรง
+title: ดึงภาพจากรูปร่างในงานนำเสนอด้วย Java
+linktitle: ภาพจากรูปร่าง
 type: docs
 weight: 100
 url: /th/java/extracting-images-from-presentation-shapes/
@@ -12,21 +12,21 @@ keywords:
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "ดึงภาพจากรูปทรงในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Java - วิธีแก้ไขที่รวดเร็วและเป็นมิตรต่อโค้ด"
+description: "ดึงภาพจากรูปร่างในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides for Java - วิธีแก้ไขที่รวดเร็วและเป็นมิตรต่อโค้ด."
 ---
 ## **ภาพรวม**
 
-ภาพในงานนำเสนออาจปรากฏในหลายรูปแบบของรูปทรง: เป็นกรอบภาพทั่วไป, เป็นการเติมภาพที่ใช้กับรูปทรง, เป็นภาพตัวอย่างของวัตถุ OLE, เป็นภาพย่อของเฟรมวิดีโอหรือออดิโอ, เป็นภาพซูม, หรือเป็นภาพที่ซ้อนอยู่ในรูปทรงตาราง, แผนภูมิ, และ SmartArt. Aspose.Slides จัดเก็บภาพเหล่านี้ในคอลเลกชันภาพของงานนำเสนอ ซึ่งเปิดให้เข้าถึงผ่านวัตถุ [IImageCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimagecollection/) และ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/)  
+Images in a presentation can appear in several shape types: as ordinary picture frames, as picture fills applied to shapes, as OLE object preview images, as video or audio frame thumbnails, as zoom images, or as images nested inside table, chart, and SmartArt shapes. Aspose.Slides stores those images in the presentation image collection, exposed through [IImageCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimagecollection/) and [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) objects.
 
-ถ้าคุณต้องการส่งออกทุกทรัพยากรภาพที่ฝังอยู่ในงานนำเสนอ, ให้วนลูป `presentation.getImages()` . บทความนี้มุ่งเน้นงานที่ต่างออกไป: การท่องรูปทรงเพื่อค้นหาว่าภาพถูกใช้ในสไลด์ใด, เพื่อให้ไฟล์ที่บันทึกได้เก็บข้อมูลบริบทที่เป็นประโยชน์ เช่น หมายเลขสไลด์, ตำแหน่งรูปทรง, และประเภทแหล่งที่ม (กรอบภาพ, ภาพเติม, ตัวอย่างสื่อ, ตัวอย่าง OLE, หรือภาพซูม).
+If you only need to export every image resource embedded in a presentation, iterate through `presentation.getImages()`. This article focuses on a different task: traversing shapes to find where images are used on slides, so the saved files can keep useful context such as the slide number, shape position, and source type (picture frame, fill image, media preview, OLE preview, or zoom image).
 
-{{% alert title="Tip" color="primary" %}}
-ใช้ [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) เพื่อรักษาข้อมูลภาพที่เข้ารหัสต้นฉบับและประเภทไฟล์. ใช้ [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--) ร่วมกับ [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/#save-java.lang.String-int-) เมื่อคุณต้องการทำให้ผลลัพธ์เป็นรูปแบบเฉพาะเช่น PNG.
+{{% alert title="Tip" color="info" %}}
+Use [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) to preserve the original encoded image data and file type. Use [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--) with [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/#save-java.lang.String-int-) when you want to normalize the output to a specific format such as PNG.
 {{% /alert %}}
 
 ## **วิธีการช่วยเหลือที่ใช้ร่วมกัน**
 
-วิธีการช่วยเหลือด้านล่างทำให้ตัวอย่างสั้นลง. `saveOriginalImage` เขียนไบต์ที่ฝังไว้เดิม, เลือกนามสกุลที่ปลอดภัยจาก MIME type, และข้ามไฟล์ภาพที่ซ้ำกันโดยใช้แฮช SHA-256.
+The helper methods below keep the examples short. `saveOriginalImage` writes the original embedded bytes, chooses a safe extension from the MIME type, and skips duplicate image binaries by SHA-256 hash.
 
 ```java
 import com.aspose.slides.*;
@@ -222,11 +222,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **ดึงภาพจากกรอบภาพ**
+## **ดึงภาพจากกรอบรูปภาพ**
 
-ใช้วิธีนี้สำหรับภาพที่แทรกเป็นวัตถุอิสระ. [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ipictureframe/) เก็บภาพของมันใน `getPictureFormat().getPicture().getImage()`, ซึ่งจะคืนวัตถุ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/).
+Use this approach for pictures inserted as standalone objects. An [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ipictureframe/) stores its picture in `getPictureFormat().getPicture().getImage()`, which returns an [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) object.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -266,11 +271,15 @@ finally
 }
 ```
 
-## **ดึงภาพจากรูปทรงที่เติมด้วยภาพ**
+## **ดึงภาพจากรูปร่างที่เติมด้วยรูปภาพ**
 
-รูปทรงสามารถใช้ภาพเป็นการเติมได้. ตรวจสอบประเภทการเติมของรูปทรงก่อน: หากไม่ใช่ [FillType.Picture](https://reference.aspose.com/slides/th/java/com.aspose.slides.filltype/), จะไม่มีภาพให้ดึงจากการเติมนั้น. ตัวอย่างด้านล่างจัดการกับวัตถุ [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides.iautoshape/) และบันทึกแต่ละภาพเป็น PNG ผ่าน [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--).
+Shapes can use a picture as their fill. Check the shape's fill type first: if it is not [FillType.Picture](https://reference.aspose.com/slides/th/java/com.aspose.slides.filltype/), there is no picture to extract from that fill. The example below handles [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides.iautoshape/) objects and saves each image as PNG through [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -314,9 +323,14 @@ finally
 
 ## **ดึงภาพตัวอย่างจากกรอบวัตถุ OLE**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ioleobjectframe/) สามารถมีภาพทดแทนที่ PowerPoint ใช้เป็นตัวอย่างของวัตถุบนสไลด์. ภาพนี้สามารถเข้าถึงได้ผ่าน `getSubstitutePictureFormat().getPicture().getImage()`. การดึงภาพนี้จะให้ภาพตัวอย่าง, ไม่ใช่เนื้อหาของแพคเกจ OLE ที่ฝังอยู่.
+An [IOleObjectFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ioleobjectframe/) can have a substitute picture that PowerPoint uses as the object's preview on a slide. This image is available through `getSubstitutePictureFormat().getPicture().getImage()`. Extracting this picture gives you the preview image, not the embedded OLE package contents.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -362,9 +376,14 @@ finally
 
 ## **ดึงภาพตัวอย่างจากกรอบวิดีโอ**
 
-[IVideoFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ivideoframe/) สามารถเก็บภาพตัวอย่างไว้ใน `getPictureFormat().getPicture().getImage()`. นี่คือโปสเตอร์หรือภาพย่อที่แสดงบนสไลด์, ไม่ใช่เฟรมที่ถอดรหัสจากสตรีมวิดีโอ.
+An [IVideoFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ivideoframe/) can also store a preview image in `getPictureFormat().getPicture().getImage()`. This is the poster or thumbnail shown on the slide, not a frame decoded from the video stream.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -408,11 +427,16 @@ finally
 }
 ```
 
-## **ดึงภาพตัวอย่างจากกรอบออดิโอ**
+## **ดึงภาพตัวอย่างจากกรอบเสียง**
 
-[IAudioFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.iaudioframe/) สามารถเก็บภาพย่อใน `getPictureFormat().getPicture().getImage()`. นี่คือภาพที่แสดงสำหรับออบเจ็กต์ออดิโอบนสไลด์.
+An [IAudioFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.iaudioframe/) can store a thumbnail in `getPictureFormat().getPicture().getImage()`. This is the image shown for the audio object on the slide.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -458,9 +482,14 @@ finally
 
 ## **ดึงภาพจากวัตถุซูม**
 
-รูปทรง [IZoomFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.izoomframe/) และ [ISectionZoomFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.isectionzoomframe/) สามารถใช้ภาพกำหนดเอง. อ่าน `getZoomImage()` จากกรอบซูม.
+[IZoomFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.izoomframe/) and [ISectionZoomFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.isectionzoomframe/) shapes can use custom images. Read `getZoomImage()` from the zoom frame.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -519,9 +548,14 @@ finally
 
 ## **ดึงภาพจากกรอบซูมสรุป**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.isummaryzoomframe/) ก็เป็นรูปทรงหนึ่ง. รายการส่วนของมันสามารถใช้ภาพกำหนดเองได้, ซึ่งเปิดให้เข้าถึงผ่านเมธอด `getZoomImage()` ของแต่ละส่วนซูมสรุป.
+An [ISummaryZoomFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.isummaryzoomframe/) is also a shape. Its section items can use custom images, exposed through each summary zoom section's `getZoomImage()` method.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -571,11 +605,16 @@ finally
 }
 ```
 
-## **ดึงภาพจากรูปทรงตาราง**
+## **ดึงภาพจากรูปร่างตาราง**
 
-[ITable](https://reference.aspose.com/slides/th/java/com.aspose.slides.itable/) เป็นรูปทรง. ภาพในตารางมักจะเก็บเป็นการเติมภาพในเซลล์ของตาราง.
+An [ITable](https://reference.aspose.com/slides/th/java/com.aspose.slides.itable/) is a shape. Images in a table are usually stored as picture fills in table cells.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -631,11 +670,16 @@ finally
 }
 ```
 
-## **ดึงภาพจากรูปทรงแผนภูมิ**
+## **ดึงภาพจากรูปร่างแผนภูมิ**
 
-[IChart](https://reference.aspose.com/slides/th/java/com.aspose.slides.ichart/) เป็นรูปทรง. ตัวอย่างด้านล่างดึงภาพจากการเติมภาพของพื้นที่แผนภูมิ.
+An [IChart](https://reference.aspose.com/slides/th/java/com.aspose.slides.ichart/) is a shape. The example below extracts an image from the chart area's picture fill.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -680,11 +724,16 @@ finally
 }
 ```
 
-## **ดึงภาพจากรูปทรง SmartArt**
+## **ดึงภาพจากรูปร่าง SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/th/java/com.aspose.slides.ismartart/) เป็นวัตถุรูปทรง. ขึ้นอยู่กับการจัดวางของ SmartArt, ภาพอาจเก็บอยู่ในการเติมของโหนดแบบ bullet หรือในรูปแบบการเติมของรูปทรงโหนด.
+An [ISmartArt](https://reference.aspose.com/slides/th/java/com.aspose.slides.ismartart/) object is a shape. Depending on the SmartArt layout, images may be stored in node bullet fills or in the fill formats of node shapes.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -750,11 +799,16 @@ finally
 }
 ```
 
-## **รวมภาพที่อยู่ภายในรูปทรงที่จัดกลุ่ม**
+## **รวมภาพภายในรูปร่างที่จัดกลุ่ม**
 
-รูปทรงที่จัดกลุ่มมีคอลเลกชันรูปทรกของตนเอง. ตัวช่วย `enumerateShapes` ที่ใช้ร่วมกันมีตัวเลือก `includeGroupedShapes`. ตั้งค่าเป็น `true` เมื่อคุณต้องการตรวจสอบรูปทรงภายในวัตถุ [IGroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides.igroupshape/). ตัวอย่างด้านล่างดึงภาพจากกรอบภาพ, รูปทรงที่เติมด้วยภาพ, ตัวอย่าง OLE, ภาพย่อของเฟรมวิดีโอ, และภาพย่อของเฟรมออดิโอ. เพื่อนำภาพจากตาราง, แผนภูมิ, SmartArt, และซูมสรุปเข้ามาด้วย, ใช้ตรรกะการดึงเฉพาะจากส่วนก่อนหน้าโดยยังคงการท่องรูปทรงแบบเรียกซ้ำเหมือนเดิม.
+Grouped shapes contain their own shape collections. The shared `enumerateShapes` helper has an `includeGroupedShapes` option. Set it to `true` when you want to inspect shapes inside [IGroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides.igroupshape/) objects. The example below extracts images from picture frames, picture-filled shapes, OLE object previews, video frame thumbnails, and audio frame thumbnails. To include table, chart, SmartArt, and summary zoom images as well, reuse the specialized extraction logic from the previous sections while keeping the same recursive shape traversal.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -845,45 +899,45 @@ finally
 }
 ```
 
-## **กรณีพิเศษและข้อสังเกตเชิงปฏิบัติ**
+## **กรณีขอบเขตและบันทึกย่อประโยชน์ใช้จริง**
 
-- **ภาพซ้ำ:** รูปทรงหลายรูปอาจอ้างอิงภาพเดียวกันหรือภาพแยกที่มีไบต์เดียวกัน. แฮช [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) ก่อนบันทึกไฟล์หากคุณต้องการไฟล์ผลลัพธ์หนึ่งไฟล์ต่อภาพที่ไม่ซ้ำกัน.
-- **ข้อมูลดั้งเดิม vs. ผลลัพธ์ที่แปลง:** การบันทึก [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) จะรักษาข้อมูล JPEG, PNG, GIF, SVG, EMF, หรือ WMF ที่ฝังอยู่. การบันทึก [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--) ผ่าน [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/#save-java.lang.String-int-) มีประโยชน์เมื่อคุณต้องการผลลัพธ์ในรูปแบบเดียวกัน.
-- **ประเภทการเติมที่ไม่รองรับ:** รูปทรงที่เป็นสีทึบ, ไร่ต์, ลาย, หรือไม่มีการเติมจะไม่มีการเติมภาพ. ตรวจสอบ [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides.filltype/) ก่อนอ่าน `getPictureFillFormat()`.
-- **รูปทรงที่จัดกลุ่ม:** คอลเลกชันรูปทรงระดับบนของสไลด์ไม่ได้ทำให้กลุ่มแบนราบ. ตรวจสอบ [IGroupShape.getShapes](https://reference.aspose.com/slides/th/java/com.aspose.slides.igroupshape/#getShapes--) อย่างเรียกซ้ำเมื่อเนื้อหากลุ่มมีความสำคัญ.
-- **ตัวอย่าง OLE:** [IOleObjectFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ioleobjectframe/) อาจเปิดเผยภาพตัวอย่างผ่าน `getSubstitutePictureFormat()`, แต่ภาพนั้นเป็นเพียงตัวอย่างบนสไลด์, ไม่ใช่ไฟล์ที่ฝังอยู่ในวัตถุ OLE.
-- **ภาพย่อของเฟรมวิดีโอ:** [IVideoFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ivideoframe/) อาจเปิดเผยภาพตัวอย่างผ่าน `getPictureFormat()`, แต่ภาพนั้นเป็นโปสเตอร์ที่แสดงบนสไลด์, ไม่ได้มาจากสตรีมวิดีโอ.
-- **ภาพย่อของเฟรมออดิโอ:** [IAudioFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.iaudioframe/) อาจเปิดเผยไอคอนหรือภาพย่อผ่าน `getPictureFormat()`; ไม่ได้เป็นข้อมูลออดิโอที่ฝังอยู่.
-- **ภาพซูม:** รูปทรงซูมสไลด์, ซูมส่วน, และซูมสรุปอาจใช้วัตถุ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) กำหนดเองผ่าน `getZoomImage()`.
-- **โมเดลรูปทรงซ้อนกัน:** วัตถุตาราง, แผนภูมิ, และ SmartArt เข้าสู่ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides.ishape/), แต่ภาพของพวกเขามักเก็บไว้ในเซลล์ตาราง, องค์ประกอบแผนภูมิ, หรือออบเจ็กต์การฟอร์แมตของโหนด SmartArt ที่ซ้อนกัน.
-- **ภาพที่ถูกครอปหรือแปลง:** การเข้าถึง [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) จะให้ทรัพยากรภาพที่เก็บไว้. มันไม่แสดงการครอป, ความโปร่งใส, การเปลี่ยนสี, การหมุน, หรือเอฟเฟ็กต์ภาพอื่นที่รูปทรงทำ.
+- **Duplicate images:** Multiple shapes may reference the same image or separate images with identical bytes. Hash [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) before writing files if you want one output file per unique image.
+- **Original data vs. converted output:** Saving [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) preserves the embedded JPEG, PNG, GIF, SVG, EMF, or WMF data. Saving [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--) through [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/#save-java.lang.String-int-) is useful when you want a consistent output format.
+- **Unsupported fill types:** Solid, gradient, pattern, and no-fill shapes do not contain a picture fill. Check [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides.filltype/) before reading `getPictureFillFormat()`.
+- **Grouped shapes:** The top-level slide shape collection does not flatten groups. Recursively inspect [IGroupShape.getShapes](https://reference.aspose.com/slides/th/java/com.aspose.slides.igroupshape/#getShapes--) when grouped content matters.
+- **OLE object previews:** An [IOleObjectFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ioleobjectframe/) may expose a preview image through `getSubstitutePictureFormat()`, but that image is only the slide preview. It is not the embedded file inside the OLE object.
+- **Video frame thumbnails:** An [IVideoFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ivideoframe/) may expose a preview image through `getPictureFormat()`, but that image is only the poster shown on the slide. It is not extracted from the video stream.
+- **Audio frame thumbnails:** An [IAudioFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.iaudioframe/) may expose an icon or thumbnail through `getPictureFormat()`; it is not the embedded audio data.
+- **Zoom images:** Slide zoom, section zoom, and summary zoom shapes may use custom [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) objects through `getZoomImage()`.
+- **Nested shape models:** Table, chart, and SmartArt objects implement [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides.ishape/), but their images are often stored in nested table cell, chart element, or SmartArt node formatting objects.
+- **Cropped or transformed pictures:** Accessing [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) gives you the stored image resource. It does not render cropping, transparency, recoloring, rotation, or other visual effects applied by the shape.
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถดึงภาพต้นฉบับโดยไม่ครอป, ไม่เอฟเฟ็กต์, หรือการแปลงรูปทรงได้หรือไม่?**
+### Can I extract the original image without cropping, effects, or shape transformations?
 
-ใช่. เข้าถึงวัตถุ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) แล้วเขียน [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) ลงดิสก์. วิธีนี้จะรักษาภาพที่เข้ารหัสต้นฉบับที่เก็บอยู่ในงานนำเสนอ, ไม่ใช่วิธีที่ภาพถูกเรนเดอร์บนสไลด์.
+Yes. Access the [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) object and write [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) to disk. This preserves the original encoded image stored in the presentation, not the way the image is rendered on the slide.
 
-**ฉันสามารถส่งออกทุกภาพที่ดึงมาผ่าน PNG ได้หรือไม่?**
+### Can I export every extracted image as PNG?
 
-ใช่. ใช้ [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--) เพื่อรับวัตถุ [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/), แล้วเรียก [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/#save-java.lang.String-int-) พร้อมกับ [ImageFormat.Png](https://reference.aspose.com/slides/th/java/com.aspose.slides.imageformat/). วิธีนี้จะทำให้ผลลัพธ์เป็น PNG แต่อาจไม่รักษาชนิดไฟล์หรือข้อมูลเวกเตอร์ดั้งเดิม.
+Yes. Use [IPPImage.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getImage--) to get an [IImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/) object, and then call [IImage.save](https://reference.aspose.com/slides/th/java/com.aspose.slides.iimage/#save-java.lang.String-int-) with [ImageFormat.Png](https://reference.aspose.com/slides/th/java/com.aspose.slides.imageformat/). This converts the output and may not preserve the original file type or vector data.
 
-**ฉันจะหลีกเลี่ยงการบันทึกภาพเดียวกันหลายครั้งได้อย่างไร?**
+### How do I avoid saving the same image more than once?
 
-ใช้แฮชของ [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) และเก็บแฮชเหล่านั้นในเซ็ต. หากภาพใหม่มีแฮชที่มีอยู่แล้ว, ให้ข้ามการบันทึกหรือบันทึกการอ้างอิงอื่นไปยังไฟล์ผลลัพธ์ที่มีอยู่.
+Use a hash of [IPPImage.getBinaryData](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/#getBinaryData--) and keep the hashes in a set. If a new image has a hash that already exists, skip it or record another reference to the existing output file.
 
-**ทำไมบางรูปทรงถึงไม่สร้างภาพ?**
+### Why do some shapes not produce an image?
 
-กรอบภาพ, รูปทรงที่เติมด้วยภาพ, กรอบวัตถุ OLE, กรอบสื่อ, กรอบซูม, ตาราง, แผนภูมิ, และออบเจ็กต์ SmartArt สามารถอ้างอิงภาพได้. บางประเภทรูปทรงเปิดเผยภาพผ่านออบเจ็กต์ฟอร์แมตที่ซ้อนกัน, ดังนั้นการตรวจสอบเพียง `getPictureFormat()` หรือ `getFillFormat()` ของรูปทรงอาจไม่เพียงพอ.
+Picture frames, picture-filled shapes, OLE object frames, media frames, zoom frames, tables, charts, and SmartArt objects can reference images. Some shape types expose images through nested formatting objects, so a simple `getPictureFormat()` or shape `getFillFormat()` check is not always enough.
 
-**ฉันสามารถดึงภาพย่อที่แสดงสำหรับเฟรมวิดีโอได้หรือไม่?**
+### Can I extract the thumbnail shown for a video frame?
 
-ใช่. ใช้ [IVideoFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ivideoframe/) แล้วอ่าน `getPictureFormat().getPicture().getImage()`. วิธีนี้จะดึงภาพโปสเตอร์ที่เก็บไว้กับเฟรมวิดีโอ, ไม่ใช่เฟรมที่สร้างจากไฟล์วิดีโอ.
+Yes. Use [IVideoFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides.ivideoframe/) and read `getPictureFormat().getPicture().getImage()`. This extracts the poster image stored with the video frame, not a frame generated from the video file.
 
-**ฉันสามารถกำหนดได้ว่ารูปทรงใดใช้ภาพเฉพาะจากคอลเลกชันภาพของงานนำเสนอได้อย่างไร?**
+### How can I determine which shapes use a specific image from the presentation image collection?
 
-Aspose.Slides ไม่เก็บลิงก์ย้อนกลับจาก [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) ไปยังรูปทรง. คุณต้องสร้างแผนที่ระหว่างการท่อง: ทุกครั้งที่พบการอ้างอิงภาพ, บันทึกหมายเลขสไลด์, เส้นทางรูปทรง, และแฮชหรือรายการคอลเลกชันของภาพ.
+Aspose.Slides does not store reverse links from [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides.ippimage/) to shapes. Build a mapping during traversal: whenever you find an image reference, record the slide number, shape path, and image hash or collection item.
 
-**ฉันสามารถดึงภาพที่ฝังอยู่ในวัตถุ OLE, เช่น เอกสารที่แนบมาด้วย, ได้หรือไม่?**
+### Can I extract images embedded inside OLE objects, such as attached documents?
 
-คุณสามารถดึงตัวอย่างสไลด์ของวัตถุ OLE จาก [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--) ได้. อย่างไรก็ตาม ตัวอย่างนั้นไม่ใช่เอกสารที่ฝังอยู่จริง. หากต้องการดึงภาพจากไฟล์ที่ฝังอยู่, ต้องดึงข้อมูล OLE แล้วตรวจสอบด้วยเครื่องมือที่รองรับประเภทไฟล์นั้น.
+You can extract the OLE object's slide preview from [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--). However, that preview is not the embedded document itself. To extract images from inside the embedded file, extract the OLE data and inspect it with tools for that file type.

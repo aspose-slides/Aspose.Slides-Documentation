@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /cs/net/presentation-theme/
 keywords:
-- téma PowerPoint
+- Téma PowerPoint
 - téma prezentace
 - téma snímku
 - nastavit téma
@@ -22,23 +22,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Spravujte hlavní témata prezentací v Aspose.Slides pro .NET, abyste vytvářeli, přizpůsobovali a převáděli soubory PowerPoint s jednotnou značkou."
+description: "Spravujte hlavní témata prezentací v Aspose.Slides pro .NET a vytvářejte, přizpůsobujte a převádějte soubory PowerPoint s jednotnou vizuální identitou."
 ---
 ## **Úvod**
 
-Prezentace téma definuje vlastnosti designových prvků. Když vyberete téma prezentace, v podstatě si volíte konkrétní sadu vizuálních prvků a jejich vlastností.
+Téma prezentace definuje vlastnosti návrhových prvků. Když vyberete téma prezentace, v podstatě vybíráte konkrétní sadu vizuálních prvků a jejich vlastnosti.
 
-V PowerPointu téma zahrnuje barvy, [fonts](/slides/cs/net/powerpoint-fonts/), [background styles](/slides/cs/net/presentation-background/) a efekty.
+V PowerPointu téma zahrnuje barvy, [písma](/slides/cs/net/powerpoint-fonts/), [styly pozadí](/slides/cs/net/presentation-background/) a efekty.
 
 ![theme-constituents](theme-constituents.png)
 
 ## **Změna barvy tématu**
 
-Téma PowerPointu používá konkrétní sadu barev pro různé elementy na snímku. Pokud se vám barvy nelíbí, můžete je změnit aplikací nových barev pro téma. Pro výběr nové barvy tématu poskytuje Aspose.Slides hodnoty v enumeraci [SchemeColor](https://reference.aspose.com/slides/cs/net/aspose.slides/schemecolor/).
+Téma PowerPointu používá konkrétní sadu barev pro různé prvky na snímku. Pokud se vám barvy nelíbí, můžete je změnit aplikací nových barev pro téma. Pro výběr nové barvy tématu poskytuje Aspose.Slides hodnoty v enumeraci [SchemeColor](https://reference.aspose.com/slides/cs/net/aspose.slides/schemecolor/).
 
-Tento C# kód ukazuje, jak změnit akcentní barvu tématu:
+Tento C# kód ukazuje, jak změnit akcentní barvu pro téma:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -50,41 +52,60 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Můžete tak zjistit efektivní hodnotu výsledné barvy:
+Takto můžete zjistit efektivní hodnotu výsledné barvy:
 
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Barva [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (Barva [A=255, R=128, G=100, B=162])
+}
 ```
 
-Pro další demonstraci operace změny barvy vytvoříme další prvek a přiřadíme mu akcentní barvu (z počáteční operace). Potom změníme barvu v tématu:
+Abychom dále demonstrovali operaci změny barvy, vytvoříme další prvek a přiřadíme mu akcentní barvu (z počáteční operace). Pak změníme barvu v tématu:
 
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
-Nová barva se aplikuje automaticky na oba prvky.
+Nová barva se automaticky použije na obou prvcích.
 
-### **Nastavení barvy tématu z dodatečné palety**
+### **Nastavení barvy tématu z další palety**
 
-Když aplikujete transformace jasu na hlavní barvu tématu(1), vznikají barvy z dodatečné palety(2). Tyto barvy tématu můžete následně nastavit a získat.
+Když aplikujete transformace jasu na hlavní barvu tématu (1), vznikají barvy z další palety (2). Pak můžete tyto barvy tématu nastavit a získat.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
 **1** – Hlavní barvy tématu  
+**2** – Barvy z další palety.
 
-**2** – Barvy z dodatečné palety.
-
-Tento C# kód demonstruje operaci, při níž jsou barvy dodatečné palety získány z hlavní barvy tématu a poté použity ve tvarech:
+Tento C# kód demonstruje operaci, kdy jsou barvy další palety získány z hlavní barvy tématu a poté použity ve tvarech:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -137,73 +158,85 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Mapování `SchemeColor` na barvy `IColorScheme`**
+### **Mapovat `SchemeColor` na barvy `IColorScheme`**
 
-Když pracujete s [SchemeColor](https://reference.aspose.com/slides/cs/net/aspose.slides/schemecolor/), můžete si všimnout, že obsahuje následující hodnoty barvy tématu:
+Když pracujete s [SchemeColor](https://reference.aspose.com/slides/cs/net/aspose.slides/schemecolor/), můžete si všimnout, že obsahuje následující hodnoty barev tématu:
 
-`Background1`, `Background2`, `Text1` a `Text2`.
+`Background1`, `Background2`, `Text1`, and `Text2`.
 
-Nicméně `Presentation.MasterTheme.ColorScheme` vrací [IColorScheme](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/icolorscheme/), který vystavuje odpovídající barvy jako:
+Nicméně `Presentation.MasterTheme.ColorScheme` vrací [IColorScheme](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/icolorscheme/), který poskytuje odpovídající barvy jako:
 
-`Dark1`, `Dark2`, `Light1` a `Light2`.
+`Dark1`, `Dark2`, `Light1`, and `Light2`.
 
-Tento rozdíl je jen v názvech. Tyto hodnoty odkazují na stejné sloty barvy tématu a mapování je pevné:
+Tento rozdíl je jen v pojmenování. Tyto hodnoty odkazují na stejné sloty barev tématu a mapování je pevné:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Mezi `Text`/`Background` a `Dark`/`Light` neexistuje žádná dynamická konverze. Jedná se jen o alternativní názvy pro stejné barvy tématu.
+Neexistuje žádná dynamická konverze mezi `Text`/`Background` a `Dark`/`Light`. Jedná se jen o alternativní názvy pro stejné barvy tématu.
 
-Tento rozdíl v názvosloví pochází z terminologie Microsoft Office. Starší verze Office používaly `Dark 1`, `Light 1`, `Dark 2` a `Light 2`, zatímco novější UI verze zobrazují stejné sloty jako `Text 1`, `Background 1`, `Text 2` a `Background 2`.
+Tento rozdíl v pojmenování pochází z terminologie Microsoft Office. Starší verze Office používaly `Dark 1`, `Light 1`, `Dark 2` a `Light 2`, zatímco novější verze UI zobrazují stejné sloty jako `Text 1`, `Background 1`, `Text 2` a `Background 2`.
 
 ## **Změna písma tématu**
 
-Aby vám Aspose.Slides umožnil vybírat písma pro témata a další účely, používá tyto speciální identifikátory (podobně jako v PowerPointu):
+Aby vám umožnil vybrat písma pro témata a další účely, Aspose.Slides používá tyto speciální identifikátory (podobně jako v PowerPointu):
 
-* **+mn-lt** – Tělo písma Latin (Minor Latin Font)
-* **+mj-lt** – Nadpis písma Latin (Major Latin Font)
-* **+mn-ea** – Tělo písma Východní Asie (Minor East Asian Font)
-* **+mj-ea** – Nadpis písma Východní Asie (Major East Asian Font)
+* **+mn-lt** – tělo písma Latin (menší latinské písmo)
+* **+mj-lt** – nadpis písma Latin (větší latinské písmo)
+* **+mn-ea** – tělo písma Východní Asie (menší asijské písmo)
+* **+mj-ea** – tělo písma Východní Asie (menší asijské písmo)
 
 Tento C# kód ukazuje, jak přiřadit latinské písmo k prvku tématu:
 
 ```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using Aspose.Slides;
 
-Paragraph paragraph = new Paragraph();
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.Portions.Add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+    paragraph.Portions.Add(portion);
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
 Tento C# kód ukazuje, jak změnit písmo tématu prezentace:
 
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
 ```
 
 Písmo ve všech textových polích bude aktualizováno.
 
-{{% alert color="primary" title="TIP" %}} 
-Možná budete chtít zobrazit [PowerPoint fonts](/slides/cs/net/powerpoint-fonts/).
+{{% alert color="info" title="TIP" %}} 
+Možná budete chtít zobrazit [písma PowerPointu](/slides/cs/net/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Změna stylu pozadí tématu**
 
-Ve výchozím nastavení aplikace PowerPoint poskytuje 12 předdefinovaných pozadí, ale pouze 3 z těchto 12 jsou uložena v typické prezentaci.
+Ve výchozím nastavení aplikace PowerPoint poskytuje 12 předdefinovaných pozadí, ale pouze 3 z těchto 12 pozadí jsou uložena v typické prezentaci.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Například po uložení prezentace v aplikaci PowerPoint můžete spustit tento C# kód a zjistit počet předdefinovaných pozadí v prezentaci:
+Například po uložení prezentace v aplikaci PowerPoint můžete spustit tento C# kód, abyste zjistili počet předdefinovaných pozadí v prezentaci:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -214,32 +247,41 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
-Pomocí vlastnosti [BackgroundFillStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) ze třídy [FormatScheme](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/) můžete do tématu PowerPointu přidat nebo získat styl pozadí. 
+Pomocí vlastnosti [BackgroundFillStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) ze třídy [FormatScheme](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/) můžete přidat nebo získat styl pozadí v tématu PowerPointu. 
 {{% /alert %}}
 
 Tento C# kód ukazuje, jak nastavit pozadí pro prezentaci:
 
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**Průvodce indexy**: 0 znamená žádnou výplň. Index začíná od 1.
+**Průvodce indexem**: 0 se používá pro žádnou výplň. Index začíná od 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Možná budete chtít zobrazit [PowerPoint Background](/slides/cs/net/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+Možná budete chtít zobrazit [pozadí PowerPointu](/slides/cs/net/presentation-background/).
 {{% /alert %}}
 
 ## **Změna efektu tématu**
 
-Téma PowerPointu obvykle obsahuje 3 hodnoty pro každé pole stylu. Tyto pole jsou kombinována do 3‑ech efektů: subtle, moderate a intense. Například takto vypadá výsledek, když jsou efekty aplikovány na konkrétní tvar:
+Téma PowerPointu obvykle obsahuje 3 hodnoty pro každé pole stylů. Tyto pole jsou sloučeny do 3 efektů: jemný, střední a intenzivní. Například toto je výsledek, když jsou efekty aplikovány na konkrétní tvar:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Pomocí 3 vlastností ([FillStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/effectstyles)) ze třídy [FormatScheme](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme) můžete měnit prvky v tématu (ještě flexibilněji než možnosti v PowerPointu).
+Pomocí 3 vlastností ([FillStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme/effectstyles)) ze třídy [FormatScheme](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/formatscheme) můžete měnit prvky v tématu (ještě flexibilněji než v PowerPointu).
 
 Tento C# kód ukazuje, jak změnit efekt tématu úpravou částí prvků:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -254,20 +296,20 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-Výsledné změny ve výplni barvy, typu výplně, stínu atd.:
+Výsledné změny ve výplňové barvě, typu výplně, stínovém efektu atd.:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
-## **Časté otázky**
+## **FAQ**
 
-**Mohu použít téma jen pro jeden snímek, aniž bych změnil master?**
+### Mohu použít téma na jediný snímek bez změny masteru?
 
-Ano. Aspose.Slides podporuje přepsání tématu na úrovni snímku, takže můžete aplikovat lokální téma jen na daný snímek a zachovat master téma nedotčené (prostřednictvím [SlideThemeManager](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/slidethememanager/)).
+Ano. Aspose.Slides podporuje přepsání tématu na úrovni snímku, takže můžete použít lokální téma jen na tento snímek a přitom zachovat master téma nedotčené (pomocí [SlideThemeManager](https://reference.aspose.com/slides/cs/net/aspose.slides.theme/slidethememanager/)).
 
-**Jaký je nejbezpečnější způsob, jak přenést téma z jedné prezentace do druhé?**
+### Jaký je nejbezpečnější způsob, jak přenést téma z jedné prezentace do druhé?
 
-[Clone slides](/slides/cs/net/clone-slides/) spolu s jejich masterem do cílové prezentace. Tím zachováte originální master, rozvržení i přidružené téma, takže vzhled zůstane konzistentní.
+[Klonování snímků](/slides/cs/net/clone-slides/) spolu s jejich masterem do cílové prezentace. Tím se zachová původní master, rozvržení a související téma, takže vzhled zůstane konzistentní.
 
-**Jak mohu zobrazit „efektivní“ hodnoty po veškerém dědění a přepsání?**
+### Jak mohu zobrazit „efektivní“ hodnoty po veškerém dědictví a přepsání?
 
-Použijte API‑ho ["effective" views](/slides/cs/net/shape-effective-properties/) pro theme/color/font/effect. Tyto metody vrací vyřešené, konečné vlastnosti po aplikaci masteru a případných lokálních přepsání.
+Použijte ["efektivní" pohledy](/slides/cs/net/shape-effective-properties/) API pro téma/barvu/písmo/efekt. Tyto vracejí vyřešené, konečné vlastnosti po aplikaci masteru a všech lokálních přepsání.

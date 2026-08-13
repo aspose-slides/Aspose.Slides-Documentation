@@ -1,38 +1,42 @@
 ---
-title: Konverze PPT na PPTX
+title: Převod PPT na PPTX
 type: docs
 weight: 30
 url: /cs/java/ppt-to-pptx-conversion/
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Konverze PPT na PPTX je podporována v Aspose.Slides pro Java. Většina funkcí prezentace – hlavní snímky, struktura a podobně – je po konvertování z jednoho formátu do druhého zachována, ale existují [několik omezení](/slides/cs/java/ppt-to-pptx-conversion/).
+Převod PPT na PPTX je podporován v Aspose.Slides pro Java. Většina funkcí prezentací – hlavní snímky, struktura a podobně – je zachována při převodu z jednoho formátu na druhý, ale existuje [několik omezení](/slides/cs/java/ppt-to-pptx-conversion/).
 
-{{% /alert %}}
-## **Funkce podporované při konverzi**
-Aspose.Slides pro Java poskytuje částečnou podporu při konvertování formátu souboru PPT na PPTX. Podpora konverze byla v Aspose.Slides pro Java právě zavedena, takže má několik omezení a nejlépe funguje u jednoduchých prezentací. Hlavní výhodou, kterou Aspose.Slides pro Java poskytuje při konverzi PPT na PPTX, je snadnost použití API. Pro zobrazení příkladů kódu si přečtěte [Konverze PPT na PPTX](). Níže seznamy vysvětlují, které funkce jsou podporovány a které nikoli při konverzi PPT na PPTX.
+{{% /alert %}} 
+## **Funkce podporované při převodu**
+Aspose.Slides pro Java poskytuje částečnou podporu převodu formátu souboru PPT na PPTX. Podpora převodu byla právě zavedena v Aspose.Slides pro Java, takže má několik omezení a nejlépe funguje pro jednoduché prezentace. Hlavní výhodou, kterou Aspose.Slides pro Java při převodu PPT na PPTX nabízí, je snadnost použití API. Pro zobrazení příkladů kódu si přečtěte o [Převodu PPT na PPTX](). Níže seznamy vysvětlují, které funkce jsou podporovány a které ne při převodu PPT na PPTX.
 
 **Zdrojová prezentace PPT**
 
 ![todo:image_alt_text](ppt-to-pptx-conversion_1.png)
 
-**Po konverzi na PPTX**
+
+
+**Po převodu na PPTX**
 
 ![todo:image_alt_text](ppt-to-pptx-conversion_2.png)
 
-## **Podporované funkce**
-Následující funkce jsou při konverzi podporovány:
 
-- Konverze struktury hlav, rozvržení a snímků.
-- Konverze grafů.
+
+## **Podporované funkce**
+Následující funkce jsou při převodu podporovány:
+
+- Převod struktury hlavních snímků, rozvržení a snímků.
+- Převod grafů.
 - Skupinové tvary.
-- Konverze automatických tvarů včetně obdélníků a elips.
-- Tvary s vlastní geometrií.
-- Textury a styly výplní obrázků pro automatické tvary.
-- Konverze zástupných prvků.
-- Konverze čar a polylinií.
+- Převod automatických tvarů včetně obdélníků a elips.
+- Tvary se vlastní geometrií.
+- Textury a obrázkové výplňové styly pro automatické tvary.
+- Převod zástupných znaků.
+- Převod čar a křivek.
 - Formáty čar a výplní.
-- Styly lineárního přechodu výplně.
+- Styly gradientní výplně.
 - OLE rámy, tabulky, video a audio rámy atd.
 - Vlastnosti animací a prezentací.
-- Konverze textu v textových rámech a držácích textu.
+- Převod textu v textových rámcích a textových držácích.

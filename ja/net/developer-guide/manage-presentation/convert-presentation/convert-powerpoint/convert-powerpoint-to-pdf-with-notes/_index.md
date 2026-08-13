@@ -1,6 +1,6 @@
 ---
-title: .NETでノート付きPowerPointプレゼンテーションをPDFに変換
-linktitle: ノート付きPowerPointをPDFに変換
+title: .NETでスピーカーノート付きPowerPointプレゼンテーションをPDFに変換
+linktitle: ノート付きPowerPointからPDFへ
 type: docs
 weight: 50
 url: /ja/net/convert-powerpoint-to-pdf-with-notes/
@@ -10,11 +10,11 @@ keywords:
 - スライドを変換
 - PPTを変換
 - PPTXを変換
-- PowerPointをPDFに変換
-- プレゼンテーションをPDFに変換
-- スライドをPDFに変換
-- PPTをPDFに変換
-- PPTXをPDFに変換
+- PowerPointからPDFへ
+- プレゼンテーションをPDFへ
+- スライドをPDFへ
+- PPTをPDFへ
+- PPTXをPDFへ
 - プレゼンテーションをPDFとして保存
 - PPTをPDFとして保存
 - PPTXをPDFとして保存
@@ -25,23 +25,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET用 Aspose.Slides を使用して、PPT と PPTX をノート付き PDF に変換します。レイアウトとスピーカーノートを保持し、プロフェッショナルなプレゼンテーションを実現します。"
+description: "Aspose.Slides for .NET を使用して、PPT および PPTX をノート付き PDF に変換します。プロフェッショナルなプレゼンテーションのレイアウトとスピーカーノートを保持します。"
 ---
-
 ## **概要**
 
-この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションをスピーカーノート付きの PDF 形式に変換する方法を学びます。このガイドでは、必要な手順を説明し、タスクを効率的に実行できるようコード例を提供します。この記事の最後までに、以下ができるようになります：
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションをスピーカーノート付きの PDF 形式に変換する方法を学びます。このガイドでは、必要な手順をカバーし、タスクを効率的に実行するためのコード例を提供します。この記事の最後までに、以下ができるようになります：
 
-- スピーカーノートを維持しながら、PowerPoint スライドを PDF ドキュメントに変換するプロセスを実装します。
-- 出力 PDF をカスタマイズし、スピーカーノートが含まれ、要件に合わせてフォーマットされていることを保証します。
+- スピーカーノートを保持したまま、PowerPoint スライドを PDF ドキュメントに変換するプロセスを実装する。
+- 出力 PDF をカスタマイズし、スピーカーノートが含まれ、要求に合わせて書式設定されていることを確認する。
 
-## **スピーカーノート付きで PowerPoint を PDF に変換**
+## **ノート付きで PowerPoint を PDF に変換**
 
-`Save` メソッドは [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスで PPT または PPTX プレゼンテーションをスピーカーノート付き PDF に変換するために使用できます。Aspose.Slides を使用すると、プレゼンテーションをロードし、[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) クラスを使ってスピーカーノートを含めるレイアウトオプションを設定し、PDF として保存するだけです。以下のコードスニペットは、サンプルプレゼンテーションをノートスライドビューの PDF に変換する方法を示しています。
+`Save` メソッドは [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスで、PPT または PPTX プレゼンテーションをスピーカーノート付きの PDF に変換するために使用できます。Aspose.Slides を使用すると、プレゼンテーションをロードし、[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/notescommentslayoutingoptions/) クラスを使用してスピーカーノートを含めるレイアウトオプションを構成し、最後にファイルを PDF として保存するだけです。以下のコードスニペットは、サンプルプレゼンテーションをノートスライドビューで PDF に変換する方法を示しています。
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // スピーカーノートをレンダリングするための PDF オプションを設定します。
+    // スピーカーノートをレンダリングするための PDF オプションを構成します。
     PdfOptions pdfOptions = new PdfOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -55,7 +58,6 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
-{{% alert color="primary" %}} 
-Aspose の [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion) をぜひご利用ください。 
+{{% alert color="info" %}} 
+Aspose の [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/ja/conversion) をぜひご確認ください。 
 {{% /alert %}}

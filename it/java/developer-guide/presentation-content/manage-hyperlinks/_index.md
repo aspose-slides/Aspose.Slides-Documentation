@@ -1,5 +1,5 @@
 ---
-title: Gestire i collegamenti ipertestuali della presentazione in Java
+title: Gestisci i collegamenti ipertestuali della presentazione in Java
 linktitle: Gestisci collegamento
 type: docs
 weight: 20
@@ -12,40 +12,40 @@ keywords:
 - rimuovi collegamento ipertestuale
 - aggiorna collegamento ipertestuale
 - collegamento ipertestuale nel testo
-- collegamento ipertestuale alla diapositiva
-- collegamento ipertestuale alla forma
-- collegamento ipertestuale all'immagine
-- collegamento ipertestuale al video
+- collegamento ipertestuale nella diapositiva
+- collegamento ipertestuale nella forma
+- collegamento ipertestuale nell'immagine
+- collegamento ipertestuale nel video
 - collegamento ipertestuale mutabile
 - PowerPoint
 - OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Gestisci facilmente i collegamenti ipertestuali nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Java—migliora l'interattività e il flusso di lavoro in pochi minuti."
+description: "Gestisci facilmente i collegamenti ipertestuali in presentazioni PowerPoint e OpenDocument con Aspose.Slides per Java—migliora l'interattività e il flusso di lavoro in pochi minuti."
 ---
 ## **Introduzione**
 
-Un collegamento ipertestuale è un riferimento a un oggetto, a dati o a un luogo in qualcosa. Questi sono collegamenti ipertestuali comuni nelle presentazioni PowerPoint:
+Un collegamento ipertestuale è un riferimento a un oggetto, a dei dati o a un punto in qualcosa. Questi sono collegamenti ipertestuali comuni nelle presentazioni PowerPoint:
 
-* Collegamenti a siti web all'interno di testi, forme o media
+* Collegamenti a siti web all'interno di testi, forme o contenuti multimediali
 * Collegamenti a diapositive
 
-Aspose.Slides per Java ti consente di eseguire molte operazioni relative ai collegamenti ipertestuali nelle presentazioni. 
+Aspose.Slides per Java consente di eseguire molte attività relative ai collegamenti ipertestuali nelle presentazioni.
 
-{{% alert color="primary" %}} 
-
-Potresti voler provare Aspose simple, [editor online gratuito di PowerPoint.](https://products.aspose.app/slides/it/editor)
-
+{{% alert color="info" %}} 
+Potresti voler provare Aspose simple, [editor PowerPoint online gratuito.](https://products.aspose.app/slides/it/editor)
 {{% /alert %}} 
 
-## **Aggiungere collegamenti URL**
+## **Aggiungi collegamenti URL**
 
-### **Aggiungere collegamenti URL al testo**
+### **Aggiungi collegamenti URL al testo**
 
-Questo codice Java mostra come aggiungere un collegamento a un sito web a un testo:
+Questo codice Java mostra come aggiungere un collegamento ipertestuale a un sito web a un testo:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -62,11 +62,13 @@ try {
 }
 ```
 
-### **Aggiungere collegamenti URL a forme o cornici**
+### **Aggiungi collegamenti URL a forme o cornici**
 
-Questo esempio di codice Java mostra come aggiungere un collegamento a un sito web a una forma:
+Questo esempio di codice Java mostra come aggiungere un collegamento ipertestuale a un sito web a una forma:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -80,39 +82,45 @@ try {
 }
 ```
 
-### **Aggiungere collegamenti URL a media**
+### **Aggiungi collegamenti URL ai media**
 
-Aspose.Slides ti consente di aggiungere collegamenti a immagini, file audio e video. 
+Aspose.Slides consente di aggiungere collegamenti ipertestuali a immagini, file audio e video.
 
-Questo esempio di codice mostra come aggiungere un collegamento a un'**immagine**:
+Questo esempio di codice mostra come aggiungere un collegamento ipertestuale a un'**immagine**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Aggiunge immagine alla presentazione
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// Crea un frame immagine nella diapositiva 1 basato sull'immagine precedentemente aggiunta
+	// Crea un frame immagine nella diapositiva 1 basato sull'immagine aggiunta precedentemente
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Questo esempio di codice mostra come aggiungere un collegamento a un **file audio**:
+Questo esempio di codice mostra come aggiungere un collegamento ipertestuale a un **file audio**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -128,9 +136,14 @@ try {
 }
 ```
 
-Questo esempio di codice mostra come aggiungere un collegamento a un **video**:
+Questo esempio di codice mostra come aggiungere un collegamento ipertestuale a un **video**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -146,19 +159,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
+{{% alert title="Tip" color="info" %}} 
 Potresti voler vedere *[Gestisci OLE](/slides/it/java/manage-ole/)*.
-
 {{% /alert %}}
 
-## **Usare i collegamenti per creare un indice**
+## **Usa i collegamenti ipertestuali per creare un indice**
 
-Poiché i collegamenti ipertestuali consentono di aggiungere riferimenti a oggetti o luoghi, puoi usarli per creare un indice. 
+Poiché i collegamenti ipertestuali consentono di aggiungere riferimenti a oggetti o posizioni, è possibile usarli per creare un indice.
 
 Questo esempio di codice mostra come creare un indice con collegamenti ipertestuali:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -187,15 +201,18 @@ try {
 }
 ```
 
-## **Formattare i collegamenti**
+## **Formato dei collegamenti ipertestuali**
 
 ### **Colore**
 
-Con la proprietà [ColorSource](https://reference.aspose.com/slides/it/java/com.aspose.slides/Hyperlink#setColorSource-int-) nell'interfaccia [IHyperlink](https://reference.aspose.com/slides/it/java/com.aspose.slides/IHyperlink), è possibile impostare il colore per i collegamenti ipertestuali e anche ottenere le informazioni sul colore dai collegamenti. La funzionalità è stata introdotta per la prima volta in PowerPoint 2019, quindi le modifiche relative alla proprietà non si applicano alle versioni precedenti di PowerPoint.
+Con la proprietà [ColorSource](https://reference.aspose.com/slides/it/java/com.aspose.slides/Hyperlink#setColorSource-int-) nell'interfaccia [IHyperlink](https://reference.aspose.com/slides/it/java/com.aspose.slides/IHyperlink), è possibile impostare il colore per i collegamenti ipertestuali e anche ottenere le informazioni sul colore dai collegamenti ipertestuali. La funzionalità è stata introdotta per la prima volta in PowerPoint 2019, quindi le modifiche relative alla proprietà non si applicano alle versioni precedenti di PowerPoint.
 
-Questo esempio di codice dimostra un'operazione in cui sono stati aggiunti alla stessa diapositiva collegamenti ipertestuali con colori diversi:
+Questo esempio di codice dimostra un'operazione in cui sono stati aggiunti collegamenti ipertestuali con colori diversi alla stessa diapositiva:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -216,21 +233,23 @@ try {
 }
 ```
 
-## **Rimuovere i collegamenti dalle presentazioni**
+## **Rimuovi i collegamenti ipertestuali dalle presentazioni**
 
-### **Rimuovere i collegamenti dal testo**
+### **Rimuovi i collegamenti ipertestuali dal testo**
 
-Questo codice Java mostra come rimuovere il collegamento ipertestuale da un testo in una diapositiva di presentazione:
+Questo codice Java mostra come rimuovere il collegamento ipertestuale da un testo in una diapositiva della presentazione:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -247,12 +266,14 @@ try {
 }
 ```
 
-### **Rimuovere i collegamenti da forme o cornici**
+### **Rimuovi i collegamenti ipertestuali da forme o cornici**
 
-Questo codice Java mostra come rimuovere il collegamento ipertestuale da una forma in una diapositiva di presentazione: 
+Questo codice Java mostra come rimuovere il collegamento ipertestuale da una forma in una diapositiva della presentazione: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -275,9 +296,11 @@ La classe [Hyperlink](https://reference.aspose.com/slides/it/java/com.aspose.sli
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/it/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/it/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Questo frammento di codice mostra come aggiungere un collegamento a una diapositiva e modificare il suo tooltip in seguito:
+Il frammento di codice mostra come aggiungere un collegamento ipertestuale a una diapositiva e modificare il suo suggerimento (tooltip) successivamente:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -288,6 +311,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Modifica il tooltip del collegamento ipertestuale già aggiunto
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -296,7 +322,7 @@ try {
 
 ## **Proprietà supportate in IHyperlinkQueries**
 
-Puoi accedere a [IHyperlinkQueries](https://reference.aspose.com/slides/it/java/com.aspose.slides/IHyperlinkQueries) da una presentazione, diapositiva o testo per cui è definito il collegamento ipertestuale. 
+È possibile accedere a [IHyperlinkQueries](https://reference.aspose.com/slides/it/java/com.aspose.slides/IHyperlinkQueries) da una presentazione, diapositiva o testo per cui è definito il collegamento ipertestuale. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/it/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -311,14 +337,14 @@ La classe [IHyperlinkQueries](https://reference.aspose.com/slides/it/java/com.as
 
 ## **FAQ**
 
-**Come posso creare una navigazione interna non solo a una diapositiva, ma a una "sezione" o alla prima diapositiva di una sezione?**
+### Come posso creare una navigazione interna non solo a una diapositiva, ma a una "sezione" o alla prima diapositiva di una sezione?
 
 Le sezioni in PowerPoint sono raggruppamenti di diapositive; la navigazione tecnicamente punta a una diapositiva specifica. Per "navigare a una sezione", di solito si collega alla sua prima diapositiva.
 
-**Posso allegare un collegamento ipertestuale agli elementi del master slide in modo che funzioni su tutte le diapositive?**
+### Posso collegare un collegamento ipertestuale agli elementi del master slide in modo che funzioni su tutte le diapositive?
 
-Sì. Gli elementi del master slide e del layout supportano i collegamenti ipertestuali. Tali collegamenti appaiono sulle diapositive figlie e sono cliccabili durante la presentazione.
+Sì. Gli elementi del master slide e del layout supportano i collegamenti ipertestuali. tali collegamenti appaiono sulle diapositive figlie e sono cliccabili durante la presentazione.
 
-**I collegamenti ipertestuali verranno conservati durante l'esportazione in PDF, HTML, immagini o video?**
+### I collegamenti ipertestuali verranno mantenuti durante l'esportazione in PDF, HTML, immagini o video?
 
-In [PDF](/slides/it/java/convert-powerpoint-to-pdf/) e [HTML](/slides/it/java/convert-powerpoint-to-html/), sì—i collegamenti sono generalmente preservati. Quando si esporta in [immagini](/slides/it/java/convert-powerpoint-to-png/) e [video](/slides/it/java/convert-powerpoint-to-video/), la possibilità di cliccare non verrà mantenuta a causa della natura di questi formati (i fotogrammi raster/video non supportano i collegamenti ipertestuali).
+In [PDF](/slides/it/java/convert-powerpoint-to-pdf/) e [HTML](/slides/it/java/convert-powerpoint-to-html/), sì—i collegamenti sono generalmente mantenuti. Quando si esporta in [immagini](/slides/it/java/convert-powerpoint-to-png/) e [video](/slides/it/java/convert-powerpoint-to-video/), la possibilità di cliccare non sarà mantenuta a causa della natura di questi formati (i fotogrammi raster/video non supportano i collegamenti ipertestuali).

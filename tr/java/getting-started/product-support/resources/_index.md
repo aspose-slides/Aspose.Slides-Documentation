@@ -9,15 +9,15 @@ keywords:
 - blog
 - Aspose.Slides indirme
 - destek forumu
-- ürün dokümantasyonu
+- ürün belgeleri
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Anahtar Aspose.Slides for Java kaynaklarını keşfedin—indirmeler, dokümanlar, forumlar ve blog güncellemeleri—ve PPT, PPTX ve ODP ile çalışmanızı geliştirin."
+description: "Aspose.Slides for Java anahtar kaynaklarını—indirme ve belgelerden forumlara ve blog güncellemelerine—keşfedin ve PPT, PPTX ve ODP ile çalışmayı geliştirin."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Bu tablo, önemli Aspose.Slides for Java teknik kaynaklarını listeler. 
 
@@ -25,8 +25,8 @@ Bu tablo, önemli Aspose.Slides for Java teknik kaynaklarını listeler.
 
 |**Kaynak**|**Açıklama**|
 | :- | :- |
-|[Aspose.Slides for Java home page](https://products.aspose.com/slides/tr/java/)|Ürün ana sayfası.|
-|[Aspose.Slides blog](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve Aspose.Slides hakkında faydalı ipuçları için burayı sık sık kontrol edin.|
-|[Aspose.Slides for Java download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Aspose.Slides'ın en son sürümünü buradan indirin. Sık sık güncelleme yapıyoruz.|
-|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı burada gönderin, hızlı bir çözüm alın.|
-|[Aspose.Slides for Java product documentation](/slides/tr/java/)|Bu belgeler ve Aspose.Slides API Referansı dahil olmak üzere tam çevrimiçi dokümantasyon.|
+|[Aspose.Slides for Java ana sayfa](https://products.aspose.com/slides/tr/java/)|Ürün ana sayfası.|
+|[Aspose.Slides blogu](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve Aspose.Slides hakkında yararlı ipuçları için burayı sık kontrol edin.|
+|[Aspose.Slides for Java indirme](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Aspose.Slides'in en son sürümünü buradan indirin. Sık sık yeni sürüm yayınları yapıyoruz.|
+|[Aspose.Slides destek forumu](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı burada paylaşın, hızlı çözüm alın.|
+|[Aspose.Slides for Java ürün belgeleri](/slides/tr/java/)|Bu belgeyi ve Aspose.Slides API Referansını içeren tam çevrimiçi belge.|

@@ -1,37 +1,47 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للأجيال السابقة في Aspose.Slides لجافا 15.2.0
+title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides for Java 15.2.0
+linktitle: Aspose.Slides for Java 15.2.0
 type: docs
 weight: 110
 url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/
+keywords:
+- ترحيل
+- شفرة قديمة
+- شفرة حديثة
+- نهج تقليدي
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "مراجعة تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides for Java للانتقال بسلاسة حلول عروض PowerPoint PPT و PPTX و ODP الخاصة بك."
 ---
-
-{{% alert color="primary" %}} 
-
-تسرد هذه الصفحة جميع [المضاف](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) الفئات والطرق والخصائص وما إلى ذلك، وأي قيود جديدة وتغييرات أخرى [مقدمة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) مع واجهة برمجة التطبيقات Aspose.Slides لجافا 15.2.0.
-
-{{% /alert %}} {{% alert color="primary" %}} 
-
-توجد مشاكل معروفة مع بعض النقاط النقطية للصورة وأجسام WordArt والتي سيتم إصلاحها في Aspose.Slides لجافا 15.2.0.
-
+{{% alert color="info" %}} 
+هذه الصفحة تسرد جميع الفئات والطرق والخصائص وما إلى ذلك، بالإضافة إلى أي قيود جديدة و[التغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-2-0/) التي تم إدخالها مع Aspose.Slides for Java 15.2.0 API.
+{{% /alert %}} {{% alert color="info" %}} 
+هناك مشكلات معروفة مع بعض نقاط الصورة وكائنات WordArt والتي سيتم إصلاحها في Aspose.Slides for Java 15.2.0.
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-### **تم إضافة طرق addDataPointForDoughnutSeries**
-تمت إضافة نسختين من طريقة IChartDataPointCollection.addDataPointForDoughnutSeries() لإضافة النقاط البيانية إلى سلسلتي من نوع Doughnut.
-### **تم وراثة فئة com.aspose.slides.SmartArtShape من فئة com.aspose.slides.GeometryShape**
-تم وراثة فئة com.aspose.slides.SmartArtShape من فئة com.aspose.slides.GeometryShape. تحسن هذه التغيير نموذج كائنات Aspose.Slides ويضيف ميزات جديدة إلى فئة SmartArtShape.
+## **تغييرات API العامة**
+### **تمت إضافة طرق addDataPointForDoughnutSeries**
+تمت إضافة طريقتين متجاوزتين IChartDataPointCollection.addDataPointForDoughnutSeries() لإضافة نقاط البيانات إلى سلاسل من نوع Doughnut.
+### **تم توريث الفئة com.aspose.slides.SmartArtShape من الفئة com.aspose.slides.GeometryShape**
+تم توريث الفئة com.aspose.slides.SmartArtShape من الفئة com.aspose.slides.GeometryShape. يحسن هذا التغيير نموذج كائنات Aspose.Slides ويضيف ميزات جديدة إلى الفئة SmartArtShape.
 ### **تم تغيير طرق IGradientStopCollection.add(...) و IGradientStopCollection.insert(...)**
-تم استبدال توقيع IGradientStop add(float position, int presetColor) بتوقيع IGradientStop addPresetColor(float position, int presetColor).
+تم استبدال توقيع IGradientStop add(float position, int presetColor) بالتوقيع IGradientStop addPresetColor(float position, int presetColor).
 
-تم استبدال توقيع طريقة IGradientStopCollection IGradientStop add(float position, SchemeColor schemeColor) بتوقيع IGradientStop addSchemeColor(float position, int schemeColor).
+تم استبدال توقيع طريقة IGradientStopCollection IGradientStop add(float position, SchemeColor schemeColor) بالتوقيع IGradientStop addSchemeColor(float position, int schemeColor).
 
-تم استبدال توقيع طريقة IGradientStopCollection void insert(int index, float position, int presetColor) بتوقيع void insertPresetColor(int index, float position, int presetColor).
+تم استبدال توقيع طريقة IGradientStopCollection void insert(int index, float position, int presetColor) بالتوقيع void insertPresetColor(int index, float position, int presetColor).
 
-تم استبدال توقيع طريقة IGradientStopCollection void insert(int index, float position, SchemeColor schemeColor) بتوقيع void insertSchemeColor(int index, float position, int schemeColor).
+تم استبدال توقيع طريقة IGradientStopCollection void insert(int index, float position, SchemeColor schemeColor) بالتوقيع void insertSchemeColor(int index, float position, int schemeColor).
 ### **تمت إضافة طريقة java.awt.Color getAutomaticSeriesColor() إلى com.aspose.slides.IChartSeries**
-ترجع طريقة getAutomaticSeriesColor() لوناً تلقائياً للسلسلة بناءً على فهرس السلسلة وأسلوب الرسم البياني. يتم استخدام هذا اللون بشكل افتراضي إذا كانت FillType تساوي NotDefined.
-﻿
+طريقة getAutomaticSeriesColor() تُعيد لونًا تلقائيًا للسلسلة بناءً على فهرس السلسلة ونمط المخطط. يُستخدم هذا اللون افتراضيًا إذا كان FillType يساوي NotDefined.
+ 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -46,8 +56,8 @@ for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
 }
 
 ```
-### **تمت إضافة طريقة لإزالة نقطة بيانات الرسم البياني وفئة الرسم البياني بواسطة فهرسها**
-تمت إضافة طريقة IChartDataPointCollection.removeAt(int index) لإزالة نقطة بيانات الرسم البياني بواسطة فهرسها.
-تمت إضافة طريقة IChartCategoryCollection.removeAt(int index) لإزالة فئة الرسم البياني بواسطة فهرسها.
-### **تمت إضافة قيمة PptXPptY إلى تعداد com.aspose.slides.PropertyType**
-تمت إضافة قيمة PptXPptY إلى تعداد com.aspose.slides.PropertyType في نطاق إصلاح مشكلة التسلسل.
+### **تمت إضافة طريقة لإزالة نقطة بيانات المخطط وفئة المخطط حسب الفهرس**
+تمت إضافة طريقة IChartDataPointCollection.removeAt(int index) لإزالة نقطة بيانات المخطط حسب الفهرس.
+تمت إضافة طريقة IChartCategoryCollection.removeAt(int index) لإزالة فئة المخطط حسب الفهرس.
+### **تمت إضافة القيمة PptXPptY إلى تعداد com.aspose.slides.PropertyType**
+تمت إضافة القيمة PptXPptY إلى تعداد com.aspose.slides.PropertyType في إطار إصلاح مشكلة التسلسل.

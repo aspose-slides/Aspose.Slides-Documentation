@@ -1,48 +1,67 @@
 ---
-title: "مدیریت فهرست‌های نقطه‌دار و شماره‌دار در ارائه‌ها با C++"
-linktitle: "مدیریت فهرست‌ها"
+title: مدیریت فهرست‌های نقطه‌ای و عددی در ارائه‌ها در C++
+linktitle: مدیریت فهرست‌ها
 type: docs
 weight: 70
 url: /fa/cpp/manage-lists/
 keywords:
-- "نقطه"
-- "فهرست نقطه‌دار"
-- "فهرست شماره‌دار"
-- "نقطه نمادین"
-- "نقطه تصویری"
-- "نقطه سفارشی"
-- "فهرست چندسطحی"
-- "ایجاد نقطه"
-- "افزودن نقطه"
-- "افزودن فهرست"
-- "PowerPoint"
-- "OpenDocument"
-- "ارائه"
-- "C++"
-- "Aspose.Slides"
-description: "یاد بگیرید چگونه فهرست‌های نقطه‌دار، تصویری، چندسطحی و شماره‌دار را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای C++ ایجاد و قالب‌بندی کنید."
+- نقطه
+- فهرست نقطه‌ای
+- فهرست عددی
+- نقطه نمادین
+- نقطه تصویری
+- نقطه سفارشی
+- فهرست چندسطحی
+- ایجاد نقطه
+- افزودن نقطه
+- افزودن فهرست
+- PowerPoint
+- OpenDocument
+- ارائه
+- C++
+- Aspose.Slides
+description: "یاد بگیرید چگونه فهرست‌های نقطه‌ای، تصویری، چندسطحی و عددی را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای C++ ایجاد و قالب‌بندی کنید."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides برای C++ به شما امکان می‌دهد لیست‌های نقطه‌دار و شماره‌دار را در ارائه‌های PowerPoint و OpenDocument ایجاد و قالب‌بندی کنید. یک مورد لیست یک پاراگراف است که تنظیمات نقطه آن از طریق قالب‌بندی پاراگراف کنترل می‌شود.
+Aspose.Slides for C++ به شما امکان می‌دهد فهرست‌های نقطه‌ای و عددی را در ارائه‌های PowerPoint و OpenDocument ایجاد و قالب‌بندی کنید. یک مورد فهرست یک پاراگراف است که تنظیمات نقطه‌گذاری آن از طریق قالب‌بندی پاراگراف کنترل می‌شود.
 
-از متد [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/get_paragraphformat/) برای دسترسی به تنظیمات لیست در سطح پاراگراف استفاده کنید. نقطه ورودی اصلی [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_bullet/) است که یک شیء [IBulletFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/) برمی‌گرداند. با استفاده از این شیء می‌توانید نوع نقطه، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و عدد شروع را تنظیم کنید.
+از متد [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/get_paragraphformat/) برای دسترسی به تنظیمات فهرست سطح پاراگراف استفاده کنید. نقطه ورودی اصلی [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_bullet/) است که یک شیء [IBulletFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/) برمی‌گرداند. با این شیء می‌توانید نوع نقطه، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و شماره شروع را تنظیم کنید.
 
 این مقاله نشان می‌دهد چگونه:
 
-- لیست نقطه‌دار با نماد سفارشی ایجاد کنید
-- بولت تصویر ایجاد کنید
-- لیست چندسطحی را با تنظیم عمق پاراگراف ایجاد کنید
-- لیست شماره‌دار ایجاد کنید
-- قالب‌بندی لیست را در یک ارائه موجود بازبینی و تغییر دهید
+- یک فهرست نقطه‌ای با نماد سفارشی ایجاد کنید
+- یک نقطه تصویری ایجاد کنید
+- با تنظیم عمق پاراگراف یک فهرست چندسطحی ایجاد کنید
+- یک فهرست عددی ایجاد کنید
+- قالب‌بندی فهرست موجود در یک ارائه را بررسی و تغییر دهید
 
-## **ایجاد لیست نقطه‌دار**
+## **ایجاد فهرست نقطه‌ای**
 
-برای ایجاد لیست نقطه‌دار، اشیاء [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) را به یک [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) اضافه کنید و [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Symbol](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید. سپس می‌توانید [IBulletFormat::set_Char](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_char/)، [IBulletFormat::get_Color](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/get_color/) و [IBulletFormat::set_Height](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_height/) را برای کنترل ظاهر نقطه تنظیم کنید.
+برای ایجاد فهرست نقطه‌ای، شیءهای [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) را به یک [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) اضافه کنید و [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Symbol](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید. سپس می‌توانید [IBulletFormat::set_Char](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_char/)، [IBulletFormat::get_Color](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/get_color/) و [IBulletFormat::set_Height](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_height/) را برای کنترل ظاهر نقطه تنظیم نمایید.
 
-کد C++ زیر نشان می‌دهد چگونه یک لیست نقطه‌دار در یک اسلاید ایجاد شود:
+کد C++ زیر نحوه ایجاد فهرست نقطه‌ای در یک اسلاید را نشان می‌دهد:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -79,15 +98,30 @@ presentation->Dispose();
 
 نتیجه:
 
-![نقطه‌های نماد](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
-## **ایجاد لیست شماره‌دار**
+## **ایجاد فهرست عددی**
 
-از لیست‌های شماره‌دار زمانی استفاده کنید که ترتیب موارد اهمیت دارد. [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Numbered](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید. همچنین می‌توانید با استفاده از [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) یک قالب شماره‌گذاری انتخاب کنید یا با [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) زمانی که لیست باید از مقداری غیر از 1 شروع شود، مقدار شروع را تنظیم کنید.
+از فهرست‌های عددی زمانی استفاده کنید که ترتیب موارد مهم باشد. [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Numbered](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید. همچنین می‌توانید قالب شماره‌گذاری را با [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) انتخاب کنید یا زمانی که فهرست باید از مقداری غیر از 1 شروع شود، [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) را تنظیم کنید.
 
-کد C++ زیر نشان می‌دهد چگونه یک لیست شماره‌دار در یک اسلاید ایجاد شود:
+کد C++ زیر نحوه ایجاد فهرست عددی در یک اسلاید را نشان می‌دهد:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -116,27 +150,44 @@ presentation->Dispose();
 
 نتیجه:
 
-![نقطه‌های شماره‌دار](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
-## **ایجاد بولت تصویر**
+## **ایجاد نقطه تصویری**
 
-Aspose.Slides به شما امکان می‌دهد نماد نقطه معمولی را با یک تصویر جایگزین کنید. بولت‌های تصویری بهترین عملکرد را با تصاویر ساده‌ای که در اندازه کوچک نیز قابل خواندن هستند، مانند آیکون‌ها یا فایل‌های PNG شفاف کوچک، دارند.
+Aspose.Slides به شما اجازه می‌دهد نماد نقطه عادی را با تصویر جایگزین کنید. نقطه‌های تصویری بهترین کارایی را با تصاویری ساده که در اندازه کوچک نیز قابل خواندن باشند، مانند آیکون‌ها یا فایل‌های PNG شفاف کوچک، دارند.
 
-{{% alert color="primary" %}}
-در حالت ایده‌آل، اگر قصد دارید نماد نقطه معمولی را با یک تصویر جایگزین کنید، بهتر است یک گرافیک ساده با پس‌زمینه شفاف انتخاب کنید. چنین تصاویری به‌عنوان نمادهای سفارشی نقطه به‌خوبی عمل می‌کنند.
-
-به‌خاطر داشته باشید که تصویر به‌صورت بسیار کوچک مقیاس خواهد یافت. به همین دلیل، قویاً توصیه می‌کنیم تصویری را برگزینید که در استفاده به‌عنوان نقطه در یک لیست واضح و بصری مؤثر باقی بماند.
+{{% alert color="info" %}}
+در ideal، اگر قصد دارید نماد نقطه عادی را با تصویر جایگزین کنید، بهتر است گرافیک ساده‌ای با پس‌زمینه شفاف انتخاب کنید. چنین تصاویری به‌عنوان نمادهای نقطه سفارشی به‌خوبی عمل می‌کنند.
 {{% /alert %}}
 
-برای ایجاد بولت تصویر، یک تصویر را به [IPresentation::get_Images](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_images/) اضافه کنید و شیء بازگشتی [IPPImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ippimage/) را به [IBulletFormat::get_Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/get_picture/) اختصاص دهید. قبل از اختصاص تصویر، [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید.
+برای ایجاد نقطه تصویری، یک تصویر را به [IPresentation::get_Images](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_images/) اضافه کنید و شیء [IPPImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ippimage/) بازگشتی را به [IBulletFormat::get_Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/get_picture/) اختصاص دهید. قبل از اختصاص تصویر، [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید.
 
-فرض کنید یک فایل «image.png» داریم:
+فرض کنید فایل «image.png» داریم:
 
-![تصویری برای نقطه‌ها](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
-کد C++ زیر نشان می‌دهد چگونه بولت‌های تصویری در یک اسلاید ایجاد شوند:
+کد C++ زیر نحوه ایجاد نقطه‌های تصویری در یک اسلاید را نشان می‌دهد:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -175,15 +226,28 @@ presentation->Dispose();
 
 نتیجه:
 
-![نقطه‌های تصویری](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
-## **ایجاد لیست چندسطحی**
+## **ایجاد فهرست چندسطحی**
 
-از [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_depth/) برای قرار دادن موارد لیست در سطوح مختلف استفاده کنید. سطح ۰ بالاترین سطح است، سطح ۱ زیر آن تو در توست و به همین ترتیب.
+از [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_depth/) برای قرار دادن موارد فهرست در سطوح مختلف استفاده کنید. سطح 0 بالاترین سطح است، سطح 1 زیر آن تو در تو می‌شود و به همین ترتیب.
 
-کد C++ زیر نشان می‌دهد چگونه یک لیست نقطه‌دار چندسطحی ایجاد شود:
+کد C++ زیر نحوه ایجاد فهرست نقطه‌ای چندسطحی را نشان می‌دهد:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -217,15 +281,28 @@ presentation->Dispose();
 
 نتیجه:
 
-![لیست چندسطحی](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
-## **تغییر لیست موجود**
+## **تغییر فهرست موجود**
 
-برای تغییر قالب‌بندی لیست در یک ارائه موجود، به پاراگراف هدف دسترسی پیدا کنید و تنظیمات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_bullet/) آن را به‌روزرسانی کنید. همان ویژگی‌هایی که برای ایجاد لیست‌ها استفاده می‌شوند، می‌توانند برای بازبینی یا اصلاح لیست‌های بارگذاری‌شده از فایل‌های PPT، PPTX یا ODP به کار روند.
+برای تغییر قالب‌بندی فهرست در یک ارائه موجود، به پاراگراف هدف دسترسی پیدا کرده و تنظیمات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_bullet/) آن را به‌روزرسانی کنید. همان خصوصیت‌هایی که برای ایجاد فهرست‌ها استفاده می‌شوند، می‌توانند برای بررسی یا اصلاح فهرست‌های بارگذاری‌شده از فایل‌های PPT، PPTX یا ODP به‌کار روند.
 
-کد C++ زیر اولین پاراگراف در یک فریم متنی را به سبک لیست شماره‌دار تغییر می‌دهد:
+کد C++ زیر اولین پاراگراف در یک فریم متن را طوری تغییر می‌دهد که از سبک فهرست عددی استفاده کند:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -244,16 +321,16 @@ presentation->Save(u"updated_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**آیا می‌توان لیست‌های نقطه‌دار و شماره‌دار را به PDF یا تصاویر صادر کرد؟**
+### آیا می‌توان فهرست‌های نقطه‌ای و عددی را به PDF یا تصاویر صادر کرد؟
 
-بله. Aspose.Slides قالب‌بندی لیست را حفظ می‌کند زمانی که فرمت هدف ویژگی‌های متن و نقطه مربوطه را پشتیبانی کند.
+بله. Aspose.Slides قالب‌بندی فهرست را حفظ می‌کند وقتی قالب هدف ویژگی‌های متن و نقطه مربوطه را پشتیبانی کند.
 
-**آیا می‌توانم لیست‌ها را در ارائه‌های موجود ویرایش کنم؟**
+### آیا می‌توان فهرست‌ها را در ارائه‌های موجود ویرایش کرد؟
 
-بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_bullet/) آن را بازبینی یا به‌روزرسانی کنید و سپس ارائه را ذخیره کنید.
+بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/get_bullet/) آن را بررسی یا به‌روزرسانی کنید و سپس ارائه را ذخیره کنید.
 
-**آیا لیست‌ها می‌توانند متن‌های غیرلاتین داشته باشند؟**
+### آیا فهرست‌ها می‌توانند متن غیرلاتین داشته باشند؟
 
-بله. متن موارد لیست می‌تواند شامل کاراکترهای یونیکد باشد، بنابراین می‌توانید لیست‌ها را در ارائه‌های چند زبانه ایجاد کنید. اطمینان حاصل کنید که قلم‌های استفاده‌شده در ارائه از کاراکترهای مورد نیاز پشتیبانی می‌کنند.
+بله. متن موارد فهرست می‌تواند کاراکترهای یونیکد داشته باشد، بنابراین می‌توانید فهرست‌ها را در ارائه‌های چندزبانه ایجاد کنید. اطمینان حاصل کنید که فونت‌های مورد استفاده در ارائه، کاراکترهای مورد نیاز شما را پشتیبانی می‌کنند.

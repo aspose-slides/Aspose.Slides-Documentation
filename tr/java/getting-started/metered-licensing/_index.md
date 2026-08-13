@@ -1,11 +1,11 @@
 ---
-title: Ölçümlü Lisanslama
+title: Ölçmeli Lisanslama
 type: docs
 weight: 100
 url: /tr/java/metered-licensing/
 keywords:
 - lisans
-- ölçümlü lisans
+- ölçmeli lisans
 - lisans anahtarları
 - genel anahtar
 - özel anahtar
@@ -15,50 +15,50 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ölçümlü lisanslamasının PowerPoint ve OpenDocument dosyalarını esnek bir şekilde işlemenizi ve yalnızca kullandıklarınız için ödeme yapmanızı nasıl sağladığını öğrenin."
+description: "Aspose.Slides for Java ölçmeli lisanslamanın, PowerPoint ve OpenDocument dosyalarını esnek bir şekilde işlemeyi ve yalnızca kullandıklarınız için ödeme yapmayı nasıl sağladığını öğrenin."
 ---
 ## **Giriş**
 
-Ölçümlü lisanslama, mevcut lisanslama yöntemleriyle birlikte kullanılabilen bir lisanslama mekanizmasıdır. Aspose.Slides API özelliklerini kullanımınıza göre faturalandırılmak istiyorsanız ölçümlü lisanslamayı seçersiniz.
+Ölçmeli lisanslama, mevcut lisanslama yöntemleriyle birlikte kullanılabilen bir lisanslama mekanizmasıdır. Aspose.Slides API özelliklerini kullanımınıza göre faturalandırılmak istiyorsanız, ölçmeli lisanslamayı seçersiniz.
 
-## **Ölçümlü Anahtarları Uygula**
+## **Ölçmeli Anahtarları Uygula**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ölçümlü lisanslama, mevcut lisanslama yöntemleriyle birlikte kullanılabilen yeni bir lisanslama mekanizmasıdır. Aspose.Slides API özelliklerini kullanımınıza göre faturalandırılmak istiyorsanız ölçümlü lisanslamayı seçersiniz.
+Ölçmeli lisanslama, mevcut lisanslama yöntemleriyle birlikte kullanılabilen yeni bir lisanslama mekanizmasıdır. Aspose.Slides API özelliklerini kullanımınıza göre faturalandırılmak istiyorsanız, ölçmeli lisanslamayı seçersiniz.
 
-Ölçümlü bir lisans satın aldığınızda anahtarlar (ve lisans dosyası yerine) elde edersiniz. Bu ölçümlü anahtar, Aspose'un ölçüm işlemleri için sağladığı [Metered](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) sınıfı kullanılarak uygulanabilir. Daha fazla ayrıntı için [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) sayfasına bakın.
+Bir ölçmeli lisans satın aldığınızda, lisans dosyası yerine anahtarlar alırsınız. Bu ölçmeli anahtar, metrik işlemler için Aspose tarafından sağlanan [Metered](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) sınıfı kullanılarak uygulanabilir. Daha fazla ayrıntı için [Ölçmeli Lisanslama SSS](https://purchase.aspose.com/faqs/licensing/metered) sayfasına bakın.
 
 {{% /alert %}} 
 
-1. [Metered](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) sınıfının bir örneğini oluşturun.
+1. [Metered](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) sınıfının bir örneğini oluşturun.  
 
-1. Genel ve özel anahtarlarınızı [setMeteredKey](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-) yöntemine geçirin.
+2. Genel ve özel anahtarlarınızı [setMeteredKey](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-) metoduna gönderin.  
 
-1. Birkaç işlem (görev) gerçekleştirin.
+3. Biraz işleme yapın (görevleri gerçekleştirin).  
 
-1. `Metered` sınıfının [getConsumptionQuantity](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/#getConsumptionQuantity--) yöntemini çağırın.
+4. `Metered` sınıfının [getConsumptionQuantity](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/#getConsumptionQuantity--) metodunu çağırın.  
 
-Şu ana kadar tükettiğiniz API isteklerinin miktarını/adetini görmelisiniz.
+Şu ana kadar tükettiğiniz API isteklerinin miktarını/adetini görebilirsiniz.
 
-Bu örnek kod, ölçümlü lisanslamanın nasıl kullanılacağını gösterir:
+Bu örnek kod, ölçmeli lisanslamayı nasıl kullanacağınızı gösterir:
 
 ```java
 // Metered sınıfının bir örneğini oluşturur
 com.aspose.slides.Metered metered = new com.aspose.slides.Metered();
 
 try {
-    // Genel ve özel anahtarları Metered nesnesine geçirir
+    // Metered nesnesine genel ve özel anahtarları gönderir
     metered.setMeteredKey("<valid public key>", "<valid private key>");
 
-    // API çağrılarından önce tüketilen miktar değerini alır
+    // API çağrıları öncesinde tüketilen miktar değerini alır
     double amountBefore = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed before: " + amountBefore);
 
-    // Burada Aspose.Slides API ile bir şeyler yapın
+    // Aspose.Slides API'siyle burada bir şey yapın
     // ...
 
-    // API çağrılarından sonra tüketilen miktar değerini alır
+    // API çağrıları sonrasında tüketilen miktar değerini alır
     double amountAfter = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed after: " + amountAfter);
 } catch (Exception ex) {
@@ -68,32 +68,32 @@ try {
 
 {{% alert color="warning" title="NOTE"  %}} 
 
-Ölçümlü lisanslamayı kullanmak için, lisanslama mekanizmasının hizmetlerimizle sürekli etkileşime girmesi ve hesaplamaları gerçekleştirmesi nedeniyle kararlı bir internet bağlantısına ihtiyacınız vardır.
+Ölçmeli lisanslamayı kullanmak için, lisanslama mekanizması hizmetlerimizle sürekli etkileşim kurup hesaplamalar yapabilmek amacıyla interneti kullandığından, sabit bir internet bağlantısına ihtiyacınız vardır.  
 
 {{% /alert %}} 
 
 ## **SSS**
 
-**Ölçümlü bir lisansı, aynı uygulamada normal bir lisans (süresiz veya geçici) ile birlikte kullanabilir miyim?**
+### Aynı uygulamada ölçmeli lisansı, kalıcı veya geçici bir lisansla birlikte kullanabilir miyim?
 
-Evet. Ölçümlü, mevcut [lisanslama yöntemleri](/slides/tr/java/licensing/) ile birlikte kullanılabilen ek bir lisanslama mekanizmasıdır. Uygulama başladığında hangi mekanizmayı uygulayacağınızı seçersiniz.
+Evet. Ölçmeli, mevcut [lisanslama yöntemleri](/slides/tr/java/licensing/) ile birlikte kullanılabilen ek bir lisanslama mekanizmasıdır. Uygulama başladığında hangi mekanizmanın uygulanacağını seçersiniz.
 
-**Ölçümlü lisans kapsamında tüketim tam olarak neyi sayar: işlemler mi dosyalar mı?**
+### Ölçmeli lisans kapsamında tüketim olarak tam olarak ne sayılır: işlemler mi yoksa dosyalar mı?
 
-API kullanımı sayılır, yani istek veya işlem sayısı. Mevcut tüketimi [tüketim izleme yöntemleri](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) ile elde edebilirsiniz.
+API kullanımı sayılır, yani istek veya işlem sayısı. Mevcut tüketimi, [tüketim izleme yöntemleri](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) aracılığıyla alabilirsiniz.
 
-**Sık sık yeniden başlatılan örneklerin olduğu mikroservis ve sunucusuz ortamlarda ölçümlü lisanslama uygun mu?**
+### Ölçmeli, sık sık yeniden başlatılan mikro hizmetler ve sunucusuz ortamlar için uygun mu?
 
-Evet. Hesaplama API çağrı seviyesi yapıldığı için sık soğuk başlatma senaryoları, ölçümlü hesaplamalar için kararlı ağ erişimi olduğu sürece uyumludur.
+Evet. Hesaplama API‑çağrı seviyesinde yapıldığı için, sık soğuk başlatmaların olduğu senaryolar, ölçmeli hesaplamalar için stabil bir ağ erişimi sağlandığı sürece uyumludur.
 
-**Kalıcı bir lisans yerine ölçümlü lisans kullanıldığında kütüphanenin işlevselliği değişir mi?**
+### Ölçmeli lisans kullanırken kütüphanenin işlevselliği kalıcı lisansa göre farklılık gösterir mi?
 
-Hayır. Bu sadece lisans ve faturalandırma mekanizmasıyla ilgilidir; ürünün yetenekleri aynı kalır.
+Hayır. Bu sadece lisanslama ve faturalandırma mekanizmasıyla ilgilidir; ürünün yetenekleri aynı kalır.
 
-**Ölçümlü lisans, deneme sürümü ve geçici lisansla nasıl ilişkilidir?**
+### Ölçmeli lisans, deneme sürümü ve geçici lisansla nasıl ilişkilidir?
 
-Deneme sürümünde sınırlamalar ve filigranlar vardır, [geçici lisans](https://purchase.aspose.com/temporary-license/) 30 gün için sınırlamaları kaldırır ve ölçümlü lisans sınırlamaları kaldırır ve gerçek kullanım üzerinden ücretlendirir.
+Deneme sürümünün sınırlamaları ve filigranları vardır, [geçici lisans](https://purchase.aspose.com/temporary-license/) 30 gün boyunca sınırlamaları kaldırır, ölçmeli ise sınırlamaları kaldırır ve gerçek kullanım üzerinden ücretlendirir.
 
-**Tüketim eşiği aşıldığında otomatik olarak tepki vererek bütçeyi kontrol edebilir miyim?**
+### Tüketim eşiği aşıldığında otomatik olarak tepki vererek bütçeyi kontrol edebilir miyim?
 
-Evet. Yaygın bir uygulama, mevcut tüketimi periyodik olarak [tüketim izleme yöntemleri](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) ile okuyup uygulama veya izleme seviyesinde kendi limitlerinizi veya uyarılarınızı uygulamaktır.
+Evet. Yaygın bir uygulama, mevcut tüketimi periyodik olarak [izleme yöntemleri](https://reference.aspose.com/slides/tr/java/com.aspose.slides/metered/) ile okuyup, uygulama veya izleme seviyesinde kendi limitlerinizi veya uyarılarınızı uygulamaktır.

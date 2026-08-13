@@ -1,5 +1,5 @@
 ---
-title: Fungerande lösning för kalkylbladsstorleksändring
+title: Fungerande lösning för ändring av kalkylbladsstorlek
 type: docs
 weight: 20
 url: /sv/androidjava/working-solution-for-worksheet-resizing/
@@ -14,36 +14,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Fixa OLE-förstoringen av Excel‑kalkylblad i presentationer: två sätt att hålla objektramar konsekventa—skala ramen eller bladet—i både PPT- och PPTX-format."
+description: "Fixa OLE‑storleksändring av Excel‑kalkylblad i presentationer: två sätt att hålla objektramarna konsekventa—skala ramen eller bladet—över PPT‑ och PPTX‑format."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Det har observerats att Excel‑kalkylblad som är inbäddade som OLE‑objekt i en PowerPoint‑presentation via Aspose‑komponenter ändras till en okänd skala efter den första aktiveringen. Detta beteende skapar en märkbar visuell skillnad i presentationen mellan före‑ och efteraktiveringsstaten för OLE‑objektet. Vi har undersökt problemet i detalj och tillhandahållit en lösning, som behandlas i den här artikeln.
+Det har observerats att Excel‑kalkylblad som är inbäddade som OLE‑objekt i en PowerPoint‑presentation via Aspose‑komponenter ändras till en oidentifierad skala efter den första aktiveringen. Detta beteende skapar en märkbar visuell skillnad i presentationen mellan före‑ och efteraktiveringslägena för OLE‑objektet. Vi har undersökt problemet i detalj och tillhandahållit en lösning, som behandlas i den här artikeln.
 
 {{% /alert %}}
 
 ## **Bakgrund**
 
-I artikeln [Manage OLE](/slides/sv/androidjava/manage-ole/) förklarade vi hur man lägger till en OLE‑ram i en PowerPoint‑presentation med Aspose.Slides för Android via Java. För att åtgärda [object preview issue](/slides/sv/androidjava/object-preview-issue-when-adding-oleobjectframe/) tilldelade vi en bild av det valda kalkylbladsområdet till OLE‑objektramen. I den resulterande presentationen, när du dubbelklickar på OLE‑objektramen som visar kalkylbladsbilden, aktiveras Excel‑arbetsboken. Slutanvändare kan göra önskade ändringar i den faktiska Excel‑arbetsboken och sedan återgå till sliden genom att klicka utanför den aktiverade Excel‑arbetsboken. Storleken på OLE‑objektramen kommer att ändras när användaren återgår till sliden. Förstoringsfaktorn varierar beroende på storleken på OLE‑objektramen och den inbäddade Excel‑arbetsboken.
+I artikeln [Manage OLE](/slides/sv/androidjava/manage-ole/) förklarade vi hur man lägger till en OLE‑ram i en PowerPoint‑presentation med Aspose.Slides för Android via Java. För att åtgärda [objektförhandsvisningsproblem](/slides/sv/androidjava/object-preview-issue-when-adding-oleobjectframe/) tilldelade vi en bild av det valda kalkylbladsområdet till OLE‑objektramen. I den färdiga presentationen, när du dubbelklickar på OLE‑objektramen som visar kalkylbladsbilden, aktiveras Excel‑arbetsboken. Slutanvändare kan göra önskade ändringar i den faktiska Excel‑arbetsboken och sedan återgå till bilden genom att klicka utanför den aktiverade Excel‑arbetsboken. Storleken på OLE‑objektramen kommer att ändras när användaren återvänder till bilden. Omfånget av storleksändringen varierar beroende på OLE‑objektrammans storlek och den inbäddade Excel‑arbetsboken.
 
-## **Orsak till Förstoringen**
+## **Orsak till storleksändring**
 
-Eftersom Excel‑arbetsboken har sin egen fönsterstorlek försöker den behålla sin ursprungliga storlek vid första aktiveringen. Å andra sidan har OLE‑objektramen sin egen storlek. Enligt Microsoft, när Excel‑arbetsboken aktiveras, förhandlar Excel och PowerPoint om storleken för att säkerställa att den behåller korrekta proportioner som en del av inbäddningsprocessen. Förstoringen sker baserat på skillnaderna mellan Excel‑fönstrets storlek och OLE‑objektramen storlek och position.
+Eftersom Excel‑arbetsboken har sin egen fönsterstorlek försöker den behålla sin ursprungliga storlek vid den första aktiveringen. Å andra sidan har OLE‑objektramen sin egen storlek. Enligt Microsoft, när Excel‑arbetsboken aktiveras, förhandlar Excel och PowerPoint om storleken för att säkerställa att den behåller rätt proportioner som en del av inbäddningsprocessen. Storleksändringen sker baserat på skillnaderna mellan Excel‑fönstrets storlek och OLE‑objektrammens storlek och position.
 
-## **Fungerande Lösning**
+## **Fungerande lösning**
 
-Det finns två möjliga lösningar för att undvika förstorningseffekten.
+Det finns två möjliga lösningar för att undvika storleksändringseffekten.
 
 - Skala OLE‑ramens storlek i PowerPoint‑presentationen så att den matchar höjden och bredden för önskat antal rader och kolumner i OLE‑ramen.
-- Behåll OLE‑ramens storlek konstant och skala storleken på de deltagande raderna och kolumnerna så att de får plats i den valda OLE‑ramens storlek.
+- Behåll OLE‑ramens storlek konstant och skala storleken på de medverkande raderna och kolumnerna så att de passar inom den valda OLE‑ramens storlek.
 
 ### **Skala OLE‑ramens storlek**
 
-I detta tillvägagångssätt kommer vi att lära oss hur man ställer in OLE‑ramens storlek för den inbäddade Excel‑arbetsboken så att den matchar den sammanlagda storleken på de deltagande raderna och kolumnerna i Excel‑kalkylbladet.
+I detta tillvägagångssätt kommer vi att lära oss hur man ställer in OLE‑ramens storlek för den inbäddade Excel‑arbetsboken så att den matchar den kumulativa storleken på de medverkande raderna och kolumnerna i Excel‑kalkylbladet.
 
-Anta att vi har ett Excel‑mallblad och vill lägga till det i en presentation som en OLE‑ram. I detta scenario beräknas först storleken på OLE‑objektramen baserat på den sammanlagda radhöjden och kolumnbredden för de deltagande raderna och kolumnerna i arbetsboken. Därefter sätter vi OLE‑ramens storlek till detta beräknade värde. För att undvika det röda meddelandet "EMBEDDED OLE OBJECT" för OLE‑ramen i PowerPoint kommer vi även att ta en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
+Anta att vi har ett mall‑Excel‑ark och vill lägga till det i en presentation som en OLE‑ram. I detta scenario beräknas storleken på OLE‑objektrammen först baserat på den kumulativa radhöjden och kolumnbredden för de medverkande raderna och kolumnerna i arbetsboken. Därefter ställer vi in OLE‑ramens storlek till detta beräknade värde. För att undvika det röda meddelandet "EMBEDDED OLE OBJECT" för OLE‑ramen i PowerPoint kommer vi också att fånga en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +59,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Ange den visade storleken när arbetsbokfilen används som OLE-objekt i PowerPoint.
+// Ange den visade storleken när arbetsboksfilen används som OLE‑objekt i PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -63,8 +69,8 @@ InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Get the width and height of the OLE image in points.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
 // We need to use the modified workbook.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
@@ -91,6 +97,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -115,13 +125,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **Skala cellintervallens storlek**
+### **Skala cellområdessstorlek**
 
-I detta tillvägagångssätt kommer vi att lära oss hur man skalar höjden på de deltagande raderna och bredden på de deltagande kolumnerna så att de matchar en anpassad OLE‑ramstorlek.
+I detta tillvägagångssätt kommer vi att lära oss hur man skalar höjden på de medverkande raderna och bredden på de medverkande kolumnerna så att de matchar en anpassad OLE‑ramstorlek.
 
-Anta att vi har ett Excel‑mallblad och vill lägga till det i en presentation som en OLE‑ram. I detta scenario sätter vi storleken på OLE‑ramen och skalar storleken på de rader och kolumner som deltar i OLE‑ramområdet. Därefter sparar vi arbetsboken till en ström för att tillämpa ändringarna och konverterar den till en byte‑array för att lägga till den i OLE‑ramen. För att undvika det röda meddelandet "EMBEDDED OLE OBJECT" för OLE‑ramen i PowerPoint kommer vi även att ta en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
+Anta att vi har ett mall‑Excel‑ark och vill lägga till det i en presentation som en OLE‑ram. I detta scenario kommer vi att ställa in OLE‑ramens storlek och skala storleken på de rader och kolumner som deltar i OLE‑ramens område. Vi kommer sedan att spara arbetsboken till en ström för att tillämpa ändringarna och konvertera den till en byte‑array för att lägga till den i OLE‑ramen. För att undvika det röda meddelandet "EMBEDDED OLE OBJECT" för OLE‑ramen i PowerPoint kommer vi också att fånga en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -132,12 +146,12 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Ange den visade storleken när arbetsboksfilen används som OLE-objekt i PowerPoint.
+// Ange den visade storleken när arbetsboksfilen används som OLE‑objekt i PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Skala cellintervallet för att passa ramstorleken.
+// Skala cellområdet så att det passar ramens storlek.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -151,11 +165,11 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Lägg till OLE-bilden i presentationens resurser.
+// Lägg till OLE‑bilden i presentationens resurser.
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Skapa OLE-objektramen.
+// Skapa OLE‑objektramen.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -168,8 +182,8 @@ presentation.dispose();
 
 ```java
 /**
- * @param width     Den förväntade bredden på cellintervallet i punkter.
- * @param height    Den förväntade höjden på cellintervallet i punkter.
+ * @param width     Den förväntade bredden på cellområdet i punkter.
+ * @param height    Den förväntade höjden på cellområdet i punkter.
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
     double rangeWidth = cellRange.getWidth();
@@ -204,6 +218,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -230,34 +248,34 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ## **Slutsats**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Det finns två tillvägagångssätt för att åtgärda problemet med att kalkylbladet ändrar storlek. Valet av lämpligt tillvägagångssätt beror på de specifika kraven och användningsfallet. Båda tillvägagångssätten fungerar på samma sätt, oavsett om presentationerna skapas från en mall eller från grunden. Dessutom finns det ingen begränsning för storleken på OLE‑objektramen i denna lösning.
+Det finns två tillvägagångssätt för att lösa problemet med storleksändring av kalkylbladet. Valet av lämpligt tillvägagångssätt beror på de specifika kraven och användningsfallet. Båda tillvägagångssätten fungerar på samma sätt, oavsett om presentationerna skapas från en mall eller från grunden. Dessutom finns det ingen gräns för storleken på OLE‑objektrammen i denna lösning.
 
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Varför ändrar ett inbäddat Excel‑kalkylblad storlek vid första aktiveringen i PowerPoint?**
+### Varför ändrar ett inbäddat Excel‑kalkylblad storlek när det först aktiveras i PowerPoint?
 
-Detta sker eftersom Excel försöker behålla det ursprungliga fönsterstorleken vid aktivering, medan OLE‑objektramen i PowerPoint har sina egna dimensioner. PowerPoint och Excel förhandlar om storleken för att bibehålla bildförhållandet, vilket kan leda till förändringen.
+Detta händer eftersom Excel försöker behålla den ursprungliga fönsterstorleken vid aktivering, medan OLE‑objektrammen i PowerPoint har sina egna dimensioner. PowerPoint och Excel förhandlar om storleken för att bibehålla bildförhållandet, vilket kan orsaka storleksändringen.
 
-**Är det möjligt att helt förhindra detta förstoringsproblem?**
+### Är det möjligt att helt förhindra detta problem med storleksändring?
 
-Ja. Genom att skala OLE‑ramen så att den matchar Excel‑cellintervallens storlek eller skala cellintervallet så att det passar den önskade OLE‑ramens storlek, kan du förhindra oönskad förändring.
+Ja. Genom att skala OLE‑ramen så att den passar Excel‑cellområdets storlek eller genom att skala cellområdet så att det passar önskad OLE‑ramstorlek kan du förhindra oönskad storleksändring.
 
-**Vilken skalningsmetod bör jag använda, OLE‑ramens skalning eller cellintervallens skalning?**
+### Vilken skalningsmetod bör jag använda, OLE‑ramsskalning eller cellområdesskalning?
 
-Välj **OLE frame scaling** om du vill behålla de ursprungliga Excel‑rad- och kolumnstorlekarna. Välj **cell range scaling** om du vill ha en fast storlek på OLE‑ramen i din presentation.
+Välj **OLE‑ramsskalning** om du vill behålla de ursprungliga Excel‑radernas och -kolumnernas storlekar. Välj **cellområdesskalning** om du vill ha en fast storlek för OLE‑ramen i din presentation.
 
-**Fungerar dessa lösningar om min presentation är baserad på en mall?**
+### Kommer dessa lösningar att fungera om min presentation är baserad på en mall?
 
-Ja. Båda lösningarna fungerar för presentationer som skapats från mallar och från grunden.
+Ja. Båda lösningarna fungerar för presentationer skapade från mallar och från grunden.
 
-**Finns det någon begränsning för OLE‑ramens storlek när man använder dessa metoder?**
+### Finns det någon gräns för OLE‑ramens storlek när man använder dessa metoder?
 
-Nej. Du kan göra OLE‑objektramen i vilken storlek som helst så länge du anger skalan korrekt.
+Nej. Du kan göra OLE‑objektrammen i vilken storlek som helst så länge du sätter skalningen på rätt sätt.
 
-**Finns det ett sätt att undvika platshållartexten "EMBEDDED OLE OBJECT" i PowerPoint?**
+### Finns det ett sätt att undvika platshållartexten "EMBEDDED OLE OBJECT" i PowerPoint?
 
-Ja. Genom att ta en bild av det önskade Excel‑cellintervallet och använda den som OLE‑ramens platshållarbild kan du visa en anpassad förhandsgranskningsbild i stället för standardplatshållaren.
+Ja. Genom att ta en ögonblicksbild av mål‑Excel‑cellområdet och sätta den som OLE‑ramens platshållarbild kan du visa en egen förhandsgranskningsbild i stället för standard‑platshållaren.

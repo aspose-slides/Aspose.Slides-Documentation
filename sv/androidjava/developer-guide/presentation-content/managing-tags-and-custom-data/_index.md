@@ -1,13 +1,17 @@
 ---
-title: Hantera taggar och anpassad data i presentationer på Android
-linktitle: Taggar och anpassad data
+title: "Hantera taggar och anpassade data i presentationer på Android"
+linktitle: "Taggar och anpassade data"
 type: docs
 weight: 300
 url: /sv/androidjava/managing-tags-and-custom-data
 keywords:
 - dokumentegenskaper
 - tagg
-- anpassad data
+- anpassade data
+- anpassad XML
+- anpassad XML-del
+- XML-metadata
+- ItemId
 - lägg till tagg
 - parvärden
 - PowerPoint
@@ -15,36 +19,329 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Lägg till, läs, uppdatera och ta bort taggar och anpassad data i Aspose.Slides för Android, med Java-exempel för PowerPoint- och OpenDocument-presentationer."
+description: "Lär dig hur du hanterar taggar och anpassade XML-data i PowerPoint-presentationer med Aspose.Slides för Android via Java, inklusive att lägga till, läsa, uppdatera, granska och ta bort anpassade XML-delar."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur Aspose.Slides arbetar med taggar och anpassad data i PowerPoint-presentationer. Den ger en kort översikt över hur data lagras i PPTX-filer, påpekar att presentationsspecifik data kan finnas som taggar och anpassade XML-delar, och beskriver taggar som nyckel‑värde‑strängpar.
+Denna artikel förklarar hur Aspose.Slides arbetar med taggar och anpassade data i PowerPoint-presentationer. Presentationsspecifik data kan lagras som taggar eller anpassade XML‑delar. Taggar är enkla nyckel‑värde‑strängpar, medan anpassade XML‑delar kan lagra strukturerad metadata och applikationsspecifika XML‑payloads.
 
-Den visar också hur man läser taggvärden och hur man lägger till taggar i en presentation, en enskild slide eller en form. Dessutom behandlar artikeln vanliga tagghanteringsuppgifter såsom att rensa alla taggar, ta bort en tagg efter namn och hämta listan med taggnamn.
+Aspose.Slides tillhandahåller API:er för att lägga till, läsa, uppdatera, granska och ta bort anpassade XML‑delar på presentations‑, bild‑ och formnivå. Anpassade XML‑delar är användbara för integrationer som lagrar information såsom dokumenthanterings‑identifierare, arbetsflödesstatus, efterlevnadsmetadata, mallbindningsdata eller annan strukturerad applikationsdata i en presentation.
 
-## **Datainlagring i presentationsfiler**
+## **Lagring av data i presentationsfiler**
 
-PPTX‑filer — objekt med filändelsen .pptx — lagras i PresentationML‑formatet, som är en del av Office Open XML‑specifikationen. Office Open XML‑formatet definierar strukturen för data som finns i presentationer.
+PPTX‑filer — filer med filändelsen `.pptx` — lagras i PresentationML‑formatet, som är en del av Office Open XML‑specifikationen. Office Open XML definierar paketstrukturen och relationerna som används för att lagra presentationsinnehåll och relaterad data.
 
-Med en *slide* som ett av elementen i presentationer innehåller en *slide part* innehållet i en enskild slide. En slide part får ha explicita relationer till många delar — såsom User Defined Tags — som definieras av ISO/IEC 29500.
+En presentation innehåller flera delar som är kopplade genom relationer. Till exempel innehåller en bilddel innehållet för en enskild bild och kan ha explicita relationer till andra delar enligt ISO/IEC 29500.
 
-Anpassad data (specifik för en presentation) eller användare kan finnas som taggar ([ITagCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ITagCollection)) och CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPartCollection)).
+Anpassad data kan lagras som taggar ([ITagCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ITagCollection)) eller anpassade XML‑delar ([ICustomXmlPartCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPartCollection)). Båda är tillgängliga via [`ICustomData`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomData/)‑gränssnittet.
 
-{{% alert color="primary" %}} 
-Taggar är i huvudsak nyckel‑sträng‑parvärden. 
-{{% /alert %}} 
+{{% alert color="info" %}}
+Taggar lagrar enkla sträng‑nyckel‑värde‑par. Anpassade XML‑delar lagrar strukturerad XML‑data och kan associeras med en presentation, bild eller form.
+{{% /alert %}}
+
+## **Arbeta med anpassade XML‑delar**
+
+`[`ICustomData.getCustomXmlParts()`]`‑metoden returnerar samlingen av anpassade XML‑delar som är associerade med ett specifikt presentationsobjekt. Till exempel:
+
+- `presentation.getCustomData().getCustomXmlParts()` innehåller anpassade XML‑delar som är associerade med själva presentationen.
+- `slide.getCustomData().getCustomXmlParts()` innehåller anpassade XML‑delar som är associerade med en specifik bild.
+- `shape.getCustomData().getCustomXmlParts()` innehåller anpassade XML‑delar som är associerade med en specifik form.
+
+Använd [`Presentation.getAllCustomXmlParts()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation#getAllCustomXmlParts--) när du behöver inspektera alla anpassade XML‑delar i presentationen oavsett var de är associerade.
+
+### **Lägg till en anpassad XML‑del i en presentation**
+
+Använd [`ICustomXmlPartCollection.add`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPartCollection#add-java.lang.String-) för att lägga till XML‑data i en samling av anpassade XML‑delar. XML‑en måste vara giltig och icke‑tom.
+
+Följande exempel lägger till strukturerad metadata i den presentations‑nivåns anpassade datainsamling:
+
+```java
+import com.aspose.slides.*;
+import java.util.UUID;
+
+String customXmlContent =
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+    "<metadata xmlns=\"urn:example:metadata\">" +
+        "<documentId>DOC-1001</documentId>" +
+        "<workflowState>Draft</workflowState>" +
+    "</metadata>";
+
+Presentation presentation = new Presentation();
+try {
+    ICustomXmlPart customXmlPart = presentation.getCustomData().getCustomXmlParts().add(customXmlContent);
+
+    // add tilldelar en identifierare automatiskt. Ange ett specifikt UUID endast när det behövs.
+    customXmlPart.setItemId(UUID.randomUUID());
+
+    presentation.save("presentation_with_custom_xml.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`add`‑metoden kan också ta emot XML som en byte‑array eller indata­ström, vilket är användbart när XML‑innehållet redan finns i binär form.
+
+### **Lägg till en anpassad XML‑del i en bild eller form**
+
+Anpassad XML‑data kan associeras med en specifik bild eller form istället för hela presentationen. Detta är användbart när metadata beskriver endast ett objekt, såsom en mallnyckel, extern registeridentifierare eller bindningsinformation.
+
+Följande exempel lägger till en anpassad XML‑del i en bild och en annan i en form:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    slide.getCustomData().getCustomXmlParts().add(
+        "<slideMetadata xmlns=\"urn:example:slides\">" +
+            "<templateKey>TitleSlide</templateKey>" +
+        "</slideMetadata>");
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 250, 80);
+
+    shape.getTextFrame().setText("Customer data");
+    shape.getCustomData().getCustomXmlParts().add(
+        "<shapeMetadata xmlns=\"urn:example:shapes\">" +
+            "<recordId>CRM-4281</recordId>" +
+        "</shapeMetadata>");
+
+    presentation.save("object_custom_xml.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Den nivå där en del läggs till bestämmer vilken objekts `getCustomData().getCustomXmlParts()`‑samling som innehåller relationen till den delen. Data på presentationsnivå är lämplig för dokument‑omfattande metadata, data på bildnivå för information som tillhör en viss bild, och data på formnivå för metadata knutet till en enskild form.
+
+### **Lista och granska alla anpassade XML‑delar**
+
+Använd [`Presentation.getAllCustomXmlParts()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation#getAllCustomXmlParts--) för att hämta alla anpassade XML‑delar från en presentation. Varje [`ICustomXmlPart`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPart/) exponerar sitt identifierare, XML‑innehåll och associerade namnrymdsscheman.
+
+Följande exempel listar alla anpassade XML‑delar och deras namnrymdsscheman:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ICustomXmlPart customXmlPart : presentation.getAllCustomXmlParts()) {
+        System.out.println("ItemId: " + customXmlPart.getItemId());
+        System.out.println("XML:");
+        System.out.println(customXmlPart.getXmlAsString());
+
+        for (String namespaceSchema : customXmlPart.getNamespaceSchemas()) {
+            System.out.println("Namespace schema: " + namespaceSchema);
+        }
+
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+`ICustomXmlPart.getNamespaceSchemas()` returnerar de XML‑scheman som är associerade med den anpassade XML‑delen. Denna information kan vara användbar när du granskar presentationer som innehåller XML producerad av externa system.
+
+### **Läs och uppdatera XML‑innehåll och ItemId**
+
+Använd [`ICustomXmlPart.getXmlAsString()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPart#getXmlAsString--) och [`setXmlAsString()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPart#setXmlAsString-java.lang.String-) för att arbeta med XML som en UTF‑8‑sträng, eller [`getXmlData()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPart#getXmlData--) och [`setXmlData()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPart#setXmlData-byte:A-) för att arbeta med de råa XML‑bytarna.
+
+`ICustomXmlPart.getItemId()`‑metoden returnerar UUID‑et som identifierar den anpassade XML‑delen i Office Open XML‑dokumentet. Använd [`setItemId()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPart#setItemId-java.util.UUID-) när en integration kräver ett nytt identifierare.
+
+Följande exempel uppdaterar XML‑innehållet och identifieraren:
+
+```java
+import com.aspose.slides.*;
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ICustomXmlPart customXmlPart = presentation.getAllCustomXmlParts()[0];
+
+    // Läs den aktuella XML som text.
+    String currentXmlContent = customXmlPart.getXmlAsString();
+    System.out.println(currentXmlContent);
+
+    // Uppdatera XML som en UTF-8-sträng.
+    customXmlPart.setXmlAsString(
+        "<metadata xmlns=\"urn:example:metadata\">" +
+            "<documentId>DOC-1001</documentId>" +
+            "<workflowState>Approved</workflowState>" +
+        "</metadata>");
+
+    // getXmlData tillhandahåller samma XML-innehåll som råa byte.
+    byte[] customXmlData = customXmlPart.getXmlData();
+    System.out.println(new String(customXmlData, StandardCharsets.UTF_8));
+
+    // Ersätt identifieraren när integrationen kräver det.
+    customXmlPart.setItemId(UUID.randomUUID());
+
+    presentation.save("updated_custom_xml.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+När du anropar `setXmlAsString` eller `setXmlData`, ange giltig, icke‑tom XML. Använd den ena representationen eller den andra beroende på om applikationen främst arbetar med strängar eller byte‑data.
+
+### **Ta bort en anpassad XML‑del**
+
+Aspose.Slides tillhandahåller flera sätt att ta bort anpassad XML‑data:
+
+- [`ICustomXmlPart.remove`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPart#remove--) tar bort den anpassade XML‑delen från presentationen.
+- [`ICustomXmlPartCollection.remove`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPartCollection#remove-com.aspose.slides.ICustomXmlPart-) tar bort en specifik del från en samling av anpassade XML‑delar.
+- [`ICustomXmlPartCollection.removeAt`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPartCollection#removeAt-int-) tar bort delen på ett angivet samlingsindex.
+- [`ICustomXmlPartCollection.clear`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ICustomXmlPartCollection#clear--) tar bort alla delar från en specifik samling.
+
+Följande exempel tar bort en anpassad XML‑del på presentationsnivå genom referens:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ICustomXmlPartCollection customXmlParts = presentation.getCustomData().getCustomXmlParts();
+
+    if (customXmlParts.size() > 0) {
+        ICustomXmlPart customXmlPart = customXmlParts.get_Item(0);
+        customXmlParts.remove(customXmlPart);
+    }
+
+    presentation.save("custom_xml_removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Om du redan har ett `ICustomXmlPart` och vill ta bort den delen från presentationen snarare än att rikta in dig på en viss samling, anropa `customXmlPart.remove()`.
+
+Du kan också ta bort ett objekt efter index:
+
+```java
+presentation.getCustomData().getCustomXmlParts().removeAt(0);
+```
+
+### **Rensa alla anpassade XML‑delar från en samling**
+
+Använd `clear` när alla anpassade XML‑delar som är associerade med ett specifikt presentationsobjekt ska tas bort.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    presentation.getSlides().get_Item(0).getCustomData().getCustomXmlParts().clear();
+
+    presentation.save("slide_custom_xml_cleared.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`clear` påverkar endast den valda samlingen. Till exempel rensar rensning av en bilds samling inte samlingarna på presentations‑ eller formnivå.
+
+För att ta bort varje anpassad XML‑del i presentationen, iterera genom `getAllCustomXmlParts()` och ta bort varje del:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ICustomXmlPart customXmlPart : presentation.getAllCustomXmlParts()) {
+        customXmlPart.remove();
+    }
+
+    presentation.save("all_custom_xml_removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Hantera länkade eller delade anpassade XML‑delar**
+
+I en Office Open XML‑presentation kan samma anpassade XML‑del refereras från mer än ett presentationsobjekt. Till exempel kan en befintlig fil innehålla relationer från flera bilder eller former till samma underliggande anpassade XML‑del.
+
+En delad del bör behandlas som ett enda dataobjekt med flera referenser:
+
+- Uppdatering med `setXmlAsString`, `setXmlData` eller `setItemId` ändrar den underliggande anpassade XML‑delen, så ändringen gäller varhelst delen refereras.
+- `getItemId()` kan användas för att identifiera samma anpassade XML‑del vid granskning av objektnivå‑samlingar.
+- Att ta bort en del från en specifik `getCustomXmlParts()`‑samling tar bort den från den samlingen. Använd `ICustomXmlPart.remove()` när själva delen ska tas bort från presentationen.
+- Innan du raderar eller ersätter en delad del, inspektera objektnivå‑samlingarna för att avgöra om andra bilder eller former fortfarande refererar till den.
+
+`add`‑överladdningarna skapar en ny anpassad XML‑del från XML‑innehåll; de accepterar inte en befintlig `ICustomXmlPart`. Därför påträffas delade relationer oftast när presentationer som redan innehåller dem laddas.
+
+Följande exempel granskar samlingar på presentations‑, bild‑ och formnivå efter `ItemId` och rapporterar delar som refereras från mer än en plats:
+
+```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    Map<UUID, List<String>> referencesByItemId = new HashMap<>();
+
+    BiConsumer<String, ICustomXmlPartCollection> registerCustomXmlParts =
+        (ownerName, customXmlParts) -> {
+            for (int i = 0; i < customXmlParts.size(); i++) {
+                ICustomXmlPart customXmlPart = customXmlParts.get_Item(i);
+                UUID itemId = customXmlPart.getItemId();
+
+                if (!referencesByItemId.containsKey(itemId)) {
+                    referencesByItemId.put(itemId, new ArrayList<>());
+                }
+
+                referencesByItemId.get(itemId).add(ownerName);
+            }
+        };
+
+    registerCustomXmlParts.accept("Presentation", presentation.getCustomData().getCustomXmlParts());
+
+    for (int slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+        registerCustomXmlParts.accept("Slide " + (slideIndex + 1), slide.getCustomData().getCustomXmlParts());
+
+        for (int shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            IShape shape = slide.getShapes().get_Item(shapeIndex);
+            registerCustomXmlParts.accept("Slide " + (slideIndex + 1) + ", shape " + shapeIndex, shape.getCustomData().getCustomXmlParts());
+        }
+    }
+
+    for (Map.Entry<UUID, List<String>> referenceEntry : referencesByItemId.entrySet()) {
+        if (referenceEntry.getValue().size() > 1) {
+            System.out.println("Shared custom XML part: " + referenceEntry.getKey());
+
+            for (String ownerName : referenceEntry.getValue()) {
+                System.out.println("  Referenced by: " + ownerName);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Denna typ av granskning är användbar innan du modifierar eller tar bort anpassad XML‑data i presentationer som skapats av externa system, eftersom samma metadata‑del kan delta i mer än en relation.
 
 ## **Hämta värden för taggar**
 
-I slides motsvarar en tagg metoderna [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IDocumentProperties#getKeywords--) och [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) . Detta exempel visar hur du hämtar ett taggvärde med Aspose.Slides för Android via Java för [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation):
+I slides motsvarar en tagg metoden `IDocumentProperties.getKeywords()`. Detta exempel visar hur man får ett taggvärde med Aspose.Slides för Android via Java för [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation):
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
-try{
-    String keywords = pres.getDocumentProperties().getKeywords();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    String keywords = presentation.getDocumentProperties().getKeywords();
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -52,65 +349,79 @@ try{
 
 Aspose.Slides låter dig lägga till taggar i presentationer. En tagg består vanligtvis av två element:
 
-- namnet på en anpassad egenskap – `MyTag`
-- värdet på den anpassade egenskapen – `My Tag Value`
+- namnet på en anpassad egenskap, till exempel `MyTag`;
+- värdet på den anpassade egenskapen, till exempel `My Tag Value`.
 
-Om du behöver klassificera vissa presentationer baserat på en specifik regel eller egenskap kan du ha nytta av att lägga till taggar i dessa presentationer. Till exempel, om du vill gruppera alla presentationer från Nordamerikanska länder tillsammans kan du skapa en Nordamerikansk tagg och sedan tilldela de relevanta länderna (USA, Mexiko och Kanada) som värden.
+Om du behöver klassificera presentationer baserat på en specifik regel eller egenskap kan du lägga till taggar för det ändamålet. Till exempel, om du vill kategorisera presentationer från nordamerikanska länder kan du skapa en nordamerikansk tagg och tilldela det relevanta landet som dess värde.
 
-Detta exempel visar hur du lägger till en tagg i en [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) med Aspose.Slides för Android via Java:
+Detta exempel visar hur man lägger till en tagg i en [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) med Aspose.Slides för Android via Java:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    ITagCollection tags = pres.getCustomData().getTags();
-    pres.getCustomData().getTags().set_Item("MyTag", "My Tag Value");
+    ITagCollection tags = presentation.getCustomData().getTags();
+    tags.set_Item("MyTag", "My Tag Value");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Taggar kan också sättas för [Slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISlide):
+Taggar kan också sättas för en [Slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ISlide):
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
     slide.getCustomData().getTags().set_Item("tag", "value");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Eller någon enskild [Shape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IAutoShape):
+Eller för en enskild [Shape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IAutoShape):
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 50);
     shape.getTextFrame().setText("My text");
     shape.getCustomData().getTags().set_Item("tag", "value");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ### **Begränsningar**
 
-Taggar som läggs till via samlingen för anpassade data‑taggar med `getCustomData().getTags()` lagras endast i PowerPoint‑filen. De **överförs inte** till PDF‑taggstrukturen när presentationen exporteras till PDF. Följaktligen kan en anpassad identifierare som tilldelats som en tagg inte hämtas från den taggade PDF‑filen.
+Taggar som läggs till via samlingen `getCustomData().getTags()` lagras endast i PowerPoint‑filen. De **överförs inte** till PDF‑taggstrukturen när presentationen exporteras till PDF. Följaktligen kan en anpassad identifierare som tilldelats som en tagg inte hämtas från den taggade PDF‑filen.
 
-**Workaround**: Du kan lagra en anpassad identifierare i objektets **Alt Text** (t.ex. `shape.setAlternativeText("MyId")`). Efter export till PDF kan Alt Text visas i PDF‑taggstrukturen.
+**Workaround**: Du kan lagra en anpassad identifierare i objektets **Alt Text** (till exempel `shape.setAlternativeText("MyId")`). Efter export till PDF kan Alt Text visas i PDF‑taggstrukturen.
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag ta bort alla taggar från en presentation, slide eller form i en operation?**
+**Kan jag ta bort alla taggar från en presentation, bild eller form i ett enda steg?**
 
-Ja. [tag collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/) stöder en [clear](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/#clear--)‑operation som tar bort alla nyckel‑värde‑par på en gång.
+Ja. [tag collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/) stöder en [clear](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/#clear--)‑operation som raderar alla nyckel‑värde‑par på en gång.
 
-**Hur tar jag bort en enskild tagg efter namn utan att iterera över hela samlingen?**
+**Hur tar jag bort en enskild tagg efter dess namn utan att iterera över hela samlingen?**
 
-Använd [remove(name)](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/#remove-java.lang.String-)‑operationen på [tag collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/) för att ta bort taggen efter dess nyckel.
+Använd [remove(name)](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/#remove-java.lang.String-) på [tag collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/) för att ta bort taggen efter dess nyckel.
 
 **Hur kan jag hämta den kompletta listan med taggnamn för analys eller filtrering?**
 
 Använd [getNamesOfTags](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/#getNamesOfTags--) på [tag collection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tagcollection/); den returnerar en array med alla taggnamn.
+
+**Hur kan jag hitta alla anpassade XML‑delar oavsett var de lagras?**
+
+Använd [`Presentation.getAllCustomXmlParts()`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation#getAllCustomXmlParts--) för att hämta alla anpassade XML‑delar i presentationen.
+
+**Ska jag använda `getXmlAsString`/`setXmlAsString` eller `getXmlData`/`setXmlData` för att uppdatera en anpassad XML‑del?**
+
+Använd `getXmlAsString` och `setXmlAsString` när applikationen arbetar med UTF‑8 XML‑text. Använd `getXmlData` och `setXmlData` när XML redan finns som en byte‑array eller när binärbearbetning är mer bekväm. Båda representationerna refererar till XML‑innehållet i samma anpassade XML‑del.

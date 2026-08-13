@@ -20,17 +20,19 @@ keywords:
 - ส่งออก ODP เป็น HTML5
 - Java
 - Aspose.Slides
-description: "ส่งออกงานนำเสนอ PowerPoint และ OpenDocument เป็น HTML5 ตอบสนองด้วย Aspose.Slides สำหรับ Java. รักษาการจัดรูปแบบ, การเคลื่อนไหว, และความโต้ตอบ."
+description: "ส่งออกงานนำเสนอ PowerPoint และ OpenDocument ไปเป็น HTML5 ที่ตอบสนองได้ด้วย Aspose.Slides สำหรับ Java. รักษาการจัดรูปแบบ, การเคลื่อนไหว, และการโต้ตอบ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีแปลงงานนำเสนอ PowerPoint เป็น HTML5 ด้วย Aspose.Slides ครอบคลุมการส่งออก HTML5 พื้นฐานโดยไม่มีส่วนขยายเว็บหรือการพึ่งพาเพิ่มเติม รวมถึงตัวเลือกสำหรับควบคุมการเคลื่อนไหวของรูปร่างและการเปลี่ยนสไลด์ บทความยังแสดงกระบวนการส่งออก PowerPoint ไปยัง HTML มาตรฐาน วิธีการสร้างผลลัพธ์ HTML5 ในโหมดดูสไลด์ และการแสดงคอมเมนต์ในเอกสารที่ส่งออกโดยการกำหนดค่าเค้าโครงการแสดง
+บทความนี้อธิบายวิธีแปลงงานนำเสนอ PowerPoint เป็น HTML5 ด้วย Aspose.Slides ครอบคลุมการส่งออก HTML5 พื้นฐานโดยไม่มีเว็บเอ็กซ์เทนชันหรือการพึ่งพาเพิ่มเติม รวมถึงตัวเลือกในการควบคุมการเคลื่อนไหวของรูปร่างและการเปลี่ยนสไลด์ บทความยังแสดงกระบวนการส่งออก PowerPoint เป็น HTML มาตรฐาน อธิบายวิธีสร้างผลลัพธ์ HTML5 ในโหมดมุมมองสไลด์ และสาธิตวิธีรวมคอมเมนต์ในเอกสารที่ส่งออกโดยกำหนดการจัดวาง
 
 ## **ส่งออก PowerPoint เป็น HTML5**
 
-โค้ด Java นี้แสดงวิธีส่งออกงานนำเสนอเป็น HTML5 โดยไม่มีส่วนขยายเว็บและการพึ่งพา:
+โค้ด Java นี้แสดงวิธีส่งออกงานนำเสนอเป็น HTML5 โดยไม่มีเว็บเอ็กซ์เทนชันและการพึ่งพา:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -39,13 +41,15 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-ในกรณีนี้ คุณจะได้รับ HTML ที่สะอาด 
+{{% alert color="info" %}} 
+ในกรณีนี้คุณจะได้ HTML ที่สะอาดและเรียบง่าย. 
 {{% /alert %}}
 
-คุณอาจต้องการระบุการตั้งค่าสำหรับการเคลื่อนไหวของรูปร่างและการเปลี่ยนสไลด์ดังนี้:
+คุณอาจต้องการระบุการตั้งค่าสำหรับการเคลื่อนไหวของรูปร่างและการเปลี่ยนสไลด์แบบนี้:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -60,9 +64,11 @@ try {
 
 ## **ส่งออก PowerPoint เป็น HTML**
 
-โค้ด Java นี้สาธิตกระบวนการส่งออก PowerPoint ไปยัง HTML มาตรฐาน:
+โค้ด Java นี้สาธิตกระบวนการส่งออก PowerPoint เป็น HTML มาตรฐาน:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -71,7 +77,7 @@ try {
 }
 ```
 
-ในกรณีนี้ เนื้อหาของงานนำเสนอจะถูกแสดงผ่าน SVG ในรูปแบบดังต่อไปนี้:
+ในกรณีนี้ เนื้อหาของงานนำเสนอจะถูกเรนเดอร์ผ่าน SVG ในรูปแบบดังนี้:
 
 ```html
 <body>
@@ -83,17 +89,19 @@ try {
 </body>
 ```
 
-{{% alert title="หมายเหตุ" color="warning" %}} 
-เมื่อคุณใช้วิธีนี้ส่งออก PowerPoint เป็น HTML เนื่องจากการเรนเดอร์ด้วย SVG คุณจะไม่สามารถใช้สไตล์หรือทำให้ส่วนประกอบเฉพาะเคลื่อนไหวได้ 
+{{% alert title="Note" color="warning" %}} 
+เมื่อคุณใช้วิธีนี้เพื่อส่งออก PowerPoint เป็น HTML เนื่องจากการเรนเดอร์ด้วย SVG คุณจะไม่สามารถกำหนดสไตล์หรือทำให้ส่วนประกอบเฉพาะเคลื่อนไหวได้. 
 {{% /alert %}}
 
-## **ส่งออก PowerPoint เป็น HTML5 โหมดดูสไลด์**
+## **ส่งออก PowerPoint เป็น HTML5 Slide View**
 
-**Aspose.Slides** ช่วยให้คุณแปลงงานนำเสนอ PowerPoint เป็นเอกสาร HTML5 ที่สไลด์จะแสดงในโหมดดูสไลด์ ในกรณีนี้ เมื่อเปิดไฟล์ HTML5 ที่ได้ในเบราว์เซอร์ คุณจะเห็นงานนำเสนอในโหมดดูสไลด์บนหน้าเว็บ
+**Aspose.Slides** ช่วยให้คุณแปลงงานนำเสนอ PowerPoint เป็นเอกสาร HTML5 ที่แสดงสไลด์ในโหมดมุมมองสไลด์ ในกรณีนี้เมื่อเปิดไฟล์ HTML5 ที่ได้ในเบราว์เซอร์ คุณจะเห็นงานนำเสนอในโหมดมุมมองสไลด์บนหน้าเว็บ.
 
-โค้ด Java นี้สาธิตกระบวนการส่งออก PowerPoint ไปยัง HTML5 โหมดดูสไลด์:
+โค้ด Java นี้สาธิตกระบวนการส่งออก PowerPoint เป็น HTML5 Slide View:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -108,38 +116,43 @@ try {
 
 ## **แปลงงานนำเสนอเป็นเอกสาร HTML5 พร้อมคอมเมนต์**
 
-คอมเมนต์ใน PowerPoint เป็นเครื่องมือที่ช่วยให้ผู้ใช้ฝากโน้ตหรือข้อเสนอแนะในสไลด์ของงานนำเสนอ มีประโยชน์โดยเฉพาะในโครงการร่วมทำงานที่หลายคนสามารถเพิ่มข้อเสนอหรือความเห็นต่อองค์ประกอบของสไลด์โดยไม่ต้องเปลี่ยนแปลงเนื้อหาหลัก คอมเมนต์แต่ละรายการแสดงชื่อผู้เขียน ทำให้ติดตามได้ว่าใครเป็นผู้ทิ้งข้อคิดเห็น
+คอมเมนต์ใน PowerPoint เป็นเครื่องมือที่ช่วยให้ผู้ใช้สามารถใส่โน้ตหรือข้อเสนอแนะบนสไลด์งานนำเสนอได้ เหมาะสำหรับโครงการทำงานร่วมกันที่หลายคนสามารถเพิ่มข้อเสนอแนะให้กับองค์ประกอบของสไลด์โดยไม่แก้ไขเนื้อหาหลัก คอมเมนต์แต่ละรายการจะแสดงชื่อผู้เขียน ทำให้ติดตามว่าใครเป็นผู้ทิ้งข้อคิดเห็นได้ง่าย
 
-สมมติว่าเรามีงานนำเสนอ PowerPoint ที่บันทึกไว้ในไฟล์ “sample.pptx”
+สมมติเรามีงานนำเสนอ PowerPoint ที่บันทึกในไฟล์ "sample.pptx".
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+![สองคอมเมนต์บนสไลด์งานนำเสนอ](two_comments_pptx.png)
 
-เมื่อคุณแปลงงานนำเสนอ PowerPoint เป็นเอกสาร HTML5 คุณสามารถระบุได้ง่ายว่าต้องการใส่คอมเมนต์จากงานนำเสนอไว้ในเอกสารผลลัพธ์หรือไม่ โดยทำการกำหนดพารามิเตอร์การแสดงคอมเมนต์ในเมธอด `getNotesCommentsLayouting` ของคลาส [Html5Options](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/) 
+เมื่อคุณแปลงงานนำเสนอ PowerPoint เป็นเอกสาร HTML5 คุณสามารถระบุได้ง่ายว่าจะรวมคอมเมนต์จากงานนำเสนอในเอกสารผลลัพธ์หรือไม่ ทำได้โดยส่งพารามิเตอร์การแสดงคอมเมนต์ไปยังเมธอด `setSlidesLayoutOptions` ของคลาส [Html5Options](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/)
 
-ตัวอย่างโค้ดต่อไปนี้แปลงงานนำเสนอเป็นเอกสาร HTML5 พร้อมคอมเมนต์ที่แสดงทางด้านขวามือของสไลด์
+ตัวอย่างโค้ดต่อไปนี้แปลงงานนำเสนอเป็นเอกสาร HTML5 ที่แสดงคอมเมนต์ทางขวาของสไลด์
 ```java
+import com.aspose.slides.*;
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-เอกสาร “output.html” แสดงในรูปด้านล่าง
+เอกสาร "output.html" แสดงในภาพด้านล่าง
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+![คอมเมนต์ในเอกสาร HTML5 ผลลัพธ์](two_comments_html5.png)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถควบคุมได้หรือไม่ว่าอนิเมชั่นของวัตถุและการเปลี่ยนสไลด์จะเล่นใน HTML5?**
+### ฉันสามารถควบคุมว่าการเคลื่อนไหวของวัตถุและการเปลี่ยนสไลด์จะเล่นใน HTML5 หรือไม่?
 
-ได้, HTML5 มีตัวเลือกแยกต่างหากเพื่อเปิดหรือปิด [shape animations](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) และ [slide transitions](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)
+ใช่, HTML5 มีตัวเลือกแยกต่างหากเพื่อเปิดหรือปิด [shape animations](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) และ [slide transitions](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
 
-**การสนับสนุนการส่งออกคอมเมนต์เป็นอย่างไร และสามารถวางคอมเมนต์ relative กับสไลด์ได้ที่ไหน?**
+### การสนับสนุนการแสดงคอมเมนต์มีหรือไม่ และสามารถวางคอมเมนต์ได้ตำแหน่งใดสัมพันธ์กับสไลด์?
 
-ได้, สามารถเพิ่มคอมเมนต์ใน HTML5 และกำหนดตำแหน่ง (เช่น ทางด้านขวาของสไลด์) ผ่าน [layout settings](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) สำหรับบันทึกและคอมเมนต์
+ใช่, สามารถเพิ่มคอมเมนต์ใน HTML5 และกำหนดตำแหน่ง (เช่น ทางขวาของสไลด์) ผ่าน [layout settings](https://reference.aspose.com/slides/th/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) สำหรับโน้ตและคอมเมนต์.
 
-**ฉันสามารถข้ามลิงก์ที่เรียกใช้ JavaScript เพื่อเหตุผลด้านความปลอดภัยหรือ CSP ได้หรือไม่?**
+### ฉันสามารถข้ามลิงก์ที่เรียกใช้ JavaScript เพื่อเหตุผลด้านความปลอดภัยหรือ CSP ได้หรือไม่?
 
-ได้, มี [setting](https://reference.aspose.com/slides/th/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) ที่ให้คุณข้ามไฮเปอร์ลิงก์ที่มีการเรียก JavaScript ระหว่างการบันทึก ช่วยให้สอดคล้องกับนโยบายความปลอดภัยที่เข้มงวด
+ใช่, มี [setting](https://reference.aspose.com/slides/th/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) ที่อนุญาตให้ข้ามไฮเปอร์ลิงก์ที่มีการเรียก JavaScript ระหว่างการบันทึก ซึ่งช่วยปฏิบัติตามนโยบายความปลอดภัยที่เคร่งครัด

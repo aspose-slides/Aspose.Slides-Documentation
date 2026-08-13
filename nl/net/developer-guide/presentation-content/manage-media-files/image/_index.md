@@ -1,6 +1,6 @@
 ---
-title: Optimaliseer afbeeldingbeheer in presentaties in .NET
-linktitle: Beheer afbeeldingen
+title: "Afbeeldingsbeheer in presentaties optimaliseren in .NET"
+linktitle: "Afbeeldingen beheren"
 type: docs
 weight: 10
 url: /nl/net/image/
@@ -15,6 +15,10 @@ keywords:
 - PNG toevoegen
 - JPG toevoegen
 - SVG toevoegen
+- externe SVG‑bronnen
+- SVG‑resolver
+- gelinkte SVG‑afbeeldingen
+- SVG‑lettertypen
 - EMF toevoegen
 - WMF toevoegen
 - TIFF toevoegen
@@ -24,31 +28,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Optimaliseer het beheer van afbeeldingen in PowerPoint en OpenDocument met Aspose.Slides voor .NET, verbeter de prestaties en automatiseer je workflow."
+description: "Versnel het beheer van afbeeldingen in PowerPoint en OpenDocument met Aspose.Slides voor .NET, optimaliseer de prestaties en automatiseer je werkstroom."
 ---
 ## **Introductie**
 
-Afbeeldingen maken presentaties boeiender en interessanter. In Microsoft PowerPoint kun je afbeeldingen invoegen vanaf een bestand, het internet of andere locaties op dia's. Op dezelfde manier maakt Aspose.Slides het mogelijk om afbeeldingen aan dia's in je presentaties toe te voegen via verschillende methoden.
+Afbeeldingen maken presentaties boeiender en visueel aantrekkelijker. In Microsoft PowerPoint kun je afbeeldingen op dia's invoegen vanuit bestanden, internet of andere bronnen. Op dezelfde manier maakt Aspose.Slides het mogelijk om afbeeldingen aan presentatiedia's toe te voegen op verschillende manieren.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die mensen in staat stellen snel presentaties te maken vanuit afbeeldingen. 
+{{% alert  title="Tip" color="info" %}} 
+Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die je in staat stellen snel presentaties te maken van afbeeldingen. 
 {{% /alert %}} 
 
 {{% alert title="Info" color="info" %}}
-Wil je een afbeelding als frame‑object toevoegen—vooral als je van plan bent standaard opmaakopties te gebruiken om de grootte te wijzigen, effecten toe te voegen, enzovoort—bekijk dan [Afbeeldingsframe](https://docs.aspose.com/slides/nl/net/picture-frame/). 
+Als je een afbeelding wilt toevoegen als afbeeldingskader—vooral als je van plan bent deze te vergroten/verkleinen, effecten toe te passen of andere standaardopmaakopties te gebruiken—zie [Afbeeldingskader](/slides/nl/net/picture-frame/). 
 {{% /alert %}} 
 
-{{% alert title="Opmerking" color="warning" %}}
-Je kunt in- en uitvoerbewerkingen met afbeeldingen en PowerPoint‑presentaties manipuleren om een afbeelding van het ene formaat naar het andere te converteren. Zie deze pagina’s: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/net/conversion/image-to-jpg/); converteer [JPG naar afbeelding](https://products.aspose.com/slides/nl/net/conversion/jpg-to-image/); converteer [JPG naar PNG](https://products.aspose.com/slides/nl/net/conversion/jpg-to-png/), converteer [PNG naar JPG](https://products.aspose.com/slides/nl/net/conversion/png-to-jpg/); converteer [PNG naar SVG](https://products.aspose.com/slides/nl/net/conversion/png-to-svg/), converteer [SVG naar PNG](https://products.aspose.com/slides/nl/net/conversion/svg-to-png/).
+{{% alert title="Note" color="warning" %}}
+Je kunt afbeeldingen van het ene naar het andere formaat converteren. Zie de volgende pagina's: converteer [afbeelding naar JPG](https://products.aspose.com/slides/nl/net/conversion/image-to-jpg/), [JPG naar afbeelding](https://products.aspose.com/slides/nl/net/conversion/jpg-to-image/), [JPG naar PNG](https://products.aspose.com/slides/nl/net/conversion/jpg-to-png/), [PNG naar JPG](https://products.aspose.com/slides/nl/net/conversion/png-to-jpg/), [PNG naar SVG](https://products.aspose.com/slides/nl/net/conversion/png-to-svg/), en [SVG naar PNG](https://products.aspose.com/slides/nl/net/conversion/svg-to-png/).
 {{% /alert %}}
 
-Aspose.Slides ondersteunt bewerkingen met afbeeldingen in deze populaire formaten: JPEG, PNG, BMP, GIF en andere. 
+Aspose.Slides ondersteunt afbeeldingen in populaire formaten zoals JPEG, PNG, BMP, GIF en andere. 
 
-## **Afbeeldingen lokaal aan dia's toevoegen**
+## **Afbeeldingen die lokaal zijn opgeslagen toevoegen aan dia's**
 
-Je kunt één of meerdere afbeeldingen op je computer aan een dia in een presentatie toevoegen. Deze voorbeeldcode in C# laat zien hoe je een afbeelding aan een dia toevoegt:
+Je kunt een of meer afbeeldingen die op je computer zijn opgeslagen toevoegen aan een presentatiedia. De volgende C#-voorbeeldcode laat zien hoe je een afbeelding aan een dia toevoegt:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -61,11 +68,15 @@ using (Presentation pres = new Presentation())
 
 ## **Afbeeldingen van het web aan dia's toevoegen**
 
-Als de afbeelding die je aan een dia wilt toevoegen niet beschikbaar is op je computer, kun je de afbeelding rechtstreeks van het internet toevoegen. 
+Als de afbeelding die je aan een dia wilt toevoegen niet op je computer is opgeslagen, kun je deze direct van het web toevoegen. 
 
-Deze voorbeeldcode laat zien hoe je een afbeelding van het internet aan een dia toevoegt in C#:
+De volgende C#-voorbeeldcode toont hoe je een afbeelding van het web aan een dia toevoegt:
 
 ```c#
+using System.Net;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -85,11 +96,14 @@ using (Presentation pres = new Presentation())
 
 ## **Afbeeldingen aan dia‑masters toevoegen**
 
-Een dia‑master is de bovenste dia die informatie (thema, lay‑out, enz.) over alle onderliggende dia's opslaat en beheert. Dus wanneer je een afbeelding aan een dia‑master toevoegt, verschijnt die afbeelding op elke dia onder die dia‑master. 
+Een dia‑master slaat informatie op en beheert zaken zoals het thema en de lay‑out voor de dia's die de master gebruiken. Wanneer je een afbeelding aan een dia‑master toevoegt, verschijnt de afbeelding op elke dia die op die master is gebaseerd. 
 
-Deze C#‑voorbeeldcode laat zien hoe je een afbeelding aan een dia‑master toevoegt:
+De volgende C#‑voorbeeldcode laat zien hoe je een afbeelding aan een dia‑master toevoegt:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -104,102 +118,301 @@ using (Presentation pres = new Presentation())
 
 ## **Afbeeldingen als dia‑achtergronden toevoegen**
 
-Je kunt besluiten een afbeelding als achtergrond te gebruiken voor een specifieke dia of meerdere dia's. In dat geval moet je *[Afbeeldingen als achtergronden voor dia's instellen](https://docs.aspose.com/slides/nl/net/presentation-background/#setting-images-as-background-for-slides)* bekijken.
+Je kunt een afbeelding gebruiken als achtergrond voor één of meerdere dia's. Voor details, zie *[Afbeeldingen instellen als achtergrond voor dia's](/slides/nl/net/presentation-background/#setting-images-as-background-for-slides)*.
 
-## **SVG aan presentaties toevoegen**
-Je kunt elke afbeelding aan een presentatie toevoegen of invoegen door de [AddPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/methods/addpictureframe)‑methode te gebruiken die behoort tot de [IShapeCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection) interface.
+## **SVG toevoegen aan presentaties**
 
-Om een afbeeldingsobject te maken op basis van een SVG‑afbeelding, kun je dit op de volgende manier doen:
+SVG-inhoud kan aan een presentatie worden toegevoegd met behulp van de klasse [SvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/svgimage/). Het resulterende [ISvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage/)-object kan vervolgens worden toegevoegd aan de afbeeldingscollectie van de presentatie en worden gebruikt om een afbeeldingskader te maken.
 
-1. Maak een SvgImage‑object om het in ImageShapeCollection in te voegen
-2. Maak een PPImage‑object van ISvgImage
-3. Maak een PictureFrame‑object met behulp van de IPPImage‑interface
+Het volgende C#‑voorbeeld importeert een zelfstandige SVG‑string. Alle afbeeldingen, stijlen en andere bronnen die door deze SVG worden gebruikt, worden rechtstreeks in de SVG‑inhoud ingebed.
 
-Deze voorbeeldcode laat zien hoe je de bovenstaande stappen implementeert om een SVG‑afbeelding aan een presentatie toe te voegen:
 ```csharp
-// Het pad naar de documentenmap
-string dataDir = @"D:\Documents\";
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Naam van bron‑SVG‑bestand
-string svgFileName = dataDir + "sample.svg";
+string svgContent = @"
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>";
 
-// Bestandsnaam van uitvoerpresentatie
-string outPptxPath = dataDir + "presentation.pptx";
-
-// Nieuwe presentatie maken
-using (var p = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    // SVG‑bestandsinhoud lezen
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // SvgImage‑object maken
     ISvgImage svgImage = new SvgImage(svgContent);
+    IPPImage image = presentation.Images.AddImage(svgImage);
 
-    // PPImage‑object maken
-    IPPImage ppImage = p.Images.AddImage(svgImage);
+    presentation.Slides[0].Shapes.AddPictureFrame(
+        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
 
-    // Maakt een nieuw PictureFrame 
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // Presentatie opslaan in PPTX‑formaat
-    p.Save(outPptxPath, SaveFormat.Pptx);
+    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **SVG naar een verzameling vormen converteren**
-De conversie van SVG naar een verzameling vormen in Aspose.Slides is vergelijkbaar met de PowerPoint‑functionaliteit die wordt gebruikt om met SVG‑afbeeldingen te werken:
+## **SVG-inhoud importeren met externe bronnen**
 
-![PowerPoint pop‑upmenu](img_01_01.png)
+SVG‑bestanden die uit ontwerptools, diagrameditoren, icoonsystemen en web‑pijplijnen zijn geëxporteerd, kunnen verwijzen naar bronnen die buiten het SVG‑document zijn opgeslagen. Bijvoorbeeld kan een SVG een afbeeldingslink bevatten zoals `images/photo.png`, een CSS‑`url(...)`‑waarde of een lettertype‑URL.
 
-De functionaliteit wordt geleverd door een van de overloads van de [AddGroupShape](https://reference.aspose.com/slides/nl/net/aspose.slides.ishapecollection/addgroupshape/methods/1) methode van de [IShapeCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection) interface die een [ISvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage)‑object als eerste argument accepteert.
+Om dergelijke SVG‑inhoud te importeren, maak je een implementatie van [IExternalResourceResolver](https://reference.aspose.com/slides/nl/net/aspose.slides.import/iexternalresourceresolver/) aan en geef je deze, samen met een basis‑URI, door aan een geschikt `SvgImage`‑constructor. De basis‑URI identificeert de locatie van het SVG‑document en wordt gebruikt om relatieve koppelingen op te lossen.
 
-Deze voorbeeldcode laat zien hoe je de beschreven methode gebruikt om een SVG‑bestand naar een verzameling vormen te converteren:
+De interface [ISvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage/) biedt toegang tot informatie over de geïmporteerde SVG:
+
+- `SvgContent` retourneert de SVG‑markup als een string.
+- `SvgData` retourneert de SVG‑inhoud als een byte‑array.
+- `BaseUri` retourneert de basis‑URI die wordt gebruikt voor relatieve links.
+- `ExternalResourceResolver` retourneert de resolver die aan de SVG‑afbeelding is toegewezen.
+
+### **Implementeer een externe resource‑resolver**
+
+De resolver heeft twee methoden:
+
+- `ResolveUri` combineert de basis‑URI en een relatieve resource‑link en retourneert een absolute URI. Retourneer `null` wanneer de link niet kan worden opgelost of niet is toegestaan.
+- `GetEntity` retourneert een leesbare stream voor een absolute resource‑URI. Retourneer `null` wanneer de bron ontbreekt, geblokkeerd of niet beschikbaar is. Een fallback‑stream kan ook worden geretourneerd wanneer dat passend is.
+
+De volgende resolver laadt gekoppelde bronnen alleen vanuit een toegestane lokale map. Netwerkbronnen en paden buiten de toegestane map worden geblokkeerd. Een optionele fallback‑afbeelding wordt geretourneerd voor niet‑opgeloste afbeeldingslinks.
 
 ```csharp
-// Het pad naar de documentenmap
-string dataDir = @"D:\Documents\";
+using System;
+using System.IO;
+using Aspose.Slides.Import;
 
-// Naam van bron‑SVG‑bestand
-string svgFileName = dataDir + "sample.svg";
+internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
+{
+    private readonly string _allowedRoot;
+    private readonly byte[] _fallbackImageData;
 
-// Bestandsnaam van uitvoerpresentatie
-string outPptxPath = dataDir + "presentation.pptx";
+    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
+    {
+        _allowedRoot = Path.GetFullPath(allowedRoot);
+        _fallbackImageData = fallbackImageData;
+    }
 
-// Nieuwe presentatie maken
+    public string ResolveUri(string baseUri, string relativeUri)
+    {
+        if (string.IsNullOrWhiteSpace(baseUri) ||
+            string.IsNullOrWhiteSpace(relativeUri))
+        {
+            return null;
+        }
+
+        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
+            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
+        {
+            return null;
+        }
+
+        // Deze resolver staat opzettelijk alleen lokale bestanden toe.
+        if (!absoluteAddress.IsFile)
+        {
+            return null;
+        }
+
+        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return null;
+        }
+
+        return absoluteAddress.AbsoluteUri;
+    }
+
+    public Stream GetEntity(string absoluteUri)
+    {
+        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
+            !resourceUri.IsFile)
+        {
+            return null;
+        }
+
+        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return null;
+        }
+
+        if (File.Exists(resourcePath))
+        {
+            return File.OpenRead(resourcePath);
+        }
+
+        // Gebruik alleen een fallback voor afbeeldingsbronnen. Het retourneren van een afbeeldingsstream
+        // voor een ontbrekend lettertype of stylesheet zou niet geldig zijn.
+        if (_fallbackImageData != null && IsImageFile(resourcePath))
+        {
+            return new MemoryStream(_fallbackImageData, writable: false);
+        }
+
+        return null;
+    }
+
+    private bool IsInsideAllowedRoot(string resourcePath)
+    {
+        string normalizedRoot = _allowedRoot.TrimEnd(
+            Path.DirectorySeparatorChar,
+            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
+
+        string normalizedPath = Path.GetFullPath(resourcePath);
+        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+
+        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
+               string.Equals(normalizedPath, _allowedRoot, comparison);
+    }
+
+    private static bool IsImageFile(string path)
+    {
+        string extension = Path.GetExtension(path);
+
+        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
+    }
+}
+```
+
+### **Gekoppelde bronnen oplossen tijdens SVG‑import**
+
+Stel dat `assets/diagram.svg` een relatieve verwijzing bevat zoals:
+
+```xml
+<image href="images/photo.png" x="20" y="20" width="320" height="180" />
+```
+
+Het volgende C#‑voorbeeld geeft de SVG‑bestands‑URI door als basis‑URI en levert een aangepaste resolver. De resolver zet de relatieve afbeeldingslink om in een absolute URI en retourneert een stream die de gekoppelde bron bevat terwijl Aspose.Slides de SVG verwerkt.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Import;
+
+string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
+string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
+string svgContent = File.ReadAllText(svgFilePath);
+
+// De basis-URI geeft de locatie van het SVG-document weer.
+string baseUri = new Uri(svgFilePath).AbsoluteUri;
+
+byte[] fallbackImageData = null;
+string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
+if (File.Exists(fallbackImagePath))
+{
+    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
+}
+
+IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
+ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
+
+// ISvgImage exposes the source content, binary data, base URI, and resolver.
+string importedContent = svgImage.SvgContent;
+byte[] importedData = svgImage.SvgData;
+string importedBaseUri = svgImage.BaseUri;
+IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
+
+using (Presentation presentation = new Presentation())
+{
+    IPPImage image = presentation.Images.AddImage(svgImage);
+
+    presentation.Slides[0].Shapes.AddPictureFrame(
+        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
+
+    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+}
+```
+
+De klasse `SvgImage` biedt ook overloads die SVG‑gegevens accepteren als een byte‑array of een stream, samen met een externe resource‑resolver en een basis‑URI.
+
+{{% alert title="Important" color="warning" %}}
+De resource‑resolver maakt externe bronnen beschikbaar terwijl Aspose.Slides de SVG verwerkt en rendert. Hij wijzigt de oorspronkelijke SVG‑markup niet en embed niet automatisch de opgeloste bronnen erin.
+
+Wanneer een `ISvgImage` wordt toegevoegd aan de afbeeldingscollectie van de presentatie, kan het PPTX‑bestand zowel de oorspronkelijke SVG‑representatie als een raster‑fallback‑afbeelding bevatten. Een gekoppelde bron kan verschijnen in de gegenereerde fallback‑afbeelding terwijl een relatieve link zoals `images/photo.png` onveranderd blijft in de opgeslagen SVG. Een applicatie die de native SVG‑representatie rendert, kan daarom de gekoppelde inhoud weglaten wanneer de oorspronkelijke externe bron niet beschikbaar is.
+{{% /alert %}}
+
+### **Maak een draagbare SVG‑afbeelding**
+
+Om een SVG‑afbeelding te maken die niet afhankelijk is van externe bestanden, maak je de SVG zelf‑containend vóór het aanmaken van de `SvgImage`. Vervang bijvoorbeeld gekoppelde afbeelding‑URL’s door `data:`‑URI’s die de afbeeldingsgegevens bevatten:
+
+```xml
+<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+```
+
+Nadat alle benodigde bronnen in de SVG‑inhoud zijn ingebed, maak je de `SvgImage`, voeg je deze toe aan de afbeeldingscollectie van de presentatie, en voeg je deze in een afbeeldingskader in zoals getoond in het vorige voorbeeld.
+
+### **Afhandelen van ontbrekende of geblokkeerde bronnen**
+
+Retourneer `null` vanuit `ResolveUri` wanneer een resource‑URI ongeldig, verboden of niet kan worden opgelost. Retourneer `null` vanuit `GetEntity` wanneer de bron niet gelezen kan worden. Aspose.Slides blijft de SVG verwerken zonder die bron wanneer mogelijk.
+
+Een fallback‑stream kan worden geretourneerd voor een ontbrekende bron, maar de inhoud moet compatibel zijn met het gevraagde resourcetype. Retourneer bijvoorbeeld alleen een afbeeldingsstream voor een ontbrekende afbeelding, niet voor een lettertype of stylesheet.
+
+{{% alert title="Security" color="warning" %}}
+Los geen willekeurige bestandspaden of onbeperkte netwerk‑URL’s op uit onbetrouwbare SVG‑bestanden. Beperk de toegestane schema’s, mappen en hosts. Voor netwerkbronnen moet je ook verbindings‑time‑outs, limieten voor de responsgrootte en inhoudsvalidatie toepassen.
+{{% /alert %}}
+
+## **SVG omzetten naar een set vormen**
+
+Aspose.Slides kan een SVG omzetten in een set vormen, vergelijkbaar met de overeenkomstige functionaliteit in PowerPoint:
+
+![PowerPoint Popup Menu](img_01_01.png)
+
+Deze functionaliteit wordt geleverd door een overload van de [AddGroupShape](https://reference.aspose.com/slides/nl/net/aspose.slides.ishapecollection/addgroupshape/methods/1)-methode van de [IShapeCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection)-interface die een [ISvgImage](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage)-object als eerste argument neemt.
+
+De volgende C#‑voorbeeldcode laat zien hoe je deze methode gebruikt om een SVG‑bestand om te zetten in een set vormen:
+
+``` csharp 
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Bron‑SVG‑bestandnaam
+string svgFileName = "sample.svg";
+
+// Uitvoer‑presentatie‑bestandsnaam
+string outPptxPath = "presentation.pptx";
+
+// Maak een nieuwe presentatie
 using (IPresentation presentation = new Presentation())
 {
-    // SVG‑bestandsinhoud lezen
+    // Lees de SVG‑bestandsinhoud
     string svgContent = File.ReadAllText(svgFileName);
 
-    // SvgImage‑object maken
+    // Maak een SvgImage‑object
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Dia‑grootte ophalen
+    // Haal de dia‑grootte op
     SizeF slideSize = presentation.SlideSize.Size;
 
-    // SVG‑afbeelding omzetten naar groep vormen en schalen naar dia‑grootte
+    // Converteer de SVG‑afbeelding naar een groep vormen en schaal deze naar de dia‑grootte
     presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
 
-    // Presentatie opslaan in PPTX‑formaat
+    // Sla de presentatie op in PPTX‑formaat
     presentation.Save(outPptxPath, SaveFormat.Pptx);
 }
 ```
 
 ## **Afbeeldingen als EMF aan dia's toevoegen**
-Aspose.Slides for .NET stelt je in staat om EMF‑afbeeldingen te genereren uit Excel‑bladen en de afbeeldingen als EMF op dia's toe te voegen met Aspose.Cells. 
 
-Deze voorbeeldcode laat zien hoe je de beschreven taak uitvoert:
+Aspose.Slides for .NET stelt je in staat om EMF‑afbeeldingen te genereren uit Excel-werkbladen met Aspose.Cells en deze toe te voegen aan presentatiedia's.
 
-```csharp
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
+De volgende C#‑voorbeeldcode laat zien hoe je dit doet:
+
+``` csharp 
+using Aspose.Slides;
+using Aspose.Cells;
+using Aspose.Cells.Rendering;
+
+
+using (Workbook book = new Workbook("chart.xlsx"))
 {
     Worksheet sheet = book.Worksheets[0];
     ImageOrPrintOptions options = new ImageOrPrintOptions();
     options.HorizontalResolution = 200;
     options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
 
-    // Sla de werkmap op naar stream
+    // Sla het werkboek op naar een stream
     SheetRender sr = new SheetRender(sheet, options);
     using (Presentation pres = new Presentation())
     {
@@ -208,7 +421,7 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
         String EmfSheetName = "";
         for (int j = 0; j < sr.PageCount; j++)
         {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
+            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
             sr.ToImage(j, EmfSheetName);
 
             var bytes = File.ReadAllBytes(EmfSheetName);
@@ -217,24 +430,27 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
             slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
         }
 
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
     }
 }
 ```
 
 ## **Afbeeldingen in de afbeeldingscollectie vervangen**
 
-Aspose.Slides laat je afbeeldingen die zijn opgeslagen in de afbeeldingscollectie van een presentatie (inclusief die gebruikt door dia‑vormen) vervangen. Deze sectie toont verschillende benaderingen om afbeeldingen in de collectie bij te werken. De API biedt eenvoudige methoden om een afbeelding te vervangen met behulp van ruwe byte‑gegevens, een [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/)‑instantie, of een andere afbeelding die al in de collectie bestaat.
+Aspose.Slides laat je afbeeldingen die zijn opgeslagen in de afbeeldingscollectie van een presentatie vervangen, inclusief afbeeldingen die door dia‑vormen worden gebruikt. Deze sectie beschrijft verschillende manieren om afbeeldingen in de collectie bij te werken. Je kunt een afbeelding vervangen met ruwe byte‑data, een [IImage]-instantie, of een andere afbeelding die al in de collectie bestaat.
 
-1. Laad het presentatie‑bestand dat afbeeldingen bevat met de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse.
-2. Laad een nieuwe afbeelding vanuit een bestand in een byte‑array.
-3. Vervang de doelafbeelding door de nieuwe afbeelding met behulp van de byte‑array.
-4. In de tweede benadering laad je de afbeelding in een [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) object en vervang je de doelafbeelding door dat object.
-5. In de derde benadering vervang je de doelafbeelding door een afbeelding die al bestaat in de afbeeldingscollectie van de presentatie.
-6. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
+1. Laad het presentatie‑bestand dat afbeeldingen bevat met de [Presentation]-klasse.  
+2. Laad een nieuwe afbeelding vanuit een bestand in een byte‑array.  
+3. Vervang de doelafbeelding door de nieuwe afbeelding met behulp van de byte‑array.  
+4. In de tweede aanpak laad je de afbeelding in een [IImage]-object en vervang je de doelafbeelding door dat object.  
+5. In de derde aanpak vervang je de doelafbeelding door een afbeelding die al in de afbeeldingscollectie van de presentatie bestaat.  
+6. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
 
 ```cs
-// Instantieer de Presentation‑klasse die een presentatie‑bestand vertegenwoordigt.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Instantieer de Presentation‑klasse die een presentatiebestand vertegenwoordigt.
 using Presentation presentation = new Presentation("sample.pptx");
 
 // De eerste manier.
@@ -256,27 +472,27 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert title="Info" color="info" %}}
-Met de gratis Aspose [Text to GIF](https://products.aspose.app/slides/nl/text-to-gif) converter kun je eenvoudig teksten animeren, GIF's van teksten maken, enzovoort. 
+Met Aspose's gratis [Text naar GIF](https://products.aspose.app/slides/nl/text-to-gif)‑converter kun je eenvoudig tekst animeren en GIF‑bestanden van tekst maken. 
 {{% /alert %}}
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Blijft de originele afbeeldingsresolutie behouden na invoeging?**
+**Blijft de originele resolutie van de afbeelding na invoegen behouden?**
 
-Ja. De bronpixels worden behouden, maar het uiteindelijke uiterlijk hangt af van hoe de [afbeelding](/slides/nl/net/picture-frame/) op de dia wordt geschaald en van eventuele compressie bij het opslaan.
+Ja. De bronpixels worden bewaard, maar het uiteindelijke uiterlijk hangt af van hoe de [afbeelding](/slides/nl/net/picture-frame/) op de dia wordt geschaald en van eventuele compressie bij het opslaan.
 
-**Wat is de beste manier om hetzelfde logo tegelijk op tientallen dia's te vervangen?**
+**Wat is de beste manier om hetzelfde logo in tientallen dia's tegelijk te vervangen?**
 
-Plaats het logo op de master‑dia of een lay‑out en vervang het in de afbeeldingscollectie van de presentatie—updates worden doorgevoerd naar alle elementen die die bron gebruiken.
+Plaats het logo op de master‑dia of een lay‑out en vervang het in de afbeeldingscollectie van de presentatie — updates worden doorgevoerd naar alle elementen die die bron gebruiken.
 
-**Kan een ingevoegde SVG worden geconverteerd naar bewerkbare vormen?**
+**Kan een ingevoegde SVG worden omgezet in bewerkbare vormen?**
 
-Ja. Je kunt een SVG omzetten naar een groep vormen; daarna worden de individuele onderdelen bewerkbaar met standaard vorm‑eigenschappen.
+Ja. Je kunt een SVG omzetten in een groep vormen, waarna individuele delen bewerkbaar zijn met standaard vorm‑eigenschappen.
 
-**Hoe kan ik een afbeelding als achtergrond voor meerdere dia's tegelijk instellen?**
+**Hoe kan ik een afbeelding instellen als achtergrond voor meerdere dia's tegelijk?**
 
-[Ken de afbeelding toe als achtergrond](/slides/nl/net/presentation-background/) op de master‑dia of de betreffende lay‑out—alle dia's die die master/lay‑out gebruiken, nemen de achtergrond over.
+[Ken de afbeelding toe als achtergrond](/slides/nl/net/presentation-background/) op de master‑dia of de betreffende lay‑out — alle dia's die die master/lay‑out gebruiken, erven de achtergrond.
 
-**Hoe voorkom ik dat de presentatie in omvang “opschiet” door veel afbeeldingen?**
+**Hoe voorkom ik dat een presentatie te groot wordt door veel afbeeldingen?**
 
-Hergebruik één afbeeldingsbron in plaats van duplicaten, kies redelijke resoluties, pas compressie toe bij het opslaan, en houd herhaalde grafieken op de master waar passend.
+Herbruik één afbeelding in plaats van duplicaten, kies redelijke resoluties, pas compressie toe bij het opslaan, en bewaar herhaalde afbeeldingen op de master waar dit gepast is.

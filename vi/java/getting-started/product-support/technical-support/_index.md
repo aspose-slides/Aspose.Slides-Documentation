@@ -10,43 +10,43 @@ keywords:
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Nhận hỗ trợ kỹ thuật nhanh chóng, miễn phí cho Aspose.Slides for Java, tìm hiểu cách báo cáo vấn đề một cách hiệu quả, và giữ cho các dự án PPT, PPTX và ODP của bạn chạy trơn tru."
+description: "Nhận hỗ trợ kỹ thuật nhanh, miễn phí cho Aspose.Slides for Java, tìm hiểu cách báo cáo vấn đề một cách hiệu quả, và giữ cho các dự án PPT, PPTX và ODP của bạn chạy trơn tru."
 ---
-## **Tổng quan**
+## **Overview**
 
-Bài viết này giải thích cách nhận hỗ trợ cho Aspose.Slides và cách báo cáo vấn đề một cách hiệu quả. Nó mô tả kênh hỗ trợ chính, đưa ra khuyến nghị khi gửi vấn đề, và chỉ dẫn đến các tài nguyên kỹ thuật hữu ích như trang sản phẩm, blog, tải xuống, diễn đàn hỗ trợ, tài liệu và Tham chiếu API. Bài viết cũng trả lời các câu hỏi thường gặp về hỗ trợ trả phí, việc nâng cấp vấn đề, và hỗ trợ các phiên bản thư viện cũ.
+Bài viết này giải thích cách nhận hỗ trợ cho Aspose.Slides và cách báo cáo vấn đề một cách hiệu quả. Nó mô tả kênh hỗ trợ chính, đưa ra khuyến nghị khi gửi vấn đề, và chỉ dẫn tới các tài nguyên kỹ thuật hữu ích như trang sản phẩm, blog, tải xuống, diễn đàn hỗ trợ, tài liệu và API Reference. Bài viết cũng trả lời các câu hỏi thường gặp về hỗ trợ trả phí, việc nâng cấp vấn đề, và hỗ trợ cho các phiên bản thư viện cũ hơn.
 
-## **Hỗ trợ kỹ thuật**
+## **Technical support**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose cung cấp hỗ trợ kỹ thuật không giới hạn và miễn phí cho tất cả các sản phẩm của mình. Hỗ trợ này có sẵn cho mọi người dùng, bao gồm cả bản đánh giá.
+Aspose cung cấp hỗ trợ kỹ thuật miễn phí không giới hạn cho tất cả các sản phẩm của mình. Hỗ trợ này có sẵn cho mọi người dùng, bao gồm cả bản dùng thử.
 
 {{% /alert %}} 
 
-Nếu bạn cần trợ giúp với Aspose.Slides for Java, hãy xem xét các điểm sau:
+Nếu bạn cần giúp đỡ với Aspose.Slides for Java, hãy xem các đề xuất sau:
 
 - Kênh hỗ trợ chính là Aspose.Forums. Đăng câu hỏi của bạn trong diễn đàn Aspose.Slides và nó sẽ được trả lời trong vòng vài giờ. Các câu hỏi được trả lời trực tiếp bởi đội ngũ hỗ trợ Aspose.Slides.
 - Lưu ý, Aspose không cung cấp hỗ trợ kỹ thuật qua điện thoại. Hỗ trợ qua điện thoại chỉ dành cho các câu hỏi về bán hàng và mua hàng.
-- Khi mong đợi phản hồi trên diễn đàn, vui lòng cân nhắc sự chênh lệch múi giờ.
+- Khi mong đợi phản hồi trong diễn đàn, vui lòng tính đến sự chênh lệch múi giờ.
 
 Nếu bạn gặp vấn đề với Aspose.Slides for Java, hãy làm theo các bước đơn giản sau để đảm bảo vấn đề được giải quyết một cách hiệu quả nhất:
 
-- Đảm bảo bạn đang sử dụng phiên bản mới nhất của Aspose.Slides for Java trước khi báo cáo vấn đề, xem phần tải xuống Aspose.Slides để biết phiên bản mới nhất.
-- Hãy xem qua các diễn đàn, tài liệu này và Tham chiếu API trước khi báo cáo vấn đề; có thể câu hỏi của bạn đã được trả lời.
-- Khi báo cáo vấn đề, vui lòng đính kèm tài liệu gốc và có thể là một đoạn mã gây ra lỗi. Nếu cần đính kèm nhiều tệp, hãy nén chúng thành một file zip. Việc đính kèm tài liệu trên Aspose.Forums là an toàn vì chỉ bạn và các nhà phát triển Aspose mới có quyền truy cập vào các tệp đính kèm.
+- Đảm bảo bạn đang sử dụng phiên bản mới nhất của Aspose.Slides for Java trước khi báo cáo vấn đề, xem Aspose.Slides download để biết phiên bản mới nhất.
+- Kiểm tra qua các diễn đàn, tài liệu này và API Reference trước khi báo cáo vấn đề; có thể câu hỏi của bạn đã được trả lời.
+- Khi báo cáo vấn đề, vui lòng đính kèm tài liệu gốc và có thể một đoạn mã gây ra lỗi. Nếu cần đính kèm nhiều tệp, hãy nén chúng thành một file zip. Việc đính kèm tài liệu trên Aspose.Forums là an toàn vì chỉ bạn và các nhà phát triển Aspose mới có quyền truy cập vào các tệp đính kèm.
 - Vui lòng cố gắng báo cáo một vấn đề mỗi luồng. Nếu bạn có vấn đề khác, hãy báo cáo trong một luồng riêng.
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Các cấp độ hỗ trợ trả phí nào có sẵn và chúng khác nhau như thế nào?**
+### What paid support tiers are available and how do they differ?
 
-[Developer, Business, and Enterprise](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Chúng khác nhau về số vụ việc được bao gồm, mức độ ưu tiên phản hồi và các kênh giao tiếp khả dụng.
+[Developer, Business, and Enterprise](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Chúng khác nhau về số lượng sự cố được bao gồm, mức độ ưu tiên phản hồi và các kênh giao tiếp khả dụng.
 
-**Tôi có thể nâng cấp một lỗi trực tiếp lên nhóm kỹ thuật không?**
+### Can I escalate a bug directly to the engineering team?
 
-Có. [Paid support](https://helpdesk.aspose.com/) cho phép nâng cấp lên các nhà phát triển khi một vấn đề yêu cầu điều tra sâu hơn.
+Có. [Paid support](https://helpdesk.aspose.com/) cho phép nâng cấp lên các nhà phát triển khi một vấn đề cần được điều tra sâu hơn.
 
-**Các phiên bản thư viện cũ có được hỗ trợ không, và bạn có phát hành bản sửa cho chúng không?**
+### Are older library versions supported, and do you release fixes for them?
 
-Bạn có thể sử dụng các phiên bản cũ, nhưng các bản sửa chỉ được cung cấp cho phiên bản hiện tại; các bản vá cho các phiên bản cũ không được phát hành.
+Bạn có thể sử dụng các phiên bản cũ hơn, nhưng các bản sửa lỗi chỉ được cung cấp cho phiên bản hiện tại; các bản vá cho các phiên bản cũ không được phát hành.

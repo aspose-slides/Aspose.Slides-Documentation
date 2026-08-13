@@ -13,21 +13,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Εξαγωγή εικόνων από σχήματα σε παρουσιάσεις PowerPoint και OpenDocument με Aspose.Slides για Android μέσω Java - γρήγορη, φιλική προς τον κώδικα λύση."
+description: "Εξάγετε εικόνες από σχήματα σε παρουσιάσεις PowerPoint και OpenDocument με Aspose.Slides για Android μέσω Java - γρήγορη, φιλική προς τον κώδικα λύση."
 ---
 ## **Επισκόπηση**
 
-Οι εικόνες σε μια παρουσίαση μπορούν να εμφανιστούν σε πολλούς τύπους σχήματος: ως συνηθισμένα πλαίσια εικόνων, ως γεμίσεις εικόνας που εφαρμόζονται σε σχήματα, ως εικόνες προεπισκόπησης αντικειμένου OLE, ως μικρογραφίες καρέ βίντεο ή ήχου, ως εικόνες ζουμ ή ως εικόνες ενσωματωμένες μέσα σε σχήματα πίνακα, διαγράμματος και SmartArt. Το Aspose.Slides αποθηκεύει αυτές τις εικόνες στη συλλογή εικόνων της παρουσίασης, η οποία εκτίθεται μέσω των αντικειμένων [IImageCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimagecollection/) και [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) .
+Οι εικόνες σε μια παρουσίαση μπορούν να εμφανίζονται σε πολλαπλούς τύπους σχήματος: ως απλά πλαίσια εικόνας, ως εικόνες γεμίσματος που εφαρμόζονται σε σχήματα, ως εικόνες προεπισκόπησης αντικειμένων OLE, ως μικρογραφίες βίντεο ή ήχου, ως εικόνες ζουμ ή ως εικόνες ενσωματωμένες μέσα σε σχήματα πίνακα, γραφήματος και SmartArt. Το Aspose.Slides αποθηκεύει αυτές τις εικόνες στη συλλογή εικόνων της παρουσίασης, η οποία εκτίθεται μέσω των αντικειμένων [IImageCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimagecollection/) και [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) .
 
-Αν χρειάζεται μόνο να εξάγετε κάθε ενσωματωμένο πόρο εικόνας σε μια παρουσίαση, επαναλάβετε το `presentation.getImages()`. Αυτό το άρθρο εστιάζει σε διαφορετικό έργο: την περιήγηση στα σχήματα για να βρείτε πού χρησιμοποιούνται οι εικόνες στις διαφάνειες, ώστε τα αποθηκευμένα αρχεία να μπορούν να διατηρήσουν χρήσιμα συμφραζόμενα όπως ο αριθμός της διαφάνειας, η θέση του σχήματος και ο τύπος προέλευσης (πλαίσιο εικόνας, γεμιστική εικόνα, προεπισκόπηση πολυμέσων, προεπισκόπηση OLE ή εικόνα ζουμ).
+Αν χρειάζεστε μόνο την εξαγωγή κάθε ενσωματωμένου πόρου εικόνας σε μια παρουσίαση, επαναλάβετε το `presentation.getImages()`. Αυτό το άρθρο εστιάζει σε διαφορετικό έργο: η περιήγηση στα σχήματα για να εντοπιστούν τα σημεία χρήσης εικόνων στις διαφάνειες, ώστε τα αποθηκευμένα αρχεία να διατηρούν χρήσιμο πλαίσιο όπως ο αριθμός της διαφάνειας, η θέση του σχήματος και ο τύπος προέλευσης (πλαίσιο εικόνας, εικόνα γεμίσματος, προεπισκόπηση πολυμέσων, προεπισκόπηση OLE ή εικόνα ζουμ).
 
-{{% alert title="Tip" color="primary" %}}
-Χρησιμοποιήστε το [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) για να διατηρήσετε τα αρχικά κωδικοποιημένα δεδομένα εικόνας και τον τύπο αρχείου. Χρησιμοποιήστε το [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--) μαζί με το [IImage.save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) όταν θέλετε να ομαλοποιήσετε το αποτέλεσμα σε συγκεκριμένο φορμά, όπως PNG.
+{{% alert title="Tip" color="info" %}}
+Χρησιμοποιήστε το [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) για τη διατήρηση των αρχικών κωδικοποιημένων δεδομένων της εικόνας και του τύπου αρχείου. Χρησιμοποιήστε το [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--) με το [IImage.save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) όταν θέλετε να ομαλοποιήσετε την έξοδο σε συγκεκριμένο μορφότυπο όπως PNG.
 {{% /alert %}}
 
-## **Κοινές Βοηθητικές Μεθόδους**
+## **Κοινές βοηθητικές μέθοδοι**
 
-Οι παρακάτω βοηθητικές μέθοδοι διατηρούν τα παραδείγματα σύντομα. Η `saveOriginalImage` γράφει τα αρχικά ενσωματωμένα bytes, επιλέγει μια ασφαλή επέκταση από τον τύπο MIME και παραλείπει διπλότυπα δυαδικά δεδομένα εικόνας με βάση το hash SHA‑256.
+Οι παρακάτω βοηθητικές μέθοδοι κρατούν τα παραδείγματα σύντομα. Η `saveOriginalImage` γράφει τα αρχικά ενσωματωμένα byte, επιλέγει ασφαλή επέκταση από τον τύπο MIME και παραλείπει διπλότυπα δυαδικά δεδομένα εικόνας βάσει του SHA‑256 hash.
 
 ```java
 import com.aspose.slides.*;
@@ -223,11 +223,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **Εξαγωγή Εικόνων από Πλαισίες Εικόνας**
+## **Εξαγωγή εικόνων από πλαίσια εικόνων**
 
-Χρησιμοποιήστε αυτήν την προσέγγιση για εικόνες που εισάγονται ως ανεξάρτητα αντικείμενα. Ένα [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/) αποθηκεύει την εικόνα του στο `getPictureFormat().getPicture().getImage()`, το οποίο επιστρέφει ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) .
+Χρησιμοποιήστε αυτήν την προσέγγιση για εικόνες που εισάγονται ως αυτόνομα αντικείμενα. Ένα [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/) αποθηκεύει την εικόνα του στο `getPictureFormat().getPicture().getImage()`, το οποίο επιστρέφει ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/). Σημειώστε ότι τα [IVideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/) και [IAudioFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudioframe/) προέρχονται από το [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/), έτσι ο έλεγχος `instanceof` ταιριάζει επίσης με πλαίσια πολυμέσων και εξάγει τις προεπισκοπήσεις τους· ελέγξτε για αυτούς τους τύπους πρώτα όταν θέλετε να τους χειριστείτε ξεχωριστά, όπως κάνει το τελευταίο παράδειγμα σε αυτήν τη σελίδα.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -267,11 +272,15 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων από Σχήματα με Γέμιση Εικόνας**
+## **Εξαγωγή εικόνων από σχήματα γεμισμένα με εικόνα**
 
-Τα σχήματα μπορούν να χρησιμοποιούν μια εικόνα ως γέμισμα. Ελέγξτε πρώτα τον τύπο γεμίσματος του σχήματος: εάν δεν είναι [FillType.Picture](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/filltype/), δεν υπάρχει εικόνα για εξαγωγή από αυτό το γέμισμα. Το παρακάτω παράδειγμα διαχειρίζεται αντικείμενα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) και αποθηκεύει κάθε εικόνα ως PNG μέσω του [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--) .
+Τα σχήματα μπορούν να χρησιμοποιούν μια εικόνα ως γέμισμα. Ελέγξτε πρώτα τον τύπο γεμίσματος του σχήματος: εάν δεν είναι [FillType.Picture](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/filltype/), δεν υπάρχει εικόνα προς εξαγωγή από αυτό το γέμισμα. Το παρακάτω παράδειγμα διαχειρίζεται αντικείμενα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) και αποθηκεύει κάθε εικόνα ως PNG μέσω του [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--).
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -313,11 +322,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων Προεπισκόπησης από Πλαίσια Αντικειμένου OLE**
+## **Εξαγωγή προεπισκοπήσεων εικόνων από πλαίσια αντικειμένων OLE**
 
-Ένα [IOleObjectFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ioleobjectframe/) μπορεί να έχει μια αντικαταστατική εικόνα που το PowerPoint χρησιμοποιεί ως προεπισκόπηση του αντικειμένου στη διαφάνεια. Αυτή η εικόνα είναι διαθέσιμη μέσω του `getSubstitutePictureFormat().getPicture().getImage()`. Η εξαγωγή αυτής της εικόνας παρέχει την προεπισκόπηση, όχι το ενσωματωμένο περιεχόμενο του πακέτου OLE.
+Ένα [IOleObjectFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ioleobjectframe/) μπορεί να έχει μια αντικαταστατή εικόνα που το PowerPoint χρησιμοποιεί ως προεπισκόπηση του αντικειμένου στη διαφάνεια. Αυτή η εικόνα είναι διαθέσιμη μέσω του `getSubstitutePictureFormat().getPicture().getImage()`. Η εξαγωγή αυτής της εικόνας δίνει τη προεπισκόπηση, όχι τα ενσωματωμένα περιεχόμενα του πακέτου OLE.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -361,11 +375,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων Προεπισκόπησης από Πλαίσια Βίντεο**
+## **Εξαγωγή προεπισκοπήσεων εικόνων από καρέ βίντεο**
 
-Ένα [IVideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/) μπορεί επίσης να αποθηκεύει μια εικόνα προεπισκόπησης στο `getPictureFormat().getPicture().getImage()`. Πρόκειται για την αφίσα ή μικρογραφία που εμφανίζεται στη διαφάνεια, όχι για ένα καρέ που αποκωδικοποιείται από τη ροή βίντεο.
+Ένα [IVideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/) μπορεί επίσης να αποθηκεύει μια προεπισκόπηση στην `getPictureFormat().getPicture().getImage()`. Αυτό είναι το αφίσα ή η μικρογραφία που εμφανίζεται στη διαφάνεια, όχι ένα καρέ που έχει αποκωδικοποιηθεί από τη ροή βίντεο.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -409,11 +428,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων Προεπισκόπησης από Πλαίσια Ήχου**
+## **Εξαγωγή προεπισκοπήσεων εικόνων από καρέ ήχου**
 
-Ένα [IAudioFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudioframe/) μπορεί να αποθηκεύει μια μικρογραφία στο `getPictureFormat().getPicture().getImage()`. Αυτή είναι η εικόνα που εμφανίζεται για το αντικείμενο ήχου στη διαφάνεια.
+Ένα [IAudioFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudioframe/) μπορεί να αποθηκεύει μια μικρογραφία στην `getPictureFormat().getPicture().getImage()`. Αυτή είναι η εικόνα που εμφανίζεται για το αντικείμενο ήχου στη διαφάνεια.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -457,11 +481,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων από Αντικείμενα Zoom**
+## **Εξαγωγή εικόνων από αντικείμενα ζουμ**
 
 Τα σχήματα [IZoomFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/izoomframe/) και [ISectionZoomFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isectionzoomframe/) μπορούν να χρησιμοποιούν προσαρμοσμένες εικόνες. Διαβάστε το `getZoomImage()` από το πλαίσιο ζουμ.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -518,11 +547,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων από Πλαίσια Summary Zoom**
+## **Εξαγωγή εικόνων από πλαίσια συνοπτικού ζουμ**
 
-Ένα [ISummaryZoomFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isummaryzoomframe/) είναι επίσης σχήμα. Τα στοιχεία της ενότητας μπορούν να χρησιμοποιούν προσαρμοσμένες εικόνες, που εκτίθενται μέσω της μεθόδου `getZoomImage()` κάθε ενότητας summary zoom.
+Ένα [ISummaryZoomFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/isummaryzoomframe/) είναι επίσης σχήμα. Τα τμήματα του μπορούν να χρησιμοποιούν προσαρμοσμένες εικόνες, εκτεθειμένες μέσω της μεθόδου `getZoomImage()` του κάθε τμήματος συνοπτικού ζουμ.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -572,11 +606,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων από Σχήματα Πίνακα**
+## **Εξαγωγή εικόνων από σχήματα πίνακα**
 
-Ένα [ITable](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itable/) είναι σχήμα. Οι εικόνες σε έναν πίνακα αποθηκεύονται συνήθως ως γεμίσεις εικόνας στα κελιά του πίνακα.
+Ένα [ITable](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itable/) είναι σχήμα. Οι εικόνες σε πίνακα συνήθως αποθηκεύονται ως γεμίσματα εικόνας στα κελιά του πίνακα.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -632,11 +671,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων από Σχήματα Διαγράμματος**
+## **Εξαγωγή εικόνων από σχήματα γραφήματος**
 
-Ένα [IChart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/) είναι σχήμα. Το παρακάτω παράδειγμα εξάγει μια εικόνα από τη γέμιση εικόνας της περιοχής του διαγράμματος.
+Ένα [IChart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/) είναι σχήμα. Το παρακάτω παράδειγμα εξάγει μια εικόνα από το γέμισμα εικόνας της περιοχής του γραφήματος.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -681,11 +725,16 @@ finally
 }
 ```
 
-## **Εξαγωγή Εικόνων από Σχήματα SmartArt**
+## **Εξαγωγή εικόνων από σχήματα SmartArt**
 
-Ένα αντικείμενο [ISmartArt](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ismartart/) είναι σχήμα. Ανάλογα με τη διάταξη SmartArt, οι εικόνες μπορεί να αποθηκεύονται σε γεμίσεις κουκκίδων κόμβων ή στις μορφές γεμίσματος των σχήματων κόμβων.
+Ένα αντικείμενο [ISmartArt](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ismartart/) είναι σχήμα. Ανάλογα με τη διάταξη του SmartArt, οι εικόνες μπορεί να αποθηκεύονται στα γεμίσματα των κόμβων ή στα φορμάτ γεμίσματος των σ shapes των κόμβων.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -751,11 +800,16 @@ finally
 }
 ```
 
-## **Συμπερίληψη Εικόνων Μέσα σε Ομαδοποιημένα Σχήματα**
+## **Συμπερίληψη εικόνων εντός ομαδοποιημένων σχημάτων**
 
-Τα ομαδοποιημένα σχήματα περιέχουν τις δικές τους συλλογές σχημάτων. Η κοινή βοηθητική μέθοδος `enumerateShapes` διαθέτει την επιλογή `includeGroupedShapes`. Ορίστε την σε `true` όταν θέλετε να ελέγξετε τα σχήματα μέσα σε αντικείμενα [IGroupShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igroupshape/) . Το παρακάτω παράδειγμα εξάγει εικόνες από πλαίσια εικόνας, σχήματα με γεμιστική εικόνα, προεπισκοπήσεις OLE, μικρογραφίες πλαισίων βίντεο και μικρογραφίες πλαισίων ήχου. Για να συμπεριλάβετε επίσης εικόνες πίνακα, διαγράμματος, SmartArt και summary zoom, επαναχρησιμοποιήστε τη εξειδικευμένη λογική εξαγωγής από τις προηγούμενες ενότητες διατηρώντας την ίδια αναδρομική περιήγηση σε σχήματα.
+Τα ομαδοποιημένα σχήματα περιέχουν τις δικές τους συλλογές σχημάτων. Η κοινή βοηθητική μέθοδος `enumerateShapes` διαθέτει την επιλογή `includeGroupedShapes`. Ορίστε την σε `true` όταν θέλετε να εξετάσετε σχήματα μέσα σε αντικείμενα [IGroupShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igroupshape/). Το παρακάτω παράδειγμα εξάγει εικόνες από πλαίσια εικόνας, σχήματα γεμισμένα με εικόνα, προεπισκοπήσεις OLE, μικρογραφίες καρέ βίντεο και μικρογραφίες καρέ ήχου. Για να συμπεριλάβετε επίσης εικόνες πινάκων, γραφημάτων, SmartArt και συνοπτικού ζουμ, επαναχρησιμοποιήστε τη ειδική λογική εξαγωγής από τις προηγούμενες ενότητες διατηρώντας την ίδια αναδρομική περιήγηση σχημάτων.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+import java.util Set;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -846,45 +900,45 @@ finally
 }
 ```
 
-## **Ακραίες Περιπτώσεις και Πρακτικές Σημειώσεις**
+## **Περιπτώσεις Άκρων και Πρακτικές Σημειώσεις**
 
-- **Διπλότυπες εικόνες:** Πολλά σχήματα μπορεί να αναφέρονται στην ίδια εικόνα ή σε ξεχωριστές εικόνες με πανομοιότυπα bytes. Κάντε hash το [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) πριν γράψετε τα αρχεία εάν θέλετε ένα αρχείο εξόδου ανά μοναδική εικόνα.
-- **Αρχικά δεδομένα vs. μετατρεπόμενο αποτέλεσμα:** Η αποθήκευση του [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) διατηρεί τα ενσωματωμένα δεδομένα JPEG, PNG, GIF, SVG, EMF ή WMF. Η αποθήκευση του [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--) μέσω του [IImage.save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) είναι χρήσιμη όταν θέλετε συνεπές φορμά εξόδου.
-- **Μη υποστηριζόμενοι τύποι γεμίσματος:** Σχήματα με γέμιση στερεά, διαβάθμιση, μοτίβο ή χωρίς γέμισμα δεν περιέχουν εικόνα γεμίσματος. Ελέγξτε το [FillType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/filltype/) πριν διαβάσετε το `getPictureFillFormat()`.
-- **Ομαδοποιημένα σχήματα:** Η συλλογή σχημάτων της κορυφαίας διαφάνειας δεν ισοπεδώνει τις ομάδες. Εξετάστε αναδρομικά το [IGroupShape.getShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igroupshape/#getShapes--) όταν το περιεχόμενο των ομάδων έχει σημασία.
-- **Προεπισκοπήσεις OLE:** Ένα [IOleObjectFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ioleobjectframe/) μπορεί να εκθέτει μια εικόνα προεπισκόπησης μέσω του `getSubstitutePictureFormat()`, αλλά αυτή η εικόνα είναι μόνο η προεπισκόπηση στη διαφάνεια. Δεν είναι το ενσωματωμένο αρχείο μέσα στο αντικείμενο OLE.
-- **Μικρογραφίες πλαισίων βίντεο:** Ένα [IVideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/) μπορεί να εκθέτει μια εικόνα προεπισκόπησης μέσω του `getPictureFormat()`, αλλά αυτή η εικόνα είναι μόνο η αφίσα που εμφανίζεται στη διαφάνεια. Δεν εξάγεται από τη ροή βίντεο.
-- **Μικρογραφίες πλαισίων ήχου:** Ένα [IAudioFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudioframe/) μπορεί να εκθέτει ένα εικονίδιο ή μικρογραφία μέσω του `getPictureFormat()`· δεν είναι τα ενσωματωμένα δεδομένα ήχου.
-- **Εικόνες ζουμ:** Τα σχήματα zoom διαφανειών, τμήματος και summary zoom μπορούν να χρησιμοποιούν προσαρμοσμένα αντικείμενα [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) μέσω του `getZoomImage()`.
-- **Στοιχεία εσωτερικών μοντέλων σχήματος:** Τα αντικείμενα πίνακα, διαγράμματος και SmartArt υλοποιούν το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), αλλά οι εικόνες τους συχνά αποθηκεύονται σε εσωτερικά αντικείμενα μορφοποίησης κελιών πίνακα, στοιχείων διαγράμματος ή κόμβων SmartArt.
-- **Περικομμένα ή μετασχηματισμένα φωτογραφίες:** Η πρόσβαση στο [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) σας δίνει τον αποθηκευμένο πόρο εικόνας. Δεν εφαρμόζει περικοπή, διαφάνεια, επαναχρωματισμό, περιστροφή ή άλλες οπτικές επιδράσεις που έχουν εφαρμοστεί από το σχήμα.
+- **Διπλότυπες εικόνες:** Πολλά σχήματα μπορεί να αναφέρονται στην ίδια εικόνα ή σε διαφορετικές εικόνες με ίσους byte. Υπολογίστε το hash με [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) πριν γράψετε αρχεία εάν θέλετε ένα αρχείο εξόδου ανά μοναδική εικόνα.
+- **Αρχικά δεδομένα vs. μετασχηματισμένη έξοδος:** Η αποθήκευση του [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) διατηρεί τα ενσωματωμένα δεδομένα JPEG, PNG, GIF, SVG, EMF ή WMF. Η αποθήκευση του [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--) μέσω του [IImage.save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) είναι χρήσιμη όταν θέλετε έναν συνεπή μορφότυπο εξόδου.
+- **Μη υποστηριζόμενοι τύποι γεμίσματος:** Σχήματα στερεού, διαβάσματος, μοτίβου ή χωρίς γέμισμα δεν περιέχουν εικόνα γεμίσματος. Ελέγξτε το [FillType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/filltype/) πριν διαβάσετε το `getPictureFillFormat()`.
+- **Ομαδοποιημένα σχήματα:** Η συλλογή σχημάτων της κορυφαίας διαφάνειας δεν «εξομαλύνει» τις ομάδες. Εξετάστε αναδρομικά το [IGroupShape.getShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/igroupshape/#getShapes--) όταν το περιεχόμενο των ομάδων έχει σημασία.
+- **Προεπισκοπήσεις αντικειμένων OLE:** Ένα [IOleObjectFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ioleobjectframe/) μπορεί να εκθέτει μια προεπισκόπηση μέσω του `getSubstitutePictureFormat()`, αλλά αυτή η εικόνα είναι μόνο η προεπισκόπηση της διαφάνειας. Δεν είναι το ενσωματωμένο αρχείο μέσα στο αντικείμενο OLE.
+- **Μικρογραφίες καρέ βίντεο:** Ένα [IVideoFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/) μπορεί να εκθέτει μια προεπισκόπηση μέσω του `getPictureFormat()`, αλλά αυτή η εικόνα είναι μόνο η αφίσα που εμφανίζεται στη διαφάνεια. Δεν εξάγεται από τη ροή βίντεο.
+- **Μικρογραφίες καρέ ήχου:** Ένα [IAudioFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iaudioframe/) μπορεί να εκθέτει ένα εικονίδιο ή μικρογραφία μέσω του `getPictureFormat()`· δεν είναι τα ενσωματωμένα δεδομένα ήχου.
+- **Εικόνες ζουμ:** Τα σχήματα ζουμ διαφάνειας, τμήματος ζουμ και συνοπτικού ζουμ μπορούν να χρησιμοποιούν προσαρμοσμένα αντικείμενα [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) μέσω του `getZoomImage()`.
+- **Στοιχεία ενσωματωμένων σχημάτων:** Τα αντικείμενα πίνακα, γραφήματος και SmartArt υλοποιούν το [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/), αλλά οι εικόνες τους συχνά αποθηκεύονται σε εσωτερικά αντικείμενα μορφοποίησης κελιού πίνακα, στοιχείου γραφήματος ή κόμβου SmartArt.
+- **Κομμένες ή μετασχηματισμένες εικόνες:** Η πρόσβαση στο [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) σας δίνει τον αποθηκευμένο πόρο εικόνας. Δεν εφαρμόζει κοπές, διαφάνειες, αναχρώσεις, περιστροφές ή άλλα οπτικά εφέ που έχουν εφαρμοστεί από το σχήμα.
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Μπορώ να εξάγω την αρχική εικόνα χωρίς περικοπή, εφέ ή μετασχηματισμούς σχήματος;**
+### Μπορώ να εξάγω την αρχική εικόνα χωρίς περικοπή, εφέ ή μετασχηματισμούς σχήματος;
 
-Ναι. Πρόσβαση στο αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) και γράψτε το [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) στο δίσκο. Αυτό διατηρεί την αρχική κωδικοποιημένη εικόνα που αποθηκεύεται στην παρουσίαση, όχι τον τρόπο που η εικόνα αποδοκνύεται στη διαφάνεια.
+Ναι. Πρόσβαση στο αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) και εγγραφή του [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) στο δίσκο. Αυτό διατηρεί την αρχική κωδικοποιημένη εικόνα που αποθηκεύεται στην παρουσίαση, όχι τον τρόπο που η εικόνα αποδίδεται στη διαφάνεια.
 
-**Μπορώ να εξάγω κάθε εξαγόμενη εικόνα ως PNG;**
+### Μπορώ να εξάγω κάθε εξαγόμενη εικόνα ως PNG;
 
-Ναι. Χρησιμοποιήστε το [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--) για να λάβετε ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/) και, στη συνέχεια, καλέστε το [IImage.save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) με το [ImageFormat.Png](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imageformat/). Αυτό μετατρέπει το αποτέλεσμα και μπορεί να μην διατηρήσει τον αρχικό τύπο αρχείου ή τα διανυσματικά δεδομένα.
+Ναι. Χρησιμοποιήστε το [IPPImage.getImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getImage--) για να λάβετε ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/), και στη συνέχεια καλέστε το [IImage.save](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) με το [ImageFormat.Png](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/imageformat/). Αυτό μετατρέπει την έξοδο και μπορεί να μην διατηρήσει τον αρχικό τύπο αρχείου ή τα διανυσματικά δεδομένα.
 
-**Πώς μπορώ να αποτρέψω την αποθήκευση της ίδιας εικόνας περισσότερες από μία φορές;**
+### Πώς μπορώ να αποτρέψω την αποθήκευση της ίδιας εικόνας περισσότερες από μία φορές;
 
-Χρησιμοποιήστε ένα hash του [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) και διατηρήστε τα hashes σε ένα σύνολο. Εάν μια νέα εικόνα έχει hash που υπάρχει ήδη, παραλείψτε την ή καταγράψτε μια άλλη αναφορά στο υπάρχον αρχείο εξόδου.
+Χρησιμοποιήστε ένα hash του [IPPImage.getBinaryData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/#getBinaryData--) και διατηρήστε τα hashes σε μια συλλογή. Εάν μια νέα εικόνα έχει hash που υπάρχει ήδη, παραλείψτε την ή καταγράψτε μια άλλη αναφορά στο υπάρχον αρχείο εξόδου.
 
-**Γιατί μερικά σχήματα δεν παράγουν εικόνα;**
+### Γιατί ορισμένα σχήματα δεν παράγουν εικόνα;
 
-Πλαίσια εικόνας, σχήματα με γεμιστική εικόνα, πλαίσια αντικειμένου OLE, πλαίσια πολυμέσων, πλαίσια ζουμ, πίνακες, διαγράμματα και αντικείμενα SmartArt μπορούν να αναφέρονται σε εικόνες. Ορισμένοι τύποι σχήματος εκθέτουν εικόνες μέσω ένθετων αντικειμένων μορφοποίησης, έτσι ένας απλός έλεγχος `getPictureFormat()` ή `getFillFormat()` δεν είναι πάντα επαρκής.
+Τα πλαίσια εικόνας, τα σχήματα γεμισμένα με εικόνα, τα πλαίσια αντικειμένων OLE, τα πλαίσια μέσων, τα πλαίσια ζουμ, οι πίνακες, τα γραφήματα και τα αντικείμενα SmartArt μπορούν να αναφέρονται σε εικόνες. Ορισμένοι τύποι σχήματος εκθέτουν εικόνες μέσω εσωτερικών αντικειμένων μορφοποίησης, έτσι ένας απλός έλεγχος `getPictureFormat()` ή `getFillFormat()` δεν είναι πάντα επαρκής.
 
-**Μπορώ να εξάγω τη μικρογραφία που εμφανίζεται για ένα πλαίσιο βίντεο;**
+### Μπορώ να εξάγω τη μικρογραφία που εμφανίζεται για ένα καρέ βίντεο;
 
-Ναι. Χρησιμοποιήστε το [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) και διαβάστε το `getPictureFormat().getPicture().getImage()`. Αυτό εξάγει την αφίσα που αποθηκεύεται με το πλαίσιο βίντεο, όχι ένα καρέ που δημιουργείται από το αρχείο βίντεο.
+Ναι. Χρησιμοποιήστε το [IVideoFrame.getPictureFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ivideoframe/#getPictureFormat--) και διαβάστε το `getPictureFormat().getPicture().getImage()`. Αυτό εξάγει την αφίσα που αποθηκεύεται μαζί με το καρέ βίντεο, όχι ένα καρέ που δημιουργείται από το αρχείο βίντεο.
 
-**Πώς μπορώ να προσδιορίσω ποια σχήματα χρησιμοποιούν μια συγκεκριμένη εικόνα από τη συλλογή εικόνων της παρουσίασης;**
+### Πώς μπορώ να προσδιορίσω ποια σχήματα χρησιμοποιούν μια συγκεκριμένη εικόνα από τη συλλογή εικόνων της παρουσίασης;
 
-Το Aspose.Slides δεν αποθηκεύει αντίστροφους συνδέσμους από το [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) προς τα σχήματα. Κατασκευάστε έναν χάρτη κατά τη διάρκεια της περιήγησης: κάθε φορά που βρίσκετε μια αναφορά εικόνας, καταγράψτε τον αριθμό διαφάνειας, τη διαδρομή σχήματος και το hash ή το στοιχείο της συλλογής εικόνας.
+Το Aspose.Slides δεν αποθηκεύει αντίστροφους συνδέσμους από το [IPPImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ippimage/) προς τα σχήματα. Κατασκευάστε έναν χάρτη κατά τη διάρκεια της περιήγησης: κάθε φορά που βρίσκετε μια αναφορά εικόνας, καταγράψτε τον αριθμό της διαφάνειας, τη διαδρομή του σχήματος και το hash ή το στοιχείο της συλλογής.
 
-**Μπορώ να εξάγω εικόνες ενσωματωμένες μέσα σε αντικείμενα OLE, όπως συνημμένα έγγραφα;**
+### Μπορώ να εξάγω εικόνες ενσωματωμένες μέσα σε αντικείμενα OLE, όπως συνημμένα έγγραφα;
 
-Μπορείτε να εξάγετε την προεπισκόπηση διαφάνειας του αντικειμένου OLE μέσω του [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). Ωστόσο, αυτή η προεπισκόπηση δεν είναι το ενσωματωμένο έγγραφο αυτόνομα. Για να εξάγετε εικόνες από το ενσωματωμένο αρχείο, εξάγετε τα δεδομένα OLE και εξετάστε τα με τα κατάλληλα εργαλεία του τύπου αρχείου.
+Μπορείτε να εξάγετε την προεπισκόπηση διαφάνειας του αντικειμένου OLE από το [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ioleobjectframe/#getSubstitutePictureFormat--). Ωστόσο, αυτή η προεπισκόπηση δεν είναι το ενσωματωμένο έγγραφο. Για να εξάγετε εικόνες μέσα στο ενσωματωμένο αρχείο, εξάγετε τα δεδομένα OLE και εξετάστε τα με εργαλεία κατάλληλα για τον τύπο αρχείου.

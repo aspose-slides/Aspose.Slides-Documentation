@@ -1,5 +1,5 @@
 ---
-title: Добавление рамок изображений с анимацией с использованием VSTO и Aspose.Slides for .NET
+title: Добавление рамок изображений с анимацией с использованием VSTO и Aspose.Slides для .NET
 linktitle: Рамки изображений с анимацией
 type: docs
 weight: 60
@@ -18,28 +18,32 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Перейдите от автоматизации Microsoft Office к Aspose.Slides for .NET и анимируйте рамки изображений в слайдах PowerPoint (PPT, PPTX) с чистым кодом C#."
+description: "Перейдите с автоматизации Microsoft Office на Aspose.Slides для .NET и анимируйте рамки изображений в слайдах PowerPoint (PPT, PPTX) с чистым кодом C#."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-Рамки изображений применяются к фигурам или изображениям в Microsoft PowerPoint, чтобы оформить изображения в презентации. В этой статье показано, как программно создать рамку изображения и применить к ней анимацию, сначала с помощью [VSTO 2008](/slides/ru/net/adding-picture-frame-with-animation/) и затем с помощью [Aspose.Slides for .NET](/slides/ru/net/adding-picture-frame-with-animation/). Сначала мы покажем, как применить рамку и анимацию с помощью VSTO 2008. Затем мы продемонстрируем, как выполнить те же шаги с помощью Aspose.Slides for .NET.
+Рамки изображений применяются к фигурам или изображениям в Microsoft PowerPoint для обрамления картинок в презентации. В этой статье показано, как программно создать рамку изображения и применить к ней анимацию, используя сначала [VSTO 2008](/slides/ru/net/adding-picture-frame-with-animation/) , а затем [Aspose.Slides for .NET](/slides/ru/net/adding-picture-frame-with-animation/). Сначала мы показываем, как применить рамку и анимацию с помощью VSTO 2008. Затем мы показываем, как выполнить те же действия с помощью Aspose.Slides for .NET.
+
 {{% /alert %}} 
-## **Adding Picture Frames with Animation**
-Приведённые ниже образцы кода создают презентацию с слайдом, добавляют изображение с рамкой и применяют к нему анимацию.
-### **VSTO 2008 Example**
+## **Добавление рамок изображений с анимацией**
+Ниже приведённые примеры кода создают презентацию с слайдом, добавляют изображение с рамкой и применяют к нему анимацию.
+### **Пример VSTO 2008**
 Using VSTO 2008, take the following steps:
 
-1. Create a presentation.
-1. Add an empty slide.
-1. Add a picture shape to the slide.
-1. Apply animation to the picture.
-1. Write the presentation to disk.
+1. Создать презентацию.
+1. Добавить пустой слайд.
+1. Добавить форму изображения на слайд.
+1. Применить анимацию к изображению.
+1. Сохранить презентацию на диск.
 
-**The output presentation, created with VSTO** 
+**Полученная презентация, созданная с помощью VSTO** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_1.png)
+
+
+
 ```c#
-//Создание пустой презентации
+ //Создание пустой презентации
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
 //Добавление пустого слайда
@@ -59,25 +63,31 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
-
-### **Aspose.Slides for .NET Example**
+### **Пример Aspose.Slides for .NET**
 Using Aspose.Slides for .NET, perform the following steps:
 
-1. Create a presentation.
-1. Access the first slide.
-1. Add an image to a picture collection.
-1. Add a picture shape to the slide.
-1. Apply animation to the picture.
-1. Write the presentation to disk.
+1. Создать презентацию.
+1. Получить первый слайд.
+1. Добавить изображение в коллекцию картинок.
+1. Добавить форму изображения на слайд.
+1. Применить анимацию к изображению.
+1. Сохранить презентацию на диск.
 
-**The output presentation, created with Aspose.Slides** 
+**Полученная презентация, созданная с помощью Aspose.Slides** 
 
 ![todo:image_alt_text](adding-picture-frame-with-animation_2.png)
+
+
+
 ```c#
-// Создать пустую презентацию
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// Создание пустой презентации
 using (Presentation pres = new Presentation())
 {
-    // Получить первый слайд
+    // Доступ к первому слайду
     ISlide slide = pres.Slides[0];
 
     // Добавить изображение в коллекцию изображений презентации
@@ -88,10 +98,10 @@ using (Presentation pres = new Presentation())
     // Добавить рамку изображения, высота и ширина которой соответствуют высоте и ширине изображения
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Получить основную анимационную последовательность слайда
+    // Получить основную последовательность анимации слайда
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Добавить эффект анимации «Полёт слева» к рамке изображения
+    // Добавить эффект анимации "Вылет из левого" к рамке изображения
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Сохранить презентацию

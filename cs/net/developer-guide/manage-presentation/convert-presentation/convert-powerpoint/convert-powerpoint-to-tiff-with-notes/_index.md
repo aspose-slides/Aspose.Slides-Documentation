@@ -5,11 +5,11 @@ type: docs
 weight: 100
 url: /cs/net/convert-powerpoint-to-tiff-with-notes/
 keywords:
-- převod PowerPoint
-- převod prezentace
-- převod snímku
-- převod PPT
-- převod PPTX
+- převést PowerPoint
+- převést prezentaci
+- převést snímek
+- převést PPT
+- převést PPTX
 - PowerPoint do TIFF
 - prezentace do TIFF
 - snímek do TIFF
@@ -28,29 +28,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Převod prezentací PowerPoint do TIFF s poznámkami pomocí Aspose.Slides pro .NET. Naučte se efektivně exportovat snímky s řečnickými poznámkami."
+description: "Převod prezentací PowerPoint do TIFF s poznámkami pomocí Aspose.Slides pro .NET. Naučte se efektivně exportovat snímky s poznámkami přednášejícího."
 ---
 ## **Úvod**
 
-Aspose.Slides for .NET poskytuje jednoduché řešení pro převod prezentací PowerPoint a OpenDocument (PPT, PPTX a ODP) s poznámkami do formátu TIFF. Tento formát je široce používán pro ukládání vysoce kvalitních obrázků, tisk a archivaci dokumentů. S Aspose.Slides můžete nejen exportovat celé prezentace s řečnickými poznámkami, ale také generovat miniatury snímků v zobrazení Poznámkový snímek. Proces konverze je jednoduchý a efektivní, využívá metodu `Save` třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) k převodu celé prezentace na sérii TIFF obrázků při zachování poznámek a rozložení.
+Aspose.Slides for .NET poskytuje jednoduché řešení pro převod prezentací PowerPoint a OpenDocument (PPT, PPTX a ODP) s poznámkami do formátu TIFF. Tento formát je široce používán pro ukládání vysoce kvalitních obrázků, tisk a archivaci dokumentů. S Aspose.Slides můžete nejen exportovat celé prezentace s poznámkami přednášejícího, ale také generovat miniatury snímků v zobrazení Poznámkový snímek. Proces konverze je jednoduchý a efektivní, využívá metodu `Save` třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) k transformaci celé prezentace na sérii TIFF obrázků při zachování poznámek a rozložení.
 
 ## **Převod prezentace do TIFF s poznámkami**
 
 Uložení prezentace PowerPoint nebo OpenDocument do TIFF s poznámkami pomocí Aspose.Slides for .NET zahrnuje následující kroky:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/): načtěte soubor PowerPoint nebo OpenDocument.  
-2. Nakonfigurujte možnosti výstupního rozložení: použijte třídu [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/notescommentslayoutingoptions/) k určení, jak mají být poznámky a komentáře zobrazeny.  
+2. Nastavte možnosti výstupního rozložení: použijte třídu [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/notescommentslayoutingoptions/) k určení, jak mají být poznámky a komentáře zobrazeny.  
 3. Uložte prezentaci do TIFF: předávejte nakonfigurované možnosti metodě [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/methods/save/index).
 
-Předpokládejme, že máme soubor „speaker_notes.pptx“ s následujícím snímkem:
+Řekněme, že máme soubor "speaker_notes.pptx" s následujícím snímkem:
 
-![Snímek prezentace s řečnickými poznámkami](slide_with_notes.png)
+![Snímek prezentace s poznámkami přednášejícího](slide_with_notes.png)
+
+Ukázkový kód níže ukazuje, jak převést prezentaci na TIFF obrázek v zobrazení Poznámkový snímek pomocí vlastnosti [SlidesLayoutOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/slideslayoutoptions/).
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using (Presentation presentation = new Presentation("speaker_notes.pptx"))
 {
-    // Nastavte možnosti TIFF s rozvržením poznámek.
+    // Nakonfigurujte možnosti TIFF s rozvržením poznámek.
     TiffOptions tiffOptions = new TiffOptions
     {
         DpiX = 300,
@@ -58,33 +63,33 @@ using (Presentation presentation = new Presentation("speaker_notes.pptx"))
 
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomFull // Zobrazí poznámky pod snímkem.
+            NotesPosition = NotesPositions.BottomFull // Zobrazit poznámky pod snímkem.
         }
     };
 
-    // Uložte prezentaci do TIFF s řečnickými poznámkami.
+    // Uložte prezentaci do TIFF s poznámkami přednášejícího.
     presentation.Save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
 Výsledek:
 
-![TIFF obrázek s řečnickými poznámkami](TIFF_with_notes.png)
+![TIFF obrázek s poznámkami přednášejícího](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-Vyzkoušejte Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/cs/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+Podívejte se na Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/cs/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Mohu ovládat pozici oblasti poznámek ve výsledném TIFF?**
+### Můžu ovládat polohu oblasti poznámek ve výsledném TIFF?
 
-Ano. Použijte [notes layout settings](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) a vyberte mezi možnostmi `None`, `BottomTruncated` nebo `BottomFull`, které respektive skryjí poznámky, vejdou je na jednu stránku nebo umožní jejich pokračování na dalších stránkách.
+Ano. Použijte [notes layout settings](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) a vyberte z možností jako `None`, `BottomTruncated` nebo `BottomFull`, které respektive schovávají poznámky, umisťují je na jednu stránku nebo umožňují jejich pokračování na dalších stránkách.
 
-**Jak mohu snížit velikost TIFF souboru s poznámkami bez viditelné ztráty kvality?**
+### Jak mohu snížit velikost souboru TIFF s poznámkami bez viditelné ztráty kvality?
 
-Zvolte [efektivní kompresi](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/compressiontype/) (např. `LZW` nebo `RLE`), nastavte rozumné DPI a – pokud to je přijatelné – použijte nižší [pixel format](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/pixelformat/) (např. 8 bpp nebo 1 bpp pro monochrom). Mírné zmenšení [rozměrů obrázku](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/imagesize/) také pomůže, aniž by to podstatně ovlivnilo čitelnost.
+Vyberte [efficient compression](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/compressiontype/) (např. `LZW` nebo `RLE`), nastavte rozumné DPI a pokud je to přijatelné, použijte nižší [pixel format](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/pixelformat/) (např. 8 bpp nebo 1 bpp pro černobílý). Mírné snížení [image dimensions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/imagesize/) může také pomoci, aniž by významně zhoršilo čitelnost.
 
-**Ovlivňuje písmo v poznámkách výsledek, pokud chybí původní písma v systému?**
+### Ovlivňuje písmo v poznámkách výsledek, pokud původní písma chybí v systému?
 
-Ano. Chybějící písma spouští [substituci](/slides/cs/net/font-selection-sequence/), což může změnit metriky a vzhled textu. Pro zabránění tomu [poskytněte požadovaná písma](/slides/cs/net/custom-font/) nebo nastavte výchozí [fallback font](/slides/cs/net/fallback-font/), aby byly použity zamýšlené typy písma.
+Ano. Chybějící fonty spustí [náhradu](/slides/cs/net/font-selection-sequence/), což může změnit metriky textu a vzhled. Aby se tomu předešlo, [poskytněte požadované fonty](/slides/cs/net/custom-font/) nebo nastavte výchozí [náhradní font](/slides/cs/net/fallback-font/), aby byly použity požadované typy písma.

@@ -10,36 +10,36 @@ keywords:
 - VSTO
 - ऑफिस ऑटोमेशन
 - PowerPoint
-- प्रस्तुति
+- प्रेजेंटेशन
 - Java
 - Aspose.Slides
-description: "जानेँ कि कैसे Microsoft Office ऑटोमेशन से Aspose.Slides for Java में माइग्रेट करें और Java में PowerPoint (PPT, PPTX) प्रस्तुतियों में गतिशील टेक्स्ट जोड़ें।"
+description: "देखें कि कैसे Microsoft Office ऑटोमेशन से Aspose.Slides for Java में माइग्रेट किया जाए और Java में PowerPoint (PPT, PPTX) प्रस्तुतियों में गतिशील टेक्स्ट जोड़ा जाए।"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-डिवेलपर्स के लिए एक आम कार्य जो उन्हें पूरा करना होता है वह है स्लाइड्स में गतिशील रूप से टेक्स्ट जोड़ना। यह लेख गतिशील रूप से टेक्स्ट जोड़ने के कोड उदाहरण दिखाता है, जो [VSTO](/slides/hi/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) और [Aspose.Slides for Java](/slides/hi/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) का उपयोग करके हैं।
+डवलपर्स के लिए एक सामान्य कार्य जो उन्हें अक्सर करना पड़ता है, वह है स्लाइड्स में गतिशील रूप से टेक्स्ट जोड़ना। यह लेख [VSTO](/slides/hi/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) और [Aspose.Slides for Java](/slides/hi/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) का उपयोग करके गतिशील रूप से टेक्स्ट जोड़ने के कोड उदाहरण दिखाता है।
 
 {{% /alert %}} 
-## **टेक्स्ट को गतिशील रूप से जोड़ना**
-दोनों विधियां निम्नलिखित चरणों का पालन करती हैं:
+## **पाठ को गतिशील रूप से जोड़ना**
+दोनों विधियों में निम्नलिखित चरण शामिल हैं:
 
-1. एक प्रस्तुति बनाएं।
+1. प्रस्तुति बनाएं।
 1. एक खाली स्लाइड जोड़ें।
 1. एक टेक्स्ट बॉक्स जोड़ें।
 1. कुछ टेक्स्ट सेट करें।
-1. प्रस्तुति लिखें।
+1. प्रस्तुति सहेजें।
 ## **VSTO कोड उदाहरण**
-नीचे दिया गया कोड स्निपेट एक साधारण स्लाइड और उस पर एक टेक्स्ट स्ट्रिंग के साथ एक प्रेजेंटेशन बनाता है।
+नीचे दिए गए कोड स्निपेट्स एक साधारण स्लाइड और उस पर टेक्स्ट की स्ट्रिंग वाली प्रस्तुति बनाते हैं।
 
-**VSTO में बनाई गई प्रस्तुति** 
+**VSTO में बनी प्रस्तुति** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_1.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddTextBoxVSTO-AddTextBoxVSTO.cs" >}}
 ## **Aspose.Slides for Java उदाहरण**
-नीचे दिया गया कोड स्निपेट Aspose.Slides का उपयोग करके एक साधारण स्लाइड और उस पर टेक्स्ट स्ट्रिंग के साथ एक प्रेजेंटेशन बनाता है।
+नीचे दिए गए कोड स्निपेट्स Aspose.Slides का उपयोग करके एक साधारण स्लाइड और उस पर टेक्स्ट की स्ट्रिंग वाली प्रस्तुति बनाते हैं।
 
-**Aspose.Slides for Java का उपयोग कर बनाई गई प्रस्तुति** 
+**Aspose.Slides for Java का उपयोग करके बनी प्रस्तुति** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_2.png)
 

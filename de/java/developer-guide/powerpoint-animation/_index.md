@@ -13,7 +13,7 @@ keywords:
 - Animation steuern
 - Animationseffekt
 - PowerPoint-Animation
-- Animationszeitachse
+- Animationszeitleiste
 - Interaktive Animation
 - Benutzerdefinierte Animation
 - Formanimation
@@ -27,89 +27,77 @@ keywords:
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Entdecken Sie die Möglichkeiten von Aspose.Slides für Java im Umgang mit PowerPoint-Animationen. Dieser allgemeine Überblick hebt wichtige Funktionen hervor und bietet Einblicke, um Ihre Präsentationen zu verbessern."
+description: "Entdecken Sie die Möglichkeiten von Aspose.Slides für Java bei der Behandlung von PowerPoint-Animationen. Dieser allgemeine Überblick hebt wichtige Funktionen hervor und bietet Einblicke, um Ihre Präsentationen zu verbessern."
 ---
+## **Einführung**
 
-## **Übersicht**
+Da Präsentationen dazu gedacht sind, etwas darzustellen, werden ihr visuelles Erscheinungsbild und ihr interaktives Verhalten bereits bei der Erstellung berücksichtigt.
 
-Da Präsentationen dazu gedacht sind, etwas zu präsentieren, wird ihr visuelles Erscheinungsbild und ihr interaktives Verhalten stets bei der Erstellung berücksichtigt.
+**PowerPoint-Animation** spielt eine wichtige Rolle dabei, eine Präsentation auffällig und ansprechend für die Zuschauer zu gestalten. Aspose.Slides bietet eine breite Palette von Optionen, um PowerPoint-Präsentationen Animationen hinzuzufügen:
 
-**PowerPoint-Animation** spielt eine wichtige Rolle, um die Präsentation ansprechend und attraktiv für die Betrachter zu machen. Aspose.Slides for Java bietet eine breite Palette von Optionen, um einer PowerPoint-Präsentation Animationen hinzuzufügen:
+- Wenden Sie verschiedene Arten von PowerPoint-Animationseffekten auf Formen, Diagramme, Tabellen, OLE-Objekte und andere Präsentationselemente an.
+- Verwenden Sie mehrere PowerPoint-Animationseffekte auf einer einzelnen Form.
+- Nutzen Sie die Animationszeitleiste, um Animationseffekte zu steuern.
+- Erstellen Sie benutzerdefinierte Animationen.
 
-- verschiedene Arten von PowerPoint-Animationseffekten auf Formen, Diagrammen, Tabellen, OLE‑Objekten und anderen Präsentationselementen anwenden.
-- mehrere PowerPoint-Animationseffekte auf einer Form verwenden.
-- die Animationszeitachse verwenden, um Animations‑Effekte zu steuern.
-- benutzerdefinierte Animationen erstellen.
-
-In Aspose.Slides for Java können verschiedene Animationseffekte auf die Formen angewendet werden. Da jedes Element auf der Folie, einschließlich Text, Bilder, OLE‑Objekt, Tabelle usw., als Form betrachtet wird, bedeutet dies, dass wir Animations‑Effekte auf jedes Element einer Folie anwenden können.
-
-## **Animations‑Effekte**
-
-Aspose.Slides unterstützt **150+ Animationseffekte**, darunter grundlegende Animationseffekte wie Bounce, PathFootball, Zoom‑Effekt und spezifische Animationseffekte wie OLEObjectShow, OLEObjectOpen. Eine vollständige Auflistung der Animationseffekte finden Sie in der [**EffectType**](https://reference.aspose.com/slides/java/com.aspose.slides/effecttype/)-Aufzählung.
+## **Animationseffekte**
+Aspose.Slides unterstützt **mehr als 150 Animationseffekte**, einschließlich grundlegender Effekte wie Bounce, PathFootball, Zoom‑Effekt und spezifischer Effekte wie OLEObjectShow, OLEObjectOpen. Eine vollständige Auflistung der Animationseffekte finden Sie in der [**EffectType**](https://reference.aspose.com/slides/de/java/com.aspose.slides/effecttype/) Aufzählung.
 
 Zusätzlich können diese Animationseffekte in Kombination miteinander verwendet werden:
 
-- [ColorEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ColorEffect)
-- [CommandEffect](https://reference.aspose.com/slides/java/com.aspose.slides/CommandEffect)
-- [FilterEffect](https://reference.aspose.com/slides/java/com.aspose.slides/FilterEffect)
-- [MotionEffect](https://reference.aspose.com/slides/java/com.aspose.slides/MotionEffect)
-- [PropertyEffect](https://reference.aspose.com/slides/java/com.aspose.slides/PropertyEffect)
-- [RotationEffect](https://reference.aspose.com/slides/java/com.aspose.slides/RotationEffect)
-- [ScaleEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ScaleEffect)
-- [SetEffect](https://reference.aspose.com/slides/java/com.aspose.slides/SetEffect)
+- [ColorEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/ColorEffect)
+- [CommandEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/CommandEffect)
+- [FilterEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/FilterEffect)
+- [MotionEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/MotionEffect)
+- [PropertyEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/PropertyEffect)
+- [RotationEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/RotationEffect)
+- [ScaleEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/ScaleEffect)
+- [SetEffect](https://reference.aspose.com/slides/de/java/com.aspose.slides/SetEffect)
 
 ## **Benutzerdefinierte Animation**
+Es ist möglich, eigene **benutzerdefinierte Animationen** in Aspose.Slides zu erstellen. 
+Dies kann erreicht werden, indem Sie mehrere Verhaltensweisen zu einer neuen benutzerdefinierten Animation kombinieren.
 
-Es ist möglich, eigene **benutzerdefinierte Animationen** in Aspose.Slides zu erstellen. Dies kann erreicht werden, indem Sie mehrere Verhaltensweisen zu einer neuen benutzerdefinierten Animation kombinieren.
+[**Behavior**](https://reference.aspose.com/slides/de/java/com.aspose.slides/Behavior) ist eine Baueinheit jedes PowerPoint-Animationseffekts. Alle Animationseffekte bestehen tatsächlich aus einer Menge von Verhaltensweisen, die zu einer Strategie kombiniert werden. Sie können Verhaltensweisen zu einer benutzerdefinierten Animation kombinieren und diese in anderen Präsentationen wiederverwenden. Wenn Sie einer Standard‑PowerPoint-Animation ein neues Verhalten hinzufügen, entsteht eine weitere benutzerdefinierte Animation. Beispielweise können Sie ein Wiederholungsverhalten zu einer Animation hinzufügen, damit sie mehrmals abspielt.
 
-[**Behavior**](https://reference.aspose.com/slides/java/com.aspose.slides/Behavior) ist eine Baueinheit jedes PowerPoint‑Animationseffekts. Alle Animationseffekte bestehen tatsächlich aus einer Menge von Verhaltensweisen, die zu einer Strategie zusammengesetzt werden. Sie können Verhaltensweisen zu einer benutzerdefinierten Animation kombinieren und diese einmal erstellen und in anderen Präsentationen wiederverwenden. Wenn Sie eine neue Verhaltensweise zu einem standardmäßigen PowerPoint‑Animationseffekt hinzufügen, entsteht eine weitere benutzerdefinierte Animation. Beispielsweise können Sie einer Animation eine Wiederholungs‑Verhaltensweise hinzufügen, damit sie mehrmals wiederholt wird.
+[**Animation Point**](https://reference.aspose.com/slides/de/java/com.aspose.slides/Point) ist ein Punkt, an dem das Verhalten angewendet werden soll.
 
-[**Animation Point**](https://reference.aspose.com/slides/java/com.aspose.slides/Point) ist ein Punkt, an dem die Verhaltensweise angewendet werden soll.
+## **Animationszeitlinie**
+[**Sequence**](https://reference.aspose.com/slides/de/java/com.aspose.slides/Sequence) ist eine Sammlung von Animationseffekten, die auf eine konkrete Form angewendet werden.
 
-## **Animations‑Zeitachse**
-
-[**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) ist eine Sammlung von Animationseffekten, die auf eine konkrete Form angewendet werden.
-
-[**Timeline**](https://reference.aspose.com/slides/java/com.aspose.slides/AnimationTimeLine) ist ein Satz von Sequenzen, die in einer konkreten Folie verwendet werden. Es ist eine Animations‑Engine, die seit PowerPoint 2002 verfügbar ist. In früheren PowerPoint‑Versionen war es schwierig, Animationseffekte zur Präsentation hinzuzufügen, was nur mit verschiedenen Umgehungen möglich war. Die Timeline ersetzt die alte AnimationSettings‑Klasse und bietet ein klareres Objektmodell für PowerPoint‑Animationen. Eine Folie kann nur eine Animations‑Zeitachse besitzen.
+[**Timeline**](https://reference.aspose.com/slides/de/java/com.aspose.slides/AnimationTimeLine) ist eine Menge von Sequenzen, die in einer konkreten Folie verwendet werden. Es ist eine Animations‑Engine, die seit PowerPoint 2002 verfügbar ist. In früheren PowerPoint‑Versionen war es schwierig, Animationseffekte zur Präsentation hinzuzufügen; dies war nur mit verschiedenen Workarounds möglich. Die Zeitleiste ersetzt die alte AnimationSettings‑Klasse und bietet ein klareres Objektmodell für PowerPoint‑Animationen. Eine Folie kann nur eine Animationszeitleiste haben.
 
 ## **Interaktive Animation**
+[**Trigger**](https://reference.aspose.com/slides/de/java/com.aspose.slides/EffectTriggerType) ermöglicht die Definition von Benutzeraktionen (z. B. Klick auf einen Button), die eine bestimmte Animation starten. Trigger wurden nur in der neuesten PowerPoint‑Version hinzugefügt.
 
-[**Trigger**](https://reference.aspose.com/slides/java/com.aspose.slides/EffectTriggerType) ermöglicht das Definieren von Benutzeraktionen (z.B. Klick auf einen Button), die eine bestimmte Animation starten. Trigger wurden erst in der neuesten PowerPoint‑Version hinzugefügt.
-
-## **Form‑Animation**
-
+## **Formanimation**
 Aspose.Slides ermöglicht das Anwenden von Animationen auf Formen, die tatsächlich Text, Rechteck, Linie, Rahmen, OLE‑Objekt usw. sein können.
 
-{{% alert color="primary" %}} 
-Mehr lesen [**Über Shape Animation**](/slides/de/java/shape-animation/).
+{{% alert color="info" %}} 
+Mehr dazu [**Über Formanimation**](/slides/de/java/shape-animation/).
 {{% /alert %}}
 
 ## **Animierte Diagramme**
+Um animierte Diagramme zu erstellen, sollten Sie dieselben Klassen wie für Formen verwenden. Es ist jedoch möglich, PowerPoint‑Animationen nur auf Diagrammkategorien oder Diagrammreihen anzuwenden. Sie können den Animationseffekt auch auf ein Kategorie‑Element oder ein Reihen‑Element anwenden.
 
-Um animierte Diagramme zu erstellen, sollten Sie dieselben Klassen wie für Formen verwenden. Allerdings ist es möglich, PowerPoint‑Animationen nur auf Diagrammkategorien oder Diagrammserien anzuwenden. Sie können den Animationseffekt auch auf ein Kategorie‑Element oder ein Serien‑Element anwenden.
-
-{{% alert color="primary" %}} 
-Mehr lesen [**Über animierte Diagramme**](/slides/de/java/animated-charts/).
+{{% alert color="info" %}} 
+Mehr dazu [**Über animierte Diagramme**](/slides/de/java/animated-charts/).
 {{% /alert %}}
 
 ## **Animierter Text**
-
 Neben animiertem Text ist es auch möglich, eine Animation auf einen Absatz anzuwenden.
 
-{{% alert color="primary" %}} 
-Mehr lesen [**Über animierten Text**](/slides/de/java/animated-text/).
+{{% alert color="info" %}} 
+Mehr dazu [**Über animierten Text**](/slides/de/java/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Werden Animationen beim Exportieren in PDF erhalten?**
+### Bleiben Animationen beim Exportieren nach PDF erhalten?
+Nein. PDF ist ein statisches Format, sodass Animationen und [Folienübergänge](/slides/de/java/slide-transition/) nicht abgespielt werden. Wenn Sie Bewegung benötigen, exportieren Sie stattdessen zu [HTML5](/slides/de/java/export-to-html5/), [animated GIF](/slides/de/java/convert-powerpoint-to-animated-gif/) oder [video](/slides/de/java/convert-powerpoint-to-video/).
 
-Nein. PDF ist ein statisches Format, daher werden Animationen und [Folienübergänge](/slides/de/java/slide-transition/) nicht abgespielt. Wenn Sie Bewegung benötigen, exportieren Sie stattdessen zu [HTML5](/slides/de/java/export-to-html5/), [animiertem GIF](/slides/de/java/convert-powerpoint-to-animated-gif/) oder [Video](/slides/de/java/convert-powerpoint-to-video/).
+### Kann ich eine animierte Präsentation in ein Video umwandeln und die Bildrate sowie die Bildgröße steuern?
+Ja. Sie können die Präsentation als Einzelbilder [rendern](/slides/de/java/convert-powerpoint-to-video/) und diese zu einem Video (z. B. mit ffmpeg) kodieren, wobei Sie FPS und Auflösung wählen. Animationen und Folienübergänge werden beim Rendern abgespielt.
 
-**Kann ich eine animierte Präsentation in ein Video umwandeln und die Bildrate sowie die Bildgröße steuern?**
-
-Ja. Sie können die Präsentation als Einzelbilder [die Präsentation als Einzelbilder rendern](/slides/de/java/convert-powerpoint-to-video/) und diese mit einem Video kodieren (z.B. via ffmpeg), wobei Sie FPS und Auflösung wählen. Animationen und Folienübergänge werden beim Rendern abgespielt.
-
-**Bleiben Animationen beim Arbeiten mit ODP (nicht nur PPTX) erhalten?**
-
-PPT, PPTX und ODP werden zum [Lesen](/slides/de/java/open-presentation/) und [Schreiben](/slides/de/java/save-presentation/) unterstützt, jedoch können Formatunterschiede dazu führen, dass bestimmte Effekte leicht anders aussehen oder sich anders verhalten. Validieren Sie kritische Fälle mit echten Beispielen.
+### Bleiben Animationen bei der Arbeit mit ODP (nicht nur PPTX) erhalten?
+PPT, PPTX und ODP werden für das [Lesen](/slides/de/java/open-presentation/) und [Schreiben](/slides/de/java/save-presentation/) unterstützt, aber Formatunterschiede können dazu führen, dass bestimmte Effekte leicht abweichend aussehen oder sich verhalten. Überprüfen Sie kritische Fälle mit echten Beispielen.

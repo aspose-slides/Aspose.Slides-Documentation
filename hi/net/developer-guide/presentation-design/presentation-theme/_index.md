@@ -10,7 +10,7 @@ keywords:
 - स्लाइड थीम
 - थीम सेट करें
 - थीम बदलें
-- थीम प्रबंधन
+- थीम प्रबंधित करें
 - थीम रंग
 - अतिरिक्त पैलेट
 - थीम फ़ॉन्ट
@@ -22,23 +22,24 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET में मास्टर प्रस्तुति थीम का उपयोग करके PowerPoint फ़ाइलों को सुसंगत ब्रांडिंग के साथ बनाएं, अनुकूलित करें और परिवर्तित करें।"
+description: "Aspose.Slides for .NET में मुख्य प्रस्तुति थीम को नियंत्रित करें ताकि लगातार ब्रांडिंग के साथ PowerPoint फाइलें बनाएं, अनुकूलित करें और परिवर्तित करें।"
 ---
 ## **परिचय**
 
-एक प्रस्तुति थीम डिज़ाइन तत्वों की प्रॉपर्टीज़ को परिभाषित करती है। जब आप एक प्रस्तुति थीम चुनते हैं, तो आप मूल रूप से दृश्यमान तत्वों और उनकी प्रॉपर्टीज़ का एक विशिष्ट सेट चुन रहे होते हैं।
+एक प्रस्तुति थीम डिज़ाइन तत्वों की विशेषताओं को परिभाषित करती है। जब आप एक प्रस्तुति थीम चुनते हैं, तो आप मूल रूप से दृश्य तत्वों और उनकी विशेषताओं का एक विशिष्ट सेट चुन रहे होते हैं।
 
-PowerPoint में, एक थीम रंगों, [फ़ॉन्ट](/slides/hi/net/powerpoint-fonts/), [पृष्ठभूमि शैलियां](/slides/hi/net/presentation-background/), और प्रभावों को सम्मिलित करती है।
+PowerPoint में, एक थीम में रंग, [फ़ॉन्ट](/slides/hi/net/powerpoint-fonts/), [बैकग्राउंड शैलियाँ](/slides/hi/net/presentation-background/), और प्रभाव शामिल होते हैं।
 
-![थीम-घटक](theme-constituents.png)
+![theme-constituents](theme-constituents.png)
 
 ## **थीम रंग बदलें**
 
-PowerPoint की एक थीम स्लाइड के विभिन्न तत्वों के लिए रंगों का एक विशिष्ट सेट उपयोग करती है। यदि आपको रंग पसंद नहीं हैं, तो आप थीम के लिए नए रंग लागू करके उन्हें बदल सकते हैं। आपको नया थीम रंग चुनने के लिए, Aspose.Slides [SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/schemecolor/) enumeration के तहत मान प्रदान करता है।
+PowerPoint थीम स्लाइड के विभिन्न तत्वों के लिए एक विशिष्ट रंग सेट का उपयोग करती है। यदि आपको ये रंग पसंद नहीं हैं, तो आप थीम के लिए नए रंग लागू करके उन्हें बदल सकते हैं। नया थीम रंग चुनने के लिए, Aspose.Slides [SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/schemecolor/) enumeration में मान प्रदान करता है।
 
-यह C# कोड आपको दिखाता है कि थीम के लिए एक्सेंट रंग कैसे बदलें:
-
+यह C# कोड दर्शाता है कि कैसे थीम के लिए एक्सेंट रंग बदलें:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation())
     
 {
@@ -50,40 +51,58 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-आप इस तरह से परिणामस्वरूप रंग का प्रभावी मान निर्धारित कर सकते हैं:
-
+आप इस तरह परिणामस्वरूप रंग का प्रभावी मान निर्धारित कर सकते हैं:
 ```c#
-var fillEffective = shape.FillFormat.GetEffective();
+using Aspose.Slides;
 
-Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (रंग [A=255, R=128, G=100, B=162])
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+
+    shape.FillFormat.FillType = FillType.Solid;
+
+    shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    var fillEffective = shape.FillFormat.GetEffective();
+
+    Console.WriteLine($"{fillEffective.SolidFillColor.Name} ({fillEffective.SolidFillColor})"); // ff8064a2 (रंग [A=255, R=128, G=100, B=162])
+}
 ```
 
-रंग परिवर्तन ऑपरेशन को और स्पष्ट करने के लिए, हम एक और तत्व बनाते हैं और इसे एक्सेंट रंग (प्राथमिक ऑपरेशन से) असाइन करते हैं। फिर हम थीम में रंग बदलते हैं:
-
+रंग परिवर्तन ऑपरेशन को आगे प्रदर्शित करने के लिए, हम एक और तत्व बनाते हैं और उसे एक्सेंट रंग (प्रारंभिक ऑपरेशन से) सौंपते हैं। फिर हम थीम में रंग बदलते हैं:
 ```c#
-IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+using System.Drawing;
+using Aspose.Slides;
 
-otherShape.FillFormat.FillType = FillType.Solid;
+using (Presentation pres = new Presentation())
+{
+    IAutoShape otherShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+    otherShape.FillFormat.FillType = FillType.Solid;
 
-pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+    otherShape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
+    pres.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
+}
 ```
 
 नया रंग दोनों तत्वों पर स्वचालित रूप से लागू हो जाता है।
 
-### **अतिरिक्त पैलेट से थीम रंग सेट करें**
+### **वैकल्पिक पैलेट से थीम रंग सेट करें**
 
-जब आप मुख्य थीम रंग(1) पर ल्यूमिनेंस रूपांतरण लागू करते हैं, तो अतिरिक्त पैलेट(2) के रंग बनते हैं। आप फिर उन थीम रंगों को सेट और प्राप्त कर सकते हैं।
+जब आप मुख्य थीम रंग(1) पर ल्यूमिनेंस परिवर्तन लागू करते हैं, तो अतिरिक्त पैलेट(2) से रंग बनते हैं। आप तब उन थीम रंगों को सेट और प्राप्त कर सकते हैं।
 
-![अतिरिक्त-पैलेट-रंग](additional-palette-colors.png)
+![additional-palette-colors](additional-palette-colors.png)
 
-**1** - मुख्य थीम रंग  
+**1** - मुख्य थीम रंग
+
 **2** - अतिरिक्त पैलेट के रंग।
 
-यह C# कोड एक ऑपरेशन दर्शाता है जिसमें अतिरिक्त पैलेट के रंग मुख्य थीम रंग से प्राप्त किए जाते हैं और फिर आकृतियों में उपयोग होते हैं:
-
+यह C# कोड एक ऑपरेशन दर्शाता है जहाँ अतिरिक्त पैलेट रंग मुख्य थीम रंग से प्राप्त होते हैं और फिर आकारों में उपयोग किए जाते हैं:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -94,7 +113,7 @@ using (Presentation presentation = new Presentation())
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
 
-    // एक्सेंट 4, 80% हल्का
+    // एक्सेंट 4, हल्का 80%
     IShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.FillFormat.FillType = FillType.Solid;
@@ -102,7 +121,7 @@ using (Presentation presentation = new Presentation())
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // एक्सेंट 4, 60% हल्का
+    // एक्सेंट 4, हल्का 60%
     IShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.FillFormat.FillType = FillType.Solid;
@@ -110,7 +129,7 @@ using (Presentation presentation = new Presentation())
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // एक्सेंट 4, 40% हल्का
+    // एक्सेंट 4, हल्का 40%
     IShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.FillFormat.FillType = FillType.Solid;
@@ -118,14 +137,14 @@ using (Presentation presentation = new Presentation())
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.6f);
     shape4.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.AddLuminance, 0.4f);
 
-    // एक्सेंट 4, 25% गहरा
+    // एक्सेंट 4, गहरा 25%
     IShape shape5 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 250, 50, 50);
 
     shape5.FillFormat.FillType = FillType.Solid;
     shape5.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
     shape5.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.MultiplyLuminance, 0.75f);
 
-    // एक्सेंट 4, 50% गहरा
+    // एक्सेंट 4, गहरा 50%
     IShape shape6 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 50, 50);
 
     shape6.FillFormat.FillType = FillType.Solid;
@@ -136,13 +155,15 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **`SchemeColor` को `IColorScheme` रंगों से मानचित्रित करें**
+### **`SchemeColor` को `IColorScheme` रंगों से मैप करें**
 
-जब आप [SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/schemecolor/) के साथ काम करते हैं, तो आप देख सकते हैं कि इसमें निम्नलिखित थीम रंग मान होते हैं: `Background1`, `Background2`, `Text1` और `Text2`।
+जब आप [SchemeColor](https://reference.aspose.com/slides/hi/net/aspose.slides/schemecolor/) के साथ काम करते हैं, तो आप देख सकते हैं कि इसमें निम्नलिखित थीम रंग मान होते हैं:
+`Background1`, `Background2`, `Text1`, और `Text2`.
 
-हालांकि, `Presentation.MasterTheme.ColorScheme` [IColorScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/icolorscheme/) को 반환 करता है, जो संबंधित रंगों को इस प्रकार प्रदर्शित करता है: `Dark1`, `Dark2`, `Light1` और `Light2`।
+हालांकि, `Presentation.MasterTheme.ColorScheme` [IColorScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/icolorscheme/) लौटाता है, जो संबंधित रंगों को इस प्रकार प्रस्तुत करता है:
+`Dark1`, `Dark2`, `Light1`, और `Light2`.
 
-यह अंतर केवल नामकरण में है। ये मान समान थीम रंग स्लॉट को संदर्भित करते हैं और मानचित्रण स्थिर है:
+यह अंतर केवल नामकरण में है। ये मान समान थीम रंग स्लॉट्स को दर्शाते हैं और मैपिंग स्थिर है:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -151,55 +172,63 @@ using (Presentation presentation = new Presentation())
 
 `Text`/`Background` और `Dark`/`Light` के बीच कोई गतिशील रूपांतरण नहीं है। वे केवल समान थीम रंगों के वैकल्पिक नाम हैं।
 
-यह नामकरण अंतर माइक्रोसॉफ्ट ऑफिस शब्दावली से आया है। पुराने ऑफिस संस्करणों में `Dark 1`, `Light 1`, `Dark 2`, और `Light 2` उपयोग किए जाते थे, जबकि नए UI संस्करण समान स्लॉट को `Text 1`, `Background 1`, `Text 2`, और `Background 2` के रूप में दिखाते हैं।
+यह नामकरण अंतर Microsoft Office शब्दावली से आया है। पुराने Office संस्करणों में `Dark 1`, `Light 1`, `Dark 2`, और `Light 2` का उपयोग किया जाता था, जबकि नवीनतम UI संस्करण समान स्लॉट्स को `Text 1`, `Background 1`, `Text 2`, और `Background 2` के रूप में प्रदर्शित करते हैं।
 
 ## **थीम फ़ॉन्ट बदलें**
 
-थीम और अन्य उद्देश्यों के लिए फ़ॉन्ट चुनने में आपकी सहायता करने हेतु, Aspose.Slides इन विशेष पहचानकर्ताओं का उपयोग करता है (जो PowerPoint में उपयोग किए जाने वाले के समान हैं):
-* **+mn-lt** - बॉडी फ़ॉन्ट लैटिन (माइनर लैटिन फ़ॉन्ट)
-* **+mj-lt** - हेडिंग फ़ॉन्ट लैटिन (मैजॉर लैटिन फ़ॉन्ट)
-* **+mn-ea** - बॉडी फ़ॉन्ट ईस्ट एशियन (माइनर ईस्ट एशियन फ़ॉन्ट)
-* **+mj-ea** - बॉडी फ़ॉन्ट ईस्ट एशियन (माइनर ईस्ट एशियन फ़ॉन्ट)
+थीम और अन्य प्रयोजनों के लिए फ़ॉन्ट चुनने के लिए, Aspose.Slides इन विशेष पहचानकर्ताओं का उपयोग करता है (PowerPoint में उपयोग किए गए समान):
 
-यह C# कोड आपको दिखाता है कि लैटिन फ़ॉन्ट को थीम तत्व में कैसे असाइन करें:
+* **+mn-lt** - बॉडी फ़ॉन्ट लैटिन (Minor Latin Font)
+* **+mj-lt** - हेडिंग फ़ॉन्ट लैटिन (Major Latin Font)
+* **+mn-ea** - बॉडी फ़ॉन्ट ईस्ट एशियन (Minor East Asian Font)
+* **+mj-ea** - बॉडी फ़ॉन्ट ईस्ट एशियन (Major East Asian Font)
 
+यह C# कोड दर्शाता है कि कैसे लैटिन फ़ॉन्ट को एक थीम तत्व में असाइन करें:
 ```c#
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+using Aspose.Slides;
 
-Paragraph paragraph = new Paragraph();
+using (Presentation pres = new Presentation())
+{
+    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.Portions.Add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.TextFrame.Paragraphs.Add(paragraph);
+    paragraph.Portions.Add(portion);
 
-portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+    shape.TextFrame.Paragraphs.Add(paragraph);
+
+    portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+}
 ```
 
-यह C# कोड आपको दिखाता है कि प्रस्तुति थीम फ़ॉन्ट को कैसे बदलें:
-
+यह C# कोड दर्शाता है कि कैसे प्रस्तुति थीम फ़ॉन्ट बदलें:
 ```c#
-pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation())
+{
+    pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+}
 ```
 
-सभी टेक्स्ट बॉक्सों में फ़ॉन्ट अपडेट हो जाएगा।
+सभी टेक्स्ट बॉक्स में फ़ॉन्ट अपडेट हो जाएगा।
 
-{{% alert color="primary" title="TIP" %}} 
-
-आप [PowerPoint फ़ॉन्ट](/slides/hi/net/powerpoint-fonts/) देखना चाह सकते हैं।
-
+{{% alert color="info" title="TIP" %}} 
+आप [PowerPoint फ़ॉन्ट](/slides/hi/net/powerpoint-fonts/) देखना चाहेंगे।
 {{% /alert %}}
 
-## **थीम पृष्ठभूमि शैली बदलें**
+## **थीम बैकग्राउंड स्टाइल बदलें**
 
-डिफ़ॉल्ट रूप से, PowerPoint ऐप 12 पूर्वनिर्धारित पृष्ठभूमियां प्रदान करता है, लेकिन इन 12 पृष्ठभूमियों में से केवल 3 एक सामान्य प्रस्तुति में सहेजे जाते हैं।
+डिफ़ॉल्ट रूप से, PowerPoint एप्लिकेशन 12 पूर्वनिर्धारित बैकग्राउंड प्रदान करता है, लेकिन सामान्य प्रस्तुति में उन 12 बैकग्राउंड में से केवल 3 ही बचाए जाते हैं। 
 
-![प्रेजेंटेशन-डिज़ाइन](presentation-design_8.png)
+![todo:image_alt_text](presentation-design_8.png)
 
-उदाहरण के लिए, PowerPoint ऐप में प्रस्तुति सहेजने के बाद, आप इस C# कोड को चलाकर प्रस्तुति में पूर्वनिर्धारित पृष्ठभूमियों की संख्या पता कर सकते हैं:
-
+उदाहरण के लिए, PowerPoint एप्लिकेशन में प्रस्तुति सहेजने के बाद, आप इस C# कोड को चलाकर प्रस्तुति में पूर्वनिर्धारित बैकग्राउंड की संख्या पता कर सकते हैं:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 
 {
@@ -210,36 +239,38 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 {{% alert color="warning" %}} 
-
-आप [BackgroundFillStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) प्रॉपर्टी को [FormatScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/) क्लास से उपयोग करके PowerPoint थीम में पृष्ठभूमि शैली जोड़ या एक्सेस कर सकते हैं।
-
+आप [BackgroundFillStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) प्रॉपर्टी को [FormatScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/) क्लास से उपयोग करके PowerPoint थीम में बैकग्राउंड स्टाइल जोड़ या प्राप्त कर सकते हैं।
 {{% /alert %}}
 
-यह C# कोड आपको दिखाता है कि प्रस्तुति के लिए पृष्ठभूमि कैसे सेट करें:
-
+यह C# कोड दर्शाता है कि कैसे प्रस्तुति के लिए बैकग्राउंड सेट करें:
 ```c#
-pres.Masters[0].Background.StyleIndex = 2;
+using Aspose.Slides;
+
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    pres.Masters[0].Background.StyleIndex = 2;
+}
 ```
 
-**इंडेक्स गाइड**: 0 को कोई भराव नहीं के लिए उपयोग किया जाता है। इंडेक्स 1 से शुरू होता है।
+**इंडेक्स गाइड**: 0 का उपयोग कोई फ़िल नहीं के लिए किया जाता है। इंडेक्स 1 से शुरू होता है।
 
-{{% alert color="primary" title="TIP" %}} 
-
-आप [PowerPoint पृष्ठभूमि](/slides/hi/net/presentation-background/) देखना चाह सकते हैं।
-
+{{% alert color="info" title="TIP" %}} 
+आप [PowerPoint बैकग्राउंड](/slides/hi/net/presentation-background/) देखना चाहेंगे।
 {{% /alert %}}
 
-## **थीम प्रभाव बदलें**
+## **थीम इफ़ेक्ट बदलें**
 
-PowerPoint थीम आमतौर पर प्रत्येक शैली एरे के लिए 3 मान रखती है। ये एरे इन 3 प्रभावों में मिलते हैं: सूक्ष्म, मध्यम, और तीव्र। उदाहरण के लिए, जब प्रभावों को किसी विशिष्ट आकार पर लागू किया जाता है तो यह परिणाम होता है:
+एक PowerPoint थीम आमतौर पर प्रत्येक स्टाइल एरे के लिए 3 मान रखती है। उन एरे को मिलाकर ये 3 इफ़ेक्ट बनते हैं: सूक्ष्म, मध्यम, और तीव्र। उदाहरण के लिए, जब इफ़ेक्ट को किसी विशिष्ट आकार पर लागू किया जाता है तो यह परिणाम मिलता है:
+![todo:image_alt_text](presentation-design_10.png)
 
-![प्रेजेंटेशन-डिज़ाइन-10](presentation-design_10.png)
+आप [FormatScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme) क्लास की 3 प्रॉपर्टीज़ ([FillStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/linestyles), [EffectStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/effectstyles)) का उपयोग करके थीम के तत्वों को बदल सकते हैं (PowerPoint में उपलब्ध विकल्पों से भी अधिक लचीले तरीके से)।
 
-[FillStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/fillstyles), [LineStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/linestyles), और [EffectStyles](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme/effectstyles) प्रॉपर्टी को [FormatScheme](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/formatscheme) क्लास से उपयोग करके आप थीम के तत्वों को बदल सकते हैं (PowerPoint में विकल्पों की तुलना में अधिक लचीले ढंग से)।
-
-यह C# कोड आपको दिखाता है कि तत्वों के भागों को बदलकर थीम प्रभाव कैसे बदलें:
-
+यह C# कोड दर्शाता है कि कैसे तत्वों के भागों को बदलकर थीम इफ़ेक्ट बदलें:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 {
     pres.MasterTheme.FormatScheme.LineStyles[0].FillFormat.SolidFillColor.Color = Color.Red;
@@ -254,20 +285,19 @@ using (Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx"))
 }
 ```
 
-परिणामस्वरूप भराव रंग, भराव प्रकार, शेडो प्रभाव आदि में परिवर्तन:
-
-![प्रेजेंटेशन-डिज़ाइन-11](presentation-design_11.png)
+फलस्वरूप फ़िल रंग, फ़िल प्रकार, शैडो इफ़ेक्ट आदि में परिवर्तन आते हैं:
+![todo:image_alt_text](presentation-design_11.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं मास्टर को बदले बिना एकल स्लाइड पर थीम लागू कर सकता हूँ?**
+### क्या मैं मास्टर को बदले बिना एकल स्लाइड पर थीम लागू कर सकता हूँ?
 
-हां। Aspose.Slides स्लाइड-स्तर के थीम ओवरराइड का समर्थन करता है, इसलिए आप केवल उस स्लाइड पर स्थानीय थीम लागू कर सकते हैं जबकि मास्टर थीम को अपरिवर्तित रख सकते हैं (via the [SlideThemeManager](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/slidethememanager/))।
+हाँ। Aspose.Slides स्लाइड-स्तर के थीम ओवरराइड को सपोर्ट करता है, इसलिए आप केवल उस स्लाइड पर स्थानीय थीम लागू कर सकते हैं जबकि मास्टर थीम को अपरिवर्तित रख सकते हैं ([SlideThemeManager](https://reference.aspose.com/slides/hi/net/aspose.slides.theme/slidethememanager/) के माध्यम से)।
 
-**एक प्रस्तुति से दूसरी प्रस्तुति में थीम ले जाने का सबसे सुरक्षित तरीका क्या है?**
+### एक प्रस्तुति से दूसरी प्रस्तुति तक थीम स्थानांतरित करने का सबसे सुरक्षित तरीका क्या है?
 
-[Clone slides](/slides/hi/net/clone-slides/) को उनके मास्टर के साथ लक्ष्य प्रस्तुति में ले जाएँ। यह मूल मास्टर, लेआउट और संबंधित थीम को संरक्षित रखता है ताकि रूप अधिक सुसंगत बना रहे।
+[Clone slides](/slides/hi/net/clone-slides/) को उनके मास्टर के साथ लक्ष्य प्रस्तुति में कॉपी करें। इससे मूल मास्टर, लेआउट और संबंधित थीम संरक्षित रहते हैं, जिससे रूपरेखा समान बनी रहती है।
 
-**सभी विरासत और ओवरराइड के बाद "प्रभावी" मान कैसे देखूँ?**
+### सभी विरासत और ओवरराइड के बाद "इफ़ेक्टिव" मान कैसे देखें?
 
-थीम/रंग/फ़ॉन्ट/प्रभाव के लिए API के ["effective" views](/slides/hi/net/shape-effective-properties/) का उपयोग करें। ये मास्टर लागू करने और किसी भी स्थानीय ओवरराइड के बाद हल किए गए अंतिम प्रॉपर्टीज़ लौटाते हैं।
+API के ["effective" दृश्य](/slides/hi/net/shape-effective-properties/) का उपयोग करें ताकि थीम/रंग/फ़ॉन्ट/इफ़ेक्ट के अंतिम मान देख सकें। ये मास्टर प्लस किसी भी स्थानीय ओवरराइड को लागू करने के बाद हल किए हुए, अंतिम गुण लौटाते हैं।

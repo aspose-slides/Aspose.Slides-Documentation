@@ -1,36 +1,38 @@
 ---
-title: Thay đổi API công cộng và không tương thích ngược trong Aspose.Slides cho Java 15.4.0
+title: API công khai và các thay đổi không tương thích ngược trong Aspose.Slides for Java 15.4.0
 linktitle: Aspose.Slides cho Java 15.4.0
 type: docs
 weight: 120
 url: /vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
 keywords:
 - di chuyển
-- mã cũ
+- mã kế thừa
 - mã hiện đại
-- cách tiếp cận cũ
-- cách tiếp cận hiện đại
+- phương pháp kế thừa
+- phương pháp hiện đại
 - PowerPoint
 - OpenDocument
 - bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Xem xét các cập nhật API công cộng và các thay đổi gây phá vỡ trong Aspose.Slides cho Java để di chuyển mượt mà các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
+description: "Xem xét các cập nhật API công khai và các thay đổi gây phá vỡ trong Aspose.Slides for Java để chuyển đổi suôn sẻ các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các mục khác [được thêm](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/), bất kỳ hạn chế mới và các [thay đổi](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) được giới thiệu trong API Aspose.Slides for Java 15.4.0.
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các thứ khác [được thêm](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) , bất kỳ hạn chế mới nào và các [thay đổi](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) được giới thiệu cùng với API Aspose.Slides for Java 15.4.0.
 
 {{% /alert %}} 
-## **Thay đổi API công cộng**
+## **Thay đổi API công khai**
 ### **Enum OrganizationChartLayoutType đã được thêm vào**
-Enum com.aspose.slides.OrganizationChartLayoutType đại diện cho loại định dạng của các nút con trong biểu đồ tổ chức.
-### **Phương thức IBulletFormat.applyDefaultParagraphIndentsShifts() đã được thêm vào**
-Phương thức com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts đặt các giá trị dịch mặc định khác 0 cho Indent và MarginLeft của đoạn văn khi bật dấu đầu dòng (giống như PowerPoint khi bật dấu đầu dòng/đánh số cho đoạn). Nếu tắt dấu đầu dòng thì chỉ đặt lại Indent và MarginLeft của đoạn (giống như PowerPoint khi tắt dấu đầu dòng/đánh số cho đoạn).
-### **Phương thức IConnector.reroute() đã được thêm vào**
-Phương thức com.aspose.slides.IConnector.reroute() định tuyến lại connector sao cho nó lấy đường ngắn nhất có thể giữa các hình dạng mà nó kết nối. Để thực hiện điều này, phương thức reroute() có thể thay đổi StartShapeConnectionSiteIndex và EndShapeConnectionSiteIndex.
+Enum com.aspose.slides.OrganizationChartLayoutType đại diện cho kiểu định dạng của các nút con trong một biểu đồ tổ chức.
+### **Method IBulletFormat.applyDefaultParagraphIndentsShifts() đã được thêm vào**
+Phương thức com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts đặt các dịch chuyển mặc định khác không cho Indent và MarginLeft của đoạn khi bật dấu đầu dòng (giống như PowerPoint làm khi bật dấu đầu dòng/đánh số trong đoạn). Nếu dấu đầu dòng bị tắt thì chỉ đặt lại Indent và MarginLeft của đoạn (giống như PowerPoint làm khi tắt dấu đầu dòng/đánh số trong đoạn).
+### **Method IConnector.reroute() đã được thêm vào**
+Phương thức com.aspose.slides.IConnector.reroute() điều hướng lại kết nối sao cho nó đi theo đường ngắn nhất có thể giữa các hình mà nó kết nối. Để thực hiện điều này, phương thức reroute() có thể thay đổi giá trị của StartShapeConnectionSiteIndex và EndShapeConnectionSiteIndex.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -51,10 +53,12 @@ connector.reroute();
 input.save("output.pptx", SaveFormat.Pptx);
 
 ```
-### **Phương thức IPresentation.getSlideById(long) đã được thêm vào**
-Phương thức Aspose.Slides.IPresentation.getSlideById(int) trả về một Slide, MasterSlide hoặc LayoutSlide theo Id của slide.
+### **Method IPresentation.getSlideById(long) đã được thêm vào**
+Phương thức Aspose.Slides.IPresentation.getSlideById(long) trả về một Slide, MasterSlide hoặc LayoutSlide theo Id của slide.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -63,10 +67,12 @@ long id = presentation.getSlides().get_Item(0).getSlideId();
 IBaseSlide slide = presentation.getSlideById(id);
 
 ```
-### **Phương thức ISmartArt.getNodes() đã được thêm vào**
-Phương thức com.aspose.slides.ISmartArt.getNodes() trả về tập hợp các nút gốc trong đối tượng SmartArt.
+### **Method ISmartArt.getNodes() đã được thêm vào**
+Phương thức com.aspose.slides.ISmartArt.getNodes() trả về một collection các nút gốc trong đối tượng SmartArt.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -79,10 +85,12 @@ node.getTextFrame().setText("Second root node");
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Phương thức ISmartArt.setLayout(int) đã được thêm vào**
+### **Method ISmartArt.setLayout(int) đã được thêm vào**
 Phương thức cho thuộc tính com.aspose.slides.ISmartArt.setLayout(int) đã được thêm vào. Nó cho phép thay đổi kiểu bố cục của một sơ đồ hiện có.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -93,10 +101,12 @@ smart.setLayout(SmartArtLayoutType.BasicProcess);
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Phương thức ISmartArtNode.isHidden() đã được thêm vào**
-Phương thức com.aspose.slides.ISmartArtNode.isHidden() trả về true nếu nút này là nút ẩn trong mô hình dữ liệu.
+### **Method ISmartArtNode.isHidden() đã được thêm vào**
+Phương thức com.aspose.slides.ISmartArtNode.isHidden() trả về true nếu nút này là một nút ẩn trong mô hình dữ liệu.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -112,13 +122,14 @@ if(hidden) {
 
 }
 
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+pres.save("out.pptx", SaveFormat.Pptx);
 ```
-### **Phương thức ISmartArt.isReversed(), setReserved() đã được thêm vào**
-Thuộc tính com.aspose.slides.ISmartArt.IsReversed cho phép lấy hoặc đặt trạng thái của sơ đồ SmartArt liên quan đến (trái sang phải) LTR hoặc (phải sang trái) RTL, nếu sơ đồ hỗ trợ đảo ngược.
+### **Methods ISmartArt.isReversed(), setReversed() đã được thêm vào**
+Thuộc tính com.aspose.slides.ISmartArt.IsReversed cho phép lấy hoặc đặt trạng thái của sơ đồ SmartArt liên quan tới (trái sang phải) LTR hoặc (phải sang trái) RTL, nếu sơ đồ hỗ trợ đảo ngược.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation presentation = new Presentation();
 
@@ -129,10 +140,12 @@ smart.setReversed(true);
 presentation.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Phương thức ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) đã được thêm vào**
-Phương thức com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) cho phép lấy hoặc đặt loại biểu đồ tổ chức liên kết với nút hiện tại.
+### **Methods ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) đã được thêm vào**
+Các phương thức com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) cho phép lấy hoặc đặt kiểu biểu đồ tổ chức liên kết với nút hiện tại.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -143,10 +156,12 @@ smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutT
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **Thuộc tính IShape.getConnectionSiteCount() đã được thêm vào**
-Thuộc tính com.aspose.slides.getConnectionSiteCount() trả về số lượng vị trí kết nối trên hình dạng.
+### **Property IShape.getConnectionSiteCount() đã được thêm vào**
+Thuộc tính com.aspose.slides.getConnectionSiteCount() trả về số lượng các site kết nối trên hình dạng.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation input = new Presentation();
 
@@ -171,14 +186,13 @@ if (ellipse.getConnectionSiteCount() > wantedIndex) {
 }
 
 input.save("output.pptx", SaveFormat.Pptx);
-
 ```
 ### **Thay đổi nhỏ**
 Đây là danh sách các thay đổi API nhỏ:
 
-|Enum com.aspose.slides.BevelColorMode |đã xóa, enum không sử dụng |
+|Enum com.aspose.slides.BevelColorMode |đã xóa, enum không được sử dụng |
 | :- | :- |
-|Method ThreeDFormatEffectiveData.getBevelColorMode() |đã xóa, thuộc tính không sử dụng |
+|Method ThreeDFormatEffectiveData.getBevelColorMode() |đã xóa, thuộc tính không được sử dụng |
 |Method com.aspose.slides.ChartSeriesGroup.getChart() |đã thêm |
 |Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |đã xóa |
 |Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletChar() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletFont() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletHeight() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getBulletType() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStartWith() <br>Method com.aspose.slides.ParagraphFormatEffectiveData.getNumberedBulletStyle() |đã xóa vì lỗi thời |

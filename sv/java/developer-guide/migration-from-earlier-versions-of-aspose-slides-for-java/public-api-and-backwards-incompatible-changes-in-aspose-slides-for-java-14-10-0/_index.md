@@ -1,5 +1,5 @@
 ---
-title: Offentlig API och bakåt inkompatibla förändringar i Aspose.Slides för Java 14.10.0
+title: Offentliga API- och bakåtinkompatibla ändringar i Aspose.Slides för Java 14.10.0
 linktitle: Aspose.Slides för Java 14.10.0
 type: docs
 weight: 90
@@ -15,27 +15,31 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint PPT, PPTX och ODP-presentationer."
+description: "Gå igenom offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för Java för att smidigt migrera dina PowerPoint PPT-, PPTX- och ODP‑presentationslösningar."
 ---
-{{% alert color="primary" %}} 
-Den här sidan listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) klasser, metoder, egenskaper osv., eventuella nya begränsningar och andra [ändringar](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) som införts med Aspose.Slides för Java 14.10.0 API.
-{{% /alert %}} 
-## **Offentliga API-ändringar**
-### **com.aspose.slides.FieldType.getFooter()-metoden har lagts till**
-getFooter() method returns footer field type. It has been added for the implementation of the possibility to create fields of this type and for valid presentation serialization.
+{{% alert color="info" %}}
+
+Den här sidan listar alla [tillagda](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) klasser, metoder, egenskaper osv., eventuella nya begränsningar och andra [ändringar](/slides/sv/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) som introducerats med Aspose.Slides for Java 14.10.0 API.
+
+{{% /alert %}}
+## **Offentliga API-förändringar**
+### **metoden com.aspose.slides.FieldType.getFooter() har lagts till**
+Metoden getFooter() returnerar footer‑fält‑typen. Den har lagts till för att möjliggöra skapandet av fält av denna typ och för giltig serialisering av presentationer.
 ### **Elementet com.aspose.slides.ShapeElementFillSource.Own har tagits bort**
-Element ShapeElementFillSource.Own has been deleted as duplicated. Use ShapeElementFillSource.Shape instead of ShapeElementFillSource.Own.
-### **Metoder för borttagning av diagramdatapunkter och -kategorier har lagts till**
-**Följande metoder, som möjliggör borttagning av en diagramdatapunkt från en samling av diagramdatapunkter, har lagts till:**
+Elementet ShapeElementFillSource.Own har tagits bort som duplikat. Använd ShapeElementFillSource.Shape istället för ShapeElementFillSource.Own.
+### **Metoder för att ta bort diagramdatapunkter och -kategorier har lagts till**
+**Följande metoder, som möjliggör att ta bort en diagramdatapunkt från en diagramdatapunktssamling, har lagts till:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
 IChartDataPoint.remove()
 
-**Följande metod, som möjliggör borttagning av en diagramkategori från den innehållande samlingen, har lagts till:**
+**Följande metod, som möjliggör att ta bort en diagramkategori från den innehållande samlingen, har lagts till:**
 
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -58,10 +62,10 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
-### **Föråldrade Aspose.Slides.ParagraphFormat-metoder har tagits bort**
-The methods getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() and corresponding set methods have been removed. They were marked as obsolete long time ago.
-### **Onyttiga och föråldrade konstruktörer har tagits bort**
-The following constructors have been removed:
+### **Föråldrade Aspose.Slides.ParagraphFormat‑metoder har tagits bort**
+Metoderna getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() och motsvarande set‑metoder har tagits bort. De markerades som föråldrade för länge sedan.
+### **Onyttiga och föråldrade konstruktorer har tagits bort**
+Följande konstruktorer har tagits bort:
 
 com.aspose.slides.AlphaBiLevel(float)
 com.aspose.slides.AlphaModulateFixed(float)

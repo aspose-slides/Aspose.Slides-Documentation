@@ -1,6 +1,6 @@
 ---
-title: "إدارة مشاريع VBA في العروض التقديمية باستخدام Java"
-linktitle: "عرض تقديمي عبر VBA"
+title: إدارة مشروعات VBA في العروض التقديمية باستخدام Java
+linktitle: العرض التقديمي عبر VBA
 type: docs
 weight: 250
 url: /ar/java/presentation-via-vba/
@@ -19,85 +19,93 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "اكتشف كيفية إنشاء وتعديل عروض PowerPoint وOpenDocument عبر VBA باستخدام Aspose.Slides للغة Java لتبسيط سير عملك."
+description: "اكتشف كيفية إنشاء ومعالجة عروض PowerPoint وOpenDocument عبر VBA باستخدام Aspose.Slides for Java لتبسيط سير العمل الخاص بك."
 ---
+## **المقدمة**
 
-{{% alert title="ملاحظة" color="warning" %}} 
+توفر Aspose.Slides فئات وواجهات للعمل مع الماكروات وشفرة VBA.
 
-عند تحويل عرض تقديمي يحتوي على ماكرو إلى تنسيق ملف مختلف (PDF، HTML، إلخ)، يتجاهل Aspose.Slides جميع الماكروهات (لا تُنقل الماكروهات إلى الملف الناتج).
+{{% alert title="Note" color="warning" %}} 
 
-عند إضافة ماكروهات إلى عرض تقديمي أو حفظ عرض تقديمي يحتوي على ماكروهات مرة أخرى، يكتب Aspose.Slides ببساطة بايتات الماكروهات.
+عند تحويل عرض تقديمي يحتوي على ماكروات إلى تنسيق ملف مختلف (PDF، HTML، إلخ)، تتجاهل Aspose.Slides جميع الماكروات (لا يتم نقل الماكروات إلى الملف الناتج).
 
-Aspose.Slides **أبدًا** لا يُشغِّل الماكروهات في العرض التقديمي.
+عند إضافة ماكروات إلى عرض تقديمي أو إعادة حفظ عرض تقديمي يحتوي على ماكروات، تقوم Aspose.Slides ببساطة بكتابة البايتات الخاصة بالماكروات.
+
+Aspose.Slides **أبدًا** لا تقوم بتشغيل الماكروات في عرض تقديمي.
 
 {{% /alert %}}
 
-## **إضافة ماكرو VBA**
+## **إضافة ماكروات VBA**
 
-يوفر Aspose.Slides الفئة [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/) للسماح لك بإنشاء مشاريع VBA (ومراجع المشروع) وتعديل الوحدات الموجودة. يمكنك استخدام الواجهة [IVbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/) لإدارة VBA المدمج في عرض تقديمي.
+توفر Aspose.Slides الفئة [VbaProject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/vbaproject/) للسماح لك بإنشاء مشروعات VBA (ومراجع المشروعات) وتعديل الوحدات الموجودة. يمكنك استخدام الواجهة [IVbaProject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ivbaproject/) لإدارة VBA المضمّن في عرض تقديمي.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. استخدم مُنشئ [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/#VbaProject--) لإضافة مشروع VBA جديد.
-1. إضافة وحدة إلى VbaProject.
-1. تعيين شفرة المصدر للوحدة.
-1. إضافة مراجع إلى <stdole>.
-1. إضافة مراجع إلى **Microsoft Office**.
-1. ربط المراجع بمشروع VBA.
-1. حفظ العرض التقديمي.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation).
+2. استخدام المُنشئ [VbaProject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/vbaproject/#VbaProject--) لإضافة مشروع VBA جديد.
+3. إضافة وحدة إلى VbaProject.
+4. تعيين شفرة المصدر للوحدة.
+5. إضافة مراجع إلى <stdole>.
+6. إضافة مراجع إلى **Microsoft Office**.
+7. ربط المراجع بمشروع VBA.
+8. حفظ العرض التقديمي.
 
-هذا الكود Java يوضح لك كيفية إضافة ماكرو VBA من الصفر إلى عرض تقديمي:
+يعرض لك هذا الكود Java كيفية إضافة ماكرو VBA من الصفر إلى عرض تقديمي:
+
 ```java
-// ينشئ مثيلًا من فئة العرض التقديمي
+import com.aspose.slides.*;
+
+// إنشاء نسخة من فئة العرض التقديمي
 Presentation pres = new Presentation();
 try {
-    // ينشئ مشروع VBA جديد
+    // إنشاء مشروع VBA جديد
     pres.setVbaProject(new VbaProject());
     
-    // يضيف وحدة فارغة إلى مشروع VBA
+    // إضافة وحدة فارغة إلى مشروع VBA
     IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
     
-    // يضبط شفرة المصدر للوحدة
+    // تعيين شفرة المصدر للوحدة
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     
-    // ينشئ إشارة إلى <stdole>
+    // إنشاء مرجع إلى <stdole>
     VbaReferenceOleTypeLib stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     
-    // ينشئ إشارة إلى Office
+    // إنشاء مرجع إلى Office
     VbaReferenceOleTypeLib officeReference = new VbaReferenceOleTypeLib("Office",
             "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     
-    // يضيف إشارات إلى مشروع VBA
+    // إضافة مراجع إلى مشروع VBA
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
    
-    // يحفظ العرض التقديمي
+    // حفظ العرض التقديمي
     pres.save("test.pptm", SaveFormat.Pptm);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-قد ترغب في تجربة **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros)، وهو تطبيق ويب مجاني يُستخدم لإزالة الماكروهات من مستندات PowerPoint وExcel وWord. 
+قد ترغب في تجربة **Aspose** [Macro Remover](https://products.aspose.app/slides/ar/remove-macros)، وهو تطبيق ويب مجاني يستخدم لإزالة الماكروات من مستندات PowerPoint وExcel وWord. 
 
 {{% /alert %}} 
 
-## **إزالة ماكرو VBA**
+## **إزالة ماكروات VBA**
 
-باستخدام خاصية [VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getVbaProject--) ضمن الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)، يمكنك إزالة ماكرو VBA.
+باستخدام الخاصية [VbaProject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getVbaProject--) ضمن الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation)، يمكنك إزالة ماكرو VBA.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
-1. الوصول إلى وحدة الماكرو وإزالتها.
-1. حفظ العرض التقديمي المعدل.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
+2. الوصول إلى وحدة الماكرو وإزالتها.
+3. حفظ العرض التقديمي المعدل.
 
-هذا الكود Java يوضح لك كيفية إزالة ماكرو VBA:
+يعرض لك هذا الكود Java كيفية إزالة ماكرو VBA:
+
 ```java
-// يحمّل العرض التقديمي الذي يحتوي على الماكرو
+import com.aspose.slides.*;
+
+// يقوم بتحميل العرض التقديمي الذي يحتوي على الماكرو
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // يصل إلى وحدة Vba ويزيلها
+    // يقوم بالوصول إلى وحدة Vba وإزالتها
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
     // يحفظ العرض التقديمي
@@ -107,16 +115,18 @@ try {
 }
 ```
 
+## **استخراج ماكروات VBA**
 
-## **استخراج ماكرو VBA**
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
 2. التحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
-3. استعراض جميع الوحدات الموجودة في مشروع VBA لعرض الماكروهات.
+3. التكرار عبر جميع الوحدات الموجودة في مشروع VBA لعرض الماكروات.
 
-هذا الكود Java يوضح لك كيفية استخراج ماكرو VBA من عرض تقديمي يحتوي على ماكروهات:
+يعرض لك هذا الكود Java كيفية استخراج ماكروات VBA من عرض تقديمي يحتوي على ماكروات:
+
 ```java
-// يحمّل العرض التقديمي الذي يحتوي على الماكرو
+import com.aspose.slides.*;
+
+// يحمل العرض التقديمي الذي يحتوي على الماكرو
 Presentation pres = new Presentation("VBA.pptm");
 try {
     if (pres.getVbaProject() != null) // يتحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA
@@ -132,15 +142,17 @@ try {
 }
 ```
 
-
 ## **التحقق مما إذا كان مشروع VBA محميًا بكلمة مرور**
 
-باستخدام طريقة [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/java/com.aspose.slides/ivbaproject/#isPasswordProtected--)، يمكنك تحديد ما إذا كانت خصائص المشروع محمية بكلمة مرور.
+باستخدام الطريقة [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ivbaproject/#isPasswordProtected--)، يمكنك تحديد ما إذا كانت خصائص المشروع محمية بكلمة مرور.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) وتحميل عرض تقديمي يحتوي على ماكرو.
-2. التحقق مما إذا كان العرض التقديمي يحتوي على [VBA project](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/).
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) وتحميل عرض تقديمي يحتوي على ماكرو.
+2. التحقق مما إذا كان العرض التقديمي يحتوي على [مشروع VBA](https://reference.aspose.com/slides/ar/java/com.aspose.slides/vbaproject/).
 3. التحقق مما إذا كان مشروع VBA محميًا بكلمة مرور لعرض خصائصه.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // تحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
@@ -154,17 +166,16 @@ try {
 }
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+### ماذا يحدث للماكروات إذا حفظت العرض التقديمي كملف PPTX؟
 
-**ماذا يحدث للماكروهات إذا حفظت العرض التقديمي كملف PPTX؟**
+ستتم إزالة الماكروات لأن صيغة PPTX لا تدعم VBA. للحفاظ على الماكروات، اختر PPTM أو PPSM أو POTM.
 
-سيتم إزالة الماكروهات لأن PPTX لا يدعم VBA. للحفاظ على الماكروهات، اختر PPTM أو PPSM أو POTM.
+### هل يمكن لـ Aspose.Slides تشغيل الماكروات داخل عرض تقديمي، على سبيل المثال لتحديث البيانات؟
 
-**هل يمكن لـ Aspose.Slides تشغيل الماكروهات داخل عرض تقديمي لتحديث البيانات مثلاً؟**
+لا. المكتبة لا تقوم أبدًا بتنفيذ شفرة VBA؛ التنفيذ ممكن فقط داخل PowerPoint مع إعدادات الأمان المناسبة.
 
-لا. المكتبة لا تنفذ أبدًا شفرة VBA؛ التنفيذ ممكن فقط داخل PowerPoint مع إعدادات الأمان المناسبة.
+### هل دعم العمل مع عناصر تحكم ActiveX المرتبطة بشفرة VBA؟
 
-**هل الدعم متاح للتحكم في ActiveX المرتبط بشفرة VBA؟**
-
-نعم، يمكنك الوصول إلى [عناصر التحكم ActiveX](/slides/ar/java/activex/) الموجودة، تعديل خصائصها، وإزالتها. هذا مفيد عندما تتفاعل الماكروهات مع ActiveX.
+نعم، يمكنك الوصول إلى عناصر تحكم ActiveX الموجودة [ActiveX controls](/slides/ar/java/activex/)، تعديل خصائصها، وإزالتها. هذا مفيد عندما تتفاعل الماكروات مع ActiveX.

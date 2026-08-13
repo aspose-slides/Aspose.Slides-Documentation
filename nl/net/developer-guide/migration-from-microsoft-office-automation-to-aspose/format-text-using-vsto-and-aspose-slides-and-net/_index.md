@@ -14,31 +14,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migreer van Microsoft Office-automatisering naar Aspose.Slides for .NET en formatteer tekst in PowerPoint (PPT, PPTX) presentaties met nauwkeurige controle."
+description: "Migreer van Microsoft Office-automatisering naar Aspose.Slides voor .NET en formatteer tekst in PowerPoint (PPT, PPTX) presentaties met precieze controle."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Soms moet je de tekst op dia's programmatisch opmaken. Dit artikel laat zien hoe je een voorbeeldpresentatie met tekst op de eerste dia kunt lezen met behulp van [VSTO](/slides/nl/net/format-text-using-vsto-and-aspose-slides-and-net/) en [Aspose.Slides for .NET](/slides/nl/net/format-text-using-vsto-and-aspose-slides-and-net/). De code formatteert de tekst in het derde tekstvak op de dia zodat deze eruitziet als de tekst in het laatste tekstvak.
+Soms moet je de tekst op dia's programmatisch opmaken. Dit artikel laat zien hoe je een voorbeeldpresentatie met tekst op de eerste dia kunt inlezen met behulp van zowel [VSTO](/slides/nl/net/format-text-using-vsto-and-aspose-slides-and-net/) en [Aspose.Slides for .NET](/slides/nl/net/format-text-using-vsto-and-aspose-slides-and-net/). De code formatteert de tekst in het derde tekstvak op de dia zodat die eruitziet als de tekst in het laatste tekstvak.
 
 {{% /alert %}} 
 ## **Tekst opmaken**
-Zowel de VSTO- als de Aspose.Slides-methoden doorlopen de volgende stappen:
+Zowel de VSTO- als de Aspose.Slides-methode volgen de volgende stappen:
 
 1. Open de bronpresentatie.
 1. Open de eerste dia.
 1. Open het derde tekstvak.
 1. Wijzig de opmaak van de tekst in het derde tekstvak.
-1. Sla de presentatie op schijf.
+1. Sla de presentatie op op schijf.
 
-De onderstaande schermafbeeldingen tonen de voorbeelddia vóór en na de uitvoering van de VSTO- en Aspose.Slides for .NET-code.
+De screenshots hieronder tonen de voorbeelddia vóór en na de uitvoering van de VSTO- en Aspose.Slides for .NET-code.
 
 **De invoerpresentatie** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
-### **VSTO-code voorbeeld**
-De onderstaande code toont hoe je tekst op een dia kunt herformatteren met VSTO.
+### **VSTO Codevoorbeeld**
+De code hieronder laat zien hoe je tekst op een dia kunt herschikken met VSTO.
 
-**De tekst die met VSTO herformatteerd is** 
+**De tekst herschikt met VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_2.png)
 
@@ -51,9 +51,9 @@ PowerPoint.Presentation pres = null;
 
 //Open de presentatie
 pres = Globals.ThisAddIn.Application.Presentations.Open("c:\\source.ppt",
-    Microsoft.Office.Core.MsoTriState.msoFalse,
-    Microsoft.Office.Core.MsoTriState.msoFalse,
-    Microsoft.Office.Core.MsoTriState.msoTrue);
+	Microsoft.Office.Core.MsoTriState.msoFalse,
+	Microsoft.Office.Core.MsoTriState.msoFalse,
+	Microsoft.Office.Core.MsoTriState.msoTrue);
 
 //Open de eerste dia
 PowerPoint.Slide slide = pres.Slides[1];
@@ -61,7 +61,7 @@ PowerPoint.Slide slide = pres.Slides[1];
 //Open de derde vorm
 PowerPoint.Shape shp = slide.Shapes[3];
 
-//Verander het lettertype van de tekst naar Verdana en de grootte naar 32
+//Verander het lettertype van de tekst naar Verdana en de hoogte naar 32
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 txtRange.Font.Name = "Verdana";
 txtRange.Font.Size = 32;
@@ -72,7 +72,7 @@ txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoCTrue;
 //Maak het cursief
 txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//Verander de tekstkleur
+//Verander tekstkleur
 txtRange.Font.Color.RGB = 0x00CC3333;
 
 //Verander de achtergrondkleur van de vorm
@@ -83,15 +83,15 @@ shp.Left -= 70;
 
 //Schrijf de uitvoer naar schijf
 pres.SaveAs("c:\\outVSTO.ppt",
-    PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
-    Microsoft.Office.Core.MsoTriState.msoFalse);
+	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
+	Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
 
 
-### **Aspose.Slides for .NET-voorbeeld**
-Om tekst te formatteren met Aspose.Slides, voeg je eerst het lettertype toe voordat je de tekst opmaakt.
+### **Aspose.Slides for .NET voorbeeld**
+Om tekst te formatteren met Aspose.Slides, voeg je het lettertype toe vóór het opmaken van de tekst.
 
 **De uitvoerpresentatie gemaakt met Aspose.Slides** 
 
@@ -100,8 +100,12 @@ Om tekst te formatteren met Aspose.Slides, voeg je eerst het lettertype toe voor
 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
  //Open de presentatie
-Presentation pres = new Presentation("c:\\source.ppt");
+Presentation pres = new Presentation("source.ppt");
 
 //Open de eerste dia
 ISlide slide = pres.Slides[0];
@@ -133,5 +137,5 @@ shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
 //Schrijf de uitvoer naar schijf
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

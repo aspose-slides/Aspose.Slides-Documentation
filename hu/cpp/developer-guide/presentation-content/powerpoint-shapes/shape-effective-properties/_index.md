@@ -1,5 +1,5 @@
 ---
-title: Alakzat hatékony tulajdonságainak lekérése előadásokból C++-ban
+title: Alakzat hatékony tulajdonságainak lekérdezése a prezentációkból C++-ban
 linktitle: Hatékony tulajdonságok
 type: docs
 weight: 50
@@ -7,9 +7,9 @@ url: /hu/cpp/shape-effective-properties/
 keywords:
 - alakzat tulajdonságok
 - kamera tulajdonságok
-- fényrig
-- bevel alakzat
-- szövegkeret
+- világítási rendszer
+- relesz alakzat
+- szövegdoboz
 - szövegstílus
 - betűmagasság
 - kitöltő formátum
@@ -17,21 +17,31 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Fedezze fel, hogyan számítja és alkalmazza az Aspose.Slides for C++ a hatékony alakzati tulajdonságokat a pontos PowerPoint megjelenítéshez."
+description: "Fedezze fel, hogyan számítja ki és alkalmazza az Aspose.Slides for C++ a hatékony alakzat tulajdonságokat a pontos PowerPoint megjelenítés érdekében."
 ---
 ## **Áttekintés**
 
-Ez a téma elmagyarázza a **helyi** és **hatékony** tulajdonságok közti különbséget. A helyi értékek olyan értékek, amelyeket közvetlenül egy adott formázási szinten állítanak be, például:
+Ez a téma elmagyarázza a **helyi** és **hatékony** tulajdonságok közti különbséget. A helyi értékek olyan értékek, amelyek közvetlenül egy adott formázási szinten vannak beállítva, például:
 
-1. Rész tulajdonságok egy dián.  
-1. Prototípus alakzat szövegstílusok egy elrendezésen vagy mesterdián, ha a rész szövegkeret alakzatának van ilyen.  
-1. Globális szövegbeállítások egy előadásban.
+1. Szövegrész tulajdonságok egy dián.  
+1. Prototype alakzat szövegstílusok egy elrendezésen vagy mesterdián, ha a szövegrész szövegdoboz alakzata rendelkezik ilyennel.  
+1. Globális szövegbeállítások egy prezentációban.  
 
-A helyi értékek bármely szinten definiálhatók vagy elhagyhatók. Amikor az Aspose.Slides-nek szüksége van a végleges, “renderelt” formázásra, feloldja az öröklődési láncot, és **hatékony** értékeket ad vissza. Ezeket a helyi formátumobjektum `GetEffective` metódusának meghívásával tudod lekérni.
+A helyi értékek meghatározhatók vagy elhagyhatók bármely szinten. Amikor az Aspose.Slidesnek szüksége van a végleges, “rendereltként” megjelenő formázásra, feloldja az öröklődési láncot, és **hatékony** értékeket ad vissza. Ezeket a helyi formátumobjektum `GetEffective` metódusának meghívásával kaphatja meg.
 
-A következő példa bemutatja, hogyan lehet lekérni a hatékony értékeket. Feltételezi, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegkerettel és legalább egy résszel.
+A következő példa bemutatja, hogyan lehet lekérni a hatékony értékeket. Feltételezi, hogy az első dia első alakzata egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegdobozzal és legalább egy szövegrészlettel rendelkezik.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,17 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-A hatékony formázási adatok a jelenleg számított formázást képviselik az öröklődés alkalmazása után. A jelenlegi megvalósításban bizonyos hatékony adatobjektumok, például a [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformateffectivedata/), belsőleg gyorsítótárazottak lehetnek. A `GetEffective` újbóli meghívása a szülő vagy az örökölt formázás módosítása után frissítheti a gyorsítótárat, és egy korábban lekért objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha a hatékony értékeket későbbi felhasználásra kell megőrizned, másold a szükséges tulajdonságokat, például betűmagasságot, kitöltő színt, betűstílust vagy igazítást a saját adatobjektumodba.
+{{% alert color="info" %}}
+A hatékony formázási adatok a jelenleg kiszámított formázást jelentik az öröklődés alkalmazása után. A jelenlegi megvalósításban egyes hatékony adatobjektumok, például a [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformateffectivedata/), akár belsőleg is gyorsítótárazva lehetnek. A `GetEffective` újbóli meghívása a szülő vagy az örökölt formázás módosítása után frissítheti a gyorsítótárat, és egy korábban lekért objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha a hatékony értékeket későbbi felhasználásra meg kell őrizni, másolja a szükséges tulajdonságokat, például a betűmagasságot, kitöltőszínt, betűstílust vagy igazítást saját adatobjektumába.
 {{% /alert %}}
 
-## **A kamera hatékony tulajdonságainak lekérése**
+## **A kamera hatékony tulajdonságainak lekérdezése**
 
-Az Aspose.Slides lehetővé teszi a kamera hatékony tulajdonságainak lekérését. A [ICameraEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icameraeffectivedata/) interfész egy immutable objektumot képvisel, amely a kamera hatékony tulajdonságait tartalmazza. Egy [ICameraEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icameraeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) számára.
+Az Aspose.Slides lehetővé teszi a kamera hatékony tulajdonságainak lekérdezését. A [ICameraEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icameraeffectivedata/) interfész egy változtathatatlan objektumot képvisel, amely a kamera hatékony tulajdonságait tartalmazza. Egy [ICameraEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icameraeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) hatékony értékeit biztosítja.
 
-A következő kódrészlet bemutatja, hogyan lehet a kamera hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
+A következő kódrészlet bemutatja, hogyan lehet lekérni a kamera hatékony tulajdonságait. Feltételezi, hogy az első dia első alakzata 3D formázással rendelkezik.
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -78,13 +99,24 @@ System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
 presentation->Dispose();
 ```
 
-## **A fényrig hatékony tulajdonságainak lekérése**
+## **A fényrendszer hatékony tulajdonságainak lekérdezése**
 
-Az Aspose.Slides lehetővé teszi a fényrig hatékony tulajdonságainak lekérését. A [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilightrigeffectivedata/) interfész egy immutable objektumot képvisel, amely a fényrig hatékony tulajdonságait tartalmazza. Egy [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilightrigeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) számára.
+Az Aspose.Slides lehetővé teszi a fényrendszer hatékony tulajdonságainak lekérdezését. A [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilightrigeffectivedata/) interfész egy változtathatatlan objektumot képvisel, amely a fényrendszer hatékony tulajdonságait tartalmazza. Egy [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilightrigeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) hatékony értékeit biztosítja.
 
-A következő kódrészlet bemutatja, hogyan lehet a fényrig hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
+A következő kódrészlet bemutatja, hogyan lehet lekérni a fényrendszer hatékony tulajdonságait. Feltételezi, hogy az első dia első alakzata 3D formázással rendelkezik.
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -101,13 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **A shape bevel hatékony tulajdonságainak lekérése**
+## **A relesz alakzat hatékony tulajdonságainak lekérdezése**
 
-Az Aspose.Slides lehetővé teszi egy alakzat bevel hatékony tulajdonságainak lekérését. A [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/) interfész egy immutable objektumot képvisel, amely az alakzat felület-nyúlvány tulajdonságait tartalmazza. Egy [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) számára.
+Az Aspose.Slides lehetővé teszi egy alakzat releszének hatékony tulajdonságainak lekérdezését. A [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/) interfész egy változtathatatlan objektumot képvisel, amely az alakzat hatékony felületi-relief tulajdonságait tartalmazza. Egy [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) hatékony értékeit biztosítja.
 
-A következő kódrészlet bemutatja, hogyan lehet egy alakzat felső bevel hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
+A következő kódrészlet bemutatja, hogyan lehet lekérni egy alakzat felső releszének hatékony tulajdonságait. Feltételezi, hogy az első dia első alakzata 3D formázással rendelkezik.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -127,13 +170,24 @@ System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
 presentation->Dispose();
 ```
 
-## **A text frame hatékony tulajdonságainak lekérése**
+## **A szövegdoboz hatékony tulajdonságainak lekérdezése**
 
-Az Aspose.Slides segítségével lekérheted egy szövegkeret hatékony tulajdonságait. A [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframeformateffectivedata/) interfész a szövegkeret hatékony formázási tulajdonságait tartalmazza.
+Az Aspose.Slides segítségével lekérheti egy szövegdoboz hatékony tulajdonságait. A [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframeformateffectivedata/) interfész a szövegdoboz hatékony formázási tulajdonságait tartalmazza.
 
-A következő kódrészlet bemutatja, hogyan lehet a szövegkeret hatékony formázási tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegkerettel rendelkezik.
+A következő kódrészlet bemutatja, hogyan lehet lekérni a szövegdoboz hatékony formázási tulajdonságait. Feltételezi, hogy az első dia első alakzata egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegdobozzal rendelkezik.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -166,13 +220,26 @@ System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
 presentation->Dispose();
 ```
 
-## **A text style hatékony tulajdonságainak lekérése**
+## **A szövegstílus hatékony tulajdonságainak lekérdezése**
 
-Az Aspose.Slides segítségével lekérheted egy szövegstílus hatékony tulajdonságait. A [ITextStyleEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextstyleeffectivedata/) interfész a szövegstílus hatékony tulajdonságait tartalmazza.
+Az Aspose.Slides segítségével lekérheti a szövegstílus hatékony tulajdonságait. A [ITextStyleEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextstyleeffectivedata/) interfész a szövegstílus hatékony tulajdonságait tartalmazza.
 
-A következő kódrészlet bemutatja, hogyan lehet a szövegstílus hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegkerettel rendelkezik.
+A következő kódrészlet bemutatja, hogyan lehet lekérni a szövegstílus hatékony tulajdonságait. Feltételezi, hogy az első dia első alakzata egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegdobozzal rendelkezik.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -199,11 +266,30 @@ for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
 presentation->Dispose();
 ```
 
-## **A hatékony betűmagasság értékének lekérése**
+## **A hatékony betűmagasság értékének lekérdezése**
 
-Az Aspose.Slides segítségével lekérheted a hatékony betűmagasságot. A következő kód bemutatja, hogyan változik egy rész hatékony betűmagassága, amikor a helyi betűmagasság értékek különböző előadási struktúra szinteken kerülnek beállításra.
+Az Aspose.Slides segítségével lekérheti a hatékony betűmagasságot. A következő kód bemutatja, hogyan változik egy szövegrész hatékony betűmagassága, miután a helyi betűmagasság értékeket a prezentáció különböző szintjein beállították.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -260,13 +346,29 @@ presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **A táblázat hatékony kitöltő formátumának lekérése**
+## **A táblázat hatékony kitöltőformátumának lekérdezése**
 
-Az Aspose.Slides segítségével lekérheted a táblázat különböző részeinek hatékony kitöltő formázását. A [IFillFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifillformateffectivedata/) interfész a kitöltő formázás hatékony tulajdonságait tartalmazza. A cella formázásának nagyobb prioritása van, mint a sor formázásának, a sor formázásnak nagyobb prioritása van, mint az oszlop formázásának, és az oszlop formázásnak nagyobb prioritása van, mint a teljes táblázat formázásának.
+Az Aspose.Slides segítségével lekérheti a különböző táblázatrészek hatékony kitöltőformázását. A [IFillFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifillformateffectivedata/) interfész a hatékony kitöltőformázási tulajdonságokat tartalmazza. A cella formázása magasabb prioritással bír, mint a sor formázása, a sor formázása magasabb prioritással bír, mint az oszlop formázása, és az oszlop formázása magasabb prioritással bír, mint a teljes táblázat formázása.
 
-Ennek következtében a [ICellFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icellformateffectivedata/) tulajdonságai használatosak a táblázat cellájának megrajzolásához. A következő kódrészlet bemutatja, hogyan lehet a táblázat különböző részeinek hatékony kitöltő formázását lekérni. Feltételezi, hogy az első dián az első alakzat egy [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) példány.
+Ennek következtében az [ICellFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icellformateffectivedata/) tulajdonságok használatosak a táblázatcellák kirajzolásához. A következő kódrészlet bemutatja, hogyan lehet lekérni a különböző táblázatrészek hatékony kitöltőformázását. Feltételezi, hogy az első dia első alakzata egy [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) objektum.
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -282,34 +384,34 @@ presentation->Dispose();
 
 ## **GYIK**
 
-**A `GetEffective` egy pillanatképet ad vissza?**
+### A `GetEffective` egy pillanatfelvételt ad vissza?
 
-Nem mindig. A hatékony adatok az öröklődés alkalmazása után számított formázást képviselik, de egyes hatékony adatobjektumok belsőleg gyorsítótárazottak lehetnek. Egy későbbi `GetEffective` hívás újraszámolhatja a formázást és frissítheti a gyorsítótárat, így a korábban kapott objektum nem tekinthető tartós pillanatképként.
+Nem mindig. A hatékony adatok az öröklődés alkalmazása után kiszámított formázást jelentik, de egyes hatékony adatobjektumok belsőleg gyorsítótárazva lehetnek. Egy későbbi `GetEffective` hívás újraszámíthatja a formázást és frissítheti a gyorsítótárat, ezért egy korábban lekért objektumot nem szabad tartós pillanatfelvételnek tekinteni.
 
-**Mikor kell újra beolvasni a hatékony tulajdonságokat?**
+### Mikor kell újból beolvasni a hatékony tulajdonságokat?
 
-Hívd meg újból a `GetEffective` metódust a helyi formázás, a szülő stílusok, az elrendezés formázása, a mester formázása vagy az előadás szintű alapértelmezések módosítása után. A következő hívás újraértékeli a formázási hierarchiát és visszaadja a jelenlegi hatékony eredményt.
+Hívja meg újra a `GetEffective`‑et a helyi formázás, a szülő stílusok, az elrendezés formázása, a mester formázása vagy a prezentáció szintű alapértelmezések módosítása után. A következő hívás újraértékeli a formázási hierarchiát, és a jelenlegi hatékony eredményt adja vissza.
 
-**A layout/mesterdia módosítása vagy eltávolítása befolyásolja a már lekért hatékony tulajdonságokat?**
+### A elrendezés/mester dia módosítása vagy eltávolítása befolyásolja a már lekért hatékony tulajdonságokat?
 
-Igen, de a változás a következő `GetEffective` híváskor jelenik meg. Ha egy szülő formázási forrást módosítanak vagy eltávolítanak, a korábban lekért hatékony adatok elavultak lehetnek. Amint a `GetEffective` újra meghívásra kerül, az Aspose.Slides újraértékeli a formázási fát, és a betűtípusok, színek, méretek vagy egyéb értékek megváltozhatnak.
+Igen, de a változás a következő `GetEffective` hívásakor fog megjelenni. Ha egy szülő formázási forrás módosul vagy eltávolításra kerül, a korábban lekért hatékony adatok elavultak lehetnek. Amint a `GetEffective` újra meghívásra kerül, az Aspose.Slides újraértékeli a formázási fát, és az eredményül kapott betűtípusok, színek, méretek vagy egyéb értékek megváltozhatnak.
 
-**Módosíthatók a értékek hatékony adatobjektumokon keresztül?**
+### Módosíthatok értékeket a hatékony adatobjektumokon keresztül?
 
-Nem. A hatékony adatobjektumok csak a kiszámított értékeket exponálnak. Változtass a helyi formázási objektumokon, majd szerezd be újra a hatékony értékeket.
+Nem. A hatékony adatobjektumok csak a kiszámított értékeket mutatják. Végezze a módosításokat a helyi formázási objektumokban, majd kérje le újból a hatékony értékeket.
 
-**Mi történik, ha egy tulajdonság nincs beállítva sem az alakzat szintjén, sem a layout/mester szintjén, sem a globális beállításokban?**
+### Mi történik, ha egy tulajdonság nincs beállítva sem az alakzatszinten, sem az elrendezésen/mesteren, sem a globális beállításokban?
 
-A hatékony értéket az alapértelmezett mechanizmus határozza meg, amely magában foglalja a PowerPoint és az Aspose.Slides alapértelmezéseit. Ez a feloldott érték része lesz a jelenlegi hatékony adatnak.
+A hatékony értéket az alapértelmezett mechanizmus határozza meg, amely magában foglalja a PowerPoint és az Aspose.Slides alapértelmezéseit. Ez a meghatározott érték a jelenlegi hatékony adatok részévé válik.
 
-**A hatékony betűértékből megállapítható, melyik szint biztosította a méretet vagy a betűtípust?**
+### Egy hatékony betűértékből meg tudom határozni, hogy melyik szint szolgáltatta a méretet vagy a betűtípust?
 
-Nem közvetlenül. A hatékony adatok a végső értéket adják vissza. A forrás megtalálásához ellenőrizd a helyi értékeket a rész, bekezdés, szövegkeret és a szövegstílusok szintjein a layout, master és előadás szintjén, hogy lásd, hol jelent meg először az explicit meghatározás.
+Nem közvetlenül. A hatékony adatok a végső értéket adják vissza. A forrás megtalálásához ellenőrizze a helyi értékeket a szövegrész, bekezdés, szövegdoboz és a szövegstílusok szintjén az elrendezés, a mester és a prezentáció szintjein, hogy hol jelenik meg az első explicit definíció.
 
-**Miért néznek ki a hatékony értékek néha azonosnak a helyi értékekkel?**
+### Miért tűnnek a hatékony értékek néha azonosnak a helyi értékekkel?
 
-Mert a helyi érték végsővé vált (nem volt szükség magasabb szintű öröklődésre). Ilyen esetben a hatékony érték megegyezik a helyivel.
+Mert a helyi érték végsővé vált (nem volt szükség magasabb szintű öröklődésre). Ilyen esetekben a hatékony érték megegyezik a helyi értékkel.
 
-**Mikor használjam a hatékony tulajdonságokat, és mikor csak a helyieket?**
+### Mikor kell hatékony tulajdonságokat használni, és mikor csak a helyi tulajdonságokkal kell dolgozni?
 
-Használd a hatékony adatokat, ha a „renderelt” eredményre van szükséged az összes öröklődés alkalmazása után, például színek, beljebb húzások vagy méretek összehangolásához. Ha meg akarod őrizni ezeket az értékeket a későbbi formázási változások ellenére, másold a szükséges tulajdonságokat saját objektumodba. Ha egy adott szinten szeretnél formázást változtatni, módosítsd a helyi tulajdonságokat, majd szükség esetén olvasd be újra a hatékony adatokat a végeredmény ellenőrzéséhez.
+Használjon hatékony adatokat, amikor a teljes öröklődés után a „rendereltként” megjelenő eredményre van szükség, például színek, behúzások vagy méretek igazításához. Ha ezeket az értékeket későbbi formázási változásoktól függetlenül meg kell őrizni, másolja a szükséges tulajdonságokat saját objektumába. Ha egy adott szinten szeretne formázást módosítani, változtassa meg a helyi tulajdonságokat, majd szükség esetén olvassa be újra a hatékony adatokat a kimenet ellenőrzéséhez.

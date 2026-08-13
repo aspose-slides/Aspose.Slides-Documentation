@@ -6,7 +6,7 @@ weight: 30
 url: /nl/net/read-only-presentation/
 keywords:
 - alleen-lezen
-- presentatie beveiligen
+- presentatie beschermen
 - bewerken voorkomen
 - PowerPoint
 - OpenDocument
@@ -14,26 +14,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Laad en sla PowerPoint-bestanden (PPT, PPTX) op in alleen-lezen modus met Aspose.Slides voor .NET, waardoor nauwkeurige dia-voorvertoningen mogelijk zijn zonder uw presentaties te wijzigen."
+description: "PowerPoint-bestanden (PPT, PPTX) laden en opslaan in alleen-lezen modus met Aspose.Slides voor .NET, waardoor nauwkeurige dia-voorbeelden worden geboden zonder uw presentaties te wijzigen."
 ---
 ## **Inleiding**
 
-In PowerPoint 2019 heeft Microsoft de instelling **Altijd openen als alleen-lezen** geïntroduceerd als een van de opties die gebruikers kunnen gebruiken om hun presentaties te beschermen. Je wilt deze Alleen-lezen‑instelling wellicht gebruiken om een presentatie te beveiligen wanneer
+In PowerPoint 2019 heeft Microsoft de instelling **Always Open Read-Only** geïntroduceerd als een van de opties die gebruikers kunnen gebruiken om hun presentaties te beschermen. Je wilt deze Read-Only‑instelling misschien gebruiken om een presentatie te beschermen wanneer
 
-- Je per ongeluk bewerken wilt voorkomen en de inhoud van je presentatie veilig wilt houden.  
-- Je wilt aangeven dat de presentatie die je hebt verstrekt de definitieve versie is.  
+- Je wilt voorkomen dat er per ongeluk wijzigingen worden aangebracht en de inhoud van je presentatie veilig houden. 
+- Je wilt aangeven dat de presentatie die je hebt geleverd de definitieve versie is. 
 
-Nadat je de optie **Altijd openen als alleen-lezen** voor een presentatie hebt geselecteerd, zien gebruikers bij het openen van de presentatie de **Alleen-lezen**‑aanbeveling en mogelijk een bericht in de volgende vorm: *Om per ongeluk wijzigingen te voorkomen, heeft de auteur dit bestand ingesteld om als alleen-lezen te worden geopend.*
+Nadat je de optie **Always Open Read-Only** voor een presentatie hebt geselecteerd, zien gebruikers bij het openen van de presentatie de aanbeveling **Read-Only** en kunnen ze een bericht in de volgende vorm zien: *Om onbedoelde wijzigingen te voorkomen, heeft de auteur dit bestand ingesteld om als alleen-lezen te worden geopend.*
 
-De Alleen-lezen‑aanbeveling is een eenvoudige maar doeltreffende afschrikker die bewerken ontmoedigt, omdat gebruikers eerst een handeling moeten verrichten om deze te verwijderen voordat ze de presentatie mogen bewerken. Als je niet wilt dat gebruikers wijzigingen aanbrengen in een presentatie en dit op een beleefde manier wilt communiceren, dan kan de Alleen-lezen‑aanbeveling een goede optie voor je zijn.  
+De aanbeveling **Read-Only** is een eenvoudige maar effectieve afschrikmiddel die bewerken ontmoedigt omdat gebruikers een handeling moeten uitvoeren om deze te verwijderen voordat ze de presentatie mogen bewerken. Als je niet wilt dat gebruikers wijzigingen aanbrengen in een presentatie en dit op een beleefde manier wilt aangeven, dan kan de aanbeveling **Read-Only** een goede optie voor je zijn. 
 
-> Als een presentatie met de **Alleen-lezen**‑beveiliging wordt geopend in een oudere versie van Microsoft PowerPoint — die de recent geïntroduceerde functie niet ondersteunt — wordt de **Alleen-lezen**‑aanbeveling genegeerd (de presentatie wordt normaal geopend).
+> Als een presentatie met de **Read-Only**‑bescherming wordt geopend in een oudere Microsoft PowerPoint‑applicatie – die de recent geïntroduceerde functie niet ondersteunt – wordt de **Read-Only**‑aanbeveling genegeerd (de presentatie wordt normaal geopend).
 
-## **Alleen-lezen‑modus toepassen**
+## **Read‑Only‑modus toepassen**
 
-Aspose.Slides voor .NET stelt je in staat een presentatie **Alleen-lezen** te maken, waardoor gebruikers (nadat ze de presentatie hebben geopend) de **Alleen-lezen**‑aanbeveling zien. Deze voorbeeldcode laat zien hoe je een presentatie **Alleen-lezen** maakt in C# met Aspose.Slides:
+Aspose.Slides for .NET stelt je in staat een presentatie op **Read-Only** te zetten, wat betekent dat gebruikers (nadat ze de presentatie hebben geopend) de aanbeveling **Read-Only** zien. Deze voorbeeldcode toont hoe je een presentatie op **Read-Only** zet in C# met Aspose.Slides:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     pres.ProtectionManager.ReadOnlyRecommended = true;
@@ -41,26 +44,26 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**Opmerking**: De **Alleen-lezen**‑aanbeveling is enkel bedoeld om bewerken te ontmoedigen of gebruikers te weerhouden van onbedoelde wijzigingen aan een PowerPoint‑presentatie. Als een gemotiveerde persoon — die weet wat hij doet — beslist je presentatie te bewerken, kan hij de Alleen-lezen‑instelling eenvoudig verwijderen. Als je echt ongeautoriseerde bewerkingen moet voorkomen, kun je beter gebruikmaken van [strengere beveiligingen die encryptie en wachtwoorden omvatten](https://docs.aspose.com/slides/nl/net/password-protected-presentation/). 
+**Opmerking**: De **Read-Only**‑aanbeveling is bedoeld om bewerken te ontmoedigen of gebruikers te weerhouden van per ongeluk wijzigingen aan te brengen in een PowerPoint‑presentatie. Als een gemotiveerde persoon – die weet wat hij doet – besluit je presentatie te bewerken, kan hij gemakkelijk de Read‑Only‑instelling verwijderen. Als je echt moet voorkomen dat onbevoegd wordt bewerkt, kun je beter gebruikmaken van [more stringent protections that involve encryptions and passwords](https://docs.aspose.com/slides/nl/net/password-protected-presentation/). 
 
 {{% /alert %}} 
 
 ## **FAQ**
 
-**Hoe verschilt ‘Alleen-lezen aanbevolen’ van volledige wachtwoordbeveiliging?**
+### Hoe verschilt 'Read-Only recommended' van volledige wachtwoordbeveiliging?
 
-‘Alleen-lezen aanbevolen’ toont alleen een suggestie om het bestand in de alleen-lezen‑modus te openen en is gemakkelijk te omzeilen. [Wachtwoordbeveiliging](/slides/nl/net/password-protected-presentation/) beperkt daadwerkelijk het openen of bewerken en is geschikt wanneer je echte beveiligingscontroles nodig hebt.
+'Read-Only recommended' toont slechts een suggestie om het bestand in alleen-lezen modus te openen en is gemakkelijk te omzeilen. [Password protection](/slides/nl/net/password-protected-presentation/) beperkt daadwerkelijk het openen of bewerken en is geschikt wanneer je echte beveiligingscontroles nodig hebt.
 
-**Kan ‘Alleen-lezen aanbevolen’ worden gecombineerd met watermerken om bewerkingen verder te ontmoedigen?**
+### Kan 'Read-Only recommended' gecombineerd worden met watermerken om bewerken verder te ontmoedigen?
 
-Ja. De aanbeveling kan worden gekoppeld aan [watermerken](/slides/nl/net/watermark/) als visuele afschrikking; ze zijn aparte mechanismen en werken goed samen.
+Ja. De aanbeveling kan worden gecombineerd met [watermarks](/slides/nl/net/watermark/) als een visueel afschrikmiddel; ze zijn afzonderlijke mechanismen en werken goed samen.
 
-**Kan een macro of extern gereedschap het bestand nog steeds wijzigen wanneer de aanbeveling is ingeschakeld?**
+### Kan een macro of extern hulpmiddel het bestand nog steeds wijzigen wanneer de aanbeveling is ingeschakeld?
 
-Ja. De aanbeveling blokkeert geen programmatiche wijzigingen. Gebruik [wachtwoorden en encryptie](/slides/nl/net/password-protected-presentation/) om geautomatiseerde bewerkingen te voorkomen.
+Ja. De aanbeveling blokkeert geen programmatische wijzigingen. Om geautomatiseerde bewerkingen te voorkomen, gebruik [passwords and encryption](/slides/nl/net/password-protected-presentation/).
 
-**Hoe verhoudt ‘Alleen-lezen aanbevolen’ zich tot de vlaggen ‘IsEncrypted’ en ‘IsWriteProtected’?**
+### Hoe verhoudt 'Read-Only recommended' zich tot de vlaggen 'IsEncrypted' en 'IsWriteProtected'?
 
-Het zijn verschillende signalen. ‘Alleen-lezen aanbevolen’ is een zachte, optionele prompt; [IsWriteProtected](https://reference.aspose.com/slides/nl/net/aspose.slides/protectionmanager/iswriteprotected/) en [IsEncrypted](https://reference.aspose.com/slides/nl/net/aspose.slides/protectionmanager/isencrypted/) duiden op daadwerkelijke schrijf‑ of leembeperkingen die afhangen van wachtwoorden of encryptie.
+Ze zijn verschillende signalen. 'Read-Only recommended' is een zachte, optionele prompt; [IsWriteProtected](https://reference.aspose.com/slides/nl/net/aspose.slides/protectionmanager/iswriteprotected/) en [IsEncrypted](https://reference.aspose.com/slides/nl/net/aspose.slides/protectionmanager/isencrypted/) geven daadwerkelijke schrijf‑ of leesbeperkingen aan die afhankelijk zijn van wachtwoorden of encryptie.

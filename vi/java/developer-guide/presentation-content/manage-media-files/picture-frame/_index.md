@@ -1,66 +1,69 @@
 ---
-title: Quản lý khung hình trong các bản trình bày bằng Java
-linktitle: Khung Hình
+title: Quản lý Khung Ảnh trong Bản Trình Chiếu Sử dụng Java
+linktitle: Khung Ảnh
 type: docs
 weight: 10
 url: /vi/java/picture-frame/
 keywords:
-- khung hình
-- thêm khung hình
-- tạo khung hình
+- khung ảnh
+- thêm khung ảnh
+- tạo khung ảnh
 - thêm hình ảnh
 - tạo hình ảnh
 - trích xuất hình ảnh
-- hình raster
-- hình vector
+- hình ảnh raster
+- hình ảnh vector
 - cắt hình ảnh
 - vùng đã cắt
 - thuộc tính StretchOff
-- định dạng khung hình
-- thuộc tính khung hình
+- định dạng khung ảnh
+- thuộc tính khung ảnh
 - tỷ lệ tương đối
 - hiệu ứng hình ảnh
-- tỷ lệ khía cạnh
-- độ trong suốt hình ảnh
+- tỷ lệ khung hình
+- độ trong suốt của hình ảnh
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Java
 - Aspose.Slides
-description: Thêm khung hình vào các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho Java. Tối ưu hoá quy trình làm việc của bạn và nâng cao thiết kế slide.
+description: "Thêm khung ảnh vào các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Java. Tinh giản quy trình làm việc của bạn và nâng cao thiết kế các slide."
 ---
 ## **Giới thiệu**
 
-Khung hình là một hình dạng chứa một hình ảnh — nó giống như một bức tranh trong khung.  
+Khung ảnh là một hình dạng chứa một hình ảnh — nó giống như một bức tranh trong khung.
 
-Bạn có thể thêm hình ảnh vào một slide thông qua khung hình. Bằng cách này, bạn sẽ định dạng hình ảnh bằng cách định dạng khung hình.
+Bạn có thể thêm hình ảnh vào một slide thông qua khung ảnh. Bằng cách này, bạn có thể định dạng hình ảnh bằng cách định dạng khung ảnh.
 
-{{% alert  title="Tip" color="primary" %}} 
-
-Aspose cung cấp các công cụ chuyển đổi miễn phí—[JPEG to PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG to PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—cho phép người dùng tạo bản trình bày nhanh chóng từ hình ảnh. 
-
+{{% alert  title="Tip" color="info" %}} 
+Aspose cung cấp các công cụ chuyển đổi miễn phí — [JPEG đến PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG đến PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt) — cho phép người dùng tạo bản trình chiếu nhanh chóng từ hình ảnh. 
 {{% /alert %}} 
 
-## **Tạo một Khung Hình**
+## **Tạo khung ảnh**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).  
-2. Lấy tham chiếu đến slide qua chỉ số của nó.  
-3. Tạo một đối tượng [IPPImage]() bằng cách thêm hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IImageCollection) được liên kết với đối tượng presentation sẽ được dùng để lấp đầy hình dạng.  
-4. Xác định chiều rộng và chiều cao của hình ảnh.  
-5. Tạo một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/PictureFrame) dựa trên chiều rộng và chiều cao của ảnh thông qua phương thức `AddPictureFrame` được cung cấp bởi đối tượng shape được liên kết với slide đã tham chiếu.  
-6. Thêm khung hình (chứa ảnh) vào slide.  
-7. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.  
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
+2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
+3. Tạo một đối tượng [IPPImage]() bằng cách thêm một hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IImageCollection) liên kết với đối tượng presentation sẽ được sử dụng để tô màu cho hình dạng.
+4. Xác định chiều rộng và chiều cao của hình ảnh.
+5. Tạo một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/PictureFrame) dựa trên chiều rộng và chiều cao của hình ảnh thông qua phương thức `AddPictureFrame` được cung cấp bởi đối tượng shape liên kết với slide đã tham chiếu.
+6. Thêm một khung ảnh (chứa hình ảnh) vào slide.
+7. Ghi bản trình chiếu đã sửa đổi thành tệp PPTX.
 
-Mã Java dưới đây cho thấy cách tạo một khung hình:
+Đoạn mã Java dưới đây cho thấy cách tạo một khung ảnh:
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho tệp PPTX
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// Tạo một thể hiện của lớp Presentation đại diện cho tệp PPTX
 Presentation pres = new Presentation();
 try {
     // Lấy slide đầu tiên
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Khởi tạo lớp Image
+    // Tạo một thể hiện của lớp Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     // Thêm một khung ảnh với chiều cao và chiều rộng tương đương của hình ảnh
@@ -75,36 +78,39 @@ try {
 ```
 
 {{% alert color="warning" %}} 
-
-Khung hình cho phép bạn nhanh chóng tạo các slide trình bày dựa trên hình ảnh. Khi kết hợp khung hình với các tùy chọn lưu của Aspose.Slides, bạn có thể thao tác các hoạt động nhập/xuất để chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Bạn có thể tham khảo các trang này: chuyển đổi [image to JPG](https://products.aspose.com/slides/vi/java/conversion/image-to-jpg/); chuyển đổi [JPG to image](https://products.aspose.com/slides/vi/java/conversion/jpg-to-image/); chuyển đổi [JPG to PNG](https://products.aspose.com/slides/vi/java/conversion/jpg-to-png/), chuyển đổi [PNG to JPG](https://products.aspose.com/slides/vi/java/conversion/png-to-jpg/); chuyển đổi [PNG to SVG](https://products.aspose.com/slides/vi/java/conversion/png-to-svg/), chuyển đổi [SVG to PNG](https://products.aspose.com/slides/vi/java/conversion/svg-to-png/). 
-
+Khung ảnh cho phép bạn nhanh chóng tạo các slide trình chiếu dựa trên hình ảnh. Khi bạn kết hợp khung ảnh với các tùy chọn lưu của Aspose.Slides, bạn có thể thao tác các hoạt động nhập/xuất để chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Bạn có thể muốn xem các trang sau: chuyển đổi [hình ảnh sang JPG](https://products.aspose.com/slides/vi/java/conversion/image-to-jpg/); chuyển đổi [JPG sang hình ảnh](https://products.aspose.com/slides/vi/java/conversion/jpg-to-image/); chuyển đổi [JPG sang PNG](https://products.aspose.com/slides/vi/java/conversion/jpg-to-png/), chuyển đổi [PNG sang JPG](https://products.aspose.com/slides/vi/java/conversion/png-to-jpg/); chuyển đổi [PNG sang SVG](https://products.aspose.com/slides/vi/java/conversion/png-to-svg/), chuyển đổi [SVG sang PNG](https://products.aspose.com/slides/vi/java/conversion/svg-to-png/).
 {{% /alert %}}
 
-## **Tạo Khung Hình với Tỷ Lệ Tương Đối**
+## **Tạo khung ảnh với tỷ lệ tương đối**
 
-Bằng cách thay đổi tỷ lệ tương đối của hình ảnh, bạn có thể tạo một khung hình phức tạp hơn.  
+Bằng cách thay đổi tỷ lệ tương đối của hình ảnh, bạn có thể tạo một khung ảnh phức tạp hơn. 
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).  
-2. Lấy tham chiếu đến slide qua chỉ số của nó.  
-3. Thêm một hình ảnh vào bộ sưu tập hình ảnh của presentation.  
-4. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPPImage) bằng cách thêm hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IImageCollection) được liên kết với đối tượng presentation sẽ được dùng để lấp đầy hình dạng.  
-5. Xác định chiều rộng và chiều cao tương đối của hình ảnh trong khung hình.  
-6. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.  
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
+2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
+3. Thêm một hình ảnh vào bộ sưu tập hình ảnh của bản trình chiếu.
+4. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPPImage) bằng cách thêm một hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IImageCollection) liên kết với đối tượng presentation sẽ được sử dụng để tô màu cho hình dạng.
+5. Xác định chiều rộng và chiều cao tương đối của hình ảnh trong khung ảnh.
+6. Ghi bản trình chiếu đã sửa đổi thành tệp PPTX.
 
-Mã Java dưới đây cho thấy cách tạo một khung hình với tỷ lệ tương đối:
+Đoạn mã Java dưới đây cho thấy cách tạo một khung ảnh với tỷ lệ tương đối:
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho PPTX
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// Tạo thể hiện lớp Presentation đại diện cho PPTX
 Presentation pres = new Presentation();
 try {
     // Lấy slide đầu tiên
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Khởi tạo lớp Image
+    // Tạo thể hiện lớp Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
     
-    // Thêm Picture Frame với chiều cao và chiều rộng tương đương của Picture
+    // Thêm Khung Ảnh với chiều cao và chiều rộng tương đương của Hình ảnh
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
     // Đặt tỷ lệ tương đối cho chiều rộng và chiều cao
@@ -119,11 +125,13 @@ try {
 }
 ```
 
-## **Trích Xuất Hình Raster từ Khung Hình**
+## **Trích xuất hình ảnh raster từ khung ảnh**
 
-Bạn có thể trích xuất các hình raster từ các đối tượng [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/PictureFrame) và lưu chúng dưới dạng PNG, JPG và các định dạng khác. Ví dụ mã dưới đây minh họa cách trích xuất một ảnh từ tài liệu “sample.pptx” và lưu nó ở định dạng PNG.
+Bạn có thể trích xuất các hình ảnh raster từ các đối tượng [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/PictureFrame) và lưu chúng ở định dạng PNG, JPG và các định dạng khác. Ví dụ mã dưới đây minh họa cách trích xuất một hình ảnh từ tài liệu "sample.pptx" và lưu nó ở định dạng PNG.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -132,26 +140,30 @@ try {
 
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
+
+        IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
         try {
-			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-		} finally {
-			if (slideImage != null) slideImage.dispose();
-		}
+            slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+        } finally {
+            if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (IOException e) {
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Trích Xuất Hình SVG từ Khung Hình**
+## **Trích xuất hình ảnh SVG từ khung ảnh**
 
-Khi một bản trình bày chứa đồ họa SVG được đặt bên trong các hình dạng [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/), Aspose.Slides cho Java cho phép bạn lấy lại các hình ảnh vector gốc với độ chính xác đầy đủ. Bằng cách duyệt bộ sưu tập hình dạng của slide, bạn có thể xác định từng [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/), kiểm tra xem [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) nền có chứa nội dung SVG hay không, và sau đó lưu ảnh đó vào đĩa hoặc stream ở định dạng SVG gốc.  
+Khi một bản trình chiếu chứa đồ họa SVG được đặt bên trong các hình dạng [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/), Aspose.Slides cho Java cho phép bạn lấy lại các hình ảnh vector gốc với độ chính xác đầy đủ. Bằng cách duyệt qua bộ sưu tập hình dạng của slide, bạn có thể xác định từng [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/), kiểm tra xem [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ippimage/) nền có chứa nội dung SVG hay không, và sau đó lưu hình ảnh đó ra đĩa hoặc stream ở định dạng SVG gốc.
 
-Ví dụ mã dưới đây minh họa cách trích xuất một ảnh SVG từ khung hình:
+Đoạn mã dưới đây minh họa cách trích xuất một hình ảnh SVG từ một khung ảnh:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -162,9 +174,12 @@ try {
         IPictureFrame pictureFrame = (IPictureFrame) shape;
         ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
 
-        FileOutputStream fos = new FileOutputStream("output.svg");
-        fos.write(svgImage.getSvgData());
-        fos.close();
+        // getSvgImage trả về null khi hình ảnh là hình raster.
+        if (svgImage != null) {
+            FileOutputStream fos = new FileOutputStream("output.svg");
+            fos.write(svgImage.getSvgData());
+            fos.close();
+        }
     }
 } catch (IOException e) {
     System.out.println(e.getMessage());
@@ -173,11 +188,13 @@ try {
 }
 ```
 
-## **Lấy Độ Trong Suốt của Ảnh**
+## **Lấy độ trong suốt của hình ảnh**
 
-Aspose.Slides cho phép bạn lấy hiệu ứng trong suốt được áp dụng cho một ảnh. Mã Java dưới đây minh họa thao tác này:
+Aspose.Slides cho phép bạn lấy hiệu ứng trong suốt được áp dụng cho một hình ảnh. Đoạn mã Java này minh họa thao tác:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("Test.pptx");
 
 var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -191,13 +208,15 @@ for (var effect : imageTransform) {
 }
 ```
 
-## **Lấy Độ Sáng và Độ Tương Phản của Ảnh**
+## **Lấy độ sáng và tương phản của hình ảnh**
 
-Aspose.Slides cho phép bạn lấy hiệu ứng độ sáng và độ tương phản được áp dụng cho một ảnh. Giao diện [ILuminance](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iluminance/) đại diện cho hiệu ứng biến đổi ảnh này.  
+Aspose.Slides cho phép bạn lấy hiệu ứng độ sáng và tương phản được áp dụng cho một hình ảnh. Giao diện [ILuminance](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iluminance/) đại diện cho hiệu ứng chuyển đổi này.
 
-Mã Java dưới đây minh họa cách lấy các cài đặt độ sáng và độ tương phản từ một khung hình:
+Đoạn mã Java dưới đây cho thấy cách lấy cài đặt độ sáng và tương phản từ một khung ảnh:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 try {
@@ -221,37 +240,43 @@ try {
 }
 ```
 
-## **Định Dạng Khung Hình**
+## **Định dạng khung ảnh**
 
-Aspose.Slides cung cấp nhiều tùy chọn định dạng có thể áp dụng cho một khung hình. Sử dụng các tùy chọn này, bạn có thể điều chỉnh khung hình để đáp ứng các yêu cầu cụ thể.  
+Aspose.Slides cung cấp nhiều tùy chọn định dạng có thể áp dụng cho một khung ảnh. Sử dụng những tùy chọn này, bạn có thể thay đổi khung ảnh để đáp ứng các yêu cầu cụ thể.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).  
-2. Lấy tham chiếu đến slide qua chỉ số của nó.  
-3. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPPImage) bằng cách thêm hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IImageCollection) được liên kết với đối tượng presentation sẽ được dùng để lấp đầy hình dạng.  
-4. Xác định chiều rộng và chiều cao của hình ảnh.  
-5. Tạo một `PictureFrame` dựa trên chiều rộng và chiều cao của ảnh thông qua phương thức [AddPictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) được cung cấp bởi đối tượng [IShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeCollection) liên kết với slide đã tham chiếu.  
-6. Thêm khung hình (chứa ảnh) vào slide.  
-7. Đặt màu đường viền cho khung hình.  
-8. Đặt độ rộng đường viền cho khung hình.  
-9. Xoay khung hình bằng cách đưa vào giá trị dương hoặc âm.  
-   * Giá trị dương xoay ảnh theo chiều kim đồng hồ.  
-   * Giá trị âm xoay ảnh ngược chiều kim đồng hồ.  
-10. Thêm khung hình (chứa ảnh) vào slide.  
-11. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.  
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
+2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
+3. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPPImage) bằng cách thêm một hình ảnh vào [IImagescollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IImageCollection) liên kết với đối tượng presentation sẽ được sử dụng để tô màu cho hình dạng.
+4. Xác định chiều rộng và chiều cao của hình ảnh.
+5. Tạo một `PictureFrame` dựa trên chiều rộng và chiều cao của hình ảnh thông qua phương thức [AddPictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) được cung cấp bởi đối tượng [IShapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeCollection) liên kết với slide đã tham chiếu.
+6. Thêm khung ảnh (chứa hình ảnh) vào slide.
+7. Đặt màu đường viền cho khung ảnh.
+8. Đặt độ rộng đường viền cho khung ảnh.
+9. Xoay khung ảnh bằng cách cung cấp một giá trị dương hoặc âm.  
+   * Giá trị dương xoay hình ảnh theo chiều kim đồng hồ.  
+   * Giá trị âm xoay hình ảnh ngược chiều kim đồng hồ.
+10. Thêm khung ảnh (chứa hình ảnh) vào slide.
+11. Ghi bản trình chiếu đã sửa đổi thành tệp PPTX.
 
-Mã Java dưới đây minh họa quy trình định dạng khung hình:
+Đoạn mã Java dưới đây minh họa quy trình định dạng khung ảnh:
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+// Tạo thể hiện lớp Presentation đại diện cho PPTX
 Presentation pres = new Presentation();
 try {
     // Lấy slide đầu tiên
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Khởi tạo lớp Image
+    // Tạo thể hiện lớp Image
     IPPImage imgx = pres.getImages().addImage(new FileInputStream(new File("asp1.jpg")));
     
-    // Thêm Picture Frame với chiều cao và chiều rộng tương đương của Picture
+    // Thêm Khung Ảnh với chiều cao và chiều rộng tương đương của Hình ảnh
     IPictureFrame pf = sld.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     
     // Áp dụng một số định dạng cho PictureFrameEx
@@ -268,17 +293,18 @@ try {
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose gần đây đã phát triển một [free Collage Maker](https://products.aspose.app/slides/vi/collage). Nếu bạn cần [gộp JPG/JPEG](https://products.aspose.app/slides/vi/collage/jpg) hoặc ảnh PNG, [tạo lưới từ ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), bạn có thể sử dụng dịch vụ này. 
-
+{{% alert title="Tip" color="info" %}}
+Aspose gần đây đã phát triển một [Collage Maker miễn phí](https://products.aspose.app/slides/vi/collage). Nếu bạn cần [nối JPG/JPEG](https://products.aspose.app/slides/vi/collage/jpg) hoặc hình PNG, [tạo lưới từ ảnh](https://products.aspose.app/slides/vi/collage/photo-grid), bạn có thể sử dụng dịch vụ này. 
 {{% /alert %}}
 
-## **Thêm Ảnh dưới Dạng Liên Kết**
+## **Thêm hình ảnh dưới dạng liên kết**
 
-Để tránh kích thước bản trình bày quá lớn, bạn có thể thêm ảnh (hoặc video) dưới dạng liên kết thay vì nhúng tệp trực tiếp vào bản trình bày. Mã Java dưới đây cho thấy cách thêm ảnh và video vào một placeholder:
+Để tránh kích thước lớn của bản trình chiếu, bạn có thể thêm hình ảnh (hoặc video) qua liên kết thay vì nhúng tệp trực tiếp vào bản trình chiếu. Đoạn mã Java này cho thấy cách thêm hình ảnh và video vào một trình giữ chỗ:
 
 ```java
+import com.aspose.slides.*;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ArrayList<IShape> shapesToRemove = new ArrayList<IShape>();
@@ -330,11 +356,16 @@ try {
 }
 ```
 
-## **Cắt Ảnh**
+## **Cắt hình ảnh**
 
-Mã Java dưới đây cho thấy cách cắt một ảnh hiện có trên slide:
+Đoạn mã Java này cho thấy cách cắt một hình ảnh hiện có trên slide:
 
 ```java
+import com.aspose.slides.*;
+
+String imagePath = "image.png";
+String outPptxFile = "CroppedImage_out.pptx";
+
 Presentation pres = new Presentation();
 // Tạo đối tượng hình ảnh mới
 try {
@@ -350,7 +381,7 @@ try {
     IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(
             ShapeType.Rectangle, 100, 100, 420, 250, picture);
 
-    // Cắt ảnh (giá trị phần trăm)
+    // Cắt hình ảnh (giá trị phần trăm)
     picFrame.getPictureFormat().setCropLeft(23.6f);
     picFrame.getPictureFormat().setCropRight(21.5f);
     picFrame.getPictureFormat().setCropTop(3);
@@ -358,19 +389,20 @@ try {
 
     // Lưu kết quả
     pres.save(outPptxFile, SaveFormat.Pptx);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Xóa Các Vùng Đã Cắt của Khung Hình**
+## **Xóa các vùng đã cắt của khung ảnh**
 
-Nếu bạn muốn xóa các vùng đã cắt của một ảnh có trong khung, bạn có thể sử dụng phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Phương thức này trả về ảnh đã cắt hoặc ảnh gốc nếu không cần cắt.  
+Nếu bạn muốn xóa các vùng đã cắt của một hình ảnh chứa trong khung, bạn có thể sử dụng phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) . Phương thức này trả về hình ảnh đã cắt hoặc hình ảnh gốc nếu không cần cắt.
 
-Mã Java dưới đây minh họa thao tác này:
+Đoạn mã Java dưới đây minh họa thao tác:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("PictureFrameCrop.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -389,28 +421,28 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
+Phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) thêm hình ảnh đã cắt vào bộ sưu tập hình ảnh của bản trình chiếu. Nếu hình ảnh chỉ được sử dụng trong [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/) đã xử lý, cấu hình này có thể giảm kích thước bản trình chiếu. Ngược lại, số lượng hình ảnh trong bản trình chiếu kết quả sẽ tăng.
 
-Phương thức [deletePictureCroppedAreas()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) thêm ảnh đã cắt vào bộ sưu tập hình ảnh của presentation. Nếu ảnh chỉ được sử dụng trong [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/) đã xử lý, cách thiết lập này có thể giảm kích thước bản trình bày. Ngược lại, số lượng ảnh trong bản trình bày kết quả sẽ tăng.  
-
-Phương thức này chuyển đổi các tệp WMF/EMF sang ảnh raster PNG trong quá trình cắt. 
-
+Phương thức này chuyển đổi các tệp metafile WMF/EMF thành hình ảnh PNG raster trong quá trình cắt. 
 {{% /alert %}}
 
-## **Nén Ảnh**
+## **Nén hình ảnh**
 
-Bạn có thể nén một ảnh trong bản trình bày bằng phương thức [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . Phương thức này nén ảnh bằng cách giảm kích thước dựa trên kích thước hình dạng và độ phân giải đã chỉ định, với tùy chọn xóa các vùng đã cắt.  
+Bạn có thể nén một hình ảnh trong bản trình chiếu bằng cách sử dụng phương thức [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) . Phương thức này nén hình ảnh bằng cách giảm kích thước dựa trên kích thước hình dạng và độ phân giải được chỉ định, với tùy chọn xóa các vùng đã cắt.
 
-Nó điều chỉnh kích thước và độ phân giải của ảnh tương tự như tính năng **Picture Format -> Compress Pictures -> Resolution** của PowerPoint.  
+Nó điều chỉnh kích thước và độ phân giải của hình ảnh tương tự như tính năng **Picture Format -> Compress Pictures -> Resolution** của PowerPoint.
 
-Các ví dụ Java dưới đây minh họa cách nén ảnh trong bản trình bày bằng cách chỉ định độ phân giải mục tiêu và tùy chọn xóa các vùng đã cắt:
+Các ví dụ Java sau đây minh họa cách nén một hình ảnh trong bản trình chiếu bằng cách chỉ định độ phân giải mục tiêu và tùy chọn xóa các vùng đã cắt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // Nén ảnh với độ phân giải mục tiêu 150 DPI (độ phân giải Web) và xóa các vùng đã cắt.
+    // Nén hình ảnh với độ phân giải mục tiêu 150 DPI (độ phân giải Web) và xóa các vùng đã cắt.
     boolean result = pictureFrame.getPictureFormat().compressImage(true, PicturesCompression.Dpi150);
 
     // Kiểm tra kết quả của quá trình nén.
@@ -426,15 +458,17 @@ try {
 }
 ```
 
-Hoặc sử dụng trực tiếp giá trị DPI tùy chỉnh:
+Hoặc sử dụng giá trị DPI tùy chỉnh trực tiếp:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("demo.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IPictureFrame pictureFrame = (IPictureFrame)slide.getShapes().get_Item(0);
 
-    // Nén ảnh tới 150 DPI (độ phân giải web), xóa các vùng đã cắt.
+    // Nén hình ảnh tới 150 DPI (độ phân giải web), xóa các vùng đã cắt.
     pictureFrame.getPictureFormat().compressImage(true, 150f);
 
     presentation.save("CompressedImage.pptx", SaveFormat.Pptx);
@@ -444,19 +478,19 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
-Phương thức chuyển đổi ảnh sang độ phân giải thấp hơn dựa trên kích thước của hình dạng và DPI cung cấp. Các vùng đã cắt cũng có thể bị xóa để tối ưu kích thước tệp.  
-Nếu ảnh là tệp metafile (WMF/EMF) hoặc SVG, việc nén sẽ không được áp dụng. Ngoài ra, chất lượng JPEG được giữ nguyên hoặc giảm nhẹ dựa trên độ phân giải, tương tự như cách PowerPoint xử lý JPEG độ phân giải cao.
-
+Phương thức chuyển đổi hình ảnh sang độ phân giải thấp hơn dựa trên kích thước hình dạng và DPI cung cấp. Các vùng đã cắt cũng có thể bị xóa để tối ưu kích thước tệp.  
+Nếu hình ảnh là một metafile (WMF/EMF) hoặc SVG, việc nén sẽ không được áp dụng. Ngoài ra, chất lượng JPEG được giữ nguyên hoặc giảm nhẹ dựa trên độ phân giải, tương tự như cách PowerPoint xử lý JPEG độ phân giải cao.
 {{% /alert %}}
 
-## **Khóa Tỷ Lệ Khung Hình**
+## **Khóa tỷ lệ khung hình**
 
-Nếu bạn muốn một hình dạng chứa ảnh giữ nguyên tỷ lệ khung ngay cả khi thay đổi kích thước ảnh, bạn có thể sử dụng phương thức [setAspectRatioLocked](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) để đặt cài đặt *Lock Aspect Ratio*.  
+Nếu bạn muốn một hình dạng chứa hình ảnh giữ nguyên tỷ lệ khung hình ngay cả khi thay đổi kích thước hình ảnh, bạn có thể sử dụng phương thức [setAspectRatioLocked](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) để đặt cài đặt *Lock Aspect Ratio*. 
 
-Mã Java dưới đây cho thấy cách khóa tỷ lệ khung hình:
+Đoạn mã Java này cho thấy cách khóa tỷ lệ khung hình của một shape:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ILayoutSlide layout = pres.getLayoutSlides().getByType(SlideLayoutType.Custom);
@@ -469,48 +503,49 @@ try {
         if (image != null) image.dispose();
     }
     IPictureFrame pictureFrame = emptySlide.getShapes().addPictureFrame(
-            ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+            ShapeType.Rectangle, 50, 150, picture.getWidth(), picture.getHeight(), picture);
 
-    // đặt hình dạng để giữ tỷ lệ khía cạnh khi thay đổi kích thước
+    // đặt shape để bảo toàn tỷ lệ khung hình khi thay đổi kích thước
     pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-} catch(IOException e) {
+
+    pres.save("pres-out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
-
-Cài đặt *Lock Aspect Ratio* này chỉ giữ nguyên tỷ lệ của hình dạng chứ không phải của ảnh bên trong. 
-
+Cài đặt *Lock Aspect Ratio* này chỉ bảo tồn tỷ lệ khung hình của shape chứ không phải hình ảnh bên trong. 
 {{% /alert %}}
 
-## **Sử Dụng Thuộc Tính StretchOff**
+## **Sử dụng thuộc tính StretchOff**
 
-Bằng cách sử dụng các thuộc tính [StretchOffsetLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) và [StretchOffsetBottom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) từ giao diện [IPictureFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat) và lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat), bạn có thể xác định một hình chữ nhật lấp đầy.  
+Sử dụng các thuộc tính [StretchOffsetLeft](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetRight--) và [StretchOffsetBottom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) từ giao diện [IPictureFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat) và lớp [PictureFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPictureFillFormat), bạn có thể xác định một hình chữ nhật tô đầy.
 
-Khi chỉ định kéo dài cho một ảnh, một hình chữ nhật nguồn sẽ được cân tỷ lệ để vừa với hình chữ nhật lấp đầy đã chỉ định. Mỗi cạnh của hình chữ nhật lấp đầy được định nghĩa bằng phần trăm độ lệch so với cạnh tương ứng của hộp giới hạn của hình dạng. Phần trăm dương chỉ ra chèn vào trong khi phần trăm âm chỉ ra mở rộng ra ngoài.  
+Khi kéo dãn được chỉ định cho một hình ảnh, một hình chữ nhật nguồn sẽ được tỷ lệ để vừa với hình chữ nhật tô đã chỉ định. Mỗi cạnh của hình chữ nhật tô được định nghĩa bằng một độ lệch phần trăm so với cạnh tương ứng của hộp bao của shape. Độ lệch phần trăm dương chỉ ra việc inset trong khi độ lệch phần trăm âm chỉ ra việc outset.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).  
-2. Lấy tham chiếu đến slide qua chỉ số của nó.  
-3. Thêm một hình chữ nhật `AutoShape`.  
-4. Tạo một ảnh.  
-5. Đặt loại lấp đầy cho hình dạng.  
-6. Đặt chế độ lấp đầy ảnh cho hình dạng.  
-7. Thêm ảnh đã đặt để lấp đầy hình dạng.  
-8. Xác định độ lệch ảnh từ cạnh tương ứng của hộp giới hạn hình dạng.  
-9. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.  
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
+2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
+3. Thêm một hình chữ nhật `AutoShape`. 
+4. Tạo một hình ảnh.
+5. Đặt kiểu tô màu cho shape.
+6. Đặt chế độ tô ảnh cho shape.
+7. Thêm hình ảnh đã đặt để tô đầy shape.
+8. Xác định độ lệch hình ảnh từ cạnh tương ứng của hộp bao của shape.
+9. Ghi bản trình chiếu đã sửa đổi thành tệp PPTX.
 
-Mã Java dưới đây minh họa quy trình sử dụng thuộc tính StretchOff:
+Đoạn mã Java dưới đây minh họa quy trình sử dụng thuộc tính StretchOff:
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho một tệp PPTX
+import com.aspose.slides.*;
+
+// Tạo thể hiện lớp Presentation đại diện cho tệp PPTX
 Presentation pres = new Presentation();
 try {
     // Lấy slide đầu tiên
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Khởi tạo lớp ImageEx
+    // Tạo thể hiện lớp ImageEx
     IPPImage picture;
     IImage image = Images.fromFile("aspose-logo.jpg");
     try {
@@ -519,46 +554,45 @@ try {
         if (image != null) image.dispose();
     }
 
-    // Thêm một AutoShape dạng Hình chữ nhật
+    // Thêm một AutoShape dạng Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Đặt loại lấp đầy cho hình dạng
+    // Đặt loại tô màu cho shape
     aShape.getFillFormat().setFillType(FillType.Picture);
 
-    // Đặt chế độ lấp đầy ảnh cho hình dạng
+    // Đặt chế độ tô ảnh cho shape
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 
-    // Đặt ảnh để lấp đầy hình dạng
+    // Đặt hình ảnh để tô đầy shape
     aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Xác định độ lệch của ảnh từ cạnh tương ứng của hộp giới hạn hình dạng
+    // Xác định độ lệch hình ảnh từ các cạnh tương ứng của hộp bao của shape
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
     aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-    
+
     // Ghi tệp PPTX ra đĩa
     pres.save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Làm sao tôi biết những định dạng ảnh nào được hỗ trợ cho PictureFrame?**
+### Làm sao tôi có thể biết định dạng hình ảnh nào được hỗ trợ cho PictureFrame?
 
-Aspose.Slides hỗ trợ cả ảnh raster (PNG, JPEG, BMP, GIF, v.v.) và ảnh vector (ví dụ, SVG) thông qua đối tượng ảnh được gán cho một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/). Danh sách các định dạng được hỗ trợ thường trùng với khả năng của động cơ chuyển đổi slide và ảnh.
+Aspose.Slides hỗ trợ cả hình ảnh raster (PNG, JPEG, BMP, GIF, v.v.) và hình ảnh vector (ví dụ, SVG) thông qua đối tượng hình ảnh được gán cho một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/). Danh sách các định dạng được hỗ trợ thường trùng khớp với khả năng của công cụ chuyển đổi slide và hình ảnh.
 
-**Việc thêm hàng chục ảnh lớn sẽ ảnh hưởng như thế nào đến kích thước và hiệu năng của PPTX?**
+### Việc thêm hàng chục hình ảnh lớn sẽ ảnh hưởng như thế nào đến kích thước và hiệu năng của PPTX?
 
-Nhúng ảnh lớn làm tăng kích thước tệp và sử dụng bộ nhớ; liên kết ảnh giúp giữ kích thước bản trình bày nhỏ hơn nhưng yêu cầu các tệp bên ngoài vẫn có thể truy cập được. Aspose.Slides cung cấp khả năng thêm ảnh bằng liên kết để giảm kích thước tệp.
+Nhúng hình ảnh lớn làm tăng kích thước tệp và mức sử dụng bộ nhớ; liên kết hình ảnh giúp giảm kích thước bản trình chiếu nhưng yêu cầu các tệp bên ngoài phải luôn khả dụng. Aspose.Slides cung cấp khả năng thêm hình ảnh bằng liên kết để giảm kích thước tệp.
 
-**Làm sao tôi khóa một đối tượng ảnh để tránh việc di chuyển/đổi kích thước vô tình?**
+### Làm sao tôi có thể khóa một đối tượng hình ảnh khỏi việc di chuyển/kích thước vô tình?
 
-Sử dụng [shape locks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) cho một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/) (ví dụ, vô hiệu hoá di chuyển hoặc thay đổi kích thước). Cơ chế khóa được mô tả cho các hình dạng trong một [bài viết bảo vệ](/slides/vi/java/applying-protection-to-presentation/) riêng và được hỗ trợ cho nhiều loại hình dạng, bao gồm [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/).
+Sử dụng [shape locks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/#getPictureFrameLock--) cho một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/) (ví dụ, tắt việc di chuyển hoặc thay đổi kích thước). Cơ chế khóa này được mô tả cho các shape trong một [bài viết bảo vệ](/slides/vi/java/applying-protection-to-presentation/) riêng và được hỗ trợ cho nhiều loại shape, bao gồm [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/).
 
-**Độ trung thực của vector SVG có được giữ nguyên khi xuất bản trình bày sang PDF/ảnh không?**
+### Độ chính xác vector SVG có được duy trì khi xuất bản trình chiếu sang PDF/hình ảnh không?
 
-Aspose.Slides cho phép trích xuất một SVG từ một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/) dưới dạng vector gốc. Khi [xuất sang PDF](/slides/vi/java/convert-powerpoint-to-pdf/) hoặc [định dạng raster](/slides/vi/java/convert-powerpoint-to-png/), kết quả có thể được raster hoá tùy thuộc vào cài đặt xuất; thực tế rằng SVG gốc được lưu dưới dạng vector được xác nhận bằng hành vi trích xuất.
+Aspose.Slides cho phép trích xuất SVG từ một [PictureFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pictureframe/) dưới dạng vector gốc. Khi [xuất ra PDF](/slides/vi/java/convert-powerpoint-to-pdf/) hoặc [định dạng raster](/slides/vi/java/convert-powerpoint-to-png/), kết quả có thể được raster hóa tùy thuộc vào cài đặt xuất; việc SVG gốc được lưu dưới dạng vector được xác nhận qua hành vi trích xuất.

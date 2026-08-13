@@ -8,28 +8,32 @@ keywords:
 - di chuyển
 - mã cũ
 - mã hiện đại
-- cách tiếp cận cũ
-- cách tiếp cận hiện đại
+- phương pháp cũ
+- phương pháp hiện đại
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Xem lại các cập nhật API công cộng và các thay đổi gây phá vỡ trong Aspose.Slides cho .NET để di chuyển giải pháp trình chiếu PowerPoint PPT, PPTX và ODP của bạn một cách suôn sẻ."
+description: Xem xét các cập nhật API công cộng và những thay đổi gây phá vỡ trong Aspose.Slides cho .NET để di chuyển suôn sẻ các giải pháp bản trình chiếu PowerPoint PPT, PPTX và ODP của bạn.
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các mục khác đã [đã thêm](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) hoặc [đã xóa](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) và các thay đổi khác được giới thiệu trong API Aspose.Slides cho .NET 16.1.0.
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính [added](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) hoặc [removed](/slides/vi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) và những thay đổi khác được giới thiệu trong API Aspose.Slides cho .NET 16.1.0.
 
 {{% /alert %}} 
-## **Thay đổi API công cộng**
+## **Public API Changes**
 
 
-#### **Thuộc tính RotationAngle đã được thêm vào các giao diện IChartTextBlockFormat và ITextFrameFormat**
-Thuộc tính RotationAngle đã được thêm vào các giao diện Aspose.Slides.Charts.IChartTextBlockFormat và Aspose.Slides.ITextFrameFormat. Nó chỉ định góc quay tùy chỉnh được áp dụng cho văn bản bên trong hộp giới hạn.
+#### **Property RotationAngle Has Been Added to IChartTextBlockFormat and ITextFrameFormat Interfaces**
+Thuộc tính RotationAngle đã được thêm vào các giao diện Aspose.Slides.Charts.IChartTextBlockFormat và Aspose.Slides.ITextFrameFormat. Thuộc tính này chỉ định góc quay tùy chỉnh được áp dụng cho văn bản bên trong hộp giới hạn.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -50,7 +54,6 @@ chart.ChartTitle.AddTextFrameForOverriding("Custom title").TextFrameFormat.Rotat
 pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
-
 ``` 
-#### **OdpException đã được chuyển từ Aspose.Slides.Odp sang không gian tên Aspose.Slides**
+#### **OdpException Moved from Aspose.Slides.Odp to Aspose.Slides Namespace**
+OdpException đã được chuyển từ Aspose.Slides.Odp sang không gian tên Aspose.Slides

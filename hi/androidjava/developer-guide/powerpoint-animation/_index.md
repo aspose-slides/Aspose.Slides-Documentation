@@ -1,5 +1,5 @@
 ---
-title: Android पर एनीमेशन के साथ PowerPoint प्रस्तुतियों को बेहतर बनाएं
+title: एंड्रॉइड पर एनीमेशन्स के साथ PowerPoint प्रस्तुतियों को बेहतर बनाएं
 linktitle: PowerPoint एनीमेशन
 type: docs
 weight: 150
@@ -9,7 +9,7 @@ keywords:
 - एनीमेशन अपडेट करें
 - एनीमेशन बदलें
 - एनीमेशन हटाएं
-- एनीमेशन प्रबंधन करें
+- एनीमेशन प्रबंधित करें
 - एनीमेशन नियंत्रित करें
 - एनीमेशन इफ़ेक्ट
 - PowerPoint एनीमेशन
@@ -24,30 +24,30 @@ keywords:
 - एनिमेटेड इमेज
 - एनिमेटेड टेबल
 - PowerPoint
-- प्रस्तुति
+- प्रेजेंटेशन
 - Android
 - Java
 - Aspose.Slides
-description: "Android पर Java के माध्यम से Aspose.Slides की PowerPoint एनीमेशन संभालने की क्षमताओं का अन्वेषण करें। यह सामान्य अवलोकन प्रमुख विशेषताओं को उजागर करता है।"
+description: "Aspose.Slides for Android via Java द्वारा PowerPoint एनीमेशन्स को संभालने की क्षमताओं का अन्वेषण करें। यह सामान्य अवलोकन प्रमुख सुविधाओं को उजागर करता है।"
 ---
 ## **परिचय**
 
-चूंकि प्रस्तुतियों का उद्देश्य कुछ प्रस्तुत करना है, इसलिए उन्हें बनाते समय उनके दृश्य स्वरूप और इंटरेक्टिव व्यवहार को हमेशा ध्यान में रखा जाता है।
+चूंकि प्रस्तुतियों का उद्देश्य कुछ प्रस्तुत करना होता है, इसलिए उन्हें बनाते समय उनकी दृश्य उपस्थिति और इंटरैक्टिव व्यवहार हमेशा ध्यान में रखा जाता है।
 
-**PowerPoint animation** प्रस्तुतियों को दर्शकों के लिए आकर्षक और ध्यान आकर्षित करने वाला बनाने में महत्वपूर्ण भूमिका निभाता है। Aspose.Slides for Android via Java PowerPoint प्रस्तुति में एनीमेशन जोड़ने के लिए विविध विकल्प प्रदान करता है:
+**PowerPoint animation** प्रस्तुति को दर्शकों के लिए आकर्षक और आकर्षक बनाने में महत्वपूर्ण भूमिका निभाता है। Aspose.Slides for Android via Java प्रस्तुतियों में एनीमेशन जोड़ने के लिए कई विकल्प प्रदान करता है:
 
-- विभिन्न प्रकार के PowerPoint एनीमेशन इफ़ेक्ट्स को shapes, charts, tables, OLE Objects और अन्य प्रस्तुति तत्वों पर लागू करें।
-- एक shape पर कई PowerPoint एनीमेशन इफ़ेक्ट्स का उपयोग करें।
-- एनीमेशन इफ़ेक्ट्स को नियंत्रित करने के लिए animation timeline का उपयोग करें।
+- आकृतियों, चार्ट, तालिकाओं, OLE ऑब्जेक्ट्स और अन्य प्रस्तुति तत्वों पर विभिन्न प्रकार के PowerPoint एनीमेशन इफ़ेक्ट लागू करें।
+- एक आकृति पर कई PowerPoint एनीमेशन इफ़ेक्ट का उपयोग करें।
+- एनीमेशन इफ़ेक्ट को नियंत्रित करने के लिए एनीमेशन टाइमलाइन का उपयोग करें।
 - कस्टम एनीमेशन बनाएं।
 
-Aspose.Slides for Android via Java में विभिन्न एनीमेशन इफ़ेक्ट्स को shapes पर लागू किया सकता है। स्लाइड पर प्रत्येक तत्व जिसमें टेक्स्ट, चित्र, OLE Object, टेबल आदि शामिल हैं, को shape माना जाता है, इसलिए हम स्लाइड के हर तत्व पर एनीमेशन इफ़ेक्ट लागू कर सकते हैं।
+Aspose.Slides for Android via Java में, विभिन्न एनीमेशन इफ़ेक्ट को आकृतियों पर लागू किया जा सकता है। स्लाइड पर टेक्स्ट, चित्र, OLE ऑब्जेक्ट, तालिका आदि सहित हर तत्व को आकृति माना जाता है, इसका मतलब है कि हम स्लाइड के प्रत्येक तत्व पर एनीमेशन इफ़ेक्ट लागू कर सकते हैं।
 
 ## **एनीमेशन इफ़ेक्ट्स**
 
-Aspose.Slides **150+ एनीमेशन इफ़ेक्ट्स** का समर्थन करता है, जिसमें बेसिक एनीमेशन इफ़ेक्ट्स जैसे Bounce, PathFootball, Zoom इफ़ेक्ट और विशिष्ट एनीमेशन इफ़ेक्ट्स जैसे OLEObjectShow, OLEObjectOpen शामिल हैं। आप एनीमेशन इफ़ेक्ट्स की पूरी सूची [**EffectType**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/effecttype/) enumeration में पा सकते हैं।
+Aspose.Slides **150+ एनीमेशन इफ़ेक्ट** का समर्थन करता है, जिसमें बाउंस, PathFootball, ज़ूम इफ़ेक्ट जैसे बुनियादी एनीमेशन इफ़ेक्ट और OLEObjectShow, OLEObjectOpen जैसे विशिष्ट एनीमेशन इफ़ेक्ट शामिल हैं। आप एनीमेशन इफ़ेक्ट की पूरी सूची [**EffectType**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/effecttype/)enumeration में पा सकते हैं।
 
-इसके अतिरिक्त, इन एनीमेशन इफ़ेक्ट्स को उनके साथ संयोजन में उपयोग किया जा सकता है:
+इसके अतिरिक्त, इन एनीमेशन इफ़ेक्ट को उनके साथ संयोजन में उपयोग किया जा सकता है:
 
 - [ColorEffect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ColorEffect)
 - [CommandEffect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/CommandEffect)
@@ -60,35 +60,35 @@ Aspose.Slides **150+ एनीमेशन इफ़ेक्ट्स** का 
 
 ## **कस्टम एनीमेशन**
 
-Aspose.Slides में आप अपनी स्वयं की **कस्टम एनीमेशन** बना सकते हैं। यह तब संभव होता है जब आप कई behaviours को मिलाकर एक नया कस्टम एनीमेशन बनाते हैं।
+Aspose.Slides में आप अपने स्वयं के **कस्टम एनीमेशन** बना सकते हैं। यह तब संभव होता है जब आप कई व्यवहारों को मिलाकर एक नया कस्टम एनीमेशन बनाते हैं।
 
-[**Behavior**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Behavior) किसी भी PowerPoint एनीमेशन इफ़ेक्ट की बिल्डिंग यूनिट है। सभी एनीमेशन इफ़ेक्ट्स मूलतः behaviours का एक सेट होते हैं जो एक रणनीति में संयोजित होते हैं। आप behaviours को एक बार कस्टम एनीमेशन में मिलाकर अन्य प्रस्तुतियों में पुन: उपयोग कर सकते हैं। यदि आप किसी मानक PowerPoint एनीमेशन इफ़ेक्ट में नया behaviour जोड़ते हैं - वह एक और कस्टम एनीमेशन बन जाता है। उदाहरण के रूप में, आप एनीमेशन में repeat behaviour जोड़ सकते हैं जिससे वह बहु बार दोहराया जा सके।
+[**Behavior**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Behavior) किसी भी PowerPoint एनीमेशन इफ़ेक्ट की बिल्डिंग यूनिट है। सभी एनीमेशन इफ़ेक्ट मूल रूप से व्यवहारों का एक सेट होते हैं जो एक रणनीति में संयोजित होते हैं। आप व्यवहारों को एक बार कस्टम एनीमेशन में मिलाकर इसे अन्य प्रस्तुतियों में पुन: उपयोग कर सकते हैं। यदि आप एक मानक PowerPoint एनीमेशन इफ़ेक्ट में नया व्यवहार जोड़ते हैं - तो वह एक अन्य कस्टम एनीमेशन बन जाता है। उदाहरण के लिए, आप एनीमेशन में रिपीट व्यवहार जोड़ सकते हैं जिससे वह कई बार दोहराया जा सके।
 
-[**Animation Point**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Point) वह बिंदु है जहाँ behaviour लागू किया जाना चाहिए।
+[**Animation Point**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Point) वह बिंदु है जहाँ व्यवहार लागू होना चाहिए।
 
 ## **एनीमेशन टाइमलाइन**
 
-[**Sequence**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Sequence) एनीमेशन इफ़ेक्ट्स का एक संग्रह है, जो किसी विशेष shape पर लागू होता है।
+[**Sequence**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Sequence) एनीमेशन इफ़ेक्ट का संग्रह है, जो किसी विशिष्ट आकृति पर लागू होता है।
 
-[**Timeline**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/AnimationTimeLine) एक विशिष्ट स्लाइड में उपयोग किए गए Sequences का सेट है। यह PowerPoint 2002 से प्रस्तुत किया गया एनीमेशन इंजन है। पिछले PowerPoint संस्करणों में एनीमेशन इफ़ेक्ट्स जोड़ना चुनौतीपूर्ण था, जिसे केवल विभिन्न वर्कअराउंड के माध्यम से संभव था। Timeline ने पुराने AnimationSettings क्लास को बदल दिया है और PowerPoint एनीमेशन के लिए अधिक स्पष्ट ऑब्जेक्ट मॉडल प्रदान किया है। एक स्लाइड में केवल एक एनीमेशन टाइमलाइन हो सकती है।
+[**Timeline**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/AnimationTimeLine) एक स्लाइड में उपयोग की जाने वाली सीक्वेंस का सेट है। यह PowerPoint 2002 से एक एनीमेशन इंजन के रूप में मौजूद है। पिछले PowerPoint संस्करणों में प्रस्तुति में एनीमेशन इफ़ेक्ट जोड़ना कठिन था, जिसे केवल विभिन्न वर्कअराउंड्स से ही हासिल किया जा सकता था। टाइमलाइन ने पुराने AnimationSettings क्लास को बदलकर PowerPoint एनीमेशन के लिए अधिक स्पष्ट ऑब्जेक्ट मॉडल प्रदान किया है। एक स्लाइड में केवल एक एनीमेशन टाइमलाइन हो सकती है।
 
-## **इंटरैक्टिव एनीमेशन**
+## **इंटरऐक्टिव एनीमेशन**
 
-[**Trigger**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/EffectTriggerType) उपयोगकर्ता क्रियाओं (जैसे बटन क्लिक) को परिभाषित करने की सुविधा देता है, जिससे कोई विशेष एनीमेशन शुरू होता है। Triggers केवल नवीनतम PowerPoint संस्करण में जोड़े गए हैं।
+[**Trigger**](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/EffectTriggerType) उपयोगकर्ता क्रियाओं (उदा. बटन क्लिक) को परिभाषित करने की अनुमति देता है, जो किसी विशेष एनीमेशन को प्रारंभ करेगा। ट्रिगर केवल नवीनतम PowerPoint संस्करण में जोड़े गए हैं।
 
 ## **शेप एनीमेशन**
 
-Aspose.Slides आपको shapes पर एनीमेशन लागू करने की अनुमति देता है, जो वास्तव में टेक्स्ट, आयत, रेखा, फ्रेम, OLE Object आदि हो सकते हैं।
+Aspose.Slides आपको आकृतियों पर एनीमेशन लागू करने की अनुमति देता है, जो वास्तव में टेक्स्ट, आयत, रेखा, फ़्रेम, OLE ऑब्जेक्ट आदि हो सकते हैं।
 
-{{% alert color="primary" %}} 
-और पढ़ें [**Shape Animation के बारे में**](/slides/hi/androidjava/shape-animation/).
+{{% alert color="info" %}} 
+और पढ़ें [**शेप एनीमेशन के बारे में**](/slides/hi/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **एनिमेटेड चार्ट्स**
 
-एनिमेटेड चार्ट्स बनाने के लिए आपको shapes के लिए उपयोग की जाने वाली वही सभी कक्षाओं का उपयोग करना चाहिए। हालांकि, PowerPoint एनीमेशन को केवल चार्ट श्रेणियों या चार्ट श्रृंखलाओं पर लागू किया जा सकता है। आप किसी श्रेणी तत्व या श्रृंखला तत्व पर भी एनीमेशन इफ़ेक्ट लागू कर सकते हैं।
+एनिमेटेड चार्ट बनाने के लिए, आपको आकृतियों के लिए उपयोग किए जाने वाले सभी क्लासेज़ का उपयोग करना चाहिए। हालांकि, PowerPoint एनीमेशन को केवल चार्ट श्रेणियों या चार्ट सीरीज पर उपयोग किया जा सकता है। आप श्रेणी तत्व या सीरीज़ तत्व पर भी एनीमेशन इफ़ेक्ट लागू कर सकते हैं।
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 और पढ़ें [**एनिमेटेड चार्ट्स के बारे में**](/slides/hi/androidjava/animated-charts/).
 {{% /alert %}}
 
@@ -96,20 +96,20 @@ Aspose.Slides आपको shapes पर एनीमेशन लागू क�
 
 एनिमेटेड टेक्स्ट के अलावा, पैराग्राफ पर भी एनीमेशन लागू करना संभव है।
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 और पढ़ें [**एनिमेटेड टेक्स्ट के बारे में**](/slides/hi/androidjava/animated-text/).
 {{% /alert %}}
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या एनीमेशन को PDF में एक्सपोर्ट करने पर भी संरक्षित रखा जाएगा?**
+### क्या एनीमेशन PDF में निर्यात करते समय संरक्षित रहेंगे?
 
-नहीं। PDF एक स्थैतिक स्वरूप है, इसलिए एनीमेशन और [slide transitions](/slides/hi/androidjava/slide-transition/) नहीं चलते। यदि आपको गति चाहिए, तो इसके बजाय [HTML5](/slides/hi/androidjava/export-to-html5/), [animated GIF](/slides/hi/androidjava/convert-powerpoint-to-animated-gif/), या [video](/slides/hi/androidjava/convert-powerpoint-to-video/) में एक्सपोर्ट करें।
+नहीं। PDF एक स्थिर प्रारूप है, इसलिए एनीमेशन और [slide transitions](/slides/hi/androidjava/slide-transition/) नहीं चलते। यदि आपको गति चाहिए, तो इसके बजाय [HTML5](/slides/hi/androidjava/export-to-html5/), [animated GIF](/slides/hi/androidjava/convert-powerpoint-to-animated-gif/), या [video](/slides/hi/androidjava/convert-powerpoint-to-video/) में निर्यात करें।
 
-**क्या मैं एनिमेटेड प्रस्तुति को वीडियो में बदल सकता हूँ और फ्रेम रेट तथा फ्रेम आकार को नियंत्रित कर सकता हूँ?**
+### क्या मैं एनिमेटेड प्रस्तुति को वीडियो में बदल सकता हूँ और फ्रेम रेट व फ्रेम आकार को नियंत्रण में रख सकता हूँ?
 
-हाँ। आप [render the presentation as frames](/slides/hi/androidjava/convert-powerpoint-to-video/) को फ़्रेम के रूप में रेंडर कर सकते हैं और उन्हें एक वीडियो में एन्कोड कर सकते हैं (जैसे ffmpeg द्वारा), FPS और रिज़ॉल्यूशन चुनते हुए। रेंडरिंग के दौरान एनीमेशन और स्लाइड ट्रांज़िशन चलाए जाते हैं।
+हां। आप [presentation को फ़्रेम्स के रूप में रेंडर](/slides/hi/androidjava/convert-powerpoint-to-video/) कर सकते हैं और उन्हें वीडियो (जैसे ffmpeg द्वारा) में एन्कोड कर सकते हैं, FPS और रिज़ॉल्यूशन चुनते हुए। रेंडरिंग के दौरान एनीमेशन और स्लाइड ट्रांज़िशन चलाए जाते हैं।
 
-**क्या ODP (केवल PPTX नहीं) के साथ काम करने पर एनीमेशन समान रहेगा?**
+### क्या ODP (केवल PPTX नहीं) के साथ काम करते समय एनीमेशन बरकरार रहेंगे?
 
-PPT, PPTX, और ODP को [reading](/slides/hi/androidjava/open-presentation/) और [writing](/slides/hi/androidjava/save-presentation/) के लिए समर्थन प्राप्त है, लेकिन फ़ॉर्मेट अंतर के कारण कुछ इफ़ेक्ट्स थोड़ा अलग दिख सकते हैं या व्यवहार कर सकते हैं। वास्तविक नमूनों के साथ महत्वपूर्ण मामलों को मान्य करें।
+PPT, PPTX, और ODP को [पढ़ना](/slides/hi/androidjava/open-presentation/) और [लिखना](/slides/hi/androidjava/save-presentation/) के लिए समर्थन किया जाता है, लेकिन फ़ॉर्मेट अंतर के कारण कुछ इफ़ेक्ट थोड़ा अलग दिख सकते हैं या अलग व्यवहार कर सकते हैं। वास्तविक नमूनों के साथ महत्वपूर्ण केसों को सत्यापित करें।

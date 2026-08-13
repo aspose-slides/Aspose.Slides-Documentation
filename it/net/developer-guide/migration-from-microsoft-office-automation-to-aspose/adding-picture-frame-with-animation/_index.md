@@ -1,11 +1,11 @@
 ---
-title: Aggiungere cornici per immagini con animazione usando VSTO e Aspose.Slides per .NET
-linktitle: Cornici per immagini con animazione
+title: Aggiungere cornici immagine con animazione usando VSTO e Aspose.Slides per .NET
+linktitle: Cornici immagine con animazione
 type: docs
 weight: 60
 url: /it/net/adding-picture-frame-with-animation/
 keywords:
-- cornice per immagine
+- cornice immagine
 - aggiungere immagine
 - aggiungere foto
 - immagine con animazione
@@ -18,22 +18,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migra dall'automazione Microsoft Office a Aspose.Slides per .NET e anima le cornici per immagini nelle diapositive PowerPoint (PPT, PPTX) con codice C# pulito."
+description: "Migra dall'automazione Microsoft Office ad Aspose.Slides per .NET e anima le cornici immagine nelle diapositive PowerPoint (PPT, PPTX) con codice C# pulito."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Le cornici per immagini vengono applicate a forme o immagini in Microsoft PowerPoint per incorniciare le immagini in una presentazione. Questo articolo mostra come creare una cornice per immagine e applicare un'animazione in modo programmatico, utilizzando prima [VSTO 2008](/slides/it/net/adding-picture-frame-with-animation/) e poi [Aspose.Slides for .NET](/slides/it/net/adding-picture-frame-with-animation/). Prima, ti mostriamo come applicare una cornice e un'animazione usando VSTO 2008. Poi ti mostriamo come eseguire gli stessi passaggi usando Aspose.Slides for .NET.
+I bordi immagine vengono applicati a forme o immagini in Microsoft PowerPoint per incorniciare le immagini in una presentazione. Questo articolo mostra come creare un bordo immagine e applicare un'animazione in modo programmatico usando prima [VSTO 2008](/slides/it/net/adding-picture-frame-with-animation/) e poi [Aspose.Slides for .NET](/slides/it/net/adding-picture-frame-with-animation/). Prima, ti mostriamo come applicare un bordo e un'animazione usando VSTO 2008. Poi ti mostriamo come eseguire gli stessi passaggi usando Aspose.Slides for .NET.
 
 {{% /alert %}} 
-## **Aggiungere cornici per immagini con animazione**
-Gli esempi di codice seguenti creano una presentazione con una diapositiva, aggiungono un'immagine con una cornice per immagine e le applicano un'animazione.
+## **Aggiungere bordi immagine con animazione**
+The code samples below create a presentation with a slide, add an image with a picture frame and applies animation to it.
 ### **Esempio VSTO 2008**
-Utilizzando VSTO 2008, esegui i seguenti passaggi:
+Using VSTO 2008, take the following steps:
 
 1. Crea una presentazione.
 1. Aggiungi una diapositiva vuota.
 1. Aggiungi una forma immagine alla diapositiva.
-1. Applica l'animazione all'immagine.
+1. Applica un'animazione all'immagine.
 1. Scrivi la presentazione su disco.
 
 **La presentazione di output, creata con VSTO** 
@@ -46,15 +46,15 @@ Utilizzando VSTO 2008, esegui i seguenti passaggi:
 //Creazione di una presentazione vuota
 PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Aggiungere una diapositiva vuota
+//Aggiungi una diapositiva vuota
 PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Aggiungere cornice per immagine
+//Aggiungi cornice immagine
 PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
 Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 
-//Applicare animazione sulla cornice dell'immagine
+//Applicazione animazione sulla cornice immagine
 PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
 //Salvataggio della presentazione
@@ -63,14 +63,14 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
-### **Esempio Aspose.Slides per .NET**
-Utilizzando Aspose.Slides per .NET, esegui i seguenti passaggi:
+### **Esempio Aspose.Slides for .NET**
+Using Aspose.Slides for .NET, perform the following steps:
 
 1. Crea una presentazione.
 1. Accedi alla prima diapositiva.
 1. Aggiungi un'immagine a una raccolta di immagini.
 1. Aggiungi una forma immagine alla diapositiva.
-1. Applica l'animazione all'immagine.
+1. Applica un'animazione all'immagine.
 1. Scrivi la presentazione su disco.
 
 **La presentazione di output, creata con Aspose.Slides** 
@@ -80,6 +80,10 @@ Utilizzando Aspose.Slides per .NET, esegui i seguenti passaggi:
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 // Crea una presentazione vuota
 using (Presentation pres = new Presentation())
 {
@@ -97,7 +101,7 @@ using (Presentation pres = new Presentation())
     // Ottieni la sequenza principale di animazione della diapositiva
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // Aggiungi l'effetto di animazione Fly from Left alla cornice immagine
+    // Aggiungi l'effetto di animazione Vola da Sinistra alla cornice immagine
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Salva la presentazione

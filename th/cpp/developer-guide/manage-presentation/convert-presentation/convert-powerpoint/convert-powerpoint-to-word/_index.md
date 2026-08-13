@@ -1,5 +1,5 @@
 ---
-title: แปลงการนำเสนอ PowerPoint เป็นเอกสาร Word ด้วย C++
+title: แปลงการนำเสนอ PowerPoint เป็นเอกสาร Word ใน C++
 linktitle: PowerPoint เป็น Word
 type: docs
 weight: 110
@@ -31,43 +31,63 @@ keywords:
 - ส่งออก PPTX เป็น DOCX
 - C++
 - Aspose.Slides
-description: "แปลงสไลด์ PowerPoint PPT และ PPTX เป็นเอกสาร Word ที่แก้ไขได้ใน C++ โดยใช้ Aspose.Slides พร้อมรักษาเลย์เอาต์ ภาพและการจัดรูปแบบที่แม่นยำ"
+description: "แปลงสไลด์ PowerPoint PPT และ PPTX เป็นเอกสาร Word ที่แก้ไขได้ใน C++ โดยใช้ Aspose.Slides พร้อมคงรูปแบบการจัดวาง รูปภาพ และการจัดรูปแบบอย่างแม่นยำ"
 ---
 ## **บทนำ**
 
-หากคุณตั้งใจใช้เนื้อหาข้อความหรือข้อมูลจากการนำเสนอ (PPT หรือ PPTX) ในรูปแบบใหม่ คุณอาจได้รับประโยชน์จากการแปลงการนำเสนอเป็น Word (DOC หรือ DOCX).
+หากคุณวางแผนที่จะใช้เนื้อหาข้อความหรือข้อมูลจากการนำเสนอ (PPT หรือ PPTX) ในวิธีใหม่ ๆ คุณอาจได้รับประโยชน์จากการแปลงการนำเสนอเป็น Word (DOC หรือ DOCX).
 
-* เมื่อเทียบกับ Microsoft PowerPoint แอป Microsoft Word มีเครื่องมือหรือฟังก์ชันสำหรับเนื้อหามากกว่า.
-* นอกจากนี้ฟังก์ชันการแก้ไขใน Word ยังทำให้คุณได้รับประโยชน์จากการทำงานร่วมกัน การพิมพ์ และการแชร์ที่ดียิ่งขึ้น.
+* เมื่อเทียบกับ Microsoft PowerPoint แอป Microsoft Word มีเครื่องมือหรือฟังก์ชันการทำงานสำหรับเนื้อหามากกว่า
+* นอกจากฟังก์ชันการแก้ไขใน Word แล้ว คุณยังอาจได้รับประโยชน์จากการทำงานร่วมกัน การพิมพ์ และการแชร์ที่ปรับปรุงขึ้น
 
-{{% alert color="primary" %}} 
-
-คุณอาจต้องการลองใช้ [**Presentation to Word Online Converter**](https://products.aspose.app/slides/th/conversion/ppt-to-word) ของเราเพื่อดูว่าคุณจะได้ประโยชน์อะไรจากการทำงานกับเนื้อหาข้อความจากสไลด์. 
-
+{{% alert color="info" %}} 
+คุณอาจต้องการลองใช้ [**Presentation to Word Online Converter**](https://products.aspose.app/slides/th/conversion/ppt-to-word) ของเราเพื่อดูว่าคุณจะได้อะไรจากการทำงานกับเนื้อหาข้อความจากสไลด์
 {{% /alert %}} 
 
 ## **Aspose.Slides และ Aspose.Words**
 
-เพื่อแปลงไฟล์ PowerPoint (PPTX หรือ PPT) เป็น Word (DOCX หรือ DOC) คุณต้องใช้ทั้ง [Aspose.Slides for C++](https://products.aspose.com/slides/th/cpp/) และ [Aspose.Words for C++](https://products.aspose.com/words/cpp/).
+เพื่อแปลงไฟล์ PowerPoint (PPTX หรือ PPT) เป็น Word (DOCX หรือ DOCX) คุณต้องใช้ทั้ง [Aspose.Slides for C++](https://products.aspose.com/slides/th/cpp/) และ [Aspose.Words for C++](https://products.aspose.com/words/cpp/).
 
-ในรูปแบบ API แยกเดี่ยว [Aspose.Slides](https://products.aspose.app/slides) สำหรับ C++ มีฟังก์ชันที่ช่วยให้คุณดึงข้อความจากการนำเสนอ. 
+ในฐานะ API แบบสแตนด์อโลน, [Aspose.Slides](https://products.aspose.app/slides) สำหรับ C++ มีฟังก์ชันที่ให้คุณสกัดข้อความจากการนำเสนอ
 
-[Aspose.Words](https://docs.aspose.com/words/cpp/) เป็น API การประมวลผลเอกสารขั้นสูงที่ช่วยให้แอปพลิเคชันสร้าง แก้ไข แปลง แสดงผล พิมพ์ไฟล์ และทำงานอื่น ๆ กับเอกสารโดยไม่ต้องใช้ Microsoft Word.
+[Aspose.Words](https://docs.aspose.com/words/cpp/) เป็น API การประมวลผลเอกสารขั้นสูงที่ทำให้แอปพลิเคชันสามารถสร้าง, แก้ไข, แปลง, แสดงผล, พิมพ์ไฟล์ และทำงานอื่น ๆ กับเอกสารโดยไม่ต้องใช้ Microsoft Word
 
 ## **แปลงการนำเสนอ PowerPoint เป็นเอกสาร Word**
 
-ใช้โค้ดตัวอย่างนี้เพื่อแปลง PowerPoint เป็น Word:
+ใช้โค้ดสแนปเปตนี้เพื่อแปลง PowerPoint เป็น Word:
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <Aspose.Words.Cpp/BreakType.h>
+#include <Aspose.Words.Cpp/Document.h>
+#include <Aspose.Words.Cpp/DocumentBuilder.h>
+#include <DOM/AutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
 auto doc = MakeObject<Aspose::Words::Document>();
 auto builder = MakeObject<Aspose::Words::DocumentBuilder>(doc);
 
 for (const auto& slide : presentation->get_Slides())
 {
-    // สร้างและแทรกรูปภาพสไลด์
+    // สร้างภาพสไลด์เป็นสตรีมอาร์เรย์ไบต์
     auto image = slide->GetImage(1.0f, 1.0f);
-    builder->InsertImage(image);
+    auto imageStream = MakeObject<System::IO::MemoryStream>();
+    image->Save(imageStream, Aspose::Slides::ImageFormat::Png);
+    image->Dispose();
+
+    builder->InsertImage(imageStream->ToArray());
 
     // แทรกข้อความของสไลด์
     for (const auto& shape : slide->get_Shapes())
@@ -81,14 +101,17 @@ for (const auto& slide : presentation->get_Slides())
 
     builder->InsertBreak(Aspose::Words::BreakType::PageBreak);
 }
+
+doc->Save(u"output.docx");
+presentation->Dispose();
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ต้องติดตั้งส่วนประกอบอะไรเพื่อแปลงการนำเสนอ PowerPoint และ OpenDocument เป็นเอกสาร Word?**
+### ต้องติดตั้งส่วนประกอบอะไรบ้างเพื่อแปลงการนำเสนอ PowerPoint และ OpenDocument เป็นเอกสาร Word?
 
-คุณเพียงแค่เพิ่มแพคเกจที่เกี่ยวข้องสำหรับ [Aspose.Slides for C++](https://releases.aspose.com/slides/th/cpp/) และ [Aspose.Words for C++](https://releases.aspose.com/words/cpp/) ลงในโครงการของคุณ ทั้งสองไลบรารีทำงานเป็น API แยกเดี่ยว และไม่จำเป็นต้องติดตั้ง Microsoft Office.
+คุณจำเป็นต้องเพิ่มแพคเกจที่เกี่ยวข้องสำหรับ [Aspose.Slides for C++](https://releases.aspose.com/slides/th/cpp/) และ [Aspose.Words for C++](https://releases.aspose.com/words/cpp/) ลงในโปรเจกต์ของคุณเท่านั้น ทั้งสองไลบรารีทำงานเป็น API แบบสแตนด์อโลนและไม่ต้องการให้ Microsoft Office ถูกติดตั้ง
 
-**รองรับรูปแบบการนำเสนอ PowerPoint และ OpenDocument ทั้งหมดหรือไม่?**
+### รองรับรูปแบบการนำเสนอ PowerPoint และ OpenDocument ทั้งหมดหรือไม่?
 
-Aspose.Slides [รองรับรูปแบบการนำเสนอทั้งหมด](/slides/th/cpp/supported-file-formats/), รวมถึง PPT, PPTX, ODP และประเภทไฟล์ทั่วไปอื่น ๆ ซึ่งทำให้คุณสามารถทำงานกับการนำเสนอที่สร้างในเวอร์ชันต่าง ๆ ของ Microsoft PowerPoint.
+Aspose.Slides [supports all presentation formats](/slides/th/cpp/supported-file-formats/) รวมถึง PPT, PPTX, ODP และประเภทไฟล์ทั่วไปอื่น ๆ ซึ่งทำให้คุณสามารถทำงานกับการนำเสนอที่สร้างในเวอร์ชันต่าง ๆ ของ Microsoft PowerPoint ได้

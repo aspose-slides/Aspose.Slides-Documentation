@@ -6,47 +6,51 @@ weight: 60
 url: /ar/androidjava/convert-powerpoint-to-jpg/
 keywords:
 - تحويل PowerPoint
-- تحويل العرض التقديمي
-- تحويل الشريحة
+- تحويل عرض تقديمي
+- تحويل شريحة
 - تحويل PPT
 - تحويل PPTX
 - PowerPoint إلى JPG
-- العرض التقديمي إلى JPG
-- الشريحة إلى JPG
+- عرض تقديمي إلى JPG
+- شريحة إلى JPG
 - PPT إلى JPG
 - PPTX إلى JPG
 - حفظ PowerPoint كـ JPG
-- حفظ العرض التقديمي كـ JPG
-- حفظ الشريحة كـ JPG
+- حفظ عرض تقديمي كـ JPG
+- حفظ شريحة كـ JPG
 - حفظ PPT كـ JPG
 - حفظ PPTX كـ JPG
 - تصدير PPT إلى JPG
 - تصدير PPTX إلى JPG
-- أندرويد
-- جافا
+- Android
+- Java
 - Aspose.Slides
-description: "تحويل شرائح PowerPoint (PPT، PPTX) إلى صور JPG عالية الجودة في Java باستخدام Aspose.Slides for Android مع أمثلة كود سريعة وموثوقة."
+description: "تحويل شرائح PowerPoint (PPT, PPTX) إلى صور JPG عالية الجودة في Java باستخدام Aspose.Slides for Android مع أمثلة شفرة سريعة وموثوقة."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+تحويل عروض PowerPoint وOpenDocument إلى صور JPG يساعد في مشاركة الشرائح، تحسين الأداء، وتضمين المحتوى في المواقع الإلكترونية أو التطبيقات. Aspose.Slides for Android via Java يتيح لك تحويل ملفات PPTX وPPT وODP إلى صور JPEG عالية الجودة. يشرح هذا الدليل طرق التحويل المختلفة.
 
-يساعد تحويل عروض PowerPoint وOpenDocument إلى صور JPG في مشاركة الشرائح، وتحسين الأداء، وتضمين المحتوى في المواقع أو التطبيقات. يسمح Aspose.Slides for Android via Java بتحويل ملفات PPTX وPPT وODP إلى صور JPEG عالية الجودة. يشرح هذا الدليل طرق التحويل المختلفة.
-
-مع هذه الميزات، يصبح من السهل تنفيذ عارض عروض تقديمية خاص بك وإنشاء صورة مصغرة لكل شريحة. قد يكون ذلك مفيدًا إذا أردت حماية شرائح العرض من النسخ أو عرضها في وضع القراءة فقط. يسمح Aspose.Slides بتحويل العرض بالكامل أو شريحة محددة إلى صيغ صورة.
+مع هذه الميزات، يصبح من السهل تنفيذ عارض عروضك الخاص وإنشاء صورة مصغرة لكل شريحة. قد يكون ذلك مفيدًا إذا أردت حماية شرائح العرض من النسخ أو عرض العرض في وضع القراءة فقط. Aspose.Slides يسمح لك بتحويل العرض بالكامل أو شريحة محددة إلى صيغ صور.
 
 ## **تحويل شرائح العرض إلى صور JPG**
 
 إليك الخطوات لتحويل ملف PPT أو PPTX أو ODP إلى JPG:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. الحصول على كائن الشريحة من النوع [ISlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) من المجموعة التي تُرجعها طريقة [Presentation.getSlides()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSlides--) .
-1. إنشاء صورة للشريحة باستخدام طريقة [ISlide.getImage(float,float)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-float-float-) .
-1. استدعاء طريقة [IImage.save(string,ImageFormat)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) على كائن الصورة. مرّر اسم ملف الإخراج وصيغة الصورة كوسيطين.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
+2. الحصول على كائن الشريحة من النوع [ISlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/) من المجموعة التي تعيدها طريقة [Presentation.getSlides()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getSlides--) .
+3. إنشاء صورة للشريحة باستخدام طريقة [ISlide.getImage(float, float)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/#getImage-float-float-) .
+4. استدعاء طريقة [IImage.save(string, ImageFormat)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) على كائن الصورة. مرّر اسم ملف الإخراج وتنسيق الصورة كمعاملات.
 
-{{% alert color="primary" %}} 
-**ملاحظة:** يختلف تحويل PPT أو PPTX أو ODP إلى JPG عن التحويل إلى صيغ أخرى في Aspose.Slides Android via Java API. بالنسبة للصيغ الأخرى، عادةً ما تستخدم طريقة [IPresentation.save(String,SaveFormat,ISaveOptions)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) . ومع ذلك، لتحويل JPG، عليك استخدام طريقة [IImage.save(string,ImageFormat)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) .
+{{% alert color="info" %}} 
+
+**ملاحظة:** يختلف تحويل PPT أو PPTX أو ODP إلى JPG عن التحويل إلى صيغ أخرى في Aspose.Slides Android via Java API. بالنسبة للصيغ الأخرى، عادةً ما تستخدم طريقة [IPresentation.save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-). ومع ذلك، لتحويل إلى JPG، تحتاج إلى استخدام طريقة [IImage.save(string, ImageFormat)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-).
+
 {{% /alert %}} 
+
 ```java
+import com.aspose.slides.*;
+
 int scaleX = 1;
 int scaleY = scaleX;
 
@@ -57,7 +61,7 @@ try {
         IImage slideImage = slide.getImage(scaleX, scaleY);
 
         try {
-            // حفظ الصورة على القرص بتنسيق JPEG.
+            // حفظ الصورة إلى القرص بصيغة JPEG.
             String fileName = String.format("Slide_%d.jpg", slide.getSlideNumber());
             slideImage.save(fileName, ImageFormat.Jpeg);
         } finally {
@@ -69,11 +73,14 @@ try {
 }
 ```
 
-
 ## **تحويل الشرائح إلى JPG بأبعاد مخصصة**
 
-لتغيير أبعاد صور JPG الناتجة، يمكنك تعيين حجم الصورة بتمريره إلى طريقة [ISlide.getImage(Size)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) . يتيح لك ذلك إنشاء صور بعرض وارتفاع محددين، مما يضمن أن المخرج يلبي متطلبات الدقة والنسبة الباعية. تُعد هذه المرونة مفيدة بشكل خاص عند إنشاء صور لتطبيقات الويب أو التقارير أو الوثائق التي تتطلب أبعاد صورة دقيقة.
+لتغيير أبعاد صور JPG الناتجة، يمكنك تعيين حجم الصورة بتمريره إلى طريقة [ISlide.getImage(Size)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) . يتيح لك ذلك إنشاء صور بعرض وارتفاع محددين، لضمان أن المخرجات تلبي متطلبات الدقة ونسبة الأبعاد. هذه المرونة مفيدة بشكل خاص عند إنشاء صور لتطبيقات الويب أو التقارير أو الوثائق التي تتطلب أبعادًا دقيقة للصور.
+
 ```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.Size;
+
 Size imageSize = new Size(1200, 800);
 
 Presentation presentation = new Presentation("PowerPoint_Presentation.pptx");
@@ -83,7 +90,7 @@ try {
         IImage slideImage = slide.getImage(imageSize);
 
         try {
-            // حفظ الصورة على القرص بتنسيق JPEG.
+            // حفظ الصورة إلى القرص بصيغة JPEG.
             String fileName = String.format("Slide_%d.jpg", slide.getSlideNumber());
             slideImage.save(fileName, ImageFormat.Jpeg);
         } finally {
@@ -95,17 +102,20 @@ try {
 }
 ```
 
+## **تصيير التعليقات عند حفظ الشرائح كصور**
 
-## **عرض التعليقات عند حفظ الشرائح كصور**
+Aspose.Slides for Android via Java يوفر ميزة تسمح لك بتصيير التعليقات على شرائح العرض عند تحويلها إلى صور JPG. هذه الوظيفة مفيدة للحفاظ على الملاحظات، التعليقات، أو المناقشات التي أضافها المتعاونون في عروض PowerPoint. من خلال تفعيل هذا الخيار، تضمن رؤية التعليقات في الصور المولدة، مما يسهل مراجعة ومشاركة الملاحظات دون الحاجة إلى فتح ملف العرض الأصلي.
 
-يوفر Aspose.Slides for Android via Java ميزة تسمح لك بعرض التعليقات على شرائح العرض عند تحويلها إلى صور JPG. تُعد هذه الوظيفة مفيدة خاصةً للحفاظ على الملاحظات أو الملاحظات التوضيحية أو المناقشات التي أضافها المتعاونون في عروض PowerPoint. من خلال تمكين هذا الخيار، تضمن ظهور التعليقات في الصور المولدة، مما يسهل مراجعة ومشاركة الملاحظات دون الحاجة إلى فتح ملف العرض الأصلي.
-
-لنفترض أن لدينا ملف عرض "sample.pptx" يحتوي على شريحة بها تعليقات:
+لنفترض أن لدينا ملف عرض، "sample.pptx"، يحتوي على شريحة بها تعليقات:
 
 ![الشريحة مع التعليقات](slide_with_comments.png)
 
-الكود الجافا التالي يحول الشريحة إلى صورة JPG مع الحفاظ على التعليقات:
+الكود التالي بلغة Java يحول الشريحة إلى صورة JPG مع الحفاظ على التعليقات:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int scaleX = 2;
 int scaleY = scaleX;
 
@@ -114,7 +124,7 @@ try {
     NotesCommentsLayoutingOptions commentsOptions = new NotesCommentsLayoutingOptions();
     commentsOptions.setCommentsPosition(CommentsPositions.Right);
     commentsOptions.setCommentsAreaWidth(200);
-    commentsOptions.setCommentsAreaColor(Color.rgb(255, 140, 0));
+    commentsOptions.setCommentsAreaColor(new Color(255, 140, 0));
 
     IRenderingOptions options = new RenderingOptions();
     options.setSlidesLayoutOptions(commentsOptions);
@@ -131,43 +141,45 @@ try {
 }
 ```
 
-
 النتيجة:
 
 ![صورة JPG مع التعليقات](image_with_comments.png)
 
-## **انظر أيضا**
+## **المزيد**
 
-اطلع على خيارات أخرى لتحويل PPT أو PPTX أو ODP إلى صور، مثل:
+انظر خيارات أخرى لتحويل PPT أو PPTX أو ODP إلى صور، مثل:
 
-- [Convert PowerPoint to GIF](/slides/ar/androidjava/convert-powerpoint-to-animated-gif/)
-- [Convert PowerPoint to PNG](/slides/ar/androidjava/convert-powerpoint-to-png/)
-- [Convert PowerPoint to TIFF](/slides/ar/androidjava/convert-powerpoint-to-tiff/)
-- [Convert PowerPoint to SVG](/slides/ar/androidjava/render-a-slide-as-an-svg-image/)
+- [تحويل PowerPoint إلى GIF](/slides/ar/androidjava/convert-powerpoint-to-animated-gif/)
+- [تحويل PowerPoint إلى PNG](/slides/ar/androidjava/convert-powerpoint-to-png/)
+- [تحويل PowerPoint إلى TIFF](/slides/ar/androidjava/convert-powerpoint-to-tiff/)
+- [تحويل PowerPoint إلى SVG](/slides/ar/androidjava/render-a-slide-as-an-svg-image/)
 
-{{% alert color="primary" %}} 
-لمشاهدة كيفية تحويل Aspose.Slides لشرائح PowerPoint إلى صور JPG، جرّب هذه المحولات المجانية على الإنترنت: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) و[PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+{{% alert color="info" %}} 
+
+لمعرفة كيفية تحويل Aspose.Slides لعروض PowerPoint إلى صور JPG، جرّب محولات الإنترنت المجانية التالية: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/ar/conversion/pptx-to-jpg) و [PPT to JPG](https://products.aspose.app/slides/ar/conversion/ppt-to-jpg). 
+
 {{% /alert %}} 
 
-![محول PPTX إلى JPG مجاني على الإنترنت](ppt-to-jpg.png)
+![محول PPTX إلى JPG مجاني عبر الإنترنت](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
-توفر Aspose تطبيق ويب مجاني لتجميع الصور [FREE Collage web app](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG to JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، إنشاء [photo grids](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك. 
+Aspose يقدم تطبيق ويب [مجاني لتجميع الصور](https://products.aspose.app/slides/ar/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/ar/collage/jpg) أو PNG إلى PNG، إنشاء [شبكات صور](https://products.aspose.app/slides/ar/collage/photo-grid)، وما إلى ذلك. 
 
-باستخدام نفس المبادئ الموضحة في هذه المقالة، يمكنك تحويل الصور من صيغة إلى أخرى. للمزيد من المعلومات، راجع الصفحات التالية: تحويل [image to JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/)؛ تحويل [JPG to image](https://products.aspose.com/slides/java/conversion/jpg-to-image/)؛ تحويل [JPG to PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/)، تحويل [PNG to JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/)؛ تحويل [PNG to SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/)، تحويل [SVG to PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
+باستخدام نفس المبادئ الموضحة في هذه المقالة، يمكنك تحويل الصور من صيغة إلى أخرى. لمزيد من المعلومات، راجع الصفحات التالية: تحويل [صورة إلى JPG](https://products.aspose.com/slides/ar/java/conversion/image-to-jpg/); تحويل [JPG إلى صورة](https://products.aspose.com/slides/ar/java/conversion/jpg-to-image/); تحويل [JPG إلى PNG](https://products.aspose.com/slides/ar/java/conversion/jpg-to-png/)، تحويل [PNG إلى JPG](https://products.aspose.com/slides/ar/java/conversion/png-to-jpg/); تحويل [PNG إلى SVG](https://products.aspose.com/slides/ar/java/conversion/png-to-svg/)، تحويل [SVG إلى PNG](https://products.aspose.com/slides/ar/java/conversion/svg-to-png/).
+
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يدعم هذا الأسلوب التحويل على دفعات؟**
+### هل تدعم هذه الطريقة التحويل الجماعي؟
 
-نعم، يتيح Aspose.Slides تحويل دفعات من الشرائح إلى JPG في عملية واحدة.
+نعم، Aspose.Slides يسمح بالتحويل الجماعي لعدة شرائح إلى JPG في عملية واحدة.
 
-**هل يدعم التحويل SmartArt والرسوم البيانية والكائنات المعقدة الأخرى؟**
+### هل يدعم التحويل عناصر SmartArt، المخططات، والكائنات المعقدة الأخرى؟
 
-نعم، يقوم Aspose.Slides بعرض كل المحتوى، بما في ذلك SmartArt والرسوم البيانية والجداول والأشكال والمزيد. ومع ذلك، قد تختلف دقة العرض قليلًا مقارنةً بـ PowerPoint، خاصةً عند استخدام خطوط مخصصة أو مفقودة.
+نعم، Aspose.Slides يصور جميع المحتويات، بما في ذلك SmartArt، المخططات، الجداول، الأشكال، وغير ذلك. ومع ذلك، قد تختلف دقة التصيير قليلًا مقارنةً بـ PowerPoint، خصوصًا عند استخدام خطوط مخصصة أو مفقودة.
 
-**هل هناك أي قيود على عدد الشرائح التي يمكن معالجتها؟**
+### هل هناك أي قيود على عدد الشرائح التي يمكن معالجتها؟
 
-لا يفرض Aspose.Slides حدودًا صارمة على عدد الشرائح التي يمكنك معالجتها. ومع ذلك، قد تواجه أخطاء نفاد الذاكرة عند العمل على عروض تقديمية كبيرة أو صور عالية الدقة.
+Aspose.Slides نفسه لا يفرض حدودًا صارمة على عدد الشرائح التي يمكنك معالجتها. ومع ذلك، قد تواجه أخطاء نفاد الذاكرة عند العمل على عروض تقديمية كبيرة أو صور بدقة عالية.

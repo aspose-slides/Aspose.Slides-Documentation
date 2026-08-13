@@ -1,12 +1,12 @@
 ---
-title: Solución funcional para el cambio de tamaño de la hoja de cálculo
+title: Solución funcional para el redimensionado de la hoja de cálculo
 type: docs
 weight: 20
 url: /es/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - imagen de vista previa
-- redimensionamiento de imagen
+- redimensionado de imagen
 - Excel
 - hoja de cálculo
 - PowerPoint
@@ -14,36 +14,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Soluciona el cambio de tamaño OLE de hojas de cálculo de Excel en presentaciones: dos formas de mantener los marcos de objetos consistentes—escalar el marco o la hoja—en los formatos PPT y PPTX."
+description: "Soluciona el redimensionado OLE de la hoja de cálculo de Excel en presentaciones: dos formas de mantener los marcos de objeto consistentes—escalar el marco o la hoja—en los formatos PPT y PPTX."
 ---
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}}
-
-Se ha observado que las hojas de cálculo de Excel incrustadas como objetos OLE en una presentación de PowerPoint mediante los componentes Aspose se redimensionan a una escala no identificada después de la primera activación. Este comportamiento crea una diferencia visual notable en la presentación entre los estados antes y después de la activación del objeto OLE. Hemos investigado este problema en detalle y proporcionado una solución, que se cubre en este artículo.
+Se ha observado que las hojas de cálculo de Excel incrustadas como objetos OLE en una presentación de PowerPoint mediante los componentes de Aspose se redimensionan a una escala no identificada después de la primera activación. Este comportamiento crea una diferencia visual notable en la presentación entre los estados previo y posterior a la activación del objeto OLE. Hemos investigado este problema en detalle y proporcionado una solución, que se cubre en este artículo.
 
 {{% /alert %}}
 
 ## **Antecedentes**
 
-En el artículo [Administrar OLE](/slides/es/androidjava/manage-ole/), explicamos cómo agregar un marco OLE a una presentación de PowerPoint usando Aspose.Slides para Android vía Java. Para abordar el [problema de vista previa del objeto](/slides/es/androidjava/object-preview-issue-when-adding-oleobjectframe/), asignamos una imagen del área de la hoja de cálculo seleccionada al marco del objeto OLE. En la presentación de salida, al hacer doble clic en el marco OLE que muestra la imagen de la hoja, se activa el libro de Excel. Los usuarios pueden realizar los cambios deseados en el libro de Excel real y luego volver a la diapositiva haciendo clic fuera del libro de Excel activado. El tamaño del marco OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento variará según el tamaño del marco OLE y del libro de Excel incrustado.
+En el artículo [Manage OLE](/slides/es/androidjava/manage-ole/), explicamos cómo añadir un marco OLE a una presentación de PowerPoint usando Aspose.Slides para Android a través de Java. Para abordar el [object preview issue](/slides/es/androidjava/object-preview-issue-when-adding-oleobjectframe/), asignamos una imagen del área de la hoja de cálculo seleccionada al marco del objeto OLE. En la presentación resultante, al hacer doble clic en el marco OLE que muestra la imagen de la hoja, se activa el libro de Excel. Los usuarios pueden realizar los cambios deseados en el libro de Excel real y luego volver a la diapositiva haciendo clic fuera del libro de Excel activado. El tamaño del marco OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionado variará según el tamaño del marco OLE y del libro de Excel incrustado.
 
-## **Causa del redimensionamiento**
+## **Causa del redimensionado**
 
-Dado que el libro de Excel tiene su propio tamaño de ventana, intenta conservar su tamaño original al activarse por primera vez. Por otro lado, el marco del objeto OLE tiene su propio tamaño. Según Microsoft, cuando se activa el libro de Excel, Excel y PowerPoint negocian el tamaño para garantizar que mantenga las proporciones correctas como parte del proceso de incrustación. El redimensionamiento ocurre en función de las diferencias entre el tamaño de la ventana de Excel y el tamaño y posición del marco del objeto OLE.
+Dado que el libro de Excel tiene su propia ventana, intenta conservar su tamaño original al activarse por primera vez. Por otro lado, el marco OLE tiene su propio tamaño. Según Microsoft, cuando el libro de Excel se activa, Excel y PowerPoint negocian el tamaño para garantizar que mantenga las proporciones correctas como parte del proceso de incrustación. El redimensionado ocurre en función de las diferencias entre el tamaño de la ventana de Excel y el tamaño y posición del marco OLE.
 
 ## **Solución funcional**
 
-Existen dos soluciones posibles para evitar el efecto de redimensionamiento.
+Existen dos soluciones posibles para evitar el efecto de redimensionado.
 
-- Escalar el tamaño del marco OLE en la presentación de PowerPoint para que coincida con la altura y el ancho del número deseado de filas y columnas en el marco OLE.
-- Mantener constante el tamaño del marco OLE y escalar el tamaño de las filas y columnas participantes para que quepan dentro del tamaño seleccionado del marco OLE.
+- Escalar el tamaño del marco OLE en la presentación de PowerPoint para que coincida con la altura y anchura del número deseado de filas y columnas en el marco OLE.
+- Mantener constante el tamaño del marco OLE y escalar el tamaño de las filas y columnas participantes para que encajen dentro del tamaño seleccionado del marco OLE.
 
 ### **Escalar el tamaño del marco OLE**
 
 En este enfoque, aprenderemos cómo establecer el tamaño del marco OLE del libro de Excel incrustado para que coincida con el tamaño acumulado de las filas y columnas participantes en la hoja de cálculo de Excel.
 
-Supongamos que tenemos una hoja de Excel plantilla y queremos agregarla a una presentación como un marco OLE. En este escenario, el tamaño del marco del objeto OLE se calculará primero en función de las alturas acumuladas de las filas y los anchos acumulados de las columnas participantes en el libro. Luego, estableceremos el tamaño del marco OLE a este valor calculado. Para evitar el mensaje rojo "EMBEDDED OLE OBJECT" del marco OLE en PowerPoint, también capturaremos una imagen de las porciones deseadas de las filas y columnas en el libro y la estableceremos como la imagen del marco OLE.
+Supongamos que tenemos una hoja de Excel de plantilla y queremos añadirla a una presentación como un marco OLE. En este escenario, el tamaño del marco OLE se calculará primero en función de la altura acumulada de las filas y el ancho acumulado de las columnas participantes en el libro. Luego, estableceremos el tamaño del marco OLE a este valor calculado. Para evitar el mensaje rojo "EMBEDDED OLE OBJECT" del marco OLE en PowerPoint, también capturaremos una imagen de las partes deseadas de las filas y columnas en el libro y la estableceremos como imagen del marco OLE.
+
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -53,7 +59,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Establecer el tamaño mostrado cuando el archivo del libro se usa como objeto OLE en PowerPoint.
+// Establecer el tamaño mostrado cuando el archivo del libro de trabajo se usa como objeto OLE en PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,12 +67,12 @@ workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Obtener el ancho y alto de la imagen OLE en puntos.
+// Obtener el ancho y la altura de la imagen OLE en puntos.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
-// Necesitamos usar el libro modificado.
+// Necesitamos usar el libro de trabajo modificado.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -79,7 +85,7 @@ imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Crear el marco de objeto OLE.
+// Crear el marco del objeto OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -91,6 +97,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -115,13 +125,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ### **Escalar el tamaño del rango de celdas**
 
 En este enfoque, aprenderemos cómo escalar las alturas de las filas participantes y el ancho de las columnas participantes para que coincidan con un tamaño de marco OLE personalizado.
 
-Supongamos que tenemos una hoja de Excel plantilla y queremos agregarla a una presentación como un marco OLE. En este escenario, estableceremos el tamaño del marco OLE y escalaremos el tamaño de las filas y columnas que participan en el área del marco OLE. Luego guardaremos el libro en un flujo para aplicar los cambios y lo convertiremos a una matriz de bytes para agregarlo al marco OLE. Para evitar el mensaje rojo "EMBEDDED OLE OBJECT" del marco OLE en PowerPoint, también capturaremos una imagen de las porciones deseadas de las filas y columnas en el libro y la estableceremos como la imagen del marco OLE.
+Supongamos que tenemos una hoja de Excel de plantilla y queremos añadirla a una presentación como un marco OLE. En este escenario, estableceremos el tamaño del marco OLE y escalaremos el tamaño de las filas y columnas que participan en el área del marco OLE. Luego guardaremos el libro en un flujo para aplicar los cambios y lo convertiremos en una matriz de bytes para añadirlo al marco OLE. Para evitar el mensaje rojo "EMBEDDED OLE OBJECT" del marco OLE en PowerPoint, también capturaremos una imagen de las partes deseadas de las filas y columnas en el libro y la estableceremos como imagen del marco OLE.
+
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -132,18 +146,18 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Establecer el tamaño mostrado cuando el archivo del libro se usa como objeto OLE en PowerPoint.
+// Establecer el tamaño mostrado cuando el archivo del libro de trabajo se usa como objeto OLE en PowerPoint.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Escalar el rango de celdas para que se ajuste al tamaño del marco.
+// Escalar el rango de celdas para que encaje con el tamaño del marco.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Necesitamos usar el libro modificado.
+// Necesitamos usar el libro de trabajo modificado.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -151,11 +165,11 @@ workbook.dispose();
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Agregar la imagen OLE a los recursos de la presentación.
+// Añadir la imagen OLE a los recursos de la presentación.
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Crear el marco de objeto OLE.
+// Crear el marco del objeto OLE.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -168,7 +182,7 @@ presentation.dispose();
 
 ```java
 /**
- * @param width     La anchura esperada del rango de celdas en puntos.
+ * @param width     El ancho esperado del rango de celdas en puntos.
  * @param height    La altura esperada del rango de celdas en puntos.
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
@@ -204,6 +218,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -228,37 +246,36 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ## **Conclusión**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Existen dos enfoques para corregir el problema de redimensionamiento de la hoja de cálculo. La selección del enfoque apropiado depende de los requisitos específicos y del caso de uso. Ambos enfoques funcionan de la misma manera, ya sea que las presentaciones se creen a partir de una plantilla o desde cero. Además, no hay límite al tamaño del marco del objeto OLE en esta solución.
+Existen dos enfoques para solucionar el problema de redimensionado de la hoja de cálculo. La selección del enfoque adecuado depende de los requisitos y caso de uso específicos. Ambos enfoques funcionan de la misma manera, ya sea que las presentaciones se creen a partir de una plantilla o desde cero. Además, no hay límite en el tamaño del marco OLE en esta solución.
 
 {{% /alert %}}
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Por qué una hoja de cálculo de Excel incrustada cambia de tamaño cuando se activa por primera vez en PowerPoint?**
+### ¿Por qué una hoja de cálculo de Excel incrustada cambia de tamaño al activarse por primera vez en PowerPoint?
 
-Esto ocurre porque Excel intenta mantener el tamaño original de la ventana al activarse, mientras que el marco del objeto OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la proporción de aspecto, lo que puede provocar el redimensionamiento.
+Esto ocurre porque Excel intenta mantener el tamaño original de su ventana al activarse, mientras que el marco OLE en PowerPoint tiene sus propias dimensiones. PowerPoint y Excel negocian el tamaño para mantener la proporción, lo que puede causar el redimensionado.
 
-**¿Es posible evitar este problema de redimensionamiento por completo?**
+### ¿Es posible evitar este problema de redimensionado por completo?
 
-Sí. Al escalar el marco OLE para que se ajuste al tamaño del rango de celdas de Excel o al escalar el rango de celdas para que se ajuste al tamaño deseado del marco OLE, se puede evitar el redimensionamiento no deseado.
+Sí. Escalando el marco OLE para que se ajuste al tamaño del rango de celdas de Excel o escalando el rango de celdas para que se ajuste al tamaño deseado del marco OLE, se puede evitar el redimensionado indeseado.
 
-**¿Qué método de escalado debo usar, escalado del marco OLE o escalado del rango de celdas?**
+### ¿Qué método de escalado debo usar, escalado del marco OLE o escalado del rango de celdas?
 
 Seleccione **escalado del marco OLE** si desea mantener los tamaños originales de filas y columnas de Excel. Seleccione **escalado del rango de celdas** si desea un tamaño fijo para el marco OLE en su presentación.
 
-**¿Funcionarán estas soluciones si mi presentación está basada en una plantilla?**
+### ¿Funcionarán estas soluciones si mi presentación se basa en una plantilla?
 
 Sí. Ambas soluciones funcionan para presentaciones creadas a partir de plantillas y desde cero.
 
-**¿Existe un límite al tamaño del marco OLE al usar estos métodos?**
+### ¿Existe un límite al tamaño del marco OLE al usar estos métodos?
 
-No. Puede establecer el marco del objeto OLE a cualquier tamaño siempre que ajuste la escala de forma adecuada.
+No. Puede hacer que el marco OLE tenga cualquier tamaño siempre que establezca la escala de forma adecuada.
 
-**¿Hay una forma de evitar el texto de marcador de posición "EMBEDDED OLE OBJECT" en PowerPoint?**
+### ¿Hay una forma de evitar el texto del marcador de posición "EMBEDDED OLE OBJECT" en PowerPoint?
 
-Sí. Tomando una captura del rango de celdas de Excel objetivo y estableciéndola como la imagen de marcador de posición del marco OLE, puede mostrar una imagen de vista previa personalizada en lugar del marcador de posición predeterminado.
+Sí. Capturando una instantánea del rango de celdas objetivo de Excel y estableciéndola como imagen de marcador de posición del marco OLE, puede mostrar una imagen de vista previa personalizada en lugar del marcador de posición predeterminado.

@@ -1,65 +1,64 @@
 ---
-title: ".NETでPowerPointプレゼンテーションを動画に変換する"
-linktitle: "PowerPointから動画へ"
+title: .NET で PowerPoint プレゼンテーションを動画に変換する
+linktitle: PowerPoint を動画に変換
 type: docs
 weight: 130
 url: /ja/net/convert-powerpoint-to-video/
 keywords:
-- "PowerPoint を変換"
-- "プレゼンテーション を変換"
-- "PPT を変換"
-- "PPTX を変換"
-- "PowerPoint を動画に変換"
-- "プレゼンテーション を動画に変換"
-- "PPT を動画に変換"
-- "PPTX を動画に変換"
-- "PowerPoint を MP4 に変換"
-- "プレゼンテーション を MP4 に変換"
-- "PPT を MP4 に変換"
-- "PPTX を MP4 に変換"
-- "PPT を MP4 として保存"
-- "PPTX を MP4 として保存"
-- "PPT を MP4 にエクスポート"
-- "PPTX を MP4 にエクスポート"
-- "動画変換"
-- "PowerPoint"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: ".NET で PowerPoint プレゼンテーションを動画に変換する方法を学びます。サンプル C# コードと自動化技術を活用してワークフローを効率化しましょう。"
+- PowerPoint を変換
+- プレゼンテーションを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を動画に変換
+- プレゼンテーションを動画に変換
+- PPT を動画に変換
+- PPTX を動画に変換
+- PowerPoint を MP4 に変換
+- プレゼンテーションを MP4 に変換
+- PPT を MP4 に変換
+- PPTX を MP4 に変換
+- PPT を MP4 として保存
+- PPTX を MP4 として保存
+- PPT を MP4 にエクスポート
+- PPTX を MP4 にエクスポート
+- 動画変換
+- PowerPoint
+- .NET
+- C#
+- Aspose.Slides
+description: ".NET で PowerPoint プレゼンテーションを動画に変換する方法を学びます。サンプル C# コードと自動化テクニックを活用してワークフローを効率化しましょう。"
 ---
+## **はじめに**
 
-## **概要**
+PowerPoint または OpenDocument のプレゼンテーションを動画に変換することで、次のメリットが得られます。
 
-PowerPoint または OpenDocument プレゼンテーションを動画に変換することで、次の利点が得られます。
+**アクセシビリティの向上:** すべてのデバイスはデフォルトで動画プレーヤーを搭載しているため、従来のプレゼンテーションアプリケーションと比べて動画の再生や閲覧が容易です。
 
-**アクセシビリティの向上:** プラットフォームに関係なく、すべてのデバイスにはデフォルトで動画プレーヤーが搭載されているため、従来のプレゼンテーションアプリケーションよりも動画の再生や閲覧が容易です。
+**リーチの拡大:** 動画はより魅力的な形式で情報を提供でき、さまざまな統計や調査で人々がテキストやスライドよりも動画コンテンツを好むことが示されています。これによりメッセージのインパクトが高まります。
 
-**リーチの拡大:** 動画はより大きなオーディエンスに届きやすく、情報を魅力的な形式で提示できます。調査や統計によれば、ユーザーは他の形式よりも動画コンテンツの視聴・消費を好むため、メッセージのインパクトが高まります。
-
-{{% alert color="primary" %}} 
-[**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/video) をぜひお試しください。こちらは本稿で説明したプロセスをリアルタイムかつ効果的に実装したものです。
+{{% alert color="info" %}} 
+[**PowerPoint を Video に変換するオンラインコンバーター**](https://products.aspose.app/slides/ja/video) をぜひご確認ください。この記事で説明したプロセスの実装例がライブで提供されています。
 {{% /alert %}} 
 
-Aspose.Slides for .NET では、プレゼンテーションを動画に変換する機能を実装しています。
+Aspose.Slides for .NET では、プレゼンテーションを動画に変換する機能を実装しました。
 
-* Aspose.Slides for .NET を使用して、指定したフレームレート (FPS) でスライドからフレームを生成します。  
-* その後、ffmpeg などのサードパーティーツールでこれらのフレームを動画にまとめます。
+* Aspose.Slides for .NET を使用して、指定したフレームレート (FPS) でスライドからフレームを生成します。
+* その後、ffmpeg などのサードパーティユーティリティを利用して、生成したフレームを動画に結合します。
 
-## **PowerPoint プレゼンテーションを動画に変換する方法**
+## **PowerPoint プレゼンテーションを動画に変換する手順**
 
-1. `dotnet add package` コマンドで Aspose.Slides と FFMpegCore ライブラリをプロジェクトに追加します:  
-   * `dotnet add package Aspose.Slides.NET --version 22.11.0`  
-   * `dotnet add package FFMpegCore --version 4.8.0`
-2. ffmpeg を [here](https://ffmpeg.org/download.html) からダウンロードします。  
-3. FFMpegCore では、ダウンロードした ffmpeg のパスを指定する必要があります (例: 「C:\tools\ffmpeg」に展開した場合):  
+1. `dotnet add package` コマンドで Aspose.Slides と FFMpegCore ライブラリをプロジェクトに追加します:
+   * `dotnet add package Aspose.Slides.NET --version 22.11.0` を実行
+   * `dotnet add package FFMpegCore --version 4.8.0` を実行
+2. ffmpeg を [here](https://ffmpeg.org/download.html) からダウンロードします。
+3. FFMpegCore にはダウンロードした ffmpeg のパスを指定する必要があります (例: 「C:\tools\ffmpeg」に解凍した場合):  
 ```cs
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 ```
-
 4. PowerPoint から動画への変換コードを実行します。
 
-以下の C# コードは、シェイプと 2 つのアニメーション効果を含むプレゼンテーションを動画に変換する方法を示しています:  
+以下の C# コードは、図形と 2 つのアニメーション効果を含むプレゼンテーションを動画に変換する例です:
+
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides;
@@ -70,7 +69,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // スマイルシェイプを追加してからアニメーションを付けます。
+    // スマイルシェイプを追加し、アニメーションを適用します。
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -97,40 +96,46 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // ffmpeg バイナリフォルダーを設定します。こちらのページをご覧ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg バイナリ フォルダーを設定します。このページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // フレームを webm ビデオに変換します。
+    // フレームを webm 動画に変換します。
     FFMpeg.JoinImageSequence("smile.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
-
 ## **動画エフェクト**
 
-Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションを動画に変換する際、さまざまな動画エフェクトを適用して出力の視覚品質を向上させることができます。これらのエフェクトにより、スムーズなトランジションやアニメーション、その他のビジュアル要素を動画に組み込むことが可能です。本セクションでは利用可能な動画エフェクトオプションとその適用方法を説明します。
+Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションを動画に変換する際、さまざまな動画エフェクトを適用して出力の視覚的品質を向上させることができます。これらのエフェクトにより、スムーズなトランジションやアニメーション、その他のビジュアル要素を最終動画に組み込むことができます。このセクションでは利用可能な動画エフェクトオプションを説明し、適用方法を示します。
 
-{{% alert color="primary" %}} 
-- [C# での PowerPoint アニメーションの強化](https://docs.aspose.com/slides/net/powerpoint-animation/)  
-- [シェイプ アニメーション](https://docs.aspose.com/slides/net/shape-animation/)  
-- [C# で PowerPoint のシェイプ エフェクトを適用する](https://docs.aspose.com/slides/net/shape-effect/)
+{{% alert color="info" %}} 
+- [C# で PowerPoint プレゼンテーションにアニメーションを追加する方法](https://docs.aspose.com/slides/ja/net/powerpoint-animation/)
+- [シェイプ アニメーション](https://docs.aspose.com/slides/ja/net/shape-animation/)
+- [C# で PowerPoint のシェイプ エフェクトを適用する方法](https://docs.aspose.com/slides/ja/net/shape-effect/)
 {{% /alert %}} 
 
-アニメーションやトランジションはスライドショーをより魅力的にしますが、動画でも同様です。前述のプレゼンテーションに別のスライドとトランジションを追加するコード例は次のとおりです:  
-```c#
- // スマイルシェイプを追加し、アニメーションを付けます。
- // ...
+アニメーションとトランジションはスライドショーをより魅力的にし、動画でも同様の効果を発揮します。前回のプレゼンテーションに別のスライドとトランジションを追加したコード例は次のとおりです:
 
- // 新しいスライドとアニメーション付きのトランジションを追加します。
- ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
- newSlide.Background.Type = BackgroundType.OwnBackground;
- newSlide.Background.FillFormat.FillType = FillType.Solid;
- newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
- newSlide.SlideShowTransition.Type = TransitionType.Push;
+```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.SlideShow;
+
+using (Presentation presentation = new Presentation())
+{
+    // スマイルシェイプを追加し、アニメーションを適用します（上記のコードを参照）。
+
+    // 新しいスライドを追加し、アニメーション付きトランジションを設定します。
+    ISlide newSlide = presentation.Slides.AddEmptySlide(presentation.Slides[0].LayoutSlide);
+    newSlide.Background.Type = BackgroundType.OwnBackground;
+    newSlide.Background.FillFormat.FillType = FillType.Solid;
+    newSlide.Background.FillFormat.SolidFillColor.Color = Color.Indigo;
+    newSlide.SlideShowTransition.Type = TransitionType.Push;
+}
 ```
 
+Aspose.Slides はテキストアニメーションもサポートしています。以下の例では、オブジェクト上の段落を 1 秒の遅延で順に表示するようにアニメーションさせます:
 
-Aspose.Slides はテキストアニメーションもサポートしています。以下の例では、オブジェクト上の段落を 1 秒の遅延で順に表示するアニメーションを実装しています:  
 ```c#
 using System.Collections.Generic;
 using Aspose.Slides.Export;
@@ -189,30 +194,34 @@ using (Presentation presentation = new Presentation())
         animationsGenerator.Run(presentation.Slides);
     }
 
-    // ffmpeg バイナリ フォルダーを設定します。こちらのページをご覧ください: https://github.com/rosenbjerg/FFMpegCore#installation
+    // ffmpeg バイナリ フォルダーを設定します。このページをご参照ください: https://github.com/rosenbjerg/FFMpegCore#installation
     GlobalFFOptions.Configure(new FFOptions { BinaryFolder = @"c:\tools\ffmpeg\bin" });
 
-    // フレームを webm ビデオに変換します。
+    // フレームを webm 動画に変換します。
     FFMpeg.JoinImageSequence("text_animation.webm", Fps, frames.Select(frame => ImageInfo.FromPath(frame)).ToArray());
 }
 ```
 
-
 ## **動画変換クラス**
 
-PowerPoint から動画への変換タスクを実現するために、Aspose.Slides for .NET は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) と [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) クラスを提供しています。
+PowerPoint から動画への変換タスクを実現するために、Aspose.Slides for .NET は [PresentationAnimationsGenerator](https://reference.aspose.com/slides/ja/net/aspose.slides.export/presentationanimationsgenerator/) と [PresentationPlayer](https://reference.aspose.com/slides/ja/net/aspose.slides.export/presentationplayer/) クラスを提供します。
 
-`PresentationAnimationsGenerator` はコンストラクタで動画のフレームサイズと FPS (1 秒あたりのフレーム数) を設定できます。プレゼンテーション インスタンスを渡すと、その `Presentation.SlideSize` が使用され、生成されたアニメーションは [PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) が利用します。
+`PresentationAnimationsGenerator` はコンストラクターで作成される動画のフレームサイズと FPS (フレーム/秒) を設定できます。プレゼンテーション インスタンスを渡すと、その `Presentation.SlideSize` が使用され、[PresentationPlayer](https://reference.aspose.com/slides/ja/net/aspose.slides.export/presentationplayer/) が利用するアニメーションが生成されます。
 
-アニメーションが生成されると、各アニメーションごとに `NewAnimation` イベントが発生し、[IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/) パラメータが渡されます。このクラスは個々のアニメーション用プレーヤーを表します。
+アニメーションが生成されると、各アニメーションごとに `NewAnimation` イベントが発生し、[IPresentationAnimationPlayer](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ipresentationanimationplayer/) パラメーターが渡されます。このクラスは個々のアニメーション用プレーヤーを表します。
 
-[IPresentationAnimationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/ipresentationanimationplayer/) を操作するには、全体の再生時間を示す `Duration` プロパティと、再生位置を設定する `SetTimePosition` メソッドを使用します。位置は *0 から Duration* の範囲で指定でき、`GetFrame` メソッドは指定時点のアニメーション状態を表す Bitmap を返します。  
+[IPresentationAnimationPlayer](https://reference.aspose.com/slides/ja/net/aspose.slides.export/ipresentationanimationplayer/) を使用するには、全体の長さを取得できる `Duration` プロパティと、再生位置を設定できる `SetTimePosition` メソッドを利用します。各アニメーション位置は *0 から Duration* の範囲で設定され、`GetFrame` メソッドはその時点のアニメーション状態を表す Bitmap を返します。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    // スマイルシェイプを追加し、アニメーションを付けます。
+    // スマイルシェイプを追加し、アニメーションを適用します。
     IAutoShape smile = slide.Shapes.AddAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
 
     IEffect effectIn = slide.Timeline.MainSequence.AddEffect(
@@ -230,20 +239,23 @@ using (Presentation presentation = new Presentation())
         {
             Console.WriteLine($"Total animation duration: {animationPlayer.Duration}");
 
-            animationPlayer.SetTimePosition(0);          // 初期アニメーション状態。
-            Bitmap bitmap = animationPlayer.GetFrame();  // 初期アニメーション状態のビットマップ。
+            animationPlayer.SetTimePosition(0);        // 最初のアニメーション状態。
+            IImage image = animationPlayer.GetFrame(); // 最初のアニメーション状態の画像。
 
-            animationPlayer.SetTimePosition(animationPlayer.Duration);  // アニメーションの最終状態。
-            Bitmap lastBitmap = animationPlayer.GetFrame();             // アニメーションの最後のフレーム。
-            lastBitmap.Save("last.png");
+            animationPlayer.SetTimePosition(animationPlayer.Duration); // アニメーションの最終状態。
+            IImage lastImage = animationPlayer.GetFrame();             // アニメーションの最後のフレーム。
+            lastImage.Save("last.png");
         };
     }
 }
 ```
 
+すべてのアニメーションを同時に再生させるには、[PresentationPlayer](https://reference.aspose.com/slides/ja/net/aspose.slides.export/presentationplayer/) クラスを使用します。このクラスはコンストラクターで [PresentationAnimationsGenerator](https://reference.aspose.com/slides/ja/net/aspose.slides.export/presentationanimationsgenerator/) インスタンスと FPS を受け取り、`FrameTick` イベントを呼び出して全アニメーションを再生します:
 
-すべてのアニメーションを同時に再生させるには、[PresentationPlayer](https://reference.aspose.com/slides/net/aspose.slides.export/presentationplayer/) クラスを使用します。このクラスはコンストラクタで [PresentationAnimationsGenerator](https://reference.aspose.com/slides/net/aspose.slides.export/presentationanimationsgenerator/) インスタンスと FPS を受け取り、`FrameTick` イベントを介して全アニメーションを再生します:  
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("animated.pptx"))
 {
     using (var animationsGenerator = new PresentationAnimationsGenerator(presentation))
@@ -258,14 +270,13 @@ using (Presentation presentation = new Presentation("animated.pptx"))
 }
 ```
 
-
-生成されたフレームは動画にコンパイルできます。詳細は [PowerPoint プレゼンテーションを動画に変換する](/slides/ja/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video) セクションをご参照ください。
+生成されたフレームは動画に編成できます。詳しくは [PowerPoint プレゼンテーションを動画に変換する](/slides/ja/net/convert-powerpoint-to-video/#convert-a-powerpoint-presentation-to-video) セクションをご参照ください。
 
 ## **サポートされているアニメーションとエフェクト**
 
-PowerPoint プレゼンテーションを動画に変換する際、出力でサポートされるアニメーションとエフェクトを把握しておくことが重要です。Aspose.Slides はフェード、フライイン、ズーム、スピンなどの一般的な入場、退出、強調エフェクトを幅広くサポートしています。ただし、一部の高度なカスタムアニメーションは完全に保持されないか、動画内で異なる形で表現される場合があります。本節ではサポート対象のアニメーションとエフェクトをまとめています。
+PowerPoint プレゼンテーションを動画に変換する際、出力でサポートされるアニメーションとエフェクトを把握しておくことが重要です。Aspose.Slides はフェード、フライイン、ズーム、回転などの一般的な入場・退出・強調エフェクトを幅広くサポートしています。ただし、一部の高度なカスタムアニメーションは完全に保持できなかったり、最終動画で見た目が変わる場合があります。このセクションでサポート対象をまとめます。
 
-**入場 (Entrance):**
+**入場**:
 
 | アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -283,7 +294,7 @@ PowerPoint プレゼンテーションを動画に変換する際、出力でサ
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**強調 (Emphasis):**
+**強調**:
 
 | アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -301,7 +312,7 @@ PowerPoint プレゼンテーションを動画に変換する際、出力でサ
 | **Line Color** | ![not supported](x.png) | ![supported](v.png) |
 | **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
 
-**退出 (Exit):**
+**退出**:
 
 | アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -318,7 +329,7 @@ PowerPoint プレゼンテーションを動画に変換する際、出力でサ
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**モーション パス (Motion Paths):**
+**モーション パス**:
 
 | アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -331,9 +342,9 @@ PowerPoint プレゼンテーションを動画に変換する際、出力でサ
 
 ## **サポートされているスライド トランジション エフェクト**
 
-スライド トランジション エフェクトは、動画内でスライド間の切り替えをスムーズかつ視覚的に魅力的にする上で重要です。Aspose.Slides for .NET は、元のプレゼンテーションの流れとスタイルを維持するために、一般的に使用されるさまざまなトランジション エフェクトをサポートしています。本節では、変換プロセス中にサポートされるトランジション エフェクトを紹介します。
+スライド トランジション エフェクトは、動画内でスライド間の切り替えをスムーズかつ視覚的に魅力的にするために重要です。Aspose.Slides for .NET は、元のプレゼンテーションの流れとスタイルを保持できるよう、一般的に使用されるさまざまなトランジション エフェクトをサポートしています。このセクションでは、変換中にサポートされるトランジション エフェクトをまとめます。
 
-**サブティル (Subtle):**
+**サブティル**:
 
 | アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -351,7 +362,7 @@ PowerPoint プレゼンテーションを動画に変換する際、出力でサ
 | **Flash** | ![supported](v.png) | ![supported](v.png) |
 | **Strips** | ![supported](v.png) | ![supported](v.png) |
 
-**エキサイティング (Exciting):**
+**エキサイティング**:
 
 | アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -385,7 +396,7 @@ PowerPoint プレゼンテーションを動画に変換する際、出力でサ
 | **Zoom** | ![supported](v.png) | ![supported](v.png) |
 | **Random** | ![not supported](x.png) | ![supported](v.png) |
 
-**ダイナミック コンテンツ (Dynamic Content):**
+**ダイナミック コンテンツ**:
 
 | アニメーション タイプ | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -398,14 +409,14 @@ PowerPoint プレゼンテーションを動画に変換する際、出力でサ
 
 ## **FAQ**
 
-**パスワードで保護されたプレゼンテーションを変換できますか？**
+### パスワードで保護されたプレゼンテーションの変換は可能ですか？
 
-はい、Aspose.Slides for .NET はパスワード保護されたプレゼンテーションの取り扱いをサポートしています。処理時に正しいパスワードを指定すれば、ライブラリはプレゼンテーションの内容にアクセスできます。
+はい、Aspose.Slides for .NET はパスワードで保護されたプレゼンテーションの操作をサポートしています。対象ファイルを処理する際は、正しいパスワードを指定してライブラリがコンテンツにアクセスできるようにしてください。
 
-**Aspose.Slides for .NET はクラウド ソリューションでの使用をサポートしていますか？**
+### Aspose.Slides for .NET はクラウド ソリューションで使用できますか？
 
-はい、Aspose.Slides for .NET はクラウド アプリケーションやサービスに組み込むことができます。サーバー環境での高パフォーマンスとスケーラビリティを念頭に設計されており、バッチ処理に適しています。
+はい、Aspose.Slides for .NET はクラウド アプリケーションやサービスに組み込むことができます。サーバー環境での高性能・スケーラビリティを意識して設計されており、バッチ処理に最適です。
 
-**変換時にプレゼンテーションのサイズ制限はありますか？**
+### 変換時にプレゼンテーションのサイズ制限はありますか？
 
-Aspose.Slides for .NET は実質的に任意のサイズのプレゼンテーションを処理できます。ただし、非常に大きなファイルの場合は追加のシステムリソースが必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨される場合があります。
+Aspose.Slides for .NET は実質的に任意のサイズのプレゼンテーションを処理可能です。ただし、非常に大きなファイルを扱う場合はシステム リソースが多く必要になることがあり、パフォーマンス向上のためにプレゼンテーションを最適化することが推奨されます。

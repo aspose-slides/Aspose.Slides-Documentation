@@ -14,19 +14,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migra dall'automazione di Microsoft Office a Aspose.Slides per .NET e formatta il testo nelle presentazioni PowerPoint (PPT, PPTX) con controllo preciso."
+description: "Migra dall'automazione di Microsoft Office ad Aspose.Slides per .NET e formatta il testo nelle presentazioni PowerPoint (PPT, PPTX) con controllo preciso."
 ---
-{{% alert color="primary" %}} 
-A volte, è necessario formattare il testo delle diapositive programmaticamente. Questo articolo mostra come leggere una presentazione di esempio con del testo nella prima diapositiva usando sia [VSTO](/slides/it/net/format-text-using-vsto-and-aspose-slides-and-net/) e [Aspose.Slides for .NET](/slides/it/net/format-text-using-vsto-and-aspose-slides-and-net/). Il codice formatta il testo nella terza casella di testo sulla diapositiva per farlo assomigliare al testo nell'ultima casella di testo.
-{{% /alert %}} 
-## **Formattazione del testo**
-Sia i metodi VSTO che Aspose.Slides eseguono i seguenti passaggi:
+{{% alert color="info" %}} 
 
-1. Apri la presentazione di origine.
-1. Accedi alla prima diapositiva.
-1. Accedi alla terza casella di testo.
-1. Modifica la formattazione del testo nella terza casella di testo.
-1. Salva la presentazione su disco.
+A volte, è necessario formattare il testo nelle diapositive in modo programmatico. Questo articolo mostra come leggere una presentazione di esempio con del testo sulla prima diapositiva utilizzando sia [VSTO](/slides/it/net/format-text-using-vsto-and-aspose-slides-and-net/) che [Aspose.Slides for .NET](/slides/it/net/format-text-using-vsto-and-aspose-slides-and-net/). Il codice formatta il testo nella terza casella di testo sulla diapositiva in modo che assomigli al testo nell'ultima casella di testo.
+
+{{% /alert %}} 
+## **Formattare il testo**
+Sia i metodi VSTO sia quelli Aspose.Slides seguono i seguenti passaggi:
+
+1. Aprire la presentazione di origine.
+1. Accedere alla prima diapositiva.
+1. Accedere alla terza casella di testo.
+1. Modificare la formattazione del testo nella terza casella di testo.
+1. Salvare la presentazione su disco.
 
 Gli screenshot seguenti mostrano la diapositiva di esempio prima e dopo l'esecuzione del codice VSTO e Aspose.Slides per .NET.
 
@@ -88,8 +90,8 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 
-### **Esempio di Aspose.Slides per .NET**
-Per formattare il testo con Aspose.Slides, aggiungi il carattere prima di formattare il testo.
+### **Esempio Aspose.Slides per .NET**
+Per formattare il testo con Aspose.Slides, aggiungere il carattere prima di formattare il testo.
 
 **La presentazione di output creata con Aspose.Slides** 
 
@@ -98,16 +100,20 @@ Per formattare il testo con Aspose.Slides, aggiungi il carattere prima di format
 
 
 ```c#
- //Apri la presentazione
-Presentation pres = new Presentation("c:\\source.ppt");
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-//Accedi alla prima diapositiva
+ //Apri la presentazione
+Presentation pres = new Presentation("source.ppt");
+
+//Access the first slide
 ISlide slide = pres.Slides[0];
 
-//Accedi alla terza forma
+//Access the third shape
 IShape shp = slide.Shapes[2];
 
-//Cambia il font del suo testo in Verdana e l'altezza a 32
+//Change its text's font to Verdana and height to 32
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 IParagraph para = tf.Paragraphs[0];
 IPortion port = para.Portions[0];
@@ -115,10 +121,10 @@ port.PortionFormat.LatinFont = new FontData("Verdana");
 
 port.PortionFormat.FontHeight = 32;
 
-//Rendilo in grassetto
+//Rendila in grassetto
 port.PortionFormat.FontBold = NullableBool.True;
 
-//Rendilo in corsivo
+//Rendila in corsivo
 port.PortionFormat.FontItalic = NullableBool.True;
 
 //Cambia il colore del testo
@@ -131,5 +137,5 @@ shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
 //Scrivi l'output su disco
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

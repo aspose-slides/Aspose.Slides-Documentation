@@ -26,42 +26,47 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Optimaliseer het beheer van OLE-objecten in PowerPoint- en OpenDocument-bestanden met Aspose.Slides voor Android via Java. Voeg OLE-inhoud in, werk deze bij en exporteer deze moeiteloos."
+description: "Optimaliseer het beheer van OLE‑objecten in PowerPoint‑ en OpenDocument‑bestanden met Aspose.Slides for Android via Java. Sluit OLE‑inhoud in, werk het bij en exporteer het moeiteloos."
 ---
 ## **Inleiding**
 
-{{% alert color="primary" %}} 
-
-OLE (Object Linking & Embedding) is een Microsoft‑technologie die het mogelijk maakt gegevens en objecten die in één applicatie zijn gemaakt, via koppeling of insluiting in een andere applicatie te plaatsen. 
-
+{{% alert color="info" %}} 
+OLE (Object Linking & Embedding) is een Microsoft-technologie die het mogelijk maakt gegevens en objecten die in een toepassing zijn gemaakt, in een andere toepassing te plaatsen via koppeling of insluiting. 
 {{% /alert %}} 
 
-Stel een diagram voor dat in MS Excel is gemaakt. Het diagram wordt vervolgens in een PowerPoint‑dia geplaatst. Dat Excel‑diagram wordt beschouwd als een OLE‑object. 
+Stel een diagram voor dat in MS Excel is gemaakt. Het diagram wordt vervolgens in een PowerPoint-dia geplaatst. Dat Excel-diagram wordt beschouwd als een OLE-object. 
 
-- Een OLE‑object kan verschijnen als een pictogram. In dat geval wordt, wanneer u dubbelklikt op het pictogram, het diagram geopend in de bijbehorende applicatie (Excel), of wordt u gevraagd een applicatie te kiezen voor het openen of bewerken van het object. 
-- Een OLE‑object kan de eigenlijke inhoud tonen, bijvoorbeeld de inhoud van een diagram. In dat geval wordt het diagram geactiveerd in PowerPoint, laadt de diagram‑interface, en kunt u de gegevens van het diagram binnen PowerPoint aanpassen. 
+- Een OLE-object kan verschijnen als een pictogram. In dat geval wordt het diagram bij dubbelklikken op het pictogram geopend in de bijbehorende toepassing (Excel), of wordt u gevraagd een toepassing te selecteren voor het openen of bewerken van het object. 
+- Een OLE-object kan de daadwerkelijke inhoud weergeven, bijvoorbeeld de inhoud van een diagram. In dat geval wordt het diagram geactiveerd in PowerPoint, laadt de diagraminterface, en kunt u de gegevens van het diagram binnen PowerPoint aanpassen. 
 
-[Aspose.Slides for Android via Java](https://products.aspose.com/slides/nl/androidjava/) stelt u in staat OLE‑objecten in dia's in te voegen als OLE‑objectframes ([OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/nl/androidjava/) maakt het mogelijk OLE‑objecten in dia's in te voegen als OLE‑objectframes ([OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame)).
 
-## **OLE‑objectframes toevoegen aan dia's**
+## **OLE‑objectframes aan dia's toevoegen**
 
-Aangenomen dat u al een diagram in Microsoft Excel hebt gemaakt en het wilt insluiten in een dia als een OLE‑objectframe met Aspose.Slides for Android via Java, kunt u dit op de volgende manier doen:
+Aangenomen dat u al een diagram in Microsoft Excel hebt gemaakt en het wilt insluiten in een dia als OLE‑objectframe met Aspose.Slides for Android via Java, kunt u dit als volgt doen:
 
 1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) klasse.  
-2. Haal via de index een referentie naar een dia op.  
-3. Lees het Excel‑bestand in als een byte‑array.  
-4. Voeg het [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame) toe aan de dia, met de byte‑array en overige informatie over het OLE‑object.  
+2. Haal een referentie naar een dia op via de index.  
+3. Lees het Excel‑bestand als een byte‑array.  
+4. Voeg het [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame) toe aan de dia met de byte‑array en andere informatie over het OLE‑object.  
 5. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
 
-In het onderstaande voorbeeld hebben we een diagram uit een Excel‑bestand aan een dia toegevoegd als een OLE‑objectframe met Aspose.Slides for Android via Java.  
-**Opmerking**: de constructor van [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleEmbeddedDataInfo) neemt als tweede parameter een extensie van het in te sluiten object. Deze extensie stelt PowerPoint in staat het bestandstype correct te interpreteren en de juiste applicatie te kiezen om dit OLE‑object te openen.
+In het voorbeeld hieronder hebben we een diagram uit een Excel‑bestand aan een dia toegevoegd als OLE‑objectframe met Aspose.Slides for Android via Java.  
+**Note** dat de [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleEmbeddedDataInfo) constructor een uitbreidbare objectextensie als tweede parameter neemt. Deze extensie stelt PowerPoint in staat het bestandstype correct te interpreteren en de juiste toepassing te kiezen om dit OLE‑object te openen.  
 
 ```java 
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.awt.geom.Dimension2D;
+
 Presentation presentation = new Presentation();
-SizeF slideSize = presentation.getSlideSize().getSize();
+Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-// Bereid gegevens voor het OLE-object voor.
+// Prepare data for the OLE object.
 File file = new File("book.xlsx");
 byte fileData[] = new byte[(int) file.length()];
 BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
@@ -70,8 +75,8 @@ dis.readFully(fileData);
 
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
-// Voeg het OLE-objectframe toe aan de dia.
-slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
+// Add the OLE object frame to the slide.
+slide.getShapes().addOleObjectFrame(0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight(), dataInfo);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
@@ -79,11 +84,13 @@ presentation.dispose();
 
 ### **Gelinkte OLE‑objectframes toevoegen**
 
-Aspose.Slides for Android via Java maakt het mogelijk een [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame) toe te voegen zonder data in te sluiten, maar alleen met een koppeling naar het bestand.
+Aspose.Slides for Android via Java maakt het mogelijk een [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame) toe te voegen zonder gegevens in te sluiten, alleen met een koppeling naar het bestand.  
 
-Deze Java‑code laat zien hoe u een [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame) met een gelinkt Excel‑bestand aan een dia kunt toevoegen:
+Deze Java‑code laat zien hoe u een [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame) met een gelinkte Excel‑file aan een dia toevoegt:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -94,18 +101,20 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **OLE‑objectframes benaderen**
+## **Toegang tot OLE‑objectframes**
 
-Als er al een OLE‑object in een dia is ingesloten, kunt u het op de volgende manier gemakkelijk vinden of benaderen:
+Als een OLE‑object al is ingesloten in een dia, kunt u het als volgt eenvoudig vinden of benaderen:  
 
 1. Laad een presentatie met het ingesloten OLE‑object door een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) klasse te maken.  
-2. Haal de referentie van de dia op via de index.  
-3. Benader de [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame)‑vorm. In ons voorbeeld gebruikten we de eerder aangemaakte PPTX die slechts één vorm op de eerste dia bevat.  Vervolgens *casten* we dat object naar een [IOleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioleobjectframe/). Dit was het gewenste OLE‑objectframe om te benaderen.  
-4. Zodra het OLE‑objectframe is benaderd, kunt u er elke gewenste bewerking op uitvoeren.  
+2. Haal de referentie van de dia op door de index te gebruiken.  
+3. Benader de vorm van het [OleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/OleObjectFrame). In ons voorbeeld gebruikten we de eerder aangemaakte PPTX die slechts één vorm op de eerste dia heeft. We *casten* dat object vervolgens naar een [IOleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioleobjectframe/). Dit was het gewenste OLE‑objectframe om te benaderen.  
+4. Zodra het OLE‑objectframe is benaderd, kunt u elke bewerking erop uitvoeren.  
 
-In het onderstaande voorbeeld wordt een OLE‑objectframe (een ingesloten Excel‑diagramobject in een dia) en de bijbehorende bestandsdata benaderd.
+In het voorbeeld hieronder wordt een OLE‑objectframe (een Excel‑diagramobject ingesloten in een dia) en de bestandsgegevens ervan benaderd.  
 
 ```java 
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -113,7 +122,7 @@ IShape shape = slide.getShapes().get_Item(0);
 if (shape instanceof IOleObjectFrame) {
     IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
     
-    // Haal de ingesloten bestandsgegevens op.
+    // Haal de gegevens van het ingesloten bestand op.
     byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
     // Haal de extensie van het ingesloten bestand op.
@@ -125,11 +134,13 @@ if (shape instanceof IOleObjectFrame) {
 
 ### **Eigenschappen van gelinkte OLE‑objectframes benaderen**
 
-Aspose.Slides stelt u in staat de eigenschappen van gelinkte OLE‑objectframes te benaderen.
+Aspose.Slides maakt het mogelijk de eigenschappen van gelinkte OLE‑objectframes te benaderen.  
 
-Deze Java‑code toont hoe u kunt controleren of een OLE‑object gelinkt is en vervolgens het pad naar het gelinkte bestand kunt ophalen:
+Deze Java‑code toont hoe u kunt controleren of een OLE‑object gelinkt is en vervolgens het pad naar het gelinkte bestand verkrijgt:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -153,28 +164,32 @@ if (shape instanceof IOleObjectFrame) {
 presentation.dispose();
 ```
 
-## **OLE‑objectdata wijzigen**
+## **OLE‑objectgegevens wijzigen**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
+In dit gedeelte gebruikt het onderstaande code‑voorbeeld [Aspose.Cells for Android via Java](/cells/androidjava/).  
+{{% /alert %}}  
 
-In dit gedeelte maakt het onderstaande code‑voorbeeld gebruik van [Aspose.Cells for Android via Java](/cells/androidjava/).
-
-{{% /alert %}}
-
-Als er al een OLE‑object in een dia is ingesloten, kunt u het object benaderen en de gegevens als volgt wijzigen:
+Als een OLE‑object al is ingesloten in een dia, kunt u dat object eenvoudig benaderen en de gegevens ervan op de volgende manier aanpassen:  
 
 1. Laad een presentatie met het ingesloten OLE‑object door een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) klasse te maken.  
 2. Haal de referentie van de dia op via de index.  
-3. Benader de OLE‑objectframe‑vorm. In ons voorbeeld gebruikten we de eerder aangemaakte PPTX die één vorm op de eerste dia bevat. We casten dat object vervolgens naar een [IOleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioleobjectframe/). Dit was het gewenste OLE‑objectframe om te benaderen.  
-4. Zodra het OLE‑objectframe is benaderd, kunt u er elke gewenste bewerking op uitvoeren.  
-5. Maak een `Workbook`‑object aan en krijg toegang tot de OLE‑data.  
-6. Benader het gewenste `Worksheet` en pas de data aan.  
+3. Benader de vorm van het OLE‑objectframe. In ons voorbeeld gebruikten we de eerder aangemaakte PPTX die één vorm op de eerste dia heeft. We *casten* dat object vervolgens naar een [IOleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioleobjectframe/). Dit was het gewenste OLE‑objectframe om te benaderen.  
+4. Zodra het OLE‑objectframe is benaderd, kunt u elke bewerking erop uitvoeren.  
+5. Maak een `Workbook`‑object aan en benader de OLE‑gegevens.  
+6. Benader het gewenste `Worksheet` en pas de gegevens aan.  
 7. Sla het bijgewerkte `Workbook` op in een stream.  
-8. Wijzig de OLE‑objectdata vanuit de stream.  
+8. Wijzig de OLE‑objectgegevens vanuit de stream.  
 
-In het onderstaande voorbeeld wordt een OLE‑objectframe (een ingesloten Excel‑diagramobject in een dia) benaderd, en wordt de bestandsdata aangepast om de diagramdata bij te werken.
+In het voorbeeld hieronder wordt een OLE‑objectframe (een Excel‑diagramobject ingesloten in een dia) benaderd en worden de bestandsgegevens gewijzigd om de diagramgegevens bij te werken.  
 
 ```java 
+import com.aspose.slides.*;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.OoxmlSaveOptions;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IShape shape = slide.getShapes().get_Item(0);
@@ -184,7 +199,7 @@ if (shape instanceof IOleObjectFrame) {
 
     ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
 
-    // Lees de OLE-objectdata als een Workbook-object.
+    // Lees de OLE-objectgegevens als een Workbook-object.
     Workbook workbook = new Workbook(oleStream);
 
     ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
@@ -198,7 +213,7 @@ if (shape instanceof IOleObjectFrame) {
     OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
     workbook.save(newOleStream, fileOptions);
 
-    // Wijzig de OLE-frame-objectdata.
+    // Wijzig de OLE-frame-objectgegevens.
     IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
     oleFrame.setEmbeddedData(newData);
 }
@@ -207,13 +222,19 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Andere bestandstypen insluiten in dia's**
+## **Andere bestandstypen in dia's insluiten**
 
-Naast Excel‑diagrammen maakt Aspose.Slides for Android via Java het mogelijk andere bestandstypen in dia's in te sluiten. U kunt bijvoorbeeld HTML-, PDF- en ZIP-bestanden als objecten invoegen. Wanneer een gebruiker dubbelklikt op het ingevoegde object, wordt het automatisch geopend in het bijbehorende programma, of krijgt de gebruiker de opdracht een geschikt programma te kiezen om het te openen.
+Naast Excel‑diagrammen maakt Aspose.Slides for Android via Java het mogelijk andere soorten bestanden in dia's in te sluiten. U kunt bijvoorbeeld HTML, PDF en ZIP‑bestanden als objecten invoegen. Wanneer een gebruiker dubbelklikt op het ingevoegde object, wordt het automatisch geopend in het relevante programma, of krijgt de gebruiker de optie om een geschikt programma te selecteren.  
 
-Deze Java‑code laat zien hoe u HTML en ZIP in een dia kunt insluiten:
+Deze Java‑code laat zien hoe u HTML en ZIP in een dia kunt insluiten:  
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -241,11 +262,13 @@ presentation.dispose();
 
 ## **Bestandstypen voor ingesloten objecten instellen**
 
-Bij het werken met presentaties moet u mogelijk oude OLE‑objecten vervangen door nieuwe, of een niet‑ondersteund OLE‑object vervangen door een ondersteund. Aspose.Slides for Android via Java maakt het mogelijk het bestandstype voor een ingesloten object in te stellen, waardoor u de OLE‑framedata of de extensie kunt bijwerken.
+Bij het werken met presentaties kan het nodig zijn oude OLE‑objecten te vervangen door nieuwe, of een niet‑ondersteund OLE‑object te vervangen door een ondersteund object. Aspose.Slides for Android via Java maakt het mogelijk het bestandstype voor een ingesloten object in te stellen, zodat u de OLE‑frame‑gegevens of de extensie kunt bijwerken.  
 
-Deze Java‑code toont hoe u het bestandstype voor een ingesloten OLE‑object op `zip` instelt:
+Deze Java‑code toont hoe u het bestandstype voor een ingesloten OLE‑object instelt op `zip`:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
@@ -262,18 +285,24 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Pictogramafbeeldingen en titels voor ingesloten objecten instellen**
+## **Pictogrammen en titels instellen voor ingesloten objecten**
 
-Na het insluiten van een OLE‑object wordt er automatisch een preview toegevoegd die bestaat uit een pictogramafbeelding. Deze preview is wat gebruikers zien voordat ze het OLE‑object benaderen of openen. Als u een specifieke afbeelding en tekst als elementen in de preview wilt gebruiken, kunt u met Aspose.Slides for Android via Java het pictogram en de titel instellen.
+Na het insluiten van een OLE‑object wordt er automatisch een voorbeeld met een pictogramafbeelding toegevoegd. Dit voorbeeld is wat gebruikers zien voordat ze het OLE‑object benaderen of openen. Als u een specifieke afbeelding en tekst als elementen in het voorbeeld wilt gebruiken, kunt u het pictogram en de titel instellen met Aspose.Slides for Android via Java.  
 
-Deze Java‑code laat zien hoe u de pictogramafbeelding en titel voor een ingesloten object kunt instellen:
+Deze Java‑code laat zien hoe u het pictogram en de titel voor een ingesloten object instelt:  
 
 ```java
+import com.aspose.slides.*;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
-// Voeg een afbeelding toe aan de presentatie‑resources.
+// Voeg een afbeelding toe aan de presentatiebronnen.
 File file = new File("image.png");
 byte imageData[] = new byte[(int) file.length()];
 BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
@@ -290,25 +319,41 @@ presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
 ```
 
-## **Voorkomen dat een OLE‑objectframe wordt aangepast in grootte en positie**
+## **Voorkomen dat een OLE‑objectframe wordt geschaald of verplaatst**
 
-Nadat u een gelinkt OLE‑object aan een presentatiedia hebt toegevoegd, kunt u bij het openen van de presentatie in PowerPoint een bericht zien dat vraagt de koppelingen bij te werken. Klikken op de knop "Update Links" kan de grootte en positie van het OLE‑objectframe wijzigen omdat PowerPoint de gegevens van het gelinkte OLE‑object bijwerkt en de preview ververst. Om te voorkomen dat PowerPoint vraagt de gegevens van het object bij te werken, stelt u de `setUpdateAutomatic`‑methode van de [IOleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioleobjectframe/)‑interface in op `false`:
+Nadat u een gelinkt OLE‑object aan een presentatiedia hebt toegevoegd, kunt u bij het openen van de presentatie in PowerPoint een bericht zien waarin wordt gevraagd de koppelingen bij te werken. Het klikken op de knop “Update Links” kan de grootte en positie van het OLE‑objectframe wijzigen omdat PowerPoint de gegevens van het gelinkte OLE‑object bijwerkt en het voorbeeld ververst. Om te voorkomen dat PowerPoint vraagt de objectgegevens bij te werken, stelt u de `setUpdateAutomatic`‑methode van de [IOleObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ioleobjectframe/) interface in op `false`:  
 
 ```java
-oleFrame.setUpdateAutomatic(false);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+
+    oleFrame.setUpdateAutomatic(false);
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 ## **Ingesloten bestanden extraheren**
 
-Aspose.Slides for Android via Java maakt het mogelijk de in dia's ingesloten bestanden als OLE‑objecten op de volgende manier te extraheren:
+Aspose.Slides for Android via Java maakt het mogelijk bestanden die als OLE‑objecten in dia's zijn ingesloten, op de volgende manier te extraheren:  
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation)‑klasse die de OLE‑objecten bevat die u wilt extraheren.  
-2. Loop door alle vormen in de presentatie en benader de [OLEObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/oleobjectframe)‑vormen.  
-3. Benader de data van ingesloten bestanden uit OLE‑objectframes en schrijf deze naar schijf.  
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) klasse die de OLE‑objecten bevat die u wilt extraheren.  
+2. Loop door alle vormen in de presentatie en benader de [OLEObjectFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/oleobjectframe) vormen.  
+3. Benader de gegevens van ingesloten bestanden vanuit OLE‑objectframes en schrijf ze naar schijf.  
 
-Deze Java‑code toont hoe u bestanden die in een dia zijn ingesloten als OLE‑objecten kunt extraheren:
+Deze Java‑code toont hoe u bestanden die in een dia als OLE‑objecten zijn ingesloten, kunt extraheren:  
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.io.FileOutputStream;
+
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -332,18 +377,14 @@ presentation.dispose();
 
 ## **FAQ**
 
-**Wordt de OLE‑content gerenderd bij het exporteren van dia's naar PDF/afbeeldingen?**
+### Wordt de OLE‑inhoud gerenderd bij het exporteren van dia's naar PDF/afbeeldingen?
+Wat zichtbaar is op de dia wordt gerenderd – het pictogram / de vervangende afbeelding (preview). De “live” OLE‑inhoud wordt niet uitgevoerd tijdens het renderen. Indien nodig, stel uw eigen preview‑afbeelding in om te zorgen voor het verwachte uiterlijk in de geëxporteerde PDF.
 
-Wat zichtbaar is op de dia wordt gerenderd — het pictogram/vervangende beeld (preview). De "live" OLE‑content wordt niet uitgevoerd tijdens het renderen. Indien nodig kunt u uw eigen preview‑afbeelding instellen om de verwachte weergave in de geëxporteerde PDF te garanderen.
+### Hoe kan ik een OLE‑object op een dia vergrendelen zodat gebruikers het niet kunnen verplaatsen/bewerken in PowerPoint?
+Vergrendel de vorm: Aspose.Slides biedt vergrendelingen op vormniveau. Dit is geen encryptie, maar voorkomt effectief accidentele bewerkingen en verplaatsingen.
 
-**Hoe kan ik een OLE‑object op een dia vergrendelen zodat gebruikers het niet kunnen verplaatsen/bewerken in PowerPoint?**
+### Waarom “springt” een gelinkt Excel‑object of verandert van grootte wanneer ik de presentatie open?
+PowerPoint kan het voorbeeld van het gelinkte OLE vernieuwen. Voor een stabiel uiterlijk volgt u de praktijken uit de [Working Solution for Worksheet Resizing](/slides/nl/androidjava/working-solution-for-worksheet-resizing/) – pas het frame aan op het bereik, of schaal het bereik naar een vast frame en stel een passend vervangend beeld in.
 
-Vergrendel de vorm: Aspose.Slides biedt vergrendeling op vormniveau. Dit is geen encryptie, maar het voorkomt effectief onbedoelde bewerkingen en verplaatsing.
-
-**Waarom "springt" een gelinkt Excel‑object of verandert van grootte wanneer ik de presentatie open?**
-
-PowerPoint kan de preview van het gelinkte OLE vernieuwen. Voor een stabiele weergave kunt u de richtlijnen van de [Working Solution for Worksheet Resizing](/slides/nl/androidjava/working-solution-for-worksheet-resizing/) volgen — pas het frame aan op het bereik, of schaal het bereik naar een vast frame en stel een geschikt vervangend beeld in.
-
-**Worden relatieve paden voor gelinkte OLE‑objecten bewaard in het PPTX‑formaat?**
-
-In PPTX is informatie over "relatieve paden" niet beschikbaar — alleen het volledige pad. Relatieve paden komen voor in het oudere PPT‑formaat. Voor draagbaarheid geven we de voorkeur aan betrouwbare absolute paden/toegankelijke URI’s of insluiting.
+### Worden relatieve paden voor gelinkte OLE‑objecten bewaard in het PPTX‑formaat?
+In PPTX is informatie over “relatief pad” niet beschikbaar – alleen het volledige pad. Relatieve paden komen voor in het oudere PPT‑formaat. Voor draagbaarheid geeft u de voorkeur aan betrouwbare absolute paden/bereikbare URI’s of het insluiten.

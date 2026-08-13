@@ -10,12 +10,12 @@ keywords:
 - trình chiếu
 - C++
 - Aspose.Slides
-description: "Tạo, chỉnh sửa và chuyển đổi bản trình chiếu trong C++—không cần PowerPoint. Aspose.Slides hỗ trợ PPT, PPTX và ODP với xuất SVG/PDF nhanh."
+description: "Tạo, chỉnh sửa và chuyển đổi các trình chiếu trong C++—không cần PowerPoint. Aspose.Slides hỗ trợ PPT, PPTX và ODP với khả năng xuất nhanh SVG/PDF."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides cho C++ là một thư viện lớp cho phép các ứng dụng C++ đọc và ghi tài liệu trình chiếu mà không cần sử dụng Microsoft PowerPoint® hoặc các phần mềm khác. Aspose.Slides cho C++ cho phép quản lý văn bản, hình dạng, bảng và hoạt ảnh, thêm âm thanh và video vào các slide, xem trước slide, xuất slide ra định dạng SVG, PDF và nhiều hơn nữa.
+Aspose.Slides for C++ là một thư viện lớp cho phép các ứng dụng C++ đọc và ghi tài liệu trình chiếu mà không cần sử dụng Microsoft PowerPoint® hoặc các phần mềm khác. Aspose.Slides for C++ cho phép quản lý văn bản, hình dạng, bảng & hoạt hình, thêm âm thanh và video vào các slide, xem trước slide, xuất slide sang định dạng SVG, PDF và hơn nữa.
 
-Tham chiếu API mới nhất có thể được tìm thấy tại [Tham chiếu API của Aspose.Slides cho C++](https://reference.aspose.com/slides/vi/cpp/).
+Bạn có thể tìm thấy Tham chiếu API mới nhất tại [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/vi/cpp/).
 
 {{% /alert %}}

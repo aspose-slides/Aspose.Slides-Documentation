@@ -1,12 +1,12 @@
 ---
-title: Kijelentés
+title: Nyilatkozat
 type: docs
 weight: 110
 url: /hu/net/declaration/
 keywords:
-- kijelentés
+- nyilatkozat
 - komponensek
-- Full Trust jogosultság
+- Full Trust engedély
 - regisztrációs beállítások
 - rendszerfájlok
 - PowerPoint
@@ -15,25 +15,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for .NET bizalmi követelményeit, jogosultságait és üzemeltetési korlátozásait, hogy biztonságosan telepíthessen olyan alkalmazásokat, amelyek PPT, PPTX és ODP fájlokat dolgoznak fel a szervereken."
+description: "Ismerje meg az Aspose.Slides for .NET megbízhatósági követelményeit, engedélyeit és a hosztolási korlátozásokat, hogy biztonságosan telepíthessen olyan alkalmazásokat, amelyek PPT, PPTX és ODP fájlokat dolgoznak fel a szervereken."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Az összes Aspose .NET komponens a Full Trust jogosultságkészletet igényli, mert bizonyos műveletekhez (például betűtípusok beolvasása) hozzá kell férnie a regisztrációs beállításokhoz, a rendszerfájlokhoz, valamint más helyeken (a virtuális könyvtáron kívül) tárolt fájlokhoz. Továbbá az Aspose .NET komponensek a .NET alap osztályain alapulnak, amelyek sok esetben a Full Trust jogosultságkészletet követelik. 
+Minden Aspose .NET komponensnek szüksége van a Full Trust engedélykészletre, mivel néha hozzá kell férnie a regisztrációs beállításokhoz, rendszerfájlokhoz, illetve a virtuális könyvtáron kívül tárolt fájlokhoz bizonyos műveletek (például betűkészletek feldolgozása) során. Ráadásul az Aspose .NET komponensek a .NET alaprendszer osztályain alapulnak, amelyek sok esetben a Full Trust engedélykészletet igénylik. 
 
 {{% /alert %}} 
 
-Az internetes szolgáltatók, amelyek különböző vállalatok több alkalmazását hosztolják, általában a Medium Trust biztonsági szintet alkalmazzák. Egy .NET 2.0 esetben ez a biztonsági szint a következő korlátozásokat vonja maga után: 
+Az internetszolgáltatók, amelyek több, különböző cég alkalmazásait üzemeltetik, általában a Medium Trust biztonsági szintet kényszerítik ki. .NET 2.0 esetén ez a biztonsági szint a következő korlátozásokat alkalmazza: 
 
-- OleDbPermission nem elérhető. Ez azt jelenti, hogy nem használhatja az ADO.NET kezelt OLE DB adatforrást az adatbázisok eléréséhez.  
-- EventLogPermission nem elérhető. Ez azt jelenti, hogy nem férhet hozzá a Windows eseménynaplóhoz.  
-- ReflectionPermission nem elérhető. Ez azt jelenti, hogy nem használhat reflexiót.  
-- RegistryPermission nem elérhető. Ez azt jelenti, hogy nem férhet hozzá a regiszterhez.  
-- WebPermission korlátozott. Ez azt jelenti, hogy az alkalmazás csak az <trust> elemben definiált cím vagy címek tartományával kommunikálhat.  
-- FileIOPermission korlátozott. Ez azt jelenti, hogy csak az alkalmazás virtuális könyvtárhierarchiájában lévő fájlokhoz férhet hozzá.  
+- OleDbPermission nem érhető el. Ez azt jelenti, hogy nem használhatja az ADO.NET kezelt OLE DB adatprovidert adatbázisok eléréséhez.
+- EventLogPermission nem érhető el. Ez azt jelenti, hogy nem férhet hozzá a Windows eseménynaplóhoz.
+- ReflectionPermission nem érhető el. Ez azt jelenti, hogy nem használhat reflexiót.
+- RegistryPermission nem érhető el. Ez azt jelenti, hogy nem férhet hozzá a regisztrációhoz.
+- WebPermission korlátozott. Ez azt jelenti, hogy alkalmazása csak egy olyan címhez vagy címcsoporthoz tud kommunikálni, amelyet a <trust> elemben definiált.
+- FileIOPermission korlátozott. Ez azt jelenti, hogy csak az alkalmazás virtuális könyvtárhierarchiájában lévő fájlokhoz férhet hozzá.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-A fentiek miatt az Aspose .NET komponenseket csak olyan szervereken lehet használni, amelyek biztosítják a Full Trust jogosultságkészletet. 
+Az előbb említett okok miatt az Aspose .NET komponenseket csak olyan szervereken lehet használni, amelyek biztosítják a Full Trust engedélykészletet. 
 
 {{% /alert %}}

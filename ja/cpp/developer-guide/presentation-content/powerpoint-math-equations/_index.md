@@ -1,23 +1,23 @@
 ---
-title: "C++ で PowerPoint プレゼンテーションに数式を追加する"
-linktitle: "PowerPoint 数式"
+title: C++ で PowerPoint プレゼンテーションに数式を追加
+linktitle: PowerPoint 数式
 type: docs
 weight: 80
 url: /ja/cpp/powerpoint-math-equations/
 keywords:
-- "数式"
-- "数学記号"
-- "数式"
-- "数式テキスト"
-- "数式を追加"
-- "記号を追加"
-- "数式を追加"
-- "テキストを追加"
-- "PowerPoint"
-- "プレゼンテーション"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++ を使用して、PowerPoint の PPT および PPTX に数式を挿入・編集できます。OMML 対応、書式設定コントロール、わかりやすい C++ コードサンプルを提供します。"
+- 数式
+- 数学記号
+- 数式
+- 数式テキスト
+- 数式を追加
+- 数学記号を追加
+- 数式を追加
+- 数式テキストを追加
+- PowerPoint
+- プレゼンテーション
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ を使用して PowerPoint の PPT および PPTX に数式を挿入・編集できます。OMML のサポート、書式設定コントロール、分かりやすい C++ コードサンプルを提供します。"
 ---
 ## **概要**
 
@@ -25,29 +25,45 @@ PowerPoint は方程式を Office Math Markup Language (OMML) として保存し
 
 PowerPoint では、通常 **挿入 > 数式** から方程式を追加します。
 
-![PowerPoint の挿入タブで「数式」コマンドが選択されている様子](powerpoint-math-equations_1.png)
+![PowerPoint の挿入タブで数式コマンドが選択されている様子](powerpoint-math-equations_1.png)
 
-結果としてスライド上に編集可能な数式テキストが表示されます。
+結果として、スライド上に編集可能な数式テキストが表示されます。
 
-![編集可能な数式が含まれる PowerPoint スライドの例](powerpoint-math-equations_2.png)
+![編集可能な数式が含まれる PowerPoint スライド](powerpoint-math-equations_2.png)
 
 Aspose.Slides は次の 3 つの主要オブジェクトを通じて数式テキストを構築します。
 
 - [AddMathShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/shapecollection/) で作成される数式シェイプは、方程式を含むシェイプです。
 - [MathPortion](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathportion/) はシェイプのテキストフレーム内に数式コンテンツを格納します。
-- [MathParagraph](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathparagraph/) は 1 つ以上の [MathBlock](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathblock/) オブジェクトを保持します。
+- [MathParagraph](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathparagraph/) は 1 つ以上の [MathBlock](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathblock/) オブジェクトを含みます。
 
-以下のほとんどの例は [MathematicalText](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathematicaltext/) と、コードを短く読みやすくするために [IMathElement](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/) のフルエントメソッドを使用しています。
+以下の例のほとんどは、[MathematicalText](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathematicaltext/) と、コードを短く読みやすくするための [IMathElement](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/) の流暢なメソッドを使用しています。
 
 MathML エクスポートのシナリオについては、[Export Math Equations from Presentations in C++](/slides/ja/cpp/exporting-math-equations/) を参照してください。
 
 ## **方程式の作成**
 
-この例は数式シェイプを作成し、ピタゴラスの定理を追加します。
+この例では数式シェイプを作成し、ピタゴラスの定理を追加します。
 
-![c² = a² + b² の式を示す画像](powerpoint-math-equations_3.png)
+![c² = a² + b² の方程式](powerpoint-math-equations_3.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -68,17 +84,33 @@ presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-`AddMathShape` は既に数式段落を含むシェイプを作成します。最初の `MathPortion` にアクセスし、その `MathParagraph` を取得して、数式ブロックや数式要素を追加します。
+{{% alert color="info" %}}
+`AddMathShape` は、既に数式段落を含むシェイプを作成します。最初の `MathPortion` にアクセスし、その `MathParagraph` を取得して、数式ブロックまたは数式要素を追加します。
 {{% /alert %}}
 
 ## **分数の追加**
 
 `Divide` を使用して分数を作成します。[MathFractionTypes](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathfractiontypes/) で分数のスタイルを選択できます。
 
-![x で割った 1 を示す斜めの分数の画像](powerpoint-math-equations_4.png)
+![x で割った 1 の斜め分数](powerpoint-math-equations_4.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -95,19 +127,38 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-積み重ね型の分数には `MathFractionTypes::Bar` を使用します。
+スタックされた分数が必要な場合は、`MathFractionTypes::Bar` を使用します。
 
 ```cpp
+#include <DOM/MathText/MathFractionTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
 ```
 
 ## **根号の追加**
 
-`Radical` を使用して平方根、立方根、その他の根号を作成します。現在の要素が基底となり、引数が次数になります。
+`Radical` を使用して平方根、立方根、その他の根号を作成します。現在の要素が根号の基底となり、引数が次数になります。
 
-![x が根号記号の下にある n 乗根の式の画像](powerpoint-math-equations_5.png)
+![x が根号記号の下にある n 次根式](powerpoint-math-equations_5.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -126,11 +177,27 @@ presentation->Dispose();
 
 ## **関数と極限の追加**
 
-`AsArgumentOfFunction` または `Function` を使用して `sin(x)`、`log(x)` などの関数、またはカスタム関数名を表現します。極限は [MathLimit](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathlimit/) に `lim` を入れるか、`SetLowerLimit` を使用します。
+`AsArgumentOfFunction` または `Function` を使用して、`sin(x)`、`log(x)` などの関数やカスタム関数名を追加します。極限の場合は、[MathLimit](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathlimit/) に `lim` を入れるか、`SetLowerLimit` を使用します。
 
-![x が無限大に近づく極限の画像](powerpoint-math-equations_8.png)
+![x が無限大に近づく極限](powerpoint-math-equations_8.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathLimit.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -148,19 +215,39 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-カスタム関数名を使用する場合は、関数名自体を現在の要素にします。
+カスタム関数名を使用する場合は、関数名を現在の要素にします。
 
 ```cpp
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
 ## **N 進演算子と積分の追加**
 
-`Nary` を使用して総和、和集合、積集合、その他の大きな演算子を作成します。`Integral` は積分を作成します。両方のメソッドで下限と上限を設定できます。
+合計、和集合、積集合などの大きな演算子には `Nary` を使用します。積分には `Integral` を使用します。両方のメソッドで下限と上限を設定できます。
 
-![下限と上限が付いた総和の画像](powerpoint-math-equations_7.png)
+![下限と上限が付いた総和記号](powerpoint-math-equations_7.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathNaryOperatorTypes.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -180,22 +267,47 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N 進演算子はオプションで上下限を持つ大きな演算子です。`+`、`-`、`=` などの単純演算子は通常 `MathematicalText` として追加し、式に結合します。
+N 進演算子はオプションの上下限を持つ大きな演算子用です。`+`、`-`、`=` などの単純演算子は通常 `MathematicalText` で追加し、式に結合します。
 
-積分を追加するには `Integral` を使用します。
+積分の場合は `Integral` を使用します。
 
 ```cpp
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathBox.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/MathIntegralTypes.h>
+#include <DOM/MathText/MathematicalText.h>
+using namespace Aspose::Slides::MathText;
+
 auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
 auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 ```
 
 ## **行列の追加**
 
-行と列を表すには [MathMatrix](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathmatrix/) を使用します。行列は既定で括弧を含まないため、必要に応じて丸括弧、角括弧、波括弧で囲んでください。
+行と列には [MathMatrix](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathmatrix/) を使用します。行列はデフォルトで括弧を含まないため、括弧、角括弧、波括弧が必要なときは外側に囲んでください。
 
-![空白セルを含む 2 行の数式行列の画像](powerpoint-math-equations_10.png)
+![空白セルを含む 2 行の数式行列](powerpoint-math-equations_10.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathMatrix.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -218,11 +330,26 @@ presentation->Dispose();
 
 ## **数式配列の追加**
 
-整列した方程式や縦に並んだ式が必要な場合は `ToMathArray` を使用します。
+整列された方程式や縦にスタックされた式が必要な場合は `ToMathArray` を使用します。
 
-![x が上、y が下に並んだ縦方向の数式配列の画像](powerpoint-math-equations_11.png)
+![x が上、y が下に並ぶ縦の数式配列](powerpoint-math-equations_11.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -244,9 +371,25 @@ presentation->Dispose();
 
 引数が現在の要素で関数名が既知の場合は `AsArgumentOfFunction` を使用します。
 
-![cos が 2x に適用された三角関数の画像](powerpoint-math-equations_6.png)
+![cos が 2x に適用された三角関数](powerpoint-math-equations_6.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathFunctionsOfOneArgument.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -263,13 +406,28 @@ presentation->Save(u"trigonometric-function.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **下付き文字と上付き文字の追加**
+## **添え字と上付き文字の追加**
 
-インデックスや指数には下付き・上付きヘルパーを使用します。インデックスを基底の左側に表示する必要がある場合は `SetSubSuperscriptOnTheLeft` を使用します。
+インデックスやべき乗には添え字・上付き文字ヘルパーを使用します。インデックスが基底の左側に表示する必要がある場合は `SetSubSuperscriptOnTheLeft` を使用します。
 
-![左側に下付き 1 と上付き n を持つ大文字 Y の画像](powerpoint-math-equations_9.png)
+![左側に添え字 1、上に上付き文字 n が付いた大文字 Y](powerpoint-math-equations_9.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -290,9 +448,24 @@ presentation->Dispose();
 
 `Enclose` を使用して式を区切り記号で囲みます。複数要素を含む区切り記号式には区切り文字も設定できます。
 
-![x、y、z が縦棒で区切られた区切り記号式の画像](powerpoint-math-equations_13.png)
+![縦棒で区切られた x、y、z を含む区切り記号式](powerpoint-math-equations_13.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -313,11 +486,27 @@ presentation->Dispose();
 
 ## **枠付きボックスの追加**
 
-式自体を枠で囲む場合は `ToBorderBox` を使用します。
+方程式自体を枠で囲む場合は `ToBorderBox` を使用します。
 
-![b² + c² = a² を示す枠付き方程式の画像](powerpoint-math-equations_12.png)
+![a² = b² + c² を示す枠付き方程式](powerpoint-math-equations_12.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathSuperscriptElement.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -339,13 +528,30 @@ presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **項のグルーピング**
+## **項のグループ化**
 
-`Group` を使用して式の上または下にグループ文字を配置します。ラベルとして限界を追加できます。
+`Group` を使用して式の上または下にグルーピング文字を配置します。グループ化した項にラベルを付ける場合は限界を追加します。
 
-![x + y が下に「任意のテキスト」ラベル付きでグループ化された式の画像](powerpoint-math-equations_15.png)
+![x + y が下に「任意のテキスト」ラベル付きでグループ化された式](powerpoint-math-equations_15.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathGroupingCharacter.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathTopBotPositions.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -365,11 +571,26 @@ presentation->Dispose();
 
 ## **数式要素の書式設定**
 
-書式設定ヘルパーは式の可読性を高める場合にのみ使用してください。例として `Overbar` は数式要素の上にバーを付けます。
+書式ヘルパーは式の可読性が向上する場合にのみ使用します。例として `Overbar` は数式要素の上にバーを付けます。
 
-![ABC に上バーが付いた数式の画像](powerpoint-math-equations_14.png)
+![上にバーが付いた数式 ABC](powerpoint-math-equations_14.png)
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/MathBlock.h>
+#include <DOM/MathText/MathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -387,12 +608,12 @@ presentation->Dispose();
 
 ## **クイックリファレンス**
 
-| タスク | 主な API |
+| タスク | メイン API |
 | --- | --- |
 | 数式テキストの作成 | [MathematicalText](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/mathematicaltext/) |
 | 要素の結合 | [IMathElement.Join](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/join/) |
 | 分数の作成 | [IMathElement.Divide](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| 上付き・下付きの追加 | [SetSuperscript](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| 上付き・下付き文字の追加 | [SetSuperscript](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | 関数の追加 | [Function](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | 根号の追加 | [IMathElement.Radical](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/radical/) |
 | 極限の追加 | [SetLowerLimit](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
@@ -402,7 +623,7 @@ presentation->Dispose();
 | 方程式配列の追加 | [ToMathArray](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
 | 区切り記号の追加 | [Enclose](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/enclose/) |
 | バーと枠の追加 | [Overbar](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
-| 項のグルーピング | [Group](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/group/) |
+| 項のグループ化 | [Group](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
@@ -416,4 +637,4 @@ presentation->Dispose();
 
 **方程式を LaTeX にエクスポートできますか？**
 
-Aspose.Slides は数式を MathML にエクスポートします。LaTeX が必要な場合は、まず MathML にエクスポートし、対象の LaTeX 方言をサポートするツールで MathML を変換してください。
+はい。方程式の [IMathParagraph](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathparagraph/) をその [IMathPortion](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathportion/) から取得し、[IMathParagraph::ToLatex](https://reference.aspose.com/slides/ja/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) を呼び出して直接エクスポートします。完全な例については、[Export Math Equations from Presentations in C++](/slides/ja/cpp/exporting-math-equations/#export-math-equations-to-latex) を参照してください。

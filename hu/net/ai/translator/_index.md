@@ -12,7 +12,7 @@ keywords:
 - többnyelvű dia
 - prezentációfordítás
 - diafordítás
-- AI-vezérelt funkciók
+- AI által vezérelt funkciók
 - AI képességek
 - AI ügynök
 - Web kliens
@@ -22,35 +22,37 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Fordítsa le a PowerPoint diákot AI segítségével az Aspose.Slides for .NET segítségével. Lokalizálja a PPT, PPTX és ODP fájlokat a layout megtartásával – gyors és fejlesztőbarát. Próbálja ki."
+description: "Fordítsa le a PowerPoint diákat AI segítségével az Aspose.Slides for .NET segítségével. Lokalizálja a PPT, PPTX és ODP fájlokat a layout megőrzésével - gyors és fejlesztőbarát. Próbálja ki."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides egy erőteljes API a PowerPoint‑prezentációk programozott kezelésére. A diák létrehozása, szerkesztése és konvertálása mellett AI‑alapú funkciókat kínál – például a [Presentation Translation API](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/) többnyelvű diágtartalomhoz.
+Az Aspose.Slides egy erőteljes API a PowerPoint‑prezentációk programozott kezeléséhez. A diák létrehozása, szerkesztése és konvertálása mellett AI‑alapú funkciókat is kínál – például a [Presentation Translation API](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/) többnyelvű diatartalomhoz.
 
 ## **Hogyan működik**
 
-Az Aspose.Slides nem tartalmaz beépített AI‑képességeket, hanem interneten keresztül integrálódik külső AI‑modellekkel. Ez a funkció a [SlidesAIAgent](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/slidesaiagent) osztályon keresztül érhető el, amely a [IAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/iaiwebclient/) interfész egy megvalósítását használja az AI‑szolgáltatásokkal való kommunikációhoz.
+Az Aspose.Slides beépített AI funkciókkal nem rendelkezik, hanem az interneten keresztül külső AI modellekkel integrálódik. Ezt a funkcionalitást a [SlidesAIAgent](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/slidesaiagent) osztály biztosítja, amely a [IAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/iaiwebclient/) interfész egy implementációját használja az AI szolgáltatásokkal való kommunikációhoz.
 
-Használhatja a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) klienst az OpenAI API‑hoz való kapcsolódáshoz, vagy megvalósíthatja saját [IAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/iaiwebclient/) interfészét egy másik AI‑szolgáltató vagy nyelvi modell használatához.
+Használhatja a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/)‑t az OpenAI API‑hoz való csatlakozáshoz, vagy saját [IAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/iaiwebclient/) implementációt hozhat létre egy másik AI szolgáltató vagy nyelvi modell használatához.
 
-Az Aspose.Slides kezeli a kommunikációt, feldolgozza az AI‑válaszokat, és intelligensen beilleszti a lefordított tartalmat, miközben megőrzi az eredeti diaelrendezést és formázást.
+Az Aspose.Slides kezeli a kommunikációt, feldolgozza az AI válaszokat, és intelligensen illeszti be a lefordított tartalmat, miközben megőrzi az eredeti diaelrendezést és formázást.
 
-{{% alert color="primary" %}}
-
-Vegye figyelembe, hogy az OpenAI API fizetős szolgáltatás, ezért fiókot kell létrehoznia, és meg kell adnia az API‑kulcsát a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) használatakor.
-
+{{% alert color="info" %}}
+Felhívjuk a figyelmet, hogy az OpenAI API fizetős szolgáltatás, ezért egy fiókot kell létrehoznia, és meg kell adnia az API kulcsát a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) használatakor.
 {{% /alert %}}
 
 ## **Példa**
 
-Ebben a példában a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) segítségével fordítunk egy PowerPoint‑prezentációt japánra egy meghatározott OpenAI [model](https://platform.openai.com/docs/models) használatával.
+Ebben a példában a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) segítségével fordítunk egy PowerPoint‑prezentációt japánra, egy megadott OpenAI [model](https://platform.openai.com/docs/models) használatával.
 
 ```csharp
-// Betölt egy prezentációt a fordításhoz.
+using Aspose.Slides;
+using Aspose.Slides.AI;
+using Aspose.Slides.Export;
+
+// Töltsön be egy prezentációt a fordításhoz.
 using var presentation = new Presentation("sample.pptx");
 
-// Hozzon létre egy AI klienset az OpenAIWebClient használatával, megadva a modelljét és az API kulcsot.
+// Hozzon létre egy AI klienset az OpenAIWebClient segítségével, megadva a modellt és az API kulcsot.
 using var aiWebClient = new OpenAIWebClient(model: "gpt-4o-mini", apiKey: "apiKey", organizationId: null);
 
 // Inicializálja a SlidesAIAgent-et az AI klienssel.
@@ -63,16 +65,20 @@ await aiAgent.TranslateAsync(presentation, "japanese");
 presentation.Save("sample_jp.pdf", SaveFormat.Pdf);
 ```
 
-Alapértelmezés szerint a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) saját belső [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) példányt hoz létre és kezel, automatikusan gondoskodva annak életciklusáról és felszabadításáról. Ha azonban saját maga szeretné kezelni a [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) – például egy [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) használatával a jobb erőforrás‑kezelés és teljesítmény érdekében – megadhatja saját `HttpClient` példányát a [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) példányosításakor.
+Alapértelmezés szerint a beépített [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) saját belső [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) példányt hoz létre és kezel, az életciklusát és felszabadítását automatikusan intézi. Ha azonban ön szeretné kezelni a [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) példányt – például egy [IHttpClientFactory](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) használatával a jobb erőforrás‑kezelés és teljesítmény érdekében – megadhatja saját `HttpClient` példányát a [OpenAIWebClient](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/openaiwebclient/) létrehozásakor.
 
 ```csharp
-// Tegyük fel, hogy rendelkezik egy IHttpClientFactory példánnyal (pl. függőség-injekcióval injektálva).
-HttpClient httpClient = httpClientFactory.CreateClient();
+using System.Net.Http;
+using Aspose.Slides.AI;
+
+// Használjon egy HttpClient-et, amelyet ön kezel - például egy, amelyet egy IHttpClientFactory hoz létre
+// befecskendezve a függőséginjektálás segítségével.
+HttpClient httpClient = new HttpClient();
 using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpClient);
 ```
 
-Az Aspose.Slides gyakran használatos szinkron környezetekben. Ennek támogatására a [SlidesAIAgent](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/slidesaiagent/) osztály szinkron és aszinkron módszereket egyaránt kínál – lehetővé téve, hogy a legmegfelelőbb megközelítést válassza alkalmazása munkafolyamatához.
+Az Aspose.Slides gyakran használatos szinkron környezetekben. Ennek támogatására a [SlidesAIAgent](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/slidesaiagent/) osztály szinkron és aszinkron módszereket egyaránt kínál – így választhatja ki a legmegfelelőbb megközelítést az alkalmazása munkafolyamatához.
 
-## **Főbb előnyök**
+## **Fő előnyök**
 
-Az Aspose.Slides [Presentation Translation API](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/) AI‑alapú megoldást kínál többnyelvű PowerPoint‑prezentációk szállításához. A fordítás automatizálásával, miközben megőrzi az elrendezést és a tervezést, időt takarít meg és csökkenti a hibákat a kézi munkafolyamatokhoz képest. Akár fejlesztő, oktató vagy üzleti szakember vagy, ez az API lehetővé teszi, hogy vonzó, lokalizált prezentációkat készítsen globális közönségnek – ezáltal bővítve elérését és javítva a kommunikációt.
+Az Aspose.Slides [Presentation Translation API](https://reference.aspose.com/slides/hu/net/aspose.slides.ai/) AI‑alapú megoldást nyújt a többnyelvű PowerPoint‑prezentációk elkészítéséhez. A fordítás automatizálásával, miközben megőrzi az elrendezést és a tervezést, időt takarít meg, és csökkenti a hibalehetőségeket a kézi folyamatokhoz képest. Legyen Ön fejlesztő, oktató vagy üzleti szakember, ez az API lehetővé teszi vonzó, lokalizált prezentációk készítését a globális közönség számára – ezáltal bővítve elérését és javítva a kommunikációt.

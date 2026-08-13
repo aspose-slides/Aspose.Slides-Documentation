@@ -1,23 +1,37 @@
 ---
-title: Публичный API и несовместимые изменения в Aspose.Slides для Java 14.6.0
+title: Публичный API и несовместимые изменения в Aspose.Slides for Java 14.6.0
+linktitle: Aspose.Slides для Java 14.6.0
 type: docs
 weight: 50
 url: /ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
+keywords:
+- миграция
+- унаследованный код
+- современный код
+- устаревший подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Обзор обновлений публичного API и несовместимых изменений в Aspose.Slides for Java для плавной миграции ваших решений презентаций PowerPoint PPT, PPTX и ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Эта страница содержит список всех [добавленных](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) классов, методов, свойств и так далее, а также любые новые ограничения и другие изменения, введенные в API Aspose.Slides для Java 14.6.0.
+Эта страница перечисляет все [added](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) классы, методы, свойства и т.д., любые новые ограничения и другие изменения, введённые в API Aspose.Slides for Java 14.6.0.
 
 {{% /alert %}} 
-## **Изменения в публичном API**
+## **Изменения публичного API**
 ### **Добавленные классы, методы, интерфейсы и перечисления**
-#### **Добавлены перечисление ViewType, интерфейс IViewProperties, класс ViewProperties и метод IPresentation.getViewProperties()**
-Метод IPresentation.getViewProperty() предоставляет доступ к IViewProperties и позволяет изменять тип представления презентации и видимость заметок при открытии презентации в Microsoft PowerPoint.
+#### **Добавлено перечисление ViewType, интерфейс IViewProperties, класс ViewProperties и метод IPresentation.getViewProperties()**
+Метод IPresentation.getViewProperties() предоставляет доступ к IViewProperties и позволяет изменять тип представления презентации и видимость заметок при открытии презентации в Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
 
-Presentation p = new Presentation();
+
+ Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
@@ -35,8 +49,10 @@ p.getViewProperties().setLastView(ViewType.SlideMasterView);
 добавляют/вставляют копию указанной фигуры в коллекцию. 
 
 ``` java
+import com.aspose.slides.*;
 
-Presentation srcPres = new Presentation("data/Source Frame.pptx");
+
+ Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
 IShapeCollection sourceShapes = srcPres.getSlides().get_Item(0).getShapes();
 
@@ -63,8 +79,10 @@ destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 Этот интерфейс определяет типы значений в списке свойств ChartDataPoint.ErrorBarsCustomValues.
 
 ``` java
+import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+
+ Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
@@ -113,8 +131,10 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 Когда свойство IErrorBarsFormat.ValueType равно Custom, для указания значения используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints серии.
 
 ``` java
+import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+
+ Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 
@@ -160,12 +180,14 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **Добавлен интерфейс Aspose.Slides.Charts.IErrorBarsFormat**
-Этот интерфейс представляет собой ошибочные полосы серий диаграмм.
-В случае пользовательского типа значения для указания значения используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoints серии.
+Этот интерфейс представляет полосы ошибок серии диаграммы.
+В случае пользовательского типа значения для указания значения используйте свойство ErrorBarCustomValues конкретной точки данных в коллекции DataPoins серии.
 
 ``` java
+import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+
+ Presentation pres = new Presentation();
 
 IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
 

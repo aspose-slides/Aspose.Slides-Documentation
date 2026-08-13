@@ -1,53 +1,64 @@
 ---
-title: Convertir PowerPoint a PDF con Notas
+title: Convertir presentaciones de PowerPoint a PDF con notas en Android
+linktitle: PowerPoint a PDF con notas
 type: docs
 weight: 50
 url: /es/androidjava/convert-powerpoint-to-pdf-with-notes/
-keywords: "convertir powerpoint a pdf con notas en java"
-description: "Convertir PowerPoint a PDF con notas en Java"
+keywords:
+- convertir PowerPoint
+- convertir presentación
+- convertir diapositiva
+- convertir PPT
+- convertir PPTX
+- PowerPoint a PDF
+- presentación a PDF
+- diapositiva a PDF
+- PPT a PDF
+- PPTX a PDF
+- guardar presentación como PDF
+- guardar PPT como PDF
+- guardar PPTX como PDF
+- exportar PPT a PDF
+- exportar PPTX a PDF
+- notas del presentador
+- PDF con notas
+- Android
+- Java
+- Aspose.Slides
+description: "Convertir los formatos PPT y PPTX a PDF con notas usando Aspose.Slides para Android mediante Java. Conservar diseños y notas del presentador para presentaciones profesionales."
 ---
+## **Descripción general**
 
-## **Convertir PowerPoint a PDF con Tamaño de Diapositiva Personalizado**
-El siguiente ejemplo muestra cómo convertir una presentación a un documento PDF con notas y tamaño de diapositiva personalizado. Donde cada pulgada equivale a 72.
+En este artículo, aprenderá cómo convertir presentaciones de PowerPoint al formato PDF con notas del presentador usando Aspose.Slides. Esta guía cubrirá los pasos necesarios y proporcionará ejemplos de código para ayudarle a realizar esta tarea de manera eficiente. Al final de este artículo, podrá:
+
+- Implementar el proceso de conversión para transformar diapositivas de PowerPoint en documentos PDF conservando las notas del presentador.  
+- Personalizar el PDF de salida para garantizar que las notas del presentador se incluyan y formateen según sus requisitos.
+
+## **Convertir PowerPoint a PDF con notas**
+
+El método `save` de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) se puede usar para convertir una presentación PPT o PPTX a un PDF con notas del presentador. Con Aspose.Slides, simplemente carga la presentación, configura las opciones de diseño usando la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/notescommentslayoutingoptions/) para incluir las notas del presentador y luego guarda el archivo como PDF. El siguiente fragmento de código muestra cómo convertir una presentación de ejemplo a un PDF en la vista de diapositiva de notas.
 
 ```java
-// Instanciar un objeto Presentation que representa un archivo de presentación
-Presentation presIn = new Presentation("SelectedSlides.pptx");
-Presentation presOut = new Presentation();
-try {
-    ISlide slide = presIn.getSlides().get_Item(0);
-    presOut.getSlides().insertClone(0, slide);
-    
-    // Configurando Tipo y Tamaño de Diapositiva
-    presOut.getSlideSize().setSize(612F, 792F,SlideSizeScaleType.EnsureFit);
-        
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
+import com.aspose.slides.*;
 
-    presOut.save("PDF-SelectedSlide.pdf", SaveFormat.Pdf, pdfOptions);
+Presentation presentation = new Presentation("sample.pptx");
+try {
+	// Configurar opciones PDF para renderizar notas del presentador.
+	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Renderizar notas del presentador debajo de la diapositiva.
+
+	PdfOptions pdfOptions = new PdfOptions();
+	pdfOptions.setSlidesLayoutOptions(notesOptions);
+
+	// Guardar la presentación en PDF con notas del presentador.
+	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (presIn != null) presIn.dispose();
-    if (presOut != null) presOut.dispose();
+	if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Convertir PowerPoint a PDF en Vista de Diapositivas con Notas**
-El método [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) expuesto por la clase [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) se puede utilizar para convertir toda la presentación en vista de Diapositivas con Notas a PDF. Los fragmentos de código a continuación actualizan la presentación de ejemplo a PDF en vista de Diapositivas con Notas.
+{{% alert color="info" %}} 
 
-```java
-Presentation pres = new Presentation("presentation.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-
-    pres.save(resourcesOutputPath+"PDF-Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{% alert color="primary" %}} 
-
-Puede que desee consultar el convertidor de Aspose [PowerPoint a PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) o [PPT a PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
+Puede que desee consultar el [Convertidor en línea de PowerPoint a PDF](https://products.aspose.app/slides/es/conversion) de Aspose. 
 
 {{% /alert %}}

@@ -1,5 +1,5 @@
 ---
-title: Effizientes Zusammenführen von Präsentationen in .NET
+title: Präsentationen in .NET effizient zusammenführen
 linktitle: Präsentationen zusammenführen
 type: docs
 weight: 40
@@ -20,84 +20,91 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Müheloses Zusammenführen von PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen mit Aspose.Slides für .NET, zur Optimierung Ihres Workflows."
+description: "PowerPoint‑ (PPT, PPTX) und OpenDocument‑ (ODP) Präsentationen mühelos mit Aspose.Slides für .NET zusammenführen und Ihren Arbeitsablauf optimieren."
 ---
+## **Übersicht**
+
+Aspose.Slides ermöglicht das Zusammenführen von Präsentationen, indem Folien einer Präsentation in eine andere geklont werden. Dieser Artikel erklärt, wie man gesamte Präsentationen oder ausgewählte Folien zusammenführt, während des Zusammenführens ein Folienmaster oder ein bestimmtes Layout verwendet, Präsentationen mit unterschiedlichen Foliengrößen behandelt und zusammengeführte Folien zu einem Präsentationsabschnitt hinzufügt. Außerdem werden praktische Hinweise zu zusammengeführten Inhalten behandelt, einschließlich Referentennotizen, Kommentaren, passwortgeschützten Quelldateien und Thread‑Nutzung.
 
 ## **Optimieren Sie das Zusammenführen von Präsentationen**
 
-Mit [Aspose.Slides für .NET](https://products.aspose.com/slides/net/) können Sie PowerPoint‑Präsentationen nahtlos kombinieren und dabei Stile, Layouts und alle Elemente erhalten. Im Gegensatz zu anderen Werkzeugen fügt Aspose.Slides Präsentationen zusammen, ohne die Qualität zu beeinträchtigen oder Daten zu verlieren. Fügen Sie ganze Präsentationen, einzelne Folien und sogar unterschiedliche Dateiformate (PPT zu PPTX usw.) zusammen.
+Mit [Aspose.Slides for .NET](https://products.aspose.com/slides/de/net/) können PowerPoint‑Präsentationen nahtlos kombiniert werden, wobei Stil‑, Layout‑ und alle Elemente erhalten bleiben. Im Gegensatz zu anderen Tools fügt Aspose.Slides Präsentationen zusammen, ohne Qualität zu beeinträchtigen oder Daten zu verlieren. Fügen Sie komplette Präsentationen, bestimmte Folien und sogar verschiedene Dateiformate (PPT zu PPTX usw.) zusammen.
 
-### **Funktionen zum Zusammenführen**
+### **Zusammenführungsfunktionen**
 
-- **Vollständiges Präsentations‑Zusammenführen:** Alle Folien zu einer einzigen Datei zusammenstellen.  
-- **Einzelne Folien zusammenführen:** Ausgewählte Folien auswählen und kombinieren.  
-- **Cross‑Format‑Zusammenführen:** Präsentationen verschiedener Formate integrieren und dabei die Integrität bewahren.  
+- **Vollständige Präsentationszusammenführung:** Alle Folien zu einer einzigen Datei zusammenstellen.  
+- **Spezifische Folienzusammenführung:** Ausgewählte Folien auswählen und kombinieren.  
+- **Formatübergreifende Zusammenführung:** Präsentationen unterschiedlicher Formate integrieren und dabei die Integrität wahren.  
 
-{{% alert title="Tip" color="primary" %}}  
+{{% alert title="Tipp" color="info" %}}  
 
-Sie suchen ein schnelles und **kostenloses Online‑Tool**, um **PowerPoint‑Präsentationen zusammenzuführen**? Probieren Sie den [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
+Suchen Sie ein schnelles und **kostenloses Online‑Tool**, um **PowerPoint‑Präsentationen zusammenzufügen**? Probieren Sie den [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/de/merger).  
 
 - **PowerPoint‑Dateien einfach zusammenführen**: Kombinieren Sie mehrere **PPT, PPTX, ODP**‑Präsentationen zu einer einzigen Datei.  
-- **Unterstützt verschiedene Formate**: Führen Sie **PPT zu PPTX**, **PPTX zu ODP** und mehr zusammen.  
-- **Keine Installation erforderlich**: Arbeitet direkt in Ihrem Browser, schnell und sicher.  
+- **Unterstützt verschiedene Formate**: Fügen Sie **PPT zu PPTX**, **PPTX zu ODP** und weitere Formate zusammen.  
+- **Keine Installation erforderlich**: Funktioniert direkt in Ihrem Browser, schnell und sicher.  
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+[![PowerPoint‑Dateien online zusammenführen](slides-merger.png)](https://products.aspose.app/slides/de/merger)  
 
-Starten Sie das Zusammenführen Ihrer PowerPoint‑Dateien noch heute mit dem **kostenlosen Online‑Tool von Aspose**!  
+Beginnen Sie noch heute mit dem **kostenlosen Online‑Tool von Aspose** Ihre PowerPoint‑Dateien zusammenzuführen!  
 
 {{% /alert %}}
 
-## **Präsentations‑Zusammenführung**
+## **Präsentationszusammenführung**
 
-Wenn Sie eine Präsentation mit einer anderen [zusammenführen](https://products.aspose.com/slides/net/merger/ppt/), kombinieren Sie deren Folien effektiv zu einer einzigen Präsentation, um eine Datei zu erhalten. 
+Wenn Sie [eine Präsentation in eine andere zusammenführen](https://products.aspose.com/slides/de/net/merger/ppt/), kombinieren Sie effektiv deren Folien zu einer einzigen Präsentation, um eine Datei zu erhalten. 
 
 {{% alert title="Info" color="info" %}}
 
-Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) verfügen nicht über Funktionen, mit denen Benutzer Präsentationen auf diese Weise kombinieren können.  
+Die meisten Präsentationsprogramme (PowerPoint oder OpenOffice) bieten keine Funktionen, mit denen Benutzer Präsentationen auf diese Weise kombinieren können. 
 
-[**Aspose.Slides für .NET**](https://products.aspose.com/slides/net/) ermöglicht jedoch das Zusammenführen von Präsentationen auf verschiedene Arten. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts- oder Datenverlust sorgen zu müssen.  
+[**Aspose.Slides for .NET**](https://products.aspose.com/slides/de/net/) ermöglicht das Zusammenführen von Präsentationen auf verschiedene Weise. Sie können Präsentationen mit all ihren Formen, Stilen, Texten, Formatierungen, Kommentaren, Animationen usw. zusammenführen, ohne sich um Qualitäts‑ oder Datenverlust sorgen zu müssen. 
 
-**Siehe auch**  
+**Siehe auch**
 
-[Folien klonen](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
+[Folien klonen](https://docs.aspose.com/slides/de/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
 
 {{% /alert %}}
 
 ### **Was kann zusammengeführt werden**
 
-Mit Aspose.Slides können Sie
+Mit Aspose.Slides können Sie  
 
-* ganze Präsentationen zusammenführen. Alle Folien aus den Präsentationen landen in einer einzigen Präsentation  
-* einzelne Folien zusammenführen. Ausgewählte Folien landen in einer einzigen Präsentation  
-* Präsentationen im selben Format (PPT zu PPT, PPTX zu PPTX usw.) sowie in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) miteinander verbinden. 
+* komplette Präsentationen zusammenführen. Alle Folien der Präsentationen landen in einer Präsentation.  
+* spezifische Folien zusammenführen. Ausgewählte Folien landen in einer Präsentation.  
+* Präsentationen im selben Format (PPT zu PPT, PPTX zu PPTX usw.) und in unterschiedlichen Formaten (PPT zu PPTX, PPTX zu ODP usw.) zueinander zusammenführen.  
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Hinweis" color="warning" %}} 
 
-Zusätzlich zu Präsentationen ermöglicht Aspose.Slides das Zusammenführen anderer Dateien:
+Neben Präsentationen erlaubt Aspose.Slides das Zusammenführen weiterer Dateien:  
 
-* [Bilder](https://products.aspose.com/slides/net/merger/image-to-image/), wie z. B. [JPG zu JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/net/merger/png-to-png/)  
-* Dokumente, wie z. B. [PDF zu PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/net/merger/html-to-html/)  
-* Und zwei unterschiedliche Dateien wie [Bild zu PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/), [JPG zu PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/). 
+* [Bilder](https://products.aspose.com/slides/de/net/merger/image-to-image/), z. B. [JPG zu JPG](https://products.aspose.com/slides/de/net/merger/jpg-to-jpg/) oder [PNG zu PNG](https://products.aspose.com/slides/de/net/merger/png-to-png/)  
+* Dokumente, z. B. [PDF zu PDF](https://products.aspose.com/slides/de/net/merger/pdf-to-pdf/) oder [HTML zu HTML](https://products.aspose.com/slides/de/net/merger/html-to-html/)  
+* Und zwei unterschiedliche Dateien, z. B. [Bild zu PDF](https://products.aspose.com/slides/de/net/merger/image-to-pdf/), [JPG zu PDF](https://products.aspose.com/slides/de/net/merger/jpg-to-pdf/) oder [TIFF zu PDF](https://products.aspose.com/slides/de/net/merger/tiff-to-pdf/).  
 
 {{% /alert %}}
 
 ### **Zusammenführungsoptionen**
 
-Sie können Optionen festlegen, die bestimmen, ob
+Sie können Optionen festlegen, die bestimmen, ob  
 
-* jede Folie in der Ausgabepresentation einen einzigartigen Stil behält  
-* ein einheitlicher Stil für alle Folien der Ausgabepresentation verwendet wird.  
+* jede Folie in der Ausgabepäsentation einen einzigartigen Stil behält  
+* ein einheitlicher Stil für alle Folien in der Ausgabepäsentation verwendet wird.  
 
-Um Präsentationen zusammenzuführen, stellt Aspose.Slides [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone)‑Methoden (aus dem [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection)‑Interface) bereit. Es gibt mehrere Implementierungen der `AddClone`‑Methoden, die die Parameter des Präsentations‑Zusammenführungsprozesses definieren. Jedes Presentation‑Objekt verfügt über eine [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides)‑Sammlung, sodass Sie eine `AddClone`‑Methode von der Präsentation aufrufen können, zu der Sie Folien zusammenführen möchten.  
+Um Präsentationen zusammenzuführen, stellt Aspose.Slides die [AddClone](https://reference.aspose.com/slides/de/net/aspose.slides/islidecollection/methods/addclone)‑Methoden (aus dem [ISlideCollection](https://reference.aspose.com/slides/de/net/aspose.slides/islidecollection)‑Interface) bereit. Es gibt mehrere Implementierungen der `AddClone`‑Methoden, die die Parameter des Zusammenführungsprozesses definieren. Jedes Presentation‑Objekt besitzt eine [Slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/properties/slides)‑Auflistung, sodass Sie die `AddClone`‑Methode von der Präsentation aus aufrufen können, in die Sie Folien einfügen möchten.  
 
-Die `AddClone`‑Methode liefert ein `ISlide`‑Objekt zurück, das eine Kopie der Quellfolie ist. Die Folien in einer Ausgabepresentation sind einfach Kopien der Folien der Quelle. Daher können Sie die resultierenden Folien ändern (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen beeinflusst werden. 
+Die `AddClone`‑Methode gibt ein `ISlide`‑Objekt zurück, das ein Klon der Quellfolie ist. Die Folien in der Ausgabepäsentation sind einfach Kopien der Quellfolien. Daher können Sie die resultierenden Folien ändern (z. B. Stile, Formatierungsoptionen oder Layouts anwenden), ohne dass die Quellpräsentationen beeinflusst werden.  
 
 ## **Präsentationen zusammenführen** 
 
-Aspose.Slides stellt die [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone)‑Methode bereit, mit der Sie Folien kombinieren können, wobei die Folien ihre Layouts und Stile beibehalten (Standardparameter).  
+Aspose.Slides stellt die [**AddClone (ISlide)**](https://reference.aspose.com/slides/de/net/aspose.slides/islidecollection/methods/addclone)‑Methode bereit, mit der Sie Folien kombinieren können, wobei die Folien ihre Layouts und Stile beibehalten (Standardparameter).  
 
-Dieser C#‑Code zeigt, wie Sie Präsentationen zusammenführen:  
+Der folgende C#‑Code zeigt, wie Sie Präsentationen zusammenführen:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -110,13 +117,16 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
+## **Präsentationen mit einem Folienmaster zusammenführen**
 
-## **Präsentationen mit einem Folienmaster zusammenführen** 
+Aspose.Slides stellt die [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/de/net/aspose.slides.islidecollection/addclone/methods/2)‑Methode bereit, mit der Sie Folien kombinieren können, während Sie eine Folienmaster‑Vorlage anwenden. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepäsentation ändern.  
 
-Aspose.Slides stellt die [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2)‑Methode bereit, mit der Sie Folien kombinieren können, während Sie eine Folienmaster‑Präsentationsvorlage anwenden. Auf diese Weise können Sie bei Bedarf den Stil der Folien in der Ausgabepresentation ändern.  
+Dieser C#‑Code demonstriert den beschriebenen Vorgang:
 
-Dieser C#‑Code demonstriert den beschriebenen Vorgang:  
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -129,21 +139,24 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
+{{% alert title="Hinweis" color="warning" %}} 
 
-{{% alert title="Note" color="warning" %}} 
-
-Das Folienlayout für den Folienmaster wird automatisch bestimmt. Wenn kein passendes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf true gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) ausgelöst. 
+Das Folienlayout für den Folienmaster wird automatisch ermittelt. Wenn kein geeignetes Layout ermittelt werden kann und der boolesche Parameter `allowCloneMissingLayout` der `AddClone`‑Methode auf `true` gesetzt ist, wird das Layout der Quellfolie verwendet. Andernfalls wird eine [PptxEditException](https://reference.aspose.com/slides/de/net/aspose.slides/pptxeditexception) ausgelöst. 
 
 {{% /alert %}}
 
-Wenn die Folien in der Ausgabepresentation ein anderes Folienlayout erhalten sollen, verwenden Sie stattdessen die [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1)‑Methode beim Zusammenführen. 
+Wenn die Folien in der Ausgabepäsentation ein anderes Folienlayout erhalten sollen, verwenden Sie stattdessen die [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/de/net/aspose.slides.islidecollection/addclone/methods/1)‑Methode beim Zusammenführen.  
 
-## **Bestimmte Folien aus Präsentationen zusammenführen** 
+## **Bestimmte Folien aus Präsentationen zusammenführen**
 
-Das Zusammenführen bestimmter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Foliensets zu erstellen. Aspose.Slides für .NET ermöglicht es Ihnen, nur die benötigten Folien auszuwählen und zu importieren. Die API erhält Formatierung, Layout und Design der ursprünglichen Folien.  
+Das Zusammenführen ausgewählter Folien aus mehreren Präsentationen ist nützlich, um benutzerdefinierte Foliensets zu erstellen. Aspose.Slides for .NET ermöglicht es, nur die benötigten Folien auszuwählen und zu importieren. Die API bewahrt Formatierung, Layout und Design der Ursprungfolien.  
 
-Der folgende C#‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:  
+Der folgende C#‑Code erstellt eine neue Präsentation, fügt Titelfolien aus zwei anderen Präsentationen hinzu und speichert das Ergebnis in einer Datei:
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
 using (Presentation presentation2 = new Presentation("presentation2.pptx"))
@@ -162,9 +175,7 @@ using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 
     presentation.Save("combined.pptx", SaveFormat.Pptx);
 }
-```
-  
-```cs
+
 static ISlide GetTitleSlide(IPresentation presentation)
 {
     foreach (ISlide slide in presentation.Slides)
@@ -177,12 +188,30 @@ static ISlide GetTitleSlide(IPresentation presentation)
     return null;
 }
 ```
-  
+```cs
+using Aspose.Slides;
 
-## **Präsentationen mit einem Folienlayout zusammenführen** 
+static ISlide GetTitleSlide(IPresentation presentation)
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
+        {
+            return slide;
+        }
+    }
+    return null;
+}
+```
 
-Dieser C#‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren und dabei Ihr bevorzugtes Folienlayout anwenden, um eine einzige Ausgabepresentation zu erhalten:  
+## **Präsentationen mit einem Folienlayout zusammenführen**
+
+Dieser C#‑Code zeigt, wie Sie Folien aus Präsentationen kombinieren und dabei Ihr bevorzugtes Folienlayout anwenden, um eine Ausgabepäsentation zu erhalten:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -194,20 +223,23 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
 ```
-  
 
-## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen** 
+## **Präsentationen mit unterschiedlichen Foliengrößen zusammenführen**
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Hinweis" color="warning" %}} 
 
-Sie können keine Präsentationen mit unterschiedlichen Foliengrößen zusammenführen. 
+Das Zusammenführen von Präsentationen mit unterschiedlichen Foliengrößen löst keinen Fehler aus, jedoch übernehmen die zusammengeführten Folien die Foliengröße der Zielpräsentation, während ihre Formen ihre ursprünglichen Positionen und Größen beibehalten. Inhalte können dadurch verschoben oder außerhalb der Folienränder liegen. 
 
-{{% /alert %}}  
+{{% /alert %}}
 
-Um zwei Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen, müssen Sie eine der Präsentationen so skalieren, dass ihre Größe der der anderen Präsentation entspricht.  
+Um 2 Präsentationen mit unterschiedlichen Foliengrößen zusammenzuführen und ihre Inhalte korrekt anzuordnen, passen Sie die Größe einer der Präsentationen an, sodass sie der Größe der anderen entspricht.  
 
-Dieser Beispielcode demonstriert den beschriebenen Vorgang:  
+Der folgende Beispielcode demonstriert den beschriebenen Vorgang:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
 {
@@ -221,12 +253,15 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
 ```
-  
 
-## **Folien zu einem Präsentationsabschnitt zusammenführen** 
+## **Folien zu einem Präsentationsabschnitt hinzufügen**
 
-Dieser C#‑Code zeigt, wie Sie eine bestimmte Folie zu einem Abschnitt in einer Präsentation zusammenführen:  
+Dieser C#‑Code zeigt, wie Sie eine bestimmte Folie zu einem Abschnitt in einer Präsentation hinzufügen:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -239,30 +274,29 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres1.Save("combined.pptx", SaveFormat.Pptx);
 }
 ```
-  
 
-Die Folie wird am Ende des Abschnitts eingefügt.  
+Die Folie wird am Ende des Abschnitts eingefügt. 
 
-{{% alert title="Tip" color="primary" %}} 
+{{% alert title="Tipp" color="info" %}}
 
-Aspose bietet eine [KOSTENLOSE Collage‑Web‑App](https://products.aspose.app/slides/collage) an. Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/collage/jpg) oder PNG zu PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/collage/photo-grid) erstellen und vieles mehr. 
+Aspose bietet eine [KOSTENLOSE Collage‑Web‑App](https://products.aspose.app/slides/de/collage). Mit diesem Online‑Dienst können Sie [JPG zu JPG](https://products.aspose.app/slides/de/collage/jpg) oder PNG‑zu‑PNG‑Bilder zusammenführen, [Fotogitter](https://products.aspose.app/slides/de/collage/photo-grid) erstellen und vieles mehr. 
 
-{{% /alert %}}  
+{{% /alert %}}
 
-## **FAQ**  
+## **FAQ**
 
-**Are speaker notes preserved during merge?**  
+### Werden Referentennotizen beim Zusammenführen erhalten?
 
-Ja. Beim Klonen von Folien übernimmt Aspose.Slides alle Folienelemente, einschließlich Notizen, Formatierung und Animationen.  
+Ja. Beim Klonen von Folien überträgt Aspose.Slides alle Folienelemente, einschließlich Notizen, Formatierung und Animationen.
 
-**Are comments and their authors transferred?**  
+### Werden Kommentare und ihre Autoren übernommen?
 
-Kommentare werden als Teil des Folieninhalts mitkopiert. Die Autorbezeichnungen der Kommentare bleiben als Kommentarobjekte in der resultierenden Präsentation erhalten.  
+Kommentare, als Teil des Folieninhalts, werden mit der Folie kopiert. Die Autor‑Labels bleiben als Kommentarobjekte in der resultierenden Präsentation erhalten.
 
-**What if the source presentation is password-protected?**  
+### Was ist, wenn die Quellpräsentation passwortgeschützt ist?
 
-Sie muss über das [Passwort geöffnet werden](/slides/de/net/password-protected-presentation/) mittels [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); nach dem Laden können diese Folien sicher in eine ungeschützte Zieldatei (oder ebenfalls in eine geschützte) geklont werden.  
+Sie muss über das Passwort mit [LoadOptions.Password](https://reference.aspose.com/slides/de/net/aspose.slides/loadoptions/password/) geöffnet werden ([mehr erfahren](/slides/de/net/password-protected-presentation/)). Nach dem Laden können diese Folien sicher in eine ungeschützte Zieldatei (oder ebenfalls in eine geschützte) geklont werden.
 
-**How thread-safe is the merge operation?**  
+### Wie thread‑sicher ist der Zusammenführungs‑Vorgang?
 
-Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)‑Instanz aus mehreren Threads (/slides/de/net/multithreading/). Die empfohlene Regel lautet „ein Dokument – ein Thread“; verschiedene Dateien können parallel in separaten Threads verarbeitet werden.
+Verwenden Sie nicht dieselbe [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Instanz von mehreren Threads ([mehr erfahren](/slides/de/net/multithreading/)). Die empfohlene Regel lautet „ein Dokument – ein Thread“; verschiedene Dateien können parallel in separaten Threads verarbeitet werden.

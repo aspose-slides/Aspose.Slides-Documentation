@@ -1,5 +1,5 @@
 ---
-title: API Publik dan Perubahan Tidak Kompatibel Mundur di Aspose.Slides untuk Java 15.10.0
+title: API Publik dan Perubahan Tidak Kompatibel Mundur dalam Aspose.Slides untuk Java 15.10.0
 linktitle: Aspose.Slides untuk Java 15.10.0
 type: docs
 weight: 180
@@ -15,12 +15,10 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang merusak di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
+description: "Tinjau pembaruan API publik dan perubahan yang memecah dalam Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
-
-Halaman ini mencantumkan semua kelas, metode, properti, dan lain-lain yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) atau [dihapus](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/), serta perubahan lain yang diperkenalkan dengan API Aspose.Slides for Java 15.10.0.
-
+{{% alert color="info" %}} 
+Halaman ini mencantumkan semua kelas, metode, properti, dll yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) atau [dihapus](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) serta perubahan lain yang diperkenalkan dengan API Aspose.Slides for Java 15.10.0.
 {{% /alert %}} 
 ## **Perubahan API Publik**
 #### **API animasi seri diagram telah ditambahkan ke ISequence**
@@ -36,18 +34,22 @@ IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, 
 
 Metode-metode ini dimaksudkan untuk mendukung animasi elemen diagram:
 
-per seri  
-per kategori  
-per elemen seri  
-per elemen kategori  
+per seri
+per kategori
+elemen per seri
+elemen per kategori
 
 Dua enum baru EffectChartMajorGroupingType dan EffectChartMinorGroupingType yang terkait dengan animasi elemen diagram telah diperkenalkan.
 
-Untuk menambahkan animasi seri ke diagram, kode berikut dapat digunakan:
+Untuk menambahkan animasi seri ke diagram, kode berikut dapat digunakan. Diagram dalam file contoh memiliki tiga seri, sehingga satu efek ditambahkan untuk setiap indeks dari 0 hingga 2:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try {
 
@@ -79,12 +81,6 @@ try {
 
 		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
 	pres.save(outFileName, SaveFormat.Pptx);
 
 } finally {
@@ -98,8 +94,12 @@ try {
 Animasi kategori:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -152,8 +152,12 @@ try
 Animasi elemen seri:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -254,8 +258,12 @@ try
 Animasi elemen kategori:
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation(inFileName);
+String inFileName = "chart.pptx";
+String outFileName = "chart-animation.pptx";
+
+Presentation pres = new Presentation(inFileName);
 
 try
 
@@ -357,13 +365,15 @@ Kelas publik baru com.aspose.slides.VideoPlayerHtmlController telah ditambahkan.
 
 Konstruktor VideoPlayerHtmlController menerima parameter berikut:
 
-- path: Jalur tempat file video dan audio akan dihasilkan  
-- fileName: Nama file HTML  
-- baseUri: URI dasar yang akan digunakan untuk menghasilkan tautan  
+path: Jalur dimana file video dan audio akan dihasilkan (folder harus sudah ada)  
+fileName: Nama file HTML  
+baseUri: URI dasar yang akan digunakan untuk menghasilkan tautan
 
 Contoh penggunaan:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("example.pptx");
 
@@ -371,7 +381,7 @@ try
 
 {
 
-	final String path = "path";
+	final String path = "path/";
 
 	final String fileName = "video.html";
 

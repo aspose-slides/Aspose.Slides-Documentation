@@ -13,31 +13,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Descubra como criar e personalizar gráficos de rosca no Aspose.Slides para Android via Java, com suporte a formatos PowerPoint para apresentações dinâmicas."
+description: "Descubra como criar e personalizar gráficos de rosca no Aspose.Slides para Android via Java, suportando formatos PowerPoint para apresentações dinâmicas."
 ---
 ## **Visão geral**
 
-Este artigo mostra como trabalhar com um gráfico de rosca no Aspose.Slides adicionando o gráfico a um slide, definindo o tamanho do seu buraco central e salvando a apresentação. Ele foca no método `setDoughnutHoleSize` e demonstra as etapas básicas necessárias para personalizar esse tipo de gráfico por código.
+Este artigo mostra como trabalhar com um gráfico de rosca no Aspose.Slides adicionando o gráfico a um slide, definindo o tamanho do buraco central e salvando a apresentação. Ele foca no método `setDoughnutHoleSize` e demonstra as etapas básicas necessárias para personalizar esse tipo de gráfico em código.
 
-Ele também inclui uma breve FAQ que cobre cenários relacionados a gráficos de rosca, como usar múltiplas séries para criar vários anéis, trabalhar com gráficos de rosca explodidos e exportar um gráfico como imagem raster ou SVG.
+Ele também inclui uma breve FAQ cobrindo cenários relacionados a gráficos de rosca, como o uso de múltiplas séries para criar vários anéis, trabalhar com gráficos de rosca explodidos e exportar um gráfico como imagem raster ou SVG.
 
-## **Especificar o espaço central em um gráfico de rosca**
-{{% alert color="primary" %}} 
+## **Especificar o Espaço Central em um Gráfico de Rosca**
+{{% alert color="info" %}} 
 
-Aspose.Slides for Android via Java agora suporta a especificação do tamanho do buraco em um gráfico de rosca. Neste tópico, veremos com um exemplo como especificar o tamanho do buraco em um gráfico de rosca.
+Aspose.Slides for Android via Java agora suporta especificar o tamanho do buraco em um gráfico de rosca. Neste tópico, veremos com um exemplo como especificar o tamanho do buraco em um gráfico de rosca.
 
 {{% /alert %}} 
 
 Para especificar o tamanho do buraco em um gráfico de rosca, siga as etapas abaixo:
 
 1. Instanciar o objeto [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation).
-2. Adicionar um gráfico de rosca ao slide.
-3. Especificar o tamanho do buraco no gráfico de rosca.
-4. Gravar a apresentação no disco.
+2. Adicionar um gráfico de rosca no slide.
+3. Especificar o tamanho do buraco em um gráfico de rosca.
+4. Salvar a apresentação no disco.
 
-No exemplo abaixo, definimos o tamanho do buraco no gráfico de rosca.
+No exemplo abaixo, definimos o tamanho do buraco em um gráfico de rosca.
 
 ```java
+import com.aspose.slides.*;
+
 // Crie uma instância da classe Presentation
 Presentation pres = new Presentation();
 try {
@@ -54,14 +56,14 @@ try {
 
 ## **FAQ**
 
-**Posso criar uma rosca de vários níveis com múltiplos anéis?**
+### Posso criar uma rosca de vários níveis com vários anéis?
 
-Sim. Adicione várias séries a um único gráfico de rosca — cada série se torna um anel separado. A ordem dos anéis é determinada pela ordem das séries na coleção.
+Sim. Adicione múltiplas séries a um único gráfico de rosca — cada série se torna um anel separado. A ordem dos anéis é determinada pela ordem das séries na coleção.
 
-**Um gráfico de rosca "explodido" (fatias separadas) é suportado?**
+### Um gráfico de rosca "explodido" (fatias separadas) é suportado?
 
 Sim. Existe um tipo de gráfico Exploded Doughnut [chart type](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/charttype/) e uma propriedade de explosão nos pontos de dados; você pode separar fatias individuais.
 
-**Como posso obter uma imagem de um gráfico de rosca (PNG/SVG) para um relatório?**
+### Como posso obter uma imagem de um gráfico de rosca (PNG/SVG) para um relatório?
 
 Um gráfico é uma forma; você pode renderizá-lo para uma [imagem raster](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) ou exportar o gráfico para uma [imagem SVG](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-).

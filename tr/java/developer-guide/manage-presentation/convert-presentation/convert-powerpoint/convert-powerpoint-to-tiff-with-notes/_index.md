@@ -1,6 +1,6 @@
 ---
-title: Java'da Notlarla PowerPoint Sunumlarını TIFF'e Dönüştürme
-linktitle: PowerPoint'ten Notlarla TIFF'e
+title: Java'da Notlu PowerPoint Sunumlarını TIFF'e Dönüştürme
+linktitle: Notlu PowerPoint'ten TIFF'e
 type: docs
 weight: 100
 url: /tr/java/convert-powerpoint-to-tiff-with-notes/
@@ -27,40 +27,42 @@ keywords:
 - Notlu TIFF
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java kullanarak PowerPoint sunumlarını notlarla TIFF'e dönüştürün. Konuşmacı notlarıyla slaytları verimli bir şekilde dışa aktarmayı öğrenin."
+description: "Aspose.Slides for Java kullanarak notlu PowerPoint sunumlarını TIFF'e dönüştürün. Konuşmacı notlarıyla slaytları verimli bir şekilde dışa aktarmayı öğrenin."
 ---
 ## **Giriş**
 
-Aspose.Slides for Java, PowerPoint ve OpenDocument sunumlarını (PPT, PPTX ve ODP) notlarla birlikte TIFF formatına dönüştürmek için basit bir çözüm sunar. Bu format yüksek kaliteli görüntü depolama, baskı ve belge arşivleme amacıyla yaygın olarak kullanılır. Aspose.Slides ile sadece tüm sunumları konuşmacı notlarıyla dışa aktarmakla kalmaz, aynı zamanda Not Slaytı görünümünde slayt küçük resimlerini de oluşturabilirsiniz. Dönüştürme süreci basit ve etkilidir; `save` yöntemi, [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı kullanılarak tüm sunumu notları ve düzeni koruyan bir dizi TIFF görüntüsüne dönüştürür.
+Aspose.Slides for Java, notlarla birlikte PowerPoint ve OpenDocument sunumlarını (PPT, PPTX ve ODP) TIFF formatına dönüştürmek için basit bir çözüm sunar. Bu format, yüksek kaliteli görüntü depolama, baskı ve belge arşivleme için yaygın olarak kullanılır. Aspose.Slides ile yalnızca konuşmacı notlarıyla birlikte tüm sunumları dışa aktarmakla kalmaz, aynı zamanda Not Slayt görünümünde slayt küçük resimleri de oluşturabilirsiniz. Dönüştürme işlemi basit ve verimlidir; tüm sunumu notları ve düzeni koruyarak bir dizi TIFF görüntüsüne dönüştürmek için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının `save` yöntemini kullanır.
 
-## **Bir Sunumu Notlarla TIFF'e Dönüştürme**
+## **Sunumu Notlarla TIFF'e Dönüştürme**
 
-Aspose.Slides for Java kullanarak bir PowerPoint veya OpenDocument sunumunu notlarla birlikte TIFF'e kaydetmek aşağıdaki adımları içerir:
+PowerPoint veya OpenDocument sunumunu notlarla birlikte TIFF'e kaydetmek için Aspose.Slides for Java aşağıdaki adımları içerir:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfını örnekleyin: bir PowerPoint veya OpenDocument dosyasını yükleyin.  
-1. Çıktı düzeni seçeneklerini yapılandırın: [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notescommentslayoutingoptions/) sınıfını kullanarak notların ve yorumların nasıl görüntüleneceğini belirleyin.  
-1. Sunumu TIFF olarak kaydedin: yapılandırılmış seçenekleri [save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) yöntemine geçirin.
+1. Presentation sınıfının bir örneğini oluşturun: Bir PowerPoint veya OpenDocument dosyasını yükleyin.
+1. Çıktı düzen seçeneklerini yapılandırın: Notların ve yorumların nasıl görüntüleneceğini belirlemek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notescommentslayoutingoptions/) sınıfını kullanın.
+1. Sunumu TIFF olarak kaydedin: Yapılandırılmış seçenekleri [save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) yöntemine geçirin.
 
-Diyelim ki aşağıdaki slaytı içeren bir "speaker_notes.pptx" dosyamız var:
+Diyelim ki aşağıdaki slayta sahip bir "speaker_notes.pptx" dosyamız var:
 
-![The presentation slide with speaker notes](slide_with_notes.png)
+![Konuşmacı notlarıyla sunum slaytı](slide_with_notes.png)
 
-Aşağıdaki kod örneği, [setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) yöntemini kullanarak Not Slaytı görünümünde sunumu bir TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir.
+Aşağıdaki kod snippet'i, sunumu Not Slayt görünümünde TIFF görüntüsüne dönüştürmek için [setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) yönteminin nasıl kullanılacağını gösterir.
 
 ```java
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+import com.aspose.slides.*;
+
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluşturur.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-    notesOptions.setNotesPosition(NotesPositions.BottomFull); // Notları slayın altında göster.
+    notesOptions.setNotesPosition(NotesPositions.BottomFull); // Notları slaytın altında gösterir.
 
-    // Not düzeni ile TIFF seçeneklerini yapılandır.
+    // Not düzeniyle TIFF seçeneklerini yapılandır.
     TiffOptions tiffOptions = new TiffOptions();
     tiffOptions.setDpiX(300);
     tiffOptions.setDpiY(300);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Sunumu konuşmacı notlarıyla TIFF olarak kaydet.
+    // Sunumu konuşmacı notlarıyla TIFF olarak kaydeder.
     presentation.save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
@@ -69,24 +71,22 @@ try {
 
 Sonuç:
 
-![The TIFF image with speaker notes](TIFF_with_notes.png)
+![Konuşmacı notlarıyla TIFF görüntüsü](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-
-Aspose [Ücretsiz PowerPoint'ten Poster Dönüştürücü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) sitesine göz atın.
-
+{{% alert title="Tip" color="info" %}}
+Aspose [Ücretsiz PowerPoint'den Poster Dönüştürücüsü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) inceleyin.
 {{% /alert %}}
 
 ## **SSS**
 
-**Çıktı TIFF'te not alanının konumunu kontrol edebilir miyim?**
+### Oluşan TIFF'teki not alanının konumunu kontrol edebilir miyim?
 
-Evet. [notes layout settings](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) kullanarak `None`, `BottomTruncated` veya `BottomFull` gibi seçenekler arasından seçim yapabilirsiniz; bu seçenekler sırasıyla notları gizler, tek bir sayfaya sığdırır veya ek sayfalara akmasına izin verir.
+Evet. Notların konumunu seçmek için [notes layout settings](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) içinde `None`, `BottomTruncated` veya `BottomFull` gibi seçenekleri kullanabilirsiniz; bu seçenekler sırasıyla notları gizler, tek bir sayfaya sığdırır veya ek sayfalara akmasına izin verir.
 
-**Notlarla bir TIFF dosyasının boyutunu, görünür kalite kaybı olmadan nasıl küçültebilirim?**
+### Notlarla bir TIFF dosyasının boyutunu, kalite kaybı olmadan nasıl azaltabilirim?
 
-[efficient compression](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) (ör. `LZW` veya `RLE`) seçin, makul bir DPI ayarlayın ve kabul edilebiliyorsa daha düşük bir [pixel format](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) (ör. 8 bpp veya monokrom için 1 bpp) kullanın. [image dimensions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) değerlerini hafifçe azaltmak da okunabilirliği belirgin bir şekilde etkilemeden faydalı olabilir.
+Bir [verimli sıkıştırma](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) (ör. `LZW` veya `RLE`) seçin, makul bir DPI ayarlayın ve kabul edilebilirse daha düşük bir [piksel biçimi](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) (ör. monokrom için 8 bpp veya 1 bpp) kullanın. [görüntü boyutları](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) değerlerini biraz azaltmak da okunabilirliği belirgin şekilde etkilemeden yardımcı olabilir.
 
-**Orijinal yazı tipleri sistemde eksik olduğunda notların yazı tipi sonucu etkiler mi?**
+### Sisteminizde orijinal fontlar eksikse, notlardaki font sonuçları etkiler mi?
 
-Evet. Eksik yazı tipleri [substitution](/slides/tr/java/font-selection-sequence/) tetikler ve bu da metin metriklerini ve görünümünü değiştirebilir. Bunu önlemek için [gerekli yazı tiplerini sağlayın](/slides/tr/java/custom-font/) veya varsayılan bir [fallback font](/slides/tr/java/fallback-font/) ayarlayın ki istenen tipografiler kullanılsın.
+Evet. Eksik fontlar [substitution](/slides/tr/java/font-selection-sequence/) tetikler ve bu, metin ölçümlerini ve görünümünü değiştirebilir. Bunu önlemek için [gereken fontları sağlayın](/slides/tr/java/custom-font/) veya varsayılan bir [fallback font](/slides/tr/java/fallback-font/) ayarlayarak istenen tipografilerin kullanılmasını sağlayabilirsiniz.

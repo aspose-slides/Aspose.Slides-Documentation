@@ -1,67 +1,86 @@
 ---
-title: API public et changements incompatibles avec les versions antérieures dans Aspose.Slides pour Java 15.6.0
+title: API publique et modifications incompatibles avec les versions antérieures dans Aspose.Slides for Java 15.6.0
+linktitle: Aspose.Slides pour Java 15.6.0
 type: docs
 weight: 140
 url: /fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/
+aliases:
+  - /java/aspose-slides-for-java-15-6-0-release-notes/
+keywords:
+  - migration
+  - code hérité
+  - code moderne
+  - approche héritée
+  - approche moderne
+  - PowerPoint
+  - OpenDocument
+  - présentation
+  - Java
+  - Aspose.Slides
+description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides for Java afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Cette page liste toutes les [ajouts](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) de classes, méthodes, propriétés, etc., toutes nouvelles restrictions et autres [changements](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) introduits avec l'API Aspose.Slides pour Java 15.6.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [added](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) ainsi que les nouvelles restrictions et les autres [changes](/slides/fr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) introduits avec l'API Aspose.Slides for Java 15.6.0.
 
 {{% /alert %}} 
-## **Changements de l'API publique**
+## **Modifications de l'API publique**
 #### **La signature du constructeur com.aspose.slides.DataLabel a été modifiée**
 La signature du constructeur a été modifiée de DataLabel(com.aspose.slides.IChartSeries) à DataLabel(com.aspose.slides.IChartDataPoint).
-#### **Les membres com.aspose.slides.IDocumentProperties.getCount(), .getPropertyName(int index), .remove(String name), .contains(String name) ont été marqués comme obsolètes ; des substitutions ont été introduites à la place**
-Les méthodes IDocumentProperties.getCount(), IDocumentProperties.getPropertyName(int index), .remove(string name), .contains(string name) ont été marquées comme obsolètes. Les méthodes IDocumentProperties.countOfCustomProperties(), IDocumentProperties.getCustomPropertyName(int index), .removeCustomProperty(String name), .containsCustomProperty(string name) ont été introduites à la place.
+#### **Les membres com.aspose.slides.IDocumentProperties.getCount(), .getPropertyName(int index)., .remove(String name), .contains(String name) ont été marqués comme obsolètes ; des remplacements ont été introduits**
+Les méthodes IDocumentProperties.getCount(), IDocumentProperties.getPropertyName(int index)., .remove(string name), .contains(string name) ont été marquées comme obsolètes. Les méthodes IDocumentProperties.countOfCustomProperties(), IDocumentProperties.getCustomPropertyName(int index)., .removeCustomProperty(String name), .containsCustomProperty(string name) ont été introduites à la place.
 #### **La méthode com.aspose.slides.INotesSlideManager.removeNotesSlide() a été ajoutée**
 La méthode com.aspose.slides.INotesSlideManager.RemoveNotesSlide() a été ajoutée pour supprimer la diapositive de notes d'une diapositive.
 #### **La méthode com.aspose.slides.ISlide.getNotesSlideManager() a été ajoutée. Les méthodes ISlide.getNotesSlide() et ISlide.addNotesSlide() ont été marquées comme obsolètes**
-Les méthodes ISlide.getNotesSlide(), ISlide.addNotesSlide() ont été marquées comme obsolètes. Utilisez la nouvelle méthode ISlide.getNotesSlideManager() à la place.
+Les méthodes ISlide.getNotesSlide() et ISlide.addNotesSlide() ont été marquées comme obsolètes. Utilisez la nouvelle méthode ISlide.getNotesSlideManager() à la place.
 
 ``` java
+import com.aspose.slides.*;
 
- ISlide slide = ...;
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
 
-INotesSlide notes;
+    INotesSlide notes;
 
-// notes = slide.addNotesSlide(); - obsolète
+    // notes = slide.addNotesSlide(); - obsolète
 
-// notes = slide.getNotesSlide(); - obsolète
+    // notes = slide.getNotesSlide(); - obsolète
 
-notes = slide.getNotesSlideManager().getNotesSlide();
+    notes = slide.getNotesSlideManager().getNotesSlide();
 
-notes = slide.getNotesSlideManager().addNotesSlide();
+    notes = slide.getNotesSlideManager().addNotesSlide();
 
-slide.getNotesSlideManager().removeNotesSlide();
-
+    slide.getNotesSlideManager().removeNotesSlide();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 #### **La méthode getAppVersion() a été ajoutée à com.aspose.slides.IDocumentProperties**
-La méthode com.aspose.slides.IDocumentProperties.getAppVersion() a été ajoutée pour obtenir la propriété de document intégrée, qui représente les numéros de version internes utilisés par Microsoft PowerPoint.
+La méthode com.aspose.slides.IDocumentProperties.getAppVersion() a été ajoutée afin d'obtenir la propriété de document intégrée, qui représente les numéros de version internes utilisés par Microsoft PowerPoint.
 #### **La méthode remove() a été ajoutée à com.aspose.slides.IComment**
 La méthode com.aspose.slides.IComment.remove() a été ajoutée pour supprimer un commentaire de la collection.
 #### **La méthode remove() a été ajoutée à com.aspose.slides.ICommentAuthor**
 La méthode ICommentAuthor.Remove a été ajoutée pour supprimer l'auteur des commentaires de la collection.
 #### **Les méthodes clearCustomProperties() et clearBuiltInProperties() ont été ajoutées à com.aspose.slides.IDocumentProperties**
 La méthode com.aspose.slides.IDocumentProperties.clearCustomProperties() a été ajoutée pour supprimer toutes les propriétés de document personnalisées.
-La méthode com.aspose.slides.IDocumentProperties.clearBuiltInProperties() a été ajoutée pour supprimer et définir des valeurs par défaut pour toutes les propriétés de document intégrées (Société, Sujet, Auteur, etc.).
-#### **Les méthodes getBlackWhiteMode(), setBlackWhiteMode(byte) ont été ajoutées à com.aspose.slides.IShape**
-Les méthodes getBlackWhiteMode(), setBlackWhiteMode(byte) ont été ajoutées à com.aspose.slides.IShape.
-Les méthodes spécifient comment une forme sera rendue en mode d'affichage noir et blanc. Les valeurs possibles sont spécifiées dans la classe com.aspose.slides.BlackWhiteMode.
+La méthode com.aspose.slides.IDocumentProperties.clearBuiltInProperties() a été ajoutée pour supprimer et réinitialiser les valeurs par défaut de toutes les propriétés de document intégrées (Company, Subject, Author, etc.).
+#### **Les méthodes getBlackWhiteMode() et setBlackWhiteMode(byte) ont été ajoutées à com.aspose.slides.IShape**
+Les méthodes getBlackWhiteMode() et setBlackWhiteMode(byte) ont été ajoutées à com.aspose.slides.IShape.
+Ces méthodes précisent comment une forme sera rendue en mode d'affichage noir et blanc. Les valeurs possibles sont spécifiées dans la classe com.aspose.slides.BlackWhiteMode.
 
 |**Valeur** |**Signification** |
 | :- | :- |
-|Couleur |Retourne avec un coloriage normal |
-|Automatique |Retourne avec un coloriage automatique |
-|Gris |Retourne avec un coloriage gris |
-|Gris clair |Retourne avec un coloriage gris clair |
-|Gris inversé |Retourne avec un coloriage gris inversé |
-|Gris et blanc |Retourne avec un coloriage gris et blanc |
-|Noir et gris |Retourne avec un coloriage noir et gris |
-|Noir et blanc |Retourne avec un coloriage noir et blanc |
-|Noir |Retourne uniquement avec un coloriage noir |
-|Blanc |Retourne avec un coloriage blanc |
-|Masqué |L'objet n'est pas rendu |
+|Color |Renvoie avec la coloration normale |
+|Automatic |Renvoie avec la coloration automatique |
+|Gray |Renvoie avec une coloration grise |
+|LightGray |Renvoie avec une coloration gris clair |
+|InverseGray |Renvoie avec une coloration gris inversé |
+|GrayWhite |Renvoie avec une coloration gris et blanc |
+|BlackGray |Renvoie avec une coloration noir et gris |
+|BlackWhite |Renvoie avec une coloration noir et blanc |
+|Black |Renvoie uniquement avec une coloration noire |
+|White |Renvoie avec une coloration blanche |
+|Hidden |L'objet n'est pas rendu |
 #### **Les méthodes removeAt(int), remove(ICommentAuthor) et clear() ont été ajoutées à com.aspose.slides.ICommentAuthorCollection**
-La méthode ICommentAuthorCollection.removeAt(int) a été ajoutée pour supprimer l'auteur par index spécifié. La méthode ICommentAuthorCollection.remove(ICommentAuthor) a été ajoutée pour supprimer l'auteur spécifié de la collection. La méthode ICommentAuthorCollection.clear() a été ajoutée pour supprimer tous les éléments de la collection.
+La méthode ICommentAuthorCollection.removeAt(int) a été ajoutée pour supprimer un auteur par l'index spécifié. La méthode ICommentAuthorCollection.remove(ICommentAuthor) a été ajoutée pour supprimer l'auteur spécifié de la collection. La méthode ICommentAuthorCollection.clear() a été ajoutée pour supprimer tous les éléments de la collection.

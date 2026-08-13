@@ -1,14 +1,14 @@
 ---
-title: Δημόσιο API και Αλλαγές που δεν είναι Συμβατές προς τα Πίσω σε Aspose.Slides για .NET 14.10.0
-linktitle: Aspose.Slides για .NET 14.10.0
+title: Δημόσιος API και Αλλαγές που δεν είναι Συμβατές με Παλαιότερες Εκδόσεις στο Aspose.Slides for .NET 14.10.0
+linktitle: Aspose.Slides for .NET 14.10.0
 type: docs
 weight: 120
 url: /el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
-- μεταφορά
-- κληρονομικός κώδικας
+- μετεγκατάσταση
+- κώδικας κληρονομίας
 - σύγχρονος κώδικας
-- παραδοσιακή προσέγγιση
+- κληρονομική προσέγγιση
 - σύγχρονη προσέγγιση
 - PowerPoint
 - OpenDocument
@@ -16,47 +16,53 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανασκοπήστε τις ενημερώσεις του δημόσιου API και τις διασπαστικές αλλαγές σε Aspose.Slides για .NET ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των αλλαγών που προκαλούν σπασίματα στο Aspose.Slides for .NET για ομαλή μεταφορά των λύσεων παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-{{% alert color="primary" %}} 
-
-Αυτή η σελίδα καταγράφει όλα τα [προστιθέμενα](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ή [αφαιρεθέντα](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) κλάσεις, μεθόδους, ιδιότητες κτλ., καθώς και άλλες αλλαγές που εισήχθησαν με το API του Aspose.Slides για .NET 14.10.0.
-
-{{% /alert %}} 
-## **Αλλαγές Δημοσίου API**
-#### **Έχει Προστεθεί ο Τύπος Πεδίου Aspose.Slides.FieldType.Footer**
+{{% alert color="info" %}}
+Αυτή η σελίδα παραθέτει όλες τις [προστιθέμενες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ή [αφαιρεθείσες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το Aspose.Slides for .NET 14.10.0 API.
+{{% /alert %}}
+## **Δημόσιο API Αλλαγές**
+#### **Ο τύπος πεδίου Aspose.Slides.FieldType.Footer έχει προστεθεί**
 Ο τύπος πεδίου Footer έχει προστεθεί για την υλοποίηση της δυνατότητας δημιουργίας πεδίων αυτού του τύπου και για έγκυρη σειριοποίηση παρουσίασης.
-#### **Το Στοιχείο Enum ShapeElementFillSource.Own Έχει Διαγραφεί**
-Το στοιχείο enum ShapeElementFillSource.Own έχει διαγραφεί επειδή είναι διπλό. Χρησιμοποιήστε ShapeElementFillSource.Shape αντί για ShapeElementFillSource.Own.
-#### **Έχουν Προσθεθεί Μέθοδοι για Αφαίρεση Σημείων Δεδομένων Γραφήματος, Κατηγοριών**
-Οι παρακάτω μέθοδοι, που επιτρέπουν την αφαίρεση σημείου δεδομένων γραφήματος από μια συλλογή σημείων δεδομένων γραφήματος, έχουν προστεθεί:
+#### **Το στοιχείο Enum ShapeElementFillSource.Own έχει διαγραφεί**
+Το στοιχείο Enum ShapeElementFillSource.Own έχει διαγραφεί ως διπλότυπο. Χρησιμοποιήστε ShapeElementFillSource.Shape αντί για ShapeElementFillSource.Own.
+#### **Προστέθηκαν μέθοδοι για αφαίρεση σημείων δεδομένων γραφήματος, κατηγοριών**
+Οι ακόλουθες μέθοδοι, που επιτρέπουν την αφαίρεση σημείου δεδομένων γραφήματος από μια συλλογή σημείων δεδομένων γραφήματος, έχουν προστεθεί:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-Η παρακάτω μέθοδος, που επιτρέπει την αφαίρεση κατηγορίας γραφήματος από τη συλλογή που την περιέχει, έχει προστεθεί:
+Η ακόλουθη μέθοδος, η οποία επιτρέπει την αφαίρεση μιας κατηγορίας γραφήματος από τη συλλογή που την περιέχει, έχει προστεθεί:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
+using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
+
     chart.ChartData.Categories[0].Remove(); //αφαίρεση με ChartCategory.Remove()
+
     chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //αφαίρεση με ChartCategoryCollection.Remove()
+
     foreach (var ser in chart.ChartData.Series)
     {
         ser.DataPoints[0].Remove();//αφαίρεση με ChartDataPoint.Remove()
+
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
     }
-    pres.Save(outPath, SaveFormat.Pptx);
+
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-``` 
-#### **Οι Παρωχημένες Ιδιότητες Aspose.Slides.ParagraphFormat Έχουν Αφαιρεθεί**
-Οι ιδιότητες BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle έχουν αφαιρεθεί. Σήμειωσαν ως παρωχημένες εδώ και πολύ καιρό.
-#### **Αχρήστεροι και Παρωχημένοι Κατασκευαστές Έχουν Αφαιρεθεί**
-Οι παρακάτω κατασκευαστές έχουν αφαιρεθεί:
+```
+#### **Οι Απαρχαιωμένες Ιδιότητες Aspose.Slides.ParagraphFormat έχουν αφαιρεθεί**
+Οι ιδιότητες BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle έχουν αφαιρεθεί. Είχαν χαρακτηριστεί ως απαρχαιωμένες εδώ και πολύ καιρό.
+#### **Μη χρήσιμες και απαρχαιωμένες Κατασκευαστές έχουν αφαιρεθεί**
+Οι ακόλουθοι κατασκευαστές έχουν αφαιρεθεί:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)
 - Aspose.Slides.Effects.AlphaModulateFixed(System.Single)

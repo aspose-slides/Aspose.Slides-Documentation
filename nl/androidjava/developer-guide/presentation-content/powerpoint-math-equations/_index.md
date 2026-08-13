@@ -1,5 +1,5 @@
 ---
-title: Voeg wiskundige vergelijkingen toe aan PowerPoint-presentaties op Android
+title: Wiskundige vergelijkingen toevoegen aan PowerPoint-presentaties op Android
 linktitle: PowerPoint-wiskundige vergelijkingen
 type: docs
 weight: 80
@@ -18,15 +18,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor Android, met ondersteuning voor OMML, opmaakbesturingen en duidelijke Java-codevoorbeelden."
+description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor Android, met ondersteuning voor OMML, opmaakopties en duidelijke Java-codevoorbeelden."
 ---
 ## **Overzicht**
 
-PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor Android via Java kun je dezelfde soort wiskundige inhoud programmatically creëren: breuken, wortels, functies, limieten, N-ary operatoren, matrices, arrays en opgemaakte wiskundige blokken.
+PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides voor Android via Java kunt u hetzelfde soort wiskundige inhoud programmatic creëren: breuken, wortels, functies, limieten, N‑ary‑operatoren, matrices, arrays en opgemaakte wiskundige blokken.
 
 In PowerPoint voegen gebruikers normaal gesproken vergelijkingen in via **Insert > Equation**:
 
-![PowerPoint invoegtabblad met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
+![PowerPoint-invoegtabblad met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
 
 Het resultaat is bewerkbare wiskundige tekst op de dia:
 
@@ -35,20 +35,22 @@ Het resultaat is bewerkbare wiskundige tekst op de dia:
 Aspose.Slides bouwt die wiskundige tekst via drie hoofdobjecten:
 
 - Een wiskundige vorm, gemaakt met [addMathShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/), is de vorm die de vergelijking bevat.
-- [MathPortion](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathportion/) slaat wiskundige inhoud op in het tekstkader van de vorm.
-- [MathParagraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathparagraph/) bevat één of meer [MathBlock](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathblock/) objecten.
+- [MathPortion](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathportion/) slaat wiskundige inhoud op in het tekstvak van de vorm.
+- [MathParagraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathparagraph/) bevat een of meer [MathBlock](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathblock/) objecten.
 
-De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathematicaltext/) en de vloeiende methoden van [IMathElement](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) om de code kort en leesbaar te houden.
+De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathematicaltext/) en de fluente methoden van [IMathElement](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) om de code kort en leesbaar te houden.
 
-Voor MathML‑exportscenario’s, zie [Exporteer wiskundige vergelijkingen uit presentaties op Android](/slides/nl/androidjava/exporting-math-equations/).
+Voor MathML‑exportsituaties, zie [Export Math Equations from Presentations on Android](/slides/nl/androidjava/exporting-math-equations/).
 
-## **Maak een vergelijking**
+## **Een vergelijking maken**
 
 Dit voorbeeld maakt een wiskundige vorm en voegt de stelling van Pythagoras toe:
 
-![De vergelijking c in het kwadraat gelijk aan a in het kwadraat plus b in het kwadraat](powerpoint-math-equations_3.png)
+![De vergelijking c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -72,17 +74,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` maakt een vorm die al een wiskundige alinea bevat. Toegang tot de eerste `MathPortion`, haal zijn `MathParagraph` op, en voeg wiskundige blokken of wiskunde‑elementen toe.
+{{% alert color="info" %}}
+`addMathShape` maakt een vorm die al een wiskundige alinea bevat. Verkrijg de eerste `MathPortion`, haal de bijbehorende `MathParagraph` op en voeg wiskundige blokken of wiskundige elementen toe.
 {{% /alert %}}
 
-## **Voeg breuken toe**
+## **Breuken toevoegen**
 
-Gebruik `divide` om een breuk te maken. Je kunt een breukstijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathfractiontypes/).
+Gebruik `divide` om een breuk te maken. U kunt een breukstijl kiezen met [MathFractionTypes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathfractiontypes/).
 
-![Een scheve wiskundige breuk met één gedeeld door x](powerpoint-math-equations_4.png)
+![Een scheve wiskundige breuk die 1 gedeeld door x toont](powerpoint-math-equations_4.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,16 +109,20 @@ try {
 Voor een gestapelde breuk, gebruik `MathFractionTypes.Bar`:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Voeg wortels toe**
+## **Radicalen toevoegen**
 
-Gebruik `radical` om een vierkantswortel, cube‑wortel of een andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
+Gebruik `radical` om een vierkantswortel, kubuswortel of een andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
 
-![Een n-de-woordel-expressie met x onder het wortelteken](powerpoint-math-equations_5.png)
+![Een n‑de wortel uitdrukking met x onder het radicaalteken](powerpoint-math-equations_5.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -134,13 +142,15 @@ try {
 }
 ```
 
-## **Voeg functies en limieten toe**
+## **Functies en limieten toevoegen**
 
-Gebruik `asArgumentOfFunction` of `function` voor functies zoals `sin(x)`, `log(x)`, of aangepaste functienamen. Voor limieten plaats je `lim` in een [MathLimit](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathlimit/) of gebruik je `setLowerLimit`.
+Gebruik `asArgumentOfFunction` of `function` voor functies zoals `sin(x)`, `log(x)` of aangepaste functienamen. Voor limieten zet u `lim` in een [MathLimit](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathlimit/) of gebruik `setLowerLimit`.
 
 ![De limiet van x wanneer x naar oneindig gaat](powerpoint-math-equations_8.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -161,19 +171,23 @@ try {
 }
 ```
 
-Voor een aangepaste functienaam, maak de functienaam het huidige element:
+Voor een aangepaste functienaam maakt u de functienaam het huidige element:
 
 ```java
+import com.aspose.slides.*;
+
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Voeg N-ary operatoren en integralen toe**
+## **N‑ary operatoren en integralen toevoegen**
 
-Gebruik `nary` voor sommatie‑, unie‑, intersectie‑ en andere grote operatoren. Gebruik `integral` voor integralen. Met beide methoden kun je onder‑ en bovengrenzen instellen.
+Gebruik `nary` voor sommaties, unies, doorsnedes en andere grote operatoren. Gebruik `integral` voor integralen. Beide methoden laten u onder‑ en bovengrenzen instellen.
 
 ![Een sommatie met onder‑ en bovengrens](powerpoint-math-equations_7.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -196,22 +210,26 @@ try {
 }
 ```
 
-N-ary operatoren zijn voor grote operatoren met optionele grenzen. Eenvoudige operatoren zoals `+`, `-` en `=` worden doorgaans toegevoegd als `MathematicalText` en aan de expressie gekoppeld.
+N‑ary‑operatoren zijn bedoeld voor grote operatoren met optionele grenzen. Simpele operatoren zoals `+`, `-` en `=` worden meestal toegevoegd als `MathematicalText` en aan de expressie gekoppeld.
 
 Voor een integraal, gebruik `integral`:
 
 ```java
+import com.aspose.slides.*;
+
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Voeg matrices toe**
+## **Matrices toevoegen**
 
-Gebruik [MathMatrix](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haken, dus omsluit de matrix wanneer je haakjes, vierkante haken of accolades nodig hebt.
+Gebruik [MathMatrix](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omkader de matrix wanneer u haakjes, vierkante haken of accolades nodig hebt.
 
 ![Een wiskundige matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -235,13 +253,15 @@ try {
 }
 ```
 
-## **Voeg vergelijking‑arrays toe**
+## **Vergelijkingsarrays toevoegen**
 
-Gebruik `toMathArray` wanneer je uitgelijnde vergelijkingen of een verticale stapel van expressies nodig hebt.
+Gebruik `toMathArray` wanneer u uitgelijnde vergelijkingen of een verticale stapel uitdrukkingen nodig heeft.
 
 ![Een verticale wiskundige array met x boven y](powerpoint-math-equations_11.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -262,13 +282,15 @@ try {
 }
 ```
 
-## **Voeg trigonometrische functies toe**
+## **Trigonometische functies toevoegen**
 
 Gebruik `asArgumentOfFunction` wanneer het argument het huidige element is en de functienaam bekend is.
 
 ![De trigonometrische functie cos toegepast op 2x](powerpoint-math-equations_6.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -288,13 +310,15 @@ try {
 }
 ```
 
-## **Voeg subscripties en superscripties toe**
+## **Subscript en superscript toevoegen**
 
-Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen aan de linkerkant van de basis moeten staan, gebruik dan `setSubSuperscriptOnTheLeft`.
+Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen links van de basis moeten verschijnen, gebruik `setSubSuperscriptOnTheLeft`.
 
-![Een hoofdletter Y met subscript 1 aan de linkerkant en superscript n](powerpoint-math-equations_9.png)
+![Een hoofdletter Y met links een subscript 1 en een superscript n](powerpoint-math-equations_9.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -314,13 +338,15 @@ try {
 }
 ```
 
-## **Voeg scheidingstekens toe**
+## **Delimiteren toevoegen**
 
-Gebruik `enclose` om een expressie tussen scheidingstekens te plaatsen. Je kunt ook een scheidingsteken instellen voor delimiter‑expressies die meerdere elementen bevatten.
+Gebruik `enclose` om een expressie tussen delimiters te plaatsen. U kunt ook een scheidingsteken instellen voor delimiter‑expressies die meerdere elementen bevatten.
 
-![Een delimiter‑expressie met x, y en z, gescheiden door verticale strepen](powerpoint-math-equations_13.png)
+![Een delimiter‑expressie met x, y en z gescheiden door verticale balken](powerpoint-math-equations_13.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -343,13 +369,15 @@ try {
 }
 ```
 
-## **Voeg een kaderbox toe**
+## **Een randvak toevoegen**
 
-Gebruik `toBorderBox` wanneer de vergelijking zelf in een kader moet worden geplaatst.
+Gebruik `toBorderBox` wanneer de vergelijking zelf omlijnd moet worden.
 
-![Een ingekaderde vergelijking met a in het kwadraat gelijk aan b in het kwadraat plus c in het kwadraat](powerpoint-math-equations_12.png)
+![Een omkaderde vergelijking met a² = b² + c²](powerpoint-math-equations_12.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -374,13 +402,15 @@ try {
 }
 ```
 
-## **Groeperen van termen**
+## **Termen groeperen**
 
-Gebruik `group` om een groepeerteken boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
+Gebruik `group` om een groeperingssymbool boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
 
-![De expressie x plus y gegroepeerd met het label willekeurige tekst eronder](powerpoint-math-equations_15.png)
+![De expressie x + y gegroepeerd met het label willekeurige tekst eronder](powerpoint-math-equations_15.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -401,13 +431,15 @@ try {
 }
 ```
 
-## **Opmaak van wiskunde‑elementen**
+## **Wiskundige elementen opmaken**
 
-Gebruik opmaak‑helpers alleen daar waar ze de formule verduidelijken. Bijvoorbeeld, `overbar` plaatst een balk boven een wiskunde‑element.
+Gebruik opmaak‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, `overbar` plaatst een balk boven een wiskundig element.
 
-![Een wiskundige expressie ABC met een overbalk](powerpoint-math-equations_14.png)
+![Een wiskundige expressie ABC met een overstreep](powerpoint-math-equations_14.png)
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -428,33 +460,33 @@ try {
 
 ## **Snelle referentie**
 
-| Task | Main API |
+| Taak | Hoofd‑API |
 | --- | --- |
-| Maak wiskundige tekst | [MathematicalText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathematicaltext/) |
-| Combineer elementen | [IMathElement.join](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Maak breuken | [IMathElement.divide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg superscript of subscript toe | [setSuperscript](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg functies toe | [function](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg wortels toe | [IMathElement.radical](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg limieten toe | [setLowerLimit](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg scripts aan de linkerkant toe | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg sommatie‑ en integralen toe | [nary](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg matrices toe | [MathMatrix](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathmatrix/) |
-| Voeg vergelijking‑arrays toe | [toMathArray](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg delimiters toe | [enclose](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Voeg balken en randen toe | [overbar](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
-| Groeperen van termen | [group](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Wiskundige tekst maken | [MathematicalText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathematicaltext/) |
+| Elementen combineren | [IMathElement.join](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Breuken maken | [IMathElement.divide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Superscript of subscript toevoegen | [setSuperscript](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Functies toevoegen | [function](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Radicalen toevoegen | [IMathElement.radical](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Limieten toevoegen | [setLowerLimit](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Links geplaatste scripts toevoegen | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Sommaties en integralen toevoegen | [nary](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Matrices toevoegen | [MathMatrix](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mathmatrix/) |
+| Vergelijkingsarrays toevoegen | [toMathArray](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Delimiteren toevoegen | [enclose](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Strepen en randen toevoegen | [overbar](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
+| Termen groeperen | [group](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathelement/) |
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Kan ik een bestaande PowerPoint‑vergelijking bewerken?**
 
-Ja. Open de presentatie, zoek de vorm die een `MathPortion` bevat, haal zijn `MathParagraph` op, en werk de wiskundige blokken in die alinea bij.
+Ja. Open de presentatie, zoek de vorm die een `MathPortion` bevat, haal de bijbehorende `MathParagraph` op en werk de wiskundige blokken in die alinea bij.
 
 **Worden vergelijkingen opgeslagen als bewerkbare PowerPoint‑wiskunde?**
 
-Ja. Wanneer je opslaat als PPTX, schrijft Aspose.Slides de vergelijking weg als bewerkbare Office‑wiskunde‑inhoud.
+Ja. Wanneer u opslaat naar PPTX, schrijft Aspose.Slides de vergelijking weg als bewerkbare Office‑wiskundige inhoud.
 
 **Kan ik vergelijkingen exporteren naar LaTeX?**
 
-Aspose.Slides exporteert wiskundige vergelijkingen naar MathML. Als je LaTeX nodig hebt, exporteer dan eerst naar MathML en converteer MathML vervolgens met een tool die je gewenste LaTeX‑dialect ondersteunt.
+Ja. Haal de [IMathParagraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathparagraph/) van de [IMathPortion](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathportion/) op en roep [IMathParagraph.toLatex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imathparagraph/#toLatex--) aan om deze direct te exporteren. Voor een volledig voorbeeld, zie [Export Math Equations from Presentations in Android via Java](/slides/nl/androidjava/exporting-math-equations/#export-math-equations-to-latex).

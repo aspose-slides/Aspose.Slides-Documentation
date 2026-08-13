@@ -1,5 +1,5 @@
 ---
-title: การจัดรูปแบบข้อความโดยใช้ VSTO และ Aspose.Slides สำหรับ .NET
+title: จัดรูปแบบข้อความโดยใช้ VSTO และ Aspose.Slides สำหรับ .NET
 linktitle: จัดรูปแบบข้อความ
 type: docs
 weight: 30
@@ -16,27 +16,27 @@ keywords:
 - Aspose.Slides
 description: "ย้ายจากการทำงานอัตโนมัติของ Microsoft Office ไปยัง Aspose.Slides สำหรับ .NET และจัดรูปแบบข้อความในงานนำเสนอ PowerPoint (PPT, PPTX) ด้วยการควบคุมที่แม่นยำ."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-บางครั้งคุณอาจต้องจัดรูปแบบข้อความบนสไลด์โดยใช้โปรแกรม การแสดงนี้จะแสดงวิธีการอ่านงานนำเสนอแบบตัวอย่างพร้อมข้อความบนสไลด์แรกโดยใช้ทั้ง [VSTO](/slides/th/net/format-text-using-vsto-and-aspose-slides-and-net/) และ [Aspose.Slides for .NET](/slides/th/net/format-text-using-vsto-and-aspose-slides-and-net/) โค้ดจะจัดรูปแบบข้อความในกล่องข้อความที่สามบนสไลด์ให้คล้ายกับข้อความในกล่องข้อความสุดท้าย
+บางครั้งคุณอาจต้องจัดรูปแบบข้อความบนสไลด์โดยโปรแกรม บทความนี้แสดงวิธีอ่านงานนำเสนอแบบตัวอย่างที่มีข้อความบนสไลด์แรกโดยใช้ [VSTO](/slides/th/net/format-text-using-vsto-and-aspose-slides-and-net/) และ [Aspose.Slides for .NET](/slides/th/net/format-text-using-vsto-and-aspose-slides-and-net/) โค้ดจะจัดรูปแบบข้อความในกล่องข้อความที่สามบนสไลด์ให้เหมือนกับข้อความในกล่องข้อความสุดท้าย
 
 {{% /alert %}} 
 ## **การจัดรูปแบบข้อความ**
-ทั้งวิธีการของ VSTO และ Aspose.Slides จะทำตามขั้นตอนต่อไปนี้:
+ทั้งวิธีของ VSTO และ Aspose.Slides จะทำตามขั้นตอนต่อไปนี้:
 
-1. เปิดงานนำเสนอแหล่งที่มา
-1. เข้าไปที่สไลด์แรก
-1. เข้าไปที่กล่องข้อความที่สาม
-1. เปลี่ยนการจัดรูปแบบของข้อความในกล่องข้อความที่สาม
-1. บันทึกงานนำเสนอลงดิสก์
+1. เปิดงานนำเสนอต้นฉบับ.
+1. เข้าถึงสไลด์แรก.
+1. เข้าถึงกล่องข้อความที่สาม.
+1. เปลี่ยนการจัดรูปแบบของข้อความในกล่องข้อความที่สาม.
+1. บันทึกงานนำเสนอลงดิสก์.
 
-ภาพหน้าจอด้านล่างแสดงสไลด์ตัวอย่างก่อนและหลังการทำงานของโค้ด VSTO และ Aspose.Slides for .NET
+ภาพหน้าจอต่อไปนี้แสดงสไลด์ตัวอย่างก่อนและหลังการทำงานของโค้ด VSTO และ Aspose.Slides for .NET
 
 **งานนำเสนออินพุต** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
 ### **ตัวอย่างโค้ด VSTO**
-โค้ดด้านล่างแสดงวิธีการจัดรูปแบบข้อความใหม่บนสไลด์โดยใช้ VSTO
+โค้ดด้านล่างแสดงวิธีจัดรูปแบบข้อความบนสไลด์โดยใช้ VSTO.
 
 **ข้อความที่จัดรูปแบบใหม่ด้วย VSTO** 
 
@@ -45,7 +45,7 @@ description: "ย้ายจากการทำงานอัตโนมั
 
 
 ```c#
-//หมายเหตุ: PowerPoint เป็นเนมสเปซที่ได้กำหนดไว้ข้างบนแบบนี้
+//หมายเหตุ: PowerPoint เป็นเนมส페ซที่ได้กำหนดไว้ข้างต้นดังนี้
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 PowerPoint.Presentation pres = null;
 
@@ -91,7 +91,7 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ### **ตัวอย่าง Aspose.Slides for .NET**
-ในการจัดรูปแบบข้อความด้วย Aspose.Slides ให้เพิ่มฟอนต์ก่อนทำการจัดรูปแบบข้อความ
+เพื่อจัดรูปแบบข้อความด้วย Aspose.Slides ให้เพิ่มฟอนต์ก่อนจัดรูปแบบข้อความ.
 
 **งานนำเสนอผลลัพธ์ที่สร้างด้วย Aspose.Slides** 
 
@@ -100,8 +100,12 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
  //เปิดงานนำเสนอ
-Presentation pres = new Presentation("c:\\source.ppt");
+Presentation pres = new Presentation("source.ppt");
 
 //เข้าถึงสไลด์แรก
 ISlide slide = pres.Slides[0];
@@ -117,21 +121,21 @@ port.PortionFormat.LatinFont = new FontData("Verdana");
 
 port.PortionFormat.FontHeight = 32;
 
-//ทำให้เป็นตัวหนา
+//ทำตัวหนา
 port.PortionFormat.FontBold = NullableBool.True;
 
-//ทำให้เป็นตัวเอียง
+//ทำตัวเป็นอิตาลิก
 port.PortionFormat.FontItalic = NullableBool.True;
 
 //เปลี่ยนสีข้อความ
 //ตั้งค่าสีฟอนต์
 port.PortionFormat.FillFormat.FillType = FillType.Solid;
-port.PortionFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
+port.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
 //เปลี่ยนสีพื้นหลังของรูปร่าง
 shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//บันทึกผลลัพธ์ลงดิสก์
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//เขียนผลลัพธ์ลงดิสก์
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

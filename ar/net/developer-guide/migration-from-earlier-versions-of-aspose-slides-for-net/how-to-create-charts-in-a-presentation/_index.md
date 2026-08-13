@@ -5,10 +5,10 @@ type: docs
 weight: 30
 url: /ar/net/how-to-create-charts-in-a-presentation/
 keywords:
-- الهجرة
+- ترحيل
 - إنشاء مخطط
-- شفرة قديمة
-- شفرة حديثة
+- كود قديم
+- كود حديث
 - نهج قديم
 - نهج حديث
 - PowerPoint
@@ -17,155 +17,156 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "تعرّف على كيفية إنشاء المخططات في عروض PowerPoint (PPT, PPTX) و ODP في .NET باستخدام Aspose.Slides عبر كلٍ من واجهات برمجة التطبيقات القديمة والحديثة للمخططات."
+description: "تعلم كيفية إنشاء المخططات في عروض PowerPoint بصيغ PPT و PPTX و ODP في .NET باستخدام Aspose.Slides عبر كل من واجهات برمجة التطبيقات للمخططات القديمة والحديثة."
 ---
-
-{{% alert color="primary" %}} 
-
-تم إصدار واجهة برمجة تطبيقات جديدة لـ [Aspose.Slides for .NET API](/slides/ar/net/) والآن يدعم هذا المنتج إمكانية إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الحالية.
-
-{{% /alert %}} 
-## **دعم الشفرة القديمة**
-لاستخدام الشفرة القديمة التي تم تطويرها باستخدام إصدارات Aspose.Slides for .NET قبل 13.x، تحتاج إلى إجراء بعض التغييرات البسيطة في شفرتك وستعمل كما كانت من قبل. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديم تحت مساحات الأسماء Aspose.Slide و Aspose.Slides.Pptx الآن مدمجة في مساحة الاسم Aspose.Slides واحدة. يرجى إلقاء نظرة على المقتطف البرمجي البسيط التالي لإنشاء مخطط عادي من الصفر في عرض تقديمي باستخدام API القديم لـ Aspose.Slides واتبع الخطوات التي تصف كيفية الانتقال إلى API المدمج الجديد.
+{{% alert color="info" %}}
+تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديد الآن، ويتيح هذا المنتج إنشاء مستندات PowerPoint من الصفر وتعديل المستندات الموجودة.
+{{% /alert %}}
+## **دعم الكود القديم**
+لاستخدام الكود القديم المطور باستخدام Aspose.Slides for .NET بإصدارات أقدم من 13.x، تحتاج إلى إجراء بعض التغييرات البسيطة في الشيفرة وستعمل كما كانت سابقًا. جميع الفئات التي كانت موجودة في Aspose.Slides for .NET القديم تحت مساحات الأسماء Aspose.Slide و Aspose.Slides.Pptx تم دمجها الآن في مساحة الاسم الوحيدة Aspose.Slides. يرجى إلقاء نظرة على المقتطف البرمجي البسيط التالي لإنشاء مخطط عادي من الصفر في عرض تقديمي باستخدام API القديم لـ Aspose.Slides واتبع الخطوات التي تصف كيفية الانتقال إلى API المدمج الجديد.
 ## **نهج Aspose.Slides for .NET القديم**
 ```c#
-	//إنشاء فئة PresentationEx التي تمثل ملف PPTX
-	using (PresentationEx pres = new PresentationEx())
-	{
-		//الوصول إلى الشريحة الأولى
-		SlideEx sld = pres.Slides[0];
+using System.Drawing;
 
-		// إضافة مخطط ببيانات افتراضية
-		ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
+//إنشاء كائن PresentationEx الذي يمثل ملف PPTX
+using (PresentationEx pres = new PresentationEx())
+{
+	//الوصول إلى الشريحة الأولى
+	SlideEx sld = pres.Slides[0];
 
-		//تعيين عنوان المخطط
-		chart.ChartTitle.Text.Text = "Sample Title";
-		chart.ChartTitle.Text.CenterText = true;
-		chart.ChartTitle.Height = 20;
-		chart.HasTitle = true;
+	//إضافة مخطط ببيانات افتراضية
+	ChartEx chart = sld.Shapes.AddChart(ChartTypeEx.ClusteredColumn, 0, 0, 500, 500);
 
-		//تعيين السلسلة الأولى لإظهار القيم
-		chart.ChartData.Series[0].Labels.ShowValue = true;
+	//ضبط عنوان المخطط
+	chart.ChartTitle.Text.Text = "Sample Title";
+	chart.ChartTitle.Text.CenterText = true;
+	chart.ChartTitle.Height = 20;
+	chart.HasTitle = true;
 
-		//تحديد فهرس ورقة بيانات المخطط
-		int defaultWorksheetIndex = 0;
+	//ضبط السلسلة الأولى لإظهار القيم
+	chart.ChartData.Series[0].Labels.ShowValue = true;
 
-		//الحصول على ورقة عمل بيانات المخطط
-		ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
+	//تحديد فهرس ورقة بيانات المخطط 
+	int defaultWorksheetIndex = 0;
 
-		//حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
-		chart.ChartData.Series.Clear();
-		chart.ChartData.Categories.Clear();
-		int s = chart.ChartData.Series.Count;
-		s = chart.ChartData.Categories.Count;
+	//الحصول على ورقة عمل بيانات المخطط
+	ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-		//إضافة سلسلة جديدة
-		chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
-		chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+	//حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
+	chart.ChartData.Series.Clear();
+	chart.ChartData.Categories.Clear();
+	int s = chart.ChartData.Series.Count;
+	s = chart.ChartData.Categories.Count;
 
-		//إضافة فئات جديدة
-		chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-		chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-		chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+	//إضافة سلاسل جديدة
+	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
+	chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-		//أخذ السلسلة الأولى للمخطط
-		ChartSeriesEx series = chart.ChartData.Series[0];
+	//إضافة فئات جديدة
+	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+	chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
 
-		//الآن يتم ملء بيانات السلسلة
-		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
-		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
-		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
+	//أخذ السلسلة الأولى للمخطط
+	ChartSeriesEx series = chart.ChartData.Series[0];
 
-		//تعيين لون التعبئة للسلسلة
-		series.Format.Fill.FillType = FillTypeEx.Solid;
-		series.Format.Fill.SolidFillColor.Color = Color.Red;
+	//الآن ملء بيانات السلسلة
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-
-		//أخذ السلسلة الثانية للمخطط
-		series = chart.ChartData.Series[1];
-
-		//الآن يتم ملء بيانات السلسلة
-		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
-		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
-		series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
-
-		//تعيين لون التعبئة للسلسلة
-		series.Format.Fill.FillType = FillTypeEx.Solid;
-		series.Format.Fill.SolidFillColor.Color = Color.Green;
+	//ضبط لون التعبئة للسلسلة
+	series.Format.Fill.FillType = FillTypeEx.Solid;
+	series.Format.Fill.SolidFillColor.Color = Color.Red;
 
 
-		//إنشاء تسميات مخصصة لكل فئة للسلسلة الجديدة
+	//أخذ السلسلة الثانية للمخطط
+	series = chart.ChartData.Series[1];
 
-		//التسمية الأولى ستظهر اسم الفئة
-		DataLabelEx lbl = new DataLabelEx(series);
-		lbl.ShowCategoryName = true;
-		lbl.Id = 0;
-		series.Labels.Add(lbl);
+	//الآن ملء بيانات السلسلة
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
+	series.Values.Add(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-		//إظهار اسم السلسلة للتسمية الثانية
-		lbl = new DataLabelEx(series);
-		lbl.ShowSeriesName = true;
-		lbl.Id = 1;
-		series.Labels.Add(lbl);
+	//ضبط لون التعبئة للسلسلة
+	series.Format.Fill.FillType = FillTypeEx.Solid;
+	series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-		//إظهار القيمة للتسمية الثالثة
-		lbl = new DataLabelEx(series);
-		lbl.ShowValue = true;
-		lbl.ShowSeriesName = true;
-		lbl.Separator = "/";
-		lbl.Id = 2;
-		series.Labels.Add(lbl);
 
-		//إظهار القيمة والنص المخصص
-		lbl = new DataLabelEx(series);
-		lbl.TextFrame.Text = "My text";
-		lbl.Id = 3;
-		series.Labels.Add(lbl);
+	//إنشاء تسميات مخصصة لكل فئة من الفئات للسلسلة الجديدة
 
-		//حفظ العرض التقديمي مع المخطط
-		pres.Write(@"D:\AsposeChart.pptx");
-	}
+	//التسمية الأولى ستظهر اسم الفئة
+	DataLabelEx lbl = new DataLabelEx(series);
+	lbl.ShowCategoryName = true;
+	lbl.Id = 0;
+	series.Labels.Add(lbl);
+
+	//إظهار اسم السلسلة للتسمية الثانية
+	lbl = new DataLabelEx(series);
+	lbl.ShowSeriesName = true;
+	lbl.Id = 1;
+	series.Labels.Add(lbl);
+
+	//إظهار القيمة للتسمية الثالثة
+	lbl = new DataLabelEx(series);
+	lbl.ShowValue = true;
+	lbl.ShowSeriesName = true;
+	lbl.Separator = "/";
+	lbl.Id = 2;
+	series.Labels.Add(lbl);
+
+	//إظهار القيمة والنص المخصص
+	lbl = new DataLabelEx(series);
+	lbl.TextFrame.Text = "My text";
+	lbl.Id = 3;
+	series.Labels.Add(lbl);
+
+	//حفظ العرض التقديمي مع المخطط
+	pres.Write(@"D:\AsposeChart.pptx");
+}
 ```
-
-
-
 
 ## **نهج Aspose.Slides for .NET 13.x الجديد**
 ``` csharp
-//إنشاء فئة Presentation التي تمثل ملف PPTX//إنشاء فئة Presentation التي تمثل ملف PPTX
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+//إنشاء كائن Presentation الذي يمثل ملف PPTX//إنشاء كائن Presentation الذي يمثل ملف PPTX
 Presentation pres = new Presentation();
 
 //الوصول إلى الشريحة الأولى
 ISlide sld = pres.Slides[0];
 
-//إضافة مخطط ببيانات افتراضية
+// إضافة مخطط ببيانات افتراضية
 IChart chart = sld.Shapes.AddChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
 
-//تعيين عنوان المخطط
+//ضبط عنوان المخطط
 //chart.ChartTitle.TextFrameForOverriding.Text = "Sample Title";
 chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
 chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
 chart.ChartTitle.Height = 20;
 chart.HasTitle = true;
 
-//تعيين السلسلة الأولى لإظهار القيم
-chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-//تعيين فهرس ورقة بيانات المخطط
+//ضبط فهرس ورقة بيانات المخطط
 int defaultWorksheetIndex = 0;
 
 //الحصول على ورقة عمل بيانات المخطط
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-//حذف السلسلة والفئات التي تم إنشاؤها افتراضيًا
+//حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
 chart.ChartData.Series.Clear();
 chart.ChartData.Categories.Clear();
 int s = chart.ChartData.Series.Count;
 s = chart.ChartData.Categories.Count;
 
-//إضافة سلسلة جديدة
+//إضافة سلاسل جديدة
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.Type);
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.Type);
+
+//ضبط السلسلة الأولى لإظهار القيم
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
 //إضافة فئات جديدة
 chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
@@ -175,12 +176,13 @@ chart.ChartData.Categories.Add(fact.GetCell(defaultWorksheetIndex, 3, 0, "Caeteg
 //أخذ السلسلة الأولى للمخطط
 IChartSeries series = chart.ChartData.Series[0];
 
-//الآن يتم تعبئة بيانات السلسلة
+//الآن ملء بيانات السلسلة
+
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 20));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 50));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 30));
 
-//تعيين لون التعبئة للسلسلة
+//ضبط لون التعبئة للسلسلة
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Red;
 
@@ -188,17 +190,17 @@ series.Format.Fill.SolidFillColor.Color = Color.Red;
 //أخذ السلسلة الثانية للمخطط
 series = chart.ChartData.Series[1];
 
-//الآن يتم تعبئة بيانات السلسلة
+//الآن ملء بيانات السلسلة
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 2, 30));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 2, 10));
 series.DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 2, 60));
 
-//تعيين لون التعبئة للسلسلة
+//ضبط لون التعبئة للسلسلة
 series.Format.Fill.FillType = FillType.Solid;
 series.Format.Fill.SolidFillColor.Color = Color.Green;
 
 
-//إنشاء تسميات مخصصة لكل فئة للسلسلة الجديدة
+//إنشاء تسميات مخصصة لكل فئة من الفئات للسلسلة الجديدة
 
 //التسمية الأولى ستظهر اسم الفئة
 IDataLabel lbl = series.DataPoints[0].Label;
@@ -216,10 +218,7 @@ lbl.DataLabelFormat.Separator = "/";
 //حفظ العرض التقديمي مع المخطط
 pres.Save("AsposeChart.pptx", SaveFormat.Pptx);
 ```
-
-
 يرجى إلقاء نظرة على المقتطف البرمجي البسيط التالي لإنشاء مخطط مبعثر من الصفر في عرض تقديمي باستخدام API القديم لـ Aspose.Slides وكيفية تحقيق ذلك باستخدام API المدمج الجديد.
-
 ## **نهج Aspose.Slides for .NET القديم**
 ```c#
 using (PresentationEx pres = new PresentationEx())
@@ -235,7 +234,7 @@ using (PresentationEx pres = new PresentationEx())
     //الوصول إلى ورقة بيانات المخطط
     ChartDataCellFactory fact = chart.ChartData.ChartDataCellFactory;
 
-    //حذف السلسلة التجريبية
+    //حذف سلسلة العرض التجريبية
     chart.ChartData.Series.Clear();
 
     //إضافة سلسلة جديدة
@@ -287,10 +286,12 @@ using (PresentationEx pres = new PresentationEx())
 }
 ```
 
-
-
 ## **نهج Aspose.Slides for .NET 13.x الجديد**
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 ISlide slide = pres.Slides[0];
@@ -304,7 +305,7 @@ int defaultWorksheetIndex = 0;
 //الوصول إلى ورقة بيانات المخطط
 IChartDataWorkbook fact = chart.ChartData.ChartDataWorkbook;
 
-//حذف السلسلة التجريبية
+//حذف سلسلة العرض التجريبية
 chart.ChartData.Series.Clear();
 
 //إضافة سلسلة جديدة
@@ -320,7 +321,7 @@ series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetInde
 //إضافة نقطة جديدة (2:10)
 series.DataPoints.AddDataPointForScatterSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 2), fact.GetCell(defaultWorksheetIndex, 3, 2, 10));
 
-//تعديل نوع السلسلة
+//تحرير نوع السلسلة
 series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
 //تغيير علامة سلسلة المخطط

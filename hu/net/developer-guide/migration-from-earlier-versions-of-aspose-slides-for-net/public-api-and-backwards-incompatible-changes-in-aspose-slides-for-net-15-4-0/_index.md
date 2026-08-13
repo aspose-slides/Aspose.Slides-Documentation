@@ -6,9 +6,9 @@ weight: 150
 url: /hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 keywords:
 - migráció
-- örökölt kód
+- régi kód
 - modern kód
-- örökölt megközelítés
+- régi megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
@@ -16,19 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for .NET nyilvános API frissítéseit és a töréspont változásokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át a nyilvános API frissítéseket és a visszafelé nem kompatibilis változásokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) osztályt, metódust, tulajdonságot stb., valamint az Aspose.Slides for .NET 15.4.0 API-val bevezetett egyéb változásokat.
+{{% alert color="info" %}} 
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for .NET 15.4.0 API-vel bevezetett egyéb változásokat.
 {{% /alert %}} 
 ## **Nyilvános API változások**
-#### **Enum OrganizationChartLayoutType hozzá lett adva**
-Az Aspose.Slides.SmartArt.OrganizationChartLayoutType enum a szervezeti diagram gyerekcsomópontjainak formázási típusát képviseli.
-#### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts hozzá lett adva**
-Az Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts metódus alapértelmezett, nem nulla eltolásokat állít be a bekezdés behúzása (Indent) és bal margója (MarginLeft) számára, amikor a felsorolás be van kapcsolva (úgy, ahogy a PowerPoint is teszi, ha engedélyezi a bekezdés felsorolásait/ számozását). Ha a felsorolás ki van kapcsolva, akkor csak visszaállítja a bekezdés behúzását és bal margóját (úgy, ahogy a PowerPoint is teszi, ha letiltja a bekezdés felsorolásait/ számozását). Lásd a példákat [itt](/slides/hu/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **Method IConnector.Reroute hozzá lett adva**
-Az Aspose.Slides.IConnector.Reroute metódus átirányítja a kapcsolót, hogy a csatlakoztatott alakzatok között a lehető legrövidebb útvonalat vegye fel. Ennek érdekében a Reroute() metódus megváltoztathatja a StartShapeConnectionSiteIndex és EndShapeConnectionSiteIndex értékeket.
+#### **Az Enum OrganizationChartLayoutType hozzá lett adva**
+Az Aspose.Slides.SmartArt.OrganizationChartLayoutType felsoroló (enum) a szervezeti diagram gyermekcsomópontjainak formázási típusát képviseli.
+#### **Az IBulletFormat.ApplyDefaultParagraphIndentsShifts metódus hozzá lett adva**
+Az Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts metódus alapértelmezett nem nulla eltolásokat állít be a hatékony bekezdésbehúzás (Indent) és bal margó (MarginLeft) számára, ha a felsorolás engedélyezve van (úgy, ahogy a PowerPoint is teszi, ha engedélyezi a bekezdés felsorolásait/számozását). Ha a felsorolás le van tiltva, akkor csak visszaállítja a bekezdésbehúzást és a bal margót (úgy, ahogy a PowerPoint is teszi, ha letiltja a bekezdés felsorolásait/számozását).
+Lásd a példákat [itt](/slides/hu/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+#### **Az IConnector.Reroute metódus hozzá lett adva**
+Az Aspose.Slides.IConnector.Reroute metódus átirányítja a csatlót, hogy a két alakzat között a lehető legrövidebb útvonalat vegye. Ennek érdekében a Reroute() metódus megváltoztathatja a StartShapeConnectionSiteIndex és EndShapeConnectionSiteIndex értékeket.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -51,11 +55,13 @@ Az Aspose.Slides.IConnector.Reroute metódus átirányítja a kapcsolót, hogy a
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Method IPresentation.GetSlideById hozzá lett adva**
-Az Aspose.Slides.IPresentation.GetSlideById(System.UInt32) metódus slide‑azonosító alapján visszaad egy Slide, MasterSlide vagy LayoutSlide objektumot.
+#### **Az IPresentation.GetSlideById metódus hozzá lett adva**
+Az Aspose.Slides.IPresentation.GetSlideById(System.UInt32) metódus egy Slide, MasterSlide vagy LayoutSlide objektumot ad vissza a diavetítés azonosítója alapján.
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides;
+
 
  using (Presentation presentation = new Presentation())
 
@@ -68,11 +74,13 @@ Az Aspose.Slides.IPresentation.GetSlideById(System.UInt32) metódus slide‑azon
     Debug.Assert(presentation.Slides[0] == slide);
 
 }
-
 ``` 
-#### **Property IShape.ConnectionSiteCount hozzá lett adva**
-Az Aspose.Slides.IShape.ConnectionSiteCount tulajdonság visszaadja az alakzaton lévő csatlakozási pontok számát.
+#### **Az IShape.ConnectionSiteCount tulajdonság hozzá lett adva**
+Az Aspose.Slides.IShape.ConnectionSiteCount tulajdonság visszaadja a forma csatlakozási pontjainak számát.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -103,11 +111,14 @@ Az Aspose.Slides.IShape.ConnectionSiteCount tulajdonság visszaadja az alakzaton
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Property ISmartArt.IsReversed hozzá lett adva**
-Az Aspose.Slides.SmartArt.ISmartArt.IsReversed tulajdonság lehetővé teszi a SmartArt diagram állapotának lekérdezését vagy beállítását a (balról jobbra) LTR vagy (jobbról balra) RTL tekintetében, ha a diagram támogatja a megfordítást.
+#### **Az ISmartArt.IsReversed tulajdonság hozzá lett adva**
+Az Aspose.Slides.SmartArt.ISmartArt.IsReversed tulajdonság lehetővé teszi a SmartArt diagram (balról jobbra) LTR vagy (jobbról balra) RTL állapotának lekérdezését vagy beállítását, amennyiben a diagram támogatja a fordítást.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -117,14 +128,17 @@ Az Aspose.Slides.SmartArt.ISmartArt.IsReversed tulajdonság lehetővé teszi a S
 
   smart.IsReversed = true;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Property ISmartArt.Nodes hozzá lett adva**
+#### **Az ISmartArt.Nodes tulajdonság hozzá lett adva**
 Az Aspose.Slides.SmartArt.ISmartArt.Nodes tulajdonság visszaadja a SmartArt objektum gyökércsomópontjainak gyűjteményét.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -136,14 +150,17 @@ Az Aspose.Slides.SmartArt.ISmartArt.Nodes tulajdonság visszaadja a SmartArt obj
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Property ISmartArtNode.IsHidden hozzá lett adva**
-Az Aspose.Slides.SmartArt.ISmartArtNode.IsHidden tulajdonság true értéket ad, ha ez a csomópont rejtett a adattárolóban.
+#### **Az ISmartArtNode.IsHidden tulajdonság hozzá lett adva**
+Az Aspose.Slides.SmartArt.ISmartArtNode.IsHidden tulajdonság true értéket ad vissza, ha ez a csomópont rejtett a adatmodellben.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -153,7 +170,7 @@ Az Aspose.Slides.SmartArt.ISmartArtNode.IsHidden tulajdonság true értéket ad,
 
   ISmartArtNode node = smart.AllNodes.AddNode();
 
-  bool hidden = node.IsHidden; //true-t ad vissza
+  bool hidden = node.IsHidden; //true értéket ad vissza
 
   if(hidden)
 
@@ -163,14 +180,17 @@ Az Aspose.Slides.SmartArt.ISmartArtNode.IsHidden tulajdonság true értéket ad,
 
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Property ISmartArtNode.OrganizationChartLayout hozzá lett adva**
-Az Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout tulajdonság lehetővé teszi a jelenlegi csomóponthoz társított szervezeti diagram típus lekérdezését vagy beállítását.
+#### **Az ISmartArtNode.OrganizationChartLayout tulajdonság hozzá lett adva**
+Az Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout tulajdonság lehetővé teszi a jelenlegi csomóponthoz kapcsolódó szervezeti diagram típusának lekérdezését vagy beállítását.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -180,14 +200,17 @@ Az Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout tulajdonság leh
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Set Method for Property ISmartArt.Layout hozzá lett adva**
+#### **Az ISmartArt.Layout tulajdonság beállító metódusa hozzá lett adva**
 Az Aspose.Slides.SmartArt.ISmartArt.Layout tulajdonság beállító metódusa hozzá lett adva. Lehetővé teszi egy meglévő diagram elrendezéstípusának módosítását.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -197,17 +220,16 @@ Az Aspose.Slides.SmartArt.ISmartArt.Layout tulajdonság beállító metódusa ho
 
   smart.Layout = SmartArtLayoutType.BasicProcess;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Minor API Changes**
+#### **Kisebb API változások**
 **Ez a kisebb API változások listája:**
 
 |Enum Aspose.Slides.BevelColorMode |törölve, nem használt enum |
 | :- | :- |
-|Property ThreeDFormatEffectiveData.BevelColorMode |törölve, nem használt property |
+|Property ThreeDFormatEffectiveData.BevelColorMode |törölve, nem használt tulajdonság |
 |Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |hozzáadva |
 |Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |törölve |
-|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |törölve, mert elavult |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |törölve, elavultként |

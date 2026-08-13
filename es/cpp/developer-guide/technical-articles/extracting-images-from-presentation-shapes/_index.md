@@ -12,21 +12,21 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Extrae imágenes de formas en presentaciones PowerPoint y OpenDocument con Aspose.Slides para C++ - solución rápida y fácil de usar en código."
+description: "Extraer imágenes de formas en presentaciones PowerPoint y OpenDocument con Aspose.Slides para C++ - solución rápida y fácil de usar en código."
 ---
 ## **Visión general**
 
-Las imágenes en una presentación pueden aparecer en varios tipos de forma: como marcos de imágenes ordinarios, como imágenes de relleno aplicadas a formas, como imágenes de vista previa de objetos OLE, como miniaturas de fotogramas de vídeo o audio, como imágenes de zoom o como imágenes anidadas dentro de formas de tabla, gráfico y SmartArt. Aspose.Slides almacena esas imágenes en la colección de imágenes de la presentación, expuesta a través de los objetos [IImageCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/iimagecollection/) y [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/).
+Las imágenes en una presentación pueden aparecer en varios tipos de forma: como marcos de imágenes ordinarios, como rellenos de imágenes aplicados a formas, como imágenes de vista previa de objetos OLE, como miniaturas de fotogramas de vídeo o audio, como imágenes de zoom, o como imágenes anidadas dentro de formas de tabla, gráfico y SmartArt. Aspose.Slides almacena esas imágenes en la colección de imágenes de la presentación, accesible a través de los objetos [IImageCollection](https://reference.aspose.com/slides/es/cpp/aspose.slides/iimagecollection/) y [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/).
 
-Si solo necesita exportar cada recurso de imagen incrustado en una presentación, itere a través de `presentation->get_Images()`. Este artículo se centra en una tarea diferente: recorrer las formas para encontrar dónde se usan las imágenes en las diapositivas, de modo que los archivos guardados puedan conservar contexto útil como el número de diapositiva, la posición de la forma y el tipo de origen (marco de imagen, imagen de relleno, vista previa de medios, vista previa OLE o imagen de zoom).
+Si solo necesita exportar cada recurso de imagen incrustado en una presentación, recorra `presentation->get_Images()`. Este artículo se centra en una tarea diferente: recorrer las formas para encontrar dónde se usan imágenes en las diapositivas, de modo que los archivos guardados puedan conservar contexto útil como el número de diapositiva, la posición de la forma y el tipo de origen (marco de imagen, imagen de relleno, vista previa de medio, vista previa OLE o imagen de zoom).
 
-{{% alert title="Tip" color="primary" %}}
-Utilice [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_BinaryData()` para conservar los datos de imagen codificados originales y el tipo de archivo. Utilice [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_Image()` con [IImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/iimage/)::`Save` cuando desee normalizar la salida a un formato específico como PNG.
+{{% alert title="Tip" color="info" %}}
+Utilice [IPPImage]::`get_BinaryData()` para conservar los datos de imagen codificados originales y el tipo de archivo. Utilice [IPPImage]::`get_Image()` con [IImage]::`Save` cuando desee normalizar la salida a un formato específico, como PNG.
 {{% /alert %}}
 
 ## **Métodos auxiliares compartidos**
 
-Los métodos auxiliares a continuación mantienen los ejemplos breves. `SaveOriginalImage` escribe los bytes originales incrustados, elige una extensión segura a partir del tipo MIME y omite binarios de imagen duplicados mediante hash SHA‑256.
+Los métodos auxiliares a continuación mantienen los ejemplos breves. `SaveOriginalImage` escribe los bytes incrustados originales, elige una extensión segura a partir del tipo MIME y omite binarios de imagen duplicados mediante hash SHA‑256.
 
 ```cpp
 #include <vector>
@@ -74,10 +74,12 @@ bool SaveOriginalImage(
 {
     auto imageData = image->get_BinaryData();
     String imageHash = GetSha256Hash(imageData);
-    if (!savedImageHashes->Add(imageHash))
+    if (savedImageHashes->Contains(imageHash))
     {
         return false;
     }
+
+    savedImageHashes->Add(imageHash);
 
     String extension = GetExtensionFromContentType(image->get_ContentType());
     String fileName = String::Format(u"{0}.{1}", fileNameBase, extension);
@@ -141,7 +143,6 @@ String GetSha256Hash(ArrayPtr<uint8_t> data)
         builder->Append(String::Format(u"{0:x2}", hashByte));
     }
 
-    sha256->Dispose();
     return builder->ToString();
 }
 
@@ -210,236 +211,336 @@ String MakeSafeFileNamePart(String value)
 }
 ```
 
-## **Extraer imágenes de marcos de imágenes**
+## **Extraer imágenes de marcos de imagen**
 
 Utilice este enfoque para imágenes insertadas como objetos independientes. Un [IPictureFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipictureframe/) almacena su imagen en `get_PictureFormat()->get_Picture()->get_Image()`, que devuelve un objeto [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/).
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"extracted-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"extracted-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
-        if (pictureFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
-            SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
-        }
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Extraer imágenes de formas con relleno de imagen**
-
-Las formas pueden usar una imagen como su relleno. Verifique primero el tipo de relleno de la forma: si no es [FillType](https://reference.aspose.com/slides/es/cpp/aspose.slides/filltype/)::`Picture`, no hay ninguna imagen que extraer de ese relleno. El ejemplo a continuación maneja objetos [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) y guarda cada imagen como PNG mediante [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_Image()`.
-
-```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"shape-fill-images");
-Directory::CreateDirectory_(outputDirectory);
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
-{
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
-
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
-
-    for (const ShapeInfo& item : shapeInfos)
-    {
-        auto autoShape = System::AsCast<IAutoShape>(item.Shape);
-        if (autoShape != nullptr)
-        {
-            auto image = GetPictureFillImage(autoShape->get_FillFormat());
-            if (image != nullptr)
+            auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
+            if (pictureFrame != nullptr)
             {
-                SaveImageAsPng(image, outputDirectory, item.NamePart);
+                auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+                SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
+```
+
+## **Extraer imágenes de formas rellenas con imágenes**
+
+Las formas pueden usar una imagen como relleno. Compruebe primero el tipo de relleno de la forma: si no es [FillType](https://reference.aspose.com/slides/es/cpp/aspose.slides/filltype/)::`Picture`, no hay imagen que extraer de ese relleno. El ejemplo a continuación maneja objetos [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) y guarda cada imagen como PNG mediante [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_Image()`.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+int main()
+{
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"shape-fill-images");
+    Directory::CreateDirectory_(outputDirectory);
+
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+    {
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
+        {
+            auto autoShape = System::AsCast<IAutoShape>(item.Shape);
+            if (autoShape != nullptr)
+            {
+                auto image = GetPictureFillImage(autoShape->get_FillFormat());
+                if (image != nullptr)
+                {
+                    SaveImageAsPng(image, outputDirectory, item.NamePart);
+                }
+            }
+        }
+    }
+
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Extraer imágenes de vista previa de marcos de objetos OLE**
 
-Un [IOleObjectFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ioleobjectframe/) puede tener una imagen sustituta que PowerPoint usa como vista previa del objeto en una diapositiva. Esta imagen está disponible a través de `get_SubstitutePictureFormat()->get_Picture()->get_Image()`. Extraer esta imagen le da la vista previa, no el contenido del paquete OLE incrustado.
+Un [IOleObjectFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ioleobjectframe/) puede tener una imagen sustituta que PowerPoint usa como vista previa del objeto en una diapositiva. Esta imagen está disponible a través de `get_SubstitutePictureFormat()->get_Picture()->get_Image()`. Extraer esta imagen le proporciona la vista previa, no el contenido del paquete OLE incrustado.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"ole-preview-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"ole-preview-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
-        if (oleObjectFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
+            if (oleObjectFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
-## **Extraer imágenes de vista previa de marcos de vídeo**
+## **Extraer imágenes de vista previa de fotogramas de vídeo**
 
-Un [IVideoFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ivideoframe/) también puede almacenar una imagen de vista previa en `get_PictureFormat()->get_Picture()->get_Image()`. Esta es la póster o miniatura mostrada en la diapositiva, no un fotograma decodificado del flujo de vídeo.
+Un [IVideoFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ivideoframe/) también puede almacenar una imagen de vista previa en `get_PictureFormat()->get_Picture()->get_Image()`. Esta es la portada o miniatura que se muestra en la diapositiva, no un fotograma decodificado del flujo de vídeo.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"video-preview-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"video-preview-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
-        if (videoFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
+            if (videoFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
-## **Extraer imágenes de vista previa de marcos de audio**
+## **Extraer imágenes de vista previa de fotogramas de audio**
 
-Un [IAudioFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/iaudioframe/) puede almacenar una miniatura en `get_PictureFormat()->get_Picture()->get_Image()`. Esta es la imagen mostrada para el objeto de audio en la diapositiva.
+Un [IAudioFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/iaudioframe/) puede almacenar una miniatura en `get_PictureFormat()->get_Picture()->get_Image()`. Esta es la imagen que se muestra para el objeto de audio en la diapositiva.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"audio-preview-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"audio-preview-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
-        if (audioFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
+            if (audioFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Extraer imágenes de objetos de zoom**
 
-Las formas [IZoomFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/izoomframe/) y [ISectionZoomFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/isectionzoomframe/) pueden usar imágenes personalizadas. Lea `get_ZoomImage()` del marco de zoom.
+[IZoomFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/izoomframe/) y [ISectionZoomFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/isectionzoomframe/) pueden usar imágenes personalizadas. Lea `get_ZoomImage()` del marco de zoom.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"zoom-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"zoom-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto zoomFrame = System::AsCast<IZoomFrame>(item.Shape);
-        if (zoomFrame != nullptr && zoomFrame->get_ZoomImage() != nullptr)
-        {
-            String fileNameBase = String::Format(u"{0}_zoom", item.NamePart);
-            SaveOriginalImage(zoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
-            continue;
-        }
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
 
-        auto sectionZoomFrame = System::AsCast<ISectionZoomFrame>(item.Shape);
-        if (sectionZoomFrame != nullptr && sectionZoomFrame->get_ZoomImage() != nullptr)
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            String fileNameBase = String::Format(u"{0}_section_zoom", item.NamePart);
-            SaveOriginalImage(sectionZoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
-            continue;
+            auto zoomFrame = System::AsCast<IZoomFrame>(item.Shape);
+            if (zoomFrame != nullptr && zoomFrame->get_ZoomImage() != nullptr)
+            {
+                String fileNameBase = String::Format(u"{0}_zoom", item.NamePart);
+                SaveOriginalImage(zoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
+                continue;
+            }
+
+            auto sectionZoomFrame = System::AsCast<ISectionZoomFrame>(item.Shape);
+            if (sectionZoomFrame != nullptr && sectionZoomFrame->get_ZoomImage() != nullptr)
+            {
+                String fileNameBase = String::Format(u"{0}_section_zoom", item.NamePart);
+                SaveOriginalImage(sectionZoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
+                continue;
+            }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Extraer imágenes de marcos de resumen de zoom**
@@ -447,94 +548,128 @@ presentation->Dispose();
 Un [ISummaryZoomFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/isummaryzoomframe/) también es una forma. Sus elementos de sección pueden usar imágenes personalizadas, expuestas a través del método `get_ZoomImage()` de cada sección de resumen de zoom.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"summary-zoom-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"summary-zoom-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto summaryZoomFrame = System::AsCast<ISummaryZoomFrame>(item.Shape);
-        if (summaryZoomFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto summaryZoomCollection = summaryZoomFrame->get_SummaryZoomCollection();
-            int sectionCount = summaryZoomCollection->get_Count();
-            for (int sectionIndex = 0; sectionIndex < sectionCount; sectionIndex++)
+            auto summaryZoomFrame = System::AsCast<ISummaryZoomFrame>(item.Shape);
+            if (summaryZoomFrame != nullptr)
             {
-                auto section = summaryZoomCollection->idx_get(sectionIndex);
-                if (section->get_ZoomImage() != nullptr)
+                auto summaryZoomCollection = summaryZoomFrame->get_SummaryZoomCollection();
+                int sectionCount = summaryZoomCollection->get_Count();
+                for (int sectionIndex = 0; sectionIndex < sectionCount; sectionIndex++)
                 {
-                    int displayIndex = sectionIndex + 1;
-                    String fileNameBase = String::Format(u"{0}_summary_zoom_{1}", item.NamePart, displayIndex);
-                    SaveOriginalImage(section->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
-                }
-            }
-        }
-    }
-}
-
-presentation->Dispose();
-```
-
-## **Extraer imágenes de formas de tabla**
-
-Una [ITable](https://reference.aspose.com/slides/es/cpp/aspose.slides/itable/) es una forma. Las imágenes en una tabla suelen almacenarse como rellenos de imagen en celdas de tabla.
-
-```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"table-images");
-Directory::CreateDirectory_(outputDirectory);
-
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
-{
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
-
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
-
-    for (const ShapeInfo& item : shapeInfos)
-    {
-        auto table = System::AsCast<ITable>(item.Shape);
-        if (table != nullptr)
-        {
-            int rowCount = table->get_Rows()->get_Count();
-            int columnCount = table->get_Columns()->get_Count();
-            for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
-            {
-                for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
-                {
-                    auto column = table->get_Column(columnIndex);
-                    auto cell = column->idx_get(rowIndex);
-                    auto image = GetPictureFillImage(cell->get_CellFormat()->get_FillFormat());
-                    if (image != nullptr)
+                    auto section = summaryZoomCollection->idx_get(sectionIndex);
+                    if (section->get_ZoomImage() != nullptr)
                     {
-                        String fileNameBase = String::Format(
-                            u"{0}_cell_{1}_{2}", item.NamePart, rowIndex + 1, columnIndex + 1);
-                        SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        int displayIndex = sectionIndex + 1;
+                        String fileNameBase = String::Format(u"{0}_summary_zoom_{1}", item.NamePart, displayIndex);
+                        SaveOriginalImage(section->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
                     }
                 }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
+```
+
+## **Extraer imágenes de formas de tabla**
+
+Un [ITable](https://reference.aspose.com/slides/es/cpp/aspose.slides/itable/) es una forma. Las imágenes en una tabla suelen almacenarse como rellenos de imagen en las celdas de la tabla.
+
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
+
+int main()
+{
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"table-images");
+    Directory::CreateDirectory_(outputDirectory);
+
+    auto savedImageHashes = MakeObject<HashSet<String>>();
+
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+    {
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
+        {
+            auto table = System::AsCast<ITable>(item.Shape);
+            if (table != nullptr)
+            {
+                int rowCount = table->get_Rows()->get_Count();
+                int columnCount = table->get_Columns()->get_Count();
+                for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+                {
+                    for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
+                    {
+                        auto column = table->get_Column(columnIndex);
+                        auto cell = column->idx_get(rowIndex);
+                        auto image = GetPictureFillImage(cell->get_CellFormat()->get_FillFormat());
+                        if (image != nullptr)
+                        {
+                            String fileNameBase = String::Format(
+                                u"{0}_cell_{1}_{2}", item.NamePart, rowIndex + 1, columnIndex + 1);
+                            SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Extraer imágenes de formas de gráfico**
@@ -542,226 +677,277 @@ presentation->Dispose();
 Un [IChart](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/ichart/) es una forma. El ejemplo a continuación extrae una imagen del relleno de imagen del área del gráfico.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"chart-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"chart-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto chart = System::AsCast<Aspose::Slides::Charts::IChart>(item.Shape);
-        if (chart != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto fillFormat = chart->get_FillFormat();
-            auto image = GetPictureFillImage(fillFormat);
-            if (image != nullptr)
+            auto chart = System::AsCast<Aspose::Slides::Charts::IChart>(item.Shape);
+            if (chart != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_chart_area", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto fillFormat = chart->get_FillFormat();
+                auto image = GetPictureFillImage(fillFormat);
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_chart_area", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Extraer imágenes de formas SmartArt**
 
-Un objeto [ISmartArt](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/ismartart/) es una forma. Dependiendo del diseño de SmartArt, las imágenes pueden almacenarse en los rellenos de viñeta de los nodos o en los formatos de relleno de las formas de los nodos.
+Un objeto [ISmartArt](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/ismartart/) es una forma. Dependiendo del diseño de SmartArt, las imágenes pueden almacenarse en los rellenos de viñetas de los nodos o en los formatos de relleno de las formas de los nodos.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"smartart-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"smartart-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto smartArt = System::AsCast<Aspose::Slides::SmartArt::ISmartArt>(item.Shape);
-        if (smartArt != nullptr)
-        {
-            int nodeCount = smartArt->get_AllNodes()->get_Count();
-            for (int nodeIndex = 0; nodeIndex < nodeCount; nodeIndex++)
-            {
-                auto node = smartArt->get_NodeFromAll(nodeIndex);
-                auto bulletImage = GetPictureFillImage(node->get_BulletFillFormat());
-                if (bulletImage != nullptr)
-                {
-                    String fileNameBase = String::Format(
-                        u"{0}_smartart_node_{1}_bullet", item.NamePart, nodeIndex + 1);
-                    SaveOriginalImage(bulletImage, outputDirectory, fileNameBase, savedImageHashes);
-                }
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
 
-                int nodeShapeCount = node->get_Shapes()->get_Count();
-                for (int nodeShapeIndex = 0; nodeShapeIndex < nodeShapeCount; nodeShapeIndex++)
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
+        {
+            auto smartArt = System::AsCast<Aspose::Slides::SmartArt::ISmartArt>(item.Shape);
+            if (smartArt != nullptr)
+            {
+                int nodeCount = smartArt->get_AllNodes()->get_Count();
+                for (int nodeIndex = 0; nodeIndex < nodeCount; nodeIndex++)
                 {
-                    auto nodeShape = node->get_Shape(nodeShapeIndex);
-                    auto image = GetPictureFillImage(nodeShape->get_FillFormat());
-                    if (image != nullptr)
+                    auto node = smartArt->get_NodeFromAll(nodeIndex);
+                    auto bulletImage = GetPictureFillImage(node->get_BulletFillFormat());
+                    if (bulletImage != nullptr)
                     {
                         String fileNameBase = String::Format(
-                            u"{0}_smartart_node_{1}_shape_{2}",
-                            item.NamePart,
-                            nodeIndex + 1,
-                            nodeShapeIndex + 1);
-                        SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                            u"{0}_smartart_node_{1}_bullet", item.NamePart, nodeIndex + 1);
+                        SaveOriginalImage(bulletImage, outputDirectory, fileNameBase, savedImageHashes);
+                    }
+
+                    int nodeShapeCount = node->get_Shapes()->get_Count();
+                    for (int nodeShapeIndex = 0; nodeShapeIndex < nodeShapeCount; nodeShapeIndex++)
+                    {
+                        auto nodeShape = node->get_Shape(nodeShapeIndex);
+                        auto image = GetPictureFillImage(nodeShape->get_FillFormat());
+                        if (image != nullptr)
+                        {
+                            String fileNameBase = String::Format(
+                                u"{0}_smartart_node_{1}_shape_{2}",
+                                item.NamePart,
+                                nodeIndex + 1,
+                                nodeShapeIndex + 1);
+                            SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        }
                     }
                 }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Incluir imágenes dentro de formas agrupadas**
 
-Las formas agrupadas contienen sus propias colecciones de formas. El auxiliar compartido `EnumerateShapes` tiene una opción `includeGroupedShapes`. Establécela en `true` cuando quiera inspeccionar formas dentro de objetos [IGroupShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/igroupshape/). El ejemplo a continuación extrae imágenes de marcos de imágenes, formas con relleno de imagen, vistas previas de objetos OLE, miniaturas de fotogramas de vídeo y miniaturas de fotogramas de audio. Para incluir también imágenes de tabla, gráfico, SmartArt y resumen de zoom, reutilice la lógica de extracción especializada de las secciones anteriores manteniendo el mismo recorrido recursivo de formas.
+Las formas agrupadas contienen sus propias colecciones de formas. El auxiliar compartido `EnumerateShapes` tiene una opción `includeGroupedShapes`. Establézcala en `true` cuando desee inspeccionar las formas dentro de objetos [IGroupShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/igroupshape/). El ejemplo a continuación extrae imágenes de marcos de imagen, formas rellenas con imágenes, vistas previas de objetos OLE, miniaturas de fotogramas de vídeo y miniaturas de fotogramas de audio. Para incluir también imágenes de tabla, gráfico, SmartArt y resumen de zoom, reutilice la lógica de extracción especializada de las secciones anteriores manteniendo la misma recursión de recorrido de formas.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"all-shape-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"all-shape-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
-        if (pictureFrame != nullptr)
-        {
-            auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
-            SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
-            continue;
-        }
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
 
-        auto autoShape = System::AsCast<IAutoShape>(item.Shape);
-        if (autoShape != nullptr)
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = GetPictureFillImage(autoShape->get_FillFormat());
-            if (image != nullptr)
+            auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
+            if (pictureFrame != nullptr)
             {
+                auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
                 SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
+                continue;
             }
 
-            continue;
-        }
-
-        auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
-        if (oleObjectFrame != nullptr)
-        {
-            auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto autoShape = System::AsCast<IAutoShape>(item.Shape);
+            if (autoShape != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = GetPictureFillImage(autoShape->get_FillFormat());
+                if (image != nullptr)
+                {
+                    SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
+                }
+
+                continue;
             }
 
-            continue;
-        }
-
-        auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
-        if (videoFrame != nullptr)
-        {
-            auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
+            if (oleObjectFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+
+                continue;
             }
 
-            continue;
-        }
-
-        auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
-        if (audioFrame != nullptr)
-        {
-            auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
+            if (videoFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+
+                continue;
+            }
+
+            auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
+            if (audioFrame != nullptr)
+            {
+                auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Casos límite y notas prácticas**
 
-- **Imágenes duplicadas:** Varias formas pueden referenciar la misma imagen o imágenes distintas con bytes idénticos. Haga hash de [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_BinaryData()` antes de escribir archivos si desea un archivo de salida por cada imagen única.
-- **Datos originales vs. salida convertida:** Guardar [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_BinaryData()` conserva los datos JPEG, PNG, GIF, SVG, EMF o WMF incrustados. Guardar [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_Image()` mediante [IImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/iimage/)::`Save` es útil cuando se desea un formato de salida consistente.
-- **Tipos de relleno no compatibles:** Las formas de relleno sólido, degradado, patrón o sin relleno no contienen una imagen de relleno. Verifique [FillType](https://reference.aspose.com/slides/es/cpp/aspose.slides/filltype/) antes de leer `get_PictureFillFormat()`.
-- **Formas agrupadas:** La colección de formas de nivel superior de la diapositiva no aplana los grupos. Inspeccione recursivamente [IGroupShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/igroupshape/)::`get_Shapes()` cuando el contenido agrupado sea relevante.
-- **Vistas previas de objetos OLE:** Un [IOleObjectFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ioleobjectframe/) puede exponer una imagen de vista previa a través de `get_SubstitutePictureFormat()`, pero esa imagen es solo la vista previa de la diapositiva. No es el archivo incrustado dentro del objeto OLE.
-- **Miniaturas de fotogramas de vídeo:** Un [IVideoFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ivideoframe/) puede exponer una imagen de vista previa a través de `get_PictureFormat()`, pero esa imagen es solo el póster mostrado en la diapositiva. No se extrae del flujo de vídeo.
-- **Miniaturas de fotogramas de audio:** Un [IAudioFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/iaudioframe/) puede exponer un ícono o miniatura a través de `get_PictureFormat()`; no son los datos de audio incrustados.
-- **Imágenes de zoom:** Las formas de zoom de diapositiva, de sección y de resumen pueden usar objetos [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/) personalizados mediante `get_ZoomImage()`.
-- **Modelos de forma anidados:** Los objetos de tabla, gráfico y SmartArt implementan [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/), pero sus imágenes suelen almacenarse en objetos de formato anidados de celdas de tabla, elementos de gráfico o nodos de SmartArt.
-- **Imágenes recortadas o transformadas:** Acceder a [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/) le da el recurso de imagen almacenado. No renderiza recortes, transparencias, recoloreado, rotación u otros efectos visuales aplicados por la forma.
+- **Imágenes duplicadas:** Múltiples formas pueden referenciar la misma imagen o imágenes distintas con bytes idénticos. Haga hash de [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_BinaryData()` antes de escribir los archivos si desea un archivo de salida por imagen única.
+- **Datos originales vs. salida convertida:** Guardar [IPPImage]::`get_BinaryData()` conserva los datos incrustados JPEG, PNG, GIF, SVG, EMF o WMF. Guardar [IPPImage]::`get_Image()` mediante [IImage]::`Save` es útil cuando desea un formato de salida coherente.
+- **Tipos de relleno no admitidos:** Las formas sólidas, degradadas, con patrón o sin relleno no contienen un relleno de imagen. Verifique [FillType](https://reference.aspose.com/slides/es/cpp/aspose.slides/filltype/) antes de leer `get_PictureFillFormat()`.
+- **Formas agrupadas:** La colección de formas de la diapositiva de nivel superior no aplana los grupos. Inspeccione recursivamente [IGroupShape]::`get_Shapes()` cuando el contenido agrupado sea relevante.
+- **Vistas previas de objetos OLE:** Un [IOleObjectFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ioleobjectframe/) puede exponer una imagen de vista previa mediante `get_SubstitutePictureFormat()`, pero esa imagen es solo la vista previa de la diapositiva. No es el archivo incrustado dentro del objeto OLE.
+- **Miniaturas de fotogramas de vídeo:** Un [IVideoFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ivideoframe/) puede exponer una imagen de vista previa mediante `get_PictureFormat()`, pero esa imagen es solo la portada mostrada en la diapositiva. No se extrae del flujo de vídeo.
+- **Miniaturas de fotogramas de audio:** Un [IAudioFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/iaudioframe/) puede exponer un icono o miniatura mediante `get_PictureFormat()`; no son los datos de audio incrustados.
+- **Imágenes de zoom:** Las formas de zoom de diapositiva, de sección y de resumen pueden usar objetos [IPPImage] personalizados mediante `get_ZoomImage()`.
+- **Modelos de forma anidados:** Los objetos de tabla, gráfico y SmartArt implementan [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/), pero sus imágenes a menudo se almacenan en objetos de formato anidados de celdas de tabla, elementos de gráfico o nodos de SmartArt.
+- **Imágenes recortadas o transformadas:** Acceder a [IPPImage] le brinda el recurso de imagen almacenado. No renderiza recortes, transparencia, recoloreo, rotación u otros efectos visuales aplicados por la forma.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo extraer la imagen original sin recortes, efectos o transformaciones de forma?**
+### ¿Puedo extraer la imagen original sin recortes, efectos o transformaciones de forma?
 
-Sí. Acceda al objeto [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/) y escriba [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_BinaryData()` en disco. Esto conserva la imagen codificada original almacenada en la presentación, no la forma en que la imagen se renderiza en la diapositiva.
+Sí. Acceda al objeto [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/) y escriba [IPPImage]::`get_BinaryData()` en disco. Esto conserva la imagen codificada original almacenada en la presentación, no la forma en que la imagen se renderiza en la diapositiva.
 
-**¿Puedo exportar cada imagen extraída como PNG?**
+### ¿Puedo exportar cada imagen extraída como PNG?
 
-Sí. Utilice [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_Image()` para obtener un objeto [IImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/iimage/), y luego llame a [IImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/iimage/)::`Save` con [ImageFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/imageformat/)::`Png`. Esto convierte la salida y puede no conservar el tipo de archivo original ni los datos vectoriales.
+Sí. Utilice [IPPImage]::`get_Image()` para obtener un objeto [IImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/iimage/) y luego llame a [IImage]::`Save` con [ImageFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/imageformat/)::`Png`. Esto convierte la salida y puede no conservar el tipo de archivo original ni los datos vectoriales.
 
-**¿Cómo evito guardar la misma imagen más de una vez?**
+### ¿Cómo evito guardar la misma imagen más de una vez?
 
-Utilice un hash de [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/)::`get_BinaryData()` y mantenga los hashes en un conjunto. Si una nueva imagen tiene un hash que ya existe, omítala o registre otra referencia al archivo de salida existente.
+Utilice un hash de [IPPImage]::`get_BinaryData()` y mantenga los hashes en un conjunto. Si una nueva imagen tiene un hash que ya existe, omítala o registre otra referencia al archivo de salida existente.
 
-**¿Por qué algunas formas no generan una imagen?**
+### ¿Por qué algunas formas no generan una imagen?
 
-Los marcos de imágenes, las formas con relleno de imagen, los marcos de objetos OLE, los marcos de medios, los marcos de zoom, las tablas, los gráficos y los objetos SmartArt pueden hacer referencia a imágenes. Algunos tipos de forma exponen imágenes mediante objetos de formato anidados, por lo que una simple comprobación `get_PictureFormat()` o `get_FillFormat()` de la forma no siempre es suficiente.
+Los marcos de imagen, las formas rellenas con imágenes, los marcos de objetos OLE, los marcos de medios, los marcos de zoom, las tablas, los gráficos y los objetos SmartArt pueden referenciar imágenes. Algunos tipos de forma exponen imágenes a través de objetos de formato anidados, por lo que una simple comprobación `get_PictureFormat()` o `get_FillFormat()` de la forma no siempre es suficiente.
 
-**¿Puedo extraer la miniatura mostrada para un marco de vídeo?**
+### ¿Puedo extraer la miniatura mostrada para un fotograma de vídeo?
 
-Sí. Utilice [IVideoFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ivideoframe/)::`get_PictureFormat()` y lea `get_PictureFormat()->get_Picture()->get_Image()`. Esto extrae la imagen de póster almacenada con el marco de vídeo, no un fotograma generado a partir del archivo de vídeo.
+Sí. Utilice [IVideoFrame]::`get_PictureFormat()` y lea `get_PictureFormat()->get_Picture()->get_Image()`. Esto extrae la imagen de portada almacenada con el fotograma de vídeo, no un fotograma generado a partir del archivo de vídeo.
 
-**¿Cómo puedo determinar qué formas usan una imagen específica de la colección de imágenes de la presentación?**
+### ¿Cómo puedo determinar qué formas usan una imagen específica de la colección de imágenes de la presentación?
 
-Aspose.Slides no almacena enlaces inversos de [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/) a las formas. Construya un mapeo durante el recorrido: siempre que encuentre una referencia a una imagen, registre el número de diapositiva, la ruta de la forma y el hash de la imagen o el elemento de la colección.
+Aspose.Slides no almacena enlaces inversos de [IPPImage] a las formas. Construya un mapeo durante el recorrido: siempre que encuentre una referencia a una imagen, registre el número de diapositiva, la ruta de la forma y el hash o elemento de la colección de la imagen.
 
-**¿Puedo extraer imágenes incrustadas dentro de objetos OLE, como documentos adjuntos?**
+### ¿Puedo extraer imágenes incrustadas dentro de objetos OLE, como documentos adjuntos?
 
-Puede extraer la vista previa del objeto OLE desde [IOleObjectFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ioleobjectframe/)::`get_SubstitutePictureFormat()`. Sin embargo, esa vista previa no es el documento incrustado propiamente dicho. Para extraer imágenes dentro del archivo incrustado, extraiga los datos OLE y examínelos con herramientas adecuadas para ese tipo de archivo.
+Puede extraer la vista previa de diapositiva del objeto OLE desde [IOleObjectFrame]::`get_SubstitutePictureFormat()`. Sin embargo, esa vista previa no es el documento incrustado en sí. Para extraer imágenes del archivo incrustado, extraiga los datos OLE y examínelos con herramientas adecuadas para ese tipo de archivo.

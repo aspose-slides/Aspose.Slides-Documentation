@@ -6,27 +6,27 @@ weight: 100
 url: /fa/java/extracting-images-from-presentation-shapes/
 keywords:
 - استخراج تصویر
-- بازیابی تصویر
-- PowerPoint
+- دستیابی به تصویر
+- پاورپوینت
 - OpenDocument
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "تصویرها را از اشکال در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Java استخراج کنید - راه‌حل سریع و مبتنی بر کد."
+description: "تصاویر را از اشکال در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای جاوا استخراج کنید - راه‌حل سریع و مناسب برای کدنویسی."
 ---
-## **نمای کلی**
+## **مروری کلی**
 
-تصاویر در یک ارائه می‌توانند در چندین نوع شکل ظاهر شوند: به عنوان قاب‌های تصویر معمولی، به عنوان پر کردن تصویر اعمال‌شده بر شکل‌ها، به عنوان تصاویر پیش‌نمایش شیء OLE، به عنوان تصویرهای بندانگشتی فریم ویدئو یا صدا، به عنوان تصاویر زوم، یا به عنوان تصاویر تو در تو در داخل جدول، نمودار و اشکال SmartArt. Aspose.Slides این تصاویر را در مجموعه تصویر ارائه ذخیره می‌کند که از طریق اشیای [IImageCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimagecollection/) و [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) در دسترس هستند.
+تصاویر در یک ارائه می‌توانند در چندین نوع شکل ظاهر شوند: به‌عنوان فریم‌های تصویری معمولی، به‌عنوان پرکردن تصویر بر روی اشکال، به‌عنوان پیش‌نمایش‌های شیء OLE، به‌عنوان تصویر کوچک فریم‌های ویدئو یا صدا، به‌عنوان تصاویر زوم، یا به‌عنوان تصاویری که داخل جدول، نمودار و اشکال SmartArt تو در تو هستند. Aspose.Slides این تصاویر را در مجموعه تصاویر ارائه ذخیره می‌کند که از طریق اشیای [IImageCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimagecollection/) و [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) در دسترس هستند.
 
-اگر فقط نیاز دارید تمام منابع تصویر جاسازی‌شده در یک ارائه را استخراج کنید، از `presentation.getImages()` مرور کنید. این مقاله بر یک کار متفاوت تمرکز دارد: جستجوی شکل‌ها برای یافتن مکان استفاده از تصاویر در اسلایدها، به‌طوری‌که فایل‌های ذخیره‌شده بتوانند زمینه مفیدی مانند شماره اسلاید، موقعیت شکل و نوع منبع (قاب تصویر، تصویر پرکننده، پیش‌نمایش رسانه، پیش‌نمایش OLE یا تصویر زوم) را نگه دارند.
+اگر فقط نیاز داشته باشید تمام منابع تصویری جاسازی‌شده در یک ارائه را صادر کنید، از `presentation.getImages()` مرور کنید. این مقاله بر یک کار متفاوت تمرکز دارد: پیمایش اشکال برای یافتن مکان‌های استفاده از تصاویر در اسلایدها، به طوری که فایل‌های ذخیره‌شده بتوانند زمینه مفیدی مانند شماره اسلاید، موقعیت شکل، و نوع منبع (فریم تصویر، تصویر پرکردن، پیش‌نمایش رسانه، پیش‌نمایش OLE یا تصویر زوم) را حفظ کنند.
 
-{{% alert title="Tip" color="primary" %}}
-از [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) برای حفظ داده‌های تصویر کدگذاری‌شده اصلی و نوع فایل استفاده کنید. هنگامی که می‌خواهید خروجی را به فرمتی خاص مانند PNG نرمال‌سازی کنید، از [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) همراه با [IImage.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage/#save-java.lang.String-int-) استفاده کنید.
+{{% alert title="نکته" color="info" %}}
+از [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) برای حفظ داده‌های تصویر کدگذاری‌شده اصلی و نوع فایل استفاده کنید. برای نرمال‌سازی خروجی به یک فرمت خاص مانند PNG، از [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) همراه با [IImage.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage/#save-java.lang.String-int-) استفاده کنید.
 {{% /alert %}}
 
 ## **متدهای کمکی مشترک**
 
-متدهای کمکی زیر نمونه‌ها را کوتاه نگه می‌دارند. `saveOriginalImage` بایت‌های جاسازی‌شده اصلی را می‌نویسد، پسوند ایمن را بر اساس نوع MIME انتخاب می‌کند و باینری‌های تصویر تکراری را بر اساس هش SHA-256 نادیده می‌گیرد.
+متدهای کمکی زیر مثال‌ها را کوتاه نگه می‌دارند. `saveOriginalImage` بایت‌های جاسازی‌شده اصلی را می‌نویسد، پسوند ایمن را از نوع MIME انتخاب می‌کند، و باینری‌های تصویر تکراری را با هش SHA-256 نادیده می‌گیرد.
 
 ```java
 import com.aspose.slides.*;
@@ -222,11 +222,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **استخراج تصاویر از قاب‌های تصویر**
+## **استخراج تصاویر از فریم‌های تصویری**
 
-از این روش برای تصاویری که به‌عنوان شیء مستقل وارد می‌شوند استفاده کنید. یک [IPictureFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ipictureframe/) تصویر خود را در `getPictureFormat().getPicture().getImage()` ذخیره می‌کند که یک شیء [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) را برمی‌گرداند.
+از این روش برای تصاویری که به‌صورت اشیای مستقل اضافه شده‌اند استفاده کنید. یک [IPictureFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ipictureframe/) تصویر خود را در `getPictureFormat().getPicture().getImage()` ذخیره می‌کند که یک شیء [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) برمی‌گرداند.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -266,11 +271,15 @@ finally
 }
 ```
 
-## **استخراج تصاویر از اشکال پر شده با تصویر**
+## **استخراج تصاویر از اشکال پر‑تصویر**
 
-شکل‌ها می‌توانند یک تصویر را به‌عنوان پرکننده خود استفاده کنند. ابتدا نوع پرکننده شکل را بررسی کنید: اگر نوع آن [FillType.Picture](https://reference.aspose.com/slides/fa/java/com.aspose.slides.filltype/) نباشد، تصویری برای استخراج از این پرکننده وجود ندارد. مثال زیر اشیای [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iautoshape/) را پردازش می‌کند و هر تصویر را با استفاده از [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) به‌صورت PNG ذخیره می‌کند.
+اشکال می‌توانند یک تصویر را به‌عنوان پرکردن خود استفاده کنند. ابتدا نوع پرکردن شکل را بررسی کنید: اگر برابر با [FillType.Picture](https://reference.aspose.com/slides/fa/java/com.aspose.slides.filltype/) نباشد، تصویری برای استخراج وجود ندارد. مثال زیر اشیای [IAutoShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iautoshape/) را پردازش می‌کند و هر تصویر را با استفاده از [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) به فرمت PNG ذخیره می‌نماید.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -312,11 +321,16 @@ finally
 }
 ```
 
-## **استخراج تصاویر پیش‌نمایش از قاب‌های شیء OLE**
+## **استخراج پیش‌نمایش تصاویر از فریم‌های شیء OLE**
 
-یک [IOleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ioleobjectframe/) می‌تواند تصویری جایگزین داشته باشد که PowerPoint به‌عنوان پیش‌نمایش شیء روی اسلاید استفاده می‌کند. این تصویر از طریق `getSubstitutePictureFormat().getPicture().getImage()` در دسترس است. استخراج این تصویر به شما تصویر پیش‌نمایش را می‌دهد، نه محتوای بسته OLE جاسازی‌شده.
+یک [IOleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ioleobjectframe/) می‌تواند تصویر جایگزینی داشته باشد که PowerPoint به‌عنوان پیش‌نمایش شیء روی اسلاید استفاده می‌کند. این تصویر از طریق `getSubstitutePictureFormat().getPicture().getImage()` در دسترس است. استخراج این تصویر پیش‌نمایش را می‌دهد، نه محتوای بسته OLE جاسازی‌شده.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -360,11 +374,16 @@ finally
 }
 ```
 
-## **استخراج تصاویر پیش‌نمایش از فریم‌های ویدئو**
+## **استخراج پیش‌نمایش تصاویر از فریم‌های ویدئویی**
 
-یک [IVideoFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ivideoframe/) همچنین می‌تواند تصویر پیش‌نمایشی را در `getPictureFormat().getPicture().getImage()` ذخیره کند. این تصویر پوستر یا بندانگشتی است که روی اسلاید نشان داده می‌شود، نه یک فریم استخراج‌شده از جریان ویدئو.
+یک [IVideoFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ivideoframe/) نیز می‌تواند تصویر پیش‌نمایش را در `getPictureFormat().getPicture().getImage()` ذخیره کند. این تصویر پوستر یا تصویر کوچک نشان‌داده‌شده روی اسلاید است، نه فریمی که از جریان ویدئو استخراج شده است.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -408,11 +427,16 @@ finally
 }
 ```
 
-## **استخراج تصاویر پیش‌نمایش از فریم‌های صدا**
+## **استخراج پیش‌نمایش تصاویر از فریم‌های صوتی**
 
-یک [IAudioFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iaudioframe/) می‌تواند یک بندانگشتی را در `getPictureFormat().getPicture().getImage()` ذخیره کند. این تصویر نشان داده‌شده برای شیء صدا در اسلاید است.
+یک [IAudioFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iaudioframe/) می‌تواند تصویر کوچک را در `getPictureFormat().getPicture().getImage()` ذخیره کند. این تصویر برای شیء صدا روی اسلاید نمایش داده می‌شود.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -458,9 +482,14 @@ finally
 
 ## **استخراج تصاویر از اشیای زوم**
 
-[IZoomFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.izoomframe) و اشکال [ISectionZoomFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.isectionzoomframe/) می‌توانند از تصاویر سفارشی استفاده کنند. تصویر زوم را با فراخوانی `getZoomImage()` از فریم زوم بخوانید.
+اشکال [IZoomFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.izoomframe/) و [ISectionZoomFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.isectionzoomframe/) می‌توانند از تصاویر سفارشی استفاده کنند. `getZoomImage()` را از فریم زوم بخوانید.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -519,9 +548,14 @@ finally
 
 ## **استخراج تصاویر از فریم‌های زوم خلاصه**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.isummaryzoomframe) نیز یک شکل است. آیتم‌های بخش آن می‌توانند از تصاویر سفارشی استفاده کنند که از طریق متد `getZoomImage()` هر بخش زوم خلاصه قابل دسترسی است.
+یک [ISummaryZoomFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.isummaryzoomframe/) نیز یک شکل است. آیتم‌های بخش آن می‌توانند تصاویر سفارشی داشته باشند که از طریق متد `getZoomImage()` هر بخش زوم خلاصه در دسترس هستند.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -573,9 +607,14 @@ finally
 
 ## **استخراج تصاویر از اشکال جدول**
 
-[ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides.itable) یک شکل است. تصاویر در جدول معمولاً به‌صورت پرکننده‌های تصویری در سلول‌های جدول ذخیره می‌شوند.
+یک [ITable](https://reference.aspose.com/slides/fa/java/com.aspose.slides.itable/) یک شکل است. تصاویر در جدول معمولاً به‌صورت پرکردن تصویر در سلول‌های جدول ذخیره می‌شوند.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -633,9 +672,14 @@ finally
 
 ## **استخراج تصاویر از اشکال نمودار**
 
-[IChart](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ichart) یک شکل است. مثال زیر تصویری را از پرکننده تصویری ناحیه نمودار استخراج می‌کند.
+یک [IChart](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ichart/) یک شکل است. مثال زیر تصویری را از پرکردن تصویر ناحیه نمودار استخراج می‌کند.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -682,9 +726,14 @@ finally
 
 ## **استخراج تصاویر از اشکال SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ismartart) یک شکل است. بسته به طرح‌بندی SmartArt، ممکن است تصاویر در پرکننده‌های گلوله‌دار گره یا در قالب‌های پرکننده‌ی اشکال گره ذخیره شوند.
+یک شیء [ISmartArt](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ismartart/) یک شکل است. بسته به طرح‌بندی SmartArt، تصاویر ممکن است در پرکردن گلوله گره‌ها یا در قالب پرکردن اشکال گره ذخیره شوند.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -750,11 +799,16 @@ finally
 }
 ```
 
-## **شامل تصاویر درون اشکال گروهی**
+## **گنجاندن تصاویر داخل اشکال گروهی**
 
-اشکال گروهی مجموعه‌های شکل خود را دارند. متد کمکی مشترک `enumerateShapes` گزینه‌ای به نام `includeGroupedShapes` دارد. هنگامی که می‌خواهید شکل‌های داخل اشیای [IGroupShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides.igroupshape) را بررسی کنید، این گزینه را به `true` تنظیم کنید. مثال زیر تصاویر را از قاب‌های تصویر، اشکال پر شده با تصویر، پیش‌نمایش‌های شیء OLE، بندانگشتی‌های فریم ویدئو و بندانگشتی‌های فریم صدا استخراج می‌کند. برای شامل کردن تصاویر جدول، نمودار، SmartArt و زوم خلاصه نیز، منطق استخراج اختصاصی بخش‌های قبلی را باز استفاده کنید در حالی که همان پیمایش بازگشتی شکل‌ها را حفظ می‌کنید.
+اشکال گروهی مجموعه‌های شکل خود را دارند. کمکی `enumerateShapes` گزینه `includeGroupedShapes` دارد. هنگام نیاز به بررسی اشکال داخل اشیای [IGroupShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides.igroupshape/) آن را به `true` تنظیم کنید. مثال زیر تصاویر را از فریم‌های تصویری، اشکال پر‑تصویر، پیش‌نمایش‌های شیء OLE، تصویرهای کوچک فریم‌های ویدئویی و صدا استخراج می‌کند. برای گنجاندن تصاویر جدول، نمودار، SmartArt و زوم خلاصه نیز می‌توانید منطق استخراج ویژه در بخش‌های قبلی را بازاستفاده کنید در حالی که همان پیمایش بازگشتی شکل را حفظ می‌کنید.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util Set;
+import java.util List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -845,45 +899,45 @@ finally
 }
 ```
 
-## **موارد لبه و نکات عملی**
+## **موارد ویژه و نکات عملی**
 
-- **تصاویر تکراری:** ممکن است چندین شکل به همان تصویر یا به تصاویر جداگانه با بایت‌های یکسان ارجاع دهند. قبل از نوشتن فایل‌ها، [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) را هش کنید اگر می‌خواهید برای هر تصویر منحصر به‌فرد یک فایل خروجی داشته باشید.
-- **داده اصلی در مقابل خروجی تبدیل‌شده:** ذخیره‌سازی [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) داده‌های JPEG، PNG، GIF، SVG، EMF یا WMF جاسازی‌شده را حفظ می‌کند. ذخیره‌سازی [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) از طریق [IImage.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage/#save-java.lang.String-int-) وقتی که می‌خواهید فرمت خروجی یکسانی داشته باشید مفید است.
-- **انواع پرکننده پشتیبانی‌نشده:** شکل‌های ثابت، گرادیان، الگو و بدون پرکننده حاوی تصویر پرکننده نیستند. قبل از خواندن `getPictureFillFormat()`، [FillType](https://reference.aspose.com/slides/fa/java/com.aspose.slides.filltype/) را بررسی کنید.
-- **اشکال گروهی:** مجموعه شکل‌های اسلاید در سطح بالا گروه‌ها را صاف نمی‌کند. هنگامی که محتوای گروهی مهم است، به‌صورت بازگشتی [IGroupShape.getShapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides.igroupshape/#getShapes--) را بررسی کنید.
-- **پیش‌نمایش‌های شیء OLE:** یک [IOleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ioleobjectframe) ممکن است تصویر پیش‌نمایشی را از طریق `getSubstitutePictureFormat()` نشان دهد، اما این تصویر فقط پیش‌نمایش اسلاید است. این نه فایل جاسازی‌شده داخل شیء OLE است.
-- **بندانگشتی‌های فریم ویدئو:** یک [IVideoFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ivideoframe) ممکن است تصویر پیش‌نمایشی را از طریق `getPictureFormat()` نشان دهد، اما این تصویر فقط پوستر نمایش داده‌شده روی اسلاید است. این تصویر از جریان ویدئو استخراج نمی‌شود.
-- **بندانگشتی‌های فریم صدا:** یک [IAudioFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iaudioframe) ممکن است یک آیکون یا بندانگشتی را از طریق `getPictureFormat()` نشان دهد؛ این داده‌های صوتی جاسازی‌شده نیستند.
-- **تصاویر زوم:** اشکال زوم اسلاید، زوم بخش و زوم خلاصه ممکن است از اشیای سفارشی [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage) از طریق `getZoomImage()` استفاده کنند.
-- **مدل‌های شکل‌ تو در تو:** اشیای جدول، نمودار و SmartArt از [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ishape) پیروی می‌کنند، اما تصاویر آن‌ها اغلب در سلول‌های جدول تو در تو، عنصر نمودار یا اشیای قالب‌بندی گره SmartArt ذخیره می‌شوند.
-- **تصاویر برش‌خورده یا تغییر شکل‌ یافته:** دسترسی به [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage) منبع تصویر ذخیره‌شده را می‌دهد. این برش، شفافیت، بازنگرانی رنگ، چرخش یا سایر اثرات بصری اعمال‌شده توسط شکل را رندر نمی‌کند.
+- **تصاویر تکراری:** چندین شکل ممکن است به یک تصویر یکسان ارجاع دهند یا تصاویری با بایت‌های یکسان داشته باشند. پیش از نوشتن فایل‌ها هش [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) را محاسبه کنید تا برای هر تصویر منحصر به فرد یک فایل خروجی داشته باشید.
+- **داده اصلی در مقابل خروجی تبدیل‌شده:** ذخیره‌سازی [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) داده‌های JPEG، PNG، GIF، SVG، EMF یا WMF جاسازی‌شده را حفظ می‌کند. ذخیره‌سازی [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) از طریق [IImage.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage/#save-java.lang.String-int-) برای خروجی به فرمت ثابت مفید است.
+- **انواع پرکردن پشتیبانی‌نشده:** اشکال تک‌رنگ، گرادیان، الگو و بدون پرکردن تصویری ندارند. قبل از خواندن `getPictureFillFormat()` نوع پرکردن را با [FillType](https://reference.aspose.com/slides/fa/java/com.aspose.slides.filltype/) بررسی کنید.
+- **اشکال گروهی:** مجموعه شکل‌های اسلاید سطح بالا گروه‌ها را صاف (flatten) نمی‌کند. هنگام نیاز به محتوای گروهی، به صورت بازگشتی [IGroupShape.getShapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides.igroupshape/#getShapes--) را بررسی کنید.
+- **پیش‌نمایش‌های شیء OLE:** یک [IOleObjectFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ioleobjectframe/) ممکن است تصویر پیش‌نمایش را از طریق `getSubstitutePictureFormat()` ارائه دهد، اما این تصویر فقط پیش‌نمایش اسلاید است و نه فایل جاسازی‌شده داخل شیء OLE.
+- **تصاویر کوچک فریم‌های ویدئویی:** یک [IVideoFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ivideoframe/) ممکن است پیش‌نمایش را از طریق `getPictureFormat()` ارائه دهد؛ این تصویر فقط پوستر نمایش‑داده‌شده روی اسلاید است و از جریان ویدئو استخراج نمی‌شود.
+- **تصاویر کوچک فریم‌های صوتی:** یک [IAudioFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iaudioframe/) ممکن است آیکون یا تصویر کوچک را از طریق `getPictureFormat()` ارائه دهد؛ این تصویر داده‌های صوتی جاسازی‌شده را نشان نمی‌دهد.
+- **تصاویر زوم:** اشکال زوم اسلاید، زوم بخش و زوم خلاصه می‌توانند از اشیای سفارشی [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) از طریق `getZoomImage()` استفاده کنند.
+- **مدل‌های تو در توی شکل:** اشیای جدول، نمودار و SmartArt پیاده‌سازی [IShape](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ishape/) را دارند، اما تصاویرشان اغلب در اشیای قالب‌بندی سلول جدول، عنصر نمودار یا گره SmartArt تو در تو ذخیره می‌شوند.
+- **تصاویر برش‌خورده یا تبدیل‌شده:** دسترسی به [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) فقط منبع تصویری ذخیره‌شده را می‌دهد. این کار برش، شفافیت، تغییر رنگ، چرخش یا سایر جلوه‌های بصری اعمال‌شده توسط شکل را رندر نمی‌کند.
 
 ## **سوالات متداول**
 
-**آیا می‌توانم تصویر اصلی را بدون برش، افکت یا تبدیل شکل استخراج کنم؟**
+### آیا می‌توانم تصویر اصلی را بدون برش، اثرات یا تبدیل‌های شکل استخراج کنم؟
 
-بله. به شیء [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage) دسترسی پیدا کنید و [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) را روی دیسک بنویسید. این کار تصویر کدگذاری‌شده اصلی که در ارائه ذخیره شده است را حفظ می‌کند، نه نحوه رندر شدن تصویر در اسلاید.
+بله. شیء [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) را دریافت کنید و با استفاده از [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) آن را روی دیسک بنویسید. این کار تصویر کدگذاری‌شده اصلی ذخیره‌شده در ارائه را حفظ می‌کند، نه نحوه نمایش آن روی اسلاید.
 
-**آیا می‌توانم هر تصویر استخراج‌شده را به‌صورت PNG صادر کنم؟**
+### آیا می‌توانم همه تصاویر استخراج‌شده را به PNG صادر کنم؟
 
-بله. از [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) برای دریافت یک شیء [IImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage) استفاده کنید و سپس با [ImageFormat.Png](https://reference.aspose.com/slides/fa/java/com.aspose.slides.imageformat/) به‌صورت [IImage.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage/#save-java.lang.String-int-) فراخوانی کنید. این کار خروجی را تبدیل می‌کند و ممکن است نوع فایل اصلی یا داده‌های برداری را حفظ نکند.
+بله. از [IPPImage.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getImage--) برای دریافت شیء [IImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage/) استفاده کنید و سپس با [IImage.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides.iimage/#save-java.lang.String-int-) و [ImageFormat.Png](https://reference.aspose.com/slides/fa/java/com.aspose.slides.imageformat/) ذخیره کنید. این کار خروجی را به فرمت PNG تبدیل می‌کند و ممکن است نوع فایل اصلی یا داده‌های برداری را حفظ نکند.
 
-**چگونه از ذخیره‌سازی چندباره یک تصویر جلوگیری کنم؟**
+### چگونه از ذخیره‌سازی مکرر یک تصویر جلوگیری کنم؟
 
-از یک هش برای [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) استفاده کنید و هش‌ها را در یک مجموعه نگه دارید. اگر تصویری جدید هش موجودی داشته باشد، آن را نادیده بگیرید یا یک ارجاع دیگر به فایل خروجی موجود ثبت کنید.
+هش [IPPImage.getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/#getBinaryData--) را محاسبه کرده و آن‌ها را در یک مجموعه نگهدارید. اگر تصویری جدید هش موجودی داشته باشد، آن را نادیده بگیرید یا مرجع دیگری به فایل خروجی موجود اضافه کنید.
 
-**چرا برخی از شکل‌ها تصویری تولید نمی‌کنند؟**
+### چرا برخی اشکال تصویر تولید نمی‌کنند؟
 
-قاب‌های تصویر، اشکال پر شده با تصویر، قاب‌های شیء OLE، قاب‌های رسانه‌ای، قاب‌های زوم، جدول‌ها، نمودارها و اشیای SmartArt می‌توانند به تصاویر ارجاع دهند. برخی انواع شکل‌ها تصاویر را از طریق اشیای قالب‌بندی تو در تو نشان می‌دهند، بنابراین یک بررسی ساده `getPictureFormat()` یا `getFillFormat()` شکل همیشه کافی نیست.
+فریم‌های تصویری، اشکال پر‑تصویر، فریم‌های شیء OLE، فریم‌های رسانه‌ای، فریم‌های زوم، جدول‌ها، نمودارها و اشیای SmartArt می‌توانند به تصاویر ارجاع دهند. برخی انواع شکل تصاویر را از طریق اشیای قالب‌بندی تو در تو ارائه می‌دهند، بنابراین بررسی ساده `getPictureFormat()` یا `getFillFormat()` همیشه کافی نیست.
 
-**آیا می‌توانم تصویر بندانگشتی نمایش داده‌شده برای فریم ویدئو را استخراج کنم؟**
+### آیا می‌توانم تصویر کوچک نمایش داده‌شده برای فریم ویدئویی را استخراج کنم؟
 
-بله. از [IVideoFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ivideoframe) استفاده کنید و `getPictureFormat().getPicture().getImage()` را بخوانید. این کار تصویر پوستر ذخیره‌شده با فریم ویدئو را استخراج می‌کند، نه فریمی تولید‌شده از فایل ویدئو.
+بله. از [IVideoFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ivideoframe/) استفاده کنید و `getPictureFormat().getPicture().getImage()` را بخوانید. این کار تصویر پوستر ذخیره‌شده همراه فریم ویدئویی را استخراج می‌کند، نه فریمی که از فایل ویدئویی تولید شده باشد.
 
-**چگونه می‌توانم تعیین کنم کدام شکل‌ها از یک تصویر خاص از مجموعه تصاویر ارائه استفاده می‌کنند؟**
+### چگونه می‌توانم تعیین کنم کدام اشکال از تصویر خاصی در مجموعه تصاویر ارائه استفاده می‌کنند؟
 
-Aspose.Slides پیوندهای معکوس از [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage) به شکل‌ها را ذخیره نمی‌کند. در حین پیمایش یک نگاشت بسازید: هر زمان که یک ارجاع تصویر پیدا کردید، شماره اسلاید، مسیر شکل و هش تصویر یا آیتم مجموعه را ثبت کنید.
+Aspose.Slides پیوندهای معکوس از [IPPImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ippimage/) به اشکال را ذخیره نمی‌کند. در طول پیمایش یک نگاشت بسازید: هر زمانی که به یک ارجاع تصویر می‌رسید، شماره اسلاید، مسیر شکل و هش یا شناسهٔ آیتم مجموعه را ثبت کنید.
 
-**آیا می‌توانم تصاویر جاسازی‌شده درون اشیای OLE، مانند اسناد پیوست‌شده، استخراج کنم؟**
+### آیا می‌توانم تصاویر جاسازی‌شده داخل اشیای OLE، مانند اسناد پیوست، را استخراج کنم؟
 
-می‌توانید پیش‌نمایش اسلاید شیء OLE را از طریق [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--) استخراج کنید. با این حال، این پیش‌نمایش خود فایل سند جاسازی‌شده نیست. برای استخراج تصاویر از داخل فایل جاسازی‌شده، داده‌های OLE را استخراج کنید و با ابزارهای مناسب برای آن نوع فایل بررسی کنید.
+می‌توانید پیش‌نمایش اسلاید شیء OLE را از طریق [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--) استخراج کنید. اما این پیش‌نمایش خود فایل سند جاسازی‌شده را نشان نمی‌دهد. برای استخراج تصاویر داخل فایل جاسازی‌شده، دادهٔ OLE را استخراج کرده و با ابزارهای مناسب برای آن نوع فایل بررسی کنید.

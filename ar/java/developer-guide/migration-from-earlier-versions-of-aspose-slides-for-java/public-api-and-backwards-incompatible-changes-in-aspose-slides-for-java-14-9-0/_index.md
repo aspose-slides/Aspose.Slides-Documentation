@@ -1,83 +1,104 @@
 ---
-title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لجافا 14.9.0
+title: API العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides for Java 14.9.0
+linktitle: Aspose.Slides for Java 14.9.0
 type: docs
 weight: 80
 url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/
+keywords:
+- ترحيل
+- كود قديم
+- كود حديث
+- نهج قديم
+- نهج حديث
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Java
+- Aspose.Slides
+description: "استعرض تحديثات API العامة والتغييرات الجذرية في Aspose.Slides for Java لترحيل حلول عروض PowerPoint (PPT، PPTX) و ODP بسلاسة."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-هذه الصفحة تسرد جميع [المضافات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) من الفئات، الطرق، الخصائص وما إلى ذلك، وأي قيود جديدة وأي [تغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لجافا 14.9.0.
+هذه الصفحة تسرد جميع الفئات، الأساليب، الخصائص وما إلى ذلك [المضافة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/)، وأية قيود جديدة وغيرها من [التغييرات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) التي تم إدخالها مع Aspose.Slides for Java 14.9.0 API.
 
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-### **إضافة طرق لاستبدال الصورة إلى PPImage، IPPImage**
-تمت إضافة طرق جديدة:
+## **تغييرات API العامة**
+### **تمت إضافة أساليب لاستبدال Image إلى PPImage, IPPImage**
+الأساليب الجديدة المضافة:
 
 - IPPImage.replaceImage(byte[] newImageData)
 - IPPImage.replaceImage(IPPImage newImage)
 
 ``` java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
- Presentation presentation = new Presentation("presentation.pptx");
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    // الطريقة الأولى
+    byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+    presentation.getImages().get_Item(0).replaceImage(imageData);
 
-//الطريقة الأولى
+    // الطريقة الثانية
+    presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
 
-byte[] imageData = // ...
-
-presentation.getImages().get_Item(0).replaceImage(imageData);
-
-//الطريقة الثانية
-
-presentation.getImages().get_Item(1).replaceImage(
-
-    presentation.getImages().get_Item(0));
-
-presentation.save("presentation_out.pptx", SaveFormat.Pptx);
-
+    presentation.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **إضافة طرق لحفظ الشرائح مع الحفاظ على أرقام الصفحات**
-تمت إضافة الطرق التالية:
+### **تمت إضافة أساليب لحفظ الشرائح مع الحفاظ على أرقام الصفحات**
+تمت إضافة الأساليب التالية:
 
 - void IPresentation.save(string fname, int[] slides, SaveFormat format);
 - void IPresentation.save(string fname, int[] slides, SaveFormat format, ISaveOption options);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-هذه الطرق تسمح بحفظ الشرائح المحددة للعرض التقديمي في تنسيقات PDF، XPS، TIFF، HTML. مصفوفة 'slides' تتيح تحديد أرقام الصفحات، بدءًا من 1.
+تسمح هذه الأساليب بحفظ شرائح العرض المحددة إلى صيغ PDF و XPS و TIFF و HTML. يتيح مصفوفة 'slides' تحديد أرقام الصفحات بدءًا من 1.
 
 ``` java
-
- save(string fname, int\[\] slides, SaveFormat format);
-
+// تم إضافة التحميل الزائد إلى IPresentation (قيم SaveFormat هي ثوابت int في Java):
+//
+// void save(String fname, int[] slides, int format);
+// void save(String fname, int[] slides, int format, ISaveOptions options);
+// void save(OutputStream stream, int[] slides, int format);
+// void save(OutputStream stream, int[] slides, int format, ISaveOptions options);
 ```
 
 
 
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation presentation = new Presentation(presentationFileName);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    int[] slides = new int[] { 2, 3, 5 }; // مصفوفة مواضع الشرائح
 
-int[] slides = new int[] { 2, 3, 5 }; //مصفوفة لمواقع الشرائح
-
-presentation.save(outFileName, slides, SaveFormat.Pdf);
-
+    presentation.save("presentation_out.pdf", slides, SaveFormat.Pdf);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
-### **إضافة قيمة enum SmartArtLayoutType.Custom**
-هذا النوع من تخطيط SmartArt يمثل مخططًا بقالب مخصص. يمكن تحميل المخططات المخصصة فقط من ملف العرض التقديمي ولا يمكن إنشاؤها عبر الطريقة ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
-### **إضافة فئة SmartArtShape وواجهة ISmartArtShape**
-تضيف فئة Aspose.Slides.SmartArt.SmartArtShape (ومقابلها Aspose.Slides.SmartArt.ISmartArtShape) الوصول إلى الأشكال الفردية داخل مخطط SmartArt. يمكن استخدام SmartArtShape لتغيير FillFormat، LineFormat، إضافة روابط إلخ.
+### **تمت إضافة قيمة Enum SmartArtLayoutType.Custom**
+هذا النوع من تخطيط SmartArt يمثل مخططًا بقالب مخصص. لا يمكن تحميل المخططات المخصصة إلا من ملف العرض ولا يمكن إنشاؤها عبر الطريقة ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
+### **تمت إضافة الفئة SmartArtShape والواجهة ISmartArtShape**
+تضيف الفئة Aspose.Slides.SmartArt.SmartArtShape (وواجهة Aspose.Slides.SmartArt.ISmartArtShape) إمكانية الوصول إلى الأشكال الفردية داخل مخطط SmartArt. يمكن استخدام SmartArtShape لتغيير FillFormat، LineFormat، إضافة روابط تشعبية، إلخ.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-SmartArtShape لا تدعم خصائص IShape RawFrame، Frame، Rotation، X، Y، Width، Height وترمي System.NotSupportedException عند محاولة الوصول إليها.
+لا يدعم SmartArtShape خصائص IShape التالية: RawFrame, Frame, Rotation, X, Y, Width, Height وتطرح System.NotSupportedException عند محاولة الوصول إليها.
 
 {{% /alert %}} 
 
 مثال على الاستخدام:
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 
@@ -98,18 +119,21 @@ for (ISmartArtShape shape : node.getShapes())
 pres.save("out.pptx", SaveFormat.Pptx);
 
 ```
-### **تمت إضافة فئة SmartArtShapeCollection وواجهة ISmartArtShapeCollection وطريقة ISmartArtNode.getShapes()**
-تضيف فئة Aspose.Slides.SmartArt.SmartArtShapeCollection (ومقابلها Aspose.Slides.SmartArt.ISmartArtShapeCollection) الوصول إلى الأشكال الفردية داخل مخطط SmartArt. تحتوي المجموعة على الأشكال المرتبطة بـ SmartArtNode. تعيد خاصية SmartArtNode.Shapes مجموعات من جميع الأشكال المرتبطة بالعقدة.
+### **تمت إضافة الفئة SmartArtShapeCollection، الواجهة ISmartArtShapeCollection والطريقة ISmartArtNode.getShapes()**
+تضيف الفئة Aspose.Slides.SmartArt.SmartArtShapeCollection (وواجهة Aspose.Slides.SmartArt.ISmartArtShapeCollection) إمكانية الوصول إلى الأشكال الفردية داخل مخطط SmartArt. تحتوي المجموعة على الأشكال المرتبطة بـ SmartArtNode. تُرجِع الخاصية SmartArtNode.Shapes مجموعة جميع الأشكال المرتبطة بالعقدة.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-اعتمادًا على SmartArtLayoutType، يمكن مشاركة SmartArtShape واحدة بين عدة عقد.
+اعتمادًا على SmartArtLayoutType يمكن مشاركة SmartArtShape واحد بين عدة عقد.
 
 {{% /alert %}} 
 
-﻿
+ 
 
 ``` java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 
  Presentation pres = new Presentation();
 

@@ -1,45 +1,47 @@
 ---
-title: Java’da PDF veya HTML’den Sunumları İçe Aktarma
+title: Java'da PDF veya HTML'den Sunum İçe Aktarma
 linktitle: Sunumu İçe Aktar
 type: docs
 weight: 60
 url: /tr/java/import-presentation/
 keywords:
-- sunum içe aktar
-- slayt içe aktar
-- PDF içe aktar
-- HTML içe aktar
-- PDF’den sunuma
-- PDF’den PPT’ye
-- PDF’den PPTX’e
-- PDF’den ODP’ye
-- HTML’den sunuma
-- HTML’den PPT’ye
-- HTML’den PPTX’e
-- HTML’den ODP’ye
+- sunumu içe aktar
+- slaytı içe aktar
+- PDF'yi içe aktar
+- HTML'yi içe aktar
+- PDF'den sunuma
+- PDF'den PPT'ye
+- PDF'den PPTX'e
+- PDF'den ODP'ye
+- HTML'den sunuma
+- HTML'den PPT'ye
+- HTML'den PPTX'e
+- HTML'den ODP'ye
 - PowerPoint
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Aspose.Slides ile Java’da PDF ve HTML belgelerini PowerPoint ve OpenDocument sunumlarına sorunsuz ve yüksek performanslı slayt işleme için zahmetsizce içe aktarın."
+description: "Aspose.Slides ile Java'da PDF ve HTML belgelerini PowerPoint ve OpenDocument sunumlarına sorunsuz ve yüksek performansli slayt isleme için zahmetsizce içe aktarın."
 ---
 ## **Giriş**
 
-Aspose.Slides kullanarak, sunumları diğer formatlardaki dosyalardan içe aktarabilirsiniz. Aspose.Slides, PDF ve HTML belgelerinden sunumları içe aktarmanızı sağlayan [SlideCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidecollection/) sınıfını sunar.
+Aspose.Slides kullanarak, diğer formatlardaki dosyalardan sunumları içe aktarabilirsiniz. Aspose.Slides, PDF ve HTML belgelerinden sunumları içe aktarmanızı sağlayan [SlideCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidecollection/) sınıfını sunar.
 
-## **PDF'ten PowerPoint'e İçe Aktarma**
+## **PDF'den PowerPoint'e Aktarım**
 
 Bu durumda, bir PDF'yi PowerPoint sunumuna dönüştürürsünüz.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
 1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/) sınıfının bir örneğini oluşturun. 
-2. [addFromPdf()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) metodunu çağırıp PDF dosyasını geçirin. 
+2. [addFromPdf()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) metodunu çağırın ve PDF dosyasını geçirin. 
 3. Dosyayı PowerPoint formatında kaydetmek için [save()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation#save-java.lang.String-int-) metodunu kullanın.
 
-Bu Java kodu PDF'ten PowerPoint'e dönüşümü gösterir:
+Bu Java kodu, PDF'den PowerPoint'e işlemini gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -49,21 +51,27 @@ try {
 }
 ```
 
-{{% alert  title="İpucu" color="primary" %}} 
-Bu süreçte anlatılan işlemin canlı bir uygulamasını görmek için **Aspose ücretsiz** [PDF to PowerPoint](https://products.aspose.app/slides/tr/import/pdf-to-powerpoint) web uygulamasına göz atmak isteyebilirsiniz. 
+{{% alert title="İpucu" color="info" %}} 
+
+**Aspose ücretsiz** [PDF to PowerPoint](https://products.aspose.app/slides/tr/import/pdf-to-powerpoint) web uygulamasını inceleyebilirsiniz; çünkü burada açıklanan sürecin canlı bir uygulamasıdır. 
+
 {{% /alert %}} 
 
-## **HTML'den PowerPoint'e İçe Aktarma**
+## **HTML'den PowerPoint'e Aktarım**
 
 Bu durumda, bir HTML belgesini PowerPoint sunumuna dönüştürürsünüz.
 
 1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/) sınıfının bir örneğini oluşturun. 
-2. [addFromHtml()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) metodunu çağırıp HTML dosyasını geçirin. 
+2. [addFromHtml()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) metodunu çağırın ve HTML belgesi içeren bir akış geçirin. 
 3. Dosyayı PowerPoint formatında kaydetmek için [save()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation#save-java.lang.String-int-) metodunu kullanın.
 
-Bu Java kodu HTML'den PowerPoint'e dönüşümü gösterir: 
+Bu Java kodu, HTML'den PowerPoint'e işlemini gösterir: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -82,14 +90,15 @@ try {
 
 ## **SSS**
 
-**PDF içe aktarılırken tablolar korunur mu ve algılamaları iyileştirilebilir mi?**
+### PDF içe aktarılırken tablolar korunur mu ve algılamaları iyileştirilebilir mi?
 
-Tablolar içe aktarma sırasında tespit edilebilir; [PdfImportOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pdfimportoptions/) içinde tablo tanımasını etkinleştiren bir [setDetectTables](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) metodu bulunur. Etkinlik, PDF'nin yapısına bağlıdır.
+İçe aktarım sırasında tablolar algılanabilir; [PdfImportOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pdfimportoptions/) sınıfı, tablo tanımını etkinleştiren bir [setDetectTables](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) metoduna sahiptir. Etkinlik, PDF'nin yapısına bağlıdır.
 
 {{% alert title="Not" color="warning" %}} 
-Ayrıca Aspose.Slides'ı HTML'yi diğer popüler dosya formatlarına dönüştürmek için de kullanabilirsiniz: 
 
-* [HTML'den görsele](https://products.aspose.com/slides/tr/java/conversion/html-to-image/)
+Aspose.Slides ile HTML'yi diğer popüler dosya formatlarına da dönüştürebilirsiniz: 
+
+* [HTML'den görüntüye](https://products.aspose.com/slides/tr/java/conversion/html-to-image/)
 * [HTML'den JPG'ye](https://products.aspose.com/slides/tr/java/conversion/html-to-jpg/)
 * [HTML'den XML'e](https://products.aspose.com/slides/tr/java/conversion/html-to-xml/)
 * [HTML'den TIFF'e](https://products.aspose.com/slides/tr/java/conversion/html-to-tiff/)

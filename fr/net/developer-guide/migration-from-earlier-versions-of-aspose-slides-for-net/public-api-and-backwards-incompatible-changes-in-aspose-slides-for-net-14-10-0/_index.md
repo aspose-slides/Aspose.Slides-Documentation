@@ -16,23 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Examinez les mises à jour de l'API publique et les changements incompatibles dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
+description: "Examinez les mises à jour de l'API publique et les changements majeurs dans Aspose.Slides pour .NET afin de migrer en douceur vos solutions de présentation PowerPoint PPT, PPTX et ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ainsi que les autres changements introduits avec l'API Aspose.Slides for .NET 14.10.0.
+Cette page répertorie toutes les classes, méthodes, propriétés, etc. [ajoutées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) ou [supprimées](/slides/fr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/), ainsi que les autres changements introduits avec l’API Aspose.Slides for .NET 14.10.0.
 
 {{% /alert %}} 
 ## **Modifications de l'API publique**
 #### **Le type de champ Aspose.Slides.FieldType.Footer a été ajouté**
-Le type de champ Footer a été ajouté pour permettre la création de champs de ce type et pour une sérialisation valide des présentations.
+Le type de champ Footer a été ajouté pour permettre la création de champs de ce type et la sérialisation valide des présentations.
 #### **L'élément d'énumération ShapeElementFillSource.Own a été supprimé**
-L'élément d'énumération ShapeElementFillSource.Own a été supprimé comme dupliqué. Utilisez ShapeElementFillSource.Shape à la place de ShapeElementFillSource.Own.
+L'élément d'énumération ShapeElementFillSource.Own a été supprimé car dupliqué. Utilisez ShapeElementFillSource.Shape à la place de ShapeElementFillSource.Own.
 #### **Des méthodes de suppression de points de données et de catégories de graphique ont été ajoutées**
-Les méthodes suivantes, qui permettent de supprimer un point de données de graphique d'une collection de points de données, ont été ajoutées :
+Les méthodes suivantes, qui permettent de supprimer un point de données de graphique d’une collection de points de données, ont été ajoutées :
 
-IChartDataPointCollection.Remove(IChartDataPoint)
+IChartDataPointCollection.Remove(IChartDataPoint)  
 IChartDataPoint.Report()
 
 La méthode suivante, qui permet de supprimer une catégorie de graphique de la collection contenant, a été ajoutée :
@@ -40,35 +39,31 @@ La méthode suivante, qui permet de supprimer une catégorie de graphique de la 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
-    chart.ChartData.Categories[0].Remove(); //remove with ChartCategory.Remove()
+    chart.ChartData.Categories[0].Remove(); //supprimer avec ChartCategory.Remove()
 
-    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //remove with ChartCategoryCollection.Remove()
+    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //supprimer avec ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
-        ser.DataPoints[0].Remove();//remove with ChartDataPoint.Remove()
+        ser.DataPoints[0].Remove();//supprimer avec ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 #### **Les propriétés obsolètes Aspose.Slides.ParagraphFormat ont été supprimées**
-Les propriétés BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle ont été supprimées. Elles étaient marquées comme obsolètes depuis longtemps.
-#### **Les constructeurs inutiles et obsolètes ont été supprimés**
+Les propriétés BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle ont été supprimées. Elles étaient déjà marquées comme obsolètes depuis longtemps.
+#### **Des constructeurs inutiles et obsolètes ont été supprimés**
 Les constructeurs suivants ont été supprimés :
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)

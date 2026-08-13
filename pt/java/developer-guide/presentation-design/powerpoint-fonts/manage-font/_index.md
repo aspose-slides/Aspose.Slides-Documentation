@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Fontes em Apresentações Usando Java
-linktitle: Gerenciar Fontes
+title: Gerenciar fontes em apresentações usando Java
+linktitle: Gerenciar fontes
 type: docs
 weight: 10
 url: /pt/java/manage-fonts/
@@ -14,36 +14,36 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Controle fontes em Java com Aspose.Slides: incorpore, substitua e carregue fontes personalizadas para manter apresentações PPT, PPTX e ODP claras, seguras para a marca e consistentes."
+description: "Controlar fontes em Java com Aspose.Slides: incorporar, substituir e carregar fontes personalizadas para manter apresentações PPT, PPTX e ODP claras, seguras para a marca e consistentes."
 ---
 ## **Visão geral**
 
-Aspose.Slides permite que você gerencie propriedades de fonte no texto da apresentação diretamente do seu código. Você pode acessar o texto em slides por meio de shapes, text frames, parágrafos e porções e, em seguida, aplicar formatação ao texto selecionado.
+Aspose.Slides permite que você gerencie propriedades de fonte no texto de apresentações diretamente a partir do seu código. Você pode acessar o texto nos slides por meio de shapes, quadros de texto, parágrafos e porções, e então aplicar formatação ao texto selecionado.
 
-Este artigo explica como configurar propriedades relacionadas a fontes para texto existente em uma apresentação, incluindo família de fontes, estilos negrito e itálico, alinhamento de parágrafo e cor da fonte. Também mostra como criar uma caixa de texto, adicionar texto a ela e definir propriedades de fonte como família, negrito, itálico, sublinhado, tamanho e cor antes de salvar o resultado como um arquivo PPTX.
+Este artigo explica como configurar propriedades relacionadas a fontes para texto existente em uma apresentação, incluindo família da fonte, estilos negrito e itálico, alinhamento de parágrafo e cor da fonte. Também mostra como criar uma caixa de texto, adicionar texto a ela e definir propriedades de fonte como família da fonte, negrito, itálico, sublinhado, tamanho da fonte e cor antes de salvar o resultado como um arquivo PPTX.
 
-## **Gerenciar Propriedades Relacionadas a Fontes**
-{{% alert color="primary" %}} 
+## **Gerenciar Propriedades Relacionadas à Fonte**
+{{% alert color="info" %}} 
 
-Apresentações geralmente contêm texto e imagens. O texto pode ser formatado de várias maneiras, seja para destacar seções e palavras específicas ou para atender a estilos corporativos. A formatação de texto ajuda os usuários a variar a aparência do conteúdo da apresentação. Este artigo mostra como usar Aspose.Slides for Java para configurar as propriedades de fonte de parágrafos de texto em slides.
+Apresentações geralmente contêm texto e imagens. O texto pode ser formatado de várias maneiras, seja para destacar seções e palavras específicas ou para atender a estilos corporativos. A formatação de texto ajuda os usuários a variar a aparência do conteúdo da apresentação. Este artigo mostra como usar Aspose.Slides for Java para configurar as propriedades de fonte dos parágrafos de texto nos slides.
 
 {{% /alert %}} 
 
-Para gerenciar propriedades de fonte de um parágrafo usando Aspose.Slides for Java:
+Para gerenciar as propriedades de fonte de um parágrafo usando Aspose.Slides for Java:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation).
 1. Obtenha a referência de um slide usando seu índice.
-1. Acesse as formas [Placeholder](https://reference.aspose.com/slides/pt/java/com.aspose.slides/placeholder/) no slide e faça cast para [AutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/autoshape/).
-1. Obtenha o [Paragraph](https://reference.aspose.com/slides/pt/java/com.aspose.slides/paragraph/) a partir do [TextFrame](https://reference.aspose.com/slides/pt/java/com.aspose.slides/textframe/) exposto por [AutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/autoshape/).
+1. Acesse os shapes [Placeholder](https://reference.aspose.com/slides/pt/java/com.aspose.slides/placeholder/) no slide e faça cast para [AutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/autoshape/).
+1. Recupere o [Paragraph](https://reference.aspose.com/slides/pt/java/com.aspose.slides/paragraph/) a partir do [TextFrame](https://reference.aspose.com/slides/pt/java/com.aspose.slides/textframe/) exposto por [AutoShape](https://reference.aspose.com/slides/pt/java/com.aspose.slides/autoshape/).
 1. Justifique o parágrafo.
 1. Acesse o [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/) de texto de um [Paragraph](https://reference.aspose.com/slides/pt/java/com.aspose.slides/paragraph/).
-1. Defina a fonte usando [FontData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/fontdata/) e configure o **Font** do [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/) de texto de acordo.
+1. Defina a fonte usando [FontData](https://reference.aspose.com/slides/pt/java/com.aspose.slides/fontdata/) e configure a **Font** do [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/) de acordo.
    1. Defina a fonte como negrito.
    1. Defina a fonte como itálico.
 1. Defina a cor da fonte usando o [FillFormat](https://reference.aspose.com/slides/pt/java/com.aspose.slides/fillformat/) exposto pelo objeto [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/).
 1. Salve a apresentação modificada em um arquivo PPTX.
 
-A implementação das etapas acima é apresentada a seguir. Ela recebe uma apresentação simples e formata as fontes em um dos slides. As capturas de tela a seguir mostram o arquivo de entrada e como os trechos de código o alteram. O código altera a fonte, a cor e o estilo da fonte.
+A implementação dos passos acima é apresentada a seguir. Ela recebe uma apresentação sem formatação e aplica formatações de fonte em um dos slides. As capturas de tela abaixo mostram o arquivo de entrada e como os trechos de código o modificam. O código altera a fonte, a cor e o estilo da fonte.
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
@@ -55,24 +55,27 @@ A implementação das etapas acima é apresentada a seguir. Ela recebe uma apres
 |**Figura: O mesmo texto com formatação atualizada**|
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instanciar um objeto Presentation que representa um arquivo PPTX
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
-	// Acessar um slide usando sua posição
+	// Acessando um slide usando sua posição
 	ISlide slide = pres.getSlides().get_Item(0);
 
-	// Acessar o primeiro e o segundo placeholder no slide e fazer cast como AutoShape
+	// Acessando o primeiro e o segundo placeholder no slide e convertendo para AutoShape
 	ITextFrame tf1 = ((IAutoShape) slide.getShapes().get_Item(0)).getTextFrame();
 	ITextFrame tf2 = ((IAutoShape) slide.getShapes().get_Item(1)).getTextFrame();
 
-	// Acessar o primeiro Parágrafo
+	// Acessando o primeiro Parágrafo
 	IParagraph para1 = tf1.getParagraphs().get_Item(0);
 	IParagraph para2 = tf2.getParagraphs().get_Item(0);
 
 	// Justificar o parágrafo
 	para2.getParagraphFormat().setAlignment(TextAlignment.JustifyLow);
 
-	// Acessar a primeira porção
+	// Acessando a primeira porção
 	IPortion port1 = para1.getPortions().get_Item(0);
 	IPortion port2 = para2.getPortions().get_Item(0);
 
@@ -106,13 +109,13 @@ try {
 ```
 
 ## **Definir Propriedades de Fonte do Texto**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Conforme mencionado em **Gerenciar Propriedades Relacionadas a Fontes**, um [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/) é usado para armazenar texto com estilo de formatação semelhante em um parágrafo. Este artigo mostra como usar Aspose.Slides for Java para criar uma caixa de texto com algum texto e, em seguida, definir uma fonte específica e várias outras propriedades da categoria de família de fontes.
+Conforme mencionado em **Gerenciar Propriedades Relacionadas à Fonte**, um [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/) é usado para conter texto com estilo de formatação semelhante em um parágrafo. Este artigo mostra como usar Aspose.Slides for Java para criar uma caixa de texto com algum texto e, em seguida, definir uma fonte específica e várias outras propriedades da categoria de família de fontes.
 
 {{% /alert %}} 
 
-Para criar uma caixa de texto e definir propriedades de fonte do texto nela:
+Para criar uma caixa de texto e definir as propriedades de fonte do texto nela:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation).
 1. Obtenha a referência de um slide usando seu índice.
@@ -122,23 +125,26 @@ Para criar uma caixa de texto e definir propriedades de fonte do texto nela:
 1. Adicione algum texto ao [TextFrame](https://reference.aspose.com/slides/pt/java/com.aspose.slides/textframe/).
 1. Acesse o objeto [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/) associado ao [TextFrame](https://reference.aspose.com/slides/pt/java/com.aspose.slides/textframe/).
 1. Defina a fonte a ser usada para o [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/).
-1. Defina outras propriedades de fonte, como negrito, itálico, sublinhado, cor e tamanho, usando as propriedades relevantes expostas pelo objeto [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/).
+1. Defina outras propriedades de fonte, como negrito, itálico, sublinhado, cor e altura, usando as propriedades relevantes expostas pelo objeto [Portion](https://reference.aspose.com/slides/pt/java/com.aspose.slides/portion/).
 1. Grave a apresentação modificada como um arquivo PPTX.
 
-A implementação das etapas acima é apresentada a seguir.
+A implementação dos passos acima é apresentada a seguir.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
 |**Figura: Texto com algumas propriedades de fonte definidas pelo Aspose.Slides for Java**|
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instanciar um objeto Presentation que representa um arquivo PPTX
 Presentation pres = new Presentation();
 try {
 	// Obter o primeiro slide
 	ISlide sld = pres.getSlides().get_Item(0);
 	
-	// Adicionar um AutoShape do tipo Rectangle
+	// Adicionar um AutoShape do tipo Retângulo
 	IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
 	
 	// Remover qualquer estilo de preenchimento associado ao AutoShape
@@ -151,22 +157,22 @@ try {
 	// Acessar a Portion associada ao TextFrame
 	IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
 	
-	// Definir a Fonte para a Portion
+	// Definir a fonte para a Portion
 	port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
 	
-	// Definir a propriedade Bold da Fonte
+	// Definir a propriedade Negrito da fonte
 	port.getPortionFormat().setFontBold(NullableBool.True);
 	
-	// Definir a propriedade Italic da Fonte
+	// Definir a propriedade Itálico da fonte
 	port.getPortionFormat().setFontItalic(NullableBool.True);
 	
-	// Definir a propriedade Underline da Fonte
+	// Definir a propriedade Sublinhado da fonte
 	port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
 	
-	// Definir a Altura da Fonte
+	// Definir a altura da fonte
 	port.getPortionFormat().setFontHeight(25);
 	
-	// Definir a cor da Fonte
+	// Definir a cor da fonte
 	port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
 	port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 	

@@ -1,5 +1,5 @@
 ---
-title: Získání efektivních vlastností tvaru z prezentací na Androidu
+title: Získání efektivních vlastností tvarů z prezentací v Androidu
 linktitle: Efektivní vlastnosti
 type: docs
 weight: 50
@@ -7,7 +7,7 @@ url: /cs/androidjava/shape-effective-properties/
 keywords:
 - vlastnosti tvaru
 - vlastnosti kamery
-- světelné zařízení
+- světelný rig
 - zkosený tvar
 - textový rámec
 - textový styl
@@ -18,21 +18,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Objevte, jak Aspose.Slides pro Android pomocí Javy vypočítává a aplikuje efektivní vlastnosti tvaru pro přesné vykreslování v PowerPointu."
+description: "Objevte, jak Aspose.Slides pro Android pomocí Javy vypočítává a aplikuje efektivní vlastnosti tvarů pro přesné vykreslování v PowerPointu."
 ---
 ## **Přehled**
 
-Toto téma vysvětluje rozdíl mezi **lokálními** a **efektivními** vlastnostmi. Lokální hodnoty jsou hodnoty, které jsou nastaveny přímo na konkrétní úrovni formátování, například:
+Toto téma vysvětluje rozdíl mezi **lokálními** a **efektivními** vlastnostmi. Lokální hodnoty jsou hodnoty nastavené přímo na konkrétní úrovni formátování, například:
 
 1. Vlastnosti úseku na snímku.  
-1. Prototypové textové styly tvaru na rozložení nebo hlavním snímku, pokud má tvar textového rámečku úseku.  
+1. Textové styly prototypu tvaru na rozložení nebo hlavním snímku, pokud má tvar textového rámce úseku.  
 1. Globální nastavení textu v prezentaci.
 
-Lokální hodnoty mohou být na jakékoli úrovni definovány nebo vynechány. Když Aspose.Slides potřebuje finální „jak je vykresleno“ formátování, vyřeší řetězec dědičnosti a vrátí **efektivní** hodnoty. Získáte je voláním metody `getEffective()` na objektu lokálního formátu.
+Lokální hodnoty mohou být definovány nebo vynechány na kterékoliv úrovni. Když Aspose.Slides potřebuje finální „jako vykreslené“ formátování, rozřeší řetězec dědičnosti a vrátí **efektivní** hodnoty. K jejich získání můžete zavolat metodu `getEffective()` na objektu lokálního formátu.
 
-Následující příklad ukazuje, jak získat efektivní hodnoty. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámečkem a alespoň jedním úsekem.
+Následující příklad ukazuje, jak získat efektivní hodnoty. Předpokládá se, že první tvar na první snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámcem a alespoň jedním úsekem.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -48,17 +50,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Data efektivního formátování představují aktuální vypočítané formátování po aplikaci dědičnosti. V současné implementaci mohou být některé objekty efektivních dat, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformateffectivedata/), uloženy v mezipaměti interně. Opětovné volání `getEffective()` po změně nadřazeného nebo zděděného formátování může mezipaměť aktualizovat a dříve získaný objekt již nemusí představovat předchozí stav. Pokud potřebujete efektivní hodnoty zachovat pro pozdější použití, zkopírujte požadované vlastnosti, jako je výška písma, barva výplně, styl písma nebo zarovnání, do vlastního datového objektu.
+{{% alert color="info" %}}
+Efektivní data formátování představují aktuální vypočtené formátování po aplikaci dědičnosti. V aktuální implementaci mohou být některé objekty efektivních dat, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformateffectivedata/), interně kešována. Opětovné volání `getEffective()` po změně nadřazeného nebo děděného formátování může kešovaná data obnovit a dříve získaný objekt již nemusí představovat předchozí stav. Pokud potřebujete zachovat efektivní hodnoty pro pozdější použití, zkopírujte požadované vlastnosti, jako je výška písma, barva výplně, styl písma nebo zarovnání, do vlastního datového objektu.
 {{% /alert %}}
 
 ## **Získání efektivních vlastností kamery**
 
-Aspose.Slides umožňuje získat efektivní vlastnosti kamery. Rozhraní [ICameraEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icameraeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti kamery. Instance [ICameraEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icameraeffectivedata/) je vystavena prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), která poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides vám umožňuje získat efektivní vlastnosti kamery. Rozhraní [ICameraEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icameraeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti kamery. Instance [ICameraEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icameraeffectivedata/) je zpřístupněna prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti kamery. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti kamery. Předpokládá se, že první tvar na první snímku má 3D formátování.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -78,11 +82,13 @@ try {
 
 ## **Získání efektivních vlastností světelného zařízení**
 
-Aspose.Slides umožňuje získat efektivní vlastnosti světelného zařízení. Rozhraní [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilightrigeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti světelného zařízení. Instance [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilightrigeffectivedata/) je vystavena prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), která poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides vám umožňuje získat efektivní vlastnosti světelného zařízení. Rozhraní [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilightrigeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti osvětlení. Instance [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilightrigeffectivedata/) je zpřístupněna prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti světelného zařízení. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti světelného zařízení. Předpokládá se, že první tvar na první snímku má 3D formátování.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -99,13 +105,15 @@ try {
 }
 ```
 
-## **Získání efektivních vlastností zkoseného tvaru**
+## **Získání efektivních vlastností zkosení tvaru**
 
-Aspose.Slides umožňuje získat efektivní vlastnosti zkoseného tvaru. Rozhraní [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapebeveleffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti reliéfu pro tvar. Instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapebeveleffectivedata/) je vystavena prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), která poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
+Aspose.Slides vám umožňuje získat efektivní vlastnosti zkosení tvaru. Rozhraní [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapebeveleffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti povrchových reliéfů pro tvar. Instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapebeveleffectivedata/) je zpřístupněna prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti horního zkosení tvaru. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti horního zkosení tvaru. Předpokládá se, že první tvar na první snímku má 3D formátování.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -127,9 +135,11 @@ try {
 
 Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového rámce. Rozhraní [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformateffectivedata/) obsahuje efektivní vlastnosti formátování textového rámce.
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti formátování textového rámce. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámcem.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti formátování textového rámce. Předpokládá se, že první tvar na první snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámcem.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -154,9 +164,11 @@ try {
 
 Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového stylu. Rozhraní [ITextStyleEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextstyleeffectivedata/) obsahuje efektivní vlastnosti textového stylu.
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti textového stylu. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámcem.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti textového stylu. Předpokládá se, že první tvar na první snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámcem.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +192,13 @@ try {
 }
 ```
 
-## **Získání hodnoty efektivní výšky písma**
+## **Získání efektivní hodnoty výšky písma**
 
-Pomocí Aspose.Slides můžete získat efektivní výšku písma. Následující kód ukazuje, jak se efektivní výška písma úseku mění po nastavení lokálních hodnot výšky písma na různých úrovních struktury prezentace.
+Pomocí Aspose.Slides můžete získat efektivní výšku písma. Následující kód demonstruje, jak se efektivní výška písma úseku mění po nastavení lokálních hodnot výšky písma na různých úrovních struktury prezentace.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -259,9 +273,11 @@ try {
 
 Pomocí Aspose.Slides můžete získat efektivní formátování výplně pro různé části tabulky. Rozhraní [IFillFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifillformateffectivedata/) obsahuje efektivní vlastnosti formátování výplně. Formátování buňky má vyšší prioritu než formátování řádku, formátování řádku má vyšší prioritu než formátování sloupce a formátování sloupce má vyšší prioritu než formátování celé tabulky.
 
-Výsledkem je, že vlastnosti [ICellFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icellformateffectivedata/) jsou použity při vykreslování buňky tabulky. Následující ukázkový kód ukazuje, jak získat efektivní formátování výplně pro různé části tabulky. Předpokládá, že první tvar na prvním snímku je [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itable/).
+Výsledkem je, že vlastnosti [ICellFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icellformateffectivedata/) jsou použity při vykreslování buňky tabulky. Následující ukázkový kód ukazuje, jak získat efektivní formátování výplně pro různé části tabulky. Předpokládá se, že první tvar na první snímku je [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itable/).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -280,36 +296,36 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Vrací `getEffective()` snímek?**
+### Vrací `getEffective()` snaphot?
 
-Ne vždy. Efektivní data představují vypočítané formátování po aplikaci dědičnosti, ale některé objekty efektivních dat mohou být uloženy v mezipaměti interně. Následující volání `getEffective()` může formátování přepočítat a aktualizovat mezipaměť, takže dříve získaný objekt by neměl být považován za trvalý snímek.
+Ne vždy. Efektivní data představují vypočtené formátování po aplikaci dědičnosti, ale některé objekty efektivních dat mohou být interně kešovány. Následné volání `getEffective()` může formátování přepočítat a obnovit kešovaná data, takže dříve získaný objekt by neměl být považován za trvalý snapshot.
 
-**Kdy bych měl znovu načíst efektivní vlastnosti?**
+### Kdy mám znovu načíst efektivní vlastnosti?
 
-Zavolejte `getEffective()` znovu po změně lokálního formátování, nadřazených stylů, formátování rozložení, hlavního formátování nebo výchozích nastavení na úrovni prezentace. Další volání přehodnotí hierarchii formátování a vrátí aktuální efektivní výsledek.
+Zavolejte `getEffective()` znovu po změně lokálního formátování, nadřazených stylů, formátování rozložení, formátování hlavního snímku nebo výchozích nastavení na úrovni prezentace. Další volání přehodnotí hierarchii formátování a vrátí aktuální efektivní výsledek.
 
-**Ovlivní změna nebo odebrání rozložení/hlavního snímku efektivní vlastnosti, které již byly načteny?**
+### Ovlivní změna nebo odebrání rozložení/hlavního snímku efektivní vlastnosti, které už byly získány?
 
-Ano, ale změna se projeví při příštím volání `getEffective()`. Pokud je změněn nebo odebrán nadřazený zdroj formátování, dříve získaná efektivní data mohou být zastaralá. Po opětovném volání `getEffective()` Aspose.Slides přehodnotí strom formátování a výsledná písma, barvy, velikosti nebo jiné hodnoty se mohou změnit.
+Ano, ale změna se projeví až při dalším volání `getEffective()`. Pokud je změněn nebo odebrán zdroj nadřazeného formátování, dříve získaná efektivní data mohou být zastaralá. Jakmile se `getEffective()` zavolá znovu, Aspose.Slides přehodnotí strom formátování a výsledná písma, barvy, velikosti nebo jiné hodnoty se mohou změnit.
 
-**Mohu měnit hodnoty přes objekty efektivních dat?**
+### Mohu měnit hodnoty prostřednictvím objektů efektivních dat?
 
-Ne. Objekty efektivních dat poskytují pouze vypočítané hodnoty. Změny provádějte v objektech lokálního formátování a poté znovu získávejte efektivní hodnoty.
+Ne. Objektům efektivních dat jsou vystaveny pouze vypočtené hodnoty. Změny provádějte v lokálních objektech formátování a poté znovu získávejte efektivní hodnoty.
 
-**Co se stane, pokud není vlastnost nastavena na úrovni tvaru, rozložení/hlavního snímku ani v globálním nastavení?**
+### Co se stane, pokud není vlastnost nastavena na úrovni tvaru, ani v rozložení/hlavním snímku, ani v globálním nastavení?
 
-Efektivní hodnota je určena výchozím mechanismem, který zahrnuje výchozí nastavení PowerPointu a Aspose.Slides. Tato získaná hodnota se stane součástí aktuálních efektivních dat.
+Efektivní hodnota je určena výchozím mechanismem, který zahrnuje výchozí hodnoty PowerPointu i Aspose.Slides. Tato vypočtená hodnota se pak stane součástí aktuálních efektivních dat.
 
-**Z efektivní hodnoty písma mohu zjistit, která úroveň poskytla velikost nebo typ písma?**
+### Z efektivní hodnoty písma mohu zjistit, která úroveň poskytla velikost nebo typ písma?
 
-Ne přímo. Efektivní data vracejí finální hodnotu. Pro zjištění zdroje zkontrolujte lokální hodnoty v úseku, odstavci, textovém rámečku a textových stylech na úrovních rozložení, hlavního snímku a prezentace, abyste zjistili, kde se objevila první explicitní definice.
+Ne přímo. Efektivní data vrací finální hodnotu. Pro zjištění zdroje zkontrolujte lokální hodnoty na úrovni úseku, odstavce, textového rámce a textových stylů v rozložení, hlavním snímku a na úrovni prezentace, abyste zjistili, kde se objevila první explicitní definice.
 
-**Proč se efektivní hodnoty někdy shodují s lokálními?**
+### Proč vypadají efektivní hodnoty někdy identicky jako lokální?
 
-Protože lokální hodnota se stala finální (nebyla zapotřebí žádná vyšší úroveň dědičnosti). V takových případech se efektivní hodnota shoduje s lokální.
+Protože lokální hodnota se stala finální (není potřeba žádná vyšší úroveň dědičnosti). V takových případech se efektivní hodnota shoduje s lokální.
 
-**Kdy mám používat efektivní vlastnosti a kdy pracovat pouze s lokálními?**
+### Kdy mám používat efektivní vlastnosti a kdy pracovat jen s lokálními?
 
-Používejte efektivní data, když potřebujete výsledek „jak je vykresleno“ po aplikaci veškeré dědičnosti, například pro sladění barev, odsazení nebo velikostí. Pokud potřebujete tyto hodnoty zachovat bez ohledu na pozdější změny formátování, zkopírujte požadované vlastnosti do vlastního objektu. Pokud chcete změnit formátování na konkrétní úrovni, upravte lokální vlastnosti a poté, pokud je to nutné, znovu načtěte efektivní data k ověření výsledku.
+Používejte efektivní data, když potřebujete výsledek „jako vykreslený“ po aplikaci celé dědičnosti, například pro zarovnání barev, odsazení nebo velikostí. Pokud potřebujete tyto hodnoty zachovat bez ohledu na pozdější změny formátování, zkopírujte požadované vlastnosti do vlastního objektu. Pokud chcete měnit formátování na konkrétní úrovni, upravte lokální vlastnosti a poté, pokud je to nutné, znovu načtěte efektivní data pro ověření výsledku.

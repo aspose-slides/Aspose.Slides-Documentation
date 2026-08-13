@@ -1,6 +1,6 @@
 ---
-title: Android でプレゼンテーションからシェイプの実効プロパティを取得する
-linktitle: 実効プロパティ
+title: Android のプレゼンテーションからシェイプの有効プロパティを取得する
+linktitle: 有効プロパティ
 type: docs
 weight: 50
 url: /ja/androidjava/shape-effective-properties/
@@ -18,21 +18,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java が PowerPoint の正確なレンダリングのために実効シェイププロパティを計算し適用する方法を学びましょう。"
+description: "Java を介した Android 向け Aspose.Slides が、正確な PowerPoint 表示のためにシェイプの有効プロパティを計算し適用する方法を紹介します。"
 ---
 ## **概要**
 
-このトピックでは **ローカル** と **実効** プロパティの違いについて説明します。ローカル値は、特定の書式設定レベルで直接設定された値であり、例えば次のようなものです:
+このトピックでは **ローカル** プロパティと **有効** プロパティの違いについて説明します。ローカル値は、特定の書式設定レベルで直接設定された値で、次のようなものがあります。
 
-1. スライド上の部分（Portion）プロパティ。
-1. レイアウトまたはマスタースライド上のプロトタイプ形状テキストスタイル（その部分のテキストフレーム形状が持っている場合）。
-1. プレゼンテーション全体のグローバルテキスト設定。
+1. スライド上の部分 (portion) のプロパティ。
+1. レイアウトまたはマスタースライド上のプロトタイプシェイプ テキスト スタイル (テキスト フレーム シェイプに部分がある場合)。
+1. プレゼンテーション全体のグローバル テキスト設定。
 
-ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「レンダリング後」書式設定を必要とする場合、継承チェーンを解決して **実効** 値を返します。ローカル書式オブジェクトの `getEffective()` メソッドを呼び出すことで取得できます。
+ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「レンダリングされた」書式設定を必要とする場合、継承チェーンを解決して **有効** 値を返します。ローカル書式オブジェクトの `getEffective()` メソッドを呼び出すことで取得できます。
 
-以下の例は実効値の取得方法を示します。最初のスライドの最初のシェイプがテキストフレームと少なくとも1つの部分を持つ [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であることを想定しています。
+以下の例は有効値の取得方法を示しています。最初のスライドの最初のシェイプがテキスト フレームを持ち、少なくとも 1 つの部分を含む [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であると想定しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -48,17 +50,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-実効書式データは、継承が適用された後に計算された現在の書式を表します。現在の実装では、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportionformateffectivedata/) などの一部の実効データオブジェクトが内部でキャッシュされることがあります。親や継承された書式を変更した後に `getEffective()` を再度呼び出すとキャッシュが更新され、以前取得したオブジェクトは以前の状態を表さなくなる可能性があります。実効値を後で再利用する必要がある場合は、フォント高さ、塗りつぶし色、フォントスタイル、配置などの必要なプロパティを独自のデータオブジェクトにコピーしてください。
+{{% alert color="info" %}}
+有効な書式設定データは、継承が適用された後に計算された現在の書式設定を表します。現在の実装では、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iportionformateffectivedata/) などの一部の有効データオブジェクトが内部でキャッシュされることがあります。親や継承書式を変更した後に `getEffective()` を再度呼び出すとキャッシュが刷新され、以前取得したオブジェクトは以前の状態を表さなくなる可能性があります。後で再利用するために有効値を保持したい場合は、フォントの高さ、塗りつぶし色、フォント スタイル、配置など必要なプロパティを独自のデータオブジェクトにコピーしてください。
 {{% /alert %}}
 
-## **カメラの実効プロパティを取得する**
+## **カメラの有効プロパティを取得する**
 
-Aspose.Slides はカメラの実効プロパティの取得をサポートします。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icameraeffectivedata/) インターフェイスは、実効カメラプロパティを保持する不変オブジェクトを表します。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icameraeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) の実効値を提供します。
+Aspose.Slides ではカメラの有効プロパティを取得できます。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icameraeffectivedata/) インターフェイスは、変更不可のオブジェクトでカメラの有効プロパティを保持します。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icameraeffectivedata/) のインスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) の有効値を提供します。
 
-以下のコードサンプルはカメラの実効プロパティを取得する方法を示します。最初のスライドの最初のシェイプに3D書式設定があることを想定しています。
+以下のコード サンプルは、カメラの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていると想定しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -76,13 +80,15 @@ try {
 }
 ```
 
-## **ライトリグの実効プロパティを取得する**
+## **ライト リグの有効プロパティを取得する**
 
-Aspose.Slides はライトリグの実効プロパティの取得をサポートします。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ilightrigeffectivedata/) インターフェイスは、実効ライトリグプロパティを保持する不変オブジェクトを表します。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ilightrigeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) の実効値を提供します。
+Aspose.Slides ではライト リグの有効プロパティを取得できます。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ilightrigeffectivedata/) インターフェイスは、変更不可のオブジェクトでライト リグの有効プロパティを保持します。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ilightrigeffectivedata/) のインスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) の有効値を提供します。
 
-以下のコードサンプルはライトリグの実効プロパティを取得する方法を示します。最初のスライドの最初のシェイプに3D書式設定があることを想定しています。
+以下のコード サンプルは、ライト リグの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていると想定しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -99,13 +105,15 @@ try {
 }
 ```
 
-## **ベベルシェイプの実効プロパティを取得する**
+## **シェイプ ベベルの有効プロパティを取得する**
 
-Aspose.Slides はシェイプベベルの実効プロパティの取得をサポートします。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapebeveleffectivedata/) インターフェイスは、シェイプの実効フェイスリリーフプロパティを保持する不変オブジェクトを表します。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapebeveleffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) の実効値を提供します。
+Aspose.Slides ではシェイプ ベベルの有効プロパティを取得できます。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapebeveleffectivedata/) インターフェイスは、シェイプの有効な面リリーフ プロパティを保持する変更不可オブジェクトです。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapebeveleffectivedata/) のインスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ithreedformat/) の有効値を提供します。
 
-以下のコードサンプルはシェイプの上部ベベルの実効プロパティを取得する方法を示します。最初のスライドの最初のシェイプに3D書式設定があることを想定しています。
+以下のコード サンプルは、シェイプの上部ベベルの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプに 3D 書式設定が適用されていると想定しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,13 +131,15 @@ try {
 }
 ```
 
-## **テキストフレームの実効プロパティを取得する**
+## **テキスト フレームの有効プロパティを取得する**
 
-Aspose.Slides を使用すると、テキストフレームの実効プロパティを取得できます。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformateffectivedata/) インターフェイスは実効テキストフレーム書式プロパティを保持します。
+Aspose.Slides を使用すると、テキスト フレームの有効プロパティを取得できます。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframeformateffectivedata/) インターフェイスは、テキスト フレームの有効書式設定プロパティを含みます。
 
-以下のコードサンプルは実効テキストフレーム書式プロパティを取得する方法を示します。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であることを想定しています。
+以下のコード サンプルは、テキスト フレームの有効書式設定プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキスト フレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であると想定しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -150,13 +160,15 @@ try {
 }
 ```
 
-## **テキストスタイルの実効プロパティを取得する**
+## **テキスト スタイルの有効プロパティを取得する**
 
-Aspose.Slides を使用すると、テキストスタイルの実効プロパティを取得できます。[ITextStyleEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextstyleeffectivedata/) インターフェイスは実効テキストスタイルプロパティを保持します。
+Aspose.Slides を使用すると、テキスト スタイルの有効プロパティを取得できます。[ITextStyleEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextstyleeffectivedata/) インターフェイスは、テキスト スタイルの有効プロパティを保持します。
 
-以下のコードサンプルは実効テキストスタイルプロパティを取得する方法を示します。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であることを想定しています。
+以下のコード サンプルは、テキスト スタイルの有効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキスト フレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であると想定しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +192,13 @@ try {
 }
 ```
 
-## **実効フォント高さの取得**
+## **有効なフォント 高さの値を取得する**
 
-Aspose.Slides を使用すると、実効フォント高さを取得できます。以下のコードは、プレゼンテーションのさまざまな階層でローカルフォント高さが設定された後、部分の実効フォント高さがどのように変化するかを示しています。
+Aspose.Slides を使用すると、有効なフォント高さを取得できます。以下のコードは、プレゼンテーション構造の異なるレベルでローカル フォント高さが設定された後、部分の有効フォント高さがどのように変化するかを示します。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -255,13 +269,15 @@ try {
 }
 ```
 
-## **テーブルの実効塗りつぶし書式を取得する**
+## **テーブルの有効な塗りつぶし形式を取得する**
 
-Aspose.Slides を使用すると、テーブルの各部分に対する実効塗りつぶし書式を取得できます。[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ifillformateffectivedata/) インターフェイスは実効塗りつぶし書式プロパティを保持します。セルの書式は行の書式より優先され、行の書式は列の書式より優先され、列の書式はテーブル全体の書式より優先されます。
+Aspose.Slides を使用すると、テーブルのさまざまな部分に対する有効な塗りつぶし書式設定を取得できます。[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ifillformateffectivedata/) インターフェイスは、有効な塗りつぶし書式設定プロパティを保持します。セルの書式設定は行の書式設定より優先され、行の書式設定は列の書式設定より優先され、列の書式設定はテーブル全体の書式設定より優先されます。
 
-その結果、[ICellFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icellformateffectivedata/) のプロパティがテーブルセルの描画に使用されます。以下のコードサンプルはテーブルのさまざまな部分に対する実効塗りつぶし書式を取得する方法を示します。最初のスライドの最初のシェイプが [ITable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itable/) であることを想定しています。
+その結果、[ICellFormatEffectiveData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icellformateffectivedata/) のプロパティがテーブル セルの描画に使用されます。以下のコード サンプルは、テーブルのさまざまな部分に対する有効な塗りつぶし書式設定を取得する方法を示しています。最初のスライドの最初のシェイプが [ITable](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itable/) であると想定しています。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -282,34 +298,34 @@ try {
 
 ## **FAQ**
 
-**`getEffective()` はスナップショットを返しますか？**
+### `getEffective()` はスナップショットを返しますか？
 
-必ずしもそうではありません。実効データは継承が適用された後に計算された書式を表しますが、一部の実効データオブジェクトは内部でキャッシュされることがあります。その後の `getEffective()` 呼び出しにより書式が再計算されキャッシュが更新される可能性があるため、以前取得したオブジェクトを永続的なスナップショットとして扱うべきではありません。
+必ずしも返しません。有効データは継承が適用された後に計算された書式設定を表しますが、一部の有効データオブジェクトは内部でキャッシュされることがあります。`getEffective()` を再度呼び出すと書式設定が再計算されキャッシュが更新されるため、以前取得したオブジェクトを永続的なスナップショットとして扱うべきではありません。
 
-**実効プロパティを再度取得すべきタイミングは？**
+### 有効プロパティはいつ再取得すべきですか？
 
-ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーションレベルのデフォルトを変更した後に `getEffective()` を再度呼び出します。次回の呼び出しで書式階層が再評価され、現在の実効結果が返されます。
+ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーション レベルのデフォルトを変更した後に `getEffective()` を再度呼び出してください。次の呼び出しで書式設定階層が再評価され、現在の有効結果が返されます。
 
-**レイアウト/マスタースライドを変更または削除すると、既に取得した実効プロパティに影響しますか？**
+### レイアウト/マスタースライドを変更または削除すると、既に取得した有効プロパティに影響しますか？
 
-はい、ただし変更は次回の `getEffective()` 呼び出しで反映されます。親の書式情報が変更または削除された場合、以前取得した実効データは古くなる可能性があります。`getEffective()` を再度呼び出すと Aspose.Slides が書式ツリーを再評価し、フォント、色、サイズ、その他の値が変わることがあります。
+はい。ただし変更は次回の `getEffective()` 呼び出しで反映されます。親書式ソースが変更または削除された場合、以前取得した有効データは古くなる可能性があります。`getEffective()` を再度呼び出すと Aspose.Slides が書式設定ツリーを再評価し、フォントや色、サイズなどの値が変わることがあります。
 
-**実効データオブジェクトを通じて値を変更できますか？**
+### 有効データオブジェクトを介して値を変更できますか？
 
-いいえ。実効データオブジェクトは計算済みの値を提供するだけです。ローカル書式オブジェクトで変更を行い、再度実効値を取得してください。
+できません。有効データオブジェクトは計算済みの値を公開するだけです。変更はローカル書式オブジェクトで行い、必要に応じて再度有効値を取得してください。
 
-**シェイプレベル、レイアウト/マスター、グローバル設定のいずれにもプロパティが設定されていない場合はどうなりますか？**
+### シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？
 
-実効値はデフォルトメカニズムにより決定されます。これは PowerPoint と Aspose.Slides のデフォルト設定を含みます。解決された値が現在の実効データの一部となります。
+既定のメカニズム（PowerPoint と Aspose.Slides の既定値）により決定された有効値が使用されます。その解決された値が現在の有効データの一部となります。
 
-**実効フォント値から、どの階層がサイズやフォントを提供したか判断できますか？**
+### 有効フォント値から、サイズやフォント ファミリがどのレベルで提供されたか判断できますか？
 
-直接的にはできません。実効データは最終的な値を返すだけです。情報源を特定するには、部分、段落、テキストフレーム、レイアウト、マスター、プレゼンテーションレベルのテキストスタイルにおけるローカル値を確認し、最初に明示的に定義された場所を探す必要があります。
+直接はできません。有効データは最終的な値を返すだけです。ソースを特定したい場合は、部分、段落、テキストフレーム、レイアウト、マスター、プレゼンテーションの各レベルでローカル値を確認し、最初に明示的に定義されている場所を探してください。
 
-**なぜ実効値がローカル値と同じに見えることがあるのですか？**
+### 有効値がローカル値と同一に見えることがありますか？
 
-ローカル値が最終的な値となった（上位レベルの継承が不要だった）ためです。その場合、実効値はローカル値と同一になります。
+あります。ローカル値が最終的な値となり、上位レベルからの継承が不要だった場合です。そのようなケースでは有効値はローカル値と同じになります。
 
-**実効プロパティを使用すべきとき、ローカルプロパティだけで作業すべきときはいつですか？**
+### いつ有効プロパティを使用し、いつローカルプロパティだけを使用すべきですか？
 
-すべての継承が適用された「レンダリング後」の結果が必要な場合（色、インデント、サイズの揃えなど）は実効データを使用します。後の書式変更に関係なくその値を保持したい場合は、必要なプロパティを独自のオブジェクトにコピーしてください。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて実効データを再取得して結果を確認します。
+すべての継承が適用された「レンダリング結果」が必要なときは有効データを使用します。たとえば、色やインデント、サイズを揃える場合などです。後で書式が変わっても値を保持したい場合は、必要なプロパティを独自のオブジェクトにコピーしてください。特定のレベルで書式を変更したいときはローカルプロパティを変更し、必要に応じて有効データを再取得して結果を確認してください。

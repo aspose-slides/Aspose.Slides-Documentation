@@ -5,46 +5,48 @@ type: docs
 weight: 20
 url: /hu/androidjava/manage-hyperlinks/
 keywords:
-- URL hozzáadása
-- hiperhivatkozás hozzáadása
-- hiperhivatkozás létrehozása
-- hiperhivatkozás formázása
-- hiperhivatkozás eltávolítása
-- hiperhivatkozás frissítése
-- szöveges hiperhivatkozás
-- diához tartozó hiperhivatkozás
-- alakzathoz hiperhivatkozás
-- kép hiperhivatkozás
-- videó hiperhivatkozás
-- módosítható hiperhivatkozás
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Android
-- Java
-- Aspose.Slides
-description: "Könnyedén kezelhet hiperhivatkozásokat PowerPoint és OpenDocument bemutatókban az Aspose.Slides for Android Java használatával—percek alatt növelheti az interaktivitást és a munkafolyamat hatékonyságát."
+  - URL hozzáadása
+  - hiperhivatkozás hozzáadása
+  - hiperhivatkozás létrehozása
+  - hiperhivatkozás formázása
+  - hiperhivatkozás eltávolítása
+  - hiperhivatkozás frissítése
+  - szöveges hiperhivatkozás
+  - dia hiperhivatkozás
+  - alakzat hiperhivatkozás
+  - kép hiperhivatkozás
+  - videó hiperhivatkozás
+  - módosítható hiperhivatkozás
+  - PowerPoint
+  - OpenDocument
+  - prezentáció
+  - Android
+  - Java
+  - Aspose.Slides
+description: "Könnyedén kezelheti a hiperhivatkozásokat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Android via Java segítségével – fokozza az interaktivitást és a munkafolyamatot percek alatt."
 ---
 ## **Bevezetés**
 
-A hiperhivatkozás egy referencia egy objektumra, adatra vagy egy helyre valamiben. Ezek gyakori hiperhivatkozások a PowerPoint bemutatókban:
+A hiperhivatkozás hivatkozás egy objektumra, adatra vagy egy helyre valamiben. Ezek a gyakori hiperhivatkozások a PowerPoint bemutatókban:
 
-* Hivatkozások weboldalakra szövegekben, alakzatokban vagy médiában
-* Hivatkozások diákra
+* Weboldalakra mutató hivatkozások szövegekben, alakzatokban vagy médiában
+* Diahivatkozások
 
-Az Aspose.Slides for Android Java-n keresztül lehetővé teszi, hogy számos feladatot végezzen a hiperhivatkozásokkal kapcsolatosan a bemutatókban.
+Aspose.Slides for Android via Java lehetővé teszi, hogy számos, hiperhivatkozásokkal kapcsolatos feladatot hajtson végre a bemutatókban.
 
-{{% alert color="primary" %}} 
-Érdemes megtekinteni az Aspose egyszerű, [ingyenes online PowerPoint szerkesztőjét.](https://products.aspose.app/slides/hu/editor)
-{{% /alert %}}
+{{% alert color="info" %}} 
+Érdemes megnézni az Aspose simple, [ingyenes online PowerPoint szerkesztő.](https://products.aspose.app/slides/hu/editor)
+{{% /alert %}} 
 
 ## **URL hiperhivatkozások hozzáadása**
 
 ### **URL hiperhivatkozások hozzáadása szöveghez**
 
-Ez a Java kód megmutatja, hogyan adhat hozzá egy weboldal hiperhivatkozást egy szöveghez:
+Ez a Java kód megmutatja, hogyan lehet egy weboldal hiperhivatkozást szöveghez hozzáadni:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -63,9 +65,11 @@ try {
 
 ### **URL hiperhivatkozások hozzáadása alakzatokhoz vagy keretekhez**
 
-Ez a Java mintakód bemutatja, hogyan adhat hozzá egy weboldal hiperhivatkozást egy alakzathoz:
+Ez a Java mintakód megmutatja, hogyan lehet egy weboldal hiperhivatkozást egy alakzathoz hozzáadni:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -81,37 +85,43 @@ try {
 
 ### **URL hiperhivatkozások hozzáadása médiához**
 
-Az Aspose.Slides lehetővé teszi hiperhivatkozások hozzáadását képekhez, hang- és videofájlokhoz.
+Az Aspose.Slides lehetővé teszi, hogy hiperhivatkozásokat adjunk képekhez, hang- és videofájlokhoz. 
 
-Ez a mintakód megmutatja, hogyan adjon hozzá egy hiperhivatkozást egy **képhez**:
+Ez a mintakód megmutatja, hogyan kell egy hiperhivatkozást egy **képre** hozzáadni:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	// Képet ad a prezentációhoz
+	// Kép hozzáadása a prezentációhoz
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// Képkockát hoz létre az 1. dián az előzőleg hozzáadott kép alapján
+	// Képkocka létrehozása az 1. diához a korábban hozzáadott kép alapján
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Ez a mintakód megmutatja, hogyan adjon hozzá egy hiperhivatkozást egy **hangfájlhoz**:
+Ez a mintakód megmutatja, hogyan kell egy hiperhivatkozást egy **hangfájlra** hozzáadni:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -127,9 +137,14 @@ try {
 }
 ```
 
-Ez a mintakód megmutatja, hogyan adjon hozzá egy hiperhivatkozást egy **videóhoz**:
+Ez a mintakód megmutatja, hogyan kell egy hiperhivatkozást egy **videóra** hozzáadni:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -145,17 +160,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-Érdemes megnézni a *[OLE kezelése](/slides/hu/androidjava/manage-ole/)*.
+{{%  alert  title="Tip"  color="info"  %}} 
+Érdemes megnézni *[OLE kezelése](/slides/hu/androidjava/manage-ole/)*.
 {{% /alert %}}
 
 ## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-Mivel a hiperhivatkozások lehetővé teszik objektumokra vagy helyekre való hivatkozások hozzáadását, használhatók tartalomjegyzék létrehozására is.
+Mivel a hiperhivatkozások lehetővé teszik objektumokra vagy helyekre mutató hivatkozások hozzáadását, használhatók tartalomjegyzék létrehozására. 
 
-Ez a mintakód bemutatja, hogyan hozhat létre egy tartalomjegyzéket hiperhivatkozásokkal:
+Ez a mintakód megmutatja, hogyan lehet hiperhivatkozásokkal tartalomjegyzéket létrehozni:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -188,11 +206,14 @@ try {
 
 ### **Szín**
 
-A [ColorSource](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) tulajdonsággal az [IHyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlink) interfészen beállíthatja a hiperhivatkozások színét, illetve lekérdezheti a színinformációt a hiperhivatkozásokból. Ez a funkció először a PowerPoint 2019-ben került bevezetésre, így a tulajdonsággal kapcsolatos változások nem vonatkoznak a régebbi PowerPoint verziókra.
+A [ColorSource](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) tulajdonsággal a [IHyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlink) interfészben beállíthatja a hiperhivatkozások színét, és lekérheti a színinformációt a hiperhivatkozásokból. A funkciót először a PowerPoint 2019-ben vezették be, ezért a tulajdonságra vonatkozó változtatások nem vonatkoznak a régebbi PowerPoint verziókra.
 
-Ez a mintakód bemutat egy műveletet, ahol különböző színű hiperhivatkozásokat adtak hozzá ugyanahhoz a diához:
+Ez a mintakód bemutat egy műveletet, ahol különböző színű hiperhivatkozások kerültek ugyanarra a diára:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -217,17 +238,19 @@ try {
 
 ### **Hiperhivatkozások eltávolítása szövegből**
 
-Ez a Java kód megmutatja, hogyan távolítható el a hiperhivatkozás egy szövegből egy prezentációs dián:
+Ez a Java kód megmutatja, hogyan lehet eltávolítani a hiperhivatkozást egy szövegből a bemutató dián:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -246,10 +269,12 @@ try {
 
 ### **Hiperhivatkozások eltávolítása alakzatokból vagy keretekből**
 
-Ez a Java kód bemutatja, hogyan távolítható el a hiperhivatkozás egy alakzatról egy prezentációs dián:
+Ez a Java kód megmutatja, hogyan lehet eltávolítani a hiperhivatkozást egy alakzatból a bemutató dián: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -264,7 +289,7 @@ try {
 
 ## **Módosítható hiperhivatkozás**
 
-A [Hyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Hyperlink) osztály módosítható. Ezzel az osztállyal megváltoztathatja az alábbi tulajdonságok értékeit:
+A [Hyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Hyperlink) osztály módosítható. Ezzel az osztállyal a következő tulajdonságok értékeit változtathatja meg:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -272,9 +297,11 @@ A [Hyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slid
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-A kódrészlet megmutatja, hogyan adjon hozzá egy hiperhivatkozást egy diára, majd később szerkessze a feliratát (tooltip):
+A kódrészlet megmutatja, hogyan lehet egy hiperhivatkozást hozzáadni egy diához, majd később módosítani a tooltip-jét:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -285,6 +312,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Megváltoztatja a már hozzáadott hiperhivatkozás tooltipjét
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -293,13 +323,13 @@ try {
 
 ## **Támogatott tulajdonságok az IHyperlinkQueries-ben**
 
-Elérheti az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlinkQueries) objektumot egy prezentációból, diából vagy szövegből, amelyhez a hiperhivatkozás definiálva van.
+Elérheti az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlinkQueries) osztályt egy bemutatóból, diából vagy szövegből, amelyhez a hiperhivatkozás definiálva van.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-Az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlinkQueries) osztály támogatja ezeket a metódusokat és tulajdonságokat:
+Az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlinkQueries) osztály ezeket a metódusokat és tulajdonságokat támogatja:
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -308,11 +338,14 @@ Az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.as
 
 ## **GYIK**
 
-**Hogyan hozhatok létre belső navigációt, nem csak egy diára, hanem egy „szekcióra” vagy egy szekció első diájára?**  
-A PowerPoint szekciói a diák csoportosításai; a navigáció technikailag egy adott diára mutat. Egy „szekcióra” navigáláshoz általában a szekció első diájára kell hivatkozni.
+### Hogyan hozhatok létre belső navigációt nem csak egy diára, hanem egy „szakaszra” vagy egy szakasz első diájára?
 
-**Csatolhatok hiperhivatkozást a mester dia elemeihez, hogy az minden dián működjön?**  
-Igen. A mester dia és elrendezés elemei támogatják a hiperhivatkozásokat. Az ilyen linkek megjelennek a gyermek diákon, és a bemutató során kattinthatók.
+A PowerPoint szakaszok a diák csoportosításai; a navigáció technikailag egy konkrét diát céloz. Egy „szakaszra való navigáláshoz” általában az első diájára kell hivatkozni.
 
-**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**  
-A [PDF](/slides/hu/androidjava/convert-powerpoint-to-pdf/) és a [HTML](/slides/hu/androidjava/convert-powerpoint-to-html/) esetén igen – a linkek általában megmaradnak. A [képek](/slides/hu/androidjava/convert-powerpoint-to-png/) és a [videó](/slides/hu/androidjava/convert-powerpoint-to-video/) exportálásakor a kattinthatóság nem kerül át, mivel ezek a formátumok (raszteres képkockák/videó) nem támogatják a hiperhivatkozásokat.
+### Csatolhatok-e hiperhivatkozást a főminta-diák elemeihez, hogy minden dián működjön?
+
+Igen. A főminta-diák és elrendezés elemei támogatják a hiperhivatkozásokat. Az ilyen hivatkozások megjelennek a gyermekdiákon, és a vetítés során kattinthatók.
+
+### Megmaradnak-e a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?
+
+[PDF](/slides/hu/androidjava/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/androidjava/convert-powerpoint-to-html/) esetén igen – a linkek általában megmaradnak. Képek](/slides/hu/androidjava/convert-powerpoint-to-png/) és [videó](/slides/hu/androidjava/convert-powerpoint-to-video/) exportálásakor a kattinthatóság nem kerül át, mivel ezek a formátumok (raszteres képkockák / videó) nem támogatják a hiperhivatkozásokat.

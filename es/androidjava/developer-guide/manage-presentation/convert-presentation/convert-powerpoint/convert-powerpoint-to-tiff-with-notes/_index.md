@@ -28,34 +28,34 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Convertir presentaciones de PowerPoint a TIFF con notas usando Aspose.Slides for Android via Java. Aprende cómo exportar diapositivas con notas del presentador de manera eficiente."
+description: "Convertir presentaciones de PowerPoint a TIFF con notas usando Aspose.Slides para Android vía Java. Aprende a exportar diapositivas con notas del presentador de manera eficiente."
 ---
+## **Introducción**
 
-## **Descripción general**
-
-Aspose.Slides for Android via Java ofrece una solución sencilla para convertir presentaciones de PowerPoint y OpenDocument (PPT, PPTX y ODP) con notas al formato TIFF. Este formato se utiliza ampliamente para el almacenamiento de imágenes de alta calidad, impresión y archivo de documentos. Con Aspose.Slides, no solo puede exportar presentaciones completas con notas del presentador, sino también generar miniaturas de diapositivas en la vista de Diapositiva de notas. El proceso de conversión es simple y eficiente, y utiliza el método `save` de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) para transformar toda la presentación en una serie de imágenes TIFF manteniendo las notas y el diseño.
+Aspose.Slides for Android via Java ofrece una solución sencilla para convertir presentaciones de PowerPoint y OpenDocument (PPT, PPTX y ODP) con notas al formato TIFF. Este formato se emplea ampliamente para el almacenamiento de imágenes de alta calidad, impresión y archivado de documentos. Con Aspose.Slides, no solo puedes exportar presentaciones completas con notas del presentador, sino también generar miniaturas de diapositivas en la vista de diapositiva de notas. El proceso de conversión es simple y eficiente, utilizando el método `save` de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/) para transformar la presentación completa en una serie de imágenes TIFF conservando las notas y el diseño.
 
 ## **Convertir una presentación a TIFF con notas**
 
-Guardar una presentación de PowerPoint o OpenDocument en TIFF con notas usando Aspose.Slides for Android via Java implica los siguientes pasos:
+Guardar una presentación de PowerPoint o OpenDocument en TIFF con notas mediante Aspose.Slides for Android via Java implica los siguientes pasos:
 
-1. Instanciar la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/): cargar un archivo PowerPoint o OpenDocument.  
-1. Configurar las opciones de diseño de salida: usar la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) para especificar cómo se deben mostrar las notas y los comentarios.  
-1. Guardar la presentación en TIFF: pasar las opciones configuradas al método [save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) .
+1. Instanciar la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/): cargar un archivo PowerPoint u OpenDocument.  
+2. Configurar las opciones de diseño de salida: usar la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/notescommentslayoutingoptions/) para especificar cómo deben mostrarse las notas y los comentarios.  
+3. Guardar la presentación en TIFF: pasar las opciones configuradas al método [save](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) .
 
 Supongamos que tenemos un archivo "speaker_notes.pptx" con la siguiente diapositiva:
 
 ![La diapositiva de la presentación con notas del presentador](slide_with_notes.png)
 
-El fragmento de código a continuación muestra cómo convertir la presentación a una imagen TIFF en la vista Diapositiva de notas usando el método [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) .
 ```java
+import com.aspose.slides.*;
+
 // Instanciar la clase Presentation que representa un archivo de presentación.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull); // Mostrar las notas debajo de la diapositiva.
 
-    // Configurar las opciones TIFF con distribución de notas.
+    // Configurar las opciones TIFF con el diseño de notas.
     TiffOptions tiffOptions = new TiffOptions();
     tiffOptions.setDpiX(300);
     tiffOptions.setDpiY(300);
@@ -68,25 +68,24 @@ try {
 }
 ```
 
-
 El resultado:
 
 ![La imagen TIFF con notas del presentador](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-Consulte el [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online) de Aspose.
+{{% alert title="Tip" color="info" %}}
+Descubre el Conversor gratuito de PowerPoint a Póster de Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/es/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Puedo controlar la posición del área de notas en el TIFF resultante?**
+### ¿Puedo controlar la posición del área de notas en el TIFF resultante?
 
-Sí. Use la [notes layout settings](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) para elegir entre opciones como `None`, `BottomTruncated` o `BottomFull`, que respectivamente ocultan las notas, las ajustan a una sola página o permiten que fluyan a páginas adicionales.
+Sí. Usa la configuración de [disposición de notas](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) para elegir entre opciones como `None`, `BottomTruncated` o `BottomFull`, que respectivamente ocultan las notas, las ajustan en una sola página o permiten que continúen en páginas adicionales.
 
-**¿Cómo puedo reducir el tamaño de un archivo TIFF con notas sin una pérdida visible de calidad?**
+### ¿Cómo puedo reducir el tamaño de un archivo TIFF con notas sin una pérdida visible de calidad?
 
-Elija una [compresión eficiente](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (p. ej., `LZW` o `RLE`), establezca un DPI razonable y, si es aceptable, use un [formato de píxel](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) más bajo (como 8 bpp o 1 bpp para monocromo). Reducir ligeramente las [dimensiones de la imagen](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) también puede ayudar sin afectar notablemente la legibilidad.
+Elige una [compresión eficiente](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (p. ej., `LZW` o `RLE`), establece un DPI razonable y, si es aceptable, usa un formato de píxel más bajo [pixel format](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) (como 8 bpp o 1 bpp para monocromo). Reducir ligeramente las [dimensiones de la imagen](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) también ayuda sin afectar notablemente la legibilidad.
 
-**¿Afecta la fuente de las notas al resultado si las fuentes originales no están instaladas en el sistema?**
+### ¿Afecta la fuente de las notas al resultado si las fuentes originales faltan en el sistema?
 
-Sí. Las fuentes faltantes activan una [sustitución](/slides/es/androidjava/font-selection-sequence/), lo que puede cambiar las métricas y la apariencia del texto. Para evitarlo, [proporcione las fuentes necesarias](/slides/es/androidjava/custom-font/) o establezca una [fuente de respaldo predeterminada](/slides/es/androidjava/fallback-font/) para que se utilicen los tipos de letra previstos.
+Sí. Las fuentes faltantes activan la [sustitución](/slides/es/androidjava/font-selection-sequence/), lo que puede modificar las métricas y el aspecto del texto. Para evitarlo, [proporciona las fuentes necesarias](/slides/es/androidjava/custom-font/) o establece una [fuente de respaldo](/slides/es/androidjava/fallback-font/) predeterminada para que se utilicen los tipos de letra previstos.

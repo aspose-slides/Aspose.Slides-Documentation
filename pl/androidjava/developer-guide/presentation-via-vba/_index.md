@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie projektami VBA w prezentacjach na Androidzie
-linktitle: Prezentacja za pomocą VBA
+title: "Zarządzanie projektami VBA w prezentacjach na Androidzie"
+linktitle: "Prezentacja za pomocą VBA"
 type: docs
 weight: 250
 url: /pl/androidjava/presentation-via-vba/
@@ -20,15 +20,15 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak generować i modyfikować prezentacje PowerPoint i OpenDocument przy użyciu VBA w Aspose.Slides dla Androida w Javie, aby usprawnić swój przepływ pracy."
+description: "Odkryj, jak generować i manipulować prezentacjami PowerPoint i OpenDocument przy użyciu VBA w Aspose.Slides dla Androida w Javie, aby usprawnić swój przepływ pracy."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides udostępnia klasy i interfejsy umożliwiające pracę z makrami i kodem VBA.
+Aspose.Slides udostępnia klasy i interfejsy do pracy z makrami i kodem VBA.
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Uwaga" color="warning" %}} 
 
-Kiedy konwertujesz prezentację zawierającą makra do innego formatu pliku (PDF, HTML itp.), Aspose.Slides ignoruje wszystkie makra (makra nie są przenoszone do powstałego pliku).
+Podczas konwertowania prezentacji zawierającej makra do innego formatu pliku (PDF, HTML itp.) Aspose.Slides ignoruje wszystkie makra (makra nie są przenoszone do wynikowego pliku).
 
 Gdy dodajesz makra do prezentacji lub ponownie zapisujesz prezentację zawierającą makra, Aspose.Slides po prostu zapisuje bajty makr.
 
@@ -36,9 +36,9 @@ Aspose.Slides **nigdy** nie uruchamia makr w prezentacji.
 
 {{% /alert %}}
 
-## **Dodaj makra VBA**
+## **Dodawanie makr VBA**
 
-Aspose.Slides udostępnia klasę [VbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/vbaproject/), która pozwala tworzyć projekty VBA (oraz odwołania do projektów) oraz edytować istniejące moduły. Możesz używać interfejsu [IVbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivbaproject/), aby zarządzać VBA osadzonym w prezentacji.
+Aspose.Slides udostępnia klasę [VbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/vbaproject/), która pozwala tworzyć projekty VBA (oraz odwołania do projektów) i edytować istniejące moduły. Możesz używać interfejsu [IVbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivbaproject/), aby zarządzać VBA osadzonym w prezentacji.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation).
 1. Użyj konstruktora [VbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/vbaproject/#VbaProject--) aby dodać nowy projekt VBA.
@@ -49,9 +49,11 @@ Aspose.Slides udostępnia klasę [VbaProject](https://reference.aspose.com/slide
 1. Powiąż odwołania z projektem VBA.
 1. Zapisz prezentację.
 
-Ten kod w języku Java pokazuje, jak od podstaw dodać makro VBA do prezentacji:
+Ten kod Java pokazuje, jak od podstaw dodać makro VBA do prezentacji:
 
 ```java
+import com.aspose.slides.*;
+
 // Tworzy instancję klasy prezentacji
 Presentation pres = new Presentation();
 try {
@@ -82,23 +84,25 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Możesz sprawdzić **Aspose** [Macro Remover](https://products.aspose.app/slides/pl/remove-macros), darmową aplikację internetową służącą do usuwania makr z dokumentów PowerPoint, Excel i Word.
+Możesz zainteresować się darmowym narzędziem Aspose [Macro Remover](https://products.aspose.app/slides/pl/remove-macros), które umożliwia usunięcie makr z dokumentów PowerPoint, Excel i Word. 
 
 {{% /alert %}} 
 
-## **Usuń makra VBA**
+## **Usuwanie makr VBA**
 
 Korzystając z właściwości [VbaProject](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getVbaProject--) w klasie [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation), możesz usunąć makro VBA.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i wczytaj prezentację zawierającą makro.
-2. Uzyskaj dostęp do modułu Macro i usuń go.
-3. Zapisz zmodyfikowaną prezentację.
+1. Uzyskaj dostęp do modułu makra i usuń go.
+1. Zapisz zmodyfikowaną prezentację.
 
-Ten kod w języku Java pokazuje, jak usunąć makro VBA:
+Ten kod Java pokazuje, jak usunąć makro VBA:
 
 ```java
+import com.aspose.slides.*;
+
 // Ładuje prezentację zawierającą makro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -112,15 +116,17 @@ try {
 }
 ```
 
-## **Wyodrębnij makra VBA**
+## **Wyodrębnianie makr VBA**
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation) i wczytaj prezentację zawierającą makro.
 2. Sprawdź, czy prezentacja zawiera projekt VBA.
-3. Iteruj po wszystkich modułach zawartych w projekcie VBA, aby wyświetlić makra.
+3. Przejdź przez wszystkie moduły zawarte w projekcie VBA, aby wyświetlić makra.
 
-Ten kod w języku Java pokazuje, jak wyodrębnić makra VBA z prezentacji zawierającej makra:
+Ten kod Java pokazuje, jak wyodrębnić makra VBA z prezentacji zawierającej makra:
 
 ```java
+import com.aspose.slides.*;
+
 // Ładuje prezentację zawierającą makro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -137,18 +143,20 @@ try {
 }
 ```
 
-## **Sprawdź, czy projekt VBA jest chroniony hasłem**
+## **Sprawdzanie, czy projekt VBA jest chroniony hasłem**
 
 Korzystając z metody [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--), możesz określić, czy właściwości projektu są chronione hasłem.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) i wczytaj prezentację zawierającą makro.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) i wczytaj prezentację, która zawiera makro.
 2. Sprawdź, czy prezentacja zawiera [projekt VBA](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/vbaproject/).
 3. Sprawdź, czy projekt VBA jest chroniony hasłem, aby zobaczyć jego właściwości.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
-    if (presentation.getVbaProject() != null) { // Sprawdź, czy prezentacja zawiera projekt VBA.
+    if (presentation.getVbaProject() != null) { // Sprawdza, czy prezentacja zawiera projekt VBA.
         if (presentation.getVbaProject().isPasswordProtected()) {
             System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
@@ -161,14 +169,14 @@ try {
 
 ## **FAQ**
 
-**Co się dzieje z makrami, jeśli zapiszę prezentację jako PPTX?**
+### Co się dzieje z makrami, gdy zapisuję prezentację jako PPTX?
 
 Makra zostaną usunięte, ponieważ format PPTX nie obsługuje VBA. Aby zachować makra, wybierz PPTM, PPSM lub POTM.
 
-**Czy Aspose.Slides może uruchamiać makra w prezentacji, na przykład w celu odświeżenia danych?**
+### Czy Aspose.Slides może uruchamiać makra w prezentacji, np. odświeżać dane?
 
-Nie. Biblioteka nigdy nie wykonuje kodu VBA; uruchamianie jest możliwe wyłącznie w programie PowerPoint przy odpowiednich ustawieniach zabezpieczeń.
+Nie. Biblioteka nigdy nie wykonuje kodu VBA; wykonanie jest możliwe wyłącznie w PowerPoint przy odpowiednich ustawieniach zabezpieczeń.
 
-**Czy obsługa kontrolek ActiveX powiązanych z kodem VBA jest wspierana?**
+### Czy obsługa kontrolek ActiveX powiązanych z kodem VBA jest wspierana?
 
-Tak, możesz uzyskać dostęp do istniejących [kontrolek ActiveX](/slides/pl/androidjava/activex/), modyfikować ich właściwości i usuwać je. Jest to przydatne, gdy makra współdziałają z ActiveX.
+Tak, możesz uzyskać dostęp do istniejących [ActiveX controls](/slides/pl/androidjava/activex/), modyfikować ich właściwości i usuwać je. Jest to przydatne, gdy makra współpracują z ActiveX.

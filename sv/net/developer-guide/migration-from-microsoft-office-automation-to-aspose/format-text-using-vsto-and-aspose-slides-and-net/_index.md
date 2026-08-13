@@ -6,34 +6,36 @@ weight: 30
 url: /sv/net/format-text-using-vsto-and-aspose-slides-and-net/
 keywords:
 - formatera text
-- migrering
+- migration
 - VSTO
-- Office-automation
+- Office-automatisering
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Migrera från Microsoft Office-automation till Aspose.Slides för .NET och formatera text i PowerPoint (PPT, PPTX)-presentationer med exakt kontroll."
+description: "Migrera från Microsoft Office-automatisering till Aspose.Slides för .NET och formatera text i PowerPoint (PPT, PPTX) presentationer med exakt kontroll."
 ---
-{{% alert color="primary" %}} 
-Ibland behöver du formatera texten på bilder programmässigt. Denna artikel visar hur du läser en exempelpresentation med lite text på den första bilden med antingen [VSTO](/slides/sv/net/format-text-using-vsto-and-aspose-slides-and-net/) och [Aspose.Slides for .NET](/slides/sv/net/format-text-using-vsto-and-aspose-slides-and-net/). Koden formaterar texten i den tredje textrutan på bilden så att den ser ut som texten i den sista textrutan.
+{{% alert color="info" %}}
+
+Ibland behöver du formatera texten på bildspel programatiskt. Denna artikel visar hur du läser en exempelpresentation med lite text på den första bilden med antingen [VSTO](/slides/sv/net/format-text-using-vsto-and-aspose-slides-and-net/) och [Aspose.Slides for .NET](/slides/sv/net/format-text-using-vsto-and-aspose-slides-and-net/). Koden formaterar texten i den tredje textrutan på bilden så att den ser ut som texten i den sista textrutan.
+
 {{% /alert %}} 
 ## **Formatera text**
-Både VSTO- och Aspose.Slides-metoderna utför följande steg:
+Båda VSTO- och Aspose.Slides-metoderna följer följande steg:
 
 1. Öppna källpresentationen.
-1. Gå till den första bilden.
-1. Få åtkomst till den tredje textrutan.
+1. Hämta den första bilden.
+1. Hämta den tredje textrutan.
 1. Ändra formateringen av texten i den tredje textrutan.
-1. Spara presentationen på disk.
+1. Spara presentationen till disk.
 
 Skärmdumparna nedan visar exempelbilden före och efter körning av VSTO- och Aspose.Slides for .NET-koden.
 
 **Ingångspresentationen** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
-### **VSTO-kodexempel**
+### **VSTO kodexempel**
 Koden nedan visar hur du omformaterar text på en bild med VSTO.
 
 **Texten omformaterad med VSTO** 
@@ -43,43 +45,43 @@ Koden nedan visar hur du omformaterar text på en bild med VSTO.
 
 
 ```c#
-//Obs: PowerPoint är ett namnrymd som har definierats ovan på detta sätt
+//Obs: PowerPoint är en namnrymd som har definierats ovan så här
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 PowerPoint.Presentation pres = null;
 
-//Open the presentation
+//Öppna presentationen
 pres = Globals.ThisAddIn.Application.Presentations.Open("c:\\source.ppt",
 	Microsoft.Office.Core.MsoTriState.msoFalse,
 	Microsoft.Office.Core.MsoTriState.msoFalse,
 	Microsoft.Office.Core.MsoTriState.msoTrue);
 
-//Access the first slide
+//Hämta den första bilden
 PowerPoint.Slide slide = pres.Slides[1];
 
-//Access the third shape
+//Hämta den tredje formen
 PowerPoint.Shape shp = slide.Shapes[3];
 
-//Change its text's font to Verdana and height to 32
+//Ändra textens teckensnitt till Verdana och storlek till 32
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 txtRange.Font.Name = "Verdana";
 txtRange.Font.Size = 32;
 
-//Bolden it
+//Gör den fet
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//Italicize it
+//Gör den kursiv
 txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//Change text color
+//Ändra textfärg
 txtRange.Font.Color.RGB = 0x00CC3333;
 
-//Change shape background color
+//Ändra formens bakgrundsfärg
 shp.Fill.ForeColor.RGB = 0x00FFCCCC;
 
-//Reposition it horizontally
+//Placera om den horisontellt
 shp.Left -= 70;
 
-//Write the output to disk
+//Skriv utdata till disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -91,23 +93,27 @@ pres.SaveAs("c:\\outVSTO.ppt",
 ### **Aspose.Slides for .NET-exempel**
 För att formatera text med Aspose.Slides, lägg till teckensnittet innan du formaterar texten.
 
-**Utdatapresentationen skapad med Aspose.Slides** 
+**Utgångspresentationen skapad med Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_3.png)
 
 
 
 ```c#
- //Öppna presentationen
-Presentation pres = new Presentation("c:\\source.ppt");
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-//Få åtkomst till den första bilden
+ //Öppna presentationen
+Presentation pres = new Presentation("source.ppt");
+
+//Hämta den första bilden
 ISlide slide = pres.Slides[0];
 
-//Få åtkomst till den tredje formen
+//Hämta den tredje formen
 IShape shp = slide.Shapes[2];
 
-//Ändra dess texts teckensnitt till Verdana och höjd till 32
+//Ändra textens teckensnitt till Verdana och höjd till 32
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 IParagraph para = tf.Paragraphs[0];
 IPortion port = para.Portions[0];
@@ -122,14 +128,14 @@ port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontItalic = NullableBool.True;
 
 //Ändra textfärg
-//Ställ in teckensnittsfärg
+//Sätt teckenfärg
 port.PortionFormat.FillFormat.FillType = FillType.Solid;
-port.PortionFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
+port.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
 //Ändra formens bakgrundsfärg
 shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//Spara utdata till disk
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Skriv utdata till disk
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

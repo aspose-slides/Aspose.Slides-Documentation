@@ -4,11 +4,13 @@ type: docs
 weight: 45
 url: /hi/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
-Aspose.Slides for JasperReports को JasperServer के साथ एकीकृत करने के लिए, कई अतिरिक्त कदम उठाने और JasperServer कॉन्फ़िग फ़ाइलों को अपडेट करने की आवश्यकता है। यह लेख बताता है कि कैसे।
+{{% alert color="info" %}} 
+
+Aspose.Slides for JasperReports को JasperServer के साथ एकीकृत करने के लिए कई अतिरिक्त कदम उठाने और JasperServer कॉन्फ़िग फ़ाइलों को अपडेट करने की आवश्यकता है। यह लेख बताता है कि कैसे करना है।
+
 {{% /alert %}} 
 
-1. नई exporter प्रॉपर्टीज़ को **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** कॉन्फ़िग फ़ाइल में जोड़ें।
+1. नए एक्सपोर्टर प्रॉपर्टीज़ को **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** कॉन्फ़िग फ़ाइल में जोड़ें।
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -25,14 +27,13 @@ Aspose.Slides for JasperReports को JasperServer के साथ एकी�
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- इस प्रविष्टि को exporterConfigMap में जोड़ें -->
+    <!-- exporterConfigMap में यह प्रविष्टि जोड़ें -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
 2. **aspose.slides.jasperreports.jar** को **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib** में कॉपी करें।
-
-3. फ़ॉन्ट मैपिंग फीचर का उपयोग करने के लिए, नीचे दिखाए अनुसार **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** को अपडेट करें।
+3. फ़ॉन्ट मैपिंग सुविधा का उपयोग करने के लिए, नीचे दिखाए अनुसार **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** को अपडेट करें।
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

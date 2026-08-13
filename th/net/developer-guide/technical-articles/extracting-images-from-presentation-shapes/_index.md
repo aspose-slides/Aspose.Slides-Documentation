@@ -1,6 +1,6 @@
 ---
-title: สกัดรูปภาพจากรูปร่างในงานนำเสนอด้วย .NET
-linktitle: รูปจากรูปร่าง
+title: สกัดรูปภาพจากรูปทรงในงานนำเสนอด้วย .NET
+linktitle: รูปภาพจากรูปทรง
 type: docs
 weight: 90
 url: /th/net/extracting-images-from-presentation-shapes/
@@ -13,21 +13,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "สกัดรูปภาพจากรูปร่างในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET - วิธีแก้ไขที่รวดเร็วและเป็นมิตรต่อโค้ด."
+description: "สกัดรูปภาพจากรูปทรงในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET - วิธีแก้ไขที่เร็วและเป็นมิตรต่อโค้ด"
 ---
 ## **ภาพรวม**
 
-รูปภาพในงานนำเสนออาจปรากฏในหลายประเภทของรูปร่าง: เป็นกรอบรูปธรรมดา, เป็นพื้นหลังรูปที่ใส่ในรูปร่าง, เป็นภาพตัวอย่างของวัตถุ OLE, เป็นภาพย่อของเฟรมวิดีโอหรือเสียง, เป็นรูปซูม, หรือเป็นรูปที่ฝังอยู่ภายในรูปร่างตาราง, แผนภูมิและ SmartArt. Aspose.Slides จัดเก็บรูปเหล่านี้ในคอลเลกชันรูปของงานนำเสนอ ซึ่งเปิดให้เข้าถึงผ่านอ็อบเจกต์ [ImageCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imagecollection/) และ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/).
+รูปภาพในงานนำเสนอสามารถปรากฏในหลายประเภทของรูปทรง: เป็นกรอบรูปทั่วไป, เป็นการเติมรูปที่ใช้กับรูปทรง, เป็นภาพตัวอย่างของอ็อบเจ็กต์ OLE, เป็นภาพย่อของเฟรมวิดีโอหรือเสียง, เป็นภาพซูม, หรือเป็นรูปภาพที่ซ้อนอยู่ภายในรูปทรงตาราง, แผนภูมิ และ SmartArt. Aspose.Slides จัดเก็บรูปภาพเหล่านี้ในคอลเลกชันรูปภาพของงานนำเสนอ, ที่เปิดเผยผ่าน [ImageCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imagecollection/) และ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) objects.
 
-หากคุณต้องการส่งออกทรัพยากรรูปภาพทุกไฟล์ที่ฝังอยู่ในงานนำเสนอ ให้วนลูปผ่าน `presentation.Images`. บทความนี้เน้นงานที่ต่างออกไป: การท่องรูปร่างเพื่อค้นหาที่ที่รูปภาพถูกใช้บนสไลด์ เพื่อตั้งชื่อไฟล์ที่บันทึกให้มีข้อมูลบริบทที่เป็นประโยชน์ เช่น หมายเลขสไลด์, ตำแหน่งรูปร่าง และประเภทแหล่งที่ม (กรอบรูป, รูปพื้นหลัง, ตัวอย่างสื่อ, ตัวอย่าง OLE หรือรูปซูม).
+หากคุณต้องการส่งออกทรัพยากรรูปภาพทั้งหมดที่ฝังอยู่ในงานนำเสนอ, ให้วนลูปผ่าน `presentation.Images`. บทความนี้เน้นงานที่แตกต่าง: การเดินสำรวจรูปทรงเพื่อค้นหาที่ที่ใช้รูปภาพบนสไลด์, เพื่อให้ไฟล์ที่บันทึกสามารถเก็บบริบทยังใช้ได้ เช่น หมายเลขสไลด์, ตำแหน่งรูปทรง, และประเภทแหล่งที่ม (กรอบรูป, รูปเติม, ตัวอย่างสื่อ, ตัวอย่าง OLE หรือรูปซูม).
 
-{{% alert title="Tip" color="primary" %}}
-ใช้ [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) เพื่อรักษาข้อมูลรูปที่เข้ารหัสเดิมและประเภทไฟล์เดิม ใช้ [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ร่วมกับ [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) เมื่อคุณต้องการแปลงผลลัพธ์เป็นรูปแบบเฉพาะเช่น PNG.
+{{% alert title="Tip" color="info" %}}
+ใช้ [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) เพื่อรักษาข้อมูลภาพที่เข้ารหัสต้นฉบับและประเภทไฟล์ไว้. ใช้ [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ร่วมกับ [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) เมื่อคุณต้องการทำให้เอาต์พุตเป็นรูปแบบเฉพาะเช่น PNG.
 {{% /alert %}}
 
-## **เมธอดช่วยเหลือที่ใช้ร่วมกัน**
+## **วิธีการช่วยเหลือที่ใช้ร่วมกัน**
 
-เมธอดช่วยเหลือด้านล่างทำให้ตัวอย่างสั้นลง `SaveOriginalImage` จะเขียนไบต์ที่ฝังอยู่เดิม, เลือกสกุลไฟล์ที่ปลอดภัยจาก MIME type, และข้ามรูปภาพซ้ำโดยใช้แฮช SHA-256.
+วิธีการช่วยเหลือด้านล่างทำให้ตัวอย่างสั้นลง. `SaveOriginalImage` จะเขียนไบต์ที่ฝังอยู่เดิม, เลือกส่วนขยายที่ปลอดภัยจาก MIME type, และข้ามไบนารีรูปภาพที่ซ้ำกันโดยใช้แฮช SHA-256.
 
 ```c#
 using Aspose.Slides;
@@ -162,11 +162,13 @@ private static string MakeSafeFileNamePart(string value)
 }
 ```
 
-## **สกัดรูปภาพจากกรอบรูป**
+## **ดึงรูปภาพจากกรอบรูป**
 
-ใช้วิธีนี้สำหรับรูปที่แทรกเป็นอ็อบเจกต์อิสระ. [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) เก็บรูปภาพใน `PictureFormat.Picture.Image`, ซึ่งคืนค่าอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/).
+ใช้วิธีนี้สำหรับรูปที่แทรกเป็นออบเจ็กต์อิสระ. ออบเจ็กต์ [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) เก็บรูปภาพใน `PictureFormat.Picture.Image`, ซึ่งคืนค่าออบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -193,11 +195,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพจากรูปร่างที่เติมรูป**
+## **ดึงรูปภาพจากรูปทรงที่เติมด้วยรูป**
 
-รูปร่างสามารถใช้รูปเป็นพื้นหลังได้. ตรวจสอบประเภทการเติมของรูปร่างก่อน: หากไม่ใช่ [FillType.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/), จะไม่มีรูปให้สกัดจากการเติมนั้น. ตัวอย่างด้านล่างจัดการอ็อบเจกต์ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) และบันทึกรูปแต่ละไฟล์เป็น PNG ผ่าน [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/).
+รูปทรงสามารถใช้รูปภาพเป็นการเติมของมันได้. ตรวจสอบประเภทการเติมของรูปทรงก่อน: หากไม่ใช่ [FillType.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/), จะไม่มีรูปภาพให้ดึงจากการเติมนั้น. ตัวอย่างด้านล่างจัดการกับออบเจ็กต์ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) และบันทึกรูปแต่ละภาพเป็น PNG ผ่าน [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +229,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพตัวอย่างจากกรอบวัตถุ OLE**
+## **ดึงภาพตัวอย่างจากเฟรมออบเจ็กต์ OLE**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ioleobjectframe/) สามารถมีรูปทดแทนที่ PowerPoint ใช้เป็นตัวอย่างของวัตถุบนสไลด์. รูปนี้สามารถเข้าถึงได้ผ่าน `SubstitutePictureFormat.Picture.Image`. การสกัดรูปนี้จะให้ได้รูปตัวอย่าง, ไม่ใช่เนื้อหาแพ็คเกจ OLE ที่ฝังอยู่.
+ออบเจ็กต์ [IOleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ioleobjectframe/) สามารถมีรูปภาพทดแทนที่ PowerPoint ใช้เป็นตัวอย่างของออบเจ็กต์บนสไลด์. ภาพนี้สามารถเข้าถึงได้ผ่าน `SubstitutePictureFormat.Picture.Image`. การดึงรูปภาพนี้จะให้ภาพตัวอย่าง, ไม่ใช่เนื้อหาแพ็คเกจ OLE ที่ฝังอยู่.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -260,11 +266,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพตัวอย่างจากกรอบวิดีโอ**
+## **ดึงภาพตัวอย่างจากเฟรมวิดีโอ**
 
-[IVideoFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ivideoframe/) สามารถเก็บรูปตัวอย่างใน `PictureFormat.Picture.Image`. นี่คือโปสเตอร์หรือภาพย่อที่แสดงบนสไลด์, ไม่ใช่เฟรมที่ถอดรหัสจากสตรีมวิดีโอ.
+ออบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ivideoframe/) สามารถเก็บภาพตัวอย่างใน `PictureFormat.Picture.Image`. นี้เป็นโปสเตอร์หรือภาพย่อที่แสดงบนสไลด์, ไม่ใช่เฟรมที่ถอดรหัสจากสตรีมวิดีโอ.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -295,11 +303,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพตัวอย่างจากกรอบเสียง**
+## **ดึงภาพตัวอย่างจากเฟรมเสียง**
 
-[IAudioFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iaudioframe/) สามารถเก็บภาพย่อใน `PictureFormat.Picture.Image`. นี่คือรูปที่แสดงสำหรับวัตถุเสียงบนสไลด์.
+ออบเจ็กต์ [IAudioFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iaudioframe/) สามารถเก็บภาพย่อใน `PictureFormat.Picture.Image`. นี้คือภาพที่แสดงสำหรับออบเจ็กต์เสียงบนสไลด์.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -330,11 +340,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพจากวัตถุซูม**
+## **ดึงรูปภาพจากวัตถุซูม**
 
-รูปร่าง [IZoomFrame](https://reference.aspose.com/slides/th/net/aspose.slides/izoomframe/) และ [ISectionZoomFrame](https://reference.aspose.com/slides/th/net/aspose.slides/isectionzoomframe/) สามารถใช้รูปภาพกำหนดเอง. อ่าน `ZoomImage` จากเฟรมซูม.
+รูปทรง [IZoomFrame](https://reference.aspose.com/slides/th/net/aspose.slides/izoomframe/) และ [ISectionZoomFrame](https://reference.aspose.com/slides/th/net/aspose.slides/isectionzoomframe/) สามารถใช้รูปภาพกำหนดเองได้. อ่าน `ZoomImage` จากเฟรมซูม.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพจากกรอบซูมสรุป**
+## **ดึงรูปภาพจากเฟรมสรุปซูม**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/th/net/aspose.slides/isummaryzoomframe/) ก็เป็นรูปร่างเช่นกัน. รายการส่วนสรุปของมันอาจใช้รูปภาพกำหนดเอง, ซึ่งเปิดให้เข้าถึงผ่านคุณสมบัติ `ZoomImage` ของแต่ละส่วนสรุป.
+ออบเจ็กต์ [ISummaryZoomFrame](https://reference.aspose.com/slides/th/net/aspose.slides/isummaryzoomframe/) ก็เป็นรูปทรงเช่นกัน. รายการส่วนของสรุปซูมแต่ละส่วนสามารถใช้รูปภาพกำหนดเอง, ซึ่งเปิดเผยผ่านคุณสมบัติ `ZoomImage` ของแต่ละส่วนสรุปซูม.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -410,11 +424,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพจากรูปร่างตาราง**
+## **ดึงรูปภาพจากรูปทรงตาราง**
 
-[ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) เป็นรูปร่าง. รูปภาพในตารางมักจะถูกเก็บเป็นพื้นหลังรูปในเซลล์ของตาราง.
+ออบเจ็กต์ [ITable](https://reference.aspose.com/slides/th/net/aspose.slides/itable/) เป็นรูปทรง. รูปภาพในตารางส่วนใหญ่ถูกเก็บเป็นการเติมรูปในเซลล์ตาราง.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -454,11 +470,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพจากรูปร่างแผนภูมิ**
+## **ดึงรูปภาพจากรูปทรงแผนภูมิ**
 
-[IChart](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/) เป็นรูปร่าง. ตัวอย่างด้านล่างสกัดรูปภาพจากพื้นหลังรูปของพื้นที่แผนภูมิ.
+ออบเจ็กต์ [IChart](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/) เป็นรูปทรง. ตัวอย่างด้านล่างดึงรูปภาพจากการเติมรูปของพื้นที่แผนภูมิ.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -490,11 +508,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **สกัดรูปภาพจากรูปร่าง SmartArt**
+## **ดึงรูปภาพจากรูปทรง SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/th/net/aspose.slides.smartart/ismartart/) เป็นอ็อบเจกต์รูปร่าง. ขึ้นอยู่กับเค้าโครง SmartArt, รูปภาพอาจถูกเก็บในพื้นหลังรูปของจุดรายการ (node bullet) หรือในรูปแบบการเติมของรูปร่างจุด.
+ออบเจ็กต์ [ISmartArt](https://reference.aspose.com/slides/th/net/aspose.slides.smartart/ismartart/) เป็นรูปทรง. ขึ้นอยู่กับเค้าโครง SmartArt, รูปภาพอาจถูกเก็บในการเติมรูปของจุดหัวข้อหรือในรูปแบบการเติมของรูปร่างจุด.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -542,11 +562,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **รวมรูปภาพที่อยู่ภายในรูปร่างกลุ่ม**
+## **รวมรูปภาพภายในรูปทรงที่จัดกลุ่ม**
 
-รูปร่างกลุ่มมีคอลเลกชันรูปร่างของตนเอง. ตัวช่วย `EnumerateShapes` ที่ใช้ร่วมกันมีตัวเลือก `includeGroupedShapes`. ตั้งค่าเป็น `true` เมื่อคุณต้องการตรวจสอบรูปร่างภายในอ็อบเจกต์ [IGroupShape](https://reference.aspose.com/slides/th/net/aspose.slides/igroupshape/). ตัวอย่างด้านล่างสกัดรูปภาพจากกรอบรูป, รูปที่เติมในรูปร่าง, ตัวอย่าง OLE, ภาพย่อเฟรมวิดีโอ, และภาพย่อเฟรมเสียง. เพื่อรวมรูปภาพตาราง, แผนภูมิ, SmartArt, และรูปซูมสรุปด้วย, ให้ใช้ตรรกะการสกัดเฉพาะจากส่วนก่อนหน้าโดยยังคงการท่องรูปร่างแบบเรียกซ้ำเหมือนเดิม.
+รูปทรงที่จัดกลุ่มมีคอลเลกชันรูปทรงของตนเอง. ตัวช่วย `EnumerateShapes` ที่ใช้ร่วมกันมีตัวเลือก `includeGroupedShapes`. ตั้งค่าเป็น `true` เมื่อคุณต้องการตรวจสอบรูปทรงภายในออบเจ็กต์ [IGroupShape](https://reference.aspose.com/slides/th/net/aspose.slides/igroupshape/). ตัวอย่างด้านล่างดึงรูปภาพจากกรอบรูป, รูปทรงที่เติมด้วยรูป, ตัวอย่าง OLE, ภาพย่อเฟรมวิดีโอ, และภาพย่อเฟรมเสียง. เพื่อรวมรูปภาพจากตาราง, แผนภูมิ, SmartArt, และสรุปซูมด้วย, ให้ใช้ตรรกะการดึงเฉพาะที่อธิบายในส่วนก่อนหน้าในขณะที่ยังคงการเดินสำรวจรูปทรงแบบเรียกซ้ำเดิม.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -619,45 +641,45 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **กรณีขอบเขตและบันทึกปฏิบัติ**
+## **กรณีขอบและข้อสังเกตที่เป็นประโยชน์**
 
-- **รูปภาพซ้ำ:** รูปร่างหลายรูปร่างอาจอ้างอิงรูปเดียวกันหรือรูปแยกต่างหากที่มีไบต์เท่ากัน. ทำแฮช [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ก่อนเขียนไฟล์หากคุณต้องการไฟล์ผลลัพธ์หนึ่งไฟล์ต่อรูปภาพที่ไม่ซ้ำ.
-- **ข้อมูลดั้งเดิม vs. ผลลัพธ์แปลง:** การบันทึก [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) จะคงข้อมูล JPEG, PNG, GIF, SVG, EMF หรือ WMF ที่ฝังอยู่. การบันทึก [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ผ่าน [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) มีประโยชน์เมื่อคุณต้องการรูปแบบผลลัพธ์ที่สม่ำเสมอ.
-- **ประเภทการเติมที่ไม่รองรับ:** รูปร่างที่เติมสีทึบ, ไล่สี, ลวดลาย หรือไม่มีการเติมจะไม่บรรจุรูปภาพ. ตรวจสอบ [FillType](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) ก่อนอ่าน `PictureFillFormat`.
-- **รูปร่างกลุ่ม:** คอลเลกชันรูปร่างระดับบนของสไลด์ไม่ทำให้กลุ่มแบน. ตรวจสอบอย่างเรียกซ้ำ [IGroupShape.Shapes](https://reference.aspose.com/slides/th/net/aspose.slides/igroupshape/) เมื่อเนื้อหากลุ่มมีความสำคัญ.
-- **ตัวอย่างวัตถุ OLE:** [IOleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ioleobjectframe/) อาจเปิดเผยภาพตัวอย่างผ่าน `SubstitutePictureFormat`, แต่ภาพนั้นเป็นเพียงตัวอย่างบนสไลด์ ไม่ได้เป็นไฟล์ที่ฝังอยู่ภายในวัตถุ OLE.
-- **ภาพย่อเฟรมวิดีโอ:** [IVideoFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ivideoframe/) อาจเปิดเผยภาพตัวอย่างผ่าน `PictureFormat`, แต่ภาพนั้นเป็นเพียงโปสเตอร์ที่แสดงบนสไลด์ ไม่ได้สกัดจากสตรีมวิดีโอ.
-- **ภาพย่อเฟรมเสียง:** [IAudioFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iaudioframe/) อาจเปิดเผยไอคอนหรือภาพย่อผ่าน `PictureFormat`; ไม่ได้เป็นข้อมูลเสียงที่ฝังอยู่.
-- **รูปภาพซูม:** รูปร่างซูมสไลด์, ซูมส่วน, และซูมสรุปอาจใช้ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) กำหนดเองผ่าน `ZoomImage`.
-- **โมเดลรูปร่างซ้อนกัน:** วัตถุตาราง, แผนภูมิ, และ SmartArt ทำตาม [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/), แต่รูปภาพมักถูกเก็บในวัตถุการจัดรูปแบบของเซลล์ตาราง, ส่วนของแผนภูมิ, หรือโหนด SmartArt ที่ซ้อนกัน.
-- **รูปภาพที่ถูกครอปหรือแปลง:** การเข้าถึง [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) จะให้ทรัพยากรรูปที่เก็บไว้. มันจะไม่แสดงการครอป, ความโปร่งใส, การเปลี่ยนสี, การหมุน หรือเอฟเฟ็กต์ภาพอื่น ๆ ที่รูปแบบของรูปร่างกำหนด.
+- **Duplicate images:** รูปหลายรูปทรงอาจอ้างอิงรูปเดียวกันหรือรูปภาพแยกที่มีไบต์เท่าเดิม. ให้ทำแฮช [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ก่อนบันทึกไฟล์หากต้องการไฟล์ผลลัพธ์หนึ่งไฟล์ต่อรูปที่ไม่ซ้ำกัน.
+- **Original data vs. converted output:** การบันทึก [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) จะคงข้อมูล JPEG, PNG, GIF, SVG, EMF, หรือ WMF ที่ฝังไว้. การบันทึก [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ผ่าน [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) มีประโยชน์เมื่อคุณต้องการรูปแบบเอาต์พุตที่สม่ำเสมอ.
+- **Unsupported fill types:** รูปทรงแบบ Solid, Gradient, Pattern, และ No-Fill ไม่ได้มีการเติมรูปภาพ. ตรวจสอบ [FillType](https://reference.aspose.com/slides/th/net/aspose.slides/filltype/) ก่อนอ่าน `PictureFillFormat`.
+- **Grouped shapes:** คอลเลกชันรูปทรงระดับบนของสไลด์ไม่ได้ทำให้กลุ่มแบนลง. ให้ตรวจสอบ [IGroupShape.Shapes](https://reference.aspose.com/slides/th/net/aspose.slides/igroupshape/) อย่างเรียกซ้ำเมื่อเนื้อหาที่จัดกลุ่มสำคัญ.
+- **OLE object previews:** ออบเจ็กต์ [IOleObjectFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ioleobjectframe/) อาจเปิดเผยภาพตัวอย่างผ่าน `SubstitutePictureFormat`, แต่ภาพนั้นเป็นเพียงตัวอย่างบนสไลด์. ไม่ใช่ไฟล์ที่ฝังอยู่ในออบเจ็กต์ OLE.
+- **Video frame thumbnails:** ออบเจ็กต์ [IVideoFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ivideoframe/) อาจเปิดเผยภาพตัวอย่างผ่าน `PictureFormat`, แต่ภาพนั้นเป็นโปสเตอร์ที่แสดงบนสไลด์เท่านั้น. ไม่ได้ดึงจากสตรีมวิดีโอ.
+- **Audio frame thumbnails:** ออบเจ็กต์ [IAudioFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iaudioframe/) อาจเปิดเผยไอคอนหรือภาพย่อผ่าน `PictureFormat`; ไม่ได้เป็นข้อมูลเสียงที่ฝังอยู่.
+- **Zoom images:** รูปซูม, ซูมส่วน, และรูปสรุปซูมอาจใช้ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) กำหนดเองผ่าน `ZoomImage`.
+- **Nested shape models:** ออบเจ็กต์ตาราง, แผนภูมิ, และ SmartArt ทำตามอินเตอร์เฟส [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/), แต่ภาพของพวกมันมักถูกเก็บในออบเจ็กต์การจัดรูปแบบของเซลล์ตาราง, องค์ประกอบแผนภูมิ, หรือโหนด SmartArt.
+- **Cropped or transformed pictures:** การเข้าถึง [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ให้คุณได้ทรัพยากรภาพที่จัดเก็บไว้. มันไม่ได้เรนเดอร์การครอป, ความโปร่งใส, การเปลี่ยนสี, การหมุน, หรือเอฟเฟกต์ภาพอื่น ๆ ที่รูปทรงทำไว้.
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถสกัดรูปภาพดั้งเดิมโดยไม่ครอป, ไม่ใช้เอฟเฟ็กต์, หรือไม่แปลงรูปร่างได้หรือไม่?**  
+### ฉันสามารถดึงรูปภาพต้นฉบับโดยไม่ต้องครอป, เอฟเฟกต์ หรือการแปลงรูปทรงได้หรือไม่?
 
-ใช่. เข้าถึงอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) และเขียน [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ลงดิสก์. วิธีนี้จะคงรูปที่ถูกเข้ารหัสเดิมที่เก็บในงานนำเสนอ, ไม่ใช่วิธีที่รูปแสดงบนสไลด์.
+ใช่. เข้าถึงออบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) แล้วเขียน [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ลงดิสก์. วิธีนี้จะคงภาพที่เข้ารหัสต้นฉบับที่เก็บในงานนำเสนอ, ไม่ใช่วิธีที่ภาพถูกแสดงบนสไลด์.
 
-**ฉันสามารถส่งออกทุกรูปที่สกัดเป็น PNG ได้หรือไม่?**  
+### ฉันสามารถส่งออกรูปภาพที่ดึงออกทั้งหมดเป็น PNG ได้หรือไม่?
 
-ใช่. ใช้ [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) เพื่อรับอ็อบเจกต์ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/), แล้วเรียก [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) พร้อม [ImageFormat.Png](https://reference.aspose.com/slides/th/net/aspose.slides/imageformat/). วิธีนี้จะเปลี่ยนรูปเป็น PNG และอาจไม่ได้รักษาประเภทไฟล์หรือข้อมูลเวกเตอร์เดิม.
+ใช่. ใช้ [IPPImage.Image](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) เพื่อรับออบเจ็กต์ [IImage](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/), แล้วเรียก [IImage.Save](https://reference.aspose.com/slides/th/net/aspose.slides/iimage/) พร้อม [ImageFormat.Png](https://reference.aspose.com/slides/th/net/aspose.slides/imageformat/). วิธีนี้จะแปลงเอาต์พุตและอาจไม่คงประเภทไฟล์หรือข้อมูลเวกเตอร์เดิม.
 
-**ฉันจะหลีกเลี่ยงการบันทึกรูปเดียวกันหลายครั้งได้อย่างไร?**  
+### ฉันจะหลีกเลี่ยงการบันทึกรูปเดียวกันหลายครั้งได้อย่างไร?
 
-ใช้แฮชของ [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) และเก็บแฮชไว้ในเซ็ต. หากรูปใหม่มีแฮชที่มีอยู่แล้ว, ให้ข้ามหรือบันทึกการอ้างอิงอื่นไปยังไฟล์ผลลัพธ์ที่มีอยู่.
+ใช้แฮชของ [IPPImage.BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) และเก็บแฮชเหล่านั้นในชุดข้อมูล. หากรูปภาพใหม่มีแฮชที่มีอยู่แล้ว, ให้ข้ามหรือบันทึกการอ้างอิงเพิ่มเติมไปยังไฟล์ผลลัพธ์ที่มีอยู่.
 
-**ทำไมบางรูปร่างถึงไม่สร้างรูปภาพ?**  
+### ทำไมรูปทรงบางประเภทถึงไม่สร้างรูปภาพ?
 
-กรอบรูป, รูปที่เติมในรูปร่าง, กรอบวัตถุ OLE, กรอบสื่อ, กรอบซูม, ตาราง, แผนภูมิ, และอ็อบเจกต์ SmartArt สามารถอ้างอิงรูปภาพได้. บางประเภทรูปร่างเปิดเผยรูปผ่านวัตถุการจัดรูปแบบที่ซ้อนกัน, ดังนั้นการตรวจสอบเพียง `PictureFormat` หรือ `FillFormat` ของรูปร่างอาจไม่เพียงพอ.
+กรอบรูป, รูปทรงที่เติมรูป, เฟรมอ็อบเจ็กต์ OLE, เฟรมสื่อ, เฟรมซูม, ตาราง, แผนภูมิ, และอ็อบเจ็กต์ SmartArt สามารถอ้างอิงรูปภาพได้. บางประเภทรูปทรงเปิดเผยรูปภาพผ่านออบเจ็กต์การจัดรูปแบบที่ซ้อนอยู่, ดังนั้นการตรวจสอบแค่ `PictureFormat` หรือ `FillFormat` ของรูปทรงอาจไม่เพียงพอ.
 
-**ฉันสามารถสกัดภาพย่อที่แสดงสำหรับเฟรมวิดีโอได้หรือไม่?**  
+### ฉันสามารถดึงภาพย่อที่แสดงสำหรับเฟรมวิดีโอได้หรือไม่?
 
-ใช่. ใช้ [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ivideoframe/) แล้วอ่าน `PictureFormat.Picture.Image`. วิธีนี้จะสกัดภาพโปสเตอร์ที่เก็บกับเฟรมวิดีโอ, ไม่ใช่เฟรมที่สร้างจากไฟล์วิดีโอ.
+ใช่. ใช้ [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ivideoframe/) แล้วอ่าน `PictureFormat.Picture.Image`. วิธีนี้ดึงภาพโปสเตอร์ที่เก็บไว้กับเฟรมวิดีโอ, ไม่ใช่เฟรมที่สร้างจากไฟล์วิดีโอ.
 
-**ฉันจะกำหนดได้อย่างไรว่ารูปร่างใดใช้รูปภาพเฉพาะจากคอลเลกชันรูปของงานนำเสนอ?**  
+### ฉันจะกำหนดว่ารูปทรงใดใช้รูปภาพเฉพาะจากคอลเลกชันรูปภาพของงานนำเสนอได้อย่างไร?
 
-Aspose.Slides ไม่เก็บลิงก์ย้อนกลับจาก [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ไปยังรูปร่าง. ให้สร้างแมพปิ้งในระหว่างการท่อง: เมื่อพบการอ้างอิงรูป, ให้บันทึกหมายเลขสไลด์, เส้นทางรูปร่าง, และแฮชหรือดัชนีของรูปในคอลเลกชัน.
+Aspose.Slides ไม่จัดเก็บลิงก์ย้อนกลับจาก [IPPImage](https://reference.aspose.com/slides/th/net/aspose.slides/ippimage/) ไปยังรูปทรง. ให้สร้างแมประหว่างการเดินสำรวจ: เมื่อพบการอ้างอิงรูปภาพ, บันทึกหมายเลขสไลด์, เส้นทางรูปทรง, และแฮชหรือรายการของคอลเลกชันรูปภาพ.
 
-**ฉันสามารถสกัดรูปภาพที่ฝังอยู่ในวัตถุ OLE, เช่น เอกสารแนบ, ได้หรือไม่?**  
+### ฉันสามารถดึงรูปภาพที่ฝังอยู่ในอ็อบเจ็กต์ OLE เช่น เอกสารแนบได้หรือไม่?
 
-คุณสามารถสกัดตัวอย่างสไลด์ของวัตถุ OLE จาก [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ioleobjectframe/). อย่างไรก็ตาม ตัวอย่างนั้นไม่ใช่เอกสารที่ฝังอยู่. หากต้องการสกัดรูปภาพจากไฟล์ที่ฝังอยู่, ให้สกัดข้อมูล OLE แล้วตรวจสอบด้วยเครื่องมือที่รองรับประเภทไฟล์นั้น.
+คุณสามารถดึงภาพตัวอย่างของอ็อบเจ็กต์ OLE จาก [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ioleobjectframe/) ได้. อย่างไรก็ตาม, ภาพตัวอย่างนั้นไม่ใช่เอกสารที่ฝังอยู่จริง. หากต้องการดึงรูปภาพจากไฟล์ที่ฝังอยู่, ให้ดึงข้อมูล OLE แล้วตรวจสอบด้วยเครื่องมือที่รองรับประเภทไฟล์นั้น.

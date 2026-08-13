@@ -5,101 +5,107 @@ weight: 90
 url: /de/java/licensing/
 keywords:
 - Lizenz
-- temporäre Lizenz
+- Temporäre Lizenz
 - Lizenz setzen
 - Lizenz verwenden
-- Lizenz validieren
+- Lizenz prüfen
 - Lizenzdatei
-- Evaluierungsversion
+- Evaluationsversion
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Lizenzen in Aspose.Slides für Java anwenden, verwalten und Fehler beheben. Stellen Sie mit unserer Schritt-für-Schritt-Anleitung zur Lizenzierung einen ununterbrochenen Zugriff auf alle Funktionen sicher."
+description: "Lizenzen in Aspose.Slides für Java anwenden, verwalten und Fehler beheben. Gewährleisten Sie einen ununterbrochenen Zugriff auf alle Funktionen mit unserer Schritt-für-Schritt-Lizenzierungsanleitung."
 ---
+## **Übersicht**
 
-## **Aspose.Slides bewerten**
+Aspose.Slides kann im Evaluationsmodus oder mit einer gültigen Lizenz verwendet werden. Die Evaluationsversion bietet dieselbe Funktionalität wie die lizenzierte Version, fügt jedoch ein Evaluationswasserzeichen ein, wenn Präsentationen geöffnet oder gespeichert werden, und beschränkt die Textextraktion auf eine Folie.
 
-{{% alert color="primary" %}} 
+Dieser Artikel erklärt, wie die Lizenzierung in Aspose.Slides funktioniert und wie Sie vor der Verwendung der Bibliothek eine Lizenz anwenden. Eine Lizenz kann aus einer Datei, einem Stream oder einer eingebetteten Ressource mithilfe der `License`‑Klasse geladen werden. Der Artikel zeigt außerdem, wie Sie prüfen können, ob eine Lizenz korrekt angewendet wurde.
 
-Sie können eine Evaluierungs‑Version von **Aspose.Slides for Java** von der entsprechenden [Download‑Seite](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) herunterladen. Die Evaluierungs‑Version bietet dieselben Funktionen wie die lizenzierte Produktversion. Das Evaluierungspaket ist identisch mit dem erworbenen Paket. Die Evaluierungs‑Version wird einfach lizenziert, sobald Sie ein paar Code‑Zeilen hinzufügen (um die Lizenz zu aktivieren).
+## **Aspose.Slides evaluieren**
 
-Wenn Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie eine [Lizenz erwerben](https://purchase.aspose.com/buy). Wir empfehlen, die verschiedenen Abonnement‑Modelle zu prüfen. Bei Fragen wenden Sie sich an das Vertriebsteam von Aspose.
+{{% alert color="info" %}} 
 
-Jede Aspose‑Lizenz beinhaltet ein einjähriges Abonnement für kostenlose Upgrades auf neue Versionen oder für innerhalb des Abonnement‑Zeitraums veröffentlichte Fehlerbehebungen. Nutzer mit lizenzierten Produkten (oder sogar Evaluierungs‑Versionen) erhalten kostenlosen und uneingeschränkten technischen Support.
+Sie können eine Evaluationsversion von **Aspose.Slides for Java** von deren [Download‑Seite](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) herunterladen. Die Evaluationsversion bietet dieselben Funktionalitäten wie die lizenzierte Version des Produkts. Das Evaluationspaket entspricht dem gekauften Paket. Die Evaluationsversion wird einfach lizenziert, nachdem Sie ein paar Codezeilen hinzugefügt haben (um die Lizenz anzuwenden).
+
+Wenn Sie mit Ihrer Evaluierung von **Aspose.Slides** zufrieden sind, können Sie eine [Lizenz erwerben](https://purchase.aspose.com/buy). Wir empfehlen Ihnen, die verschiedenen Abonnementtypen zu prüfen. Bei Fragen kontaktieren Sie das Vertriebsteam von Aspose.
+
+Jede Aspose‑Lizenz enthält ein einjähriges Abonnement für kostenlose Upgrades auf neue Versionen oder Fehlerbehebungen, die während des Abonnementzeitraums veröffentlicht werden. Benutzer mit lizenzierten Produkten (oder sogar Evaluationsversionen) erhalten kostenlosen und unbegrenzten technischen Support.
 
 {{% /alert %}} 
 
-**Einschränkungen der Evaluierungs‑Version**
+**Einschränkungen der Evaluationsversion**
 
-* Obwohl die Evaluierungs‑Version von Aspose.Slides (ohne angegebene Lizenz) die volle Funktionalität bereitstellt, fügt sie bei Öffnen und Speichern ein Evaluierungs‑Wasserzeichen am oberen Rand des Dokuments ein. 
-* Beim Extrahieren von Texten aus Präsentationsfolien ist die Anzahl der Folien auf eins begrenzt.
+* Während die Evaluationsversion von Aspose.Slides (ohne angegebene Lizenz) die volle Produktfunktionalität bietet, fügt sie beim Öffnen und Speichern ein Evaluationswasserzeichen oben im Dokument ein. 
+* Die Textextraktion aus Präsentationsfolien ist auf eine Folie beschränkt.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Um Aspose.Slides ohne Einschränkungen zu testen, können Sie eine **30‑tägige temporäre Lizenz** anfordern. Weitere Informationen finden Sie auf der Seite [Wie man eine temporäre Lizenz erhält](https://purchase.aspose.com/temporary-license).
+Um Aspose.Slides ohne Einschränkungen zu testen, können Sie eine **30‑tägige temporäre Lizenz** anfordern. Weitere Informationen finden Sie auf der Seite [How to get a Temporary License](https://purchase.aspose.com/temporary-license).
 
 {{% /alert %}}
 
 ## **Lizenzierung in Aspose.Slides**
 
-* Eine Evaluierungs‑Version wird lizenziert, sobald Sie eine Lizenz erwerben und ein paar Zeilen Code hinzufügen (um die Lizenz zu aktivieren).
-* Die Lizenz ist eine reine XML‑Textdatei, die Details wie Produktname, Anzahl der lizenzierten Entwickler, Ablaufdatum des Abonnements usw. enthält. 
-* Die Lizenzdatei ist digital signiert, daher darf sie nicht geändert werden. Schon das versehentliche Hinzufügen eines zusätzlichen Zeilenumbruchs macht die Lizenz ungültig.
-* Aspose.Slides for Java sucht die Lizenz in der Regel an folgenden Stellen:
+* Eine Evaluationsversion wird lizenziert, nachdem Sie eine Lizenz gekauft und einige Codezeilen hinzugefügt haben (um die Lizenz anzuwenden).
+* Die Lizenz ist eine reine Text‑XML‑Datei, die Details wie den Produktnamen, die Anzahl der lizenzierten Entwickler, das Ablaufdatum des Abonnements usw. enthält. 
+* Die Lizenzdatei ist digital signiert, daher dürfen Sie die Datei nicht ändern. Selbst das versehentliche Hinzufügen eines zusätzlichen Zeilenumbruchs zum Inhalt der Datei macht sie ungültig.
+* Aspose.Slides for Java sucht die Lizenz in der Regel an folgenden Orten:
   * Ein expliziter Pfad
   * Der Ordner, der Aspose.Slides.jar enthält
-* Um die Einschränkungen der Evaluierungs‑Version zu umgehen, müssen Sie vor der Verwendung von **Aspose.Slides** eine Lizenz setzen. Das ist nur einmal pro Anwendung oder Prozess nötig.
+* Um die mit der Evaluationsversion verbundenen Einschränkungen zu vermeiden, müssen Sie vor der Verwendung von **Aspose.Slides** eine Lizenz setzen. Sie müssen die Lizenz nur einmal pro Anwendung oder Prozess setzen.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Weitere Informationen finden Sie unter [Metered Licensing](/slides/de/java/metered-licensing/).
+Vielleicht möchten Sie sich [Metered Licensing](/slides/de/java/metered-licensing/) ansehen.
 
 {{% /alert %}} 
 
 
-## **Lizenz anwenden**
+## **Anwenden einer Lizenz**
 
 Eine Lizenz kann aus einer **Datei** oder einem **Stream** geladen werden.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose.Slides stellt die Klasse [License](https://reference.aspose.com/slides/java/com.aspose.slides/License) für Lizenz‑Operationen bereit.
+Aspose.Slides stellt die [License](https://reference.aspose.com/slides/de/java/com.aspose.slides/License)-Klasse für Lizenzvorgänge bereit.
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
 
-Neue Lizenzen aktivieren Aspose.Slides nur ab Version 21.4 oder höher. Frühere Versionen verwenden ein anderes Lizenzsystem und erkennen diese Lizenzen nicht.
+Neue Lizenzen können Aspose.Slides nur mit Version 21.4 oder höher aktivieren. Ältere Versionen verwenden ein anderes Lizenzsystem und erkennen diese Lizenzen nicht.
 
 {{% /alert %}}
 
 ### **Datei**
 
-Die einfachste Methode, eine Lizenz zu setzen, besteht darin, die Lizenzdatei in den Ordner zu kopieren, der Aspose.Slides.jar oder das JAR Ihrer Anwendung enthält.
+Die einfachste Methode, eine Lizenz zu setzen, besteht darin, die Lizenzdatei in den Ordner zu legen, der Aspose.Slides.jar oder das JAR Ihrer Anwendung enthält.
 
-Dieses Java‑Beispiel zeigt, wie eine Lizenzdatei gesetzt wird:
+Dieser Java‑Code zeigt, wie man eine Lizenzdatei setzt:
+
 ``` java
-// Instanziiert die License-Klasse
+// Instanziert die License-Klasse
 com.aspose.slides.License license = new com.aspose.slides.License();
 
 // Setzt den Pfad zur Lizenzdatei
 license.setLicense("Aspose.Slides.Java.lic");
 ```
 
-
 {{% alert color="warning" %}} 
 
-Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf der Methode [SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) der Dateiname am Ende des angegebenen Pfades exakt mit dem Namen Ihrer Lizenzdatei übereinstimmen.
+Wenn Sie die Lizenzdatei in einem anderen Verzeichnis ablegen, muss beim Aufruf der [SetLicense](https://reference.aspose.com/slides/de/java/com.aspose.slides/License#setLicense-java.lang.String-)‑Methode der Lizenzdateiname am Ende des angegebenen Pfades mit dem Namen Ihrer Lizenzdatei übereinstimmen.
 
-Beispielsweise können Sie den Lizenzdateinamen in *Aspose.Slides.Java.lic.xml* ändern. Dann müssen Sie in Ihrem Code den Pfad zur Datei (der mit *Aspose.Slides.Java.lic.xml* endet) an die Methode [SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.lang.String-) übergeben.
+Beispielsweise können Sie den Lizenzdateinamen zu *Aspose.Slides.Java.lic.xml* ändern. Anschließend müssen Sie in Ihrem Code den Pfad zur Datei (der mit *Aspose.Slides.Java.lic.xml* endet) an die [SetLicense](https://reference.aspose.com/slides/de/java/com.aspose.slides/License#setLicense-java.lang.String-)‑Methode übergeben.
 
 {{% /alert %}}
 
 ### **Stream**
 
-Sie können eine Lizenz aus einem Stream laden. Dieses Java‑Beispiel zeigt, wie eine Lizenz aus einem Stream angewendet wird:
+Sie können eine Lizenz aus einem Stream laden. Dieser Java‑Code zeigt, wie man eine Lizenz aus einem Stream anwendet:
+
 ``` java
 // Instanziert die License-Klasse
 com.aspose.slides.License license = new com.aspose.slides.License();
@@ -108,39 +114,40 @@ com.aspose.slides.License license = new com.aspose.slides.License();
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 ```
 
+### **PHP/Java‑Bridge**
 
-### **PHP/Java Bridge**
+Wenn Sie Aspose.Slides für PHP über Java verwenden, können Sie eine Lizenz über eine PHP/Java‑Bridge setzen. Diese Bridge ermöglicht die Nutzung von Java‑Klassen in PHP‑Syntax. Weitere Informationen finden Sie in [License in PHP](/slides/de/php-java/licensing/).
 
-Wenn Sie Aspose.Slides for PHP über Java verwenden, können Sie die Lizenz über eine PHP/Java‑Bridge setzen. Diese Bridge ermöglicht die Nutzung von Java‑Klassen in PHP‑Syntax. Weitere Informationen finden Sie unter [License in PHP](/slides/de/php-java/licensing/).
+## **Validieren einer Lizenz**
 
-## **Lizenz prüfen**
+Um zu prüfen, ob eine Lizenz korrekt gesetzt wurde, können Sie sie validieren. Dieser Java‑Code zeigt, wie man eine Lizenz validiert:
 
-Um zu überprüfen, ob eine Lizenz korrekt gesetzt wurde, können Sie sie validieren. Dieses Java‑Beispiel zeigt, wie eine Lizenz validiert wird:
 ```java
-License license = new License();
-license.setLicense("Asppose.Slides.Java.lic");
+import com.aspose.slides.*;
 
-if (License.isLicensed()) 
+License license = new License();
+license.setLicense("Aspose.Slides.Java.lic");
+
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }
 ```
 
-
 ## **Thread‑Sicherheit**
 
-{{% alert title="Hinweis" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Die Methode [SetLicense](https://reference.aspose.com/slides/java/com.aspose.slides/License#setLicense-java.io.InputStream-) ist nicht threadsicher. Wenn diese Methode gleichzeitig von vielen Threads aufgerufen werden muss, sollten Sie Synchronisations‑Primitive (wie ein Lock) einsetzen, um Probleme zu vermeiden. 
+Die [SetLicense](https://reference.aspose.com/slides/de/java/com.aspose.slides/License#setLicense-java.io.InputStream-)‑Methode ist nicht threadsicher. Wenn diese Methode gleichzeitig von vielen Threads aufgerufen werden muss, sollten Sie Synchronisations‑Primitiven (wie ein Lock) verwenden, um Probleme zu vermeiden. 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kann ich die Lizenz in einer völlig offline Umgebung (ohne Internetzugang) anwenden?**
+### Kann ich die Lizenz in einer vollständig offline‑Umgebung (ohne Internetzugang) anwenden?
 
-Ja. Die Lizenzprüfung erfolgt lokal anhand der Lizenzdatei; eine Internetverbindung ist nicht erforderlich.
+Ja. Die Lizenzvalidierung erfolgt lokal mit der Lizenzdatei; eine Internetverbindung ist nicht erforderlich.
 
-**Was passiert, wenn das einjährige Abonnement abläuft? Hört die Bibliothek dann auf zu funktionieren?**
+### Was passiert, wenn das einjährige Abonnement abläuft? Hört die Bibliothek auf zu funktionieren?
 
-Nein. Die Lizenz ist dauerhaft gültig: Sie können weiterhin Versionen verwenden, die vor dem Ende Ihres Abonnements veröffentlicht wurden; Sie können jedoch neuere Releases nicht ohne Erneuerung nutzen.
+Nein. Die Lizenz ist unbefristet: Sie können weiterhin Versionen nutzen, die vor dem Ende Ihres Abonnements veröffentlicht wurden; Sie können jedoch keine neueren Versionen ohne Erneuerung verwenden.

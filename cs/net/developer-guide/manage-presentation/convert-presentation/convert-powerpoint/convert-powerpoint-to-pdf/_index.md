@@ -24,11 +24,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Převádějte PowerPoint PPT/PPTX do vysoce kvalitních, prohledávatelných PDF v .NET pomocí Aspose.Slides, s rychlými ukázkami kódu v C# a pokročilými možnostmi převodu."
+description: "Převod PowerPoint PPT/PPTX do vysoce kvalitních, prohledávatelných PDF v .NET pomocí Aspose.Slides, s rychlými ukázkami C# kódu a pokročilými možnostmi převodu."
 ---
 ## **Přehled**
 
-Převod prezentací PowerPoint (PPT, PPTX, ODP atd.) do formátu PDF v C# nabízí několik výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, používat různé možnosti pro řízení kvality obrázků, zahrnout skryté snímky, chránit PDF soubory heslem, detekovat substituce písem, vybrat konkrétní snímky pro převod a aplikovat standardy souladu na výstupní dokumenty.
+Převod prezentací PowerPoint (PPT, PPTX, ODP atd.) do formátu PDF v C# nabízí několik výhod, včetně kompatibility napříč různými zařízeními a zachování rozvržení a formátování vaší prezentace. Tento průvodce ukazuje, jak převést prezentace do PDF dokumentů, používat různé možnosti pro kontrolu kvality obrázků, zahrnout skryté snímky, chránit PDF soubory heslem, detekovat náhrady písem, vybrat konkrétní snímky pro převod a použít standardy souladu na výstupní dokumenty.
 
 ## **Převody PowerPoint do PDF**
 
@@ -38,37 +38,40 @@ Pomocí Aspose.Slides můžete převést prezentace v následujících formátec
 * **PPTX**
 * **ODP**
 
-Pro převod prezentace do PDF předáte název souboru jako argument třídě [Prezentace](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a poté uložíte prezentaci jako PDF pomocí metody [Uložit](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/). Třída [Prezentace](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) poskytuje metodu [Uložit](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/), která se typicky používá k převodu prezentace do PDF.
+Pro převod prezentace do PDF předáte název souboru jako argument do třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) a poté prezentaci uložíte jako PDF pomocí metody [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/). Třída [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) poskytuje metodu [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/), která se typicky používá k převodu prezentace do PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides pro .NET vkládá informace o svém API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplní pole Application hodnotou "*Aspose.Slides*" a pole PDF Producer hodnotou ve formátu "*Aspose.Slides v XX.XX*". **Poznámka** že nemůžete Aspose.Slides instruovat, aby tuto informaci ve výstupních dokumentech změnil nebo odstranil.
+Aspose.Slides pro .NET vkládá informace o svém API a číslo verze do výstupních dokumentů. Například při převodu prezentace do PDF Aspose.Slides vyplní pole Application hodnotou „*Aspose.Slides*“ a pole PDF Producer hodnotou ve formě „*Aspose.Slides v XX.XX*“. **Poznámka** že nemůžete instruovat Aspose.Slides, aby tuto informaci ve výstupních dokumentech změnil nebo odstranil.
 
 {{% /alert %}}
 
-Aspose.Slides vám umožňuje převést:
+Aspose.Slides vám umožňuje převádět:
 
 * Celé prezentace do PDF
-* Konkrétní snímky z prezentace do PDF
+* konkrétní snímky z prezentace do PDF
 
-Aspose.Slides exportuje prezentace do PDF a zajišťuje, že výsledná PDF soubory věrně odpovídají originálním prezentacím. Prvky a atributy jsou při převodu vykresleny přesně, včetně:
+Aspose.Slides exportuje prezentace do PDF a zajišťuje, že vzniklé PDF úzce odpovídají originálním prezentacím. Prvky a atributy jsou při převodu renderovány přesně, včetně:
 
 * Obrázky
 * Textová pole a tvary
 * Formátování textu
 * Formátování odstavců
-* Hypertextové odkazy
+* Hyperlinky
 * Záhlaví a zápatí
 * Odrážky
 * Tabulky
 
 ## **Převod PowerPoint do PDF**
 
-Standardní proces převodu PowerPoint do PDF používá výchozí možnosti. V tomto případě se Aspose.Slides pokouší převést zadanou prezentaci do PDF pomocí optimálního nastavení na nejvyšších úrovních kvality.
+Standardní proces převodu PowerPoint do PDF používá výchozí možnosti. V tomto případě Aspose.Slides se pokouší převést poskytnutou prezentaci do PDF s optimálním nastavením na maximální úrovni kvality.
 
-Tento C# kód ukazuje, jak převést prezentaci (PPT, PPTX, ODP atd.) do PDF:
+Tento C# kód vám ukazuje, jak převést prezentaci (PPT, PPTX, ODP atd.) do PDF:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
 using var presentation = new Presentation("PowerPoint.ppt");
 
@@ -76,23 +79,26 @@ using var presentation = new Presentation("PowerPoint.ppt");
 presentation.Save("PDF-result.pdf", SaveFormat.Pdf);
 ```
 
-{{%  alert  color="primary"  %}} 
+{{%  alert  color="info"  %}} 
 
-Aspose nabízí bezplatný online [**PowerPoint do PDF převodník**](https://products.aspose.app/slides/cs/conversion/ppt-to-pdf), který demonstruje proces převodu prezentace do PDF. Můžete provést test s tímto převodníkem pro živou implementaci postupu popsaného zde.
+Aspose nabízí zdarma online [**PowerPoint to PDF converter**](https://products.aspose.app/slides/cs/conversion/ppt-to-pdf), který demonstruje proces převodu prezentace do PDF. Můžete spustit test s tímto převodníkem pro živou implementaci popsaného postupu.
 
 {{% /alert %}}
 
 ## **Převod PowerPoint do PDF s možnostmi**
 
-Aspose.Slides poskytuje vlastní možnosti — vlastnosti ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/) — které vám umožní přizpůsobit výsledný PDF, uzamknout PDF heslem nebo určit, jak má proces převodu probíhat.
+Aspose.Slides poskytuje vlastní možnosti — vlastnosti ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/), které vám umožňují přizpůsobit výsledné PDF, zamknout PDF heslem nebo určit, jak má probíhat proces převodu.
 
 ### **Převod PowerPoint do PDF s vlastními možnostmi**
 
-Pomocí vlastních možností převodu můžete definovat preferované nastavení kvality rastrových obrázků, určit, jak mají být zpracovány metafily, nastavit úroveň komprese textu, konfigurovat DPI pro obrázky a další.
+Pomocí vlastních možností převodu můžete definovat preferované nastavení kvality rastrových obrázků, určit, jak mají být zpracovávány metafily, nastavit úroveň komprese textu, konfigurovat DPI pro obrázky a další.
 
-Níže uvedený příklad kódu ukazuje, jak převést prezentaci PowerPoint do PDF s několika vlastními možnostmi.
+Níže uvedený příklad kódu demonstruje, jak převést PowerPoint prezentaci do PDF s několika vlastními možnostmi.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy PdfOptions.
 var pdfOptions = new PdfOptions
 {
@@ -102,7 +108,7 @@ var pdfOptions = new PdfOptions
     // Nastavte DPI pro obrázky.
     SufficientResolution = 300,
 
-    // Nastavte chování pro metafily.
+    // Nastavte chování pro metasoubory.
     SaveMetafilesAsPng = true,
 
     // Nastavte úroveň komprese textu pro textový obsah.
@@ -112,7 +118,7 @@ var pdfOptions = new PdfOptions
     Compliance = PdfCompliance.Pdf15
 };
 
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument file.
+// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // Uložte prezentaci jako PDF dokument.
@@ -121,12 +127,15 @@ presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 
 ### **Převod PowerPoint do PDF se skrytými snímky**
 
-Pokud prezentace obsahuje skryté snímky, můžete použít vlastnost [ShowHiddenSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/showhiddenslides/) ze třídy [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/) k zahrnutí skrytých snímků jako stránek ve výsledném PDF.
+Pokud prezentace obsahuje skryté snímky, můžete použít vlastnost [ShowHiddenSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/showhiddenslides/) ze třídy [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/), abyste zahrnuli skryté snímky jako stránky do výsledného PDF.
 
-Tento C# kód ukazuje, jak převést prezentaci PowerPoint do PDF se zahrnutými skrytými snímky:
+Tento C# kód ukazuje, jak převést PowerPoint prezentaci do PDF se zahrnutými skrytými snímky:
 
 ```c#
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument file.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // Vytvořte instanci třídy PdfOptions.
@@ -141,10 +150,13 @@ presentation.Save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 
 ### **Převod PowerPoint do PDF chráněného heslem**
 
-Tento C# kód demonstruje, jak převést prezentaci PowerPoint do PDF chráněného heslem pomocí parametrů ochrany ze třídy [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/):
+Tento C# kód demonstruje, jak převést PowerPoint prezentaci do PDF chráněného heslem pomocí parametrů ochrany ze třídy [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/):
 
 ```c#
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument file.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // Vytvořte instanci třídy PdfOptions.
@@ -158,19 +170,23 @@ pdfOptions.AccessPermissions = PdfAccessPermissions.PrintDocument | PdfAccessPer
 presentation.Save("PPTX-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-### **Detekce substituce písem**
+### **Detekce náhrad písem**
 
-Aspose.Slides poskytuje vlastnost [WarningCallback](https://reference.aspose.com/slides/cs/net/aspose.slides.export/saveoptions/warningcallback/) ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/), která vám umožní detekovat substituce písem během procesu převodu prezentace do PDF.
+Aspose.Slides poskytuje vlastnost [WarningCallback](https://reference.aspose.com/slides/cs/net/aspose.slides.export/saveoptions/warningcallback/) ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/), která vám umožňuje detekovat náhrady písem během procesu převodu prezentace do PDF.
 
-Tento C# kód ukazuje, jak detekovat substituce písem:
+Tento C# kód ukazuje, jak detekovat náhrady písem:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Warnings;
+
 public static void Main()
 {
-    // Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument file. 
+    // Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument. 
     using var presentation = new Presentation("sample.pptx");
 
-    // Nastavte zpětné volání varování v možnostech PDF.
+    // Nastavte zpětné volání varování v PDF možnostech.
     var pdfOptions = new PdfOptions();
     pdfOptions.WarningCallback = new FontSubstitutionHandler();
 
@@ -194,20 +210,23 @@ private class FontSubstitutionHandler : IWarningCallback
 }
 ```
 
-{{%  alert color="primary"  %}} 
+{{%  alert color="info"  %}} 
 
-Pro více informací o přijímání upozornění na substituci písem během procesu vykreslování se podívejte na [Získání upozornění na substituci písem](/slides/cs/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+Další informace o přijímání zpětných volání pro náhrady písem během procesu vykreslování najdete v článku [Getting Warning Callbacks for Fonts Substitution](/slides/cs/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-Pro více informací o substituci písem se podívejte na článek [Substituce písem](/slides/cs/net/font-substitution/).
+Více informací o náhradách písem naleznete v článku [Font Substitution](/slides/cs/net/font-substitution/).
 
 {{% /alert %}} 
 
 ## **Převod vybraných snímků z PowerPointu do PDF**
 
-Tento C# kód demonstruje, jak převést pouze konkrétní snímky z prezentace PowerPoint do PDF:
+Tento C# kód demonstruje, jak převést pouze konkrétní snímky z PowerPoint prezentace do PDF:
 
 ```c#
-// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument file.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Vytvořte instanci třídy Presentation, která představuje soubor PowerPoint nebo OpenDocument.
 using var presentation = new Presentation("PowerPoint.pptx");
 
 // Nastavte pole čísel snímků.
@@ -217,11 +236,14 @@ int[] slides = { 1, 3 };
 presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 ```
 
-## **Převod PowerPoint do PDF se vlastní velikostí snímku**
+## **Převod PowerPoint do PDF s vlastním rozměrem snímku**
 
-Tento C# kód demonstruje, jak převést prezentaci PowerPoint do PDF s určenou velikostí snímku:
+Tento C# kód demonstruje, jak převést PowerPoint prezentaci do PDF s určeným rozměrem snímku:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var slideWidth = 612;
 var slideHeight = 792;
 
@@ -238,19 +260,25 @@ resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleTyp
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// Save the resized presentation to a PDF with notes.
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
+// Remove the blank slide that the new presentation was created with.
+resizedPresentation.Slides.RemoveAt(1);
+
+// Save the resized presentation as a PDF.
+resizedPresentation.Save("PDF_with_custom_slide_size.pdf", SaveFormat.Pdf);
 ```
 
 ## **Převod PowerPoint do PDF v zobrazení poznámek ke snímkům**
 
-Tento C# kód demonstruje, jak převést prezentaci PowerPoint do PDF, který zahrnuje poznámky:
+Tento C# kód demonstruje, jak převést PowerPoint prezentaci do PDF, který zahrnuje poznámky:
 
 ```c#
-// Načtěte PowerPoint prezentaci.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Načtěte prezentaci PowerPoint.
 using var presentation = new Presentation("NotesFile.pptx");
 
-// Nakonfigurujte možnosti PDF s rozvržením poznámek.
+// Nastavte PDF možnosti s rozvržením poznámek.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new NotesCommentsLayoutingOptions
@@ -263,13 +291,16 @@ var pdfOptions = new PdfOptions
 presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
-## **Standardy přístupnosti a souladu pro PDF**
+## **Přístupnost a standardy souladu pro PDF**
 
-Aspose.Slides vám umožňuje použít postup převodu, který je v souladu s [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat dokument PowerPoint do PDF pomocí některého z těchto standardů souladu: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
+Aspose.Slides vám umožňuje použít postup převodu, který vyhovuje [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Můžete exportovat PowerPoint dokument do PDF pomocí kterékoli z těchto standardů souladu: **PDF/A1a**, **PDF/A1b** a **PDF/UA**.
 
-Tento C# kód demonstruje proces převodu PowerPoint do PDF, který vytváří více PDF souborů na základě různých standardů souladu:
+Tento C# kód ukazuje proces převodu PowerPoint do PDF, který vytváří více PDF na základě různých standardů souladu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("pres.pptx");
 
 presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions
@@ -290,36 +321,36 @@ presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides podporuje operace převodu PDF, což vám umožní převést PDF soubory do populárních formátů. Můžete provést převody [PDF do HTML](https://products.aspose.com/slides/cs/net/conversion/pdf-to-html/), [PDF do obrázku](https://products.aspose.com/slides/cs/net/conversion/pdf-to-image/), [PDF do JPG](https://products.aspose.com/slides/cs/net/conversion/pdf-to-jpg/) a [PDF do PNG](https://products.aspose.com/slides/cs/net/conversion/pdf-to-png/). Další operace převodu PDF do specializovaných formátů — [PDF do SVG](https://products.aspose.com/slides/cs/net/conversion/pdf-to-svg/), [PDF do TIFF](https://products.aspose.com/slides/cs/net/conversion/pdf-to-tiff/) a [PDF do XML](https://products.aspose.com/slides/cs/net/conversion/pdf-to-xml/) — jsou také podporovány.
+Aspose.Slides podporuje operace převodu PDF, které vám umožňují převádět soubory PDF do populárních formátů. Můžete provádět konverze [PDF to HTML](https://products.aspose.com/slides/cs/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/cs/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/cs/net/conversion/pdf-to-jpg/), a [PDF to PNG](https://products.aspose.com/slides/cs/net/conversion/pdf-to-png/). Ostatní konverze PDF do specializovaných formátů — [PDF to SVG](https://products.aspose.com/slides/cs/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/cs/net/conversion/pdf-to-tiff/), a [PDF to XML](https://products.aspose.com/slides/cs/net/conversion/pdf-to-xml/) — jsou také podporovány.
 
 {{% /alert %}}
 
-> **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou, jako jsou SmartArt, grafy a vzorce, jako s jedním obrazcem. Jednotlivé elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytován pouze pro celý obrazec.
+> **Poznámka:** Při exportu do PDF/UA Aspose.Slides zachází s komplexní grafikou, jako jsou SmartArt, grafy a vzorce, jako s jedním objektem. Individuální elementy cesty nejsou zachovány jako samostatný obsah a mohou být označeny jako artefakty; alternativní text je poskytován pouze pro celý objekt.
 
 ## **Často kladené otázky**
 
-**Mohu hromadně převést více souborů PowerPoint do PDF?**
+### Mohu hromadně převádět více souborů PowerPoint do PDF?
 
-Ano, Aspose.Slides podporuje hromadný převod více souborů PPT nebo PPTX do PDF. Můžete iterovat přes své soubory a programově aplikovat proces převodu.
+Ano, Aspose.Slides podporuje hromadný převod více souborů PPT nebo PPTX do PDF. Můžete iterovat přes své soubory a aplikovat proces převodu programově.
 
-**Je možné chránit převzatý PDF heslem?**
+### Je možné chránit převáděné PDF heslem?
 
 Rozhodně. Použijte třídu [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/) k nastavení hesla a definování přístupových oprávnění během procesu převodu.
 
-**Jak zahrnout skryté snímky do PDF?**
+### Jak zahrnu skryté snímky do PDF?
 
-Nastavte vlastnost `ShowHiddenSlides` ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/) na `true`, aby byly skryté snímky zahrnuty do výsledného PDF.
+Nastavte vlastnost `ShowHiddenSlides` ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/) na `true`, aby se skryté snímky zahrnuly do výsledného PDF.
 
-**Může Aspose.Slides zachovat vysokou kvalitu obrázků v PDF?**
+### Může Aspose.Slides zachovat vysokou kvalitu obrázků v PDF?
 
-Ano, můžete řídit kvalitu obrázků nastavením vlastností jako `JpegQuality` a `SufficientResolution` ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/), abyste zajistili vysokou kvalitu obrázků ve vašem PDF.
+Ano, můžete kontrolovat kvalitu obrázků nastavením vlastností jako `JpegQuality` a `SufficientResolution` ve třídě [PdfOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/pdfoptions/), abyste zajistili vysoce kvalitní obrázky ve vašem PDF.
 
-**Podporuje Aspose.Slides standardy souladu PDF/A?**
+### Podporuje Aspose.Slides standardy souladu PDF/A?
 
-Ano, Aspose.Slides vám umožňuje exportovat PDF, která splňují různé standardy, včetně PDF/A1a, PDF/A1b a PDF/UA, čímž zajišťuje, že vaše dokumenty splňují požadavky na přístupnost i archivaci.
+Ano, Aspose.Slides vám umožňuje exportovat PDF, která splňují různé standardy, včetně PDF/A1a, PDF/A1b a PDF/UA, čímž zajistí, že vaše dokumenty splňují požadavky na přístupnost a archivaci.
 
 ## **Další zdroje**
 
 - [Dokumentace Aspose.Slides pro .NET](/slides/cs/net/)
-- [Referenční příručka API Aspose.Slides pro .NET](https://reference.aspose.com/slides/cs/net/)
+- [API reference Aspose.Slides pro .NET](https://reference.aspose.com/slides/cs/net/)
 - [Bezplatné online převodníky Aspose](https://products.aspose.app/slides/cs/conversion)

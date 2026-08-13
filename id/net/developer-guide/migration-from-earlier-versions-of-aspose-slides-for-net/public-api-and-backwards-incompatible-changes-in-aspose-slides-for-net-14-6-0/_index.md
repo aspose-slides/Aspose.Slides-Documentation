@@ -1,5 +1,5 @@
 ---
-title: API Publik dan Perubahan Tidak Kompatibel Mundur pada Aspose.Slides untuk .NET 14.6.0
+title: API Publik dan Perubahan Tidak Kompatibel ke Belakang di Aspose.Slides untuk .NET 14.6.0
 linktitle: Aspose.Slides untuk .NET 14.6.0
 type: docs
 weight: 80
@@ -16,21 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang merusak pada Aspose.Slides untuk .NET untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
+description: "Tinjau pembaruan API publik dan perubahan yang memecah pada Aspose.Slides untuk .NET untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan mulus."
 ---
-{{% alert color="primary" %}} 
-
-Halaman ini mencantumkan semua [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) kelas, metode, properti, dan sebagainya, setiap [pembatasan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) baru dan [perubahan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) lain yang diperkenalkan dengan Aspose.Slides for .NET 14.6.0 API.
-
+{{% alert color="info" %}} 
+Halaman ini mencantumkan semua kelas, metode, properti, dan lain-lain yang [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) serta setiap [pembatasan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) baru, dan [perubahan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) lain yang diperkenalkan dengan API Aspose.Slides for .NET 14.6.0.
 {{% /alert %}} 
 ## **Perubahan API Publik**
 ### **Antarmuka, Metode, dan Properti yang Ditambahkan**
-#### **Ditambahkan Antarmuka Aspose.Slides.Charts.IErrorBarsFormat**
+#### **Menambahkan Antarmuka Aspose.Slides.Charts.IErrorBarsFormat**
 Ini mewakili batang kesalahan dari seri diagram.
 
-Jika tipe nilai khusus, untuk menentukan nilai, gunakan properti ErrorBarCustomValues pada titik data tertentu dalam koleksi DataPoints dari seri.
+Jika tipe nilai khusus, untuk menentukan nilai, gunakan properti ErrorBarCustomValues dari titik data spesifik dalam koleksi DataPoints pada seri.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -63,12 +65,15 @@ Jika tipe nilai khusus, untuk menentukan nilai, gunakan properti ErrorBarCustomV
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Ditambahkan Antarmuka Aspose.Slides.Charts.IErrorBarsCustomValues**
-Ketika properti IErrorBarsFormat.ValueType bernilai Custom, untuk menentukan nilai, gunakan properti ErrorBarCustomValues pada titik data tertentu dalam koleksi DataPoints.
+#### **Menambahkan Antarmuka Aspose.Slides.Charts.IErrorBarsCustomValues**
+Ketika properti IErrorBarsFormat.ValueType bernilai Custom, untuk menentukan nilai, gunakan properti ErrorBarCustomValues dari titik data spesifik dalam koleksi DataPoints.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -117,12 +122,15 @@ Ketika properti IErrorBarsFormat.ValueType bernilai Custom, untuk menentukan nil
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Ditambahkan Antarmuka Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+#### **Menambahkan Antarmuka Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
 Menentukan jenis nilai dalam daftar properti ChartDataPoint.ErrorBarsCustomValues.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -171,9 +179,8 @@ Menentukan jenis nilai dalam daftar properti ChartDataPoint.ErrorBarsCustomValue
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Ditambahkan Metode Aspose.Slides.IShapeCollection.AddClone(...), dan .InsertClone(...)**
+#### **Menambahkan Metode Aspose.Slides.IShapeCollection.AddClone(...), dan .InsertClone(...)**
 Metode berikut menambahkan/menyisipkan salinan bentuk yang ditentukan ke dalam koleksi. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
@@ -184,8 +191,10 @@ Metode berikut menambahkan/menyisipkan salinan bentuk yang ditentukan ke dalam k
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -210,12 +219,13 @@ Metode berikut menambahkan/menyisipkan salinan bentuk yang ditentukan ke dalam k
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Ditambahkan Enum ViewType, Antarmuka IViewProperties, Kelas ViewProperties, dan Properti IPresentation.ViewProperties**
-IPresentation.ViewProperty memungkinkan pengembang mengubah jenis tampilan presentasi dan visibilitas catatan ketika presentasi dibuka di PowerPoint.
+#### **Menambahkan Enum ViewType, Antarmuka IViewProperties, Kelas ViewProperties, dan Properti IPresentation.ViewProperties**
+IPresentation.ViewProperty memungkinkan pengembang mengubah tipe tampilan presentasi dan visibilitas catatan saat presentasi dibuka di PowerPoint.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -224,5 +234,4 @@ IPresentation.ViewProperty memungkinkan pengembang mengubah jenis tampilan prese
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

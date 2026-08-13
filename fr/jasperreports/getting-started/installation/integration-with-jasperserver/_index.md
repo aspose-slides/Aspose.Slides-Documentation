@@ -4,10 +4,9 @@ type: docs
 weight: 45
 url: /fr/jasperreports/integration-with-jasperserver/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Pour intégrer Aspose.Slides pour JasperReports avec JasperServer, il est nécessaire de suivre plusieurs étapes supplémentaires et de mettre à jour les fichiers de configuration de JasperServer. Cet article explique comment procéder.
+Pour intégrer Aspose.Slides for JasperReports avec JasperServer, il est nécessaire d'effectuer plusieurs étapes supplémentaires et de mettre à jour les fichiers de configuration de JasperServer. Cet article explique comment.
 
 {{% /alert %}} 
 
@@ -20,7 +19,7 @@ Pour intégrer Aspose.Slides pour JasperReports avec JasperServer, il est néces
 </bean> 
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
-    <property name="descriptionKey" value="Présentation PowerPoint via Aspose.Slides"/>
+    <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
     <property name="iconSrc" value="/images/ppt.png"/>
     <property name="parameterDialogName" value=""/>
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -34,7 +33,7 @@ Pour intégrer Aspose.Slides pour JasperReports avec JasperServer, il est néces
 ```
 
 2. Copiez **aspose.slides.jasperreports.jar** dans **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Pour utiliser la fonctionnalité de mappage de polices, mettez à jour **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** comme ci-dessous.
+3. Pour utiliser la fonctionnalité de mappage des polices, mettez à jour **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** comme indiqué ci-dessous.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

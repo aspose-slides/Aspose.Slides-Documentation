@@ -20,23 +20,25 @@ description: "Stel een fallback-lettertypecollectie in Aspose.Slides voor Androi
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat om een collectie fallback‑lettertype‑regels voor een presentatie te configureren. Elke fallback‑regel wordt vertegenwoordigd door de `FontFallBackRule`‑klasse en kan worden toegevoegd aan een `FontFallBackRulesCollection`, die de `IFontFallBackRulesCollection`‑interface implementeert.
+Aspose.Slides stelt u in staat om een verzameling fallback‑lettertype‑regels voor een presentatie te configureren. Elke fallback‑regel wordt weergegeven door de `FontFallBackRule`‑klasse en kan worden toegevoegd aan een `FontFallBackRulesCollection`, die de `IFontFallBackRulesCollection`‑interface implementeert.
 
-Nadat u de collectie heeft aangemaakt, kunt u deze toewijzen aan de `FontFallBackRulesCollection`‑eigenschap van de `FontsManager` van de presentatie. De `FontsManager` regelt lettertypen in de hele presentatie, en elke `Presentation`‑instantie heeft zijn eigen `FontsManager`.
+Nadat u de collectie hebt aangemaakt, kunt u deze toewijzen aan de `FontFallBackRulesCollection`‑eigenschap van de `FontsManager` van de presentatie. De `FontsManager` beheert lettertypen in de hele presentatie, en elke `Presentation`‑instantie heeft zijn eigen `FontsManager`.
 
-Zodra de `FontsManager` is geïnitialiseerd met de fallback‑lettertype‑collectie, worden de opgegeven fallback‑lettertypen toegepast tijdens het renderen van de presentatie.
+Zodra de `FontsManager` is geinitialiseerd met de fallback‑lettertype‑collectie, worden de opgegeven fallback‑lettertypen toegepast tijdens het renderen van de presentatie.
 
-## **Fallback‑regels toepassen**
+## **Fallbackregels toepassen**
 
-Instanties van de [FontFallBackRule](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontFallBackRule)‑klasse kunnen worden georganiseerd in een [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontFallBackRulesCollection), die de [IFontFallBackRulesCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IFontFallBackRulesCollection)‑interface implementeert. Het is mogelijk om regels toe te voegen aan of te verwijderen uit de collectie.
+Instanties van de [FontFallBackRule](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontFallBackRule)‑klasse kunnen worden georganiseerd in een [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontFallBackRulesCollection), die de [IFontFallBackRulesCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IFontFallBackRulesCollection)‑interface implementeert. Het is mogelijk om regels toe te voegen of te verwijderen uit de collectie.
 
-Vervolgens kan deze collectie worden toegewezen aan de [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontFallBackRulesCollection)‑methode van de [FontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontsManager)‑klasse. FontsManager regelt de lettertypen in de hele presentatie.
+Vervolgens kan deze collectie worden toegewezen aan de [FontFallBackRulesCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontFallBackRulesCollection)‑methode van de [FontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontsManager)‑klasse. De FontsManager beheert lettertypen in de hele presentatie.
 
 Elke [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) heeft een [getFontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation#getFontsManager--)‑methode met zijn eigen instantie van de [FontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/FontsManager)‑klasse.
 
-Hier volgt een voorbeeld hoe u een collectie fallback‑lettertype‑regels maakt en deze toewijst aan de [FontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation#getFontsManager--) van een bepaalde presentatie:
+Hier volgt een voorbeeld hoe u een collectie fallback‑lettertype‑regels kunt maken en deze kunt toewijzen aan de [FontsManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation#getFontsManager--) van een bepaalde presentatie:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -52,24 +54,24 @@ try {
 
 Nadat de FontsManager is geïnitialiseerd met de fallback‑lettertype‑collectie, worden de fallback‑lettertypen toegepast tijdens het renderen van de presentatie.
 
-{{% alert color="primary" %}} 
-Lees meer over hoe u een presentatie rendert met fallback‑lettertype[/slides/nl/androidjava/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Lees meer over hoe u een [Presentatie renderen met fallback‑lettertype](/slides/nl/androidjava/render-presentation-with-fallback-font/) .
 {{% /alert %}}
 
 ## **FAQ**
 
-**Worden mijn fallback‑regels ingebed in het PPTX‑bestand en zichtbaar in PowerPoint na het opslaan?**
+### Worden mijn fallback‑regels in het PPTX‑bestand ingebed en zichtbaar in PowerPoint na het opslaan?
 
-Nee. Fallback‑regels zijn runtime‑renderinstellingen; ze worden niet geserialiseerd in het PPTX‑bestand en verschijnen niet in de UI van PowerPoint.
+Nee. Fallback‑regels zijn runtime‑renderingsinstellingen; ze worden niet geserialiseerd naar PPTX en verschijnen niet in de PowerPoint‑interface.
 
-**Is fallback van toepassing op tekst binnen SmartArt, WordArt, grafieken en tabellen?**
+### Wordt fallback toegepast op tekst binnen SmartArt, WordArt, grafieken en tabellen?
 
-Ja. Hetzelfde glyph‑substitutie‑mechanisme wordt gebruikt voor alle tekst in deze objecten.
+Ja. Hetzelfde glyph‑substitutiemechanisme wordt gebruikt voor alle tekst in deze objecten.
 
-**Distribueert Aspose lettertypen met de bibliotheek?**
+### Distribueert Aspose lettertypen mee met de bibliotheek?
 
-Nee. U voegt lettertypen toe en gebruikt ze aan uw kant en onder uw eigen verantwoordelijkheid.
+Nee. U voegt zelf lettertypen toe en gebruikt ze op uw eigen verantwoordelijkheid.
 
-**Kunnen vervanging/substitutie voor ontbrekende lettertypen en fallback voor ontbrekende glyphs samen worden gebruikt?**
+### Kunnen vervanging/substitutie voor ontbrekende lettertypen en fallback voor ontbrekende glyphs samen worden gebruikt?
 
-Ja. Het zijn onafhankelijke stadia van dezelfde lettertype‑resolutiepijplijn: eerst bepaalt de engine de beschikbaarheid van lettertypen ([vervanging](/slides/nl/androidjava/font-replacement/)/[substitutie](/slides/nl/androidjava/font-substitution/)), daarna vult fallback de hiaten voor ontbrekende glyphs in beschikbare lettertypen.
+Ja. Het zijn onafhankelijke fasen van dezelfde lettertype‑resolutiepijplijn: eerst bepaalt de engine de beschikbaarheid van lettertypen ([replacement](/slides/nl/androidjava/font-replacement/)/[substitution](/slides/nl/androidjava/font-substitution/)), daarna vult fallback de ontbrekende glyphs op in de beschikbare lettertypen.

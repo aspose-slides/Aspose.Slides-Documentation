@@ -6,26 +6,26 @@ weight: 10
 url: /cs/java/how-to-create-hello-world-presentation-document/
 keywords:
 - migrace
-- ahoj svět
-- legacy kód
+- hello world
+- starý kód
 - moderní kód
-- legacy přístup
+- starý přístup
 - moderní přístup
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-- description: "Vytvořte PowerPoint PPT, PPTX a ODP prezentaci Hello World v Javě pomocí Aspose.Slides s využitím jak legacy, tak moderních API v jednom jednoduchém průvodci."
+- description: "Vytvořte Hello World PowerPoint PPT, PPTX a ODP prezentaci v Javě s Aspose.Slides pomocí jak legacy, tak moderního API v jednom jednoduchém průvodci."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Nové [Aspose.Slides for Java API](/slides/cs/java/) bylo vydáno a nyní tento jedinečný produkt podporuje možnost vytvářet dokumenty PowerPoint od nuly a upravovat existující soubory.
+Bylo vydáno nové [Aspose.Slides for Java API](/slides/cs/java/) a nyní tento jediný produkt podporuje možnost vytvářet PowerPoint dokumenty od nuly a upravovat existující.
 
 {{% /alert %}} 
-## **Podpora legacy kódu**
-Chcete-li použít legacy kód vyvinutý pomocí Aspose.Slides pro Java ve verzích starších než 13.x, musíte provést několik drobných změn ve svém kódu a kód bude fungovat jako dříve. Všechny třídy, které byly v staré verzi Aspose.Slides pro Java v názvových prostorech Aspose.Slide a Aspose.Slides.Pptx, jsou nyní sloučeny do jediného názvu prostoru Aspose.Slides. Podívejte se na následující jednoduchý úryvek kódu pro vytvoření prezentace Hello World v legacy Aspose.Slides API a postupujte podle kroků popisujících, jak migrovat na nově sloučené API.
-## **Legacy Aspose.Slides pro Java – přístup**
+## **Podpora pro starý kód**
+Aby bylo možné použít starý kód vyvinutý pro Aspose.Slides for Java verze starší než 13.x, musíte provést několik drobných změn ve svém kódu a kód bude fungovat jako dříve. Všechny třídy, které byly v minulém Aspose.Slides for Java v jmenných prostorech Aspose.Slide a Aspose.Slides.Pptx, jsou nyní sloučeny do jediného jmenného prostoru Aspose.Slides. Podívejte se na následující jednoduchý úryvek kódu, který vytváří dokument Hello World Presentation ve starém API Aspose.Slides, a postupujte podle kroků popisujících, jak migrovat na nové sloučené API.
+## **Legacy Aspose.Slides for Java Approach**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-HelloWorldPresentation-HelloWorldPresentation.java" >}}
-## **Nový přístup k Aspose.Slides pro Java 14.x.x**
+## **Nový přístup Aspose.Slides for Java 14.x.x**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-CreateAPresentation-CreateAPresentation.java" >}}

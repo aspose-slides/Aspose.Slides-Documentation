@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Projetos VBA em Apresentações no Android
+title: Gerenciar projetos VBA em apresentações no Android
 linktitle: Apresentação via VBA
 type: docs
 weight: 250
@@ -26,11 +26,11 @@ description: "Descubra como gerar e manipular apresentações PowerPoint e OpenD
 
 Aspose.Slides fornece classes e interfaces para trabalhar com macros e código VBA.
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Observação" color="warning" %}} 
 
 Ao converter uma apresentação que contém macros para um formato de arquivo diferente (PDF, HTML, etc.), Aspose.Slides ignora todas as macros (as macros não são transportadas para o arquivo resultante).
 
-Ao adicionar macros a uma apresentação ou salvar novamente uma apresentação que contém macros, Aspose.Slides simplesmente grava os bytes das macros.
+Ao adicionar macros a uma apresentação ou ao salvar novamente uma apresentação que contém macros, Aspose.Slides simplesmente grava os bytes das macros.
 
 Aspose.Slides **nunca** executa as macros em uma apresentação.
 
@@ -38,21 +38,23 @@ Aspose.Slides **nunca** executa as macros em uma apresentação.
 
 ## **Adicionar Macros VBA**
 
-Aspose.Slides fornece a classe [VbaProject](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/vbaproject/) para permitir que você crie projetos VBA (e referências de projetos) e edite módulos existentes. Você pode usar a interface [IVbaProject](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivbaproject/) para gerenciar VBA incorporado em uma apresentação.
+Aspose.Slides fornece a classe [VbaProject](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/vbaproject/) para permitir que você crie projetos VBA (e referências de projeto) e edite módulos existentes. Você pode usar a interface [IVbaProject](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivbaproject/) para gerenciar VBA incorporado em uma apresentação.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation).
 1. Use o construtor [VbaProject](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/vbaproject/#VbaProject--) para adicionar um novo projeto VBA.
 1. Adicione um módulo ao VbaProject.
 1. Defina o código-fonte do módulo.
 1. Adicione referências a <stdole>.
-1. Adicione referências ao **Microsoft Office**.
+1. Adicione referências a **Microsoft Office**.
 1. Associe as referências ao projeto VBA.
 1. Salve a apresentação.
 
 Este código Java mostra como adicionar uma macro VBA do zero a uma apresentação:
 
 ```java
-// Cria uma instância da classe de apresentação
+import com.aspose.slides.*;
+
+// Cria uma instância da classe Presentation
 Presentation pres = new Presentation();
 try {
     // Cria um novo Projeto VBA
@@ -82,9 +84,9 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Você pode querer conferir o **Aspose** [Macro Remover](https://products.aspose.app/slides/pt/remove-macros), que é um aplicativo web gratuito usado para remover macros de documentos PowerPoint, Excel e Word. 
+Você pode querer conferir o **Aspose** [Macro Remover](https://products.aspose.app/slides/pt/remove-macros), um aplicativo web gratuito usado para remover macros de documentos PowerPoint, Excel e Word. 
 
 {{% /alert %}} 
 
@@ -93,12 +95,14 @@ Você pode querer conferir o **Aspose** [Macro Remover](https://products.aspose.
 Usando a propriedade [VbaProject](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/#getVbaProject--) da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation), você pode remover uma macro VBA.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation) e carregue a apresentação que contém a macro.
-1. Acesse o módulo Macro e remova‑o.
+1. Acesse o módulo Macro e remova-o.
 1. Salve a apresentação modificada.
 
 Este código Java mostra como remover uma macro VBA:
 
 ```java
+import com.aspose.slides.*;
+
 // Carrega a apresentação que contém a macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -121,6 +125,8 @@ try {
 Este código Java mostra como extrair macros VBA de uma apresentação que contém macros:
 
 ```java
+import com.aspose.slides.*;
+
 // Carrega a apresentação que contém a macro
 Presentation pres = new Presentation("VBA.pptm");
 try {
@@ -142,10 +148,12 @@ try {
 Usando o método [IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--), você pode determinar se as propriedades de um projeto estão protegidas por senha.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/) e carregue uma apresentação que contém uma macro.
-2. Verifique se a apresentação contém um [projeto VBA](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/vbaproject/).
+2. Verifique se a apresentação contém um [VBA project](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/vbaproject/).
 3. Verifique se o projeto VBA está protegido por senha para visualizar suas propriedades.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // Verifique se a apresentação contém um projeto VBA.
@@ -159,16 +167,16 @@ try {
 }
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**O que acontece com as macros se eu salvar a apresentação como PPTX?**
+### O que acontece com as macros se eu salvar a apresentação como PPTX?
 
-As macros serão removidas porque o PPTX não suporta VBA. Para manter as macros, escolha PPTM, PPSM ou POTM.
+As macros serão removidas porque PPTX não suporta VBA. Para manter as macros, escolha PPTM, PPSM ou POTM.
 
-**O Aspose.Slides pode executar macros dentro de uma apresentação para, por exemplo, atualizar dados?**
+### O Aspose.Slides pode executar macros dentro de uma apresentação para, por exemplo, atualizar dados?
 
-Não. A biblioteca nunca executa código VBA; a execução só é possível dentro do PowerPoint com as configurações de segurança adequadas.
+Não. A biblioteca nunca executa código VBA; a execução só é possível dentro do PowerPoint com as configurações de segurança apropriadas.
 
-**É suportado o trabalho com controles ActiveX vinculados a código VBA?**
+### O suporte a controles ActiveX vinculados a código VBA é oferecido?
 
-Sim, você pode acessar os [ActiveX controls](/slides/pt/androidjava/activex/), modificar suas propriedades e removê‑los. Isso é útil quando as macros interagem com ActiveX.
+Sim, você pode acessar os [ActiveX controls](/slides/pt/androidjava/activex/), modificar suas propriedades e removê-los. Isso é útil quando as macros interagem com ActiveX.

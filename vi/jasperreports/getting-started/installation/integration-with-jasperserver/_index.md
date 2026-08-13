@@ -4,13 +4,13 @@ type: docs
 weight: 45
 url: /vi/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Để tích hợp Aspose.Slides cho JasperReports với JasperServer, cần thực hiện một số bước bổ sung và cập nhật các tệp cấu hình JasperServer. Bài viết này giải thích cách thực hiện.
+Để tích hợp Aspose.Slides cho JasperReports với JasperServer, cần thực hiện một số bước bổ sung và cập nhật các tệp cấu hình của JasperServer. Bài viết này giải thích cách thực hiện.
 
 {{% /alert %}} 
 
-1. Thêm các thuộc tính xuất khẩu mới vào tệp cấu hình **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
+1. Thêm các thuộc tính exporter mới vào tệp cấu hình **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -32,7 +32,7 @@ url: /vi/jasperreports/integration-with-jasperserver/
 </util:map>
 ```
 
-2. Sao chép **aspose.slides.jasperreports.jar** tới **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
+2. Sao chép **aspose.slides.jasperreports.jar** vào **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
 3. Để sử dụng tính năng ánh xạ phông chữ, cập nhật **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** như dưới đây.
 
 ``` xml

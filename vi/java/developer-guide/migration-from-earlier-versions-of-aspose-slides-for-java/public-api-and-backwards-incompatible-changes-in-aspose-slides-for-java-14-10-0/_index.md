@@ -1,43 +1,45 @@
 ---
-title: API công cộng và các thay đổi không tương thích ngược trong Aspose.Slides cho Java 14.10.0
+title: Giao diện API công cộng và các thay đổi không tương thích ngược trong Aspose.Slides cho Java 14.10.0
 linktitle: Aspose.Slides cho Java 14.10.0
 type: docs
 weight: 90
 url: /vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/
 keywords:
 - di chuyển
-- mã di sản
+- mã legacy
 - mã hiện đại
-- phương pháp cũ
+- phương pháp legacy
 - phương pháp hiện đại
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Xem lại các cập nhật API công cộng và các thay đổi gây phá vỡ trong Aspose.Slides cho Java để di chuyển một cách suôn sẻ các giải pháp bản trình chiếu PowerPoint PPT, PPTX và ODP của bạn."
+description: "Xem xét các cập nhật API công cộng và những thay đổi gây lỗi trong Aspose.Slides cho Java để dễ dàng di chuyển các giải pháp bài thuyết trình PowerPoint PPT, PPTX và ODP của bạn."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các mục khác, bất kỳ hạn chế mới và các [thay đổi](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) được giới thiệu với API Aspose.Slides for Java 14.10.0.
+Trang này liệt kê tất cả các lớp, phương thức, thuộc tính và các thành phần khác [đã thêm](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) , bất kỳ hạn chế mới và các [thay đổi](/slides/vi/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) được giới thiệu cùng API Aspose.Slides for Java 14.10.0.
 
 {{% /alert %}} 
 ## **Thay đổi API công cộng**
 ### **phương thức com.aspose.slides.FieldType.getFooter() đã được thêm**
-Phương thức getFooter() trả về kiểu trường footer. Nó đã được thêm để cho phép tạo các trường kiểu này và để việc tuần tự hoá bản trình bày hợp lệ.
+Phương thức getFooter() trả về kiểu trường footer. Nó được thêm để thực hiện khả năng tạo các trường kiểu này và để việc tuần tự hoá bản trình bày hợp lệ.
 ### **Phần tử com.aspose.slides.ShapeElementFillSource.Own đã bị xóa**
-Phần tử ShapeElementFillSource.Own đã bị xóa vì trùng lặp. Hãy sử dụng ShapeElementFillSource.Shape thay cho ShapeElementFillSource.Own.
-### **Các phương thức để xóa điểm dữ liệu biểu đồ, danh mục đã được thêm**
-**Các phương thức sau, cho phép xóa một điểm dữ liệu biểu đồ khỏi bộ sưu tập điểm dữ liệu biểu đồ đã được thêm:**
+Phần tử ShapeElementFillSource.Own đã bị xóa vì trùng lặp. Sử dụng ShapeElementFillSource.Shape thay vì ShapeElementFillSource.Own.
+### **Các phương thức để xóa điểm dữ liệu và danh mục biểu đồ đã được thêm**
+**Các phương thức sau, cho phép xóa điểm dữ liệu biểu đồ khỏi bộ sưu tập điểm dữ liệu biểu đồ, đã được thêm:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
 IChartDataPoint.remove()
 
-**Phương thức sau, cho phép xóa một danh mục biểu đồ khỏi bộ sưu tập chứa nó đã được thêm:**
+**Phương thức sau, cho phép xóa một danh mục biểu đồ khỏi bộ sưu tập chứa, đã được thêm:**
 
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -60,10 +62,10 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 pres.save("presentation.pptx", SaveFormat.Pptx);
 
 ```
-### **Các phương thức Aspose.Slides.ParagraphFormat đã lỗi thời đã bị xóa**
-Các phương thức getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() và các phương thức set tương ứng đã bị xóa. Chúng đã được đánh dấu là lỗi thời từ lâu.
-### **Các hàm khởi tạo không hữu ích và đã lỗi thời đã bị xóa**
-Các hàm khởi tạo sau đã bị xóa:
+### **Các phương thức lỗi thời của Aspose.Slides.ParagraphFormat đã bị xóa**
+Các phương thức getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() và các phương thức set tương ứng đã bị xóa. Chúng đã được đánh dấu là lỗi thời từ rất lâu.
+### **Các hàm tạo không hữu ích và lỗi thời đã bị xóa**
+Các hàm tạo sau đã bị xóa:
 
 com.aspose.slides.AlphaBiLevel(float)
 com.aspose.slides.AlphaModulateFixed(float)

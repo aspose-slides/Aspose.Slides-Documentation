@@ -1,32 +1,84 @@
 ---
-title: تصدير المعادلات الرياضية من العروض التقديمية في جافا
+title: تصدير معادلات الرياضيات من العروض التقديمية بلغة Java
 linktitle: تصدير المعادلات
 type: docs
 weight: 30
 url: /ar/java/exporting-math-equations/
 keywords:
-- تصدير المعادلات الرياضية
+- تصدير معادلات الرياضيات
+- تصدير المعادلات إلى LaTeX
+- PowerPoint إلى LaTeX
 - MathML
 - LaTeX
 - PowerPoint
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تمكين تصدير سلس للمعادلات الرياضية من PowerPoint إلى MathML باستخدام Aspose.Slides for Java — الحفاظ على التنسيق وتعزيز التوافق."
+description: "تصدير معادلات الرياضيات من عروض PowerPoint التقديمية إلى LaTeX أو MathML مباشرةً باستخدام Aspose.Slides لــ Java."
 ---
+## **المقدمة**
 
-## تصدير المعادلات الرياضية من العروض التقديمية
+تتيح لك Aspose.Slides تصدير معادلات الرياضيات من العروض التقديمية. على سبيل المثال، قد تحتاج إلى استخراج المعادلات الرياضية الموجودة على الشرائح (من عرض تقديمي محدد) واستخدامها في برنامج أو منصة أخرى. 
 
-تتيح لك Aspose.Slides for Java تصدير المعادلات الرياضية من العروض التقديمية. على سبيل المثال، قد تحتاج إلى استخراج المعادلات الرياضية الموجودة على الشرائح (من عرض تقديمي محدد) واستخدامها في برنامج أو منصة أخرى.
-
-{{% alert color="primary" %}} 
-يمكنك تصدير المعادلات إلى MathML، وهو تنسيق أو معيار شائع للمعادلات الرياضية والمحتوى المشابه الذي يُرى على الويب وفي العديد من التطبيقات. 
+{{% alert color="info" %}} 
+يمكنك تصدير المعادلات مباشرةً إلى LaTeX أو إلى MathML، وهو معيار شائع للمحتوى الرياضي يُستخدم على الويب وفي العديد من التطبيقات.
 {{% /alert %}}
 
-في حين أن البشر يكتبون الكود بسهولة لبعض صيغ المعادلات مثل LaTeX، فإنهم يواجهون صعوبة في كتابة الكود لـ MathML لأن الأخيرة تُقصد أن تُولد تلقائيًا بواسطة التطبيقات. تقوم البرامج بقراءة وتحليل MathML بسهولة لأن كوده مكتوب بصيغة XML، لذا يُستخدم MathML عادةً كتنسيق إخراج وطباعة في العديد من المجالات.
+## **تصدير معادلات الرياضيات إلى LaTeX**
 
-هذا المثال يوضح كيفية تصدير معادلة رياضية من عرض تقديمي إلى MathML:
+يمكن لـ Aspose.Slides تحويل معادلة رياضية في PowerPoint مباشرةً إلى LaTeX؛ لا يلزم ملف وسيط MathML ولا محول خارجي. تُخزن المعادلة الرياضية في إطار نصي كـ[IMathPortion](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathportion/). استخدم[IMathPortion.getMathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathportion/#getMathParagraph--) للحصول على[IMathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathparagraph/)، ثم استدعِ[IMathParagraph.toLatex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathparagraph/#toLatex--) . تُعيد الطريقة سلسلة نصية يمكنك حفظها أو عرضها أو إرسالها إلى تطبيق آخر أو معالجتها بصورة أخرى.
+
+المثال التالي يفحص كل إطار نصي في كل شريحة، يجد جميع أجزاء الرياضيات، ويكتب كل معادلة إلى ملف `.tex` منفصل:
+
 ```java
+Presentation presentation = new Presentation("equations.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+        int slideNumber = slideIndex + 1;
+        int equationNumber = 1;
+        ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
+
+        for (ITextFrame textFrame : textFrames) {
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (!(portion instanceof IMathPortion))
+                        continue;
+
+                    IMathPortion mathPortion = (IMathPortion) portion;
+                    IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+                    String latexFileName = "slide_" + slideNumber + "_equation_" + equationNumber + ".tex";
+
+                    String latexText = mathParagraph.toLatex();
+                    Path latexPath = Paths.get(latexFileName);
+                    byte[] latexBytes = latexText.getBytes(StandardCharsets.UTF_8);
+                    Files.write(latexPath, latexBytes);
+                    equationNumber++;
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-) تُرجع جميع الأطر النصية الموجودة في الشريحة. فحص النوع [IMathPortion](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathportion/) يفصل بين المعادلات القابلة للتحرير الحقيقية والنص العادي والصور.
+
+محركات LaTeX وقوالب المستندات لا تدعم جميعًا نفس الأوامر أو الحزم أو الأحرف Unicode. اختبر السلسلة المُعادة باستخدام محرك LaTeX الذي يستخدمه تطبيقك. إذا لم يكن للرمز أو عنصر Office Math تمثيل مناسب في ذلك البيئة، استبدله في السلسلة بأمر مخصص للمشروع أو تخطَ المعادلة وسجل المشكلة للمراجعة.
+
+## **حفظ معادلات الرياضيات كـ MathML**
+
+بينما يكتب البشر بسهولة الشفرة لبعض صيغ المعادلات مثل LaTeX، يواجهون صعوبة في كتابة الشفرة لـ MathML لأن الأخير يُقصد به أن يُنشأ تلقائيًا بواسطة التطبيقات. تقرأ البرامج وتُحلل MathML بسهولة لأن شفرته في XML، لذا يُستخدم MathML عادةً كصيغة إخراج وطباعة في العديد من المجالات. 
+
+يعرض هذا الكود المثال كيفية تصدير معادلة رياضية من عرض تقديمي إلى MathML:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);
@@ -48,25 +100,24 @@ try {
 }
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+**ما ما يُصدَّر بالضبط إلى MathML—فقرة أم كتلة صيغة فردية؟**
 
-**ما الذي يتم تصديره إلى MathML بالضبط—فقرة أم كتلة صيغة منفردة؟**
-
-يمكنك تصدير إما فقرة رياضية كاملة ([MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/)) أو كتلة منفردة ([MathBlock](https://reference.aspose.com/slides/java/com.aspose.slides/mathblock/)) إلى MathML. كلا النوعين يوفر طريقة للكتابة إلى MathML.
+يمكنك تصدير إما الفقرة الرياضية الكاملة ([MathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathparagraph/)) أو كتلة فردية ([MathBlock](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathblock/)) إلى MathML. كلا النوعين يقدمان طريقة للكتابة إلى MathML.
 
 **كيف يمكنني معرفة أن كائنًا على الشريحة هو صيغة رياضية وليس نصًا عاديًا أو صورة؟**
 
-الصيغة توجد داخل [MathPortion](https://reference.aspose.com/slides/java/com.aspose.slides/mathportion/) وتملك [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/). الصور وأجزاء النص العادية التي لا تحتوي على [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) ليست صيغًا قابلة للتصدير.
+الصيغة موجودة في [MathPortion](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathportion/) وتملك [MathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathparagraph/). الصور والنصوص العادية التي لا تحتوي على [MathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathparagraph/) لا يمكن تصديرها كصيغ.
 
 **من أين يأتي MathML في العرض التقديمي—هل هو خاص بـ PowerPoint أم معيار؟**
 
-يستهدف التصدير MathML القياسي (XML). تستخدم Aspose نسخة العرض التقديمي من MathML—وهي جزء من المعيار يُستخدم على نطاق واسع عبر التطبيقات والويب.
+يتم التصدير إلى MathML القياسي (XML). تستخدم Aspose Presentation MathML—الجزء المتعلق بالتقديم من المعيار—والذي يُستخدم على نطاق واسع عبر التطبيقات والويب.
 
 **هل يُدعم تصدير الصيغ داخل الجداول أو SmartArt أو المجموعات إلخ؟**
 
-نعم، إذا كانت تلك الكائنات تحتوي على أجزاء نصية بها [MathParagraph](https://reference.aspose.com/slides/java/com.aspose.slides/mathparagraph/) (أي صيغ PowerPoint حقيقية)، فسيتم تصديرها. إذا كانت الصيغة مدمجة كصورة، فلن يتم تصديرها.
+نعم، إذا كانت تلك الكائنات تحتوي على أجزاء نصية مع [MathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathparagraph/) (أي صيغ PowerPoint حقيقية)، فإنها تُصدّر. إذا تم تضمين الصيغة كصورة، فلن تُصدّر.
 
-**هل ي modifies تصدير إلى MathML العرض التقديمي الأصلي؟**
+**هل تعديل العرض التقديمي الأصلي يحدث عند تصدير إلى MathML؟**
 
-لا. كتابة MathML هي عملية تسلسل لمحتوى الصيغة؛ ولا تُغيّر ملف العرض التقديمي.
+لا. كتابة MathML هي مجرد تسلسل لمحتوى الصيغة؛ ولا تُغيّر ملف العرض التقديمي الأصلي.

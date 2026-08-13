@@ -1,24 +1,24 @@
 ---
-title: A prezentáció diák méretének módosítása Androidon
-linktitle: Dia méret
+title: A prezentáció diájának méretének módosítása Androidon
+linktitle: Dia Mérete
 type: docs
 weight: 70
 url: /hu/androidjava/slide-size/
 keywords:
 - dia méret
 - képarány
-- standard
+- szabványos
 - szélesvászon
 - 4:3
 - 16:9
-- diáméret beállítása
-- diáméret módosítása
-- egyedi diáméret
-- különleges diáméret
-- egyedülálló diáméret
+- dia méretének beállítása
+- dia méretének módosítása
+- egyedi dia méret
+- különleges dia méret
+- egyedi dia méret
 - teljes méretű dia
-- képernyőtípus
-- ne skálázza
+- képernyő típus
+- ne méretezze
 - illeszkedés biztosítása
 - maximalizálás
 - PowerPoint
@@ -27,28 +27,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Gyorsan átméretezheti a diákat PPT, PPTX és ODP fájlokban Java és az Androidra készült Aspose.Slides segítségével, optimalizálja a prezentációkat bármilyen képernyőre a minőség elvesztése nélkül."
+description: Gyorsan átméretezheti a diákat PPT, PPTX és ODP fájlokban Java és Aspose.Slides for Android segítségével, optimalizálja a prezentációkat bármilyen képernyőre minőségromlás nélkül.
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides átfogó eszközöket biztosít a diák méretének és képarányának beállításához PowerPoint‑prezentációkban, ami a nyomtatáshoz és a képernyőn való megjelenítéshez egyaránt fontos.
+Az Aspose.Slides átfogó eszközöket biztosít a diák méretének és képarányának beállításához a PowerPoint‑prezentációkban, ami mind a nyomtatás, mind a képernyőn megjelenítés szempontjából kritikus.
 
-Népszerű diaméretek és arányok:
-
+Népszerű diák méretek és arányok:
 - **Standard (4:3 képarány)**: Ideális régebbi képernyők és eszközök számára.
-- **Widescreen (16:9 képarány)**: Modern projektorok és kijelzők számára ajánlott.
+- **Widescreen (16:9 képarány)**: Ajánlott modern projektorok és kijelzők számára.
 
-Biztosítsa a konzisztenciát a teljes prezentációban, mivel egyetlen diaméret és képarány vonatkozik minden diára. A legjobb eredmény érdekében állítsa be a diák méretét a prezentáció létrehozásának elején, hogy elkerülje a problémákat.
+Biztosítsa a konzisztenciát a teljes prezentációban, mivel egyetlen diák mérete és képaránya minden diára vonatkozik. A legjobb eredmény érdekében állítsa be a diák méretét a prezentáció létrehozásának elején, hogy elkerülje a problémákat.
 
-{{% alert color="primary" %}} 
-Alapértelmezés szerint az Aspose.Slides‑el létrehozott prezentációk a standard 4:3 képarányt használják.
+{{% alert color="info" %}} 
+Alapértelmezés szerint az Aspose.Slides‑kel létrehozott prezentációk a standard 4:3 képarányt használják.
 {{% /alert %}}
 
 ## **Diák méretének módosítása a prezentációkban**
 
-Ez a példa kód bemutatja, hogyan változtatható meg egy diát mérete egy prezentációban Java‑ban az Aspose.Slides használatával:
+Ez a példa kód bemutatja, hogyan változtatható meg egy prezentáció diájának mérete Java‑ban az Aspose.Slides használatával:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
@@ -58,13 +59,15 @@ try {
 }
 ```
 
-## **Egyedi diaméretek megadása a prezentációkban**
+## **Egyedi diák méretek megadása a prezentációkban**
 
-Ha úgy találja, hogy a gyakori diaméretek (4:3 és 16:9) nem alkalmasak a munkájához, dönthet úgy, hogy egy meghatározott vagy egyedi diaméretet használ. Például, ha teljes méretű diák nyomtatását tervezi egy egyedi oldalelrendezésre, vagy ha a prezentációt bizonyos képernyőtípusokon szeretné megjeleníteni, akkor valószínűleg előnyös lesz egy egyedi méret beállítása a prezentációhoz.
+Ha a gyakori diák méretek (4:3 és 16:9) nem megfelelőek az Ön munkájához, dönthet úgy, hogy egy adott vagy egyedi diák méretet használ. Például, ha teljes méretű diákat szeretne nyomtatni a prezentációjából egy egyedi oldalelrendezésre, vagy ha bizonyos képernyőtípusokon kívánja megjeleníteni a prezentációt, valószínűleg hasznára válik egy egyedi méret beállítása.
 
-Ez a példa kód bemutatja, hogyan használhatja az Aspose.Slides for Android‑t Java‑n keresztül egy egyedi diaméret megadásához egy prezentációban Java‑ban:
+Ez a példa kód bemutatja, hogyan használható az Aspose.Slides for Android Java‑on keresztül egy egyedi diák méret megadásához egy prezentációban Java‑ban:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 papírméret
@@ -76,19 +79,26 @@ try {
 
 ## **Diák tartalmának kezelése átméretezés után**
 
-A prezentáció diaméretének megváltoztatása után a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új diamérethez. Azonban diaméret változtatásakor megadhat egy beállítást, amely meghatározza, hogyan kezelje az Aspose.Slides a diák tartalmát.
+A prezentáció diák méretének megváltoztatása után a diák tartalma (például képek vagy objektumok) torzulhat. Alapértelmezés szerint az objektumok automatikusan átméreteződnek, hogy illeszkedjenek az új diák méretéhez. Azonban a prezentáció diák méretének módosításakor megadhat egy beállítást, amely meghatározza, hogyan kezeli az Aspose.Slides a diák tartalmát.
 
-Attól függően, hogy mit szeretne elérni, az alábbi beállítások bármelyikét használhatja:
+Attól függően, hogy mit kíván tenni vagy elérni, a következő beállítások bármelyike használható:
+- `DoNotScale`
 
-- `DoNotScale` – Ha NEM szeretné, hogy a diákon lévő objektumok átméreteződjenek, használja ezt a beállítást.
+  Ha NEM kívánja, hogy a diák objektumai átméreteződjenek, használja ezt a beállítást.
 
-- `EnsureFit` – Ha kisebb diaméretre szeretne skálázni, és azt szeretné, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy mind elférjenek a diákon (így elkerülhető a tartalom vesztesége), használja ezt a beállítást.
+- `EnsureFit`
 
-- `Maximize` – Ha nagyobb diaméretre szeretne skálázni, és azt szeretné, hogy az Aspose.Slides megnövelje a diák objektumait, hogy arányosak legyenek az új diamérettel, használja ezt a beállítást.
+  Ha kisebb diák méretre kíván skálázni, és azt szeretné, hogy az Aspose.Slides lecsökkentse a diák objektumait, hogy mind elférjenek a diákon (ezáltal elkerülve a tartalom elvesztését), használja ezt a beállítást.
 
-Ez a példa kód bemutatja, hogyan használható a `Maximize` beállítás a prezentáció diaméretének módosításakor:
+- `Maximize`
+
+  Ha nagyobb diák méretre kíván skálázni, és azt szeretné, hogy az Aspose.Slides megnövelje a diák objektumait, hogy arányosak legyenek az új diák mérettel, használja ezt a beállítást.
+
+Ez a példa kód bemutatja, hogyan kell használni a `Maximize` beállítást a prezentáció diák méretének módosításakor:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -97,20 +107,20 @@ try {
 }
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Beállíthatok egyedi diaméretet más egységekben, mint az hüvelyk (például pontok vagy milliméterek)?**
+### Beállíthatok egyedi diák méretet hüvelyk helyett más mértékegységgel (például ponttal vagy milliméterrel)?
 
-Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont = 1/72 hüvelyk. Bármely egységet (például millimétert vagy centimétert) átalakíthat pontokra, és a konvertált értékeket felhasználhatja a dia szélességének és magasságának meghatározásához.
+Igen. Az Aspose.Slides belsőleg pontokat használ, ahol 1 pont = 1/72 hüvelyk. Bármely mértékegységet (például millimétert vagy centimétert) átalakíthat pontokra, és a konvertált értékekkel meghatározhatja a diák szélességét és magasságát.
 
-**Egy nagyon nagy egyedi diaméret befolyásolja a teljesítményt és a memóriahasználatot a renderelés során?**
+### Nagyon nagy egyedi diák méret befolyásolja a teljesítményt és a memóriahasználatot a renderelés során?
 
-Igen. A nagyobb diaméretek (pontban) magasabb renderelési mérettel kombinálva megnövelik a memóriafogyasztást és a feldolgozási időt. Törekedjen egy gyakorlati diaméretre, és csak akkor módosítsa a renderelési méretet, amikor a kívánt kimeneti minőség eléréséhez szükséges.
+Igen. A nagyobb diák méretek (pontban) magasabb renderelési skálával együtt megnövekedett memóriafogyasztást és hosszabb feldolgozási időt eredményeznek. Törekedjen egy gyakorlati diák méretre, és csak szükség szerint állítsa a renderelési skálát a kívánt kimeneti minőség eléréséhez.
 
-**Definiálhatok egy nem szabványos diaméretet, majd összevonhatom a különböző méretű prezentációk diáit?**
+### Definiálhatok egy nem szabványos diák méretet, majd összevonhatok diákot olyan prezentációkból, amelyek eltérő méretekkel rendelkeznek?
 
-Nem tudja [prezentációk egyesítése](/slides/hu/androidjava/merge-presentation/) amíg a diák méretei különböznek – először méretezze át az egyik prezentációt, hogy megegyezzen a másikkal. A diaméret változtatásakor a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesizescaletype/) opcióval választhatja ki, hogyan kezelje a meglévő tartalmat. A méretek egyeztetése után egyesítheti a diákot, miközben megőrzi a formázást.
+Nem vonhat össze [prezentációkat](/slides/hu/androidjava/merge-presentation/) amíg különböző diák méretekkel rendelkeznek – először méretezze át az egyik prezentációt, hogy egyezzen a másikkal. A diák méretének változtatásakor kiválaszthatja a meglévő tartalom kezelését a [SlideSizeScaleType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesizescaletype/) lehetőséggel. A méretek egyeztetése után összevonhatja a diákot, miközben megőrzi a formázást.
 
-**Létrehozhatok bélyegképeket egyedi alakzatokhoz vagy egy dián belüli meghatározott területekhez, és figyelembe veszik az új diaméretet?**
+### Generálhatok bélyegképeket egyedi alakzatokhoz vagy a dia meghatározott részeihez, és ezek figyelembe veszik az új diák méretét?
 
-Igen. Az Aspose.Slides képes bélyegképeket generálni [teljes diákra](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) valamint [kijelölt alakzatokra](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shape/#getImage-int-float-float-). A kapott képek tükrözik a aktuális diaméretet és képarányt, biztosítva az egységes keretezést és geometriát.
+Igen. Az Aspose.Slides képes bélyegképeket renderelni [teljes diákra](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) és [kijelölt alakzatokra](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shape/#getImage-int-float-float-). A kapott képek tükrözik az aktuális diák méretét és képarányát, biztosítva az egységes keretezést és geometriát.

@@ -8,78 +8,80 @@ keywords:
 - テキストの書式設定
 - 移行
 - VSTO
-- Office 自動化
+- Office オートメーション
 - PowerPoint
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Microsoft Office automation から Aspose.Slides for .NET へ移行し、PowerPoint (PPT, PPTX) プレゼンテーションのテキストを書式設定し、正確に制御します。"
+description: "Microsoft Office のオートメーションから Aspose.Slides for .NET に移行し、PowerPoint (PPT、PPTX) プレゼンテーションのテキストを書式設定して正確に制御します。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-スライド上のテキストをプログラムで書式設定する必要がある場合があります。このガイドでは、[VSTO](/slides/ja/net/format-text-using-vsto-and-aspose-slides-and-net/) または [Aspose.Slides for .NET](/slides/ja/net/format-text-using-vsto-and-aspose-slides-and-net/) を使用して、最初のスライドにテキストが含まれるサンプルプレゼンテーションを読み込む方法を示します。コードは、スライド上の 3 番目のテキストボックスのテキストを書式設定し、最後のテキストボックスのテキストと同じ外観にします。
+場合によっては、スライド上のテキストをプログラムで書式設定する必要があります。この記事では、最初のスライドにテキストが含まれるサンプルプレゼンテーションを、[VSTO](/slides/ja/net/format-text-using-vsto-and-aspose-slides-and-net/) または [Aspose.Slides for .NET](/slides/ja/net/format-text-using-vsto-and-aspose-slides-and-net/) を使用して読み取る方法を示します。コードは、スライド上の3番目のテキストボックスのテキストを書式設定し、最後のテキストボックスのテキストと同じ外観にします。
 
 {{% /alert %}} 
-## **テキストの書式設定**
-VSTO と Aspose.Slides の両方の方法は、以下の手順で実行されます。
+## **Formatting Text**
+VSTO と Aspose.Slides の両方の方法は、次の手順を実行します。
 
-1. 元のプレゼンテーションを開く。
+1. ソースプレゼンテーションを開く。
 1. 最初のスライドにアクセスする。
-1. 3 番目のテキストボックスにアクセスする。
-1. 3 番目のテキストボックス内のテキストの書式を変更する。
+1. 3番目のテキストボックスにアクセスする。
+1. 3番目のテキストボックス内のテキストの書式を変更する。
 1. プレゼンテーションをディスクに保存する。
 
-以下のスクリーンショットは、VSTO と Aspose.Slides for .NET のコードを実行した前後のサンプルスライドを示しています。
+以下のスクリーンショットは、VSTO および Aspose.Slides for .NET のコード実行前後のサンプルスライドを示しています。
 
-**入力プレゼンテーション** 
+**The input presentation** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_1.png)
-### **VSTO コード例**
-以下のコードは、VSTO を使用してスライド上のテキストを書き換える方法を示しています。
+### **VSTO Code Example**
+以下のコードは、VSTO を使用してスライド上のテキストを書式設定する方法を示しています。
 
-**VSTO で書式設定されたテキスト** 
+**The text reformatted with VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_2.png)
+
+
+
 ```c#
 //注: PowerPoint は上記のように定義された名前空間です
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 PowerPoint.Presentation pres = null;
 
-//プレゼンテーションを開く
+//Open the presentation
 pres = Globals.ThisAddIn.Application.Presentations.Open("c:\\source.ppt",
 	Microsoft.Office.Core.MsoTriState.msoFalse,
 	Microsoft.Office.Core.MsoTriState.msoFalse,
 	Microsoft.Office.Core.MsoTriState.msoTrue);
 
-//最初のスライドにアクセス
+//Access the first slide
 PowerPoint.Slide slide = pres.Slides[1];
 
-//3番目のシェイプにアクセス
+//Access the third shape
 PowerPoint.Shape shp = slide.Shapes[3];
 
-//テキストのフォントを Verdana に、サイズを 32 に変更
+//Change its text's font to Verdana and height to 32
 PowerPoint.TextRange txtRange = shp.TextFrame.TextRange;
 txtRange.Font.Name = "Verdana";
 txtRange.Font.Size = 32;
 
-//太字にする
+//Bolden it
 txtRange.Font.Bold = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//斜体にする
+//Italicize it
 txtRange.Font.Italic = Microsoft.Office.Core.MsoTriState.msoCTrue;
 
-//テキストの色を変更
+//Change text color
 txtRange.Font.Color.RGB = 0x00CC3333;
 
-//シェイプの背景色を変更
+//Change shape background color
 shp.Fill.ForeColor.RGB = 0x00FFCCCC;
 
-//水平方向に位置を変更
+//Reposition it horizontally
 shp.Left -= 70;
 
-//出力をディスクに保存
+//Write the output to disk
 pres.SaveAs("c:\\outVSTO.ppt",
 	PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
 	Microsoft.Office.Core.MsoTriState.msoFalse);
@@ -88,24 +90,30 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 
-
-### **Aspose.Slides for .NET の例**
+### **Aspose.Slides for .NET Example**
 Aspose.Slides でテキストを書式設定するには、テキストを書式設定する前にフォントを追加します。
 
-**Aspose.Slides で作成された出力プレゼンテーション** 
+**The output presentation created with Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-and-net_3.png)
-```c#
- //プレゼンテーションを開く
-Presentation pres = new Presentation("c:\\source.ppt");
 
-//最初のスライドにアクセス
+
+
+```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+ //Open the presentation
+Presentation pres = new Presentation("source.ppt");
+
+//Access the first slide
 ISlide slide = pres.Slides[0];
 
-//3番目のシェイプにアクセス
+//Access the third shape
 IShape shp = slide.Shapes[2];
 
-//テキストのフォントを Verdana に、サイズを 32 に変更
+//Change its text's font to Verdana and height to 32
 ITextFrame tf = ((IAutoShape)shp).TextFrame;
 IParagraph para = tf.Paragraphs[0];
 IPortion port = para.Portions[0];
@@ -113,21 +121,21 @@ port.PortionFormat.LatinFont = new FontData("Verdana");
 
 port.PortionFormat.FontHeight = 32;
 
-//太字にする
+//Bolden it
 port.PortionFormat.FontBold = NullableBool.True;
 
-//斜体にする
+//Italicize it
 port.PortionFormat.FontItalic = NullableBool.True;
 
-//テキストの色を変更
-//フォントの色を設定
+//Change text color
+//Set font color
 port.PortionFormat.FillFormat.FillType = FillType.Solid;
-port.PortionFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
+port.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(0x33, 0x33, 0xCC);
 
-//シェイプの背景色を変更
+//Change shape background color
 shp.FillFormat.FillType = FillType.Solid;
 shp.FillFormat.SolidFillColor.Color = Color.FromArgb(0xCC, 0xCC, 0xFF);
 
-//出力をディスクに保存
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Write the output to disk
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

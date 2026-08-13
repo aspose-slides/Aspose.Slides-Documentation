@@ -1,31 +1,45 @@
 ---
-title: API Público y Cambios Incompatibles con Versiones Anteriores en Aspose.Slides para Java 14.10.0
+title: Cambios de API pública y incompatibilidades retroactivas en Aspose.Slides for Java 14.10.0
+linktitle: Aspose.Slides for Java 14.10.0
 type: docs
 weight: 90
 url: /es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/
+keywords:
+- migración
+- código heredado
+- código moderno
+- enfoque heredado
+- enfoque moderno
+- PowerPoint
+- OpenDocument
+- presentación
+- Java
+- Aspose.Slides
+description: "Revisa las actualizaciones de la API pública y los cambios disruptivos en Aspose.Slides for Java para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Esta página enumera todas las [clases añadidas](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/), métodos, propiedades, etc., cualquier nueva restricción y otros [cambios](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) introducidos con la API de Aspose.Slides para Java 14.10.0.
+Esta página enumera todas las [añadidas](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) clases, métodos, propiedades y demás, cualquier nueva restricción y otros [cambios](/slides/es/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) introducidos con la API de Aspose.Slides for Java 14.10.0.
 
 {{% /alert %}} 
-## **Cambios en la API Pública**
+## **Cambios de la API pública**
 ### **Se ha añadido el método com.aspose.slides.FieldType.getFooter()**
-El método getFooter() devuelve el tipo de campo de pie de página. Se ha añadido para la implementación de la posibilidad de crear campos de este tipo y para la serialización válida de presentaciones.
-### **El elemento com.aspose.slides.ShapeElementFillSource.Own ha sido eliminado**
-El elemento ShapeElementFillSource.Own ha sido eliminado por ser duplicado. Usa ShapeElementFillSource.Shape en lugar de ShapeElementFillSource.Own.
-### **Se han añadido métodos para eliminar puntos de datos y categorías de gráficos**
-**Se han añadido los siguientes métodos, que permiten eliminar un punto de datos de un gráfico de una colección de puntos de datos de gráficos:**
+El método getFooter() devuelve el tipo de campo de pie de página. Se ha añadido para permitir la creación de campos de este tipo y para una serialización válida de la presentación.
+### **Se ha eliminado el elemento com.aspose.slides.ShapeElementFillSource.Own**
+El elemento ShapeElementFillSource.Own se ha eliminado por estar duplicado. Use ShapeElementFillSource.Shape en lugar de ShapeElementFillSource.Own.
+### **Se han añadido métodos para eliminar puntos de datos de gráficos y categorías**
+**Los siguientes métodos, que permiten eliminar un punto de datos de gráfico de una colección de puntos de datos, se han añadido:**
 
 IChartDataPointCollection.remove(IChartDataPoint)
 IChartDataPoint.remove()
 
-**Se ha añadido el siguiente método, que permite eliminar una categoría de gráfico de la colección contenedora:**
+**El siguiente método, que permite eliminar una categoría de gráfico de la colección contenedora, se ha añadido:**
 
 IChartCategory.remove()
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -46,11 +60,10 @@ for (IChartSeries ser : chart.getChartData().getSeries())
 }
 
 pres.save("presentation.pptx", SaveFormat.Pptx);
-
 ```
-### **Se han eliminado métodos obsoletos de Aspose.Slides.ParagraphFormat**
-Se han eliminado los métodos getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() y los correspondientes métodos de establecimiento. Fueron marcados como obsoletos hace mucho tiempo.
-### **Se han eliminado constructores innecesarios y obsoletos**
+### **Se han eliminado los métodos obsoletos de Aspose.Slides.ParagraphFormat**
+Los métodos getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() y los métodos set correspondientes se han eliminado. Fueron marcados como obsoletos hace mucho tiempo.
+### **Se han eliminado los constructores inútiles y obsoletos**
 Se han eliminado los siguientes constructores:
 
 com.aspose.slides.AlphaBiLevel(float)

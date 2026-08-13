@@ -1,106 +1,123 @@
 ---
-title: Vízjelek hozzáadása bemutatókhoz .NET-ben
-linktitle: Vízjel
+title: "Vízjelek hozzáadása prezentációkhoz .NET-ben"
+linktitle: "Vízjel"
 type: docs
 weight: 40
 url: /hu/net/watermark/
 keywords:
-- vízjel
-- szöveges vízjel
-- képes vízjel
-- vízjel hozzáadása
-- vízjel módosítása
-- vízjel eltávolítása
-- vízjel törlése
-- vízjel hozzáadása PPT-hez
-- vízjel hozzáadása PPTX-hez
-- vízjel hozzáadása ODP-hez
-- vízjel eltávolítása PPT-ből
-- vízjel eltávolítása PPTX-ből
-- vízjel eltávolítása ODP-ből
-- vízjel törlése PPT-ből
-- vízjel törlése PPTX-ből
-- vízjel törlése ODP-ből
-- PowerPoint
-- OpenDocument
-- bemutató
-- .NET
-- C#
-- Aspose.Slides
-description: "Kezelje a szöveges és képes vízjeleket PowerPoint és OpenDocument bemutatókban .NET környezetben, hogy jelezzenek vázlatot, bizalmas információkat, szerzői jogot és egyebeket."
+- "vízjel"
+- "szöveges vízjel"
+- "képes vízjel"
+- "vízjel hozzáadása"
+- "vízjel módosítása"
+- "vízjel eltávolítása"
+- "vízjel törlése"
+- "vízjel hozzáadása PPT-hez"
+- "vízjel hozzáadása PPTX-hez"
+- "vízjel hozzáadása ODP-hez"
+- "vízjel eltávolítása PPT-ből"
+- "vízjel eltávolítása PPTX-ből"
+- "vízjel eltávolítása ODP-ből"
+- "vízjel törlése PPT-ből"
+- "vízjel törlése PPTX-ből"
+- "vízjel törlése ODP-ből"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentáció"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Szöveges és képes vízjelek kezelése PowerPoint és OpenDocument prezentációkban .NET alatt, hogy vázlatot, bizalmas információt, szerzői jogot és egyebeket jelöljen."
 ---
 ## **Bevezetés**
 
-**A vízjel** egy bemutatóban egy szöveges vagy képes bélyeg, amely egy dián vagy az összes diámon használható. Általában akkor használják, ha a bemutató vázlat (például „Draft” vízjel), bizalmas információkat tartalmaz (például „Confidential” vízjel), meg kell határozni, melyik céghez tartozik (például „Company Name” vízjel), vagy a szerzőt szeretnénk azonosítani. A vízjel segít megelőzni a szerzői jogi jogsértéseket, mert jelzi, hogy a bemutatót nem szabad másolni. A vízjelek a PowerPoint és az OpenDocument bemutatóformátumokban egyaránt használhatók. Az Aspose.Slides segítségével vízjelet adhat hozzá a PowerPoint PPT, PPTX és az OpenDocument ODP fájlformátumokhoz.
+**A vízjel** egy prezentációban szöveges vagy képes pecsét, amely egy diára vagy az összes diára vonatkozik. Általában a vízjelet arra használják, hogy jelezzék, hogy a prezentáció vázlat (például „Draft” vízjel), bizalmas információt tartalmaz („Confidential” vízjel), megmutassák, melyik vállalathoz tartozik („Company Name” vízjel), azonosítsák a szerzőt stb. A vízjel segít megelőzni a szerzői jogok megsértését, mert jelzi, hogy a prezentációt nem szabad másolni. A vízjelek a PowerPoint és az OpenDocument prezentációformátumokban egyaránt használhatók. Az Aspose.Slides-ben hozzáadhat vízjelet PowerPoint PPT, PPTX és OpenDocument ODP fájlformátumokhoz.
 
-A [**Aspose.Slides**](https://products.aspose.com/slides/hu/net/) különféle módokat biztosít a vízjelek létrehozására PowerPoint vagy OpenDocument dokumentumokban, valamint a megjelenésük és viselkedésük testreszabására. A közös vonás, hogy szöveges vízjel hozzáadásához a [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) interfészt kell használni, képes vízjelhez pedig a [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/) osztályt vagy egy alakzat kitöltését képpel. A `PictureFrame` a [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape) interfészt valósítja meg, így a formaobjektum összes rugalmas beállítását használhatja. Mivel az `ITextFrame` nem alakzat, korlátozottabb beállításokkal rendelkezik, ezért egy [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape) objektumba van csomagolva.
+A [**Aspose.Slides**](https://products.aspose.com/slides/hu/net/) számos módot kínál vízjelek létrehozására PowerPoint vagy OpenDocument dokumentumokban, valamint azok megjelenésének és viselkedésének módosítására. A közös vonás, hogy szöveges vízjelek hozzáadásához a [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) interfészt kell használni, képes vízjelekhez pedig a [PictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/pictureframe/) osztályt vagy egy alakzat kitöltését képpel. A `PictureFrame` megvalósítja az [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape) interfészt, így a alakzat objektum összes rugalmas beállítását ki lehet használni. Mivel az `ITextFrame` nem alakzat, és a beállításai korlátozottak, egy [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape) objektumba van csomagolva.
 
-Két módon lehet vízjelet alkalmazni: egyetlen diára vagy az összes diához. A Slide Master használható a vízjel minden diára való alkalmazásához – a vízjelet a Slide Masterhez adjuk hozzá, ott teljesen megtervezzük, és minden diára alkalmazzuk anélkül, hogy befolyásolná a vízjel egyedi diákon való módosítási engedélyét.
+A vízjelet kétféleképpen lehet alkalmazni: egyetlen diára vagy az összes diához. A Dia Mester (Slide Master) használható a vízjel minden diára való alkalmazásához – a vízjelet a Slide Masterhez adjuk, ott teljesen megtervezzük, és minden diára kiterjesztjük, anélkül, hogy az egyedi diák vízjellel kapcsolatos módosítási engedélyét befolyásolná.
 
-A vízjelet általában nem szerkeszthetővé teszik más felhasználók számára. A vízjel (vagy inkább a vízjel szülő alakzata) szerkesztésének megakadályozására az Aspose.Slides alakzatzárolási funkciót kínál. Egy adott alakzatot lehet lezárni egy normál dián vagy egy Slide Masteren. Amikor a vízjel alakzat a Slide Masteren van lezárva, minden diához lezárva lesz.
+A vízjelet általában nem szabad szerkeszteni más felhasználók számára. A vízjel (pontosabban a vízjel szülőalakzata) szerkesztésének megakadályozásához az Aspose.Slides alakzatzárolási funkciót biztosít. Egy adott alakzat lezárható egy normál dián vagy a Slide Masteren. Ha a vízjel alakzat a Slide Masteren van lezárva, akkor minden diához lezárásra kerül.
 
-Beállíthat egy nevet a vízjelnek, hogy a jövőben, ha törölni szeretné, a név alapján megtalálja a dia alakzatai között.
+Beállíthat nevet a vízjelnek, így a jövőben, ha törölni szeretné, a név alapján megtalálható a diák alakzatai között.
 
-A vízjelet bármilyen módon megtervezheti; a gyakorlatban azonban a vízjeleknek gyakran közös jellemzői vannak, mint például a középre igazítás, forgatás, előre helyezés stb. Az alábbi példákban ezt fogjuk szemléltetni.
+A vízjelet bármilyen módon megtervezheti; általában közös jellemzői vannak, például középre igazítás, forgatás, előre helyezés stb. Az alábbi példákban bemutatjuk, hogyan használhatók ezek.
 
 ## **Szöveges vízjel**
 
 ### **Szöveges vízjel hozzáadása egy diához**
 
-Szöveges vízjel PPT, PPTX vagy ODP formátumban történő hozzáadásához először alakzatot adjon a diához, majd egy szövegkeretet ehhez az alakzathoz. A szövegkeretet a [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe) interfész képviseli. Ez a típus nem örököl a [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/)‑től, amely széles tulajdonságkészlettel rendelkezik a vízjel rugalmas elhelyezéséhez. Ezért a [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe) objektum egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) objektumba van becsomagolva. A vízjel szövegének alakzathoz való hozzáadásához használja a [AddTextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/methods/addtextframe) metódust az alábbiak szerint.
+A szöveges vízjel PPT, PPTX vagy ODP formátumban való hozzáadásához először alakzatot kell létrehozni a dián, majd ehhez a szövegkeretet hozzáadni. A szövegkeretet az [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe) interfész képviseli. Ez a típus nem öröklődik az [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/)‑tól, amely széles körű pozicionálási tulajdonságokat biztosít a vízjel rugalmas elhelyezéséhez. Ezért az [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe) objektum egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) objektumba van csomagolva. A vízjel szövegének alakzatra való felviteléhez használja az [AddTextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/methods/addtextframe) metódust, ahogyan az alább látható.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
-// Vízjelet ad a diára.
+// A vízjel hozzáadása a diára.
 IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="Lásd még" %}} 
+{{% alert color="info" title="Lásd még" %}} 
 - [Hogyan használjuk a TextFrame osztályt?](/slides/hu/net/text-formatting/)
 {{% /alert %}}
 
-### **Szöveges vízjel hozzáadása egy teljes bemutatóhoz**
+### **Szöveges vízjel hozzáadása egy teljes prezentációhoz**
 
-Ha egy szöveges vízjelet szeretne hozzáadni a teljes bemutatóhoz (azaz egyszerre az összes diára), adja hozzá a [MasterSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/masterslide/)-hez. A logika megegyezik a egyetlen diára történő vízjel hozzáadásával – hozzon létre egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) objektumot, majd a [AddTextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/methods/addtextframe) metódussal adja hozzá a vízjelet.
+Ha a teljes prezentációra (azaz egyszerre az összes diára) szeretne szöveges vízjelet hozzáadni, tegye azt a [MasterSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/masterslide/)‑hez. A logika ugyanaz, mint egyetlen diához való hozzáadásnál – hozzon létre egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) objektumot, majd az [AddTextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/methods/addtextframe) metódussal adja hozzá a vízjelet.
 
 ```cs
+using Aspose.Slides;
+
 string watermarkText = "CONFIDENTIAL";
 
 using Presentation presentation = new Presentation();
 IMasterSlide masterSlide = presentation.Masters[0];
 
-// Vízjelet ad a master diára.
+// A vízjel hozzáadása a mester diához.
 IAutoShape watermarkShape = masterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
 ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
-{{% alert color="primary" title="Lásd még" %}} 
+{{% alert color="info" title="Lásd még" %}} 
 - [Hogyan használjuk a Slide Master-t?](/slides/hu/net/slide-master/)
 {{% /alert %}}
 
 ### **A vízjel alakzat átlátszóságának beállítása**
 
-Alapértelmezés szerint a téglalap alakzat kitöltési és vonal színekkel van formázva. Ez azt jelenti, hogy a vízjel hozzáadása után szilárd háttérrel vagy kerettel jelenhet meg, ami elvonhatja a figyelmet a dia tartalmáról. A vízjel finom, visszafogott megjelenéséhez teljesen átlátszóvá teheti az alakzatot.
+Alapértelmezésben a téglalap alakzat kitöltési és vonalszínekkel van formázva. Ez azt jelenti, hogy a vízjel hozzáadása után szilárd háttérrel vagy kerettel jelenhet meg, ami elvonhatja a figyelmet a dia tartalmáról. A vízjel finom, a prezentáció vizuális tervezését ne befolyásoló megjelenéséhez a alakzat teljesen átlátszóvá tehető.
 
-Az alábbi kódrészlet eltávolítja mind a kitöltés, mind a keret színét, így átlátszóvá teszi az alakzatot:
+Az alábbi kódsorok átlátszóvá teszik az alakzatot, eltávolítva mind a kitöltés, mind a keretszínt:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.FillFormat.FillType = FillType.NoFill;
 watermarkShape.LineFormat.FillFormat.FillType = FillType.NoFill;
 ```
 
-### **Betűtípus beállítása egy szöveges vízjelhez**
+### **A szöveges vízjel betűtípusának beállítása**
 
-A szöveges vízjel diára történő alkalmazása előtt fontos testre szabni a megjelenését, hogy harmonizáljon a teljes dizájnnal. Megváltoztathatja a betűtípus típusát és méretét, hogy a vízjel jól olvasható és esztétikus legyen. A betűtípus testreszabása segíthet a márkaazonosító erősítésében vagy egyszerűen a bemutató stílusának illesztésében.
+Mielőtt a szöveges vízjelet a diára alkalmazná, fontos testre szabni a megjelenését, hogy harmonizáljon az általános dizájnnal. Megváltoztathatja a betűtípust és a méretet, hogy a vízjel jól olvasható és esztétikus legyen. A betűtípus testreszabása segíthet a márkaidentitás erősítésében vagy egyszerűen a prezentáció stílusához illeszkedhet.
 
-Az alábbi kódrészlet egy speciális latin betűtípust választ, és megfelelő betűmagasságot állít be a vízjelhez:
+Az alábbi kódrészlet bemutatja, hogyan állíthatja be a vízjel betűtípusát egy adott latin betűtípussal és megfelelő betűmagassággal:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
 textFormat.LatinFont = new FontData("Arial");
 textFormat.FontHeight = 50;
@@ -108,11 +125,19 @@ textFormat.FontHeight = 50;
 
 ### **A vízjel szövegszínének beállítása**
 
-A vízjel alkalmazása előtt fontos, hogy a szövegszín megfelelően legyen beállítva, hogy harmonizáljon a dia tartalmával anélkül, hogy elnyomná azt. A szín átlátszóságának (alfa) valamint a vörös, zöld és kék komponensek módosításával finom, félig átlátszó vízjelet hozhat létre, amely látható, de nem tolakodó. Ez a megközelítés segít a fő bemutató fókuszának megtartásában, miközben mégis védi a tartalmat.
+Mielőtt alkalmazná a vízjelet, fontos, hogy a szövegszín megfelelően legyen beállítva, így jól illeszkedik a dia tartalmához anélkül, hogy elnyomná azt. A szín átlátszóságának (alpha) valamint a vörös, zöld és kék komponensek módosításával finom, félig átlátszó vízjelet hozhat létre, amely látható, de nem tolakodó. Ez a megközelítés segít a fő prezentációra koncentrálni, miközben megvédi a tartalmat.
 
-A vízjel szövegének színét az alábbi kóddal állíthatja be:
+A vízjel szövegszínének beállításához használja a következő kódot:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.AddTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
@@ -122,11 +147,19 @@ fillFormat.SolidFillColor.Color = Color.FromArgb(alpha, red, green, blue);
 
 ### **Szöveges vízjel középre helyezése**
 
-A szöveges vízjel megfelelő középre helyezése jelentősen javíthatja a bemutató esztétikáját, mivel a vízjel szimmetrikusan helyezkedik el, függetlenül a dia méreteitől. Ez a megközelítés professzionális megjelenést kölcsönöz a diáknak, és biztosítja, hogy a vízjel ne zavarja meg a fő tartalmat.
+A szöveges vízjel megfelelő középre helyezése jelentősen javíthatja a prezentáció esztétikáját, mivel a vízjel szimmetrikusan helyezkedik el a dia méreteitől függetlenül. Ez a megközelítés professzionális megjelenést kölcsönöz, miközben a vízjel nem zavarja a dia fő tartalmát.
 
-Az alábbi kódrészlet kiszámítja a dia középpontját, és ennek megfelelően helyezi el a szöveges vízjelet:
+Az alábbi kódrészlet bemutatja, hogyan számítható ki a dia középpontja, és hogyan helyezhető el a szöveges vízjel ennek megfelelően:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+string watermarkText = "CONFIDENTIAL";
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 SizeF slideSize = presentation.SlideSize.Size;
 
 float watermarkWidth = 400;
@@ -146,11 +179,17 @@ Az alábbi kép mutatja a végső eredményt.
 
 ## **Képes vízjel**
 
-### **Képes vízjel hozzáadása egy bemutatóhoz**
+### **Képes vízjel hozzáadása egy prezentációhoz**
 
-Sok esetben a képes vízjel egyedi márkanevet vagy vizuálisan vonzóbb alternatívát nyújt a szöveges vízjel helyett. A vízjel hozzáadása előtt győződjön meg arról, hogy a képfájl elérhető (például PNG a transparenciához). Az alábbi példa bemutatja, hogyan töltsön be egy képet a fájlrendszerből, adja hozzá a bemutatóhoz, majd alkalmazza vízjelként az alakzat kitöltési tulajdonságaival.
+Sok esetben a képes vízjel egyedi márkaelemet vagy vizuálisan vonzóbb alternatívát nyújt a szöveges vízjelhez képest. A vízjel hozzáadása előtt győződjön meg arról, hogy a képfájl rendelkezésre áll (például PNG a transparent háttérhez). Az alábbi példa bemutatja, hogyan töltsön be egy képet a fájlrendszerből, adja hozzá a prezentációhoz, majd alakzat kitöltési tulajdonságai segítségével alkalmazza vízjelként.
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 using FileStream imageStream = File.OpenRead("watermark.png");
 IPPImage image = presentation.Images.AddImage(imageStream);
 
@@ -159,12 +198,18 @@ watermarkShape.FillFormat.PictureFillFormat.Picture.Image = image;
 watermarkShape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 ```
 
-## **Vízjel szerkesztés elleni zárolása**
+## **Vízjel zárolása a szerkesztéstől**
 
-Ha meg kell akadályozni a vízjel szerkesztését, használja a [IAutoShape.ShapeLock](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/properties/shapelock) tulajdonságot az alakzaton. Ezzel a tulajdonsággal megvédheti az alakzatot a kiválasztástól, átméretezéstől, áthelyezéstől, más elemekkel való csoportosítástól, a szöveg szerkesztésének zárolásától és még sok mástól:
+Ha szükséges megakadályozni a vízjel szerkesztését, használja az alakzat [IAutoShape.ShapeLock](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/properties/shapelock) tulajdonságát. Ezzel a tulajdonsággal megvédheti az alakzatot a kiválasztástól, átméretezéstől, áthelyezéstől, csoportosítástól, szöveg szerkesztésének tiltásától és sok mástól:
 
 ```cs
-// Zárolja a vízjel alakzatot a módosítástól.
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+// Zárolja a vízjel alakzat módosítását.
 watermarkShape.ShapeLock.SelectLocked = true;
 watermarkShape.ShapeLock.SizeLocked = true;
 watermarkShape.ShapeLock.TextLocked = true;
@@ -174,18 +219,33 @@ watermarkShape.ShapeLock.GroupingLocked = true;
 
 ## **Vízjel előre hozása**
 
-Az Aspose.Slides-ben az alakzatok Z-sorrendjét a [IShapeCollection.Reorder](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/reorder/#reorder) metódussal állíthatja be. Ehhez a metódust a bemutató diái listájáról kell meghívni, és átadni az alakzat referenciáját és a kívánt sorrend számmát. Így egy alakzat előre hozható vagy hátra küldhető a dián. Ez a funkció különösen hasznos, ha a vízjelet a bemutató előterébe szeretné helyezni:
+Az Aspose.Slides-ben az alakzatok Z-sorrendje a [IShapeCollection.Reorder](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/reorder/#reorder) metódussal állítható be. Ehhez a metódust a prezentáció diáink listájáról kell meghívni, és átadni az alakzat hivatkozását valamint a kívánt sorrendszámot. Így egy alakzat előre hozható a diához, vagy a háttérbe küldhető. Ez a funkció különösen hasznos, ha a vízjelet a prezentáció elé szeretné helyezni:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.Shapes.Count;
 slide.Shapes.Reorder(shapeCount - 1, watermarkShape);
 ```
 
 ## **Vízjel forgatásának beállítása**
 
-A vízjel forgatásának beállítása jelentősen fokozhatja a bemutató vizuális hatását és finomságát. Például egy átlós vízjel kevésbé tolakodó lehet, miközben erős védelmet nyújt a jogosulatlan felhasználás ellen. Az alábbi példa a dia méretei alapján számítja ki a megfelelő szöget, hogy a vízjel átlósan helyezkedjen el a dián. Ez a dinamikus számítás biztosítja, hogy a vízjel hatékony maradjon a különböző dia méretek esetén is.
+A vízjel forgatásának módosítása jelentősen fokozhatja a prezentáció vizuális hatását és finomságát. Például egy átlós vízjel kevésbé zavaró, miközben hatékony védelmet nyújt a jogosulatlan felhasználás ellen. Az alábbi példa a dia mérete alapján számítja ki a megfelelő szöget, hogy a vízjel átlósan helyezkedjen el a dián. Ez a dinamikus számítás biztosítja, hogy a vízjel hatékony marad a különböző dia méretek esetén is.
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+SizeF slideSize = presentation.SlideSize.Size;
+
 double diagonalAngle = Math.Atan((slideSize.Height / slideSize.Width)) * 180 / Math.PI;
 
 watermarkShape.Rotation = (float)diagonalAngle;
@@ -193,55 +253,66 @@ watermarkShape.Rotation = (float)diagonalAngle;
 
 ## **Vízjel nevének beállítása**
 
-Az Aspose.Slides lehetővé teszi egy alakzat nevének beállítását. A forma név használatával a jövőben könnyen megtalálhatja, módosíthatja vagy törölheti azt. A vízjel alakzat nevének beállításához rendelje hozzá a [IAutoShape.Name](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/properties/name) tulajdonságot:
+Az Aspose.Slides lehetővé teszi egy alakzat nevének beállítását. A név használatával a jövőben elérhető a vízjel alakzata módosításra vagy törlésre. A vízjel alakzat nevének beállításához adja meg a [IAutoShape.Name](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/properties/name) tulajdonságot:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+IAutoShape watermarkShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.Name = "watermark";
 ```
 
 ## **Vízjel eltávolítása**
 
-A vízjel alakzat eltávolításához használja a [IAutoShape.Name](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/properties/name) tulajdonságot a dia alakzatai között való megtaláláshoz. Ezután adja át a vízjel alakzatot a [IShapeCollection.Remove](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/remove/) metódusnak:
+A vízjel alakzat eltávolításához használja a [IAutoShape.Name](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/properties/name) tulajdonságot a dia alakzatai közül történő megtalálásához. Ezután adja át a vízjel alakzatot az [IShapeCollection.Remove](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/remove/) metódusnak:
 
 ```cs
+using Aspose.Slides;
+
+using Presentation presentation = new Presentation();
+ISlide slide = presentation.Slides[0];
+
 List<IShape> slideShapes = slide.Shapes.ToList();
 foreach (IShape shape in slideShapes)
 {
     if (string.Compare(shape.Name, "watermark", StringComparison.Ordinal) == 0)
     {
-        slide.Shapes.Remove(watermarkShape);
+        slide.Shapes.Remove(shape);
     }
 }
 ```
 
 ## **Élő példa**
 
-Érdemes kipróbálni az **Aspose.Slides ingyenes** [Vízjel hozzáadása](https://products.aspose.app/slides/hu/watermark) és [Vízjel eltávolítása](https://products.aspose.app/slides/hu/watermark/remove-watermark) online eszközeit.
+Érdemes megtekinteni az **Aspose.Slides ingyenes** [Add Watermark](https://products.aspose.app/slides/hu/watermark) és [Remove Watermark](https://products.aspose.app/slides/hu/watermark/remove-watermark) online eszközöket.
 
-![Online eszközök a vízjelek hozzáadásához és eltávolításához](online_tools.png)
+![Online eszközök vízjelek hozzáadásához és eltávolításához](online_tools.png)
 
 ## **GYIK**
 
-**Mi az a vízjel, és miért kellene használnom?**
+### Mi a vízjel és miért kellene használnom?
 
-A vízjel egy szöveges vagy képes átfedés, amelyet a diákkra helyeznek, hogy megvédje a szellemi tulajdont, erősítse a márka felismerhetőségét, vagy megakadályozza a bemutatók jogosulatlan használatát.
+A vízjel egy szöveges vagy képes átfedés, amelyet a diákra alkalmaznak az értelmi tulajdon védelme, a márkaerősség növelése vagy a prezentációk jogosulatlan használatának megakadályozása érdekében.
 
-**Hozzáadhatok vízjelet az összes diához egy bemutatóban?**
+### Hozzáadhatok vízjelet az összes diához egy prezentációban?
 
-Igen, az Aspose.Slides programozottan képes vízjelet hozzáadni minden diához egy bemutatóban. A diákon iterálva egyenként alkalmazhatja a vízjel beállításait.
+Igen, az Aspose.Slides programozott módon képes vízjelet hozzáadni minden diához a prezentációban. Végigiterálhat az összes dián, és egyenként alkalmazhatja a vízjel beállításait.
 
-**Hogyan állíthatom be a vízjel átlátszóságát?**
+### Hogyan állíthatom be a vízjel átlátszóságát?
 
-A vízjel átlátszóságát a forma kitöltési beállításainak ([FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/fillformat/)) módosításával szabályozhatja. Így a vízjel finom marad, és nem vonja el a figyelmet a dia tartalmáról.
+Az átlátszóságot a forma kitöltési beállításainak ([FillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/shape/fillformat/)) módosításával szabályozhatja. Ez biztosítja, hogy a vízjel finom legyen és ne vonja el a figyelmet a dia tartalmáról.
 
-**Milyen képformátumok támogatottak a vízjelekhez?**
+### Milyen képformátumok támogatottak a vízjelekhez?
 
-Az Aspose.Slides számos képformátumot támogat, például PNG, JPEG, GIF, BMP, SVG és még sok más.
+Az Aspose.Slides különféle képformátumokat támogat, például PNG, JPEG, GIF, BMP, SVG és továbbiakat.
 
-**Testreszabhatom a szöveges vízjel betűtípusát és stílusát?**
+### Testreszabhatom a szöveges vízjel betűtípusát és stílusát?
 
-Igen, választania bármilyen betűtípust, méretet és stílust, amely illeszkedik a bemutató tervezéséhez és fenntartja a márka konzisztenciáját.
+Igen, választhat tetszőleges betűtípust, méretet és stílust, hogy illeszkedjen a prezentáció tervezéséhez és megőrizze a márka konzisztenciáját.
 
-**Hogyan változtathatom meg a vízjel pozícióját vagy tájolását?**
+### Hogyan változtathatom meg a vízjel pozícióját vagy orientációját?
 
-Programozottan módosíthatja a vízjel pozícióját és tájolását az alakzat koordinátáinak, méretének és forgatás tulajdonságainak beállításával.
+A pozíciót és orientációt programozottan módosíthatja az alakzat koordinátáinak, méretének és forgatási tulajdonságainak módosításával.

@@ -1,5 +1,5 @@
 ---
-title: Konfiguracja kolekcji czcionek zastępczych w języku Java
+title: Konfiguracja kolekcji czcionek zastępczych w Javie
 linktitle: Kolekcja czcionek zastępczych
 type: docs
 weight: 20
@@ -9,33 +9,35 @@ keywords:
 - reguła zastępcza
 - kolekcja czcionek
 - konfiguracja czcionki
-- ustawienie czcionki
+- ustawianie czcionki
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Utwórz kolekcję czcionek zastępczych w Aspose.Slides dla języka Java, aby tekst w prezentacjach PowerPoint i OpenDocument był spójny i wyraźny."
+description: "Ustaw kolekcję czcionek zastępczych w Aspose.Slides dla Javy, aby tekst był spójny i wyraźny w prezentacjach PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia skonfigurowanie kolekcji reguł zastępczych czcionek dla prezentacji. Każda reguła zastępcza jest reprezentowana przez klasę `FontFallBackRule` i może być dodana do `FontFallBackRulesCollection`, które implementuje interfejs `IFontFallBackRulesCollection`.
+Aspose.Slides umożliwia skonfigurowanie zbioru reguł zastępczych czcionek dla prezentacji. Każda reguła zastępcza jest reprezentowana przez klasę `FontFallBackRule` i może być dodana do `FontFallBackRulesCollection`, który implementuje interfejs `IFontFallBackRulesCollection`.
 
-Po utworzeniu kolekcji możesz przypisać ją do właściwości `FontFallBackRulesCollection` obiektu `FontsManager` prezentacji. `FontsManager` kontroluje czcionki w całej prezentacji, a każda instancja `Presentation` posiada własny `FontsManager`.
+Po utworzeniu kolekcji można ją przypisać do właściwości `FontFallBackRulesCollection` menedżera czcionek prezentacji `FontsManager`. `FontsManager` kontroluje czcionki w całej prezentacji, a każda instancja `Presentation` ma własny `FontsManager`.
 
-Gdy `FontsManager` zostanie zainicjowany kolekcją czcionek zastępczych, określone czcionki zastępcze są stosowane podczas renderowania prezentacji.
+Gdy `FontsManager` zostanie zainicjowany z kolekcją zastępczych czcionek, określone czcionki zastępcze są stosowane podczas renderowania prezentacji.
 
 ## **Zastosowanie reguł zastępczych**
 
-Instancje klasy [FontFallBackRule](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FontFallBackRule) można zorganizować w [FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FontFallBackRulesCollection), które implementuje interfejs [IFontFallBackRulesCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IFontFallBackRulesCollection). Można dodawać i usuwać reguły z tej kolekcji.
+Instancje klasy [FontFallBackRule](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FontFallBackRule) mogą być organizowane w [FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FontFallBackRulesCollection), który implementuje interfejs [IFontFallBackRulesCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IFontFallBackRulesCollection). Można dodać lub usunąć reguły z kolekcji.
 
 Następnie tę kolekcję można przypisać do metody [FontFallBackRulesCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FontFallBackRulesCollection) klasy [FontsManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FontsManager). `FontsManager` kontroluje czcionki w całej prezentacji.
 
 Każdy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation) posiada metodę [getFontsManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation#getFontsManager--) zwracającą własną instancję klasy [FontsManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/FontsManager).
 
-Poniżej znajduje się przykład, jak utworzyć kolekcję reguł czcionek zastępczych i przypisać ją do [FontsManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation#getFontsManager--) określonej prezentacji:  
+Poniżej znajduje się przykład, jak utworzyć kolekcję reguł zastępczych czcionek i przypisać ją do [FontsManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/Presentation#getFontsManager--) określonej prezentacji:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -51,24 +53,24 @@ try {
 
 Po zainicjowaniu `FontsManager` kolekcją czcionek zastępczych, czcionki zastępcze są stosowane podczas renderowania prezentacji.
 
-{{% alert color="primary" %}} 
-Dowiedz się więcej, jak [Renderowanie prezentacji z czcionką zastępczą](/slides/pl/java/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Przeczytaj więcej o tym, jak [Renderować prezentację z czcionką zastępczą](/slides/pl/java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy moje reguły zastępcze zostaną zapisane w pliku PPTX i będą widoczne w programie PowerPoint po zapisaniu?**
+### Czy moje reguły zastępcze zostaną osadzone w pliku PPTX i będą widoczne w PowerPoint po zapisaniu?
 
-Nie. Reguły zastępcze są ustawieniami renderowania w czasie wykonywania; nie są serializowane do pliku PPTX i nie pojawią się w interfejsie PowerPointa.
+Nie. Reguły zastępcze są ustawieniami renderowania w czasie wykonywania; nie są serializowane do PPTX i nie będą widoczne w interfejsie PowerPoint.
 
-**Czy zasada zastępcza ma zastosowanie do tekstu wewnątrz SmartArt, WordArt, wykresów i tabel?**
+### Czy zastępstwo dotyczy tekstu wewnątrz SmartArt, WordArt, wykresów i tabel?
 
-Tak. Ten sam mechanizm podstawiania glifów jest używany dla wszelkiego tekstu w tych obiektach.
+Tak. Ten sam mechanizm podmiany glifów jest używany dla wszelkiego tekstu w tych obiektach.
 
-**Czy Aspose dostarcza jakiekolwiek czcionki wraz z biblioteką?**
+### Czy Aspose dystrybuuje jakiekolwiek czcionki wraz z biblioteką?
 
 Nie. Czcionki dodajesz i używasz po swojej stronie i na własną odpowiedzialność.
 
-**Czy zamiana/substitucja brakujących czcionek oraz zasada zastępcza dla brakujących glifów mogą być używane jednocześnie?**
+### Czy zastąpienie/podmiana brakujących czcionek oraz zastępstwo brakujących glifów można stosować jednocześnie?
 
-Tak. Są to niezależne etapy tego samego potoku rozwiązywania czcionek: najpierw silnik rozwiązuje dostępność czcionek ([replacement](/slides/pl/java/font-replacement/)/[substitution](/slides/pl/java/font-substitution/)), potem zasada zastępcza wypełnia luki dla brakujących glifów w dostępnych czcionkach.
+Tak. Są to niezależne etapy tego samego potoku rozwiązywania czcionek: najpierw silnik rozwiązuje dostępność czcionek ([replacement](/slides/pl/java/font-replacement/)/[substitution](/slides/pl/java/font-substitution/)), a następnie zastępstwo wypełnia luki brakujących glifów w dostępnych czcionkach.

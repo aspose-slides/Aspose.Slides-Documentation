@@ -1,54 +1,57 @@
 ---
-title: "Sunum Slayt Boyutunu .NET'te Değiştirme"
-linktitle: "Slayt Boyutu"
+title: Sunum Slayt Boyutunu .NET'te Değiştirme
+linktitle: Slayt Boyutu
 type: docs
 weight: 70
 url: /tr/net/slide-size/
 keywords:
-- "slayt boyutu"
-- "en‑boy oranı"
-- "standart"
-- "geniş ekran"
-- "4:3"
-- "16:9"
-- "slayt boyutunu ayarla"
-- "slayt boyutunu değiştir"
-- "özelleştirilmiş slayt boyutu"
-- "özel slayt boyutu"
-- "benzersiz slayt boyutu"
-- "tam boyutlu slayt"
-- "ekran tipi"
-- "ölçekleme yapma"
-- "uygunluğu sağla"
-- "büyüt"
-- "PowerPoint"
-- "OpenDocument"
-- "sunum"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-descriptions: "PPT, PPTX ve ODP dosyalarında slaytları .NET ve Aspose.Slides ile nasıl hızlıca yeniden boyutlandıracağınızı öğrenin, kalite kaybı olmadan herhangi bir ekran için sunumları optimize edin."
+- slayt boyutu
+- en/boy oranı
+- standart
+- geniş ekran
+- 4:3
+- 16:9
+- slayt boyutunu ayarla
+- slayt boyutunu değiştir
+- özel slayt boyutu
+- özel slayt boyutu
+- benzersiz slayt boyutu
+- tam boyutlu slayt
+- ekran türü
+- ölçeklendirme yok
+- uygun şekilde sığdır
+- büyüt
+- PowerPoint
+- OpenDocument
+- sunum
+- .NET
+- C#
+- Aspose.Slides
+description: "PPT, PPTX ve ODP dosyalarında .NET ve Aspose.Slides ile slaytları hızlıca yeniden boyutlandırmayı, kaliteden ödün vermeden herhangi bir ekrana uyacak şekilde sunumları optimize etmeyi öğrenin."
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET, PowerPoint sunumlarında slayt boyutunu ve en‑boy oranını ayarlamak için kapsamlı araçlar sağlar; bu, hem baskı hem de ekran görüntüsü için kritiktir.
+Aspose.Slides for .NET, PowerPoint sunumlarında slayt boyutunu ve en/boy oranını ayarlamak için kapsamlı araçlar sunar; bu, hem baskı hem de ekran görüntüsü için kritiktir. 
 
 Popüler Slayt Boyutları ve Oranları:
 
-- **Standard (4:3 En‑Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
-- **Widescreen (16:9 En‑Boy Oranı)**: Modern projektörler ve ekranlar için önerilir.
+- **Standard (4:3 En/Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
+- **Geniş Ekran (16:9 En/Boy Oranı)**: Modern projektörler ve ekranlar için önerilir.
 
-Sunumunuz boyunca tutarlılığı sağlamak için tüm slaytlara tek bir slayt boyutu ve en‑boy oranı uygulanır. En iyi sonuçlar için slayt boyutlarınızı sunum oluşturma sürecinin başında belirleyin, böylece komplikasyonlardan kaçınabilirsiniz.
+Sunumunuz boyunca tutarlılığı sağlamak için tek bir slayt boyutu ve en/boy oranı tüm slaytlara uygulanır. En iyi sonuçlar için, karmaşayı önlemek amacıyla sunum oluşturma sürecinin başında slayt boyutlarınızı ayarlayın.
 
-{{% alert color="primary" %}} 
-Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en‑boy oranını kullanır.
+{{% alert color="info" %}} 
+Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en/boy oranını kullanır.
 {{% /alert %}}
 
-## **Bir Sunumda Slayt Boyutunu Değiştirme**
+## **Bir Sunumda Slayt Boyutunu Nasıl Değiştirilir**
 
-Bu örnek, C# içinde Aspose.Slides kullanarak bir sunumun slayt boyutunu değiştirmeyi gösterir:
+Bu örnek, C#'ta Aspose.Slides kullanarak bir sunumun slayt boyutunu değiştirmeyi gösterir:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 {
     pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
@@ -56,11 +59,14 @@ using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 }
 ```
 
-## **Özel Slayt Boyutlarını Belirleme**
+## **Özel Slayt Boyutlarını Belirtme**
 
-Slayt boyutunu, benzersiz kağıt düzenleri veya ekran özellikleri gibi özel ihtiyaçlarınıza göre özelleştirmek faydalı olabilir. İşte Aspose.Slides for .NET ile özel bir slayt boyutu ayarlamanın yolu:
+Slayt boyutunu, benzersiz kağıt düzenleri veya ekran özellikleri gibi belirli ihtiyaçlarınıza göre uyarlamak faydalı olabilir. Aspose.Slides for .NET ile özel bir slayt boyutu ayarlamanın yolu aşağıdadır:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 kağıt boyutu
@@ -72,13 +78,15 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 
 Yeniden boyutlandırmadan sonra slayt içerikleri bozulabilir. Aspose.Slides'in bu yeniden boyutlandırmayı nasıl yöneteceğini kontrol edebilirsiniz:
 
-- **`DoNotScale`**: Nesneleri orijinal boyutlarında tutarak ölçeklendirmeyi önler.
-- **`EnsureFit`**: Nesneleri daha küçük slaytlara sığacak şekilde ölçeklendirir, içerik kaybını önler.
+- **`DoNotScale`**: Nesneleri ölçeklendirmeyi önlemek için orijinal boyutlarında tutar.
+- **`EnsureFit`**: Nesneleri daha küçük slaytlara sığdırmak için ölçeklendirir, içerik kaybını önler.
 - **`Maximize`**: Daha büyük slaytlara uyacak şekilde nesneleri büyütür, estetik tutarlılık sağlar.
 
 `Maximize` ayarını kullanarak slayt boyutu ayarlama örneği:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
    pres.SlideSize.SetSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -87,18 +95,18 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 
 ## **SSS**
 
-**İnç dışında birim kullanarak (örneğin, puan veya milimetre) özel bir slayt boyutu ayarlayabilir miyim?**
+### İnç dışındaki birimler (örneğin, puant ya da milimetre) kullanarak özel bir slayt boyutu ayarlayabilir miyim?
 
-Evet. Aspose.Slides dahili olarak puan birimini kullanır; 1 puan bir inçin 1/72'sine eşittir. Milimetre veya santimetre gibi herhangi bir birimi puana dönüştürerek slayt genişliğini ve yüksekliğini tanımlamak için kullanabilirsiniz.
+Evet. Aspose.Slides dahili olarak puant kullanır; 1 puant 1/72 inçtir. Herhangi bir birimi (örneğin milimetre ya da santimetre) puanta dönüştürüp, dönüştürülmüş değerleri slayt genişliği ve yüksekliğini tanımlamak için kullanabilirsiniz.
 
-**Çok büyük bir özel slayt boyutu, renderleme sırasında performans ve bellek kullanımını etkiler mi?**
+### Çok büyük bir özel slayt boyutu, oluşturma sırasında performansı ve bellek kullanımını etkiler mi?
 
-Evet. Daha büyük slayt boyutları (puan cinsinden) ve yüksek render ölçeği birleştirildiğinde bellek tüketimi artar ve işlem süresi uzar. Pratik bir slayt boyutu hedefleyin ve istenen çıktı kalitesine ulaşmak için yalnızca gerektiğinde render ölçeğini ayarlayın.
+Evet. Daha büyük slayt boyutları (puant cinsinden) ve yüksek oluşturma ölçeği, bellek tüketimini artırır ve işleme süresini uzatır. Pratik bir slayt boyutu hedefleyin ve istenen çıktı kalitesine ulaşmak için yalnızca gerektiğinde oluşturma ölçeğini ayarlayın.
 
-**Tek bir standart dışı slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?**
+### Tek bir standart dışı slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?
 
-Slayt boyutları farklı olduğu sürece [sunumları birleştiremezsiniz](/slides/tr/net/merge-presentation/) — önce bir sunumu diğerine uyacak şekilde yeniden boyutlandırın. Slayt boyutunu değiştirirken mevcut içeriğin nasıl işleneceğini [SlideSizeScaleType](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizescaletype/) seçeneği ile seçebilirsiniz. Boyutları hizaladıktan sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
+Farklı slayt boyutlarına sahip oldukları sürece [sunumları birleştirme](/slides/tr/net/merge-presentation/) yapılamaz — önce bir sunumu diğerine uyduracak şekilde yeniden boyutlandırın. Slayt boyutunu değiştirirken, mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizescaletype/) seçeneğiyle seçebilirsiniz. Boyutlar hizalandıktan sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
 
-**Bireysel şekiller veya bir slaydın belirli bölgeleri için küçük resimler oluşturabilir miyim ve bunlar yeni slayt boyutuna saygı gösterir mi?**
+### Tek tek şekiller veya bir slaydın belirli bölgeleri için küçük resimler oluşturabilir miyim ve yeni slayt boyutuna uyacaklar mı?
 
-Evet. Aspose.Slides, [tüm slaytlar](https://reference.aspose.com/slides/tr/net/aspose.slides/slide/getimage/) ve ayrıca [seçili şekiller](https://reference.aspose.com/slides/tr/net/aspose.slides/shape/getimage/) için küçük resimler oluşturabilir. Oluşan görüntüler mevcut slayt boyutu ve en‑boy oranını yansıtır, tutarlı çerçeveleme ve geometriyi garanti eder.
+Evet. Aspose.Slides, [tüm slaytlar]https://reference.aspose.com/slides/tr/net/aspose.slides/slide/getimage/ ve ayrıca [seçili şekiller]https://reference.aspose.com/slides/tr/net/aspose.slides/shape/getimage/ için küçük resimler oluşturabilir. Oluşan görseller mevcut slayt boyutunu ve en/boy oranını yansıtarak tutarlı çerçeveleme ve geometriyi sağlar.

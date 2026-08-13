@@ -1,5 +1,5 @@
 ---
-title: Změna velikosti snímku prezentace v jazyce Java
+title: Změna velikosti snímku prezentace v Javě
 linktitle: Velikost snímku
 type: docs
 weight: 70
@@ -15,7 +15,7 @@ keywords:
 - změnit velikost snímku
 - vlastní velikost snímku
 - speciální velikost snímku
-- unikátní velikost snímku
+- jedinečná velikost snímku
 - plnoformátový snímek
 - typ obrazovky
 - neškálovat
@@ -26,74 +26,80 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-descriptions: "Zjistěte, jak rychle změnit velikost snímků v souborech PPT, PPTX a ODP pomocí Javy a Aspose.Slides, optimalizovat prezentace pro jakoukoli obrazovku bez ztráty kvality."
+description: "Naučte se rychle měnit velikost snímků v souborech PPT, PPTX a ODP pomocí Javy a Aspose.Slides, optimalizujte prezentace pro jakoukoli obrazovku bez ztráty kvality."
 ---
-## **Úvod**
+## **Introduction**
 
-Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímků a poměru stran v prezentacích PowerPoint, což je klíčové jak pro tisk, tak pro zobrazení na obrazovce. 
+Aspose.Slides poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je kritické jak pro tisk, tak pro zobrazování na obrazovce.
 
-Oblíbené velikosti snímků a poměry:
+Popular Slide Sizes and Ratios:
 
-- **Standard (poměr stran 4:3)**: Ideální pro starší obrazovky a zařízení.
-- **Širokoúhlý (poměr stran 16:9)**: Doporučeno pro moderní projektory a displeje.
+- **Standard (4:3 Aspect Ratio)**: Ideální pro starší monitory a zařízení.
+- **Widescreen (16:9 Aspect Ratio)**: Doporučeno pro moderní projektory a displeje.
 
-Zajistěte konzistenci po celé prezentaci, protože jediná velikost snímku a poměr stran se vztahuje na všechny snímky. Pro optimální výsledky nastavte rozměry snímku na začátku tvorby prezentace, abyste předešli komplikacím.
+Zajistěte konzistenci v celé prezentaci, protože jedna velikost snímku a poměr stran se vztahují na všechny snímky. Pro optimální výsledek nastavte rozměry snímku na začátku tvorby prezentace, abyste se vyhnuli komplikacím.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Ve výchozím nastavení používají prezentace vytvořené pomocí Aspose.Slides standardní poměr stran 4:3.
 {{% /alert %}}
 
-## **Změna velikosti snímku v prezentacích**
+## **Change the Slide Size in Presentations**
 
-Tento ukázkový kód ukazuje, jak změnit velikost snímku v prezentaci v jazyce Java pomocí Aspose.Slides:
+Tento ukázkový kód vám ukazuje, jak změnit velikost snímku v prezentaci v jazyce Java pomocí Aspose.Slides:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
+    pres.save("pres-16x9-aspect-ratio.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Určení vlastních velikostí snímků v prezentacích**
+## **Specify Custom Slide Sizes in Presentations**
 
-Pokud považujete běžné velikosti snímků (4:3 a 16:9) za nevhodné pro svou práci, můžete se rozhodnout použít konkrétní nebo jedinečnou velikost snímku. Například pokud plánujete vytisknout snímky v plné velikosti z prezentace na vlastní rozvržení stránky nebo pokud chcete prezentaci zobrazit na určitých typech obrazovek, pravděpodobně vám prospěje nastavení vlastní velikosti pro vaši prezentaci.
+Pokud vám běžné velikosti snímků (4:3 a 16:9) nevyhovují, můžete se rozhodnout použít konkrétní nebo jedinečnou velikost snímku. Například pokud plánujete tisknout snímky v plné velikosti z vaší prezentace na vlastní rozvržení stránky nebo pokud chcete zobrazovat prezentaci na určitých typech obrazovek, pravděpodobně získáte výhodu z nastavení vlastní velikosti pro vaši prezentaci.
 
-Tento ukázkový kód ukazuje, jak pomocí Aspose.Slides pro Java určit vlastní velikost snímku pro prezentaci v jazyce Java:
+Tento ukázkový kód vám ukazuje, jak pomocí Aspose.Slides pro Java zadat vlastní velikost snímku pro prezentaci v jazyce Java:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
-    pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // velikost papíru A4
+    pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // Velikost papíru A4
     pres.save("pres-a4-slide-size.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Zpracování obsahu snímku po změně velikosti**
+## **Handle Slide Content After Resizing**
 
-Po změně velikosti snímku v prezentaci může dojít k deformaci obsahu snímků (například obrázků nebo objektů). Ve výchozím nastavení jsou objekty automaticky přizpůsobeny tak, aby vyplnily novou velikost snímku. Při změně velikosti snímku však můžete určit nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.
+Po změně velikosti snímku v prezentaci se může obsah snímků (obrázky nebo objekty) zkreslit. Ve výchozím nastavení jsou objekty automaticky změněny tak, aby odpovídaly nové velikosti snímku. Při změně velikosti snímku však můžete zadat nastavení, které určuje, jak Aspose.Slides zachází s obsahem na snímcích.
 
-V závislosti na tom, co chcete dosáhnout, můžete použít kterékoliv z těchto nastavení:
+Podle toho, co chcete dosáhnout, můžete použít kterékoliv z těchto nastavení:
 
 - `DoNotScale`
 
-  Pokud nechcete, aby byly objekty na snímcích přizpůsobeny, použijte toto nastavení.
+  Pokud **ne**chcete, aby objekty na snímcích byly měněny, použijte toto nastavení.
 
 - `EnsureFit`
 
-  Pokud chcete zmenšit velikost snímku a potřebujete, aby Aspose.Slides zmenšil objekty na snímcích tak, aby se všechny vešly na snímek (tím se vyhnete ztrátě obsahu), použijte toto nastavení. 
+  Pokud chcete zmenšit na menší velikost snímku a potřebujete, aby Aspose.Slides zmenšil objekty na snímcích tak, aby se všechny vešly (tím se vyhnete ztrátě obsahu), použijte toto nastavení.
 
 - `Maximize`
 
-  Pokud chcete zvětšit velikost snímku a potřebujete, aby Aspose.Slides zvětšil objekty na snímcích tak, aby byly úměrné nové velikosti snímku, použijte toto nastavení. 
+  Pokud chcete zvětšit na větší velikost snímku a potřebujete, aby Aspose.Slides zvětšil objekty na snímcích, aby byly úměrné nové velikosti, použijte toto nastavení.
 
-Tento ukázkový kód ukazuje, jak použít nastavení `Maximize` při změně velikosti snímku v prezentaci:
+Tento ukázkový kód vám ukazuje, jak použít nastavení `Maximize` při změně velikosti snímku v prezentaci:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -102,20 +108,20 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Mohu nastavit vlastní velikost snímku pomocí jednotek jiných než palce (například body nebo milimetry)?**
+### Can I set a custom slide size using units other than inches (for example, points or millimeters)?
 
-Ano. Aspose.Slides interně používá body, kde 1 bod odpovídá 1/72 palce. Můžete převést libovolnou jednotku (například milimetry nebo centimetry) na body a použít převedené hodnoty k určení šířky a výšky snímku.
+Ano. Aspose.Slides interně používá body, kde 1 bod = 1/72 palce. Jakoukoli jednotku (například milimetry nebo centimetry) můžete převést na body a použít převodní hodnoty k definování šířky a výšky snímku.
 
-**Ovlivní velmi velká vlastní velikost snímku výkon a spotřebu paměti během vykreslování?**
+### Will a very large custom slide size affect performance and memory usage during rendering?
 
-Ano. Větší rozměry snímků (v bodech) v kombinaci s vyšším měřítkem vykreslování vedou ke zvýšené spotřebě paměti a delším časům zpracování. Usilujte o praktickou velikost snímku a měřítko vykreslování upravujte pouze podle potřeby, abyste dosáhli požadované kvality výstupu.
+Ano. Větší rozměry snímků (v bodech) v kombinaci s vyšším měřítkem vykreslování vedou k vyšší spotřebě paměti a delším dobám zpracování. Snažte se o praktickou velikost snímku a upravujte měřítko vykreslování jen podle potřeby, abyste dosáhli požadované kvality výstupu.
 
-**Mohu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací, které mají různé velikosti?**
+### Can I define one non-standard slide size and then merge slides from presentations that have different sizes?
 
-Nemůžete [sloučit prezentace](/slides/cs/java/merge-presentation/), pokud mají různé velikosti snímků – nejprve změňte velikost jedné prezentace tak, aby odpovídala druhé. Při změně velikosti snímku si můžete vybrat, jak se bude zacházet s existujícím obsahem, pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidesizescaletype/). Po sladění velikostí můžete sloučit snímky a zachovat formátování.
+Nemůžete [sloučit prezentace](/slides/cs/java/merge-presentation/) pokud mají různé velikosti snímků — nejprve změňte velikost jedné prezentace, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak se bude zacházet s existujícím obsahem pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slidesizescaletype/). Po sladění velikostí můžete sloučit snímky při zachování formátování.
 
-**Mohu generovat miniatury pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?**
+### Can I generate thumbnails for individual shapes or specific regions of a slide, and will they respect the new slide size?
 
-Ano. Aspose.Slides může vytvořit miniatury pro [celé snímky](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getImage-int-float-float-). Výsledné obrázky odrážejí aktuální velikost a poměr stran snímku, což zajišťuje jednotné oříznutí a geometrii.
+Ano. Aspose.Slides může generovat miniatury pro [entire slides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) i pro [selected shapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/shape/#getImage-int-float-float-). Výsledné obrázky odrážejí aktuální velikost snímku a poměr stran, což zajišťuje konzistentní rámování a geometrii.

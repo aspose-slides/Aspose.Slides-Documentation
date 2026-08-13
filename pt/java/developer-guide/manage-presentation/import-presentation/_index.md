@@ -1,14 +1,14 @@
 ---
-title: Importar apresentações de PDF ou HTML em Java
-linktitle: Importar apresentação
+title: Importar Apresentações de PDF ou HTML em Java
+linktitle: Importar Apresentação
 type: docs
 weight: 60
 url: /pt/java/import-presentation/
 keywords:
-- importação de apresentação
-- importação de slide
-- importação de PDF
-- importação de HTML
+- importar apresentação
+- importar slide
+- importar PDF
+- importar HTML
 - PDF para apresentação
 - PDF para PPT
 - PDF para PPTX
@@ -21,15 +21,15 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Importe documentos PDF e HTML para apresentações PowerPoint e OpenDocument em Java com Aspose.Slides de forma simples, com processamento de slides de alto desempenho."
+description: "Importe documentos PDF e HTML para apresentações PowerPoint e OpenDocument em Java com Aspose.Slides de forma simples, com processamento de slides de alto desempenho e sem interrupções."
 ---
 ## **Introdução**
 
-Usando o Aspose.Slides, você pode importar apresentações a partir de arquivos em outros formatos. O Aspose.Slides fornece a classe [SlideCollection](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slidecollection/) que permite importar apresentações de documentos PDF e HTML.
+Usando Aspose.Slides, você pode importar apresentações de arquivos em outros formatos. Aspose.Slides oferece a classe [SlideCollection](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slidecollection/) que permite importar apresentações de documentos PDF e HTML.
 
-## **Importar PowerPoint a partir de PDF**
+## **Importar PowerPoint de PDF**
 
-Neste caso, você converte um PDF para uma apresentação PowerPoint.
+Neste caso, você converte um PDF em uma apresentação PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
@@ -40,6 +40,8 @@ Neste caso, você converte um PDF para uma apresentação PowerPoint.
 Este código Java demonstra a operação de PDF para PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -49,21 +51,25 @@ try {
 }
 ```
 
-{{% alert  title="Tip" color="primary" %}} 
-Você pode querer experimentar o aplicativo web **Aspose free** [PDF para PowerPoint](https://products.aspose.app/slides/pt/import/pdf-to-powerpoint) porque é uma implementação ao vivo do processo descrito aqui. 
+{{% alert  title="Tip" color="info" %}} 
+Você pode querer conferir o aplicativo web **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/pt/import/pdf-to-powerpoint) porque ele é uma implementação ao vivo do processo descrito aqui. 
 {{% /alert %}} 
 
-## **Importar PowerPoint a partir de HTML**
+## **Importar PowerPoint de HTML**
 
-Neste caso, você converte um documento HTML para uma apresentação PowerPoint.
+Neste caso, você converte um documento HTML em uma apresentação PowerPoint.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/). 
-2. Chame o método [addFromHtml()](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) e passe o arquivo HTML. 
+2. Chame o método [addFromHtml()](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) e passe um fluxo com o documento HTML. 
 3. Use o método [save()](https://reference.aspose.com/slides/pt/java/com.aspose.slides/Presentation#save-java.lang.String-int-) para salvar o arquivo no formato PowerPoint.
 
 Este código Java demonstra a operação de HTML para PowerPoint: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -82,9 +88,9 @@ try {
 
 ## **Perguntas Frequentes**
 
-**As tabelas são preservadas ao importar um PDF e a detecção pode ser aprimorada?**
+### As tabelas são preservadas ao importar um PDF, e sua detecção pode ser aprimorada?
 
-As tabelas podem ser detectadas durante a importação; [PdfImportOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfimportoptions/) inclui um método [setDetectTables](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) que habilita o reconhecimento de tabelas. A eficácia depende da estrutura do PDF.
+As tabelas podem ser detectadas durante a importação; [PdfImportOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfimportoptions/) inclui o método [setDetectTables](https://reference.aspose.com/slides/pt/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) que habilita o reconhecimento de tabelas. A eficácia depende da estrutura do PDF.
 
 {{% alert title="Note" color="warning" %}} 
 Você também pode usar o Aspose.Slides para converter HTML para outros formatos de arquivo populares: 

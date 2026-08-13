@@ -1,5 +1,5 @@
 ---
-title: Werkende oplossing voor werkbladschaling
+title: Werkende oplossing voor het schalen van werkbladen
 type: docs
 weight: 130
 url: /nl/cpp/working-solution-for-worksheet-resizing/
@@ -12,35 +12,52 @@ keywords:
 - PowerPoint
 - presentatie
 - C++
-- Aspose.Slides voor C++
-description: "Werkende oplossing voor werkbladschaling in PowerPoint-presentaties met C++"
+- Aspose.Slides for C++
+description: "Werkende oplossing voor het schalen van werkbladen in PowerPoint-presentaties met behulp van C++"
 ---
-{{% alert color="primary" %}}
-Er is waargenomen dat Excel-werkbladen die als OLE-objecten in een PowerPoint-presentatie via Aspose-componenten zijn ingebed, na de eerste activering worden geschaald naar een onbekende schaal. Dit gedrag veroorzaakt een duidelijk visueel verschil in de presentatie tussen de voor- en na-activatiestatus van het OLE-object. We hebben dit probleem grondig onderzocht en een oplossing geboden, die in dit artikel wordt beschreven.
+{{% alert color="info" %}}
+
+Er is geconstateerd dat Excel-werkbladen die als OLE‑objecten in een PowerPoint‑presentatie worden ingebed via Aspose‑componenten, na de eerste activering worden geschaald naar een onbekende factor. Dit leidt tot een opvallend visueel verschil in de presentatie tussen de toestand vóór en ná de activering van het OLE‑object. We hebben dit probleem gedetailleerd onderzocht en een oplossing geboden, die in dit artikel wordt behandeld.
+
 {{% /alert %}}
 
 ## **Achtergrond**
 
-In het artikel [Manage OLE](/slides/nl/cpp/manage-ole/) legden we uit hoe je met Aspose.Slides voor C++ een OLE-frame kunt toevoegen aan een PowerPoint-presentatie. Om het [object preview issue](/slides/nl/cpp/object-preview-issue-when-adding-oleobjectframe/) aan te pakken, hebben we een afbeelding van het geselecteerde werkbladgebied toegewezen aan het OLE-objectframe. In de gegenereerde presentatie, wanneer je dubbelklikt op het OLE-objectframe dat de werkbladafbeelding toont, wordt de Excel-werkmap geactiveerd. Eindgebruikers kunnen de gewenste wijzigingen aanbrengen in de daadwerkelijke Excel-werkmap en vervolgens terugkeren naar de dia door buiten de geactiveerde Excel-werkmap te klikken. De grootte van het OLE-objectframe verandert wanneer de gebruiker terugkeert naar de dia. De schaalfactor varieert afhankelijk van de grootte van het OLE-objectframe en de ingebedde Excel-werkmap.
+In het artikel [Beheer OLE](/slides/nl/cpp/manage-ole/) legden we uit hoe je een OLE‑frame toevoegt aan een PowerPoint‑presentatie met Aspose.Slides for C++. Om het [object‑preview‑probleem](/slides/nl/cpp/object-preview-issue-when-adding-oleobjectframe/) op te lossen, hebben we een afbeelding van het geselecteerde werkbladgebied aan het OLE‑objectframe gekoppeld. In de resulterende presentatie, wanneer je dubbelklikt op het OLE‑objectframe dat de werkbladin­ afbeelding toont, wordt de Excel‑werkmap geactiveerd. Eindgebruikers kunnen de werkelijke Excel‑werkmap naar wens aanpassen en vervolgens terugkeren naar de dia door buiten de geactiveerde Excel‑werkmap te klikken. Bij terugkeer zal de grootte van het OLE‑objectframe wijzigen. De schaalfactor varieert afhankelijk van de grootte van het OLE‑objectframe en de ingebedde Excel‑werkmap.
 
 ## **Oorzaak van het schalen**
 
-Aangezien de Excel-werkmap een eigen venstergrootte heeft, probeert deze bij de eerste activering de oorspronkelijke grootte te behouden. Het OLE-objectframe daarentegen heeft een eigen afmeting. Volgens Microsoft onderhandelen Excel en PowerPoint over de grootte zodra de Excel-werkmap wordt geactiveerd, om ervoor te zorgen dat de juiste verhoudingen behouden blijven tijdens het inbedden. Het schalen vindt plaats op basis van de verschillen tussen de Excel-venstergrootte en de afmetingen en positie van het OLE-objectframe.
+Aangezien de Excel‑werkmap haar eigen venstergrootte heeft, probeert ze bij de eerste activering haar oorspronkelijke afmeting te behouden. Het OLE‑objectframe heeft daarentegen zijn eigen afmeting. Volgens Microsoft, wanneer de Excel‑werkmap wordt geactiveerd, onderhandelen Excel en PowerPoint over de grootte om de juiste verhoudingen te behouden als onderdeel van het insluitingsproces. Het schalen ontstaat door de verschillen tussen de Excel‑venstergrootte en de afmeting en positie van het OLE‑objectframe.
 
 ## **Werkende oplossing**
 
-Er zijn twee mogelijke oplossingen om het schalings-effect te voorkomen.
+Er zijn twee mogelijke oplossingen om het schaaleffect te vermijden.
 
-- Schaal de OLE-framegrootte in de PowerPoint-presentatie zodat deze overeenkomt met de hoogte en breedte van het gewenste aantal rijen en kolommen in het OLE-frame.
-- Houd de OLE-framegrootte constant en schaald de grootte van de deelnemende rijen en kolommen zodat ze binnen de geselecteerde OLE-framegrootte passen.
+- Schaal de grootte van het OLE‑frame in de PowerPoint‑presentatie zodat deze overeenkomt met de hoogte en breedte van het gewenste aantal rijen en kolommen in het OLE‑frame.
+- Houd de grootte van het OLE‑frame constant en scha al de deelnemende rijen en kolommen zodat ze passen binnen de geselecteerde OLE‑frame‑grootte.
 
-### **Schaal de OLE-framegrootte**
+### **Schaal de OLE‑frame‑grootte**
 
-In deze aanpak leren we hoe we de OLE-framegrootte van de ingebedde Excel-werkmap kunnen instellen zodat deze overeenkomt met de cumulatieve grootte van de deelnemende rijen en kolommen in het Excel-werkblad.
+In deze aanpak leren we hoe we de OLE‑frame‑grootte van de ingebedde Excel‑werkmap instellen zodat deze overeenkomt met de cumulatieve grootte van de deelnemende rijen en kolommen in het Excel‑werkblad.
 
-Stel dat we een sjabloon-Excelblad hebben en dit als OLE-frame aan een presentatie willen toevoegen. In dit scenario wordt de grootte van het OLE-objectframe eerst berekend op basis van de cumulatieve rijhoogtes en kolombreedtes van de deelnemende rijen en kolommen in de werkmap. Vervolgens stellen we de grootte van het OLE-frame in op deze berekende waarde. Om het rode "EMBEDDED OLE OBJECT"-bericht voor het OLE-frame in PowerPoint te vermijden, maken we ook een afbeelding van de gewenste delen van de rijen en kolommen in de werkmap en stellen we deze in als het OLE-framebeeld.
+Stel dat we een sjabloon‑Excel‑blad hebben en dit willen toevoegen aan een presentatie als OLE‑frame. In dit scenario wordt de grootte van het OLE‑objectframe eerst berekend op basis van de cumulatieve rijhoogtes en kolombreedtes van de deelnemende rijen en kolommen in de werkmap. Vervolgens stellen we de grootte van het OLE‑frame in op deze berekende waarde. Om het rode “EMBEDDED OLE OBJECT”‑bericht voor het OLE‑frame in PowerPoint te vermijden, maken we ook een afbeelding van de gewenste delen van de rijen en kolommen in de werkmap en gebruiken we deze als OLE‑frame‑afbeelding.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/image.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -52,7 +69,7 @@ int imageResolution = 96;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Stel de weergegeven grootte in wanneer het werkboekbestand wordt gebruikt als OLE-object in PowerPoint.
+// Stel de weergegeven grootte in wanneer het werkmapbestand wordt gebruikt als OLE-object in PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -60,15 +77,15 @@ workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-// Get the width and height of the OLE image in points.
+// Haal de breedte en hoogte van de OLE-afbeelding op in punten.
 auto image = Image::FromStream(imageStream);
 auto imageWidth = image->get_Width() * 72.0f / imageResolution;
 auto imageHeight = image->get_Height() * 72.0f / imageResolution;
 
-// We moeten het aangepaste werkboek gebruiken.
+// We moeten de aangepaste werkmap gebruiken.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
 auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
-workbook.Dispose();
+workbook Dispose();
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
@@ -90,6 +107,18 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -117,13 +146,26 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
-### **Schaal de celbereikgrootte**
+### **Schaal de celbereik‑grootte**
 
-In deze aanpak leren we hoe we de hoogtes van de deelnemende rijen en de breedtes van de deelnemende kolommen kunnen schalen zodat ze passen bij een aangepaste OLE-framegrootte.
+In deze aanpak leren we hoe we de hoogtes van de deelnemende rijen en de breedtes van de deelnemende kolommen schalen zodat ze overeenkomen met een aangepaste OLE‑frame‑grootte.
 
-Stel dat we een sjabloon-Excelblad hebben en dit als OLE-frame aan een presentatie willen toevoegen. In dit scenario stellen we de grootte van het OLE-frame in en schalen we de grootte van de rijen en kolommen die deelnemen aan het OLE-framegebied. Vervolgens slaan we de werkmap op in een stream om de wijzigingen toe te passen en zetten we deze om naar een byte-array om deze aan het OLE-frame toe te voegen. Om het rode "EMBEDDED OLE OBJECT"-bericht voor het OLE-frame in PowerPoint te vermijden, maken we ook een afbeelding van de gewenste delen van de rijen en kolommen in de werkmap en stellen we deze in als het OLE-framebeeld.
+Stel dat we een sjabloon‑Excel‑blad hebben en dit willen toevoegen aan een presentatie als OLE‑frame. In dit scenario stellen we de grootte van het OLE‑frame in en schalen we de grootte van de rijen en kolommen die in het OLE‑frame‑gebied deelnemen. Vervolgens slaan we de werkmap op naar een stream om de wijzigingen toe te passen en converteren we deze naar een byte‑array om toe te voegen aan het OLE‑frame. Om het rode “EMBEDDED OLE OBJECT”‑bericht voor het OLE‑frame in PowerPoint te vermijden, maken we ook een afbeelding van de gewenste delen van de rijen en kolommen in de werkmap en gebruiken we deze als OLE‑frame‑afbeelding.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -136,18 +178,18 @@ float frameWidth = 400, frameHeight = 100;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Stel de weergegeven grootte in wanneer het werkboekbestand wordt gebruikt als OLE-object in PowerPoint.
+// Stel de weergegeven grootte in wanneer het werkmapbestand wordt gebruikt als OLE-object in PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Scha al het celbereik zodat het past bij de framegrootte.
+// Scha al het celbereik zodat het past in de frame-grootte.
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
 auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-// We moeten het gewijzigde werkboek gebruiken.
+// We moeten de aangepaste werkmap gebruiken.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
 auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
@@ -159,7 +201,7 @@ auto slide = presentation->get_Slide(0);
 auto oleImage = presentation->get_Images()->AddImage(imageStream);
 imageStream->Dispose();
 
-// Create the OLE object frame.
+// Maak het OLE-objectframe.
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
 auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
@@ -172,6 +214,11 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
 /// <param name="width">De verwachte breedte van het celbereik in punten.</param>
 /// <param name="height">De verwachte hoogte van het celbereik in punten.</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
@@ -202,6 +249,18 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 ```
 
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -231,36 +290,38 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 
 ## **Conclusie**
 
-{{% alert color="primary" %}}
-Er zijn twee benaderingen om het probleem met het schalen van het werkblad op te lossen. De keuze voor de juiste benadering hangt af van de specifieke eisen en het use-case. Beide benaderingen werken op dezelfde manier, of de presentaties nu vanuit een sjabloon of vanaf nul worden gemaakt. Bovendien is er geen limiet aan de grootte van het OLE-objectframe in deze oplossing.
+{{% alert color="info" %}}
+
+Er zijn twee benaderingen om het probleem met het schalen van het werkblad op te lossen. De keuze voor de juiste benadering hangt af van de specifieke vereisten en het use‑case. Beide benaderingen werken hetzelfde, of de presentaties nu vanuit een sjabloon of vanaf nul worden aangemaakt. Bovendien is er geen limiet aan de grootte van het OLE‑objectframe in deze oplossing.
+
 {{% /alert %}}
 
 ## **FAQ**
 
-**Waarom verandert de grootte van een ingebed Excel-werkblad bij de eerste activering in PowerPoint?**
+### Waarom verandert de grootte van een ingebed Excel‑werkblad bij de eerste activering in PowerPoint?
 
-Dit gebeurt omdat Excel bij activering probeert de oorspronkelijke venstergrootte te behouden, terwijl het OLE-objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot schalen.
+Dit gebeurt omdat Excel bij activering probeert de oorspronkelijke venstergrootte te behouden, terwijl het OLE‑objectframe in PowerPoint zijn eigen afmetingen heeft. PowerPoint en Excel onderhandelen over de grootte om de beeldverhouding te behouden, wat kan leiden tot schalen.
 
-**Is het mogelijk om dit schalingsprobleem volledig te voorkomen?**
+### Is het mogelijk om dit schaaleffect volledig te voorkomen?
 
-Ja. Door het OLE-frame te schalen zodat het past bij de grootte van het Excel-celbereik, of door het celbereik te schalen zodat het past bij de gewenste OLE-framegrootte, kun je ongewenste schaling voorkomen.
+Ja. Door het OLE‑frame te schalen naar de grootte van het Excel‑celbereik of door het celbereik te schalen naar de gewenste OLE‑frame‑grootte, kun je ongewenst schalen voorkomen.
 
-**Welke schalmethode moet ik gebruiken, OLE-frame-schaling of celbereik-schaling?**
+### Welke schaalmethode moet ik gebruiken, OLE‑frame‑schalen of celbereik‑schalen?
 
-Kies **OLE frame scaling** als je de oorspronkelijke Excel-rij- en kolomgroottes wilt behouden. Kies **cell range scaling** als je een vaste grootte voor het OLE-frame in je presentatie wilt.
+Kies **OLE‑frame‑schalen** als je de oorspronkelijke Excel‑rij‑ en kolomgroottes wilt behouden. Kies **celbereik‑schalen** als je een vaste grootte voor het OLE‑frame in je presentatie wilt.
 
-**Werken deze oplossingen als mijn presentatie is gebaseerd op een sjabloon?**
+### Werken deze oplossingen ook als mijn presentatie gebaseerd is op een sjabloon?
 
-Ja. Beide oplossingen werken voor presentaties die vanuit sjablonen of vanaf nul zijn gemaakt.
+Ja. Beide oplossingen werken voor presentaties die zijn gemaakt vanuit sjablonen en voor presentaties die vanaf nul zijn opgezet.
 
-**Is er een limiet aan de grootte van het OLE-frame bij het gebruik van deze methoden?**
+### Is er een limiet aan de grootte van het OLE‑frame bij gebruik van deze methoden?
 
-Nee. Je kunt het OLE-objectframe naar elke gewenste grootte maken, zolang je de schaal correct instelt.
+Nee. Je kunt het OLE‑objectframe zo groot maken als je wilt, zolang je de schaal correct instelt.
 
-**Is er een manier om de tekst "EMBEDDED OLE OBJECT" als tijdelijke aanduiding in PowerPoint te vermijden?**
+### Is er een manier om de “EMBEDDED OLE OBJECT”‑plaatsvervangertekst in PowerPoint te vermijden?
 
-Ja. Door een snapshot van het gewenste Excel-celbereik te maken en deze in te stellen als de tijdelijke plaatafbeelding van het OLE-frame, kun je een aangepaste voorbeeldafbeelding weergeven in plaats van de standaard tijdelijke aanduiding.
+Ja. Door een snapshot te maken van het doel‑Excel‑celbereik en deze in te stellen als de placeholder‑afbeelding van het OLE‑frame, kun je een aangepaste preview‑afbeelding tonen in plaats van de standaard plaatsvervanger.
 
 ## **Gerelateerde artikelen**
 
-[Een Excel-grafiek maken en deze in een presentatie als OLE-object insluiten](/slides/nl/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Een Excel‑grafiek maken en embedden in een presentatie als OLE‑object](/slides/nl/cpp/create-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

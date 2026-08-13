@@ -1,48 +1,51 @@
 ---
-title: Kelola Daftar Berpoin dan Bernomor dalam Presentasi di Java
+title: Kelola Daftar Bertanda Bullet dan Bernomor dalam Presentasi di Java
 linktitle: Kelola Daftar
 type: docs
 weight: 60
 url: /id/java/manage-lists/
 keywords:
-- poin
-- daftar berpoin
+- bullet
+- daftar bertanda bullet
 - daftar bernomor
-- poin simbol
-- poin gambar
-- poin khusus
-- daftar berjenjang
-- buat poin
-- tambahkan poin
+- bullet simbol
+- bullet gambar
+- bullet khusus
+- daftar bertingkat
+- buat bullet
+- tambahkan bullet
 - tambahkan daftar
 - PowerPoint
 - OpenDocument
 - presentasi
 - Java
 - Aspose.Slides
-description: "Pelajari cara membuat dan memformat daftar berpoin, poin gambar, daftar berjenjang, dan daftar bernomor dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java."
+description: "Pelajari cara membuat dan memformat daftar bertanda bullet, gambar, bertingkat, dan bernomor dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides untuk Java memungkinkan Anda membuat dan memformat daftar berpoin dan bernomor dalam presentasi PowerPoint dan OpenDocument. Suatu item daftar adalah paragraf yang pengaturan poinnya dikendalikan melalui format paragrafnya.
+Aspose.Slides untuk Java memungkinkan Anda membuat dan memformat daftar bertanda bullet dan bernomor dalam presentasi PowerPoint dan OpenDocument. Item daftar adalah sebuah paragraf yang pengaturan bullet‑nya dikendalikan melalui format paragrafnya.
 
-Gunakan metode [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraph/#getParagraphFormat--) untuk mengakses pengaturan daftar pada tingkat paragraf. Titik masuk utama adalah [IParagraphFormat.getBullet](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getBullet--), yang mengembalikan objek [IBulletFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/). Dengan objek ini, Anda dapat mengatur jenis poin, simbol, gambar, warna, ukuran, gaya penomoran, dan nomor awal.
+Gunakan metode [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraph/#getParagraphFormat--) untuk mengakses pengaturan daftar pada tingkat paragraf. Titik masuk utama adalah [IParagraphFormat.getBullet](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getBullet--), yang mengembalikan objek [IBulletFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/). Dengan objek ini, Anda dapat mengatur jenis bullet, simbol, gambar, warna, ukuran, gaya penomoran, dan nomor awal.
 
 Artikel ini menunjukkan cara:
 
-- membuat daftar berpoin dengan simbol khusus
-- membuat poin gambar
-- membuat daftar berjenjang dengan mengatur kedalaman paragraf
+- membuat daftar bertanda bullet dengan simbol khusus
+- membuat bullet gambar
+- membuat daftar bertingkat dengan mengatur kedalaman paragraf
 - membuat daftar bernomor
-- memeriksa dan mengubah pemformatan daftar dalam presentasi yang ada
+- memeriksa dan mengubah format daftar dalam presentasi yang sudah ada
 
-## **Buat Daftar Berpoin**
+## **Membuat Daftar Bertanda Bullet**
 
-Untuk membuat daftar berpoin, tambahkan objek [IParagraph](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraph/) ke sebuah [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/) dan atur [IBulletFormat.setType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setType-byte-) ke [BulletType.Symbol](https://reference.aspose.com/slides/id/java/com.aspose.slides/bullettype/#Symbol). Anda kemudian dapat mengatur [IBulletFormat.setChar](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#getColor--), dan [IBulletFormat.setHeight](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setHeight-float-) untuk mengontrol tampilan poin.
+Untuk membuat daftar bertanda bullet, tambahkan objek [IParagraph](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraph/) ke dalam [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/) dan atur [IBulletFormat.setType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setType-byte-) ke [BulletType.Symbol](https://reference.aspose.com/slides/id/java/com.aspose.slides/bullettype/#Symbol). Anda kemudian dapat mengatur [IBulletFormat.setChar](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#getColor--), dan [IBulletFormat.setHeight](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setHeight-float-) untuk mengontrol tampilan bullet.
 
-Kode Java berikut memperlihatkan cara membuat daftar berpoin dalam sebuah slide:
+Kode Java berikut mendemonstrasikan cara membuat daftar bertanda bullet dalam sebuah slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 Hasilnya:
 
-![Simbol poin](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
-## **Buat Daftar Bernomor**
+## **Membuat Daftar Bernomor**
 
-Gunakan daftar bernomor ketika urutan item penting. Atur [IBulletFormat.setType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setType-byte-) ke [BulletType.Numbered](https://reference.aspose.com/slides/id/java/com.aspose.slides/bullettype/#Numbered). Anda juga dapat memilih format penomoran dengan [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) atau mengatur [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) ketika daftar harus dimulai dari nilai selain 1.
+Gunakan daftar bernomor ketika urutan item penting. Atur [IBulletFormat.setType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setType-byte-) ke [BulletType.Numbered](https://reference.aspose.com/slides/id/java/com.aspose.slides/bullettype/#Numbered). Anda juga dapat memilih format penomoran dengan [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) atau mengatur [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) saat daftar harus dimulai dengan nilai selain 1.
 
 Kode Java berikut menunjukkan cara membuat daftar bernomor dalam sebuah slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,25 +126,29 @@ try {
 
 Hasilnya:
 
-![Bulat bernomor](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
-## **Buat Poin Gambar**
+## **Membuat Bullet Gambar**
 
-Aspose.Slides memungkinkan Anda mengganti simbol poin standar dengan gambar. Poin gambar paling cocok untuk gambar sederhana yang tetap terbaca pada ukuran kecil, seperti ikon atau file PNG transparan kecil.
+Aspose.Slides memungkinkan Anda mengganti simbol bullet standar dengan sebuah gambar. Bullet gambar paling cocok untuk gambar sederhana yang tetap terbaca pada ukuran kecil, seperti ikon atau file PNG transparan kecil.
 
-{{% alert color="primary" %}}
-Idealnya, jika Anda berencana mengganti simbol poin standar dengan gambar, sebaiknya pilih grafik sederhana dengan latar belakang transparan. Gambar semacam itu bekerja dengan baik sebagai simbol poin khusus.
+{{% alert color="info" %}}
+Idealnya, jika Anda berencana mengganti simbol bullet standar dengan gambar, sebaiknya pilih grafik sederhana dengan latar belakang transparan. Gambar semacam itu bekerja dengan baik sebagai simbol bullet khusus.
 {{% /alert %}}
 
-Untuk membuat poin gambar, tambahkan gambar ke [Presentation.getImages](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getImages--) dan tetapkan objek gambar yang dikembalikan ke [IBulletFormat.getPicture](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#getPicture--). Atur [IBulletFormat.setType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setType-byte-) ke [BulletType.Picture](https://reference.aspose.com/slides/id/java/com.aspose.slides/bullettype/#Picture) sebelum menugaskan gambar.
+Perlu diingat bahwa gambar akan diperkecil ke ukuran yang sangat kecil. Karena itu, kami sangat menyarankan memilih gambar yang tetap jelas dan efektif secara visual ketika digunakan sebagai bullet dalam sebuah daftar.
+
+Untuk membuat bullet gambar, tambahkan gambar ke [Presentation.getImages](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getImages--) dan tetapkan objek gambar yang dikembalikan ke [IBulletFormat.getPicture](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#getPicture--). Atur [IBulletFormat.setType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibulletformat/#setType-byte-) ke [BulletType.Picture](https://reference.aspose.com/slides/id/java/com.aspose.slides/bullettype/#Picture) sebelum menetapkan gambar.
 
 Misalkan kita memiliki "image.png":
 
-![Gambar untuk poin](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
-Kode Java berikut memperlihatkan cara membuat poin gambar dalam sebuah slide:
+Kode Java berikut menunjukkan cara membuat bullet gambar dalam sebuah slide:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -174,15 +183,17 @@ try {
 
 Hasilnya:
 
-![Poin gambar](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
-## **Buat Daftar Multilevel**
+## **Membuat Daftar Bertingkat**
 
-Gunakan [IParagraphFormat.setDepth](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setDepth-short-) untuk menempatkan item daftar pada level yang berbeda. Level 0 adalah level teratas, level 1 berada di dalamnya, dan seterusnya.
+Gunakan [IParagraphFormat.setDepth](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setDepth-short-) untuk menempatkan item daftar pada tingkat yang berbeda. Tingkat 0 adalah tingkat teratas, tingkat 1 berada di bawahnya, dan seterusnya.
 
-Kode Java berikut memperlihatkan cara membuat daftar berpoin berjenjang:
+Kode Java berikut menunjukkan cara membuat daftar bullet bertingkat:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -219,15 +230,17 @@ try {
 
 Hasilnya:
 
-![Daftar multilevel](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
-## **Ubah Daftar yang Ada**
+## **Mengubah Daftar yang Ada**
 
-Untuk mengubah pemformatan daftar dalam presentasi yang ada, akses paragraf target dan perbarui pengaturan [IParagraphFormat.getBullet](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getBullet--)‑nya. Properti yang sama yang digunakan untuk membuat daftar dapat digunakan untuk memeriksa atau memodifikasi daftar yang dimuat dari file PPT, PPTX, atau ODP.
+Untuk mengubah format daftar dalam sebuah presentasi yang sudah ada, akses paragraf target dan perbarui pengaturan [IParagraphFormat.getBullet](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getBullet--). Properti yang sama yang digunakan untuk membuat daftar dapat digunakan untuk memeriksa atau memodifikasi daftar yang dimuat dari file PPT, PPTX, atau ODP.
 
-Kode Java berikut mengubah paragraf pertama dalam sebuah bingkai teks untuk menggunakan gaya daftar bernomor:
+Kode Java berikut mengubah paragraf pertama dalam sebuah text frame menjadi menggunakan gaya daftar bernomor:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,14 +261,14 @@ try {
 
 ## **FAQ**
 
-**Apakah daftar berpoin dan bernomor dapat diekspor ke PDF atau gambar?**
+### Apakah daftar bertanda bullet dan bernomor dapat diekspor ke PDF atau gambar?
 
-Ya. Aspose.Slides mempertahankan pemformatan daftar ketika format target mendukung tata letak teks dan fitur poin yang sesuai.
+Ya. Aspose.Slides mempertahankan format daftar ketika format target mendukung tata letak teks dan fitur bullet yang bersangkutan.
 
-**Apakah saya dapat mengedit daftar dalam presentasi yang ada?**
+### Dapatkah saya mengedit daftar dalam presentasi yang sudah ada?
 
 Ya. Muat presentasi, akses paragraf target, periksa atau perbarui pengaturan [IParagraphFormat.getBullet](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getBullet--), dan simpan presentasi.
 
-**Apakah daftar dapat berisi teks non‑Latin?**
+### Dapatkah daftar berisi teks non-Latin?
 
 Ya. Teks item daftar dapat berisi karakter Unicode, sehingga Anda dapat membuat daftar dalam presentasi multibahasa. Pastikan font yang digunakan dalam presentasi mendukung karakter yang Anda butuhkan.

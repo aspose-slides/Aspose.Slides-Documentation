@@ -1,19 +1,19 @@
 ---
-title: Gerenciar Propriedades da Apresentação no .NET
+title: Gerenciar Propriedades da Apresentação em .NET
 linktitle: Propriedades da Apresentação
 type: docs
 weight: 70
 url: /pt/net/presentation-properties/
 keywords:
-- Propriedades do PowerPoint
+- propriedades do PowerPoint
 - propriedades de apresentação
-- propriedades do documento
-- propriedades integradas
+- propriedades de documento
+- propriedades incorporadas
 - propriedades personalizadas
 - propriedades avançadas
 - gerenciar propriedades
 - modificar propriedades
-- metadados do documento
+- metadados de documento
 - editar metadados
 - idioma de revisão
 - idioma padrão
@@ -23,47 +23,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Domine as propriedades de apresentações no Aspose.Slides for .NET e otimize a pesquisa, a identidade visual e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
+description: "Domine as propriedades de apresentação no Aspose.Slides for .NET e simplifique a pesquisa, a identidade visual e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
 ---
 ## **Introdução**
 
-Aspose.Slides for .NET suporta dois tipos de propriedades de documento: **Integradas** e **Personalizadas**. Ambos os tipos de propriedade podem ser facilmente acessados e gerenciados usando a API Aspose.Slides for .NET.
+O Aspose.Slides for .NET oferece dois tipos de propriedades de documento: **Built-in** e **Custom**. Ambos os tipos de propriedades podem ser acessados e gerenciados facilmente usando a API Aspose.Slides for .NET.
 
-Aspose.Slides permite que você trabalhe com as propriedades de documento de apresentação através da interface [IDocumentProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/idocumentproperties/). Uma instância dessa interface é retornada pela propriedade [Presentation.DocumentProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
+O Aspose.Slides permite que você trabalhe com propriedades de documentos de apresentação através da interface [IDocumentProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/idocumentproperties/). Uma instância dessa interface é retornada pela propriedade [Presentation.DocumentProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
 
-{{% alert color="primary" %}} 
-Por favor, observe que os campos **Application** e **Producer** não podem ser modificados, pois esses campos sempre exibirão "Aspose Ltd." e "Aspose.Slides for .NET x.x.x".
+{{% alert color="info" %}} 
+Observe que os campos **Application** e **Producer** não podem ser modificados, pois esses campos sempre exibirão "Aspose Ltd." e "Aspose.Slides for .NET x.x.x".
 {{% /alert %}} 
 
 ## **Gerenciar Propriedades da Apresentação**
 
-O Microsoft PowerPoint fornece um recurso para adicionar propriedades a arquivos de apresentação. Essas propriedades de documento permitem que informações úteis sejam armazenadas juntamente com os arquivos. Existem dois tipos de propriedades de documento:
+O Microsoft PowerPoint fornece um recurso para adicionar propriedades a arquivos de apresentação. Essas propriedades de documento permitem que informações úteis sejam armazenadas junto com os arquivos. Existem dois tipos de propriedades de documento:
 
-- Propriedades definidas pelo sistema (integradas)
-- Propriedades definidas pelo usuário (personalizadas)
+- Propriedades definidas pelo sistema (built-in)
+- Propriedades definidas pelo usuário (custom)
 
-As propriedades **integradas** contêm informações gerais sobre o documento, como o título do documento, o nome do autor, estatísticas do documento e mais.
+As propriedades **Built-in** contêm informações gerais sobre o documento, como o título do documento, o nome do autor, estatísticas do documento e mais.
 
-As propriedades **personalizadas** são definidas pelos usuários como pares **Nome/Valor**, onde tanto o nome quanto o valor são especificados pelo usuário.
+As propriedades **Custom** são definidas pelos usuários como pares **Nome/Valor**, onde tanto o nome quanto o valor são especificados pelo usuário.
 
-Usando Aspose.Slides for .NET, os desenvolvedores podem acessar e modificar tanto propriedades integradas quanto personalizadas.
+Usando o Aspose.Slides for .NET, os desenvolvedores podem acessar e modificar tanto propriedades built-in quanto custom.
 
-O Microsoft PowerPoint permite que os usuários gerenciem as propriedades de documento clicando no ícone do Office e, em seguida, selecionando **Arquivo → Informações → Propriedades**. Após escolher **Propriedades avançadas**, uma caixa de diálogo aparece onde você pode gerenciar todas as propriedades de documento do arquivo de apresentação.
+O Microsoft PowerPoint permite que os usuários gerenciem as propriedades de documento clicando no ícone do Office e, em seguida, selecionando **File → Info → Properties**. Depois de escolher **Advanced Properties**, aparece uma caixa de diálogo onde você pode gerenciar todas as propriedades de documento do arquivo de apresentação.
 
-Na caixa de diálogo **Propriedades**, há várias abas, como **Geral**, **Resumo**, **Estatísticas**, **Conteúdo** e **Personalizado**. Cada aba fornece opções para configurar tipos específicos de informação relacionados ao arquivo PowerPoint. A aba **Personalizado** é usada para gerenciar propriedades definidas pelo usuário.
+Na caixa de diálogo **Properties**, há várias guias, como **General**, **Summary**, **Statistics**, **Contents** e **Custom**. Cada guia fornece opções para configurar tipos específicos de informações relacionadas ao arquivo PowerPoint. A guia **Custom** é usada para gerenciar propriedades definidas pelo usuário.
 
-## **Acessar Propriedades Integradas**
+## **Acessar Propriedades Built-in**
 
-Essas propriedades, expostas pela interface [IDocumentProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/idocumentproperties/), incluem: **Creator** (Autor), **Description**, **Keywords**, **Created** (Data de Criação), **Modified** (Data de Modificação), **Printed** (Data da Última Impressão), **LastModifiedBy**, **SharedDoc** (indica se o documento está compartilhado entre diferentes produtores), **PresentationFormat**, **Subject**, **Title**, entre outras.
+Essas propriedades, expostas pela interface [IDocumentProperties](https://reference.aspose.com/slides/pt/net/aspose.slides/idocumentproperties/), incluem: **Creator** (Autor), **Description**, **Keywords**, **Created** (Data de Criação), **Modified** (Data de Modificação), **Printed** (Data da Última Impressão), **LastModifiedBy**, **SharedDoc** (indica se o documento é compartilhado entre diferentes produtores), **PresentationFormat**, **Subject**, **Title**, entre outras.
 
 ```cs
+using Aspose.Slides;
+
 // Instanciar a classe Presentation que representa um arquivo de apresentação.
 using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 
 // Obter uma referência ao objeto do tipo IDocumentProperties associado à apresentação.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Exibir as propriedades integradas.
+// Exibir as propriedades Built-in.
 Console.WriteLine("Category : " + documentProperties.Category);
 Console.WriteLine("Content status : " + documentProperties.ContentStatus);
 Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
@@ -80,33 +82,39 @@ Console.WriteLine("Subject : " + documentProperties.Subject);
 Console.WriteLine("Title : " + documentProperties.Title);
 ```
 
-## **Modificar Propriedades Integradas**
+## **Modificar Propriedades Built-in**
 
-Modificar as propriedades integradas de arquivos de apresentação é tão fácil quanto acessá‑las. Você pode simplesmente atribuir um valor string a qualquer propriedade desejada, e o valor da propriedade será atualizado. No exemplo abaixo, demonstramos como modificar as propriedades de documento integradas de um arquivo de apresentação.
+Modificar as propriedades built-in de arquivos de apresentação é tão simples quanto acessá‑las. Basta atribuir um valor string a qualquer propriedade desejada, e o valor da propriedade será atualizado. No exemplo abaixo, demonstramos como modificar as propriedades de documento built-in de um arquivo de apresentação.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instanciar a classe Presentation que representa um arquivo de apresentação.
 using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
 // Obter uma referência ao objeto do tipo IDocumentProperties associado à apresentação.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Definir as propriedades integradas.
+// Definir as propriedades Built-in.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// Salvar a apresentação em um arquivo.
+// Save the presentation to a file.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar Propriedades Personalizadas à Apresentação**
+## **Adicionar Propriedades Custom à Apresentação**
 
-As propriedades personalizadas de apresentação permitem que os desenvolvedores armazenem metadados adicionais ou informações específicas dentro de um arquivo de apresentação. Aspose.Slides facilita a criação e o gerenciamento dessas propriedades personalizadas programaticamente. Os exemplos a seguir demonstram como adicionar propriedades personalizadas às suas apresentações.
+Propriedades custom de apresentação permitem que os desenvolvedores armazenem metadados adicionais ou informações específicas dentro de um arquivo de apresentação. O Aspose.Slides facilita a criação e o gerenciamento dessas propriedades custom programaticamente. Os exemplos a seguir demonstram como adicionar propriedades custom às suas apresentações.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instanciar a classe Presentation.
 using Presentation presentation = new Presentation();
 
@@ -122,18 +130,21 @@ documentProperties["Document version"] = 2;
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Acessar e Modificar Propriedades Personalizadas**
+## **Acessar e Modificar Propriedades Custom**
 
-Aspose.Slides também permite que os desenvolvedores acessem propriedades personalizadas existentes e modifiquem seus valores facilmente. Essa funcionalidade ajuda a manter metadados precisos e suporta atualizações dinâmicas com base na entrada do usuário ou na lógica de negócios. Os exemplos abaixo ilustram como recuperar e atualizar valores de propriedades personalizadas dentro de uma apresentação.
+O Aspose.Slides também permite que os desenvolvedores acessem propriedades custom existentes e modifiquem seus valores facilmente. Essa funcionalidade ajuda a manter metadados precisos e suporta atualizações dinâmicas com base na entrada do usuário ou na lógica de negócio. Os exemplos abaixo ilustram como recuperar e atualizar valores de propriedades custom dentro de uma apresentação.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Instanciar a classe Presentation que representa um arquivo PPTX.
 using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
+// Obter uma referência ao objeto do tipo IDocumentProperties associado à apresentação.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Access and modify the custom properties.
+// Acessar e modificar as propriedades personalizadas.
 for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
     string propertyName = documentProperties.GetCustomPropertyName(i);
@@ -155,18 +166,18 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 Experimente o aplicativo online [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/pt/metadata) para ver como trabalhar com propriedades de documento usando a API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/pt/metadata)
+[![Visualizar e Editar Metadados do PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/pt/metadata)
 
-## ***Perguntas Frequentes**
+## ***FAQ**
 
-**Como posso remover uma propriedade integrada de uma apresentação?**
+### Como posso remover uma propriedade built-in de uma apresentação?
 
-As propriedades integradas são parte integrante da apresentação e não podem ser removidas completamente. No entanto, você pode alterar seus valores ou defini‑las como vazias, se a propriedade específica permitir.
+Propriedades built-in são parte integrante da apresentação e não podem ser removidas completamente. No entanto, você pode alterar seus valores ou defini‑las como vazias, se a propriedade específica permitir.
 
-**O que acontece se eu adicionar uma propriedade personalizada que já existe?**
+### O que acontece se eu adicionar uma propriedade custom que já existe?
 
-Se você adicionar uma propriedade personalizada que já existe, seu valor atual será sobrescrito pelo novo. Não é necessário remover ou verificar a propriedade previamente, pois o Aspose.Slides atualiza automaticamente o valor da propriedade.
+Se você adicionar uma propriedade custom que já existe, seu valor atual será sobrescrito pelo novo valor. Não é necessário remover ou verificar a propriedade previamente, pois o Aspose.Slides atualiza automaticamente o valor da propriedade.
 
-**Posso acessar as propriedades da apresentação sem carregar completamente a apresentação?**
+### Posso acessar as propriedades da apresentação sem carregar a apresentação completamente?
 
 Sim, você pode acessar as propriedades da apresentação sem carregá‑la completamente usando o método `GetPresentationInfo` da classe [PresentationFactory](https://reference.aspose.com/slides/pt/net/aspose.slides/presentationfactory/). Em seguida, utilize o método `ReadDocumentProperties` fornecido pela interface [IPresentationInfo](https://reference.aspose.com/slides/pt/net/aspose.slides/ipresentationinfo/) para ler as propriedades de forma eficiente, economizando memória e melhorando o desempenho.

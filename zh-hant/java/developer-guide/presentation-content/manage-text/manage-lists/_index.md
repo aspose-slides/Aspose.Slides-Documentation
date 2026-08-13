@@ -13,36 +13,39 @@ keywords:
 - 自訂項目符號
 - 多層次清單
 - 建立項目符號
-- 添加項目符號
-- 添加清單
+- 新增項目符號
+- 新增清單
 - PowerPoint
 - OpenDocument
 - 簡報
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 和 OpenDocument 簡報中建立與格式化項目符號、圖片、多層次與編號清單。"
+description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 與 OpenDocument 簡報中建立與格式化項目符號、圖片、多層次及編號清單。"
 ---
-## **概述**
+## **概覽**
 
-Aspose.Slides for Java 讓您能在 PowerPoint 與 OpenDocument 簡報中建立與格式化項目符號與編號清單。清單項目是其項目符號設定透過段落格式來控制的段落。
+Aspose.Slides for Java 讓您能在 PowerPoint 與 OpenDocument 簡報中建立與格式化項目符號與編號清單。清單項目是一段文字，其項目符號設定由段落格式控制。
 
-使用 [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getParagraphFormat--) 方法存取段落層級的清單設定。主要入口是 [IParagraphFormat.getBullet](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getBullet--)，它會傳回一個 [IBulletFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/) 物件。透過此物件，您可以設定項目符號類型、符號、圖片、顏色、大小、編號樣式以及起始編號。
+使用 [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getParagraphFormat--) 方法存取段落層級的清單設定。主要入口是 [IParagraphFormat.getBullet](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getBullet--)，它會回傳一個 [IBulletFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/) 物件。透過此物件，您可以設定項目符號類型、符號、圖片、顏色、大小、編號樣式與起始編號。
 
-本篇說明如何：
+本篇文章將說明如何：
 
-- 建立自訂符號的項目符號清單
-- 建立圖片項目符號
-- 透過設定段落深度建立多層次清單
-- 建立編號清單
-- 檢視與變更既有簡報中的清單格式
+- 建立使用自訂符號的項目符號清單  
+- 建立圖片項目符號  
+- 透過設定段落深度建立多層次清單  
+- 建立編號清單  
+- 觀察與變更既有簡報中的清單格式  
 
 ## **建立項目符號清單**
 
-若要建立項目符號清單，將 [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 物件新增至 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)，然後將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-byte-) 設為 [BulletType.Symbol](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/#Symbol)。接著可使用 [IBulletFormat.setChar](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setChar-char-)、[IBulletFormat.getColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#getColor--) 與 [IBulletFormat.setHeight](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setHeight-float-) 來控制項目符號外觀。
+若要建立項目符號清單，請將 [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 物件加入 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)，並將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-byte-) 設為 [BulletType.Symbol](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/#Symbol)。之後可使用 [IBulletFormat.setChar](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setChar-char-)、[IBulletFormat.getColor](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#getColor--) 與 [IBulletFormat.setHeight](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setHeight-float-) 來控制項目符號外觀。
 
 以下 Java 程式碼示範如何在投影片中建立項目符號清單：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 結果：
 
-![The symbol bullets](symbol_bullets.png)
+![符號項目符號](symbol_bullets.png)
 
 ## **建立編號清單**
 
-當項目的順序很重要時，請使用編號清單。將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-byte-) 設為 [BulletType.Numbered](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/#Numbered)。您也可以使用 [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) 選擇編號格式，或在清單須從非 1 的值開始時使用 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-)。
+當項目順序很重要時使用編號清單。將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-byte-) 設為 [BulletType.Numbered](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/#Numbered)。您也可以使用 [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) 選擇編號格式，或在清單需要從非 1 的值開始時使用 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-)。
 
 以下 Java 程式碼示範如何在投影片中建立編號清單：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,27 +126,29 @@ try {
 
 結果：
 
-![The numbered bullets](numbered_bullets.png)
+![編號項目符號](numbered_bullets.png)
 
 ## **建立圖片項目符號**
 
-Aspose.Slides 允許您將一般的項目符號符號替換為圖片。圖片項目符號最適合使用簡單且在小尺寸下仍可辨識的圖像，例如圖示或小型透明 PNG 檔案。
+Aspose.Slides 允許您以影像取代一般的項目符號。圖片項目符號最適合使用簡單且在小尺寸下仍可辨識的圖像，例如圖示或小型透明 PNG 檔案。
 
-{{% alert color="primary" %}}
-理想情況下，如果您打算以圖片取代一般的項目符號，最好挑選具透明背景的簡易圖形。此類圖像非常適合作為自訂項目符號。
-  
-請記住，圖片會被縮小至非常小的尺寸。因此，我們強烈建議選擇在作為清單項目符號時仍能保持清晰且具視覺效果的圖像。
+{{% alert color="info" %}}
+理想情況下，如果您打算以影像取代一般的項目符號，最好選擇具有透明背景的簡易圖形。此類圖像可作為自訂項目符號使用，效果良好。
 {{% /alert %}}
 
-若要建立圖片項目符號，請將圖片加入 [Presentation.getImages](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getImages--)，並將回傳的圖片物件指派給 [IBulletFormat.getPicture](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#getPicture--)。在指派圖片前，先將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-byte-) 設為 [BulletType.Picture](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/#Picture)。
+請記得影像會被縮小至非常小的尺寸。因此，我們強烈建議選擇在作為清單項目符號時仍保持清晰且視覺有效的圖像。
 
-假設我們有一個「image.png」：
+要建立圖片項目符號，請先將影像新增至 [Presentation.getImages](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/#getImages--)，並將回傳的影像物件指派給 [IBulletFormat.getPicture](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#getPicture--)。在指派影像前，先將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-byte-) 設為 [BulletType.Picture](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/#Picture)。
 
-![A picture for the bullets](picture_for_bullets.png)
+假設我們有一個 "image.png"：
+
+![圖片項目符號範例](picture_for_bullets.png)
 
 以下 Java 程式碼示範如何在投影片中建立圖片項目符號：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -176,15 +183,17 @@ try {
 
 結果：
 
-![The picture bullets](picture_bullets.png)
+![圖片項目符號](picture_bullets.png)
 
 ## **建立多層次清單**
 
-使用 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 可將清單項目放在不同層級。層級 0 為最上層，層級 1 為其下的子層，依此類推。
+使用 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 可將清單項目放在不同層級。層級 0 為最上層，層級 1 為其子層，以此類推。
 
 以下 Java 程式碼示範如何建立多層次項目符號清單：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -221,15 +230,17 @@ try {
 
 結果：
 
-![The multilevel list](multilevel_list.png)
+![多層次清單](multilevel_list.png)
 
 ## **變更既有清單**
 
-若要變更既有簡報中的清單格式，存取目標段落並更新其 [IParagraphFormat.getBullet](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定。建立清單時使用的相同屬性，也可用於檢視或修改從 PPT、PPTX 或 ODP 檔案載入的清單。
+若要變更既有簡報中的清單格式，先取得目標段落，然後更新其 [IParagraphFormat.getBullet](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定。建立清單時使用的相同屬性，也可用於檢視或修改從 PPT、PPTX 或 ODP 檔案載入的清單。
 
-以下 Java 程式碼將文字框中的第一個段落改為使用編號清單樣式：
+以下 Java 程式碼將文字框中的第一段落改為使用編號清單樣式：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,16 +259,16 @@ try {
 }
 ```
 
-## **常見問題**
+## **常見問與答**
 
-**是否可以將項目符號清單與編號清單匯出為 PDF 或圖像？**
+### 能否將項目符號與編號清單匯出為 PDF 或影像？
 
-可以。當目標格式支援相應的文字佈局與項目符號功能時，Aspose.Slides 會保留清單格式。
+可以。Aspose.Slides 會在目標格式支援對應文字布局與項目符號功能時，保留清單格式。
 
-**我可以編輯既有簡報中的清單嗎？**
+### 我可以編輯既有簡報中的清單嗎？
 
-可以。載入簡報、存取目標段落、檢視或更新其 [IParagraphFormat.getBullet](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定，然後儲存簡報。
+可以。載入簡報後，存取目標段落，檢視或更新其 [IParagraphFormat.getBullet](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#getBullet--) 設定，最後儲存簡報。
 
-**清單可以包含非拉丁文字嗎？**
+### 清單項目可以包含非拉丁文字嗎？
 
-可以。清單項目文字支援 Unicode 字元，您可以在多語言簡報中建立清單。請確保簡報使用的字型支援您所需的字元。
+可以。清單項目文字支援 Unicode 字元，您可在多語言簡報中建立清單。請確保簡報使用的字型能支援所需的字元。

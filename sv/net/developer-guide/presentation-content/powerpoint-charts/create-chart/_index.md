@@ -1,5 +1,5 @@
 ---
-title: Skapa eller uppdatera PowerPoint‑presentationdiagram i .NET
+title: Skapa eller uppdatera PowerPoint‑presentationens diagram i .NET
 linktitle: Skapa eller uppdatera diagram
 type: docs
 weight: 10
@@ -14,10 +14,10 @@ keywords:
 - cirkeldiagram
 - linjediagram
 - trädkartsdiagram
-- börsdiagram
-- box‑ och whisker‑diagram
+- aktiediagram
+- box‑och‑whisker‑diagram
 - trattdiagram
-- solstrålediagram
+- sol‑diagram
 - histogramdiagram
 - radardiagram
 - multikategoridiagram
@@ -30,64 +30,68 @@ description: "Skapa och anpassa diagram i PowerPoint‑presentationer med Aspose
 ---
 ## **Översikt**
 
-Denna artikel ger en omfattande guide om hur man skapar och anpassar diagram med Aspose.Slides för .NET. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustrerar detaljerade kodexempel varje steg, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa denna guide får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina .NET-applikationer, vilket förenklar processen att skapa datadrivna presentationer.
+Den här artikeln ger en omfattande guide om hur man skapar och anpassar diagram med Aspose.Slides för .NET. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och använder olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustreras varje steg med detaljerade kodexempel, från initiering av presentationen och diagramobjektet till konfiguration av serier, axlar och förklaringar. Genom att följa den här guiden får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina .NET‑applikationer, vilket förenklar processen att skapa datadrivna presentationer.
 
 ## **Skapa ett diagram**
 
-Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller kalkylblad.
+Diagram hjälper personer att snabbt visualisera data och få insikter som inte omedelbart är uppenbara i en tabell eller ett kalkylblad.
 
 **Varför skapa diagram?**
 
+Med diagram kan du:
+
 * aggregera, komprimera eller sammanfatta stora mängder data på en enda bild i en presentation;
 * avslöja mönster och trender i data;
-* dra slutsatsen om riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
-* upptäcka avvikande värden, avvikelser, fel och meningslös data;
-* kommunicera eller presentera komplex data.
+* härleda riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
+* upptäcka avvikelser, avvikelser, fel och meningslösa data;
+* kommunicera eller presentera komplexa data.
 
-I PowerPoint kan du skapa diagram via *Infoga*-funktionen, som tillhandahåller mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
+I PowerPoint kan du skapa diagram via *Insert*-funktionen, som erbjuder mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
 
-{{% alert color="primary" %}} 
-Använd [ChartType](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/charttype/)‑enumerationen under [Aspose.Slides.Charts](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/)‑namnutrymmet. Värdena i denna enumeration motsvarar olika diagramtyper.
+{{% alert color="info" %}} 
+Använd [ChartType](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/charttype/)‑enumerationen under namespace‑en [Aspose.Slides.Charts](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/). Värdena i denna enumeration motsvarar olika diagramtyper.
 {{% /alert %}} 
 
-### **Skapa klustrade kolumndiagram**
+### **Skapa staplade kolumndiagram (Clustered Column)**
 
-Detta avsnitt förklarar hur man skapar klustrade kolumndiagram med Aspose.Slides för .NET. Du kommer att lära dig att initiera en presentation, lägga till ett diagram och anpassa dess element såsom titel, data, serier, kategorier och stil. Följ stegen nedan för att se hur ett standardklustrat kolumndiagram genereras:
+Detta avsnitt förklarar hur du skapar staplade kolumndiagram med Aspose.Slides för .NET. Du lär dig att initiera en presentation, lägga till ett diagram och anpassa dess element såsom titel, data, serier, kategorier och stil. Följ stegen nedan för att se hur ett standardstaplat kolumndiagram genereras:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med viss data och ange typen `ChartType.ClusteredColumn`.
+1. Lägg till ett diagram med någon data och specificera typen `ChartType.ClusteredColumn`.
 1. Lägg till en titel på diagrammet.
-1. Kom åt diagrammets dataarbetsblad.
+1. Åtkomst till diagrammets data‑arbetsblad.
 1. Rensa alla standardserier och -kategorier.
 1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Applicera en fyllningsfärg på diagramserierna.
+1. Lägg till nya diagramdata för diagramserierna.
+1. Tillämpa en fyllningsfärg på diagramserierna.
 1. Lägg till etiketter på diagramserierna.
-1. Spara den ändrade presentationen som en PPTX-fil.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod demonstrerar hur man skapar ett klustrat kolumndiagram:
+Denna C#‑kod demonstrerar hur du skapar ett staplat kolumndiagram:
 
 ```c#
-// Instansiera Presentation‑klassen.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Instansiera Presentation-klassen.
 using (Presentation presentation = new Presentation())
 {
     // Åtkomst till den första bilden.
     ISlide slide = presentation.Slides[0];
 
-    // Lägg till ett klustrat kolumndiagram med dess standarddata.
+    // Lägg till ett staplat kolumndiagram med dess standarddata.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Ange diagramtitel.
+    // Ställ in diagramrubriken.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Ställ in att den första serien visar värden.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // Ange indexet för diagrammets datasblad.
+    // Ställ in indexet för diagramdatabladet.
     int worksheetIndex = 0;
 
     // Hämta diagrammets dataarbetsbok.
@@ -109,64 +113,68 @@ using (Presentation presentation = new Presentation())
     // Hämta den första diagramserien.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Fyll seriedatan.
+    // Fyll på seriedata.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Ange fyllnadsfärgen för serien.
+    // Ställ in fyllningsfärgen för serien.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
     // Hämta den andra diagramserien.
     series = chart.ChartData.Series[1];
 
-    // Fyll seriedatan.
+    // Fyll på seriedata.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // Ange fyllnadsfärgen för serien.
+    // Ställ in fyllningsfärgen för serien.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Ställ in den första etiketten att visa kategorinamnet.
+    // Ställ in den första etiketten för att visa kategorinamnet.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // Ställ in att serien visar värdet för den tredje etiketten.
+    // Ställ in serien för att visa värdet för den tredje etiketten.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // Spara presentationen till disk som en PPTX‑fil.
+    // Spara presentationen till disk som en PPTX-fil.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Resultatet:
 
-![Det klustrade kolumndiagrammet](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Skapa spridningsdiagram**
+### **Skapa spridningsdiagram (Scatter)**
 
-Spridningsdiagram (även kända som spridningsplottar eller x‑y‑grafer) används ofta för att kontrollera mönster eller visa korrelationer mellan två variabler.
+Spridningsdiagram (även kända som scatter plots eller x‑y‑grafer) används ofta för att kontrollera mönster eller demonstrera korrelationer mellan två variabler.
 
 Använd ett spridningsdiagram när:
 
 * Du har parade numeriska data.
-* Du har två variabler som passar bra tillsammans.
+* Du har två variabler som passar bra ihop.
 * Du vill avgöra om de två variablerna är relaterade.
 * Du har en oberoende variabel som har flera värden för en beroende variabel.
 
-Denna C#-kod visar hur man skapar ett spridningsdiagram med en annan serie markörer:
+Denna C#‑kod visar hur du skapar ett spridningsdiagram med olika serier av markörer:
 
 ```c#
-// Instansiera Presentation‑klassen.
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Instansiera Presentation-klassen.
 using (Presentation presentation = new Presentation())
 {
     // Åtkomst till den första bilden.
@@ -175,7 +183,7 @@ using (Presentation presentation = new Presentation())
     // Skapa standard spridningsdiagram.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Ange indexet för diagrammets datablad.
+    // Ställ in indexet för diagrammets dataark.
     int worksheetIndex = 0;
 
     // Hämta diagrammets dataarbetsbok.
@@ -197,7 +205,7 @@ using (Presentation presentation = new Presentation())
     // Lägg till en ny punkt (2:10).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // Ändra serietyp.
+    // Ändra serietypen.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
     // Ändra diagramseriens markör.
@@ -223,36 +231,41 @@ using (Presentation presentation = new Presentation())
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Spara presentationen till disk som en PPTX‑fil.
+    // Spara presentationen på disk som en PPTX-fil.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Resultatet:
 
-![Spridningsdiagrammet](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Skapa cirkeldiagram**
+### **Skapa cirkeldiagram (Pie)**
 
-Cirkeldiagram är bäst för att visa förhållandet del‑till‑helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data innehåller många delar eller etiketter kan det dock vara bättre att använda ett stapeldiagram.
+Cirkeldiagram används bäst för att visa del‑till‑helhets‑relationer i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data innehåller många delar eller etiketter kan ett stapeldiagram vara ett bättre alternativ.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.Pie`.
-1. Kom åt diagrammets dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.Pie`.
+1. Åtkomst till diagrammets data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Rensa standardserierna och -kategorierna.
 1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Lägg till nya punkter för diagrammet och applicera anpassade färger på cirkeldiagrammets sektorer.
-1. Ange etiketter för serierna.
-1. Aktivera ledningslinjer för serieetiketterna.
-1. Ange rotationsvinkeln för cirkeldiagrammet.
-1. Spara den ändrade presentationen som en PPTX-fil.
+1. Lägg till nya diagramdata för diagramserierna.
+1. Lägg till nya punkter för diagrammet och tillämpa anpassade färger på cirkelns sektorer.
+1. Ställ in etiketter för serierna.
+1. Aktivera ledarlinjer för serieetiketterna.
+1. Ställ in rotationsvinkeln för cirkeldiagrammet.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett cirkeldiagram:
+Denna C#‑kod visar hur du skapar ett cirkeldiagram:
 
 ```c#
-// Instansiera Presentation‑klassen.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Instansiera Presentation-klassen.
 using (Presentation presentation = new Presentation())
 {
     // Åtkomst till den första bilden.
@@ -261,16 +274,16 @@ using (Presentation presentation = new Presentation())
     // Lägg till ett diagram med dess standarddata.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // Ange diagramtitel.
+    // Ställ in diagramrubriken.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Ställ in att den första serien visar värden.
+    // Ställ in den första serien för att visa värden.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Ange indexet för diagrammets datasblad.
+    // Ställ in indexet för diagrammets dataark.
     int worksheetIndex = 0;
 
     // Hämta diagrammets dataarbetsbok.
@@ -288,19 +301,19 @@ using (Presentation presentation = new Presentation())
     // Lägg till nya serier.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // Fyll seriedatan.
+    // Fyll på seriedata.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Ange sektorfärgen.
+    // Ställ in sektorfärgen.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // Ange sektorranden.
+    // Ställ in sektorranden.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -311,7 +324,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // Ange sektorranden.
+    // Ställ in sektorranden.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -322,7 +335,7 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // Ange sektorranden.
+    // Ställ in sektorranden.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
@@ -343,37 +356,41 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // Ställ in att serien visar ledlinjer för diagrammet.
+    // Ställ in serien för att visa ledarlinjer i diagrammet.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // Ange rotationsvinkeln för cirkeldiagrammets sektorer.
+    // Ställ in rotationsvinkeln för cirkeldiagrammets sektorer.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Spara presentationen till disk som en PPTX‑fil.
+    // Spara presentationen på disk som en PPTX-fil.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Resultatet:
 
-![Cirkeldiagrammet](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Skapa linjediagram**
+### **Skapa linjediagram (Line)**
 
-Linjediagram (även kända som linjegrafer) är bäst i situationer där du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra en stor mängd data på en gång, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
+Linjediagram (även kända som linjegrafer) används bäst i situationer där du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra stora mängder data på en gång, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.Line`.
-1. Kom åt diagrammets dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.Line`.
+1. Åtkomst till diagrammets data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Rensa standardserierna och -kategorierna.
 1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den ändrade presentationen som en PPTX-fil.
+1. Lägg till nya diagramdata för diagramserierna.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett linjediagram:
+Denna C#‑kod visar hur du skapar ett linjediagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -385,32 +402,44 @@ using (Presentation presentation = new Presentation())
 Som standard är punkterna i ett linjediagram förenade med raka kontinuerliga linjer. Om du vill att punkterna ska förenas med streck kan du ange önskad strecktyp enligt följande:
 
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
 Resultatet:
 
-![Linjediagrammet](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Skapa trädkartsdiagram**
+### **Skapa trädkartsdiagram (Tree Map)**
 
-Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamheten mot de objekt som bidrar mest inom varje kategori.
+Trädkartsdiagram används bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt uppmärksamma objekt som är stora bidragsgivare inom varje kategori.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.Treemap`.
-1. Kom åt diagrammets dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.Treemap`.
+1. Åtkomst till diagrammets data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Rensa standardserierna och -kategorierna.
 1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den ändrade presentationen som en PPTX-fil.
+1. Lägg till nya diagramdata för diagramserierna.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett trädkartsdiagram:
+Denna C#‑kod visar hur du skapar ett trädkartsdiagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -463,25 +492,29 @@ using (Presentation presentation = new Presentation())
 
 Resultatet:
 
-![Trädkartsdiagrammet](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Skapa börsdiagram**
+### **Skapa aktiediagram (Stock)**
 
-Börsdiagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktiga insikter i aktiens prestation och hjälper investerare och analytiker att fatta välinformerade beslut.
+Aktiediagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktiga insikter om aktiens utveckling och underlättar för investerare och analytiker att fatta informerade beslut.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.OpenHighLowClose`.
-1. Kom åt diagrammets dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.OpenHighLowClose`.
+1. Åtkomst till diagrammets data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Rensa standardserierna och -kategorierna.
 1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Specificera formatet för HiLowLines.
-1. Spara den ändrade presentationen som en PPTX-fil.
+1. Lägg till nya diagramdata för diagramserierna.
+1. Specificera HiLowLines‑formatet.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett börsdiagram:
+Denna C#‑kod visar hur du skapar ett aktiediagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -533,24 +566,28 @@ using (Presentation presentation = new Presentation())
 
 Resultatet:
 
-![Börsdiagrammet](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Skapa box‑ och whisker‑diagram**
+### **Skapa låd- och whisker‑diagram (Box and Whisker)**
 
-Box‑ och whisker‑diagram används för att visa fördelningen av data genom att sammanfatta nyckelstatistiska mått, såsom median, kvartiler och möjliga avvikare. De är särskilt användbara i utforskande dataanalys och statistiska studier för snabbt att förstå datavariabilitet och identifiera avvikelser.
+Låda‑och‑whisker‑diagram används för att visa fördelningen av data genom att sammanfatta nyckelstatistik som median, kvartiler och potentiella avvikare. De är särskilt användbara i explorativ dataanalys och statistiska studier för att snabbt förstå datapunktens variabilitet och identifiera avvikelser.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.BoxAndWhisker`.
-1. Kom åt diagrammets dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.BoxAndWhisker`.
+1. Åtkomst till diagrammets data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Rensa standardserierna och -kategorierna.
 1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den ändrade presentationen som en PPTX-fil.
+1. Lägg till nya diagramdata för diagramserierna.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett box‑ och whisker‑diagram:
+Denna C#‑kod visar hur du skapar ett låda‑och‑whisker‑diagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -586,18 +623,22 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Skapa trattdiagram**
+### **Skapa tratt‑diagram (Funnel)**
 
-Trattdiagram används för att visualisera processer som involverar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och spåra effektiviteten i försäljnings- eller marknadsföringsprocesser.
+Tratt‑diagram används för att visualisera processer som involverar sekventiella steg, där volymen av data minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och spåra effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.Funnel`.
-1. Spara den ändrade presentationen som en PPTX-fil.
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.Funnel`.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett trattdiagram:
+Denna C#‑kod visar hur du skapar ett tratt‑diagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -629,20 +670,24 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Resultatet:
 
-![Trattdiagrammet](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Skapa solstråle‑diagram**
+### **Skapa sol‑diagram (Sunburst)**
 
-Solstråle‑diagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhet‑relationer och är idealiska för att representera nästlade kategorier och underkategorier på ett tydligt, kompakt sätt.
+Sol‑diagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhets‑relationer och är idealiska för att representera nästlade kategorier och underkategorier på ett tydligt, kompakt sätt.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.Sunburst`.
-1. Spara den ändrade presentationen som en PPTX‑fil.
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.Sunburst`.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett solstråle‑diagram:
+Denna C#‑kod visar hur du skapar ett sol‑diagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -693,23 +738,27 @@ using (Presentation presentation = new Presentation())
 
 Resultatet:
 
-![Solstrålediagrammet](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Skapa histogramdiagram**
+### **Skapa histogram‑diagram (Histogram)**
 
-Histogramdiagram används för att representera fördelningen av numerisk data genom att gruppera värden i intervall eller korgar. De är särskilt användbara för att identifiera datamönster såsom frekvens, skevhet och spridning samt för att upptäcka avvikare i en dataset.
+Histogram‑diagram används för att representera fördelningen av numerisk data genom att gruppera värden i intervall eller hinkar. De är särskilt användbara för att identifiera mönster som frekvens, skevhet och spridning, samt för att upptäcka avvikelser i ett dataset.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med viss data och ange typen `ChartType.Histogram`.
-1. Kom åt diagrammets dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Lägg till ett diagram med någon data och specificera typen `ChartType.Histogram`.
+1. Åtkomst till diagrammets data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Rensa standardserierna och -kategorierna.
 1. Lägg till nya serier och kategorier.
-1. Spara den ändrade presentationen som en PPTX‑fil.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett histogramdiagram:
+Denna C#‑kod visar hur du skapar ett histogram‑diagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -735,20 +784,24 @@ using (Presentation presentation = new Presentation())
 
 Resultatet:
 
-![Histogramdiagrammet](histogram_chart.png)
+![The Histogram chart](histogram_chart.png)
 
-### **Skapa radardiagram**
+### **Skapa radardiagram (Radar)**
 
 Radardiagram används för att visa multivariata data i ett tvådimensionellt format, vilket möjliggör enkel jämförelse av flera variabler samtidigt. De är särskilt användbara för att identifiera mönster, styrkor och svagheter över flera prestationsmått eller attribut.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.Radar`.
-1. Spara den ändrade presentationen som en PPTX‑fil.
+1. Lägg till ett diagram med någon data och specificera typen `ChartType.Radar`.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett radardiagram:
+Denna C#‑kod visar hur du skapar ett radardiagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -758,24 +811,28 @@ using (Presentation presentation = new Presentation())
 
 Resultatet:
 
-![Radardiagrammet](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Skapa multikategoridiagram**
+### **Skapa multimultipla kategoridiagram (Multi-Category)**
 
-Multikategoridiagram används för att visa data som involverar mer än en kategorisk gruppering, vilket gör att du kan jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och relationer i komplexa, flerskiktsdatamängder.
+Multikategoridiagram används för att visa data som involverar mer än en kategorisk gruppering, vilket gör det möjligt att jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och relationer i komplexa, flerskikts‑datamängder.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Lägg till ett diagram med standarddata och ange typen `ChartType.ClusteredColumn`.
-1. Kom åt diagrammets dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Lägg till ett diagram med standarddata och specificera typen `ChartType.ClusteredColumn`.
+1. Åtkomst till diagrammets data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Rensa standardserierna och -kategorierna.
 1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den ändrade presentationen som en PPTX‑fil.
+1. Lägg till nya diagramdata för diagramserierna.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur man skapar ett multikategoridiagram:
+Denna C#‑kod visar hur du skapar ett multimultipelt kategoridiagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -824,15 +881,19 @@ using (Presentation presentation = new Presentation())
 
 Resultatet:
 
-![Multikategoridiagrammet](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Skapa kartdiagram**
+### **Skapa kartdiagram (Map)**
 
-Kartdiagram används för att visualisera geografisk data genom att kartlägga information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografiska data och rumsliga fördelningar på ett tydligt, visuellt engagerande sätt.
+Kartdiagram används för att visualisera geografisk data genom att kartlägga information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och spatiala fördelningar på ett tydligt, visuellt engagerande sätt.
 
-Denna C#-kod visar hur man skapar ett kartdiagram:
+Denna C#‑kod visar hur du skapar ett kartdiagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -842,17 +903,26 @@ using (Presentation presentation = new Presentation())
 
 Resultatet:
 
-![Kartdiagrammet](map_chart.png)
+![The Map chart](map_chart.png)
 
-### **Skapa kombinationsdiagram**
+{{% alert color="info" %}} 
+Bilden ovan visar den sparade presentationen öppnad i PowerPoint. Aspose.Slides skriver kartdiagrammet och dess data korrekt, men ritar inte själva kartdiagrammen: när en bild som innehåller ett sådant renderas till en bild eller konverteras till PDF eller SVG blir diagramområdet tomt. Andra former på samma bild påverkas inte.
+{{% /alert %}} 
 
-Ett kombinationsdiagram (eller kombodiagram) kombinerar två eller fler diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
+### **Skapa kombinationsdiagram (Combination)**
 
-![Kombinationsdiagrammet](combination_chart.png)
+Ett kombinationsdiagram (eller combo‑diagram) kombinerar två eller flera diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
 
-Följande C#-kod visar hur du skapar kombinationsdiagrammet som visas ovan i en PowerPoint-presentation:
+![The combination chart](combination_chart.png)
+
+Följande C#‑kod visar hur du skapar kombinationsdiagrammet som visas ovan i en PowerPoint‑presentation:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -873,7 +943,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
 {
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Sätter diagramtitel
+    // Ställer in diagramrubriken
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
@@ -882,7 +952,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Sätter diagramförklaringen
+    // Ställer in diagramförklaringen
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
@@ -949,21 +1019,21 @@ private static void AddThirdSeriesToChart(IChart chart)
 
 private static void SetPrimaryAxesFormat(IChart chart)
 {
-    // Sätter den horisontella axeln
+    // Ställer in den horisontella axeln
     IAxis horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // Sätter den vertikala axeln
+    // Ställer in den vertikala axeln
     IAxis verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Sätter färgen på vertikala huvudlinjer
+    // Ställer in färgen på de vertikala huvudgridlinjerna
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -971,7 +1041,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
 private static void SetSecondaryAxesFormat(IChart chart)
 {
-    // Sätter den sekundära horisontella axeln
+    // Ställer in den sekundära horisontella axeln
     IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
@@ -979,7 +1049,7 @@ private static void SetSecondaryAxesFormat(IChart chart)
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // Sätter den sekundära vertikala axeln
+    // Ställer in den sekundära vertikala axeln
     IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
@@ -1003,22 +1073,26 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **Uppdatera diagram**
 
-Aspose.Slides för .NET möjliggör att du kan uppdatera PowerPoint‑diagram genom att ändra diagramdata, formatering och stil. Denna funktionalitet förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagramen exakt återspeglar aktuella data och visuella standarder.
+Aspose.Slides för .NET möjliggör att du uppdaterar PowerPoint‑diagram genom att modifiera diagramdata, formatering och styling. Denna funktion förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagram exakt återspeglar aktuella data och visuella standarder.
 
-1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) som representerar presentationen som innehåller ett diagram.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) som representerar presentationen med ett diagram.
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Traversera alla former för att hitta diagrammet.
-1. Kom åt diagrammets dataarbetsblad.
-1. Ändra diagramdataserierna genom att ändra serievärdena.
+1. Gå igenom alla former för att hitta diagrammet.
+1. Åtkomst till diagrammets data‑arbetsblad.
+1. Modifiera diagramdataserierna genom att ändra serievärdena.
 1. Lägg till en ny serie och fyll i dess data.
-1. Spara den ändrade presentationen som en PPTX‑fil.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur du uppdaterar ett diagram:
+Denna C#‑kod visar hur du uppdaterar ett diagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// Instansiera Presentation‑klassen som representerar en PPTX‑fil.
+// Instansiera Presentation-klassen som representerar en PPTX‑fil.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Åtkomst till den första bilden.
@@ -1028,7 +1102,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // Ange indexet för diagrammets datasblad.
+            // Ställ in indexet för diagrammets dataark.
             int worksheetIndex = 0;
 
             // Hämta diagrammets dataarbetsbok.
@@ -1042,7 +1116,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             IChartSeries series = chart.ChartData.Series[0];
 
             // Uppdatera seriedatan.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Modifierar serienamnet.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Ändrar serienamnet.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
@@ -1051,7 +1125,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             series = chart.ChartData.Series[1];
 
             // Uppdatera seriedatan.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Modifierar serienamnet.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Ändrar serienamnet.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
@@ -1059,7 +1133,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             // Lägg till en ny serie.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // Fyll seriedatan.
+            // Fyll på seriedatan.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1075,20 +1149,24 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **Ange dataintervall för ett diagram**
 
-Aspose.Slides för .NET ger flexibiliteten att definiera ett specifikt dataintervall från ett arbetsblad som källa för ditt diagram. Detta innebär att du direkt kan mappa en del av ditt arbetsblad till diagrammet, vilket låter dig kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, vilket säkerställer att dina PowerPoint‑presentationer återspeglar aktuell och korrekt information.
+Aspose.Slides för .NET ger flexibiliteten att definiera ett specifikt dataintervall från ett arbetsblad som källa för diagrammets data. Detta innebär att du kan mappa en del av ditt arbetsblad direkt till diagrammet, vilket låter dig kontrollera vilka celler som bidrar till diagrammets serier och kategorier. På så sätt kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, så att dina PowerPoint‑presentationer reflekterar aktuell och korrekt information.
 
-1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) som representerar presentationen som innehåller ett diagram.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) som representerar presentationen med ett diagram.
 1. Hämta en referens till en bild med hjälp av dess index.
-1. Traversera alla former för att hitta diagrammet.
-1. Kom åt diagramdata och ange intervallet.
-1. Spara den ändrade presentationen som en PPTX‑fil.
+1. Gå igenom alla former för att hitta diagrammet.
+1. Åtkomst till diagramdata och ange intervallet.
+1. Spara den modifierade presentationen som en PPTX‑fil.
 
-Denna C#-kod visar hur du anger dataintervall för ett diagram:
+Denna C#‑kod visar hur du anger dataintervall för ett diagram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// Instansiera Presentation‑klassen som representerar en PPTX‑fil.
+// Instansiera Presentation-klassen som representerar en PPTX-fil.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // Åtkomst till den första bilden.
@@ -1110,9 +1188,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 När du använder standardmarkörer i diagram får varje diagramserie automatiskt en annan standardmarkörsymbol.
 
-Denna C#-kod visar hur du automatiskt sätter en markeringssymbol för en diagramserie:
+Denna C#‑kod visar hur du automatiskt ställer in en diagramseriemarkör:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1139,7 +1221,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // Fyll seriedatan.
+    // Fyll på seriedatan.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1154,18 +1236,18 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Vilka diagramtyper stöds av Aspose.Slides för .NET?**
+### Vilka diagramtyper stöds av Aspose.Slides för .NET?
 
-Aspose.Slides för .NET stöder ett brett sortiment av diagramtyper, inklusive stapel, linje, cirkel, area, spridning, histogram, radar och många fler. Denna flexibilitet gör att du kan välja den mest lämpliga diagramtypen för dina datavisualiseringsbehov.
+Aspose.Slides för .NET stöder ett brett sortiment av diagramtyper, inklusive stapeldiagram, linjediagram, cirkeldiagram, områdesdiagram, spridningsdiagram, histogram, radar och många fler. Denna flexibilitet gör att du kan välja den mest lämpliga diagramtypen för dina visualiseringsbehov.
 
-**Hur lägger jag till ett nytt diagram på en bild?**
+### Hur lägger jag till ett nytt diagram på en bild?
 
-För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation), hämtar den önskade bilden med hjälp av dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och initiala data. Detta integrerar diagrammet direkt i din presentation.
+För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation), hämtar den önskade bilden med hjälp av dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtypen och startdata. Detta integrerar diagrammet direkt i din presentation.
 
-**Hur kan jag uppdatera data som visas i ett diagram?**
+### Hur kan jag uppdatera data som visas i ett diagram?
 
-Du kan uppdatera ett diagram genom att komma åt dess dataarbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till dina egna data. Detta möjliggör att programatiskt uppdatera diagrammet så att det speglar de senaste data.
+Du kan uppdatera ett diagrams data genom att få åtkomst till dess data‑arbetsbok ([IChartDataWorkbook](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till dina egna data. Detta gör att du programatiskt kan uppdatera diagrammet så att det speglar de senaste data.
 
-**Är det möjligt att anpassa diagrammets utseende?**
+### Är det möjligt att anpassa diagrammets utseende?
 
 Ja, Aspose.Slides för .NET erbjuder omfattande anpassningsalternativ. Du kan ändra färger, typsnitt, etiketter, förklaringar och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.

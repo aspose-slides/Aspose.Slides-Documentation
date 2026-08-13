@@ -12,21 +12,21 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Képek kinyerése alakzatokból PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Java-val - gyors, kódközpontú megoldás."
+description: "Képek kinyerése a PowerPoint és OpenDocument prezentációk alakzataiból az Aspose.Slides for Java segítségével – gyors, kódbarát megoldás."
 ---
-## **Overview**
+## **Áttekintés**
 
-A prezentációban lévő képek többféle alakzattípusban jelenhetnek meg: egyszerű képkeretként, alakzatokra alkalmazott kép kitöltésként, OLE objektum előnézeti képként, videó‑ vagy hangkeret bélyegképeként, nagyítási képként, vagy táblázat, diagram és SmartArt alakzatokba ágyazott képekként. Az Aspose.Slides ezeket a képeket a prezentáció képgyűjteményében tárolja, amely a [IImageCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimagecollection/) és a [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumokon keresztül érhető el.
+A prezentációban lévő képek többféle alakú formában jelenhetnek meg: egyszerű képkeretekként, alakzatok képpel kitöltöttként, OLE objektum előnézeti képekként, videó‑ vagy hangsáv‑keret bélyegképeként, nagyítási képként, vagy táblázat, diagram és SmartArt alakzatokba ágyazott képként. Az Aspose.Slides ezeket a képeket a prezentáció képgyűjteményében tárolja, amely a [IImageCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimagecollection/) és az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumokon keresztül érhető el.
 
-Ha csak az összes, a prezentációba beágyazott képernyőforrást szeretné exportálni, iteráljon a `presentation.getImages()`-en. Ez a cikk egy másik feladatra összpontosít: a alakzatok bejárására, hogy megtalálja, hol használják a képeket a diákon, így a mentett fájlok megőrzik a hasznos kontextust, például a dia számát, az alakzat pozícióját és a forrást (képkeret, kitöltő kép, média előnézet, OLE előnézet vagy nagyítási kép).
+Ha csak a prezentációba beágyazott minden képernyőforrást szeretnéd exportálni, akkor a `presentation.getImages()`‑t kell végigjárnod. Ez a cikk egy másik feladatra fókuszál: az alakzatok bejárására, hogy megtaláljuk, hol használják a képeket a diákkban, így a mentett fájlok megőrizhetik a hasznos kontextust, például a dia számát, az alakzat pozícióját és a forrástípust (képkeret, kitöltő kép, média‑előnézet, OLE‑előnézet vagy nagyítási kép).
 
-{{% alert title="Tip" color="primary" %}}
-Használja a [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) metódust az eredeti kódolt képadatok és fájltípus megőrzéséhez. Használja a [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--) metódust a [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/#save-java.lang.String-int-) segítségével, ha az outputot egy egységes formátumra, például PNG‑re szeretné normalizálni.
+{{% alert title="Tip" color="info" %}}
+Használd az [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) metódust az eredeti kódolt képadatok és fájltípus megőrzéséhez. Használd az [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--)‑t a [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/#save-java.lang.String-int-)‑val, ha a kimenetet egy meghatározott formátumra (például PNG) szeretnéd normalizálni.
 {{% /alert %}}
 
-## **Shared Helper Methods**
+## **Közös Segédfüggvények**
 
-Az alábbi segédmetódusok rövidre fogják a példákat. A `saveOriginalImage` az eredeti beágyazott bájtokat írja, a MIME‑típus alapján biztonságos kiterjesztést választ, és SHA‑256 hash‑el kihagyja a duplikált képbinárisokat.
+Az alábbi segédfüggvények röviden tartják a példákat. A `saveOriginalImage` az eredeti beágyazott bájtokat írja ki, a MIME‑típusból biztonságos kiterjesztést választ, és a SHA‑256 hash alapján kihagyja az ismétlődő képbinarisokat.
 
 ```java
 import com.aspose.slides.*;
@@ -222,11 +222,16 @@ private static String makeSafeFileNamePart(String value)
 }
 ```
 
-## **Extract Images from Picture Frames**
+## **Képek kinyerése képkeretekből**
 
-Használja ezt a megközelítést a önálló objektumként beillesztett képekhez. Egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ipictureframe/) a képét a `getPictureFormat().getPicture().getImage()`‑en keresztül tárolja, ami egy [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumot ad vissza.
+Ezt a megközelítést használjuk, ha a képeket önálló objektumként illesztették be. Egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ipictureframe/) a képét a `getPictureFormat().getPicture().getImage()`‑en keresztül tárolja, amely egy [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumot ad vissza.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "extracted-images");
@@ -266,11 +271,15 @@ finally
 }
 ```
 
-## **Extract Images from Picture-Filled Shapes**
+## **Képek kinyerése képpel kitöltött alakzatokból**
 
-Az alakzatok képet használhatnak kitöltésként. Először ellenőrizze az alakzat kitöltés típusát: ha nem [FillType.Picture](https://reference.aspose.com/slides/hu/java/com.aspose.slides.filltype/), nincs kép, amit a kitöltésből ki lehetne nyerni. Az alábbi példa a [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iautoshape/) objektumokat kezeli, és minden képet PNG‑ként ment a [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--) használatával.
+Az alakzatok képet használhatnak kitöltésként. Először ellenőrizd az alakzat kitöltéstípusát: ha nem [FillType.Picture](https://reference.aspose.com/slides/hu/java/com.aspose.slides.filltype/), nincs kinyerhető kép a kitöltésből. Az alábbi példa a [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iautoshape/) objektumokat kezeli, és minden képet PNG‑ként ment az [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--) használatával.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "shape-fill-images");
@@ -312,11 +321,16 @@ finally
 }
 ```
 
-## **Extract Preview Images from OLE Object Frames**
+## **Előnézeti képek kinyerése OLE objektumkeretekből**
 
-Egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ioleobjectframe/) helyettesítő képet tartalmazhat, amelyet a PowerPoint a objektum dián megjelenő előnézeteként használ. Ez a kép a `getSubstitutePictureFormat().getPicture().getImage()`‑en keresztül érhető el. Ennek a képnek a kinyerése az előnézeti képet adja, nem pedig a beágyazott OLE‑csomag tartalmát.
+Egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ioleobjectframe/) helyettesítő képet tartalmazhat, amelyet a PowerPoint az objektum előnézeti képeként használ a dián. Ez a kép a `getSubstitutePictureFormat().getPicture().getImage()`‑en keresztül érhető el. A kép kinyerése csak az előnézeti képet adja, nem az OLE‑csomag beágyazott tartalmát.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "ole-preview-images");
@@ -360,11 +374,16 @@ finally
 }
 ```
 
-## **Extract Preview Images from Video Frames**
+## **Előnézeti képek kinyerése videókeretekből**
 
-Egy [IVideoFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ivideoframe/) szintén tárolhat előnézeti képet a `getPictureFormat().getPicture().getImage()`‑en keresztül. Ez a poszter vagy bélyegkép, amely a dián látható, nem pedig a videófolyamból dekódolt keret.
+Egy [IVideoFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ivideoframe/) szintén tárolhat előnézeti képet a `getPictureFormat().getPicture().getImage()`‑en keresztül. Ez a poszter vagy bélyegkép, amely a dián látható, nem a videófolyamból dekódolt képkocka.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "video-preview-images");
@@ -408,11 +427,16 @@ finally
 }
 ```
 
-## **Extract Preview Images from Audio Frames**
+## **Előnézeti képek kinyerése hangsáv‑keretekből**
 
-Egy [IAudioFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iaudioframe/) tárolhat egy bélyegképet a `getPictureFormat().getPicture().getImage()`‑en keresztül. Ez a hangobjektushoz tartozó kép a dián.
+Egy [IAudioFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iaudioframe/) tárolhat bélyegképet a `getPictureFormat().getPicture().getImage()`‑en keresztül. Ez a kép a hangobjektushoz tartozó dián megjelenő ikon.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "audio-preview-images");
@@ -456,11 +480,16 @@ finally
 }
 ```
 
-## **Extract Images from Zoom Objects**
+## **Képek kinyerése nagyítási objektumokból**
 
-Az [IZoomFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.izoomframe/) és az [ISectionZoomFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.isectionzoomframe/) alakzatok egyedi képeket használhatnak. Olvassa ki a `getZoomImage()`‑t a zoom keretből.
+[IZoomFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.izoomframe/) és [ISectionZoomFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.isectionzoomframe/) alakzatok használhatnak egyéni képeket. Olvasd a `getZoomImage()`‑t a nagyítási keretből.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "zoom-images");
@@ -517,11 +546,16 @@ finally
 }
 ```
 
-## **Extract Images from Summary Zoom Frames**
+## **Képek kinyerése összefoglaló nagyítási keretekből**
 
-Az [ISummaryZoomFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.isummaryzoomframe/) szintén egy alakzat. A szekcióelemei egyedi képeket használhatnak, amelyeket az egyes összegző zoom szekciók `getZoomImage()` metódusa szolgáltat.
+Egy [ISummaryZoomFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.isummaryzoomframe/) szintén alakzat. Szekcióelemei egyéni képeket használhatnak, amelyeket az egyes összefoglaló nagyítási szekció `getZoomImage()` metódusa ad vissza.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "summary-zoom-images");
@@ -571,11 +605,16 @@ finally
 }
 ```
 
-## **Extract Images from Table Shapes**
+## **Képek kinyerése táblázat‑alakzatokból**
 
-Az [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides.itable/) egy alakzat. A táblázatban lévő képek általában képilletként tárolódnak a táblázatcellák kitöltéseiben.
+Egy [ITable](https://reference.aspose.com/slides/hu/java/com.aspose.slides.itable/) alakzat. A táblázatokban lévő képek általában a táblacellák kép‑kitöltéseiben tárolódnak.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "table-images");
@@ -631,11 +670,16 @@ finally
 }
 ```
 
-## **Extract Images from Chart Shapes**
+## **Képek kinyerése diagram‑alakzatokból**
 
-Az [IChart](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ichart/) egy alakzat. Az alábbi példa a diagram területének képillet kitöltéséből nyeri ki a képet.
+Egy [IChart](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ichart/) alakzat. Az alábbi példa a diagram területének képpel kitöltéséből nyeri ki a képet.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "chart-images");
@@ -680,11 +724,16 @@ finally
 }
 ```
 
-## **Extract Images from SmartArt Shapes**
+## **Képek kinyerése SmartArt‑alakzatokból**
 
-Egy [ISmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ismartart/) objektum alakzat. A SmartArt elrendezésétől függően a képek tárolhatók a csomópontok golyókitöltéseiben vagy a csomópont alakzatok kitöltési formátumaiban.
+Egy [ISmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ismartart/) objektum alakzat. A SmartArt elrendezésétől függően a képek a csomópont golyó‑kitöltésében vagy a csomópont alakzatok kitöltési formátumaiban tárolódhatnak.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "smartart-images");
@@ -750,11 +799,16 @@ finally
 }
 ```
 
-## **Include Images Inside Grouped Shapes**
+## **Képek belefoglalása csoportosított alakzatokba**
 
-A csoportosított alakzatok saját alakzatgyűjteménnyel rendelkeznek. A megosztott `enumerateShapes` segédnek van egy `includeGroupedShapes` opciója. Állítsa `true`‑ra, ha a [IGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides.igroupshape/) objektumok belsejében lévő alakzatokat is vizsgálni szeretné. Az alábbi példa képeket nyer ki képkeretekből, kép‑kitöltésű alakzatokból, OLE objektum előnézetekből, videókeret bélyegképekből és hangkeret bélyegképekből. A táblázat-, diagram-, SmartArt- és összegző nagyítási képek felvételéhez használja újra az előző szakaszok specializált kinyerési logikáját, miközben ugyanazt a rekurzív alakzatbejárást tartja.
+A csoportosított alakzatok saját alakzategységgel rendelkeznek. A megosztott `enumerateShapes` segédfüggvénynek van egy `includeGroupedShapes` opciója. Állítsd `true`‑ra, ha a [IGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides.igroupshape/) objektumok belsejében lévő alakzatokat is vizsgálni szeretnéd. Az alábbi példa képeket nyer ki képkeretekből, képpel kitöltött alakzatokból, OLE‑objektum előnézetekből, videó‑keret bélyegképekből és audio‑keret bélyegképekből. A táblázat, diagram, SmartArt és összefoglaló nagyítási képek bevonásához használj újra a korábbi szakaszok speciális kinyerési logikáját, miközben ugyanazt a rekurzív alakzat‑traverszt használod.
 
 ```java
+import com.aspose.slides.*;
+import java.io.File;
+import java.util.Set;
+import java.util.List;
+
 String inputPath = "sample.pptx";
 String currentDirectory = System.getProperty("user.dir");
 File outputFolder = new File(currentDirectory, "all-shape-images");
@@ -845,45 +899,45 @@ finally
 }
 ```
 
-## **Edge Cases and Practical Notes**
+## **Speciális esetek és gyakorlati megjegyzések**
 
-- **Duplicate images:** Több alakzat hivatkozhat ugyanarra a képre, vagy különböző képekre, amelyek azonos bájtokat tartalmaznak. Használja a [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) hash‑ét, mielőtt fájlokat írna, ha egy kimeneti fájlt szeretne egyedi képhez.
-- **Original data vs. converted output:** A [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) mentése megőrzi a beágyazott JPEG, PNG, GIF, SVG, EMF vagy WMF adatot. A [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--) és a [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/#save-java.lang.String-int-) használata hasznos, ha egységes output formátumra, például PNG‑re van szükség.
-- **Unsupported fill types:** Szilárd, gradiensek, mintázat és üres kitöltésű alakzatok nem tartalmaznak kép‑kitöltést. Ellenőrizze a [FillType](https://reference.aspose.com/slides/hu/java/com.aspose.slides.filltype/) értéket, mielőtt a `getPictureFillFormat()`‑t hívná.
-- **Grouped shapes:** A felső szintű dia‑alakzatgyűjtemény nem laposítja a csoportokat. Rekurzívan ellenőrizze a [IGroupShape.getShapes](https://reference.aspose.com/slides/hu/java/com.aspose.slides.igroupshape/#getShapes--) metódust, ha a csoportos tartalom számít.
-- **OLE object previews:** Egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ioleobjectframe/) előnézeti képet adhat a `getSubstitutePictureFormat()`‑en keresztül, de ez csak a dia‑előnézet. Nem a beágyazott fájl az OLE objektumban.
-- **Video frame thumbnails:** Egy [IVideoFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ivideoframe/) előnézeti képet adhat a `getPictureFormat()`‑en keresztül, de ez csak a dián megjelenő poszter. Nem a videófolyamból származik.
-- **Audio frame thumbnails:** Egy [IAudioFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iaudioframe/) ikon vagy bélyegkép jelenhet meg a `getPictureFormat()`‑en keresztül; ez nem a beágyazott hangadat.
-- **Zoom images:** Dia‑zoom, szekció‑zoom és összegző zoom alakzatok egyedi [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumokat használhatnak a `getZoomImage()` segítségével.
-- **Nested shape models:** A táblázat, diagram és SmartArt objektumok implementálják a [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ishape/) interfészt, de képeik gyakran beágyazott táblázatcellák, diagram‑elemek vagy SmartArt‑csomópont formázási objektumokban tárolódnak.
-- **Cropped or transformed pictures:** Az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) elérése a tárolt képforrást adja vissza. Nem jeleníti meg a vágást, átlátszóságot, színátmenetet, forgatást vagy egyéb vizuális hatásokat, amelyeket az alakzat alkalmaz.
+- **Ismétlődő képek:** Több alakzat hivatkozhat ugyanarra a képre vagy azonos bájtokkal rendelkező külön képekre. Használd a [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) hash‑elését a fájlok írása előtt, ha egy kimeneti fájlt szeretnél minden egyedi képhez.
+- **Eredeti adatok vs. konvertált kimenet:** A [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) mentése megőrzi a beágyazott JPEG, PNG, GIF, SVG, EMF vagy WMF adatot. A [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--) mentése a [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/#save-java.lang.String-int-)‑val akkor hasznos, ha egységes kimeneti formátumra (például PNG) van szükséged.
+- **Nem támogatott kitöltéstípusok:** Szilárd, fokozatos, mintázatos és nincs‑kitöltésű alakzatok nem tartalmaznak képi kitöltést. Ellenőrizd a [FillType](https://reference.aspose.com/slides/hu/java/com.aspose.slides.filltype/)‑t, mielőtt a `getPictureFillFormat()`‑ot hívnád.
+- **Csoportosított alakzatok:** A felső szintű dia‑alakzatgyűjtemény nem laposítja a csoportokat. Rekurzívan vizsgáld meg a [IGroupShape.getShapes](https://reference.aspose.com/slides/hu/java/com.aspose.slides.igroupshape/#getShapes--)‑t, ha a csoportos tartalom számít.
+- **OLE‑objektum előnézetek:** Egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ioleobjectframe/) a `getSubstitutePictureFormat()`‑on keresztül előnézeti képet adhat, de ez csak a dia‑előnézet. Nem az OLE‑objektumban beágyazott fájl.
+- **Videó‑keret bélyegképek:** Egy [IVideoFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ivideoframe/) a `getPictureFormat()`‑on keresztül előnézeti képet adhat, de ez csak a dián megjelenő poszter, nem a videófolyamból kinyert kép.
+- **Audio‑keret bélyegképek:** Egy [IAudioFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iaudioframe/) ikon vagy bélyegkép a `getPictureFormat()`‑on keresztül, de ez nem a beágyazott audio adat.
+- **Nagyítási képek:** Dia‑nagyítás, szekció‑nagyítás és összefoglaló nagyítás alakzatok egyéni [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumokat használhatnak a `getZoomImage()`‑en keresztül.
+- **Beágyazott alakzati modellek:** A táblázat, diagram és SmartArt objektumok [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ishape/)‑t valósítanak meg, de képeik gyakran beágyazott táblacellák, diagram‑elemek vagy SmartArt‑csomópont formázási objektumokban tárolódnak.
+- **Levágott vagy átalakított képek:** Az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) elérése csak a tárolt képernyőforrást adja vissza. Nem jeleníti meg a vágást, áttetszőséget, átszínezést, forgatást vagy egyéb vizuális effekteket, amelyeket az alakzat alkalmaz.
 
-## **FAQ**
+## **GYIK**
 
-**Can I extract the original image without cropping, effects, or shape transformations?**
+### Kivonhatom az eredeti képet vágás, effektus vagy alakzatrajzolás nélkül?
 
-Igen. Hozzáférhet a [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumhoz, és a [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) segítségével írhatja a lemezre. Ez megőrzi a prezentációban tárolt eredeti kódolt képet, nem pedig a dián megjelenő változatot.
+Igen. Hozzáférhetsz az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) objektumhoz, és a [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--)‑t leírhatod lemezre. Ez megőrzi a prezentációban tárolt eredeti kódolt képet, nem azt, ahogyan a kép a dián megjelenik.
 
-**Can I export every extracted image as PNG?**
+### Exportálhatom az összes kinyert képet PNG‑ként?
 
-Igen. Használja a [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--) metódust egy [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/) objektum megszerzéséhez, majd hívja a [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/#save-java.lang.String-int-) metódust a [ImageFormat.Png](https://reference.aspose.com/slides/hu/java/com.aspose.slides.imageformat/) paraméterrel. Ez átalakítja a kimenetet, és nem feltétlenül őrzi meg az eredeti fájltípust vagy vektoralapú adatot.
+Igen. Használd az [IPPImage.getImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getImage--)‑t egy [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/) objektum beszerzéséhez, majd hívd a [IImage.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides.iimage/#save-java.lang.String-int-)‑t a [ImageFormat.Png](https://reference.aspose.com/slides/hu/java/com.aspose.slides.imageformat/)‑al. Ez konvertálja a kimenetet, és előfordulhat, hogy nem őrzi meg az eredeti fájltípust vagy vektoradatot.
 
-**How do I avoid saving the same image more than once?**
+### Hogyan kerülhetem el ugyanannak a képnek a többszöri mentését?
 
-Használjon hash‑t a [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--) alapján, és tárolja a hash‑eket egy halmazban. Ha egy új kép hash‑e már létezik, hagyja ki, vagy rögzítsen egy másik hivatkozást a már meglévő kimeneti fájlra.
+Használj hash‑t a [IPPImage.getBinaryData](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/#getBinaryData--)‑ből, és tartsd a hasheket egy halmazban. Ha egy új kép hash‑e már létezik, hagyd ki, vagy rögzíts egy további hivatkozást a már létező kimeneti fájlra.
 
-**Why do some shapes not produce an image?**
+### Miért nem ad ki képet egyes alakzatok?
 
-Képkeretek, kép‑kitöltésű alakzatok, OLE objektum keretek, média keretek, zoom keretek, táblázatok, diagramok és SmartArt objektumok hivatkozhatnak képekre. Néhány alakzattípus képet rejtett formázási objektumokon keresztül tesz elérhetővé, ezért egy egyszerű `getPictureFormat()` vagy `getFillFormat()` ellenőrzés nem mindig elegendő.
+Képkeretek, képpel kitöltött alakzatok, OLE‑objektum keretek, média‑keretek, nagyítási keretek, táblázatok, diagramok és SmartArt objektumok hivatkozhatnak képekre. Néhány alakzat típus képeket rejtett formázási objektumokon keresztül tesz elérhetővé, ezért egy egyszerű `getPictureFormat()` vagy `getFillFormat()` ellenőrzés nem mindig elegendő.
 
-**Can I extract the thumbnail shown for a video frame?**
+### Kinyerhetem a videókerethez tartozó bélyegképet?
 
-Igen. Használja a [IVideoFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ivideoframe/) objektumot, és olvassa a `getPictureFormat().getPicture().getImage()`‑t. Ez a videókerethez tárolt posztert (bélyegképet) nyeri ki, nem pedig egy a videóból generált keretet.
+Igen. Használj [IVideoFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ivideoframe/)-t, és olvasd a `getPictureFormat().getPicture().getImage()`‑t. Ez a videókerettel együtt tárolt poszterképet adja vissza, nem a videófájlból generált képkockát.
 
-**How can I determine which shapes use a specific image from the presentation image collection?**
+### Hogyan határozhatom meg, hogy melyik alakzat használja a prezentáció képgyűjteményének egy adott képét?
 
-Az Aspose.Slides nem tárol visszafele mutató hivatkozásokat a [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) és az alakzatok között. A bejárás során építsen fel egy leképezést: amikor egy képreferenciát talál, jegyezze fel a dia számát, az alakzat útvonalát és a kép hash‑ét vagy a gyűjtemény elemét.
+Az Aspose.Slides nem tárol visszafelé mutató hivatkozásokat az [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ippimage/) és az alakzatok között. A bejárás során építs fel egy leképezést: amikor képhivatkozást találsz, rögzítsd a dia számát, az alakzat útvonalát és a kép hash‑ét vagy gyűjtemény‑elemet.
 
-**Can I extract images embedded inside OLE objects, such as attached documents?**
+### Kinyerhetek beágyazott képeket OLE‑objektumokból, például csatolt dokumentumokból?
 
-Kivonhatja az OLE objektum dia‑előnézetét a [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--) segítségével. Azonban ez az előnézet nem maga a beágyazott dokumentum. A beágyazott fájlból származó képek kinyeréséhez exportálja az OLE adatot, majd megfelelő eszközökkel vizsgálja meg azt.
+Kinyerheted az OLE‑objektum dia‑előnézetét a [IOleObjectFrame.getSubstitutePictureFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides.ioleobjectframe/#getSubstitutePictureFormat--)‑en keresztül. Azonban ez az előnézet nem maga a beágyazott dokumentum. Az OLE‑objektumban lévő fájl képeinek kinyeréséhez először ki kell nyerni magát az OLE‑adatot, majd a megfelelő eszközökkel elemezni azt.

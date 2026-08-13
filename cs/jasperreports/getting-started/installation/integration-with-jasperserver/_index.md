@@ -4,9 +4,9 @@ type: docs
 weight: 45
 url: /cs/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Chcete-li integrovat Aspose.Slides pro JasperReports s JasperServer, je nutné provést několik dalších kroků a aktualizovat konfigurační soubory JasperServer. Tento článek vysvětluje, jak na to.
+Pro integraci Aspose.Slides for JasperReports s JasperServer je nutné provést několik dalších kroků a aktualizovat konfigurační soubory JasperServeru. Tento článek vysvětluje, jak na to.
 
 {{% /alert %}} 
 
@@ -33,7 +33,7 @@ Chcete-li integrovat Aspose.Slides pro JasperReports s JasperServer, je nutné p
 ```
 
 2. Zkopírujte **aspose.slides.jasperreports.jar** do **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Chcete-li použít funkci mapování písem, aktualizujte **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** níže uvedeným způsobem.
+3. Pro použití funkce mapování písem aktualizujte **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** podle níže uvedeného.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

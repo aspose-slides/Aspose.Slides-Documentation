@@ -1,117 +1,116 @@
 ---
 title: تعزيز عروض PowerPoint التقديمية باستخدام الرسوم المتحركة في .NET
-linktitle: رسوم متحركة PowerPoint
+linktitle: رسوم PowerPoint المتحركة
 type: docs
 weight: 150
 url: /ar/net/powerpoint-animation/
 keywords:
-- إضافة رسوم متحركة
-- تحديث رسوم متحركة
-- تغيير رسوم متحركة
-- حذف رسوم متحركة
-- إدارة رسوم متحركة
-- التحكم في الرسوم المتحركة
-- تأثير الرسوم المتحركة
-- رسوم متحركة PowerPoint
-- خط الزمن للرسوم المتحركة
-- رسوم متحركة تفاعلية
-- رسوم متحركة مخصصة
-- رسوم متحركة الشكل
+- إضافة حركة
+- تحديث الحركة
+- تغيير الحركة
+- إزالة الحركة
+- إدارة الحركة
+- التحكم في الحركة
+- تأثير الحركة
+- رسوم PowerPoint المتحركة
+- خط زمن الحركة
+- حركة تفاعلية
+- حركة مخصصة
+- حركة الشكل
 - مخطط متحرك
 - نص متحرك
 - شكل متحرك
 - كائن OLE متحرك
 - صورة متحركة
 - جدول متحرك
-- عرض PowerPoint
+- عرض PowerPoint التقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "استكشف قدرات Aspose.Slides لـ .NET في معالجة الرسوم المتحركة لعروض PowerPoint. يقدم هذا الملخص العام الميزات الرئيسية ويقدم رؤى لتعزيز عروضك التقديمية."
+description: "استكشف إمكانات Aspose.Slides لـ .NET في معالجة رسوم PowerPoint المتحركة. يقدم هذا الاستعراض العام أبرز الميزات ويمنحك رؤى لتعزيز عروضك التقديمية."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+نظرًا لأن العروض التقديمية تهدف إلى عرض شيء ما، فإن مظهرها البصري وسلوكها التفاعلي يؤخذ دائمًا في الاعتبار أثناء الإنشاء.
 
-نظرًا لأن العروض التقديمية تهدف إلى عرض شيء ما، فإن المظهر البصري والسلوك التفاعلي دائمًا ما يُؤخذان في الاعتبار أثناء الإنشاء.
+**PowerPoint animation** يلعب دورًا مهمًا في جعل العرض التقديمي جذابًا ومشوقًا للمشاهدين. توفر Aspose.Slides for .NET مجموعة واسعة من الخيارات لإضافة الرسوم المتحركة إلى عروض PowerPoint:
 
-**PowerPoint animation** يلعب دورًا مهمًا في جعل العرض جذابًا ومشوقًا للمشاهدين. توفر Aspose.Slides for .NET مجموعة واسعة من الخيارات لإضافة رسومات متحركة إلى عروض PowerPoint:
+- تطبيق أنواع مختلفة من تأثيرات PowerPoint animation على الأشكال، الرسوم البيانية، الجداول، كائنات OLE، وعناصر العرض التقديمي الأخرى.
+- استخدام تأثيرات PowerPoint animation متعددة على شكل واحد.
+- استغلال خط الزمن للرسوم المتحركة للتحكم في تأثيرات الحركة.
+- إنشاء رسوم متحركة مخصصة.
 
-- تطبيق أنواع مختلفة من تأثيرات الرسوم المتحركة على الأشكال والرسوم البيانية والجداول وكائنات OLE وعناصر العرض الأخرى.
-- استخدام تأثيرات رسوم متحركة متعددة على شكل واحد.
-- الاستفادة من جدول زمني للرسوم المتحركة للتحكم في تأثيرات الرسوم المتحركة.
-- إنشاء رسومات متحركة مخصصة.
+في Aspose.Slides for .NET، يمكن تطبيق تأثيرات حركة مختلفة على الأشكال. نظرًا لأن كل عنصر على الشريحة، بما في ذلك النصوص والصور وكائنات OLE والجداول، يُعتبر شكلاً، يمكن تطبيق تأثيرات الحركة على أي عنصر في الشريحة.
 
-في Aspose.Slides for .NET، يمكن تطبيق تأثيرات رسومية مختلفة على الأشكال. نظرًا لأن كل عنصر على الشريحة، بما في ذلك النصوص والصور وكائنات OLE والجداول، يُعامل كشكل، يمكن تطبيق تأثيرات الرسوم المتحركة على أي عنصر في الشريحة.
+[Aspose.Slides.Animation](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/) namespace يوفر فئات للعمل مع رسوم PowerPoint المتحركة.
 
-[Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/)namespace​ توفر فئات للعمل مع رسوم PowerPoint المتحركة.
+## **تأثيرات الحركة**
 
-## **تأثيرات الرسوم المتحركة**
+يدعم Aspose.Slides **150+ تأثير حركة**, بما في ذلك التأثيرات الأساسية مثل Bounce وPathFootball وZoom، بالإضافة إلى التأثيرات المحددة مثل OLEObjectShow وOLEObjectOpen. يمكنك العثور على قائمة كاملة لتأثيرات الحركة في تعداد [EffectType](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/effecttype).
 
-يدعم Aspose.Slides **أكثر من 150 تأثيرًا للرسوم المتحركة**، بما في ذلك التأثيرات الأساسية مثل Bounce وPathFootball وZoom، بالإضافة إلى التأثيرات الخاصة مثل OLEObjectShow وOLEObjectOpen. يمكنك العثور على قائمة كاملة بتأثيرات الرسوم المتحركة في تعداد [EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype).
+بالإضافة إلى ذلك، يمكن استخدام هذه التأثيرات المتحركة بالاشتراك مع ما يلي:
 
-بالإضافة إلى ذلك، يمكن دمج هذه التأثيرات مع ما يلي:
+- [ColorEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/coloreffect)
+- [CommandEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/commandeffect)
+- [FilterEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/filtereffect)
+- [MotionEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/motioneffect)
+- [PropertyEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/propertyeffect)
+- [RotationEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/rotationeffect)
+- [ScaleEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/scaleeffect)
+- [SetEffect](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/seteffect)
 
-- [ColorEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/coloreffect)
-- [CommandEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/commandeffect)
-- [FilterEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/filtereffect)
-- [MotionEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/motioneffect)
-- [PropertyEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/propertyeffect)
-- [RotationEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/rotationeffect)
-- [ScaleEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/scaleeffect)
-- [SetEffect](https://reference.aspose.com/slides/net/aspose.slides.animation/seteffect)
+## **حركة مخصصة**
 
-## **رسوم متحركة مخصصة**
+يمكن إنشاء **رسوم متحركة مخصصة** خاصة بك في Aspose.Slides. يمكن تحقيق ذلك بدمج عدة سلوكيات معًا في رسم متحرك مخصص جديد.
 
-يمكنك إنشاء **رسوم متحركة مخصصة** في Aspose.Slides. يتحقق ذلك بدمج عدة سلوكيات معًا لتكوين رسم متحرك مخصص جديد.
+[Behaviour](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/behavior) هو وحدة بناء لأي تأثير حركة في PowerPoint. جميع تأثيرات الحركة هي في الأساس مجموعة من السلوكيات المجمعة في استراتيجية واحدة. يمكنك دمج السلوكيات في رسم متحرك مخصص مرة واحدة وإعادة استخدامها في عروض تقديمية أخرى. إذا أضفت سلوكًا جديدًا إلى تأثير حركة قياسي في PowerPoint، سيصبح رسمًا متحركًا مخصصًا آخر. على سبيل المثال، يمكنك إضافة سلوك تكرار إلى حركة لجعلها تتكرر عدة مرات.
 
-[Behaviour](https://reference.aspose.com/slides/net/aspose.slides.animation/behavior) هو وحدة بناء لأي تأثير رسم متحرك في PowerPoint. جميع تأثيرات الرسوم المتحركة هي أساسًا مجموعة من السلوكيات المجمعة في استراتيجية واحدة. يمكنك دمج السلوكيات في رسم متحرك مخصص مرة واحدة وإعادة استخدامه في عروض أخرى. إذا أضفت سلوكًا جديدًا إلى تأثير رسم متحرك قياسي في PowerPoint، سيصبح رسمًا متحركًا مخصصًا آخر. على سبيل المثال، يمكنك إضافة سلوك تكرار إلى رسم متحرك لجعله يتكرر عدة مرات.
+[Animation Point](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/point) هو نقطة يتم تطبيق سلوك عليها.
 
-[Animation Point](https://reference.aspose.com/slides/net/aspose.slides.animation/point) هو النقطة التي يجب تطبيق السلوك عندها.
+## **خط الزمن للحركة**
 
-## **خط الزمن للرسوم المتحركة**
+[Sequence](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/sequence) هي مجموعة من تأثيرات الحركة المطبقة على شكل محدد.
 
-[Sequence](https://reference.aspose.com/slides/net/aspose.slides.animation/sequence) هي مجموعة من تأثيرات الرسوم المتحركة المطبقة على شكل معين.
+[Timeline](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/animationtimeline) هي مجموعة من السلاسل المستخدمة في شريحة محددة. إنها محرك رسوم متحركة تم تقديمه في PowerPoint 2002. في الإصدارات السابقة من PowerPoint، كان إضافة تأثيرات الحركة إلى العروض صعبًا ولا يمكن تحقيقه إلا عبر حلول بديلة متعددة. يستبدل خط الزمن الفئة القديمة AnimationSettings ويوفر نموذج كائن أوضح للرسوم المتحركة في PowerPoint. يمكن أن تحتوي الشريحة على خط زمن واحد فقط للحركة.
 
-[Timeline](https://reference.aspose.com/slides/net/aspose.slides.animation/animationtimeline) هي مجموعة من السلاسل المستخدمة في شريحة محددة. إنها محرك رسوم متحركة تم تقديمه في PowerPoint 2002. في الإصدارات السابقة من PowerPoint، كان إضافة تأثيرات الرسوم المتحركة إلى العروض أمرًا صعبًا ولا يمكن تحقيقه إلا عبر حلول ملتوية متعددة. يستبدل الخط الزمني الفئة القديمة AnimationSettings ويوفر نموذج كائن أكثر وضوحًا للرسوم المتحركة في PowerPoint. يمكن أن تحتوي الشريحة على خط زمن واحد فقط للرسوم المتحركة.
+## **الرسوم المتحركة التفاعلية**
 
-## **رسوم متحركة تفاعلية**
+[Trigger](https://reference.aspose.com/slides/ar/net/aspose.slides.animation/effecttriggertype) يسمح لك بتعريف إجراءات المستخدم (مثل النقر على زر) التي ستبدأ حركة محددة. تم تقديم المشغلات في أحدث إصدار من PowerPoint.
 
-[Trigger](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttriggertype) يسمح لك بتعريف إجراءات المستخدم (مثل النقر على زر) التي ستبدأ رسمًا متحركًا محددًا. تم تقديم المشغلات في أحدث إصدارات PowerPoint.
+## **رسوم المتحركة للأشكال**
 
-## **رسوم متحركة للأشكال**
+Aspose.Slides يسمح لك بتطبيق الرسوم المتحركة على الأشكال، والتي يمكن أن تشمل النص، المستطيلات، الخطوط، الإطارات، كائنات OLE، وأكثر.
 
-يتيح Aspose.Slides تطبيق الرسوم المتحركة على الأشكال، والتي قد تشمل النصوص، المستطيلات، الخطوط، الإطارات، كائنات OLE، وأكثر.
-
-{{% alert color="primary" %}} 
-اقرأ المزيد [**حول الرسوم المتحركة للأشكال**](/slides/ar/net/shape-animation/).
+{{% alert color="info" %}} 
+اقرأ المزيد [**حول رسوم المتحركة للأشكال**](/slides/ar/net/shape-animation/).
 {{% /alert %}}
 
-## **رسوم متحركة للمخططات**
+## **الرسوم البيانية المتحركة**
 
-لإنشاء مخططات متحركة، يجب استخدام نفس الفئات المستخدمة للأشكال. ومع ذلك، لا يمكن تطبيق رسوم PowerPoint المتحركة إلا على فئات المخطط أو سلاسل المخطط. يمكنك أيضًا تطبيق تأثيرات الرسوم المتحركة على عنصر فئة أو عنصر سلسلة.
+لإنشاء رسوم بيانية متحركة، يجب عليك استخدام نفس الفئات المستخدمة للأشكال. ومع ذلك، لا يمكن تطبيق رسوم PowerPoint المتحركة إلا على فئات المخطط أو سلاسل المخطط. يمكنك أيضًا تطبيق تأثيرات الحركة على عنصر فئة أو عنصر سلسلة.
 
-{{% alert color="primary" %}} 
-اقرأ المزيد [**حول المخططات المتحركة**](/slides/ar/net/animated-charts/).
+{{% alert color="info" %}} 
+اقرأ المزيد [**حول الرسوم البيانية المتحركة**](/slides/ar/net/animated-charts/).
 {{% /alert %}}
 
-## **نص متحرك**
+## **النص المتحرك**
 
-إلى جانب النص المتحرك، يمكن أيضًا تطبيق الرسوم المتحركة على فقرة.
+إلى جانب النص المتحرك، يمكن أيضًا تطبيق الحركة على فقرة.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 اقرأ المزيد [**حول النص المتحرك**](/slides/ar/net/animated-text/).
 {{% /alert %}}
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**هل سيتم الحفاظ على الرسوم المتحركة عند التصدير إلى PDF؟**
+### هل ستظل الرسوم المتحركة محفوظة عند التصدير إلى PDF؟
 
-لا. PDF تنسيق ثابت، لذا لا تُشغل الرسوم المتحركة و[انتقالات الشرائح](/slides/ar/net/slide-transition/). إذا كنت بحاجة إلى حركة، صدّر إلى [HTML5](/slides/ar/net/export-to-html5/)، [GIF متحرك](/slides/ar/net/convert-powerpoint-to-animated-gif/)، أو [فيديو](/slides/ar/net/convert-powerpoint-to-video/) بدلاً من ذلك.
+لا. PDF هو تنسيق ثابت، لذا لا تُشغل الرسوم المتحركة و[انتقالات الشرائح](/slides/ar/net/slide-transition/). إذا كنت تحتاج إلى الحركة، قم بالتصدير إلى [HTML5](/slides/ar/net/export-to-html5/)، [GIF متحرك](/slides/ar/net/convert-powerpoint-to-animated-gif/)، أو [فيديو](/slides/ar/net/convert-powerpoint-to-video/) بدلاً من ذلك.
 
-**هل يمكنني تحويل عرض تقديمي متحرك إلى فيديو والتحكم في معدل الإطارات وحجم الإطار؟**
+### هل يمكنني تحويل عرض تقديمي متحرك إلى فيديو والتحكم في معدل الإطارات وحجم الإطار؟
 
-نعم. يمكنك [تصدير العرض كإطارات](/slides/ar/net/convert-powerpoint-to-video/) وترميزها إلى فيديو (مثلاً عبر ffmpeg)، مع اختيار عدد الإطارات في الثانية والدقة. تُشغل الرسوم المتحركة وانتقالات الشرائح أثناء التصدير.
+نعم. يمكنك [render the presentation as frames](/slides/ar/net/convert-powerpoint-to-video/) وترميزها إلى فيديو (مثلاً عبر ffmpeg)، مع اختيار عدد الإطارات في الثانية والدقة. تُشغل الرسوم المتحركة وانتقالات الشرائح أثناء عملية التصيير.
 
-**هل ستظل الرسوم المتحركة سليمة عند العمل مع ODP (ليس فقط PPTX)؟**
+### هل ستظل الرسوم المتحركة سليمة عند العمل مع ODP (ليس فقط PPTX)؟
 
-تدعم PPT وPPTX وODP لل[القراءة](/slides/ar/net/open-presentation/) و[الكتابة](/slides/ar/net/save-presentation/)، لكن الاختلافات في الصيغ قد تجعل بعض التأثيرات تظهر أو تتصرف بشكل مختلف قليلاً. تحقق من الحالات الحرجة باستخدام عينات حقيقية.
+يُدعم PPT وPPTX وODP لل[قراءة](/slides/ar/net/open-presentation/) و[كتابة](/slides/ar/net/save-presentation/)، لكن اختلافات التنسيق قد تجعل بعض التأثيرات تظهر أو تتصرف بشكل مختلف قليلاً. تحقق من الحالات الحرجة باستخدام عينات حقيقية.

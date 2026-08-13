@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 14.6.0의 공개 API 및 역방향 호환 불가능한 변경 사항
+title: Aspose.Slides for .NET 14.6.0에서 공개 API 및 이전 버전과 호환되지 않는 변경 사항
 linktitle: Aspose.Slides for .NET 14.6.0
 type: docs
 weight: 80
@@ -18,9 +18,9 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for .NET의 공개 API 업데이트 및 파괴적 변경 사항을 검토하여 PowerPoint PPT, PPTX 및 ODP 프레젠테이션 솔루션을 원활하게 마이그레이션하십시오."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-이 페이지는 Aspose.Slides for .NET 14.6.0 API와 함께 도입된 모든 [추가된](/slides/ko/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) 클래스, 메서드, 속성 등을 나열하고, 새로운 [제한사항](/slides/ko/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) 및 기타 [변경](/slides/ko/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)을 소개합니다.
+이 페이지에서는 Aspose.Slides for .NET 14.6.0 API에 도입된 모든 [added](/slides/ko/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) 클래스, 메서드, 속성 등을 나열하고, 새로운 [restrictions](/slides/ko/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) 및 기타 [changes](/slides/ko/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)을 소개합니다.
 
 {{% /alert %}} 
 ## **공용 API 변경 사항**
@@ -28,9 +28,13 @@ description: "Aspose.Slides for .NET의 공개 API 업데이트 및 파괴적 �
 #### **Aspose.Slides.Charts.IErrorBarsFormat 인터페이스 추가**
 이 인터페이스는 차트 시리즈의 오류 막대를 나타냅니다.
 
-사용자 지정 값 유형의 경우, 값을 지정하려면 시리즈의 DataPoints 컬렉션에 있는 특정 데이터 포인트의 ErrorBarCustomValues 속성을 사용합니다.
+사용자 지정 값 유형인 경우, 값을 지정하려면 시리즈의 DataPoints 컬렉션에 있는 특정 데이터 포인트의 ErrorBarCustomValues 속성을 사용합니다.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -63,12 +67,15 @@ description: "Aspose.Slides for .NET의 공개 API 업데이트 및 파괴적 �
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Aspose.Slides.Charts.IErrorBarsCustomValues 인터페이스 추가**
-IErrorBarsFormat.ValueType 속성이 Custom으로 설정된 경우, 값을 지정하려면 DataPoints 컬렉션에 있는 특정 데이터 포인트의 ErrorBarCustomValues 속성을 사용합니다.
+IErrorBarsFormat.ValueType 속성이 Custom인 경우, 값을 지정하려면 DataPoints 컬렉션에 있는 특정 데이터 포인트의 ErrorBarCustomValues 속성을 사용합니다.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -117,12 +124,15 @@ IErrorBarsFormat.ValueType 속성이 Custom으로 설정된 경우, 값을 지�
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues 인터페이스 추가**
-ChartDataPoint.ErrorBarsCustomValues 속성 목록에 있는 값 유형을 지정합니다.
+ChartDataPoint.ErrorBarsCustomValues 속성 리스트에 있는 값의 유형을 지정합니다.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -171,10 +181,9 @@ ChartDataPoint.ErrorBarsCustomValues 속성 목록에 있는 값 유형을 지�
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Aspose.Slides.IShapeCollection.AddClone(...), 및 .InsertClone(...) 메서드 추가**
-다음 메서드는 지정된 모양의 복사본을 컬렉션에 추가하거나 삽입합니다. 
+다음 메서드는 지정된 도형의 복사본을 컬렉션에 추가/삽입합니다. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -184,8 +193,10 @@ ChartDataPoint.ErrorBarsCustomValues 속성 목록에 있는 값 유형을 지�
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -210,12 +221,13 @@ ChartDataPoint.ErrorBarsCustomValues 속성 목록에 있는 값 유형을 지�
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
 #### **ViewType 열거형, IViewProperties 인터페이스, ViewProperties 클래스 및 IPresentation.ViewProperties 속성 추가**
-IPresentation.ViewProperty를 통해 개발자는 프레젠테이션이 PowerPoint에서 열릴 때 보기 유형과 메모 표시 여부를 변경할 수 있습니다.
+IPresentation.ViewProperty를 사용하면 개발자가 PowerPoint에서 프레젠테이션이 열릴 때 보기 유형 및 메모 표시 여부를 변경할 수 있습니다.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -224,5 +236,4 @@ IPresentation.ViewProperty를 통해 개발자는 프레젠테이션이 PowerPoi
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

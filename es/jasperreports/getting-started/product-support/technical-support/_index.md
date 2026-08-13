@@ -1,26 +1,24 @@
 ---
-title: Soporte Técnico
+title: Soporte técnico
 type: docs
 weight: 10
-url: /es/jasperreports/soporte-tecnico/
+url: /es/jasperreports/technical-support/
 ---
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}} 
+Aspose ofrece soporte técnico gratuito e ilimitado para todos sus productos. El soporte está disponible para todos los usuarios, incluida la evaluación.
 
-Aspose proporciona soporte técnico gratuito ilimitado para todos sus productos. El soporte está disponible para todos los usuarios, incluido el de evaluación.
+{{% /alert %}}
 
-{{% /alert %}} 
+Si necesita ayuda con Aspose.Slides for JasperReports, tenga en cuenta lo siguiente:
 
-Si necesitas ayuda con Aspose.Slides para JasperReports, considera lo siguiente:
+- La principal vía de soporte es el [**Aspose.Forum**](https://forum.aspose.com/c/slides/es/11). Publique su pregunta en el foro Aspose.Slides y será respondida en unas pocas horas. Las preguntas son respondidas directamente por el equipo de soporte de Aspose.Slides.
+- Tenga en cuenta que Aspose no ofrece soporte técnico por teléfono. El soporte telefónico solo está disponible para preguntas de venta y compra.
+- Al esperar una respuesta en los foros, por favor tenga en cuenta las diferencias de zona horaria.
 
-- La principal vía de soporte es el [**Aspose.Forum**](https://forum.aspose.com/c/slides/11). Publica tu pregunta en el foro de Aspose.Slides y será respondida en unas pocas horas. Las preguntas son respondidas directamente por el equipo de soporte de Aspose.Slides.
-- Por favor ten en cuenta que Aspose no proporciona soporte técnico por teléfono. El soporte telefónico solo está disponible para preguntas de ventas y compras.
-- Cuando esperes una respuesta en los foros, por favor permite las diferencias de huso horario.
+Si tiene un problema con Aspose.Slides for JasperReports, siga estos sencillos pasos para asegurarse de que se resuelva de la manera más eficiente:
 
-
-Si tienes un problema con Aspose.Slides para JasperReports, sigue estos simples pasos para asegurarte de que se resuelva de la manera más eficiente:
-
-- Asegúrate de utilizar la última versión de Aspose.Slides para JasperReports antes de informar el problema, consulta la descarga de Aspose.Slides para conocer la última versión.
-- Echa un vistazo a los foros, esta documentación y la Referencia de API antes de informar el problema; tal vez tu pregunta ya fue respondida.
-- Al informar un problema, por favor incluye el documento original y posiblemente un fragmento de tu código que causa el problema. Si necesitas adjuntar múltiples archivos, comprímelos en uno solo. Es seguro adjuntar tus documentos en Aspose.Forums ya que solo tú y los desarrolladores de Aspose tendrán acceso a los archivos adjuntos.
-- Por favor intenta reportar un problema por hilo. Si tienes otro problema, infórmalo en un hilo separado.
+- Asegúrese de utilizar la última versión de Aspose.Slides for JasperReports antes de informar del problema; consulte la descarga de Aspose.Slides para conocer la versión más reciente.
+- Revise los foros, esta documentación y la Referencia de API antes de informar del problema; quizá su pregunta ya haya sido respondida.
+- Al informar de un problema, incluya el documento original y, si es posible, un fragmento de su código que cause el problema. Si necesita adjuntar varios archivos, comprímalos en un único zip. Es seguro adjuntar sus documentos en Aspose.Forums, ya que solo usted y los desarrolladores de Aspose tendrán acceso a los archivos adjuntos.
+- Por favor, intente informar de un solo problema por hilo. Si tiene otro problema, infórmelo en un hilo separado.

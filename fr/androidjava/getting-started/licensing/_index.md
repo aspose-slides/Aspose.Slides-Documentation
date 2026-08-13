@@ -17,55 +17,60 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Appliquer, gérer et dépanner les licences dans Aspose.Slides pour Android via Java. Assurez un accès ininterrompu à toutes les fonctionnalités avec notre guide de licence."
+description: "Appliquer, gérer et dépanner les licences dans Aspose.Slides pour Android via Java. Garantir un accès ininterrompu à toutes les fonctionnalités grâce à notre guide de gestion des licences."
 ---
+## **Aperçu**
+
+Aspose.Slides peut être utilisé en mode d'évaluation ou avec une licence valide. La version d'évaluation fournit les mêmes fonctionnalités que la version sous licence, mais elle ajoute un filigrane d'évaluation lorsque les présentations sont ouvertes ou enregistrées et limite l'extraction de texte à une diapositive.
+
+Cet article explique comment fonctionne la gestion des licences dans Aspose.Slides et comment appliquer une licence avant d'utiliser la bibliothèque. Une licence peut être chargée à partir d'un fichier, d'un flux ou d'une ressource intégrée en utilisant la classe `License`. L'article montre également comment valider si une licence a été appliquée correctement.
 
 ## **Évaluer Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Vous pouvez télécharger une version d'évaluation de **Aspose.Slides for Android via Java** depuis sa [page de téléchargement](https://releases.aspose.com/slides/androidjava/). La version d'évaluation offre les mêmes fonctionnalités que la version sous licence du produit. Le package d'évaluation est identique au package acheté. La version d'évaluation devient simplement sous licence après que vous ajoutiez quelques lignes de code (pour appliquer la licence).
+Vous pouvez télécharger une version d'évaluation d'**Aspose.Slides for Android via Java** depuis sa [page de téléchargement](https://releases.aspose.com/slides/fr/androidjava/). La version d'évaluation offre les mêmes fonctionnalités que la version sous licence du produit. Le package d'évaluation est identique au package acheté. La version d'évaluation devient simplement sous licence après que vous ayez ajouté quelques lignes de code (pour appliquer la licence).
 
-Une fois que vous êtes satisfait de votre évaluation de **Aspose.Slides**, vous pouvez [acheter une licence](https://purchase.aspose.com/buy). Nous vous recommandons de parcourir les différents types d'abonnement. Si vous avez des questions, contactez l'équipe commerciale d'Aspose.
+Une fois que vous êtes satisfait de votre évaluation d'**Aspose.Slides**, vous pouvez [acheter une licence](https://purchase.aspose.com/buy). Nous vous recommandons de parcourir les différents types d'abonnement. Si vous avez des questions, contactez l'équipe commerciale d'Aspose.
 
-Chaque licence Aspose comprend un abonnement d'un an pour les mises à jour gratuites vers les nouvelles versions ou les correctifs publiés pendant la période d'abonnement. Les utilisateurs disposant de produits sous licence (ou même de versions d'évaluation) bénéficient d'un support technique gratuit et illimité.
+Chaque licence Aspose comprend un abonnement d'un an pour des mises à jour gratuites vers les nouvelles versions ou les correctifs publiés pendant la période d'abonnement. Les utilisateurs avec des produits sous licence (ou même les versions d'évaluation) bénéficient d'un support technique gratuit et illimité.
 
 {{% /alert %}} 
 
-**Limites de la version d'évaluation**
+**Limitations de la version d'évaluation**
 
-* Bien que la version d'évaluation d'Aspose.Slides (sans licence spécifiée) fournisse l'intégralité des fonctionnalités du produit, elle ajoute un filigrane d'évaluation en haut du document lors des opérations d'ouverture et d'enregistrement. 
-* Vous êtes limité à une diapositive lors de l'extraction de texte à partir des diapositives de la présentation.
+* Bien que la version d'évaluation d'Aspose.Slides (sans licence spécifiée) offre la pleine fonctionnalité du produit, elle insère un filigrane d'évaluation en haut du document lors des opérations d'ouverture et d'enregistrement. 
+* Vous êtes limité à une diapositive lors de l'extraction de textes à partir des diapositives de la présentation.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Pour tester Aspose.Slides sans limitations, vous pouvez demander une **Licence temporaire de 30 jours**. Consultez la page [Comment obtenir une licence temporaire](https://purchase.aspose.com/temporary-license) pour plus d'informations.
+Pour tester Aspose.Slides sans limitations, vous pouvez demander une **licence temporaire de 30 jours**. Consultez la page [Comment obtenir une licence temporaire](https://purchase.aspose.com/temporary-license) pour plus d'informations.
 
 {{% /alert %}}
 
 ## **Licences dans Aspose.Slides**
 
-* Une version d'évaluation devient sous licence après que vous achetiez une licence et ajoutiez quelques lignes de code (pour appliquer la licence).
-* La licence est un fichier XML en texte clair qui contient des informations telles que le nom du produit, le nombre de développeurs autorisés, la date d'expiration de l'abonnement, etc. 
+* Une version d'évaluation devient sous licence après que vous ayez acheté une licence et ajouté quelques lignes de code (pour appliquer la licence).
+* La licence est un fichier XML en texte clair qui contient des détails tels que le nom du produit, le nombre de développeurs autorisés, la date d'expiration de l'abonnement, etc.
 * Le fichier de licence est signé numériquement, vous ne devez donc pas le modifier. Même l'ajout accidentel d'un saut de ligne supplémentaire au contenu du fichier l'invalidera.
-* Aspose.Slides for Android via Java recherche généralement la licence aux emplacements suivants :
+* Aspose.Slides for Android via Java essaie généralement de trouver la licence aux emplacements suivants :
   * Un chemin explicite
   * Le dossier contenant Aspose.Slides.jar
-* Pour éviter les limitations liées à la version d'évaluation, vous devez définir une licence avant d'utiliser **Aspose.Slides**. Vous n'avez besoin de définir la licence qu'une seule fois par application ou processus.
+* Pour éviter les limitations associées à la version d'évaluation, vous devez définir une licence avant d'utiliser **Aspose.Slides**. Vous n'avez à définir une licence qu'une seule fois par application ou processus.
 
 ## **Appliquer une licence**
 
 Une licence peut être chargée à partir d'un **fichier** ou d'un **flux**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose.Slides fournit la classe [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) pour les opérations de licence.
+Aspose.Slides fournit la classe [License](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/license/) pour les opérations de licence.
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
 
-Les nouvelles licences peuvent activer Aspose.Slides uniquement avec la version 21.4 ou ultérieure. Les versions antérieures utilisent un système de licence différent et ne reconnaîtront pas ces licences.
+Les nouvelles licences peuvent activer Aspose.Slides uniquement à partir de la version 21.4 ou ultérieure. Les versions antérieures utilisent un système de licence différent et ne reconnaîtront pas ces licences.
 
 {{% /alert %}}
 
@@ -74,6 +79,7 @@ Les nouvelles licences peuvent activer Aspose.Slides uniquement avec la version 
 La méthode la plus simple pour définir une licence consiste à placer le fichier de licence dans le dossier contenant Aspose.Slides.jar ou le jar de votre application.
 
 Ce code Java montre comment définir un fichier de licence :
+
 ``` java
 // Instancie la classe License
 com.aspose.slides.License license = new com.aspose.slides.License();
@@ -82,18 +88,18 @@ com.aspose.slides.License license = new com.aspose.slides.License();
 license.setLicense("Aspose.Slides.Android.via.Java.lic");
 ```
 
-
 {{% alert color="warning" %}} 
 
-Si vous placez le fichier de licence dans un répertoire différent, lorsque vous appelez la méthode [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-), le nom du fichier de licence à la fin du chemin explicite doit être identique à votre fichier de licence.
+Si vous placez le fichier de licence dans un autre répertoire, lorsque vous appelez la méthode [SetLicense](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-), le nom du fichier de licence à la fin du chemin explicite spécifié doit être identique à votre fichier de licence.
 
-Par exemple, vous pouvez changer le nom du fichier de licence en *Aspose.Slides.Android.via.Java.lic.xml*. Ensuite, dans votre code, vous devez passer le chemin vers le fichier (se terminant par *Aspose.Slides.Android.via.Java.lic.xml*) à la méthode [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
+Par exemple, vous pouvez modifier le nom du fichier de licence en *Aspose.Slides.Android.via.Java.lic.xml*. Ensuite, dans votre code, vous devez transmettre le chemin vers le fichier (se terminant par *Aspose.Slides.Android.via.Java.lic.xml*) à la méthode [SetLicense](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/license/#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
 ### **Flux**
 
-Vous pouvez charger une licence à partir d'un flux. Ce code Java montre comment appliquer une licence à partir d'un flux :
+Vous pouvez charger une licence à partir d'un flux. Ce code Java montre comment appliquer une licence depuis un flux :
+
 ``` java
 // Instancie la classe License
 com.aspose.slides.License license = new com.aspose.slides.License();
@@ -102,35 +108,36 @@ com.aspose.slides.License license = new com.aspose.slides.License();
 license.setLicense(new java.io.FileInputStream("Aspose.Slides.Android.via.Java.lic"));
 ```
 
-
 ## **Validation d'une licence**
 
 Pour vérifier qu'une licence a été correctement définie, vous pouvez la valider. Ce code Java montre comment valider une licence :
-```java
-License license = new License();
-license.setLicense("Aspore.Slides.Android.via.Java.lic");
 
-if (License.isLicensed()) 
+```java
+import com.aspose.slides.*;
+
+License license = new License();
+license.setLicense("Aspose.Slides.Android.via.Java.lic");
+
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }
 ```
 
-
 ## **Sécurité des threads**
 
 {{% alert title="Note" color="warning" %}} 
 
-La méthode [SetLicense](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) n'est pas sûre pour les threads. Si cette méthode doit être appelée simultanément depuis plusieurs threads, vous pouvez utiliser des primitives de synchronisation (comme un verrou) pour éviter les problèmes. 
+La méthode [SetLicense](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/license/#setLicense-java.io.InputStream-) n'est pas sûre pour les threads. Si cette méthode doit être appelée simultanément depuis plusieurs threads, vous pouvez utiliser des primitives de synchronisation (comme un verrou) pour éviter les problèmes. 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Puis-je appliquer la licence dans un environnement complètement hors ligne (sans accès à Internet) ?**
+### Puis-je appliquer la licence dans un environnement totalement hors ligne (sans accès à Internet) ?
 
-Oui. La validation de la licence s'effectue localement à l'aide du fichier de licence ; aucune connexion Internet n'est requise.
+Oui. La validation de la licence est effectuée localement à l'aide du fichier de licence ; aucune connexion Internet n'est requise.
 
-**Que se passe-t-il après l'expiration de l'abonnement d'un an ? La bibliothèque cessera-t-elle de fonctionner ?**
+### Que se passe-t-il lorsque l'abonnement d'un an expire ? La bibliothèque cessera-t-elle de fonctionner ?
 
-Non. La licence est perpétuelle : vous pouvez continuer à utiliser les versions publiées avant la date de fin de votre abonnement, mais vous ne pourrez pas accéder aux nouvelles versions sans renouveler.
+Non. La licence est perpétuelle : vous pouvez continuer à utiliser les versions publiées avant la date de fin de votre abonnement ; vous ne pourrez simplement pas utiliser les nouvelles versions sans renouveler.

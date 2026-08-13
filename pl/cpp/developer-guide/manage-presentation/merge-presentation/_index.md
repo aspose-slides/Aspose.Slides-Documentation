@@ -1,6 +1,6 @@
 ---
-title: Efektywne łączenie prezentacji w C++
-linktitle: Łączenie prezentacji
+title: Efektywne scalanie prezentacji w C++
+linktitle: Scal prezentacje
 type: docs
 weight: 40
 url: /pl/cpp/merge-presentation/
@@ -19,21 +19,21 @@ keywords:
 - połącz ODP
 - C++
 - Aspose.Slides
-description: "Bezproblemowo scal prezentacje PowerPoint (PPT, PPTX) i OpenDocument (ODP) przy użyciu Aspose.Slides dla C++, usprawniając Twój przepływ pracy."
+description: "Bezproblemowo scal prezentacje PowerPoint (PPT, PPTX) oraz OpenDocument (ODP) przy użyciu Aspose.Slides dla C++, upraszczając swój proces pracy."
 ---
 ## **Przegląd**
 
-Aspose.Slides umożliwia łączenie prezentacji poprzez klonowanie slajdów z jednej prezentacji do drugiej. Ten artykuł wyjaśnia, jak łączyć całe prezentacje lub wybrane slajdy, używać szablonu masterowego lub określonego układu podczas łączenia, obsługiwać prezentacje o różnych rozmiarach slajdów oraz dodawać połączone slajdy do sekcji prezentacji. Omówione są również praktyczne uwagi dotyczące połączonej zawartości, w tym notatki prelegenta, komentarze, pliki źródłowe zabezpieczone hasłem oraz użycie wątków.
+Aspose.Slides umożliwia łączenie prezentacji poprzez klonowanie slajdów z jednej prezentacji do drugiej. Ten artykuł wyjaśnia, jak łączyć całe prezentacje lub wybrane slajdy, używać szablonu mastera slajdów lub określonego układu podczas łączenia, obsługiwać prezentacje o różnych rozmiarach slajdów oraz dodawać scalone slajdy do sekcji prezentacji. Omówiono również praktyczne uwagi dotyczące scalonych treści, w tym notatek prelegenta, komentarzy, plików zabezpieczonych hasłem oraz użycia wątków.
 
-## **Łączenie prezentacji**
+## **Scalanie prezentacji**
 
-Podczas łączenia jednej prezentacji z drugą, efektywnie łączysz ich slajdy w jednej prezentacji, uzyskując jeden plik. 
+Podczas łączenia jednej prezentacji z drugą efektywnie łączysz ich slajdy w jednej prezentacji, uzyskując jeden plik. 
 
-{{% alert title="Info" color="info" %}}
+{{% alert title="Informacja" color="info" %}}
 
-Większość programów do tworzenia prezentacji (PowerPoint lub OpenOffice) nie posiada funkcji umożliwiających użytkownikom łączenie prezentacji w taki sposób. 
+Większość programów do prezentacji (PowerPoint lub OpenOffice) nie posiada funkcji umożliwiających użytkownikom łączenie prezentacji w taki sposób. 
 
-[**Aspose.Slides for C++**](https://products.aspose.com/slides/pl/cpp/), jednakże, pozwala łączyć prezentacje na różne sposoby. Możesz połączyć prezentacje ze wszystkimi ich kształtami, stylami, tekstami, formatowaniem, komentarzami, animacjami itp., nie martwiąc się o utratę jakości czy danych. 
+[**Aspose.Slides for C++**](https://products.aspose.com/slides/pl/cpp/), umożliwia łączenie prezentacji na różne sposoby. Możesz łączyć prezentacje wraz ze wszystkimi ich kształtami, stylami, tekstami, formatowaniem, komentarzami, animacjami itp., nie martwiąc się o utratę jakości lub danych. 
 
 **Zobacz także**
 
@@ -41,42 +41,48 @@ Większość programów do tworzenia prezentacji (PowerPoint lub OpenOffice) nie
 
 {{% /alert %}}
 
-### **Co można łączyć**
+### **Co można scalić**
 
-Za pomocą Aspose.Slides możesz łączyć 
+Przy użyciu Aspose.Slides możesz scalić 
 
 * całe prezentacje. Wszystkie slajdy z prezentacji trafiają do jednej prezentacji
-* wybrane slajdy. Wybrane slajdy trafiają do jednej prezentacji
+* określone slajdy. Wybrane slajdy trafiają do jednej prezentacji
 * prezentacje w jednym formacie (PPT do PPT, PPTX do PPTX itp.) oraz w różnych formatach (PPT do PPTX, PPTX do ODP itp.) ze sobą. 
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Uwaga" color="warning" %}} 
 
-Oprócz prezentacji, Aspose.Slides pozwala łączyć inne pliki:
+Oprócz prezentacji, Aspose.Slides umożliwia łączenie innych plików:
 
 * [Images](https://products.aspose.com/slides/pl/cpp/merger/image-to-image/), takie jak [JPG to JPG](https://products.aspose.com/slides/pl/cpp/merger/jpg-to-jpg/) lub [PNG to PNG](https://products.aspose.com/slides/pl/cpp/merger/png-to-png/)
-* Dokumenty, takie jak [PDF to PDF](https://products.aspose.com/slides/pl/cpp/merger/pdf-to-pdf/) lub [HTML to HTML](https://products.aspose.com/slides/pl/cpp/merger/html-to-html/)
-* Dwa różne pliki, na przykład [image to PDF](https://products.aspose.com/slides/pl/cpp/merger/image-to-pdf/) lub [JPG to PDF](https://products.aspose.com/slides/pl/cpp/merger/jpg-to-pdf/) lub [TIFF to PDF](https://products.aspose.com/slides/pl/cpp/merger/tiff-to-pdf/).
+* Dokumentów, takich jak [PDF to PDF](https://products.aspose.com/slides/pl/cpp/merger/pdf-to-pdf/) lub [HTML to HTML](https://products.aspose.com/slides/pl/cpp/merger/html-to-html/)
+* Dwa różne pliki, takie jak [image to PDF](https://products.aspose.com/slides/pl/cpp/merger/image-to-pdf/) lub [JPG to PDF](https://products.aspose.com/slides/pl/cpp/merger/jpg-to-pdf/) lub [TIFF to PDF](https://products.aspose.com/slides/pl/cpp/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 
-### **Opcje łączenia**
+### **Opcje scalania**
 
 Możesz zastosować opcje określające, czy
 
 * każdy slajd w prezentacji wynikowej zachowuje unikalny styl
-* konkretny styl jest używany dla wszystkich slajdów w prezentacji wynikowej. 
+* określony styl jest używany dla wszystkich slajdów w prezentacji wynikowej. 
 
-Aby połączyć prezentacje, Aspose.Slides udostępnia metody [AddClone](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (z interfejsu [ISlideCollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection)). Istnieje kilka implementacji metod `AddClone`, które definiują parametry procesu łączenia prezentacji. Każdy obiekt Presentation posiada kolekcję [Slides](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), więc możesz wywołać metodę `AddClone` z prezentacji, do której chcesz dodać slajdy. 
+Aby scalić prezentacje, Aspose.Slides udostępnia metodę [AddClone](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee) (z interfejsu [ISlideCollection](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection)). Istnieje kilka implementacji metod `AddClone`, które definiują parametry procesu scalania prezentacji. Każdy obiekt Presentation ma kolekcję [Slides](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c), więc możesz wywołać metodę `AddClone` z prezentacji, do której chcesz scalić slajdy. 
 
-Metoda `AddClone` zwraca obiekt `ISlide`, będący klonem slajdu źródłowego. Slajdy w prezentacji wynikowej są po prostu kopią slajdów ze źródła. Dzięki temu możesz zmieniać wynikowe slajdy (np. stosować style, opcje formatowania lub układy), nie martwiąc się o wpływ na prezentacje źródłowe. 
+Metoda `AddClone` zwraca obiekt `ISlide`, będący klonem slajdu źródłowego. Slajdy w prezentacji wynikowej są po prostu kopią slajdów ze źródła. Dzięki temu możesz wprowadzać zmiany w otrzymanych slajdach (np. stosować style, opcje formatowania lub układy), nie martwiąc się o wpływ na prezentacje źródłowe. 
 
-## **Łączenie prezentacji** 
+## **Scalanie prezentacji** 
 
-Aspose.Slides udostępnia metodę [**AddClone (ISlide)**](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee), która pozwala połączyć slajdy, zachowując ich układy i style (domyślne parametry). 
+Aspose.Slides udostępnia metodę [**AddClone (ISlide)**](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a0c84ed19c8b1730eb8010613a1c229ee), która pozwala łączyć slajdy, zachowując ich układy i style (parametry domyślne). 
 
-Ten kod C++ pokazuje, jak połączyć prezentacje:
+Poniższy kod C++ pokazuje, jak scalić prezentacje:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -87,13 +93,20 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Łączenie prezentacji przy użyciu szablonu masterowego slajdów**
+## **Scalanie prezentacji z użyciem szablonu mastera slajdów**
 
-Aspose.Slides udostępnia metodę [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640), która pozwala połączyć slajdy, stosując szablon prezentacji masterowej. Dzięki temu, w razie potrzeby, możesz zmienić styl slajdów w prezentacji wynikowej. 
+Aspose.Slides udostępnia metodę [**AddClone (ISlide, IMasterSlide, bool)**](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a6b040e6b30f52ab4644fafdbc650b640), która pozwala łączyć slajdy, stosując szablon mastera prezentacji. Dzięki temu, w razie potrzeby, możesz zmienić styl slajdów w prezentacji wynikowej. 
 
 Ten kod w C++ demonstruje opisaną operację:
 
 ```cpp
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -104,21 +117,30 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Uwaga" color="warning" %}} 
 
-Układ slajdu masterowego jest określany automatycznie. Gdy nie można określić odpowiedniego układu, a parametr boolowski `allowCloneMissingLayout` metody `AddClone` jest ustawiony na true, używany jest układ slajdu źródłowego. W przeciwnym razie zostanie rzucony wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
+Układ slajdu dla mastera jest określany automatycznie. Jeśli nie można określić odpowiedniego układu, a parametr bool `allowCloneMissingLayout` metody `AddClone` jest ustawiony na true, używany jest układ slajdu źródłowego. W przeciwnym razie zostanie wyrzucony [PptxEditException](https://reference.aspose.com/slides/pl/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d). 
 
 {{% /alert %}}
 
-Jeśli chcesz, aby slajdy w prezentacji wynikowej miały inny układ, użyj metody [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) podczas łączenia. 
+Jeśli chcesz, aby slajdy w prezentacji wynikowej miały inny układ slajdu, użyj zamiast tego metody [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pl/cpp/class/aspose.slides.i_slide_collection#a0ed5909b2d92555159007046760ff2f1) podczas scalania. 
 
-## **Łączenie wybranych slajdów z prezentacji**
+## **Scalanie wybranych slajdów z prezentacji**
 
-Łączenie wybranych slajdów z wielu prezentacji jest przydatne przy tworzeniu niestandardowych zestawów slajdów. Aspose.Slides C++ pozwala wybrać i zaimportować tylko potrzebne slajdy. API zachowuje formatowanie, układ i projekt oryginalnych slajdów.
+Scalanie wybranych slajdów z wielu prezentacji jest przydatne przy tworzeniu własnych zestawów slajdów. Aspose.Slides C++ umożliwia wybranie i zaimportowanie tylko potrzebnych slajdów. API zachowuje formatowanie, układ i projekt oryginalnych slajdów.
 
 Poniższy kod C++ tworzy nową prezentację, dodaje slajdy tytułowe z dwóch innych prezentacji i zapisuje wynik do pliku:
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/SlideLayoutType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
     for (auto&& slide : presentation->get_Slides())
@@ -132,6 +154,19 @@ SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 }
 ```
 ```cpp
+#include <DOM/IPresentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Zadeklarowano w powyższym kodzie.
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation);
+
 auto presentation = MakeObject<Presentation>();
 auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
 auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
@@ -155,11 +190,18 @@ presentation1->Dispose();
 presentation->Dispose();
 ```
 
-## **Łączenie prezentacji przy użyciu układu slajdu**
+## **Scalanie prezentacji z użyciem układu slajdu**
 
 Ten kod C++ pokazuje, jak połączyć slajdy z prezentacji, stosując wybrany układ slajdu, aby uzyskać jedną prezentację wynikową:
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (const auto& slide : pres2->get_Slides())
@@ -170,19 +212,28 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Łączenie prezentacji o różnym rozmiarze slajdów**
+## **Scalanie prezentacji o różnych rozmiarach slajdów**
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Uwaga" color="warning" %}} 
 
-Nie można łączyć prezentacji o różnych rozmiarach slajdów. 
+Nie można scalać prezentacji o różnych rozmiarach slajdów. 
 
 {{% /alert %}}
 
-Aby połączyć 2 prezentacje o różnych rozmiarach slajdów, należy zmienić rozmiar jednej z prezentacji, aby dopasować go do rozmiaru drugiej. 
+Aby scalić 2 prezentacje o różnych rozmiarach slajdów, musisz zmienić rozmiar jednej z prezentacji, aby dopasować go do rozmiaru drugiej. 
 
 Ten przykładowy kod demonstruje opisaną operację:
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres1Size = pres1->get_SlideSize()->get_Size();
 
@@ -197,11 +248,18 @@ for (const auto& slide : pres2->get_Slides())
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-## **Łączenie slajdów do sekcji prezentacji**
+## **Scalanie slajdów do sekcji prezentacji**
 
-Ten kod C++ pokazuje, jak połączyć określony slajd z sekcją w prezentacji:
+Ten kod C++ pokazuje, jak scalić określony slajd do sekcji w prezentacji:
 
 ```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
 auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
 for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
@@ -213,28 +271,28 @@ for (int32_t index = 0; index < pres2->get_Slides()->get_Count(); index++)
 pres1->Save(u"combined.pptx", SaveFormat::Pptx);
 ```
 
-Slajd zostaje dodany na końcu sekcji. 
+Slajd jest dodawany na końcu sekcji. 
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Wskazówka" color="info" %}}
 
-Aspose udostępnia [DARMOWĄ aplikację webową Collage](https://products.aspose.app/slides/pl/collage). Korzystając z tej usługi online, możesz łączyć [JPG to JPG](https://products.aspose.app/slides/pl/collage/jpg) lub obrazy PNG do PNG, tworzyć [siatki zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid) i tak dalej. 
+Aspose udostępnia [DARMOWĄ aplikację internetową Collage](https://products.aspose.app/slides/pl/collage). Korzystając z tej usługi online, możesz scalać [JPG to JPG](https://products.aspose.app/slides/pl/collage/jpg) lub PNG do PNG, tworzyć [siatki zdjęć](https://products.aspose.app/slides/pl/collage/photo-grid) i tak dalej. 
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy notatki prelegenta są zachowywane podczas łączenia?**
+### Czy notatki prelegenta są zachowywane podczas scalania?
 
-Tak. Przy klonowaniu slajdów Aspose.Slides przenosi wszystkie elementy slajdu, w tym notatki, formatowanie i animacje.
+Tak. Podczas klonowania slajdów Aspose.Slides przenosi wszystkie elementy slajdu, w tym notatki, formatowanie i animacje.
 
-**Czy komentarze i ich autorzy są przenoszeni?**
+### Czy komentarze i ich autorzy są przenoszeni?
 
-Komentarze, jako część zawartości slajdu, są kopiowane razem ze slajdem. Etykiety autorów komentarzy są zachowywane jako obiekty komentarzy w wynikowej prezentacji.
+Komentarze, jako część treści slajdu, są kopiowane wraz ze slajdem. Etykiety autorów komentarzy są zachowywane jako obiekty komentarzy w powstałej prezentacji.
 
-**Co zrobić, jeśli prezentacja źródłowa jest zabezpieczona hasłem?**
+### Co zrobić, gdy prezentacja źródłowa jest zabezpieczona hasłem?
 
-Należy ją [otworzyć przy użyciu hasła](/slides/pl/cpp/password-protected-presentation/) za pomocą [LoadOptions::set_Password](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/set_password/); po załadowaniu te slajdy mogą być bezpiecznie klonowane do niechronionego pliku docelowego (lub również chronionego).
+Należy ją [otworzyć przy użyciu hasła](/slides/pl/cpp/password-protected-presentation/) za pomocą [LoadOptions::set_Password](https://reference.aspose.com/slides/pl/cpp/aspose.slides/loadoptions/set_password/); po załadowaniu te slajdy mogą być bezpiecznie klonowane do nieszyfrowanego pliku docelowego (lub również zabezpieczonego).
 
-**Jak bezpieczna jest operacja łączenia w kontekście wątków?**
+### Jak bezpieczne wątkowo jest wykonywanie scalania?
 
-Nie używaj tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) z [wielu wątków](/slides/pl/cpp/multithreading/). Zalecana zasada to „jeden dokument — jeden wątek”; różne pliki można przetwarzać równolegle w oddzielnych wątkach.
+Nie używaj tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) z [wielu wątków](/slides/pl/cpp/multithreading/). Zalecana zasada to „jeden dokument — jeden wątek”; różne pliki mogą być przetwarzane równolegle w oddzielnych wątkach.

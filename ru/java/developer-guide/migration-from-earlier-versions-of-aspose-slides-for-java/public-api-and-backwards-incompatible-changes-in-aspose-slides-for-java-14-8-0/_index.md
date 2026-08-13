@@ -1,24 +1,37 @@
 ---
 title: Публичный API и несовместимые изменения в Aspose.Slides для Java 14.8.0
+linktitle: Aspose.Slides для Java 14.8.0
 type: docs
 weight: 70
 url: /ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/
+keywords:
+- миграция
+- устаревший код
+- современный код
+- устаревший подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Обзор обновлений публичного API и критических изменений в Aspose.Slides для Java для плавной миграции ваших решений по работе с презентациями PowerPoint PPT, PPTX и ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Эта страница содержит все [добавленные](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) классы, методы, свойства и так далее, любые новые ограничения и другие [изменения](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) введенные в API Aspose.Slides для Java 14.8.0.
+Эта страница перечисляет все [добавленные](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) классы, методы, свойства и т.д., любые новые ограничения и другие [изменения](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) внедрённые в API Aspose.Slides for Java 14.8.0.
 
 {{% /alert %}} 
-## **Изменения в публичном API**
+## **Изменения публичного API**
 ### **Добавлены методы Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() и setOverlap(byte)**
-Метод Aspose.Slides.Charts.IChartSeries.getOverlap() определяет, насколько бар и колонны должны перекрывать друг друга на 2D графиках (в диапазоне от -100 до 100).
-Этот метод предназначен не только для конкретных серий, но и для всех серий родительской группы серий - это проекция соответствующего свойства группы.
+Метод Aspose.Slides.Charts.IChartSeries.getOverlap() определяет, насколько столбцы и полосы должны перекрываться на 2D‑диаграммах (в диапазоне от -100 до 100). Этот метод применяется не только к отдельной серии, но ко всем сериям родительской группы серий — это проекция соответствующего свойства группы.
 
 - Используйте метод IChartSeries.getParentSeriesGroup() для доступа к родительской группе серий.
 - Используйте методы IChartSeriesGroup.getOverlap() и setOverlap(byte) для управления значением.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -28,33 +41,37 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
 ### **Добавлено значение перечисления ShapeThumbnailBounds.Appearance**
-Этот метод создания миниатюр фигур позволяет разработчикам генерировать миниатюру фигуры в пределах ее внешнего вида. Он учитывает все эффекты фигуры. Сгенерированная миниатюра фигуры ограничена границами слайда.
+Этот способ создания миниатюр фигур позволяет разработчикам генерировать миниатюру фигуры в границах её отображения. При этом учитываются все эффекты фигуры. Сгенерированная миниатюра ограничена границами слайда.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
-### **Добавлен класс VbaProject и интерфейс IVbaProject, изменены методы Presentation.getVbaProject() и setVbaProject(VbaProject)**
-Новая функция позволяет разработчикам создавать и редактировать проекты VBA в презентации.
+### **Добавлены класс VbaProject и интерфейс IVbaProject, изменены методы Presentation.getVbaProject() и setVbaProject(VbaProject)**
+Новая возможность позволяет разработчикам создавать и редактировать VBA‑проекты в презентации.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
-// Создать новый проект VBA
+// Создать новый VBA проект
 
 pres.setVbaProject(new VbaProject());
 
-// Добавить пустой модуль в проект VBA
+// Добавить пустой модуль в VBA проект
 
 IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
 
@@ -78,12 +95,11 @@ VbaReferenceOleTypeLib officeReference =
 
     "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-// Добавить ссылки в проект VBA
+// Добавить ссылки в VBA проект
 
 pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
-
+pres.save("test.pptm", SaveFormat.Pptm);
 ```

@@ -28,28 +28,28 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertera PowerPoint-presentationer till TIFF med anteckningar med Aspose.Slides för Android via Java. Lär dig hur du exporterar bilder med talarnoteringar på ett effektivt sätt."
+description: "Konvertera PowerPoint-presentationer till TIFF med anteckningar med hjälp av Aspose.Slides för Android via Java. Lär dig hur du effektivt exporterar bilder med talarnoteringar."
 ---
 ## **Introduktion**
 
-Aspose.Slides for Android via Java erbjuder en enkel lösning för att konvertera PowerPoint‑ och OpenDocument‑presentationer (PPT, PPTX och ODP) med anteckningar till TIFF‑format. Detta format används ofta för högkvalitativ bildlagring, utskrift och dokumentarkivering. Med Aspose.Slides kan du inte bara exportera hela presentationer med talarnoteringar utan även skapa bildminiatyrer i vyet Noter‑bild. Konverteringsprocessen är enkel och effektiv och använder `save`‑metoden i klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) för att omvandla hela presentationen till en serie TIFF‑bilder samtidigt som anteckningarna och layouten bevaras.
+Aspose.Slides for Android via Java tillhandahåller en enkel lösning för att konvertera PowerPoint- och OpenDocument-presentationer (PPT, PPTX och ODP) med anteckningar till TIFF-formatet. Detta format används ofta för högkvalitativ bildlagring, utskrift och dokumentarkivering. Med Aspose.Slides kan du inte bara exportera hela presentationer med talarnoteringar utan även generera bildminiatyrer i vyn Anteckningsbild. Konverteringsprocessen är enkel och effektiv, och använder `save`‑metoden i klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) för att omvandla hela presentationen till en serie TIFF‑bilder samtidigt som anteckningarna och layouten bevaras.
 
 ## **Konvertera en presentation till TIFF med anteckningar**
 
-Att spara en PowerPoint‑ eller OpenDocument‑presentation till TIFF med anteckningar med Aspose.Slides for Android via Java innebär följande steg:
+Att spara en PowerPoint‑ eller OpenDocument‑presentation till TIFF med anteckningar med hjälp av Aspose.Slides for Android via Java innefattar följande steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/): Läs in en PowerPoint‑ eller OpenDocument‑fil.  
-1. Konfigurera alternativ för utdatalayout: Använd klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/notescommentslayoutingoptions/) för att ange hur anteckningar och kommentarer ska visas.  
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/): Ladda en PowerPoint‑ eller OpenDocument‑fil.  
+1. Konfigurera alternativ för utdata‑layout: Använd klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/notescommentslayoutingoptions/) för att ange hur anteckningar och kommentarer ska visas.  
 1. Spara presentationen som TIFF: Skicka de konfigurerade alternativen till metoden [save](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-).
 
-Låt oss säga att vi har en fil **speaker_notes.pptx** med följande bild:
+Låt oss säga att vi har en "speaker_notes.pptx"-fil med följande bild:
 
 ![Presentationens bild med talarnoteringar](slide_with_notes.png)
 
-Kodsnutten nedan visar hur man konverterar presentationen till en TIFF‑bild i vyet Noter‑bild med metoden [setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-).
-
 ```java
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
+import com.aspose.slides.*;
+
+// Instansiera Presentation-klassen som representerar en presentationsfil.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
@@ -72,20 +72,20 @@ Resultatet:
 
 ![TIFF‑bilden med talarnoteringar](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-Kolla in Aspose [Gratis PowerPoint till Poster‑konverterare](https://products.aspose.app/slides/sv/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+Kolla in Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/sv/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag styra positionen för anteckningsområdet i den resulterande TIFF‑filen?**
+### Kan jag styra placeringen av anteckningsområdet i den resulterande TIFF‑filen?
 
-Ja. Använd [notes layout settings](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) för att välja mellan alternativ som `None`, `BottomTruncated` eller `BottomFull`, som respektive döljer anteckningar, placerar dem på en enda sida eller låter dem fortsätta på ytterligare sidor.
+Ja. Använd [notes layout settings](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) för att välja mellan alternativ som `None`, `BottomTruncated` eller `BottomFull`, som respektive döljer anteckningar, anpassar dem till en enda sida eller låter dem fortsätta på ytterligare sidor.
 
-**Hur kan jag minska storleken på en TIFF‑fil med anteckningar utan synbar kvalitetsförlust?**
+### Hur kan jag minska storleken på en TIFF‑fil med anteckningar utan synlig kvalitetsförlust?
 
-Välj en [efficient compression](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (t.ex. `LZW` eller `RLE`), ange ett rimligt DPI‑värde och, om det är acceptabelt, använd ett lägre [pixel format](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) (såsom 8 bpp eller 1 bpp för monokrom). Att något minska [image dimensions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) kan också hjälpa utan att märkbart försämra läsbarheten.
+Välj en [efficient compression](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (t.ex. `LZW` eller `RLE`), ange ett rimligt DPI‑värde och, om det är acceptabelt, använd ett lägre [pixel format](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) (t.ex. 8 bpp eller 1 bpp för monokrom). Att minska [image dimensions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) något kan också hjälpa utan att märkbart försämra läsbarheten.
 
-**Påverkar teckensnittet i anteckningarna resultatet om de ursprungliga teckensnitten saknas i systemet?**
+### Påverkar typsnittet i anteckningarna resultatet om de ursprungliga typsnitten saknas i systemet?
 
-Ja. Saknade teckensnitt utlöser [substitution](/slides/sv/androidjava/font-selection-sequence/), vilket kan ändra textmått och utseende. För att undvika detta, [tillhandahåll de erforderliga teckensnitten](/slides/sv/androidjava/custom-font/) eller ange ett standard‑[fallback font](/slides/sv/androidjava/fallback-font/) så att avsedda typsnitt används.
+Ja. Saknade typsnitt utlöser [substitution](/slides/sv/androidjava/font-selection-sequence/), vilket kan förändra textmått och utseende. För att undvika detta, [supply the required fonts](/slides/sv/androidjava/custom-font/) eller ange ett standard-[fallback font](/slides/sv/androidjava/fallback-font/) så att de avsedda typsnitten används.

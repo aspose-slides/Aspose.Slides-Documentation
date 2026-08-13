@@ -1,5 +1,5 @@
 ---
-title: Soluzione funzionante per il ridimensionamento dei fogli di lavoro
+title: Soluzione operativa per il ridimensionamento del foglio di lavoro
 type: docs
 weight: 130
 url: /it/cpp/working-solution-for-worksheet-resizing/
@@ -12,37 +12,50 @@ keywords:
 - PowerPoint
 - presentazione
 - C++
-- Aspose.Slides per C++
-description: "Soluzione funzionante per il ridimensionamento dei fogli di lavoro nelle presentazioni PowerPoint utilizzando C++"
+- Aspose.Slides for C++
+description: "Soluzione operativa per il ridimensionamento del foglio di lavoro nelle presentazioni PowerPoint usando C++"
 ---
-{{% alert color="primary" %}}
-
-È stato osservato che i fogli di lavoro Excel incorporati come oggetti OLE in una presentazione PowerPoint tramite componenti Aspose vengono ridimensionati a una scala non identificata dopo la prima attivazione. Questo comportamento crea una differenza visiva evidente nella presentazione tra gli stati pre‑ e post‑attivazione dell’oggetto OLE. Abbiamo esaminato questo problema in dettaglio e fornito una soluzione, che è descritta in questo articolo.
-
+{{% alert color="info" %}}
+È stato osservato che i fogli di lavoro Excel incorporati come oggetti OLE in una presentazione PowerPoint tramite componenti Aspose vengono ridimensionati a una scala non identificata dopo la prima attivazione. Questo comportamento crea una differenza visiva evidente nella presentazione tra lo stato pre-attivazione e post-attivazione dell'oggetto OLE. Abbiamo analizzato in dettaglio questo problema e fornito una soluzione, descritta in questo articolo.
 {{% /alert %}}
 
 ## **Contesto**
 
-Nell'articolo [Gestisci OLE](/slides/it/cpp/manage-ole/), abbiamo spiegato come aggiungere un riquadro OLE a una presentazione PowerPoint utilizzando Aspose.Slides per C++. Per affrontare il [problema anteprima oggetto](/slides/it/cpp/object-preview-issue-when-adding-oleobjectframe/), abbiamo assegnato un'immagine dell'area del foglio di lavoro selezionata al riquadro OLE. Nella presentazione di output, quando si fa doppio clic sul riquadro OLE che visualizza l'immagine del foglio, il workbook Excel viene attivato. Gli utenti finali possono apportare le modifiche desiderate al workbook Excel reale e poi tornare alla diapositiva facendo clic al di fuori del workbook Excel attivato. La dimensione del riquadro OLE cambierà quando l'utente ritorna alla diapositiva. Il fattore di ridimensionamento varierà a seconda delle dimensioni del riquadro OLE e del workbook Excel incorporato.
+Nell'articolo [Gestisci OLE](/slides/it/cpp/manage-ole/), abbiamo spiegato come aggiungere un frame OLE a una presentazione PowerPoint usando Aspose.Slides per C++. Per risolvere il [problema dell'anteprima dell'oggetto](/slides/it/cpp/object-preview-issue-when-adding-oleobjectframe/), abbiamo assegnato un'immagine dell'area del foglio di lavoro selezionata al frame dell'oggetto OLE. Nella presentazione risultante, quando si fa doppio clic sul frame OLE che mostra l'immagine del foglio, il workbook di Excel viene attivato. Gli utenti finali possono apportare le modifiche desiderate al vero workbook di Excel e poi tornare alla diapositiva facendo clic al di fuori del workbook attivato. La dimensione del frame OLE cambierà quando l'utente tornerà alla diapositiva. Il fattore di ridimensionamento varierà a seconda delle dimensioni del frame OLE e del workbook Excel incorporato.
 
 ## **Causa del ridimensionamento**
 
-Poiché il workbook Excel ha una propria dimensione della finestra, cerca di mantenere la sua dimensione originale alla prima attivazione. D'altra parte, il riquadro OLE ha una propria dimensione. Secondo Microsoft, quando il workbook Excel è attivato, Excel e PowerPoint negoziano la dimensione per garantire che mantenga le proporzioni corrette come parte del processo di incorporamento. Il ridimensionamento avviene in base alle differenze tra la dimensione della finestra di Excel e le dimensioni e la posizione del riquadro OLE.
+Poiché il workbook di Excel ha una sua dimensione della finestra, cerca di mantenere la dimensione originale al momento della prima attivazione. D'altra parte, il frame dell'oggetto OLE ha le proprie dimensioni. Secondo Microsoft, quando il workbook di Excel viene attivato, Excel e PowerPoint negoziano la dimensione per garantire che mantenga le proporzioni corrette nell'ambito del processo di incorporamento. Il ridimensionamento avviene in base alle differenze tra la dimensione della finestra di Excel e le dimensioni e la posizione del frame OLE.
 
 ## **Soluzione funzionante**
 
 Esistono due possibili soluzioni per evitare l'effetto di ridimensionamento.
 
-- Scala la dimensione del riquadro OLE nella presentazione PowerPoint per corrispondere all'altezza e alla larghezza del numero desiderato di righe e colonne nel riquadro OLE.
-- Mantieni costante la dimensione del riquadro OLE e scala le dimensioni delle righe e colonne partecipanti per adattarle alla dimensione del riquadro OLE selezionato.
+- Ridimensionare la dimensione del frame OLE nella presentazione PowerPoint per corrispondere all'altezza e alla larghezza del numero desiderato di righe e colonne nel frame OLE.
+- Mantenere costante la dimensione del frame OLE e scalare le dimensioni delle righe e colonne partecipanti per adattarle alla dimensione del frame OLE selezionato.
 
-### **Scala la dimensione del riquadro OLE**
+### **Scalare la dimensione del frame OLE**
 
-In questo approccio, impareremo come impostare la dimensione del riquadro OLE del workbook Excel incorporato per corrispondere alla dimensione cumulativa delle righe e colonne partecipanti nel foglio di lavoro Excel.
+In questo approccio, impareremo come impostare la dimensione del frame OLE del workbook Excel incorporato in modo da corrispondere alla dimensione cumulativa delle righe e delle colonne partecipanti nel foglio Excel.
 
-Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come riquadro OLE. In questo scenario, la dimensione del riquadro OLE verrà prima calcolata in base alle altezze cumulative delle righe e alle larghezze cumulative delle colonne delle righe e colonne partecipanti nel workbook. Successivamente, imposteremo la dimensione del riquadro OLE su questo valore calcolato. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il riquadro OLE in PowerPoint, cattureremo anche un'immagine delle parti desiderate delle righe e colonne nel workbook e la imposteremo come immagine del riquadro OLE.
+Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come frame OLE. In questo scenario, la dimensione del frame OLE verrà prima calcolata in base all'altezza cumulativa delle righe e alla larghezza cumulativa delle colonne delle righe e colonne partecipanti nel workbook. Successivamente, imposteremo la dimensione del frame OLE a questo valore calcolato. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il frame OLE in PowerPoint, cattureremo anche un'immagine delle parti desiderate delle righe e colonne nel workbook e la imposteremo come immagine del frame OLE.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/image.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -92,6 +105,18 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -119,13 +144,26 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
-### **Scala la dimensione dell'intervallo di celle**
+### **Scalare la dimensione dell'intervallo di celle**
 
-In questo approccio, impareremo come scalare le altezze delle righe partecipanti e la larghezza delle colonne partecipanti per corrispondere a una dimensione personalizzata del riquadro OLE.
+In questo approccio, impareremo come scalare le altezze delle righe partecipanti e la larghezza delle colonne partecipanti per corrispondere a una dimensione personalizzata del frame OLE.
 
-Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come riquadro OLE. In questo scenario, imposteremo la dimensione del riquadro OLE e scaleremo le dimensioni delle righe e delle colonne che partecipano all'area del riquadro OLE. Successivamente salveremo il workbook in uno stream per applicare le modifiche e lo convertirà in un array di byte per aggiungerlo al riquadro OLE. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il riquadro OLE in PowerPoint, cattureremo anche un'immagine delle parti desiderate delle righe e colonne nel workbook e la imposteremo come immagine del riquadro OLE.
+Supponiamo di avere un foglio Excel modello e di volerlo aggiungere a una presentazione come frame OLE. In questo scenario, imposteremo la dimensione del frame OLE e scaleremo la dimensione delle righe e delle colonne che partecipano all'area del frame OLE. Salveremo quindi il workbook in uno stream per applicare le modifiche e lo convertiremo in un array di byte per aggiungerlo al frame OLE. Per evitare il messaggio rosso "EMBEDDED OLE OBJECT" per il frame OLE in PowerPoint, cattureremo anche un'immagine delle parti desiderate delle righe e colonne nel workbook e la imposteremo come immagine del frame OLE.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -138,12 +176,12 @@ float frameWidth = 400, frameHeight = 100;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Imposta la dimensione visualizzata quando il file di workbook viene usato come oggetto OLE in PowerPoint.
+// Imposta le dimensioni visualizzate quando il file workbook è usato come oggetto OLE in PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Scala l'intervallo di celle per adattarlo alle dimensioni del riquadro.
+// Scala l'intervallo di celle per adattarlo alle dimensioni del frame.
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -161,7 +199,7 @@ auto slide = presentation->get_Slide(0);
 auto oleImage = presentation->get_Images()->AddImage(imageStream);
 imageStream->Dispose();
 
-// Create the OLE object frame.
+// Crea il frame dell'oggetto OLE.
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
 auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
@@ -174,7 +212,12 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
-/// <param name="width">L'ampiezza prevista dell'intervallo di celle in punti.</param>
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
+/// <param name="width">La larghezza prevista dell'intervallo di celle in punti.</param>
 /// <param name="height">L'altezza prevista dell'intervallo di celle in punti.</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
@@ -204,6 +247,18 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 ```
 
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -232,38 +287,29 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 ```
 
 ## **Conclusione**
-
-{{% alert color="primary" %}}
-
-Esistono due approcci per risolvere il problema di ridimensionamento del foglio di lavoro. La scelta dell'approccio appropriato dipende dai requisiti specifici e dal caso d'uso. Entrambi gli approcci funzionano allo stesso modo, sia che le presentazioni siano create da un modello o da zero. Inoltre, non vi è alcun limite alla dimensione del riquadro OLE in questa soluzione.
-
+{{% alert color="info" %}}
+Ci sono due approcci per risolvere il problema di ridimensionamento del foglio di lavoro. La scelta dell'approccio appropriato dipende dai requisiti specifici e dal caso d'uso. Entrambi gli approcci funzionano allo stesso modo, sia che le presentazioni siano create da un modello sia da zero. Inoltre, non esiste alcun limite alla dimensione del frame OLE in questa soluzione.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Perché un foglio di lavoro Excel incorporato cambia dimensione quando viene attivato per la prima volta in PowerPoint?**
+### Perché un foglio di lavoro Excel incorporato cambia dimensione alla prima attivazione in PowerPoint?
+Questo accade perché Excel tenta di mantenere la dimensione originale della finestra quando è attivato, mentre il frame OLE in PowerPoint ha le proprie dimensioni. PowerPoint ed Excel negoziano la dimensione per mantenere il rapporto d'aspetto, il che può causare il ridimensionamento.
 
-Questo accade perché Excel tenta di mantenere la dimensione originale della finestra quando viene attivato, mentre il riquadro OLE in PowerPoint ha le proprie dimensioni. PowerPoint ed Excel negoziano la dimensione per mantenere le proporzioni, il che può causare il ridimensionamento.
+### È possibile prevenire completamente questo problema di ridimensionamento?
+Sì. Scalando il frame OLE per adattarlo alla dimensione dell'intervallo di celle Excel o scalando l'intervallo di celle per adattarlo alla dimensione desiderata del frame OLE, è possibile evitare il ridimensionamento indesiderato.
 
-**È possibile prevenire del tutto questo problema di ridimensionamento?**
+### Quale metodo di scalatura dovrei utilizzare, la scalatura del frame OLE o quella dell'intervallo di celle?
+Seleziona **scalatura del frame OLE** se desideri mantenere le dimensioni originali delle righe e colonne di Excel. Seleziona **scalatura dell'intervallo di celle** se desideri una dimensione fissa per il frame OLE nella tua presentazione.
 
-Sì. Scalando il riquadro OLE per adattarlo alla dimensione dell'intervallo di celle Excel o scalando l'intervallo di celle per adattarlo alla dimensione desiderata del riquadro OLE, è possibile evitare il ridimensionamento indesiderato.
+### Queste soluzioni funzioneranno se la mia presentazione è basata su un modello?
+Sì. Entrambe le soluzioni funzionano per le presentazioni create da modelli e da zero.
 
-**Quale metodo di scalatura dovrei usare, scalatura del riquadro OLE o scalatura dell'intervallo di celle?**
+### Esiste un limite alla dimensione del frame OLE quando si usano questi metodi?
+No. È possibile impostare il frame OLE a qualsiasi dimensione, purché la scala sia impostata correttamente.
 
-Seleziona **scalatura del riquadro OLE** se desideri mantenere le dimensioni originali delle righe e colonne di Excel. Seleziona **scalatura dell'intervallo di celle** se desideri una dimensione fissa per il riquadro OLE nella tua presentazione.
-
-**Queste soluzioni funzioneranno se la mia presentazione è basata su un modello?**
-
-Sì. Entrambe le soluzioni funzionano per presentazioni create da modelli e da zero.
-
-**Esiste un limite alla dimensione del riquadro OLE quando si utilizzano questi metodi?**
-
-No. È possibile impostare il riquadro OLE di qualsiasi dimensione, purché la scala sia impostata in modo appropriato.
-
-**Esiste un modo per evitare il testo segnaposto "EMBEDDED OLE OBJECT" in PowerPoint?**
-
-Sì. Catturando un'istantanea dell'intervallo di celle Excel target e impostandola come immagine segnaposto del riquadro OLE, è possibile visualizzare un'immagine di anteprima personalizzata al posto del segnaposto predefinito.
+### Esiste un modo per evitare il testo segnaposto "EMBEDDED OLE OBJECT" in PowerPoint?
+Sì. Acquisendo un'istantanea dell'intervallo di celle Excel di destinazione e impostandola come immagine segnaposto del frame OLE, è possibile visualizzare un'immagine di anteprima personalizzata al posto del segnaposto predefinito.
 
 ## **Articoli correlati**
 

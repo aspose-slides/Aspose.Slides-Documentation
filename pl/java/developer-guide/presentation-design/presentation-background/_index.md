@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie tłlem prezentacji w Javie
+title: Zarządzanie tłami prezentacji w Javie
 linktitle: Tło slajdu
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - tło prezentacji
 - tło slajdu
 - jednolity kolor
-- gradientowy kolor
+- kolor gradientu
 - tło obrazu
 - przezroczystość tła
 - właściwości tła
@@ -17,27 +17,30 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak ustawiać dynamiczne tła w plikach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Javy, z wskazówkami kodu zwiększającymi jakość Twoich prezentacji."
+description: "Dowiedz się, jak ustawiać dynamiczne tła w plikach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Javy, z wskazówkami kodowymi, które wzmocnią Twoje prezentacje."
 ---
 ## **Wprowadzenie**
 
-Jednolite kolory, gradienty i obrazy są często używane jako tło slajdów. Możesz ustawić tło dla **normalnego slajdu** (pojedynczego slajdu) lub **slajdu mistrza** (obowiązuje dla wielu slajdów jednocześnie).
+Jednolite kolory, gradienty i obrazy są powszechnie używane jako tła slajdów. Możesz ustawić tło dla **zwykłego slajdu** (pojedynczego slajdu) lub **slajdu master** (obowiązującego dla wielu slajdów naraz).
 
-![PowerPoint background](powerpoint-background.png)
+![Tło PowerPoint](powerpoint-background.png)
 
-## **Ustaw jednolite tło koloru dla normalnego slajdu**
+## **Ustaw jednolity kolor tła dla zwykłego slajdu**
 
-Aspose.Slides pozwala ustawić jednolity kolor jako tło dla konkretnego slajdu w prezentacji — nawet jeśli prezentacja używa slajdu mistrza. Zmiana dotyczy wyłącznie wybranego slajdu.
+Aspose.Slides umożliwia ustawienie jednolitego koloru jako tła konkretnego slajdu w prezentacji — nawet jeśli prezentacja korzysta ze slajdu master. Zmiana dotyczy wyłącznie wybranego slajdu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Ustaw właściwość [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu na `OwnBackground`.
-3. Ustaw tło slajdu [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) na `Solid`.
+2. Ustaw [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu na `OwnBackground`.
+3. Ustaw [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) tła slajdu na `Solid`.
 4. Użyj metody [getSolidFillColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/#getSolidFillColor--) na [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/), aby określić jednolity kolor tła.
 5. Zapisz zmodyfikowaną prezentację.
 
-Poniższy przykład w języku Java pokazuje, jak ustawić niebieski jednolity kolor jako tło normalnego slajdu:
+Poniższy przykład w języku Java pokazuje, jak ustawić niebieski jednolity kolor jako tło zwykłego slajdu:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Utwórz instancję klasy Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -55,25 +58,28 @@ try {
 }
 ```
 
-## **Ustaw jednolite tło koloru dla slajdu mistrza**
+## **Ustaw jednolity kolor tła dla slajdu master**
 
-Aspose.Slides pozwala ustawić jednolity kolor jako tło dla slajdu mistrza w prezentacji. Slajd mistrza działa jako szablon kontrolujący formatowanie wszystkich slajdów, więc gdy wybierzesz jednolity kolor tła slajdu mistrza, zostanie on zastosowany do każdego slajdu.
+Aspose.Slides umożliwia ustawienie jednolitego koloru jako tła slajdu master w prezentacji. Slajd master działa jako szablon kontrolujący formatowanie wszystkich slajdów, więc wybranie jednolitego koloru tła slajdu master powoduje, że zostanie on zastosowany do każdego slajdu.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Ustaw właściwość [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu mistrza (poprzez `getMasters`) na `OwnBackground`.
-3. Ustaw tło slajdu mistrza [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) na `Solid`.
+2. Ustaw [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu master (przez `getMasters`) na `OwnBackground`.
+3. Ustaw [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) tła slajdu master na `Solid`.
 4. Użyj metody [getSolidFillColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/#getSolidFillColor--) aby określić jednolity kolor tła.
 5. Zapisz zmodyfikowaną prezentację.
 
-Poniższy przykład w języku Java pokazuje, jak ustawić zielony jednolity kolor jako tło slajdu mistrza:
+Poniższy przykład w języku Java pokazuje, jak ustawić zielony jednolity kolor jako tło slajdu master:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Utwórz instancję klasy Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Ustaw kolor tła slajdu Master na zielony leśny.
+    // Ustaw kolor tła slajdu master na zielony.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -87,17 +93,20 @@ try {
 
 ## **Ustaw gradientowe tło dla slajdu**
 
-Gradient to efekt graficzny powstający w wyniku stopniowej zmiany koloru. Używany jako tło slajdu, gradient może sprawić, że prezentacje będą wyglądać bardziej artystycznie i profesjonalnie. Aspose.Slides pozwala ustawić gradientowy kolor jako tło slajdów.
+Gradient to efekt graficzny powstający w wyniku stopniowej zmiany koloru. Stosowany jako tło slajdu, może sprawić, że prezentacja będzie wyglądać bardziej artystycznie i profesjonalnie. Aspose.Slides umożliwia ustawienie gradientowego koloru jako tła slajdów.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Ustaw właściwość [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu na `OwnBackground`.
-3. Ustaw tło slajdu [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) na `Gradient`.
+2. Ustaw [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu na `OwnBackground`.
+3. Ustaw [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) tła slajdu na `Gradient`.
 4. Użyj metody [getGradientFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/#getGradientFormat--) na [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/), aby skonfigurować preferowane ustawienia gradientu.
 5. Zapisz zmodyfikowaną prezentację.
 
 Poniższy przykład w języku Java pokazuje, jak ustawić gradientowy kolor jako tło slajdu:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Utwórz instancję klasy Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -106,7 +115,13 @@ try {
     // Zastosuj efekt gradientu do tła.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Dodaj kolory gradientu. Bez punktów gradientu tło przechodzi do domyślnej czarno-białej skali.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Zapisz prezentację na dysku.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -120,9 +135,9 @@ try {
 Oprócz jednolitych i gradientowych wypełnień, Aspose.Slides pozwala używać obrazów jako tła slajdów.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
-2. Ustaw właściwość [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu na `OwnBackground`.
-3. Ustaw tło slajdu [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) na `Picture`.
-4. Załaduj obraz, który chcesz użyć jako tło slajdu.
+2. Ustaw [BackgroundType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/backgroundtype/) slajdu na `OwnBackground`.
+3. Ustaw [FillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) tła slajdu na `Picture`.
+4. Załaduj obraz, który ma być użyty jako tło slajdu.
 5. Dodaj obraz do kolekcji obrazów prezentacji.
 6. Użyj metody [getPictureFillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/#getPictureFillFormat--) na [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/), aby przypisać obraz jako tło.
 7. Zapisz zmodyfikowaną prezentację.
@@ -130,6 +145,8 @@ Oprócz jednolitych i gradientowych wypełnień, Aspose.Slides pozwala używać 
 Poniższy przykład w języku Java pokazuje, jak ustawić obraz jako tło slajdu:
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -155,9 +172,11 @@ try {
 }
 ```
 
-Poniższy fragment kodu pokazuje, jak ustawić typ wypełnienia tła na obraz kaflowany i zmodyfikować właściwości kafelkowania:
+Poniższy fragment kodu pokazuje, jak ustawić typ wypełnienia tła na kafelkowy obraz i zmodyfikować właściwości kafelkowania:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -175,7 +194,7 @@ try {
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // Ustaw tryb wypełnienia obrazu na Kafelkowanie i dostosuj właściwości kafelków.
+    // Ustaw tryb wypełnienia obrazu na Kafelkowanie i dostosuj właściwości kafelkowania.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -190,55 +209,66 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-
-Czytaj więcej: [**Użyj obrazu jako tekstury**](/slides/pl/java/shape-formatting/#tile-picture-as-texture).
-
+{{% alert color="info" %}}
+Więcej informacji: [**Kafelkowy obraz jako tekstura**](/slides/pl/java/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Zmień przezroczystość obrazu tła**
 
-Możesz chcieć dostosować przezroczystość obrazu tła slajdu, aby treść slajdu lepiej się wyróżniała. Poniższy kod w języku Java pokazuje, jak zmienić przezroczystość obrazu tła slajdu:
+Możesz chcieć dostosować przezroczystość obrazu tła slajdu, aby zawartość slajdu lepiej się wyróżniała. Poniższy kod w języku Java pokazuje, jak zmienić przezroczystość obrazu tła slajdu:
 
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // Na przykład.
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+    // Pobierz kolekcję operacji transformacji obrazu.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Znajdź istniejący efekt przezroczystości o stałym procencie.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Ustaw nową wartość przezroczystości.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("output.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Pobierz wartość tła slajdu**
+## **Uzyskaj wartość tła slajdu**
 
-Aspose.Slides udostępnia interfejs [IBackgroundEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibackgroundeffectivedata/) do pobierania efektywnych wartości tła slajdu. Interfejs ten eksponuje efektywne [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) oraz [EffectFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
+Aspose.Slides udostępnia interfejs [IBackgroundEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibackgroundeffectivedata/) służący do pobierania efektywnych wartości tła slajdu. Interfejs ten eksponuje efektywne [FillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) oraz [EffectFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--).
 
 Korzystając z metody `getBackground` klasy [BaseSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseslide/), możesz uzyskać efektywne tło slajdu.
 
 Poniższy przykład w języku Java pokazuje, jak pobrać efektywną wartość tła slajdu:
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Pobierz efektywne tło, uwzględniając slajd mistrza, układ i motyw.
+    // Pobierz efektywne tło, uwzględniając master, układ i motyw.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -252,10 +282,10 @@ try {
 
 ## **FAQ**
 
-**Czy mogę zresetować niestandardowe tło i przywrócić tło motywu/układu?**
+### Czy mogę zresetować własne tło i przywrócić tło motywu/układu?
 
-Tak. Usuń niestandardowe wypełnienie slajdu, a tło zostanie ponownie odziedziczone z odpowiedniego slajdu [układu](/slides/pl/java/slide-layout/)/[mistrza](/slides/pl/java/slide-master/) (czyli z [tła motywu](/slides/pl/java/presentation-theme/)).
+Tak. Usuń własne wypełnienie slajdu, a tło zostanie ponownie odziedziczone z odpowiedniego slajdu [layout](/slides/pl/java/slide-layout/)/[master](/slides/pl/java/slide-master/) (czyli z [theme background](/slides/pl/java/presentation-theme/)).
 
-**Co się stanie z tłem, jeśli później zmienię motyw prezentacji?**
+### Co się stanie z tłem, jeśli później zmienię motyw prezentacji?
 
-Jeśli slajd ma własne wypełnienie, pozostanie ono niezmienione. Jeśli tło jest dziedziczone z [układu](/slides/pl/java/slide-layout/)/[mistrza](/slides/pl/java/slide-master/), zostanie zaktualizowane, aby odpowiadało nowemu motywowi.
+Jeśli slajd ma własne wypełnienie, pozostanie ono niezmienione. Jeśli tło jest dziedziczone z [layout](/slides/pl/java/slide-layout/)/[master](/slides/pl/java/slide-master/), zostanie zaktualizowane, aby pasować do [new theme](/slides/pl/java/presentation-theme/).

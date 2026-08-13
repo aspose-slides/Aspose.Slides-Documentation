@@ -23,19 +23,19 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션의 하이퍼링크를 손쉽게 관리하고, 몇 분 만에 인터랙티브성과 워크플로우를 향상시킵니다."
+description: "PowerPoint 및 OpenDocument 프레젠테이션의 하이퍼링크를 Aspose.Slides for Android via Java로 손쉽게 관리하여 몇 분 만에 상호작용과 작업 흐름을 향상시킵니다."
 ---
 ## **소개**
 
-하이퍼링크는 객체나 데이터, 혹은 어떤 위치에 대한 참조입니다. 다음은 PowerPoint 프레젠테이션에서 흔히 사용되는 하이퍼링크입니다:
+하이퍼링크는 객체, 데이터 또는 특정 위치에 대한 참조입니다. 다음은 PowerPoint 프레젠테이션에서 일반적인 하이퍼링크입니다:
 
-* 텍스트, 도형 또는 미디어 안의 웹사이트 링크
-* 슬라이드 링크
+* 텍스트, 도형 또는 미디어 내부의 웹사이트 링크
+* 슬라이드에 대한 링크
 
-Aspose.Slides for Android via Java를 사용하면 프레젠테이션의 하이퍼링크와 관련된 다양한 작업을 수행할 수 있습니다.
+Aspose.Slides for Android via Java를 사용하면 프레젠테이션에서 하이퍼링크와 관련된 다양한 작업을 수행할 수 있습니다.
 
-{{% alert color="primary" %}} 
-Aspose 간단한 무료 온라인 PowerPoint 편집기를 확인해 보세요, [무료 온라인 PowerPoint 편집기.](https://products.aspose.app/slides/ko/editor)
+{{% alert color="info" %}} 
+Aspose 간단한, [무료 온라인 PowerPoint 편집기.](https://products.aspose.app/slides/ko/editor)
 {{% /alert %}} 
 
 ## **URL 하이퍼링크 추가**
@@ -43,8 +43,9 @@ Aspose 간단한 무료 온라인 PowerPoint 편집기를 확인해 보세요, [
 ### **텍스트에 URL 하이퍼링크 추가**
 
 이 Java 코드는 텍스트에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
-
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -61,11 +62,12 @@ try {
 }
 ```
 
-### **도형이나 프레임에 URL 하이퍼링크 추가**
+### **도형 또는 프레임에 URL 하이퍼링크 추가**
 
 이 Java 샘플 코드는 도형에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
-
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -81,37 +83,41 @@ try {
 
 ### **미디어에 URL 하이퍼링크 추가**
 
-Aspose.Slides를 사용하면 이미지, 오디오 및 비디오 파일에 하이퍼링크를 추가할 수 있습니다. 
+Aspose.Slides를 사용하면 이미지, 오디오 및 비디오 파일에 하이퍼링크를 추가할 수 있습니다.
 
-다음 샘플 코드는 **이미지**에 하이퍼링크를 추가하는 방법을 보여줍니다:
-
+이 샘플 코드는 **이미지**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// 프레젠테이션에 이미지를 추가합니다
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// 이전에 추가한 이미지를 기반으로 슬라이드 1에 그림 프레임을 생성합니다
+	// 이미지를 사전에 추가한 것을 기반으로 슬라이드 1에 그림 프레임을 생성합니다
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-다음 샘플 코드는 **오디오 파일**에 하이퍼링크를 추가하는 방법을 보여줍니다:
-
+이 샘플 코드는 **오디오 파일**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -127,9 +133,13 @@ try {
 }
 ```
 
-다음 샘플 코드는 **비디오**에 하이퍼링크를 추가하는 방법을 보여줍니다:
-
+이 샘플 코드는 **비디오**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -145,17 +155,19 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-*[Manage OLE](/slides/ko/androidjava/manage-ole/)*을 확인해 보세요.
+{{%  alert  title="Tip"  color="info"  %}} 
+다음도 확인해 보세요 *[OLE 관리](/slides/ko/androidjava/manage-ole/)*.
 {{% /alert %}}
 
 ## **하이퍼링크를 사용하여 목차 만들기**
 
-하이퍼링크를 사용하면 객체나 위치에 대한 참조를 추가할 수 있으므로 목차를 만드는 데 활용할 수 있습니다. 
+하이퍼링크를 사용하면 객체나 위치에 대한 참조를 추가할 수 있으므로 목차를 만들 때 사용할 수 있습니다.
 
-다음 샘플 코드는 하이퍼링크가 포함된 목차를 만드는 방법을 보여줍니다:
-
+이 샘플 코드는 하이퍼링크를 사용해 목차를 만드는 방법을 보여줍니다:
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -188,11 +200,13 @@ try {
 
 ### **색상**
 
-[IHyperlink](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlink) 인터페이스의 [ColorSource](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) 속성을 사용하면 하이퍼링크의 색상을 설정하고 색상 정보를 가져올 수 있습니다. 이 기능은 PowerPoint 2019에 처음 도입되었으며, 해당 속성과 관련된 변경 사항은 이전 버전의 PowerPoint에는 적용되지 않습니다.
+[ColorSource](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) 속성을 사용하면 [IHyperlink](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlink) 인터페이스에서 하이퍼링크의 색상을 설정하고 색상 정보를 가져올 수 있습니다. 이 기능은 PowerPoint 2019에서 처음 도입되었으므로, 해당 속성과 관련된 변경 사항은 이전 PowerPoint 버전에는 적용되지 않습니다.
 
-다음 샘플 코드는 동일한 슬라이드에 서로 다른 색상의 하이퍼링크가 추가되는 작업을 보여줍니다:
-
+이 샘플 코드는 서로 다른 색상의 하이퍼링크가 같은 슬라이드에 추가된 작업을 보여줍니다:
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -217,17 +231,18 @@ try {
 
 ### **텍스트에서 하이퍼링크 제거**
 
-다음 Java 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
-
+이 Java 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -244,12 +259,13 @@ try {
 }
 ```
 
-### **도형이나 프레임에서 하이퍼링크 제거**
+### **도형 또는 프레임에서 하이퍼링크 제거**
 
-다음 Java 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다: 
-
+이 Java 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -264,7 +280,7 @@ try {
 
 ## **가변 하이퍼링크**
 
-[Hyperlink](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Hyperlink) 클래스는 가변(mutable)입니다. 이 클래스를 사용하면 다음 속성 값을 변경할 수 있습니다:
+[Hyperlink](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Hyperlink) 클래스는 가변입니다. 이 클래스를 사용하면 다음 속성들의 값을 변경할 수 있습니다:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -273,8 +289,9 @@ try {
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
 다음 코드 스니펫은 슬라이드에 하이퍼링크를 추가하고 나중에 툴팁을 편집하는 방법을 보여줍니다:
-
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -285,21 +302,24 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// 이미 추가된 하이퍼링크의 툴팁을 변경합니다
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **IHyperlinkQueries에서 지원하는 속성**
+## **IHyperlinkQueries에서 지원되는 속성**
 
-프레젠테이션, 슬라이드 또는 하이퍼링크가 정의된 텍스트에서 [IHyperlinkQueries](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlinkQueries)를 액세스할 수 있습니다.
+프레젠테이션, 슬라이드 또는 하이퍼링크가 정의된 텍스트에서 [IHyperlinkQueries]를 액세스할 수 있습니다.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlinkQueries) 클래스는 다음 메서드와 속성을 지원합니다:
+[IHyperlinkQueries] 클래스는 다음 메서드와 속성을 지원합니다:
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -308,14 +328,14 @@ try {
 
 ## **FAQ**
 
-**슬라이드뿐만 아니라 “섹션” 혹은 섹션의 첫 번째 슬라이드로 이동하는 내부 탐색을 만들려면 어떻게 해야 하나요?**
+### 슬라이드뿐만 아니라 섹션이나 섹션의 첫 번째 슬라이드로 내부 탐색을 만들려면 어떻게 해야 하나요?
 
-PowerPoint에서 섹션은 슬라이드의 그룹이며, 탐색은 기술적으로 특정 슬라이드를 대상으로 합니다. “섹션으로 이동”하려면 일반적으로 해당 섹션의 첫 번째 슬라이드에 링크합니다.
+PowerPoint에서 섹션은 슬라이드의 그룹이며, 탐색은 기술적으로 특정 슬라이드를 대상으로 합니다. "섹션으로 이동"하려면 일반적으로 해당 섹션의 첫 번째 슬라이드에 링크합니다.
 
-**마스터 슬라이드 요소에 하이퍼링크를 붙여 모든 슬라이드에서 작동하도록 할 수 있나요?**
+### 마스터 슬라이드 요소에 하이퍼링크를 연결하면 모든 슬라이드에서 작동하게 할 수 있나요?
 
-예. 마스터 슬라이드 및 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 자식 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
+예. 마스터 슬라이드 및 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 하위 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
 
-**PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 유지되나요?**
+### PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 보존됩니까?
 
-[PDF](/slides/ko/androidjava/convert-powerpoint-to-pdf/)와 [HTML](/slides/ko/androidjava/convert-powerpoint-to-html/)에서는 일반적으로 링크가 유지됩니다. [이미지](/slides/ko/androidjava/convert-powerpoint-to-png/)와 [비디오](/slides/ko/androidjava/convert-powerpoint-to-video/)로 내보낼 경우, 래스터 프레임/비디오 형식 자체가 하이퍼링크를 지원하지 않기 때문에 클릭 가능성은 유지되지 않습니다.
+네. [PDF](/slides/ko/androidjava/convert-powerpoint-to-pdf/)와 [HTML](/slides/ko/androidjava/convert-powerpoint-to-html/)에서는 일반적으로 링크가 보존됩니다. [이미지](/slides/ko/androidjava/convert-powerpoint-to-png/)와 [비디오](/slides/ko/androidjava/convert-powerpoint-to-video/)로 내보낼 경우, 이러한 형식은 래스터 프레임/비디오이기 때문에 클릭 가능한 하이퍼링크를 지원하지 않아 유지되지 않습니다.

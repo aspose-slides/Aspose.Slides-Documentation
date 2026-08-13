@@ -1,12 +1,12 @@
 ---
-title: Δημόσιο API και Αλλαγές που Δεν Είναι Συμβατές με Παλαιότερες Εκδόσεις στο Aspose.Slides για .NET 15.4.0
-linktitle: Aspose.Slides για .NET 15.4.0
+title: "Δημόσιο API και Αλλαγές που δεν είναι Συμβατές με Παλαιότερες Εκδόσεις στο Aspose.Slides για .NET 15.4.0"
+linktitle: "Aspose.Slides για .NET 15.4.0"
 type: docs
 weight: 150
 url: /el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 keywords:
-- μετάβαση
-- κληρονομικός κώδικας
+- μετεγκατάσταση
+- κώδικας κληρονομίας
 - σύγχρονος κώδικας
 - κληρονομική προσέγγιση
 - σύγχρονη προσέγγιση
@@ -16,24 +16,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των σπασμένων αλλαγών στο Aspose.Slides για .NET, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των breaking changes στο Aspose.Slides για .NET, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Αυτή η σελίδα καταγράφει όλες τις [προστιθέμενες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) ή [αφαιρεθείσες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το API του Aspose.Slides για .NET 15.4.0.
+Αυτή η σελίδα παραθέτει όλες τις [προστεθείσες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) ή [αφαιρεθείσες](/slides/el/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το API του Aspose.Slides for .NET 15.4.0 API.
 
 {{% /alert %}} 
-## **Δημόσιες αλλαγές API**
-#### **Προστέθηκε το enum OrganizationChartLayoutType**
-Το enum Aspose.Slides.SmartArt.OrganizationChartLayoutType αντιπροσωπεύει τον τύπο μορφοποίησης των θυγατρικών κόμβων σε ένα διάγραμμα οργανισμού.
-#### **Προστέθηκε η μέθοδος IBulletFormat.ApplyDefaultParagraphIndentsShifts**
-Η μέθοδος Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts ορίζει προεπιλεγμένες μη μηδενικές μετατοπίσεις για το ενεργό περιθώριο (Indent) και το αριστερό περιθώριο (MarginLeft) παραγράφου όταν είναι ενεργοποιημένα τα σημεία (όπως κάνει το PowerPoint όταν ενεργοποιούνται οι κουκίδες/αρίθμηση παραγράφων). Εάν τα σημεία είναι απενεργοποιημένα, η μέθοδος απλώς επαναφέρει το περιθώριο (Indent) και το MarginLeft (όπως κάνει το PowerPoint όταν απενεργοποιούνται οι κουκίδες/αρίθμηση).
+## **Δημόσιες Αλλαγές API**
+#### **Η Enum OrganizationChartLayoutType Προστέθηκε**
+Η enum Aspose.Slides.SmartArt.OrganizationChartLayoutType αντιπροσωπεύει τον τύπο μορφοποίησης των παιδικών κόμβων σε έναν οργανωτικό διάγραμμα.
+#### **Η Μέθοδος IBulletFormat.ApplyDefaultParagraphIndentsShifts Προστέθηκε**
+Η μέθοδος Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts ορίζει τις προεπιλεγμένες μη‑μηδενικές μετατοπίσεις για το αποτελεσματικό παραγραφο‑Indent και MarginLeft όταν τα bullets είναι ενεργοποιημένα (όπως κάνει το PowerPoint εάν ενεργοποιηθούν τα bullets/αρίθμηση παραγράφου σε αυτό). Εάν τα bullets είναι απενεργοποιημένα, τότε απλώς επαναφέρει το Indent και το MarginLeft της παραγράφου (όπως κάνει το PowerPoint εάν απενεργοποιηθούν τα bullets/αρίθμηση παραγράφου σε αυτό).
 
 Δείτε παραδείγματα [εδώ](/slides/el/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **Προστέθηκε η μέθοδος IConnector.Reroute**
-Η μέθοδος Aspose.Slides.IConnector.Reroute ανακατευθύνει το σύνδεσμο έτσι ώστε να ακολουθεί τη συντομότερη δυνατή διαδρομή μεταξύ των σχημάτων που συνδέει. Για τον σκοπό αυτό, η μέθοδος Reroute() ενδέχεται να αλλάξει τα πεδία StartShapeConnectionSiteIndex και EndShapeConnectionSiteIndex.
+#### **Η Μέθοδος IConnector.Reroute Προστέθηκε**
+Η μέθοδος Aspose.Slides.IConnector.Reroute αναπροσαρμόζει τον σύνδεσμο ώστε να ακολουθεί τη συντομότερη δυνατή διαδρομή μεταξύ των σχημάτων που συνδέει. Για να το κάνει αυτό, η μέθοδος Reroute() μπορεί να αλλάξει τα StartShapeConnectionSiteIndex και EndShapeConnectionSiteIndex.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -58,10 +61,13 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 }
 
 ``` 
-#### **Προστέθηκε η μέθοδος IPresentation.GetSlideById**
-Η μέθοδος Aspose.Slides.IPresentation.GetSlideById(System.UInt32) επιστρέφει μια διαφάνεια (Slide), κύρια διαφάνεια (MasterSlide) ή διαφάνεια διάταξης (LayoutSlide) βάσει του αναγνωριστικού διαφάνειας.
+#### **Η Μέθοδος IPresentation.GetSlideById Προστέθηκε**
+Η μέθοδος Aspose.Slides.IPresentation.GetSlideById(System.UInt32) επιστρέφει ένα Slide, MasterSlide ή LayoutSlide με βάση το Id της διαφάνειας.
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides;
+
 
  using (Presentation presentation = new Presentation())
 
@@ -74,12 +80,14 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
     Debug.Assert(presentation.Slides[0] == slide);
 
 }
-
 ``` 
-#### **Προστέθηκε η ιδιότητα IShape.ConnectionSiteCount**
+#### **Η Ιδιότητα IShape.ConnectionSiteCount Προστέθηκε**
 Η ιδιότητα Aspose.Slides.IShape.ConnectionSiteCount επιστρέφει τον αριθμό των σημείων σύνδεσης στο σχήμα.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -110,12 +118,15 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Προστέθηκε η ιδιότητα ISmartArt.IsReversed**
-Η ιδιότητα Aspose.Slides.SmartArt.ISmartArt.IsReversed επιτρέπει την ανάγνωση ή τη ρύθμιση της κατάστασης του διαγράμματος SmartArt ως (αριστερά προς δεξιά) LTR ή (δεξιά προς αριστερά) RTL, εφόσον το διάγραμμα υποστηρίζει αντιστροφή.
+#### **Η Ιδιότητα ISmartArt.IsReversed Προστέθηκε**
+Η ιδιότητα Aspose.Slides.SmartArt.ISmartArt.IsReversed επιτρέπει την ανάκτηση ή ορισμό της κατάστασης του διαγράμματος SmartArt ως (αριστερά‑προς‑δεξιά) LTR ή (δεξιά‑προς‑αριστερά) RTL, εφόσον το διάγραμμα υποστηρίζει αντιστροφή.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -125,15 +136,18 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
   smart.IsReversed = true;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Προστέθηκε η ιδιότητα ISmartArt.Nodes**
+#### **Η Ιδιότητα ISmartArt.Nodes Προστέθηκε**
 Η ιδιότητα Aspose.Slides.SmartArt.ISmartArt.Nodes επιστρέφει τη συλλογή των ριζικών κόμβων στο αντικείμενο SmartArt.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -141,19 +155,22 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
 
-  ISmartArtNode node = smart.Nodes[1]; // επέλεξε τον δεύτερο ριζικό κόμβο
+  ISmartArtNode node = smart.Nodes[1]; // επιλέξτε δεύτερο ριζικό κόμβο
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Προστέθηκε η ιδιότητα ISmartArtNode.IsHidden**
-Η ιδιότητα Aspose.Slides.SmartArt.ISmartArtNode.IsHidden επιστρέφει true εάν αυτός ο κόμβος είναι κρυφός στο μοντέλο δεδομένων.
+#### **Η Ιδιότητα ISmartArtNode.IsHidden Προστέθηκε**
+Η ιδιότητα Aspose.Slides.SmartArt.ISmartArtNode.IsHidden επιστρέφει true εάν αυτός ο κόμβος είναι κρυμμένος στο μοντέλο δεδομένων.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -173,15 +190,18 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Προστέθηκε η ιδιότητα ISmartArtNode.OrganizationChartLayout**
-Η ιδιότητα Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout επιτρέπει την ανάγνωση ή τη ρύθμιση του τύπου διαγράμματος οργανισμού που σχετίζεται με τον τρέχοντα κόμβο.
+#### **Η Ιδιότητα ISmartArtNode.OrganizationChartLayout Προστέθηκε**
+Η ιδιότητα Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout επιτρέπει την ανάκτηση ή ορισμό του τύπου του οργανωτικού διαγράμματος που συνδέεται με τον τρέχοντα κόμβο.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -191,15 +211,18 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Προστέθηκε η set μέθοδος για την ιδιότητα ISmartArt.Layout**
-Προστέθηκε η μέθοδος set για την ιδιότητα Aspose.Slides.SmartArt.ISmartArt.Layout. Επιτρέπει την αλλαγή του τύπου διάταξης ενός υπάρχοντος διαγράμματος.
+#### **Η Μέθοδος Set για την Ιδιότητα ISmartArt.Layout Προστέθηκε**
+Η μέθοδος set για την ιδιότητα Aspose.Slides.SmartArt.ISmartArt.Layout προστέθηκε. Επιτρέπει την αλλαγή του τύπου διάταξης ενός υπάρχοντος διαγράμματος.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -209,17 +232,16 @@ description: "Ανασκόπηση των ενημερώσεων του δημό
 
   smart.Layout = SmartArtLayoutType.BasicProcess;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Μικρές αλλαγές API**
+#### **Μικρές Αλλαγές API**
 **Αυτή είναι η λίστα των μικρών αλλαγών API:**
 
-|Enum Aspose.Slides.BevelColorMode |διαγραμμένο, αχρησιμοποίητο enum |
+|Enum Aspose.Slides.BevelColorMode |διαγράφηκε, αχρησιμοποίητο enum |
 | :- | :- |
-|Property ThreeDFormatEffectiveData.BevelColorMode |διαγραμμένη, αχρησιμοποίητη ιδιότητα |
+|Property ThreeDFormatEffectiveData.BevelColorMode |διαγράφηκε, αχρησιμοποίητη ιδιότητα |
 |Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |προστέθηκε |
 |Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |διαγράφηκε |
 |Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |διαγράφηκε ως παρωχημένο |

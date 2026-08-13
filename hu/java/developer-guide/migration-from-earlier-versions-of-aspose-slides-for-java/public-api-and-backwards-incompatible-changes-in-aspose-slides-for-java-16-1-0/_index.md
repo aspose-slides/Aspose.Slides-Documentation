@@ -12,21 +12,26 @@ keywords:
 - modern megközelítés
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és töréspontjait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Ellenőrizze a nyilvános API frissítéseket és a töréspontokat az Aspose.Slides for Java-ban, hogy zökkenőmentesen migrálja PowerPoint PPT, PPTX és ODP bemutató megoldásait."
 ---
-{{% alert color="primary" %}} 
-Ez az oldal felsorolja az összes hozzáadott vagy eltávolított osztályt, metódust, tulajdonságot és így tovább, valamint a Aspose.Slides for Java 16.1.0 API‑val bevezetett egyéb változásokat.
+{{% alert color="info" %}} 
+
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) vagy [eltávolított](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for Java 16.1.0 API-val bevezetett egyéb változásokat.
+
 {{% /alert %}} 
 ## **Nyilvános API változások**
 
-#### **Az getRotationAngle() és a setRotationAngle() metódusok hozzá lettek adva az IChartTextBlockFormat és ITextFrameFormat interfészekhez**
+
+#### **A getRotationAngle() és a setRotationAngle() metódusok hozzá lettek adva az IChartTextBlockFormat és ITextFrameFormat interfészekhez**
 A getRotationAngle() és a setRotationAngle() metódusok hozzá lettek adva a com.aspose.slides.IChartTextBlockFormat és a com.aspose.slides.ITextFrameFormat interfészekhez.
-Lehetővé teszik az egyéni forgatás elérését, amely a keretben lévő szövegre van alkalmazva.
+Lehetővé teszik a saját forgatás elérését, amely a keret (bounding box) belsejében lévő szövegre van alkalmazva.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

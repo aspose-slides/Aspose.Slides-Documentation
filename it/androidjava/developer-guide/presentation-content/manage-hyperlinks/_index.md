@@ -1,52 +1,52 @@
 ---
-title: Gestisci gli hyperlink della presentazione su Android
-linktitle: Gestisci hyperlink
+title: Gestire i collegamenti ipertestuali della presentazione su Android
+linktitle: Gestire Collegamento Ipertestuale
 type: docs
 weight: 20
 url: /it/androidjava/manage-hyperlinks/
 keywords:
-- Aggiungi URL
-- Aggiungi hyperlink
-- Crea hyperlink
-- Format hyperli n k? Wait need correct string: "Formatta hyperlink"
-- Rimuovi hyperlink
-- Aggiorna hyperlink
-- Hyperlink testo
-- Hyperlink diapositiva
-- Hyperlink forma
-- Hyperlink immagine
-- Hyperlink video
-- Hyperlink mutabile
+- aggiungere URL
+- aggiungere collegamento ipertestuale
+- creare collegamento ipertestuale
+- formattare collegamento ipertestuale
+- rimuovere collegamento ipertestuale
+- aggiornare collegamento ipertestuale
+- collegamento ipertestuale nel testo
+- collegamento ipertestuale alla diapositiva
+- collegamento ipertestuale alla forma
+- collegamento ipertestuale all'immagine
+- collegamento ipertestuale al video
+- collegamento ipertestuale mutabile
 - PowerPoint
 - OpenDocument
 - presentazione
 - Android
 - Java
 - Aspose.Slides
-description: "Gestisci facilmente gli hyperlink in presentazioni PowerPoint e OpenDocument con Aspose.Slides per Android via Java — migliora l'interattività e il flusso di lavoro in pochi minuti."
+description: "Gestisci facilmente i collegamenti ipertestuali in presentazioni PowerPoint e OpenDocument con Aspose.Slides per Android via Java—migliora l'interattività e il flusso di lavoro in pochi minuti."
 ---
 ## **Introduzione**
 
-Un hyperlink è un riferimento a un oggetto, a dati o a un punto in qualcosa. Questi sono hyperlink comuni nelle presentazioni PowerPoint:
+Un collegamento ipertestuale è un riferimento a un oggetto, a dati o a una posizione in qualcosa. Questi sono i collegamenti ipertestuali più comuni nelle presentazioni PowerPoint:
 
-* Collegamenti a siti web all'interno di testi, forme o media
+* Collegamenti a siti Web all'interno di testi, forme o media
 * Collegamenti a diapositive
 
-Aspose.Slides per Android via Java consente di eseguire molte operazioni relative agli hyperlink nelle presentazioni.
+Aspose.Slides per Android via Java consente di eseguire molte operazioni relative ai collegamenti ipertestuali nelle presentazioni.
 
-{{% alert color="primary" %}} 
-
+{{% alert color="info" %}} 
 Potresti voler provare Aspose simple, [editor PowerPoint online gratuito.](https://products.aspose.app/slides/it/editor)
+{{% /alert %}} 
 
-{{% /alert %}}
+## **Aggiungere collegamenti URL**
 
-## **Aggiungere hyperlink URL**
+### **Aggiungere collegamenti URL al testo**
 
-### **Aggiungere hyperlink URL al testo**
-
-Questo codice Java mostra come aggiungere un hyperlink a un sito web a un testo:
+Questo codice Java mostra come aggiungere un collegamento a un sito Web a un testo:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -63,11 +63,13 @@ try {
 }
 ```
 
-### **Aggiungere hyperlink URL a forme o cornici**
+### **Aggiungere collegamenti URL a forme o cornici**
 
-Questo esempio di codice Java mostra come aggiungere un hyperlink a un sito web a una forma:
+Questo esempio di codice in Java mostra come aggiungere un collegamento a un sito Web a una forma:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -81,39 +83,45 @@ try {
 }
 ```
 
-### **Aggiungere hyperlink URL ai media**
+### **Aggiungere collegamenti URL ai media**
 
-Aspose.Slides consente di aggiungere hyperlink a immagini, file audio e video. 
+Aspose.Slides consente di aggiungere collegamenti ipertestuali a immagini, file audio e video. 
 
-Questo esempio di codice mostra come aggiungere un hyperlink a un'**immagine**:
+Questo esempio di codice mostra come aggiungere un collegamento a un'**immagine**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Aggiunge immagine alla presentazione
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// Crea un frame immagine nella diapositiva 1 basato sull'immagine aggiunta in precedenza
+	// Crea un fotogramma immagine nella diapositiva 1 basato sull'immagine aggiunta in precedenza
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Questo esempio di codice mostra come aggiungere un hyperlink a un **file audio**:
+Questo esempio di codice mostra come aggiungere un collegamento a un **file audio**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -129,9 +137,14 @@ try {
 }
 ```
 
-Questo esempio di codice mostra come aggiungere un hyperlink a un **video**:
+Questo esempio di codice mostra come aggiungere un collegamento a un **video**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -147,19 +160,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-Potresti voler vedere *[Gestisci OLE](/slides/it/androidjava/manage-ole/)*.
-
+{{%  alert  title="Tip"  color="info"  %}} 
+Potresti voler vedere *[Gestire OLE](/slides/it/androidjava/manage-ole/)*.
 {{% /alert %}}
 
-## **Usare gli hyperlink per creare un indice**
+## **Usare i collegamenti per creare un indice**
 
-Poiché gli hyperlink consentono di aggiungere riferimenti a oggetti o luoghi, è possibile usarli per creare un indice. 
+Poiché i collegamenti ipertestuali consentono di aggiungere riferimenti a oggetti o posizioni, è possibile utilizzarli per creare un indice. 
 
-Questo esempio di codice mostra come creare un indice con hyperlink:
+Questo esempio di codice mostra come creare un indice con collegamenti ipertestuali:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -188,15 +202,18 @@ try {
 }
 ```
 
-## **Formattare gli hyperlink**
+## **Formattare i collegamenti**
 
 ### **Colore**
 
-Con la proprietà [ColorSource](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) nell'interfaccia [IHyperlink](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlink), è possibile impostare il colore per gli hyperlink e anche ottenere le informazioni sul colore dagli hyperlink. La funzionalità è stata introdotta per la prima volta in PowerPoint 2019, quindi le modifiche relative alla proprietà non si applicano alle versioni più vecchie di PowerPoint.
+Con la proprietà [ColorSource](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) nell'interfaccia [IHyperlink](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlink) è possibile impostare il colore dei collegamenti ipertestuali e ottenere le informazioni sul colore dai collegamenti. La funzionalità è stata introdotta per la prima volta in PowerPoint 2019, quindi le modifiche relative a questa proprietà non si applicano alle versioni più vecchie di PowerPoint.
 
-Questo esempio di codice dimostra un'operazione in cui sono stati aggiunti hyperlink con colori diversi alla stessa diapositiva:
+Questo esempio di codice dimostra un'operazione in cui sono stati aggiunti alla stessa diapositiva collegamenti ipertestuali di colori diversi:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -217,21 +234,23 @@ try {
 }
 ```
 
-## **Rimuovere gli hyperlink dalle presentazioni**
+## **Rimuovere i collegamenti dalle presentazioni**
 
-### **Rimuovere gli hyperlink dal testo**
+### **Rimuovere i collegamenti dal testo**
 
-Questo codice Java mostra come rimuovere l'hyperlink da un testo in una diapositiva della presentazione:
+Questo codice Java mostra come rimuovere il collegamento ipertestuale da un testo in una diapositiva della presentazione:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -248,12 +267,14 @@ try {
 }
 ```
 
-### **Rimuovere gli hyperlink da forme o cornici**
+### **Rimuovere i collegamenti da forme o cornici**
 
-Questo codice Java mostra come rimuovere l'hyperlink da una forma in una diapositiva della presentazione: 
+Questo codice Java mostra come rimuovere il collegamento ipertestuale da una forma in una diapositiva della presentazione:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -266,9 +287,9 @@ try {
 }
 ```
 
-## **Hyperlink mutabile**
+## **Collegamento ipertestuale mutabile**
 
-La classe [Hyperlink](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Hyperlink) è mutabile. Con questa classe è possibile modificare i valori di queste proprietà:
+La classe [Hyperlink](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Hyperlink) è mutabile. Con questa classe è possibile modificare i valori delle seguenti proprietà:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -276,9 +297,11 @@ La classe [Hyperlink](https://reference.aspose.com/slides/it/androidjava/com.asp
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Il frammento di codice mostra come aggiungere un hyperlink a una diapositiva e modificare successivamente il suo tooltip:
+Questo frammento di codice mostra come aggiungere un collegamento ipertestuale a una diapositiva e modificare il suo tooltip in seguito:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -289,6 +312,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Modifica il tooltip del collegamento ipertestuale già aggiunto
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -297,7 +323,7 @@ try {
 
 ## **Proprietà supportate in IHyperlinkQueries**
 
-È possibile accedere a [IHyperlinkQueries](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlinkQueries) da una presentazione, diapositiva o testo per cui è definito l'hyperlink.
+È possibile accedere a [IHyperlinkQueries](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IHyperlinkQueries) da una presentazione, diapositiva o testo per cui è definito il collegamento ipertestuale.
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -312,14 +338,14 @@ La classe [IHyperlinkQueries](https://reference.aspose.com/slides/it/androidjava
 
 ## **FAQ**
 
-**Come posso creare una navigazione interna non solo verso una diapositiva, ma verso una "sezione" o la prima diapositiva di una sezione?**
+### Come posso creare una navigazione interna non solo a una diapositiva, ma a una "sezione" o alla prima diapositiva di una sezione?
 
-Le sezioni in PowerPoint sono raggruppamenti di diapositive; la navigazione punta tecnicamente a una diapositiva specifica. Per "navigare a una sezione", tipicamente si collega alla sua prima diapositiva.
+Le sezioni in PowerPoint sono raggruppamenti di diapositive; la navigazione tecnicamente punta a una diapositiva specifica. Per "navigare a una sezione", di solito si collega alla sua prima diapositiva.
 
-**Posso collegare un hyperlink agli elementi della diapositiva master in modo che funzioni su tutte le diapositive?**
+### Posso collegare un collegamento ipertestuale agli elementi del master slide in modo che funzioni su tutte le diapositive?
 
-Sì. Gli elementi della diapositiva master e dei layout supportano gli hyperlink. tali collegamenti appaiono sulle diapositive figlie e sono cliccabili durante la presentazione.
+Sì. Gli elementi del master slide e dei layout supportano i collegamenti ipertestuali. tali collegamenti appaiono sulle diapositive figlie e sono cliccabili durante la presentazione.
 
-**Gli hyperlink verranno preservati durante l'esportazione in PDF, HTML, immagini o video?**
+### I collegamenti ipertestuali verranno mantenuti quando si esporta in PDF, HTML, immagini o video?
 
-In [PDF](/slides/it/androidjava/convert-powerpoint-to-pdf/) e [HTML](/slides/it/androidjava/convert-powerpoint-to-html/), sì: i collegamenti sono generalmente preservati. Quando si esporta in [immagini](/slides/it/androidjava/convert-powerpoint-to-png/) e [video](/slides/it/androidjava/convert-powerpoint-to-video/), la cliccabilità non viene mantenuta a causa della natura di quei formati (i fotogrammi raster/video non supportano gli hyperlink).
+In [PDF](/slides/it/androidjava/convert-powerpoint-to-pdf/) e [HTML](/slides/it/androidjava/convert-powerpoint-to-html/), sì—i collegamenti sono generalmente preservati. Quando si esporta in [immagini](/slides/it/androidjava/convert-powerpoint-to-png/) e [video](/slides/it/androidjava/convert-powerpoint-to-video/), la cliccabilità non viene trasferita a causa della natura di quei formati (i fotogrammi raster/video non supportano collegamenti).

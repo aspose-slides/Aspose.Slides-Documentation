@@ -1,6 +1,6 @@
 ---
-title: API Pública e Alterações Incompatíveis Retroativas no Aspose.Slides para .NET 15.11.0
-linktitle: Aspose.Slides para .NET 15.11.0
+title: API Pública e Alterações Incompatíveis Retroativas no Aspose.Slides for .NET 15.11.0
+linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
 url: /pt/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
@@ -16,16 +16,14 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise as atualizações da API pública e as mudanças que quebram a compatibilidade no Aspose.Slides para .NET para migrar suavemente suas soluções de apresentação PowerPoint PPT, PPTX e ODP."
+description: "Revise as atualizações da API pública e as mudanças incompatíveis no Aspose.Slides for .NET para migrar suavemente suas soluções de apresentação PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
-
-Esta página lista todas as [adicionados](/slides/pt/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) ou [removidos](/slides/pt/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) classes, métodos, propriedades e etc., e outras alterações introduzidas com a API Aspose.Slides for .NET 15.11.0.
-
+{{% alert color="info" %}} 
+Esta página lista todas as classes, métodos, propriedades **adicionados** ou **removidos**, etc., e outras alterações introduzidas na API do Aspose.Slides for .NET 15.11.0.
 {{% /alert %}} 
-## **Alterações da API Pública**
+## **Alterações na API Pública**
 
-#### **Propriedades Obsoletas na Classe DataLabelCollection foram Excluídas**
+#### **Propriedades Obsoletas na Classe DataLabelCollection Foram Excluídas**
 Propriedades obsoletas na classe DataLabelCollection foram excluídas:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
@@ -42,22 +40,23 @@ Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
 #### **A Nova Propriedade FirstSlideNumber Foi Adicionada à Classe Presentation**
-A nova propriedade FirstSlideNumber adicionada ao Presentation permite obter ou definir o número do primeiro slide em uma apresentação.
+A nova propriedade FirstSlideNumber adicionada à classe Presentation permite obter ou definir o número do primeiro slide em uma apresentação.
 
-Quando um novo valor de FirstSlideNumber é especificado, todos os números de slide são recalculados.
+Quando um novo valor para FirstSlideNumber é especificado, todos os números dos slides são recalculados.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

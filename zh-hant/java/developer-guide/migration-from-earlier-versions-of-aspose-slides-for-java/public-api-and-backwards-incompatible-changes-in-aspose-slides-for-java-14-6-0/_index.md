@@ -1,41 +1,41 @@
 ---
-title: Aspose.Slides for Java 14.6.0 中的公開 API 與不相容變更
+title: Aspose.Slides for Java 14.6.0 的公開 API 與向後相容性破壞變更
 linktitle: Aspose.Slides for Java 14.6.0
 type: docs
 weight: 50
 url: /zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
 keywords:
 - 遷移
-- 傳統程式碼
+- 舊版程式碼
 - 現代程式碼
-- 傳統方法
-- 現代方法
+- 舊版做法
+- 現代做法
 - PowerPoint
 - OpenDocument
 - 簡報
 - Java
 - Aspose.Slides
-description: "檢視 Aspose.Slides for Java 的公開 API 更新與破壞性變更，順利遷移您的 PowerPoint PPT、PPTX 與 ODP 簡報解決方案。"
+description: "檢閱 Aspose.Slides for Java 的公開 API 更新與突破性變更，以順利遷移您的 PowerPoint PPT、PPTX 與 ODP 簡報解決方案。"
 ---
-{{% alert color="primary" %}} 
-
-此頁面列出所有[已新增](/slides/zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) 類別、方法、屬性等，所有新限制以及隨 Aspose.Slides for Java 14.6.0 API 所引入的其他變更。
-
+{{% alert color="info" %}} 
+此頁面列出所有[added](/slides/zh-hant/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/)類別、方法、屬性等，任何新限制以及在 Aspose.Slides for Java 14.6.0 API 中引入的其他變更。
 {{% /alert %}} 
 ## **公開 API 變更**
-### **已新增的類別、方法、介面與列舉**
-#### **已新增 ViewType 列舉、IViewProperties 介面、ViewProperties 類別，以及 IPresentation.getViewProperties() 方法**
-IPresentation.getViewProperty() 方法提供對 IViewProperties 的存取，並允許在 Microsoft PowerPoint 開啟簡報時變更簡報的檢視類型和註解的可見性。
+### **新增的類別、方法、介面與列舉**
+#### **新增 ViewType 列舉、IViewProperties 介面、ViewProperties 類別以及 IPresentation.getViewProperties() 方法**
+IPresentation.getViewProperties() 方法提供對 IViewProperties 的存取，並允許您在 Microsoft PowerPoint 中開啟簡報時更改簡報的檢視類型及註解可見性。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **已新增 Aspose.Slides.IShapeCollection.addClone(...) 與 .insertClone(...) 方法**
-這些方法
+#### **新增 Aspose.Slides.IShapeCollection.addClone(...) 與 .insertClone(...) 方法**
+以下方法
 
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape, float x, float y),
@@ -44,9 +44,11 @@ p.getViewProperties().setLastView(ViewType.SlideMasterView);
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-會將指定圖形的副本加入或插入至集合中。 
+將指定形狀的副本新增/插入至集合中。 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -71,10 +73,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **已新增 Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues 介面**
+#### **新增 Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues 介面**
 此介面指定 ChartDataPoint.ErrorBarsCustomValues 屬性清單中的值類型。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -121,10 +125,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **已新增 Aspose.Slides.Charts.IErrorBarsCustomValues 介面**
-當 IErrorBarsFormat.ValueType 屬性等於 Custom 時，請使用系列 DataPoints 集合中特定資料點的 ErrorBarCustomValues 屬性來指定值。
+#### **新增 Aspose.Slides.Charts.IErrorBarsCustomValues 介面**
+當 IErrorBarsFormat.ValueType 屬性等於 Custom 時，請使用該系列 DataPoints 集合中特定資料點的 ErrorBarCustomValues 屬性來指定值。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -171,11 +177,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **已新增 Aspose.Slides.Charts.IErrorBarsFormat 介面**
-此介面表示圖表系列的誤差棒。
-若值類型為自訂，請使用系列 DataPoins 集合中特定資料點的 ErrorBarCustomValues 屬性來指定值。
+#### **新增 Aspose.Slides.Charts.IErrorBarsFormat 介面**
+此介面代表圖表系列的誤差線。若值類型為自訂，請使用該系列 DataPoins（應為 DataPoints）集合中特定資料點的 ErrorBarCustomValues 屬性來指定值。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

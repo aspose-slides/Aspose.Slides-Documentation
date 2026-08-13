@@ -1,5 +1,5 @@
 ---
-title: إ管理 خلفيات العروض التقديمية على Android
+title: إدارة خلفيات العرض التقديمي على Android
 linktitle: خلفية الشريحة
 type: docs
 weight: 20
@@ -18,33 +18,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية ضبط خلفيات ديناميكية في ملفات PowerPoint و OpenDocument باستخدام Aspose.Slides لنظام Android عبر Java، مع نصائح برمجية لتعزيز عروضك التقديمية."
+description: "تعلم كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides لأندرويد عبر Java، مع نصائح برمجية لتعزيز عروضك التقديمية."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
-
-الألوان الصلبة، التدرجات، والصور تُستخدم عادةً كخلفيات للشرائح. يمكنك تعيين الخلفية لـ **شريحة عادية** (شريحة واحدة) أو **شريحة رئيسية** (تنطبق على عدة شرائح في آن واحد).
+الألوان الصلبة، التدرجات اللونية، والصور تُستخدم عادةً كخلفيات للشرائح. يمكنك تعيين الخلفية لـ **شريحة عادية** (شريحة واحدة) أو **شريحة رئيسية** (تنطبق على عدة شرائح في آنٍ واحد).
 
 ![خلفية PowerPoint](powerpoint-background.png)
 
-## **تعيين خلفية بلون صلب لشريحة عادية**
+## **تعيين خلفية صلبة اللون لشريحة عادية**
 
-Aspose.Slides يتيح لك تعيين لون صلب كخلفية لشريحة معينة في عرض تقديمي — حتى إذا كان العرض يستخدم شريحة رئيسية. يقتصر التغيير على الشريحة المحددة.
+تتيح لك Aspose.Slides تعيين لون صلب كخلفية لشريحة محددة في عرض تقديمي— حتى إذا كان العرض يستخدم شريحة رئيسية. التغيير يُطبق فقط على الشريحة المختارة.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) لخلفية الشريحة إلى `Solid`.
-4. استخدم طريقة [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) على [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) لتحديد لون الخلفية الصلب.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/backgroundtype/) الخاص بالشريحة إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) الخلفي للشريحة إلى `Solid`.
+4. استخدم طريقة [getSolidFillColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) على فئة [FillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/) لتحديد لون الخلفية الصلب.
 5. احفظ العرض التقديمي المعدل.
 
-يوضح مثال Java التالي كيفية تعيين لون أزرق صلب كخلفية لشريحة عادية:
+المثال التالي بلغة Java يوضح كيفية تعيين لون أزرق صلب كخلفية لشريحة عادية:
+
 ```java
-// إنشاء مثيل من الفئة Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// إنشاء كائن من فئة Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // تعيين لون خلفية الشريحة إلى الأزرق.
+    // تعيين لون خلفية الشريحة إلى اللون الأزرق.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Solid);
     slide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
@@ -56,25 +59,28 @@ try {
 }
 ```
 
+## **تعيين خلفية صلبة اللون لشريحة رئيسية**
 
-## **تعيين خلفية بلون صلب لشريحة رئيسية**
+تتيح لك Aspose.Slides تعيين لون صلب كخلفية للشريحة الرئيسية في عرض تقديمي. تعمل الشريحة الرئيسية كقالب يتحكم في تنسيق جميع الشرائح، لذا عندما تختار لونًا صلبًا لخلفية الشريحة الرئيسية، يُطبق على كل شريحة.
 
-Aspose.Slides يتيح لك تعيين لون صلب كخلفية لشريحة الرئيس في عرض تقديمي. شريحة الرئيس تعمل كقالب يتحكم في تنسيق جميع الشرائح، لذا عندما تختار لون صلب لخلفية شريحة الرئيس، سيُطبق على كل شريحة.
-
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) لشريحة الرئيس (عبر `getMasters`) إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) لخلفية شريحة الرئيس إلى `Solid`.
-4. استخدم طريقة [getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) لتحديد لون الخلفية الصلب.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/backgroundtype/) الخاص بالشريحة الرئيسية (عبر `getMasters`) إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) الخلفي للشريحة الرئيسية إلى `Solid`.
+4. استخدم طريقة [getSolidFillColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) لتحديد لون الخلفية الصلب.
 5. احفظ العرض التقديمي المعدل.
 
-يوضح مثال Java التالي كيفية تعيين لون صلب (أخضر) كخلفية لشريحة الرئيس:
+المثال التالي بلغة Java يوضح كيفية تعيين لون صلب (أخضر) كخلفية للشريحة الرئيسية:
+
 ```java
-// إنشاء مثيل من فئة Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// إنشاء كائن من فئة Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // تعيين لون خلفية شريحة Master إلى الأخضر الغابي.
+    // تعيين لون خلفية الشريحة الرئيسية إلى اللون الأخضر.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -86,28 +92,37 @@ try {
 }
 ```
 
+## **تعيين خلفية متدرجة للشريحة**
 
-## **تعيين خلفية متدرجة لشريحة**
+التدرج اللوني هو تأثير رسومي يُنشأ بتغير تدريجي في اللون. عند استخدامه كخلفية للشريحة، يمكن أن يجعل العروض التقديمية تبدو أكثر فنيةً ومهنيةً. تتيح لك Aspose.Slides تعيين لون متدرج كخلفية للشرائح.
 
-التدرج هو تأثير رسومي يُنشأ بتغير تدريجي في اللون. عند استخدامه كخلفية للشريحة، يمكن أن يجعل العروض التقديمية أكثر فنًا واحترافية. Aspose.Slides يتيح لك تعيين لون متدرج كخلفية للشرائح.
-
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) لخلفية الشريحة إلى `Gradient`.
-4. استخدم طريقة [getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) على [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) لتكوين إعدادات التدرج المفضلة لديك.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/backgroundtype/) الخاص بالشريحة إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) الخلفي للشريحة إلى `Gradient`.
+4. استخدم طريقة [getGradientFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) على فئة [FillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/) لتكوين إعدادات التدرج المفضلة لديك.
 5. احفظ العرض التقديمي المعدل.
 
-يوضح مثال Java التالي كيفية تعيين لون متدرج كخلفية لشريحة:
+المثال التالي بلغة Java يوضح كيفية تعيين لون متدرج كخلفية لشريحة:
+
 ```java
-// إنشاء مثيل من فئة Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// إنشاء كائن من فئة Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     
-    // تطبيق تأثير متدرج على الخلفية.
+    // تطبيق تأثير التدرج على الخلفية.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // إضافة ألوان التدرج. بدون نقاط التدرج، ستعود الخلفية إلى تدرج افتراضي من الأسود إلى الأبيض.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // حفظ العرض التقديمي إلى القرص.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -116,22 +131,24 @@ try {
 }
 ```
 
+## **تعيين صورة كخلفية للشريحة**
 
-## **تعيين صورة كخلفية للشفرة**
+بالإضافة إلى التعبئات الصلبة والمتدرجة، تتيح لك Aspose.Slides استخدام الصور كخلفيات للشرائح.
 
-بالإضافة إلى التعبئة الصلبة والمتدرجة، Aspose.Slides يتيح لك استخدام الصور كخلفيات للشرائح.
-
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. تعيين [BackgroundType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/backgroundtype/) للشفرة إلى `OwnBackground`.
-3. تعيين [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) لخلفية الشريحة إلى `Picture`.
-4. تحميل الصورة التي تريد استخدامها كخلفية للشفرة.
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+2. تعيين [BackgroundType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/backgroundtype/) الخاص بالشريحة إلى `OwnBackground`.
+3. تعيين [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) الخلفي للشريحة إلى `Picture`.
+4. تحميل الصورة التي تريد استخدامها كخلفية للشريحة.
 5. إضافة الصورة إلى مجموعة صور العرض التقديمي.
-6. استخدم طريقة [getPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) على [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fillformat/) لتعيين الصورة كخلفية.
+6. استخدم طريقة [getPictureFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) على فئة [FillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/) لتعيين الصورة كخلفية.
 7. احفظ العرض التقديمي المعدل.
 
-يوضح مثال Java التالي كيفية تعيين صورة كخلفية لشريحة:
+المثال التالي بلغة Java يوضح كيفية تعيين صورة كخلفية لشريحة:
+
 ```java
-// إنشاء مثيل من فئة Presentation.
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -156,9 +173,11 @@ try {
 }
 ```
 
+المثال التالي يوضح كيفية تعيين نوع تعبئة الخلفية إلى صورة متكررة وتعديل خصائص التكرار:
 
-يوضح مثال الشيفرة التالي كيفية تعيين نوع تعبئة الخلفية إلى صورة متكررة وتعديل خصائص التكرار:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -172,11 +191,11 @@ try {
     IPPImage ppImage = presentation.getImages().addImage(newImage);
     newImage.dispose();
 
-    // تعيين الصورة المستخدمة لتعبئة الخلفية.
+    // تعيين الصورة المستخدمة لملء الخلفية.
     IPictureFillFormat backPictureFillFormat = background.getFillFormat().getPictureFillFormat();
     backPictureFillFormat.getPicture().setImage(ppImage);
 
-    // تعيين وضع تعبئة الصورة إلى نمط البلاط وضبط خصائص البلاط.
+    // تعيين وضع ملء الصورة إلى تكرار وضبط خصائص التكرار.
     backPictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     backPictureFillFormat.setTileOffsetX(15f);
     backPictureFillFormat.setTileOffsetY(15f);
@@ -191,53 +210,68 @@ try {
 }
 ```
 
+{{% alert color="info" %}}
 
-{{% alert color="primary" %}}
-اقرأ المزيد: [**صورة متكررة كنقشة**](/slides/ar/androidjava/shape-formatting/#tile-picture-as-texture).
+اقرأ المزيد: [**صورة متكررة كملمس**](/slides/ar/androidjava/shape-formatting/#tile-picture-as-texture).
+
 {{% /alert %}}
 
 ### **تغيير شفافية صورة الخلفية**
 
-قد ترغب في تعديل شفافية صورة خلفية الشريحة لتبرز محتويات الشريحة. يوضح رمز Java التالي كيفية تغيير شفافية صورة خلفية الشريحة:
+قد ترغب في تعديل شفافية صورة خلفية الشريحة لجعل محتويات الشريحة تبرز. يوضح الكود التالي بلغة Java كيفية تغيير شفافية صورة خلفية الشريحة:
+
 ```java
+import com.aspose.slides.*;
+
 int transparencyValue = 30; // على سبيل المثال.
 
-// الحصول على مجموعة عمليات تحويل الصورة.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-
-// العثور على تأثير شفافية ثابت النسبة المئوية موجود.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
-    }
-}
-
-// تعيين قيمة الشفافية الجديدة.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
-}
-```
-
-
-## **الحصول على قيمة خلفية الشريحة**
-
-Aspose.Slides يوفر واجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/) لاسترجاع القيم الفعّالة لخلفية الشريحة. هذه الواجهة تكشف عن [FillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) و[EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) الفعّالين.
-
-باستخدام طريقة `getBackground` للفئة [BaseSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/)، يمكنك الحصول على الخلفية الفعّالة لشريحة.
-
-يوضح مثال Java التالي كيفية الحصول على قيمة الخلفية الفعّالة للشريحة:
-```java
-// إنشاء مثيل من فئة Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // استرجاع الخلفية الفعّالة مع مراعاة الشريحة الرئيسة، التخطيط، والسمة.
+    // الحصول على مجموعة عمليات تحويل الصورة.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // البحث عن تأثير شفافية ثابت النسبة المئوية موجود.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
+    }
+
+    // تعيين قيمة الشفافية الجديدة.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("TransparentBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **الحصول على قيمة خلفية الشريحة**
+
+توفر Aspose.Slides واجهة [IBackgroundEffectiveData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibackgroundeffectivedata/) لاسترجاع قيم الخلفية الفعلية للشريحة. تعرض هذه الواجهة [FillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) و[EffectFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) الفعليين.
+
+باستخدام طريقة `getBackground` الخاصة بفئة [BaseSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseslide/)، يمكنك الحصول على الخلفية الفعلية لشريحة.
+
+المثال التالي بلغة Java يوضح كيفية الحصول على قيمة الخلفية الفعلية لشريحة:
+
+```java
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation.
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // استرجاع الخلفية الفعلية مع مراعاة الشريحة الرئيسية، التخطيط، والسمة.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -249,13 +283,12 @@ try {
 }
 ```
 
-
 ## **الأسئلة الشائعة**
 
-**هل يمكنني إعادة تعيين خلفية مخصصة واستعادة خلفية السمة/التخطيط؟**
+### هل يمكنني إعادة تعيين خلفية مخصصة واستعادة خلفية السمة/التخطيط؟
 
-نعم. أزل التعبئة المخصصة للشفرة، وستُستعاد الخلفية مرة أخرى من [التخطيط](/slides/ar/androidjava/slide-layout/)/[الرئيس](/slides/ar/androidjava/slide-master/) المقابل (أي [خلفية السمة](/slides/ar/androidjava/presentation-theme/)).
+نعم. أزل تعبئة الشريحة المخصصة، وستُورث الخلفية مرة أخرى من شريحة [layout](/slides/ar/androidjava/slide-layout/)/[master](/slides/ar/androidjava/slide-master/) المقابلة (أي خلفية [theme background](/slides/ar/androidjava/presentation-theme/)).
 
-**ماذا يحدث للخلفية إذا قمت بتغيير سمة العرض التقديمي لاحقًا؟**
+### ماذا يحدث للخلفية إذا غيرت سمة العرض التقديمي لاحقًا؟
 
-إذا كانت الشريحة تحتوي على تعبئتها الخاصة، فسيظل الخلفية دون تغيير. إذا كانت الخلفية مُستَهدَفة من [التخطيط](/slides/ar/androidjava/slide-layout/)/[الرئيس](/slides/ar/androidjava/slide-master/)، فستُحدَّث لتتماشى مع [السمة الجديدة](/slides/ar/androidjava/presentation-theme/).
+إذا كان لدى الشريحة تعبئة خاصة بها، ستظل دون تغيير. إذا كانت الخلفية مُورّثة من [layout](/slides/ar/androidjava/slide-layout/)/[master](/slides/ar/androidjava/slide-master/)، فستُحدَّث لمطابقة السمة [new theme](/slides/ar/androidjava/presentation-theme/).

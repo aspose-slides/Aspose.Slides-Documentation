@@ -1,308 +1,319 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint di .NET
-linktitle: Buat atau Perbarui Diagram
+title: Buat atau Perbarui Grafik Presentasi PowerPoint di .NET
+linktitle: Buat atau Perbarui Grafik
 type: docs
 weight: 10
 url: /id/net/create-chart/
 keywords:
-- menambahkan diagram
-- membuat diagram
-- mengedit diagram
-- mengubah diagram
-- memperbarui diagram
-- diagram sebar
-- diagram pie
-- diagram garis
-- diagram peta pohon
-- diagram saham
-- diagram box dan whisker
-- diagram corong
-- diagram sunburst
-- diagram histogram
-- diagram radar
-- diagram multi kategori
+- menambahkan grafik
+- membuat grafik
+- mengedit grafik
+- mengubah grafik
+- memperbarui grafik
+- grafik scatter
+- grafik pie
+- grafik garis
+- grafik tree map
+- grafik saham
+- grafik box and whisker
+- grafik funnel
+- grafik sunburst
+- grafik histogram
+- grafik radar
+- grafik multi kategori
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam C#."
+description: "Buat dan sesuaikan grafik dalam presentasi PowerPoint menggunakan Aspose.Slides untuk .NET. Tambahkan, format, dan edit grafik dengan contoh kode praktis dalam C#."
 ---
 ## **Ikhtisar**
 
-Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides untuk .NET. Anda akan mempelajari cara menambahkan diagram secara programatik ke slide, mengisi dengan data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci mengilustrasikan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengkonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi .NET Anda, mempercepat proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan grafik menggunakan Aspose.Slides untuk .NET. Anda akan belajar cara menambahkan grafik secara programatik ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode yang mendetail menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek grafik hingga mengonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman solid tentang cara mengintegrasikan pembuatan grafik dinamis ke dalam aplikasi .NET Anda, menyederhanakan proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
+## **Membuat Grafik**
 
-Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
+Grafik membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
-**Mengapa Membuat Diagram?**
+**Mengapa Membuat Grafik?**
 
-Menggunakan diagram, Anda dapat:
+Dengan menggunakan grafik, Anda dapat:
 
-* mengagregasi, merangkum, atau menyimpulkan sejumlah besar data pada satu slide dalam presentasi;
-* menunjukkan pola dan tren dalam data;
-* menyimpulkan arah dan momentum data dari waktu ke waktu atau terhadap satuan ukuran tertentu;
-* mendeteksi outlier, penyimpangan, deviasi, kesalahan, dan data yang tidak masuk akal;
+* menggabungkan, memadatkan, atau menyimpulkan sejumlah besar data pada satu slide dalam presentasi;
+* menampilkan pola dan tren dalam data;
+* menentukan arah dan momentum data seiring waktu atau terhadap satuan ukuran tertentu;
+* mengidentifikasi outlier, penyimpangan, deviasi, kesalahan, dan data yang tidak masuk akal;
 * mengkomunikasikan atau menyajikan data yang kompleks.
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan jenis diagram populer) dan diagram khusus.
+Di PowerPoint, Anda dapat membuat grafik melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis grafik. Dengan Aspose.Slides, Anda dapat membuat grafik reguler (berdasarkan tipe grafik populer) maupun grafik khusus.
 
-{{% alert color="primary" %}} 
-Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/id/net/aspose.slides.charts/charttype/) di bawah namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/id/net/aspose.slides.charts/). Nilai-nilai dalam enumerasi ini sesuai dengan berbagai jenis diagram.
+{{% alert color="info" %}} 
+Gunakan enumerasi [ChartType](https://reference.aspose.com/slides/id/net/aspose.slides.charts/charttype/) di dalam namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/id/net/aspose.slides.charts/). Nilai‑nilai dalam enumerasi ini sesuai dengan berbagai tipe grafik.
 {{% /alert %}} 
 
-### **Buat Diagram Kolom Berkelompok**
+### **Membuat Grafik Kolom Berkelompok**
 
-Bagian ini menjelaskan cara membuat diagram kolom berkelompok menggunakan Aspose.Slides untuk .NET. Anda akan belajar menginisialisasi presentasi, menambahkan diagram, dan menyesuaikan elemennya seperti judul, data, seri, kategori, dan gaya. Ikuti langkah‑langkah di bawah untuk melihat bagaimana diagram kolom berkelompok standar dihasilkan:
+Bagian ini menjelaskan cara membuat grafik kolom berkelompok menggunakan Aspose.Slides untuk .NET. Anda akan belajar menginisialisasi presentasi, menambahkan grafik, dan menyesuaikan elemennya seperti judul, data, seri, kategori, dan gaya. Ikuti langkah‑langkah di bawah ini untuk melihat bagaimana grafik kolom berkelompok standar dihasilkan:
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn`.
-4. Tambahkan judul ke diagram.
-5. Akses lembar kerja data diagram.
-6. Hapus semua seri dan kategori default.
-7. Tambahkan seri dan kategori baru.
-8. Tambahkan data diagram baru untuk seri diagram.
-9. Terapkan warna isi pada seri diagram.
-10. Tambahkan label ke seri diagram.
-11. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn`.
+1. Tambahkan judul ke grafik.
+1. Akses worksheet data grafik.
+1. Hapus semua seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data grafik baru untuk seri grafik.
+1. Terapkan warna isian pada seri grafik.
+1. Tambahkan label pada seri grafik.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram kolom berkelompok:
+Kode C# ini menunjukkan cara membuat grafik kolom berkelompok:
 
 ```c#
-// Membuat instance kelas Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Instansiasikan kelas Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Mengakses slide pertama.
+    // Akses slide pertama.
     ISlide slide = presentation.Slides[0];
 
-    // Menambahkan diagram kolom berkelompok dengan data defaultnya.
+    // Tambahkan grafik kolom berkelompok dengan data defaultnya.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
-    // Mengatur judul diagram.
+    // Atur judul grafik.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Mengatur seri pertama agar menampilkan nilai.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // Mengatur indeks lembar data diagram.
+    // Atur indeks lembar data grafik.
     int worksheetIndex = 0;
 
-    // Mendapatkan workbook data diagram.
+    // Dapatkan workbook data grafik.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Menghapus seri dan kategori default yang dihasilkan.
+    // Hapus seri dan kategori yang dihasilkan secara default.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Menambahkan seri baru.
+    // Tambahkan seri baru.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    // Menambahkan kategori baru.
+    // Tambahkan kategori baru.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
 
-    // Mendapatkan seri diagram pertama.
+    // Dapatkan seri grafik pertama.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Mengisi data seri.
+    // Isi data seri.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Mengatur warna isi untuk seri.
+    // Atur warna isian untuk seri.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // Mendapatkan seri diagram kedua.
+    // Dapatkan seri grafik kedua.
     series = chart.ChartData.Series[1];
 
-    // Mengisi data seri.
+    // Isi data seri.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // Mengatur warna isi untuk seri.
+    // Atur warna isian untuk seri.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
-    // Mengatur label pertama agar menampilkan nama kategori.
+    // Atur label pertama untuk menampilkan nama kategori.
     IDataLabel label = series.DataPoints[0].Label;
     label.DataLabelFormat.ShowCategoryName = true;
 
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // Mengatur seri agar menampilkan nilai pada label ketiga.
+    // Atur seri untuk menampilkan nilai pada label ketiga.
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // Menyimpan presentasi ke disk sebagai file PPTX.
+    // Simpan presentasi ke disk sebagai file PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Hasilnya:
 
-![Diagram Kolom Berkelompok](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **Buat Diagram Sebar**
+### **Membuat Grafik Scatter**
 
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+Grafik scatter (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-Gunakan diagram sebar ketika:
+Gunakan grafik scatter ketika:
 
 * Anda memiliki data numerik berpasangan.
-* Anda memiliki dua variabel yang berpasangan baik.
-* Anda ingin menentukan apakah kedua variabel saling terkait.
+* Anda memiliki dua variabel yang berpasangan dengan baik.
+* Anda ingin menentukan apakah dua variabel tersebut saling berhubungan.
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen.
 
-Kode C# ini menunjukkan cara membuat diagram sebar dengan rangkaian penanda yang berbeda:
+Kode C# ini menunjukkan cara membuat grafik scatter dengan serangkaian penanda yang berbeda:
 
 ```c#
-// Membuat instance kelas Presentation.
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Instansiasikan kelas Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Mengakses slide pertama.
+    // Akses slide pertama.
     ISlide slide = presentation.Slides[0];
 
-    // Membuat diagram sebar default.
+    // Buat grafik scatter default.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // Mengatur indeks lembar data diagram.
+    // Atur indeks lembar data grafik.
     int worksheetIndex = 0;
 
-    // Mendapatkan workbook data diagram.
+    // Dapatkan workbook data grafik.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Menghapus seri default.
+    // Hapus seri default.
     chart.ChartData.Series.Clear();
 
-    // Menambahkan seri baru.
+    // Tambahkan seri baru.
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 1, 3, "Series 2"), chart.Type);
 
-    // Mendapatkan seri diagram pertama.
+    // Dapatkan seri grafik pertama.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // Menambahkan titik baru (1:3) ke seri.
+    // Tambahkan titik baru (1:3) ke seri.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-    // Menambahkan titik baru (2:10).
+    // Tambahkan titik baru (2:10).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
-    // Mengubah tipe seri.
+    // Ubah tipe seri.
     series.Type = ChartType.ScatterWithStraightLinesAndMarkers;
 
-    // Mengubah penanda seri diagram.
+    // Ubah penanda seri grafik.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // Mendapatkan seri diagram kedua.
+    // Dapatkan seri grafik kedua.
     series = chart.ChartData.Series[1];
 
-    // Menambahkan titik baru (5:2) ke seri diagram.
+    // Tambahkan titik baru (5:2) ke seri grafik.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-    // Menambahkan titik baru (3:1).
+    // Tambahkan titik baru (3:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-    // Menambahkan titik baru (2:2).
+    // Tambahkan titik baru (2:2).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-    // Menambahkan titik baru (5:1).
+    // Tambahkan titik baru (5:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
-    // Mengubah penanda seri diagram.
+    // Ubah penanda seri grafik.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // Menyimpan presentasi ke disk sebagai file PPTX.
+    // Simpan presentasi ke disk sebagai file PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Hasilnya:
 
-![Diagram Sebar](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
-### **Buat Diagram Pie**
+### **Membuat Grafik Pie**
 
-Diagram pie paling cocok untuk menampilkan hubungan bagian‑dengan‑seluruh dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
+Grafik pie paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategorikal dengan nilai numerik. Namun, bila data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan grafik batang sebagai gantinya.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Pie`.
-4. Akses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Hapus semua seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Tambahkan poin baru untuk diagram dan terapkan warna khusus pada sektornya.
-9. Tetapkan label untuk seri.
-10. Aktifkan garis pemimpin untuk label seri.
-11. Atur sudut rotasi untuk diagram pie.
-12. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.Pie`.
+1. Akses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Hapus seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data grafik baru untuk seri grafik.
+1. Tambahkan titik baru untuk grafik dan terapkan warna khusus pada sektor grafik pie.
+1. Atur label untuk seri.
+1. Aktifkan garis penunjuk (leader lines) untuk label seri.
+1. Atur sudut rotasi untuk grafik pie.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram pie:
+Kode C# ini menunjukkan cara membuat grafik pie:
 
 ```c#
-// Membuat instance kelas Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// Instansiasikan kelas Presentation.
 using (Presentation presentation = new Presentation())
 {
-    // Mengakses slide pertama.
+    // Akses slide pertama.
     ISlide slide = presentation.Slides[0];
 
-    // Menambahkan diagram dengan data defaultnya.
+    // Tambahkan grafik dengan data defaultnya.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-    // Mengatur judul diagram.
+    // Atur judul grafik.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // Mengatur seri pertama agar menampilkan nilai.
+    // Atur seri pertama untuk menampilkan nilai.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // Mengatur indeks lembar data diagram.
+    // Atur indeks lembar data grafik.
     int worksheetIndex = 0;
 
-    // Mendapatkan workbook data diagram.
+    // Dapatkan workbook data grafik.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // Menghapus seri dan kategori default yang dihasilkan.
+    // Hapus seri dan kategori yang dihasilkan secara default.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // Menambahkan kategori baru.
+    // Tambahkan kategori baru.
     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-    // Menambahkan seri baru.
+    // Tambahkan seri baru.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // Mengisi data seri.
+    // Isi data seri.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // Mengatur warna sektor.
+    // Atur warna sektor.
     chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
     IChartDataPoint point = series.DataPoints[0];
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // Mengatur batas sektor.
+    // Atur batas sektor.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -313,7 +324,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // Mengatur batas sektor.
+    // Atur batas sektor.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -324,14 +335,14 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // Mengatur batas sektor.
+    // Atur batas sektor.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // Membuat label khusus untuk setiap kategori dalam seri baru.
+    // Buat label khusus untuk setiap kategori dalam seri baru.
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -345,37 +356,41 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // Mengatur seri agar menampilkan garis pemimpin untuk diagram.
+    // Atur seri untuk menampilkan garis penunjuk pada grafik.
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-    // Mengatur sudut rotasi untuk sektor diagram pie.
+    // Atur sudut rotasi untuk sektor grafik pie.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // Menyimpan presentasi ke disk sebagai file PPTX.
+    // Simpan presentasi ke disk sebagai file PPTX.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Hasilnya:
 
-![Diagram Pie](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
-### **Buat Diagram Garis**
+### **Membuat Grafik Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok digunakan dalam situasi di mana Anda ingin menunjukkan perubahan nilai dari waktu ke waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lain‑lain.
+Grafik garis (juga dikenal sebagai line graph) paling cocok digunakan ketika Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan grafik garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lain‑lain.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Line`.
-4. Akses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Hapus semua seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.Line`.
+1. Akses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Hapus seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data grafik baru untuk seri grafik.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram garis:
+Kode C# ini menunjukkan cara membuat grafik garis:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -384,35 +399,47 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik dihubungkan dengan garis putus‑putus, Anda dapat menentukan jenis dash yang diinginkan sebagai berikut:
+Secara default, titik pada grafik garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan seperti berikut:
 
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
 Hasilnya:
 
-![Diagram Garis](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **Buat Diagram Peta Pohon**
+### **Membuat Grafik Tree Map**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang berkontribusi besar dalam setiap kategori.
+Grafik tree map paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang menjadi kontributor besar dalam setiap kategori.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Treemap`.
-4. Akses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Hapus semua seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.Treemap`.
+1. Akses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Hapus seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data grafik baru untuk seri grafik.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram peta pohon:
+Kode C# ini menunjukkan cara membuat grafik tree map:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -465,25 +492,29 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Diagram Peta Pohon](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **Buat Diagram Saham**
+### **Membuat Grafik Saham**
 
-Diagram saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Mereka menawarkan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
+Grafik saham digunakan untuk menampilkan data keuangan seperti harga pembukaan, tertinggi, terendah, dan penutupan, membantu menganalisis tren pasar dan volatilitas. Grafik ini memberikan wawasan penting tentang kinerja saham, membantu investor dan analis membuat keputusan yang tepat.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.OpenHighLowClose`.
-4. Akses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Hapus semua seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Tentukan format HiLowLines.
-9. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.OpenHighLowClose`.
+1. Akses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Hapus seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data grafik baru untuk seri grafik.
+1. Tentukan format HiLowLines.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram saham:
+Kode C# ini menunjukkan cara membuat grafik saham:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -535,24 +566,28 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Diagram Saham](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **Buat Diagram Box dan Whisker**
+### **Membuat Grafik Box and Whisker**
 
-Diagram Box and Whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan potensi outlier. Mereka sangat berguna dalam analisis data eksploratori dan studi statistik untuk dengan cepat memahami variabilitas data dan mengidentifikasi anomali.
+Grafik Box and Whisker digunakan untuk menampilkan distribusi data dengan merangkum ukuran statistik utama, seperti median, kuartil, dan kemungkinan outlier. Grafik ini sangat berguna dalam analisis data eksploratori dan studi statistik untuk dengan cepat memahami variabilitas data dan mengidentifikasi anomali.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.BoxAndWhisker`.
-4. Akses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Hapus semua seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.BoxAndWhisker`.
+1. Akses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Hapus seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data grafik baru untuk seri grafik.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram box dan whisker:
+Kode C# ini menunjukkan cara membuat grafik box and whisker:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -588,18 +623,22 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Buat Diagram Corong**
+### **Membuat Grafik Funnel**
 
-Diagram corong digunakan untuk memvisualisasikan proses yang melibatkan tahap berurutan, di mana volume data berkurang saat bergerak dari satu langkah ke langkah berikutnya. Mereka sangat membantu dalam menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
+Grafik funnel digunakan untuk memvisualisasikan proses yang melibatkan tahapan berurutan, di mana volume data berkurang saat bergerak dari satu langkah ke langkah berikutnya. Grafik ini sangat membantu untuk menganalisis tingkat konversi, mengidentifikasi bottleneck, dan melacak efisiensi proses penjualan atau pemasaran.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Funnel`.
-4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.Funnel`.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram corong:
+Kode C# ini menunjukkan cara membuat grafik funnel:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -631,20 +670,24 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Hasilnya:
 
-![Diagram Corong](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **Buat Diagram Sunburst**
+### **Membuat Grafik Sunburst**
 
-Diagram sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan tingkat sebagai cincin konsentris. Mereka membantu menggambarkan hubungan bagian‑dengan‑seluruh dan ideal untuk mewakili kategori bersarang dan subkategori dalam format yang jelas dan kompak.
+Grafik sunburst digunakan untuk memvisualisasikan data hierarkis, menampilkan level sebagai cincin konsentrik. Grafik ini membantu menggambarkan hubungan bagian‑dengan‑keseluruhan dan ideal untuk merepresentasikan kategori bersarang serta sub‑kategori dalam format yang jelas dan kompak.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.Sunburst`.
-4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.Sunburst`.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram sunburst:
+Kode C# ini menunjukkan cara membuat grafik sunburst:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -695,23 +738,27 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Diagram Sunburst](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **Buat Diagram Histogram**
+### **Membuat Grafik Histogram**
 
-Diagram histogram digunakan untuk menggambarkan distribusi data numerik dengan mengelompokkan nilai ke dalam rentang atau bin. Mereka sangat berguna untuk mengidentifikasi pola data seperti frekuensi, kemencengan, dan penyebaran, serta untuk mendeteksi outlier dalam sebuah dataset.
+Grafik histogram digunakan untuk merepresentasikan distribusi data numerik dengan mengelompokkan nilai ke dalam rentang atau bin. Grafik ini sangat berguna untuk mengidentifikasi pola data seperti frekuensi, kemiringan, dan penyebaran, serta mendeteksi outlier dalam kumpulan data.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.Histogram`.
-4. Akses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Hapus semua seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan beberapa data dan tentukan tipe `ChartType.Histogram`.
+1. Akses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Hapus seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram histogram:
+Kode C# ini menunjukkan cara membuat grafik histogram:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -737,20 +784,24 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Diagram Histogram](histogram_chart.png)
+![The Histogram chart](histogram_chart.png)
 
-### **Buat Diagram Radar**
+### **Membuat Grafik Radar**
 
-Diagram radar digunakan untuk menampilkan data multivariate dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara simultan. Mereka sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di seluruh metrik atau atribut kinerja.
+Grafik radar digunakan untuk menampilkan data multivariat dalam format dua dimensi, memungkinkan perbandingan beberapa variabel secara simultan. Grafik ini sangat berguna untuk mengidentifikasi pola, kekuatan, dan kelemahan di antara berbagai metrik atau atribut kinerja.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.Radar`.
-4. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan beberapa data dan tentukan tipe `ChartType.Radar`.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram radar:
+Kode C# ini menunjukkan cara membuat grafik radar:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -760,24 +811,28 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Diagram Radar](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **Buat Diagram Multi‑Kategori**
+### **Membuat Grafik Multi‑Kategori**
 
-Diagram Multi Kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategori, memungkinkan Anda membandingkan nilai di berbagai dimensi secara simultan. Mereka sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam dataset yang kompleks dan berlapis.
+Grafik multi‑kategori digunakan untuk menampilkan data yang melibatkan lebih dari satu pengelompokan kategorikal, memungkinkan Anda membandingkan nilai di beberapa dimensi sekaligus. Grafik ini sangat membantu ketika Anda perlu menganalisis tren dan hubungan dalam kumpulan data yang kompleks dan berlapis.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Tambahkan diagram dengan data default dan tentukan tipe `ChartType.ClusteredColumn`.
-4. Akses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
-5. Hapus semua seri dan kategori default.
-6. Tambahkan seri dan kategori baru.
-7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan grafik dengan data default dan tentukan tipe `ChartType.ClusteredColumn`.
+1. Akses workbook data grafik ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)).
+1. Hapus seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data grafik baru untuk seri grafik.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara membuat diagram multi kategori:
+Kode C# ini menunjukkan cara membuat grafik multi‑kategori:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -819,22 +874,26 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // Simpan presentasi dengan diagram.
+    // Simpan presentasi dengan grafik.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 Hasilnya:
 
-![Diagram multi kategori](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **Buat Diagram Peta**
+### **Membuat Grafik Peta**
 
-Diagram peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi spesifik seperti negara, provinsi, atau kota. Mereka sangat berguna untuk menganalisis tren wilayah, data demografis, dan distribusi spasial dengan cara yang jelas dan menarik secara visual.
+Grafik peta digunakan untuk memvisualisasikan data geografis dengan memetakan informasi ke lokasi tertentu seperti negara, provinsi, atau kota. Grafik ini sangat berguna untuk menganalisis tren regional, data demografis, dan distribusi spasial secara jelas dan menarik secara visual.
 
-Kode C# ini menunjukkan cara membuat diagram peta:
+Kode C# ini menunjukkan cara membuat grafik peta:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -844,17 +903,26 @@ using (Presentation presentation = new Presentation())
 
 Hasilnya:
 
-![Diagram Peta](map_chart.png)
+![The Map chart](map_chart.png)
 
-### **Buat Diagram Kombinasi**
+{{% alert color="info" %}} 
+Gambar di atas menunjukkan presentasi yang disimpan dibuka di PowerPoint. Aspose.Slides menulis grafik peta dan datanya dengan benar, tetapi tidak menggambar grafik peta secara langsung: ketika slide yang berisi grafik peta dirender menjadi gambar atau dikonversi ke PDF atau SVG, area grafik muncul kosong. Bentuk lain pada slide yang sama tidak terpengaruh.
+{{% /alert %}} 
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih jenis diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
+### **Membuat Grafik Kombinasi**
 
-![Diagram kombinasi](combination_chart.png)
+Grafik kombinasi (atau combo chart) menggabungkan dua atau lebih tipe grafik dalam satu grafik. Grafik ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
 
-Kode C# berikut menunjukkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
+![The combination chart](combination_chart.png)
+
+Kode C# berikut menunjukkan cara membuat grafik kombinasi seperti yang ditampilkan di atas dalam presentasi PowerPoint:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -875,7 +943,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
 {
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Mengatur judul diagram
+    // Mengatur judul grafik
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
@@ -884,11 +952,11 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // Mengatur legenda diagram
+    // Mengatur legenda grafik
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // Menghapus seri dan kategori default yang dihasilkan
+    // Menghapus seri dan kategori yang dihasilkan secara default
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -901,7 +969,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // Menambahkan seri pertama
+    // Tambahkan seri pertama
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -1003,65 +1071,69 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
-## **Perbarui Diagram**
+## **Memperbarui Grafik**
 
-Aspose.Slides untuk .NET memungkinkan Anda memperbarui diagram PowerPoint dengan memodifikasi data diagram, pemformatan, dan gaya. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap mutakhir dengan konten dinamis dan memastikan bahwa diagram secara akurat mencerminkan data dan standar visual saat ini.
+Aspose.Slides untuk .NET memungkinkan Anda memperbarui grafik PowerPoint dengan memodifikasi data, pemformatan, dan gaya grafik. Fungsionalitas ini menyederhanakan proses menjaga presentasi tetap terkini dengan konten dinamis dan memastikan grafik mencerminkan data serta standar visual terkini.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) yang mewakili presentasi yang berisi diagram.
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Jelajahi semua shape untuk menemukan diagram.
-4. Akses lembar kerja data diagram.
-5. Modifikasi seri data diagram dengan mengubah nilai seri.
-6. Tambahkan seri baru dan isi datanya.
-7. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Instansiasikan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) yang mewakili presentasi yang berisi grafik.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Telusuri semua shape untuk menemukan grafik.
+1. Akses worksheet data grafik.
+1. Modifikasi seri data grafik dengan mengubah nilai seri.
+1. Tambahkan seri baru dan isi datanya.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara memperbarui diagram:
+Kode C# ini menunjukkan cara memperbarui grafik:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// Membuat instance kelas Presentation yang mewakili file PPTX.
+// Instansiasikan kelas Presentation yang mewakili file PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Mengakses slide pertama.
+    // Akses slide pertama.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // Mengatur indeks lembar data diagram.
+            // Atur indeks lembar data grafik.
             int worksheetIndex = 0;
 
-            // Mendapatkan workbook data diagram.
+            // Dapatkan workbook data grafik.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // Mengubah nama kategori diagram.
+            // Ubah nama kategori grafik.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
-            // Mendapatkan seri diagram pertama.
+            // Dapatkan seri grafik pertama.
             IChartSeries series = chart.ChartData.Series[0];
 
-            // Memperbarui data seri.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Mengubah nama seri.
+            // Perbarui data seri.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Memodifikasi nama seri.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
 
-            // Mendapatkan seri diagram kedua.
+            // Dapatkan seri grafik kedua.
             series = chart.ChartData.Series[1];
 
-            // Memperbarui data seri.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Mengubah nama seri.
+            // Perbarui data seri.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Memodifikasi nama seri.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
 
-            // Menambahkan seri baru.
+            // Tambahkan seri baru.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // Mengisi data seri.
+            // Isi data seri.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1070,30 +1142,34 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // Menyimpan presentasi dengan diagram.
+    // Simpan presentasi dengan grafik.
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Tetapkan Rentang Data untuk Diagram**
+## **Menetapkan Rentang Data untuk Grafik**
 
-Aspose.Slides untuk .NET menyediakan fleksibilitas untuk mendefinisikan rentang data spesifik dari lembar kerja sebagai sumber data diagram Anda. Ini berarti Anda dapat memetakan bagian lembar kerja secara langsung ke diagram, memungkinkan Anda mengontrol sel mana yang berkontribusi pada seri dan kategori diagram. Dengan demikian, Anda dapat dengan mudah memperbarui dan menyinkronkan diagram dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
+Aspose.Slides untuk .NET menyediakan fleksibilitas untuk menentukan rentang data spesifik dari lembar kerja sebagai sumber data grafik Anda. Ini berarti Anda dapat memetakan bagian lembar kerja langsung ke grafik, memungkinkan kontrol atas sel mana yang berkontribusi pada seri dan kategori grafik. Sebagai hasilnya, Anda dapat dengan mudah memperbarui dan menyinkronkan grafik dengan perubahan data terbaru di lembar kerja, memastikan presentasi PowerPoint Anda mencerminkan informasi yang akurat dan terkini.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) yang mewakili presentasi yang berisi diagram.
-2. Dapatkan referensi ke slide menggunakan indeksnya.
-3. Jelajahi semua shape untuk menemukan diagram.
-4. Akses data diagram dan tetapkan rentangnya.
-5. Simpan presentasi yang dimodifikasi sebagai file PPTX.
+1. Instansiasikan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) yang mewakili presentasi yang berisi grafik.
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Telusuri semua shape untuk menemukan grafik.
+1. Akses data grafik dan tetapkan rentangnya.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C# ini menunjukkan cara menetapkan rentang data untuk diagram:
+Kode C# ini menunjukkan cara menetapkan rentang data untuk grafik:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// Membuat instance kelas Presentation yang mewakili file PPTX.
+// Instansiasikan kelas Presentation yang mewakili file PPTX.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
-    // Mengakses slide pertama.
+    // Akses slide pertama.
     ISlide slide = presentation.Slides[0];
 
     foreach (IShape shape in slide.Shapes)
@@ -1108,13 +1184,17 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Gunakan Penanda Default pada Diagram**
+## **Menggunakan Penanda Default dalam Grafik**
 
-Ketika Anda menggunakan penanda default pada diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
+Ketika Anda menggunakan penanda default dalam grafik, setiap seri grafik secara otomatis mendapatkan simbol penanda default yang berbeda.
 
-Kode C# ini menunjukkan cara mengatur penanda seri diagram secara otomatis:
+Kode C# ini menunjukkan cara mengatur penanda seri grafik secara otomatis:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1141,7 +1221,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // Mengisi data seri.
+    // Isi data seri.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1156,18 +1236,18 @@ using (Presentation presentation = new Presentation())
 
 ## **FAQ**
 
-**Jenis diagram apa yang didukung oleh Aspose.Slides untuk .NET?**
+### Tipe grafik apa yang didukung oleh Aspose.Slides untuk .NET?
 
-Aspose.Slides untuk .NET mendukung berbagai jenis diagram, termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih jenis diagram yang paling sesuai untuk kebutuhan visualisasi data Anda.
+Aspose.Slides untuk .NET mendukung beragam tipe grafik, termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe grafik yang paling sesuai untuk kebutuhan visualisasi data Anda.
 
-**Bagaimana cara menambahkan diagram baru ke slide?**
+### Bagaimana cara menambahkan grafik baru ke slide?
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, dengan menentukan jenis diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan grafik, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation), ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan grafik, dengan menentukan tipe grafik dan data awal. Proses ini mengintegrasikan grafik secara langsung ke dalam presentasi Anda.
 
-**Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
+### Bagaimana saya dapat memperbarui data yang ditampilkan dalam grafik?
 
-Anda dapat memperbarui data diagram dengan mengakses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)), menghapus semua seri dan kategori default, kemudian menambahkan data khusus Anda. Hal ini memungkinkan Anda menyegarkan diagram secara programatik agar mencerminkan data terbaru.
+Anda dapat memperbarui data grafik dengan mengakses workbook datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/id/net/aspose.slides.charts/ichartdataworkbook/)), menghapus seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda menyegarkan grafik secara programatik agar mencerminkan data terbaru.
 
-**Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
+### Apakah memungkinkan untuk menyesuaikan tampilan grafik?
 
-Ya, Aspose.Slides untuk .NET menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides untuk .NET menyediakan opsi kustomisasi yang luas. Anda dapat memodifikasi warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan grafik dengan persyaratan desain spesifik Anda.

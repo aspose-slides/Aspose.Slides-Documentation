@@ -1,5 +1,5 @@
 ---
-title: Fungerande lösning för storleksändring av arbetsblad
+title: Fungerande lösning för att ändra storlek på arbetsblad
 type: docs
 weight: 130
 url: /sv/cpp/working-solution-for-worksheet-resizing/
@@ -13,34 +13,51 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides for C++
-description: "Fungerande lösning för storleksändring av arbetsblad i PowerPoint-presentationer med C++"
+description: "Fungerande lösning för att ändra storlek på arbetsblad i PowerPoint-presentationer med C++"
 ---
-{{% alert color="primary" %}}
-Det har observerats att Excel‑arbetsblad som bäddas in som OLE‑objekt i en PowerPoint‑presentation via Aspose‑komponenter ändras till en okänd skala efter den första aktiveringen. Detta beteende skapar en märkbar visuell skillnad i presentationen mellan för‑ och efteraktiveringslägena för OLE‑objektet. Vi har undersökt problemet i detalj och tillhandahållit en lösning, som behandlas i den här artikeln.
+{{% alert color="info" %}}
+
+Det har observerats att Excel‑arbetsblad som bäddas in som OLE‑objekt i en PowerPoint‑presentation via Aspose‑komponenter ändras i storlek till en oidentifierad skala efter den första aktiveringen. Detta beteende skapar en märkbar visuell skillnad i presentationen mellan OLE‑objektets tillstånd före och efter aktivering. Vi har undersökt problemet i detalj och tillhandahåller en lösning som behandlas i den här artikeln.
+
 {{% /alert %}}
 
 ## **Bakgrund**
 
-I artikeln [Manage OLE](/slides/sv/cpp/manage-ole/) förklarade vi hur man lägger till en OLE‑ram i en PowerPoint‑presentation med Aspose.Slides för C++. För att åtgärda [object preview issue](/slides/sv/cpp/object-preview-issue-when-adding-oleobjectframe/) tilldelade vi en bild av det markerade arbetsbladsområdet till OLE‑ramen. I den resulterande presentationen, när du dubbelklickar på OLE‑ramen som visar arbetsbladsbilden, aktiveras Excel‑arbetsboken. Slutanvändare kan göra önskade ändringar i den faktiska Excel‑arbetsboken och sedan återgå till bilden genom att klicka utanför den aktiverade Excel‑arbetsboken. Storleken på OLE‑ramen kommer att ändras när användaren återvänder till bilden. Omfångsfaktorn varierar beroende på storleken på OLE‑ramen och det inbäddade Excel‑arbetsbladet.
+I artikeln [Manage OLE](/slides/sv/cpp/manage-ole/) förklarade vi hur man lägger till en OLE‑ram i en PowerPoint‑presentation med Aspose.Slides för C++. För att lösa [object preview issue](/slides/sv/cpp/object-preview-issue-when-adding-oleobjectframe/) tilldelade vi en bild av det valda arbetsbladsområdet till OLE‑objektramen. I den resulterande presentationen, när du dubbelklickar på OLE‑objektramen som visar arbetsbladsbilden, aktiveras Excel‑arbetsboken. Slutanvändare kan göra önskade ändringar i den faktiska Excel‑arbetsboken och sedan återgå till bilden genom att klicka utanför den aktiverade Excel‑arbetsboken. Storleken på OLE‑objektramen kommer att förändras när användaren återvänder till bilden. Skaleringsfaktorn varierar beroende på OLE‑objektrammens storlek och den inbäddade Excel‑arbetsboken.
 
-## **Orsak till storleksändring**
+## **Orsak till skalning**
 
-Eftersom Excel‑arbetsboken har sin egen fönsterstorlek försöker den behålla sin ursprungliga storlek vid första aktiveringen. Å andra sidan har OLE‑ramen sin egen storlek. Enligt Microsoft förhandlar Excel och PowerPoint om storleken när Excel‑arbetsboken aktiveras, för att säkerställa att den behåller rätt proportioner som en del av inbäddningsprocessen. Storleksändringen sker baserat på skillnaderna mellan Excel‑fönstrets storlek och OLE‑ramens storlek och position.
+Eftersom Excel‑arbetsboken har sin egen fönsterstorlek försöker den behålla sin ursprungliga storlek vid den första aktiveringen. OLE‑objektramen har däremot sin egen storlek. Enligt Microsoft förhandlar Excel och PowerPoint om storleken när Excel‑arbetsboken aktiveras för att säkerställa att den behåller korrekta proportioner som en del av inbäddningsprocessen. Storleksändringen sker baserat på skillnaderna mellan Excel‑fönstrets storlek och OLE‑objektrammens storlek och position.
 
 ## **Fungerande lösning**
 
-Det finns två möjliga lösningar för att undvika storleksändringseffekten.
+Det finns två möjliga lösningar för att undvika skalningseffekten.
 
-- Skala OLE‑ramens storlek i PowerPoint‑presentationen så att den matchar höjd och bredd för det önskade antalet rader och kolumner i OLE‑ramen.
-- Håll OLE‑ramens storlek konstant och skala storleken på de medverkande raderna och kolumnerna så att de får plats inom den valda OLE‑ramstorleken.
+- Skala OLE‑ramens storlek i PowerPoint‑presentationen så att den matchar höjden och bredden för önskat antal rader och kolumner i OLE‑ramen.
+- Behåll OLE‑ramens storlek konstant och skala storleken på de delaktiga raderna och kolumnerna så att de passar inom den valda OLE‑ramens storlek.
 
 ### **Skala OLE‑ramens storlek**
 
-I detta tillvägagångssätt lär vi oss hur man ställer in OLE‑ramens storlek för det inbäddade Excel‑arbetsbladet så att den matchar den kumulativa storleken på de medverkande raderna och kolumnerna i Excel‑arbetsbladet.
+I det här tillvägagångssättet kommer vi att lära oss hur man ställer in OLE‑ramens storlek för den inbäddade Excel‑arbetsboken så att den matchar den kumulativa storleken av de delaktiga raderna och kolumnerna i Excel‑arbetsbladet.
 
-Anta att vi har ett mall‑Excel‑ark och vill lägga till det i en presentation som en OLE‑ram. I detta scenario beräknas först OLE‑ramens storlek baserat på den kumulativa radhöjden och kolumnbredden för de medverkande raderna och kolumnerna i arbetsboken. Därefter sätter vi OLE‑ramens storlek till detta beräknade värde. För att undvika den röda “EMBEDDED OLE OBJECT”-meddelandet för OLE‑ramen i PowerPoint kommer vi också att fånga en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
+Anta att vi har ett mall‑Excel‑blad och vill lägga till det i en presentation som en OLE‑ram. I detta scenario beräknas först storleken på OLE‑objektramen baserat på de kumulativa radhöjderna och kolumnbredderna för de delaktiga raderna och kolumnerna i arbetsboken. Därefter ställer vi in OLE‑ramens storlek till detta beräknade värde. För att undvika det röda meddelandet "EMBEDDED OLE OBJECT" för OLE‑ramen i PowerPoint kommer vi också att fånga en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/image.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -52,7 +69,7 @@ int imageResolution = 96;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Ställ in den visade storleken när arbetsboksfilen används som ett OLE‑objekt i PowerPoint.
+// Ange den visade storleken när arbetsboksfilen används som ett OLE‑objekt i PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -90,6 +107,18 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -117,13 +146,26 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 }
 ```
 
-### **Skala cellområde‑storlek**
+### **Skala cellintervallens storlek**
 
-I detta tillvägagångssätt lär vi oss hur man skalar höjden på de medverkande raderna och bredden på de medverkande kolumnerna för att matcha en anpassad OLE‑ramstorlek.
+I detta tillvägagångssätt kommer vi att lära oss hur man skalar höjden på de delaktiga raderna och bredden på de delaktiga kolumnerna för att matcha en anpassad OLE‑ramstorlek.
 
-Anta att vi har ett mall‑Excel‑ark och vill lägga till det i en presentation som en OLE‑ram. I detta scenario sätter vi OLE‑ramens storlek och skalar storleken på de rader och kolumner som deltar i OLE‑ramens område. Därefter sparar vi arbetsboken till en ström för att tillämpa ändringarna och konverterar den till en byte‑array för att lägga till den i OLE‑ramen. För att undvika den röda “EMBEDDED OLE OBJECT”-meddelandet för OLE‑ramen i PowerPoint kommer vi också att fånga en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
+Anta att vi har ett mall‑Excel‑blad och vill lägga till det i en presentation som en OLE‑ram. I detta scenario sätter vi storleken på OLE‑ramen och skalar storleken på de rader och kolumner som deltar i OLE‑ramens område. Därefter sparar vi arbetsboken till en ström för att tillämpa ändringarna och konverterar den till en byte‑array för att lägga till den i OLE‑ramen. För att undvika det röda meddelandet "EMBEDDED OLE OBJECT" för OLE‑ramen i PowerPoint kommer vi också att fånga en bild av de önskade delarna av raderna och kolumnerna i arbetsboken och använda den som OLE‑ramens bild.
 
 ```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 Aspose::Cells::Startup();
 
 int startRow = 0, rowCount = 10;
@@ -136,12 +178,12 @@ float frameWidth = 400, frameHeight = 100;
 Aspose::Cells::Workbook workbook(u"sample.xlsx");
 auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-// Ställ in den visade storleken när arbetsboksfilen används som ett OLE‑objekt i PowerPoint.
+// Ange den visade storleken när arbetsboksfilen används som ett OLE‑objekt i PowerPoint.
 auto lastRow = startRow + rowCount - 1;
 auto lastColumn = startColumn + columnCount - 1;
 workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Skala cellområdet för att passa ramens storlek.
+// Skala cellintervallet för att passa ramens storlek.
 auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -172,8 +214,13 @@ Aspose::Cells::Cleanup();
 ```
 
 ```cpp
-/// <param name="width">Den förväntade bredden på cellområdet i punkter.</param>
-/// <param name="height">Den förväntade höjden på cellområdet i punkter.</param>
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/CellsUnitType.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/Worksheet.h"
+
+/// <param name="width">Den förväntade bredden på cellintervallet i punkter.</param>
+/// <param name="height">Den förväntade höjden på cellintervallet i punkter.</param>
 void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
     auto rangeWidth = cellRange.GetWidth();
@@ -202,6 +249,18 @@ void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 ```
 
 ```cpp
+#include <system/array.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/PageSetup.h"
+#include "Aspose.Cells/Range.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Worksheet.h"
+using namespace System;
+using namespace System::IO;
+
 SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
     auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
@@ -231,36 +290,38 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 
 ## **Slutsats**
 
-{{% alert color="primary" %}}
-Det finns två tillvägagångssätt för att lösa problemet med att arbetsbladet ändrar storlek. Valet av lämpligt tillvägagångssätt beror på specifika krav och användningsfall. Båda metoderna fungerar på samma sätt, oavsett om presentationerna skapas från en mall eller från grunden. Dessutom finns det ingen begränsning för OLE‑ramens storlek i denna lösning.
+{{% alert color="info" %}}
+
+Det finns två tillvägagångssätt för att lösa problemet med att arbetsbladet ändrar storlek. Valet av lämpligt tillvägagångssätt beror på de specifika kraven och användningsfallet. Båda tillvägagångssätten fungerar på samma sätt, oavsett om presentationerna skapas från en mall eller från början. Dessutom finns det ingen begränsning på OLE‑objektrammens storlek i denna lösning.
+
 {{% /alert %}}
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Varför förändras storleken på ett inbäddat Excel‑arbetsblad vid första aktiveringen i PowerPoint?**
+### Varför ändrar ett inbäddat Excel‑arbetsblad storlek när det aktiveras för första gången i PowerPoint?
 
-Det händer eftersom Excel försöker behålla det ursprungliga fönstermåttet vid aktivering, medan OLE‑ramen i PowerPoint har egna dimensioner. PowerPoint och Excel förhandlar storleken för att behålla bildförhållandet, vilket kan leda till storleksändring.
+Detta sker eftersom Excel försöker behålla den ursprungliga fönsterstorleken vid aktivering, medan OLE‑objektramen i PowerPoint har sina egna dimensioner. PowerPoint och Excel förhandlar om storleken för att bevara bildförhållandet, vilket kan leda till skalning.
 
-**Kan man helt undvika detta storleksändringsproblem?**
+### Är det möjligt att helt undvika detta skalningsproblem?
 
-Ja. Genom att skala OLE‑ramen så att den passar Excel‑cellområdets storlek eller genom att skala cellområdet så att det passar den önskade OLE‑ramens storlek kan oönskad storleksändring förhindras.
+Ja. Genom att skala OLE‑ramen så att den passar Excel‑cellintervallens storlek eller skala cellintervallet så att det passar den önskade OLE‑ramstorleken kan du förhindra oönskad skalning.
 
-**Vilken skalningsmetod bör jag använda, OLE‑ram‑skalning eller cellområdes‑skalning?**
+### Vilken skalningsmetod bör jag använda, OLE‑ramskalning eller cellintervallskalning?
 
-Välj **OLE‑ram‑skalning** om du vill behålla de ursprungliga Excel‑rad- och kolumnstorlekarna. Välj **cellområdes‑skalning** om du vill ha en fast storlek för OLE‑ramen i din presentation.
+Välj **OLE frame scaling** om du vill behålla de ursprungliga Excel‑rad- och kolumnstorlekarna. Välj **cell range scaling** om du vill ha en fast storlek för OLE‑ramen i din presentation.
 
-**Fungerar dessa lösningar om min presentation är baserad på en mall?**
+### Fungerar dessa lösningar om min presentation är baserad på en mall?
 
-Ja. Båda lösningarna fungerar för presentationer som skapats från mallar och från grunden.
+Ja. Båda lösningarna fungerar för presentationer skapade från mallar och från grunden.
 
-**Finns det någon gräns för OLE‑ramens storlek när man använder dessa metoder?**
+### Finns det någon begränsning för OLE‑ramens storlek när man använder dessa metoder?
 
-Nej. Du kan göra OLE‑objektram så stor du vill så länge du anger rätt skala.
+Nej. Du kan göra OLE‑objektramen i vilken storlek som helst så länge du anger skalan på lämpligt sätt.
 
-**Finns det ett sätt att undvika platshållartexten “EMBEDDED OLE OBJECT” i PowerPoint?**
+### Finns det ett sätt att undvika platshållartexten "EMBEDDED OLE OBJECT" i PowerPoint?
 
-Ja. Genom att ta ett ögonblicksavbild av det önskade Excel‑cellområdet och använda det som OLE‑ramens platshållarbild kan du visa en egen förhandsgranskningsbild i stället för standardplatshållaren.
+Ja. Genom att ta en skärmdump av mål‑Excel‑cellintervallet och använda den som OLE‑ramens platshållarbild kan du visa en anpassad förhandsgranskningsbild istället för standard‑platshållaren.
 
 ## **Relaterade artiklar**
 
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/sv/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Skapa ett Excel‑diagram och bädda in det i en presentation som ett OLE‑objekt](/slides/sv/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

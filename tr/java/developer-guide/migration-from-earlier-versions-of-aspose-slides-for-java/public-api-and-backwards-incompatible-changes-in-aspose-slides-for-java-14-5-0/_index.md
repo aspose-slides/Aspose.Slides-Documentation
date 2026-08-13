@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for Java 14.5.0'da Genel API ve Geriye Uyumlu Olmayan Değişiklikler
+title: Aspose.Slides for Java 14.5.0'da Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for Java 14.5.0
 type: docs
 weight: 40
@@ -15,135 +15,128 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for Java'da genel API güncellemelerini ve kırılma değişikliklerini inceleyin ve PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-
-Bu sayfa, Aspose.Slides for Java 14.5.0 API'siyle tanıtılan tüm [added](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) sınıfları, metodları, özellikleri vb., yeni [restrictions](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) ve diğer [changes](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) listeler.
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for Java 14.5.0 API'siyle tanıtılan eklenmiş tüm [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) sınıfları, yöntemleri, özellikleri ve benzeri, yeni [kısıtlamalar](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) ve diğer [değişiklikler](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) listeler.
 
 {{% /alert %}} 
-## **Genel API ve Geriye Uyumsuz Değişiklikler**
-### **Eklenen Sınıflar ve Metodlar**
-#### **Aspose.Slides.IPresentationInfo arabirimi ve PresentationInfo Sınıfları eklendi**
+## **Public API ve Geriye Uyumsuz Değişiklikler**
+### **Eklenen Sınıflar ve Yöntemler**
+#### **Aspose.Slides.IPresentationInfo arabirimi ve PresentationInfo Sınıfları Eklendi**
 Sunum hakkında bilgi temsil eder.
 
-Method Boolean isEncrypted() bir sunum şifreliyse True, aksi takdirde False döndürür.
+Method Boolean isEncrypted() gets True if a presentation is encrypted, otherwise gets False.
 
-Method LoadFormat getLoadFormat() sunum tipini döndürür.
-#### **Aspose.Slides.IShape.isGrouped() Metodu eklendi**
-Aspose.Slides.IShape.isGrouped() metodu, şeklin gruplanıp gruplanmadığını belirler.
-#### **Aspose.Slides.IShape.getParentGroup() Metodu eklendi**
-Aspose.Slides.IShape.getParentGroup() metodu, şekil gruplanmışsa üst GroupShape nesnesini döndürür. Aksi takdirde null döndürür.
-#### **Aspose.Slides.IShapeCollection.addGroupShape() Metodu eklendi**
-Aspose.Slides.IShapeCollection.addGroupShape() metodu yeni bir GroupShape oluşturur ve koleksiyonun sonuna ekler.
+Method LoadFormat getLoadFormat() gets the presentation type.
+#### **Aspose.Slides.IShape.isGrouped() Yöntemi Eklendi**
+Aspose.Slides.IShape.isGrouped() yöntemi şeklin gruplandırılmış olup olmadığını belirler.
+#### **Aspose.Slides.IShape.getParentGroup() Yöntemi Eklendi**
+Aspose.Slides.IShape.getParentGroup() yöntemi şekil gruplandırılmışsa üst GroupShape nesnesini döndürür. Aksi takdirde null döndürür.
+#### **Aspose.Slides.IShapeCollection.addGroupShape() Yöntemi Eklendi**
+Aspose.Slides.IShapeCollection.addGroupShape() yöntemi yeni bir GroupShape oluşturur ve koleksiyonun sonuna ekler.
 
-Yeni bir şekil GroupShape içine eklendiğinde GroupShape çerçeve boyutu ve konumu içeriğe göre ayarlanır.
-#### **Aspose.Slides.IShapeCollection.clear() Metodu eklendi**
-Aspose.Slides.IShapeCollection.clear() metodu, koleksiyondaki tüm şekilleri kaldırır.
-#### **Aspose.Slides.IShapeCollection.insertGroupShape(int) Metodu eklendi**
-Aspose.Slides.IShapeCollection.insertGroupShape(int) metodu yeni bir GroupShape oluşturur ve belirtilen indekste koleksiyona ekler.
-GroupShape çerçeve boyutu ve konumu, yeni şekil GroupShape içine eklendiğinde içeriğe göre ayarlanır.
-#### **IPresentationFactory.getPresentationInfo(string file), IPresentatoinFactory.getPresentationInfo(InputStream stream) Metodları eklendi**
-Bu metodlar, tam sunum yüklemesi yapmadan bir sunum dosyası/akışı hakkında bilgi almayı sağlar.
-#### **IPresentationFactory PresentationFactory.getInstance() Metodu eklendi**
-Fabrika işlevselliğini örnek yaratmadan kullanmaya imkan tanır.
+Yeni şekil GroupShape içine eklendiğinde GroupShape çerçeve boyutu ve konumu içeriğe uyacak şekilde ayarlanır.
+#### **Aspose.Slides.IShapeCollection.clear() Yöntemi Eklendi**
+Aspose.Slides.IShapeCollection.clear() yöntemi koleksiyondaki tüm şekilleri kaldırır.
+#### **Aspose.Slides.IShapeCollection.insertGroupShape(int) Yöntemi Eklendi**
+Aspose.Slides.IShapeCollection.insertGroupShape(int) yöntemi yeni bir GroupShape oluşturur ve belirtilen indekste koleksiyona ekler.
+GroupShape çerçeve boyutu ve konumu yeni şekil GroupShape içine eklendiğinde içeriğe uyacak şekilde ayarlanır.
+#### **IPresentationFactory.getPresentationInfo(string file), IPresentationFactory.getPresentationInfo(InputStream stream) Yöntemleri Eklendi**
+Bu yöntemler geliştiricilerin tam sunum yüklemesi yapmadan bir sunum dosyası/akışı hakkında bilgi almasını sağlar.
+#### **IPresentationFactory PresentationFactory.getInstance() Yöntemi Eklendi**
+Örneklendirme yapmadan fabrika işlevselliğini kullanmaya olanak tanır.
 ### **Kısıtlamalar**
-#### **IShape.getFrame() için belirsiz değerlerin kullanımıyla ilgili kısıtlamalar eklendi**
-IShape.setFrame(IShapeFrame) yöntemine belirsiz bir çerçeve atamaya çalışan kod, özellikle üst GroupShape birden fazla {{GroupShape}} içinde iç içe geçmişse, genel durumlarda mantıksızdır. Örneğin:
+#### **IShape.getFrame() için tanımsız değerlerin kullanılmasına kısıtlamalar getirildi**
+IShape.setFrame(IShapeFrame) metoduna tanımsız bir çerçeve atamaya çalışan kod genel durumlarda mantıklı değildir (özellikle üst GroupShape birden çok {{GroupShape}} içinde iç içe olduğunda). Örneğin:
 
 ``` java
+import com.aspose.slides.*;
 
- IShape shape = ...;
+Presentation pres = new Presentation();
+try {
+    IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
-
+    // ArgumentException hatası fırlatır: çerçeve değerleri tanımlı olmalıdır.
+    shape.setFrame(new ShapeFrame(Float.NaN, Float.NaN, Float.NaN, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, Float.NaN));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 veya
 
 ``` java
+import com.aspose.slides.*;
 
- slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
 
-```
-
-Bu tür kodlar belirsiz durumlara yol açabilir. Bu yüzden IShape.Frame için belirsiz değerlerin kullanımıyla ilgili kısıtlamalar getirildi. x, y, width, height, flipH, flipV ve rotationAngle değerlerinin tanımlı (Float.NaN veya NullableBool.NotDefined olmamalı) olması gerekir. Yukarıdaki örnek kod artık ArgumentException hatası verir.
-Bu, aşağıdaki kullanım durumlarına uygulanır:
-
-``` java
-
- IShape shape = ...;
-
-shape.setFrame(...); // tanımsız olamaz
-
-IShapeCollection shapes = ...;
-
-// x, y, width, height parametreleri Float.NaN olamaz:
-
-{
-
-    shapes.addAudioFrameCD(...);
-
-    shapes.addAudioFrameEmbedded(...);
-
-    shapes.addAudioFrameLinked(...);
-
-    shapes.addAutoShape(...);
-
-    shapes.addChart(...);
-
-    shapes.addConnector(...);
-
-    shapes.addOleObjectFrame(...);
-
-    shapes.addPictureFrame(...);
-
-    shapes.addSmartArt(...);
-
-    shapes.addTable(...);
-
-    shapes.addVideoFrame(...);
-
-    shapes.insertAudioFrameEmbedded(...);
-
-    shapes.insertAudioFrameLinked(...);
-
-    shapes.insertAutoShape(...);
-
-    shapes.insertChart(...);
-
-    shapes.insertConnector(...);
-
-    shapes.insertOleObjectFrame(...);
-
-    shapes.insertPictureFrame(...);
-
-    shapes.insertTable(...);
-
-    shapes.insertVideoFrame(...);
-
+    // ArgumentException hatası fırlatır: x, y, genişlik ve yükseklik değerleri tanımlı olmalıdır.
+    slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, Float.NaN, Float.NaN, Float.NaN, Float.NaN);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-Ancak IShape.getRawFrame() çerçevesi belirsiz olabilir. Bu, bir şeklin bir yer tutucuya bağlı olduğu durumlarda mantıklıdır. O zaman belirsiz şekil çerçeve değerleri üst yer tutucu şekilden devralınır. Eğer o şekil için bir üst yer tutucu yoksa, IShape.getRawFrame() üzerinden etkili çerçeve hesaplanırken varsayılan değerler kullanılır. Varsayılan değerler x, y, width, height, flipH, flipV ve rotationAngle için sırasıyla 0 ve NullableBool.False’tur. Örneğin:
+Bu tür kodlar belirsiz durumlara yol açabilir. Bu nedenle IShape.Frame için tanımsız değerlerin kullanımı kısıtlanmıştır. x, y, width, height, flipH, flipV ve rotationAngle değerleri tanımlı olmalıdır (Float.NaN veya NullableBool.NotDefined olmamalı). Yukarıdaki örnek kod artık ArgumentException hatası fırlatır.
+Bu aşağıdaki kullanım senaryolarına uygulanır:
 
 ``` java
+// IShape.setFrame(IShapeFrame) metoduna gönderilen çerçeve tanımsız değerler içeremez.
 
- IShape shape = ...; // şekil yer tutucuya bağlıdır
+// Aşağıdaki IShapeCollection metodlarının x, y, genişlik ve yükseklik parametreleri
+// Float.NaN de olamaz:
+//
+//     addAudioFrameCD
+//     addAudioFrameEmbedded
+//     addAudioFrameLinked
+//     addAutoShape
+//     addChart
+//     addConnector
+//     addOleObjectFrame
+//     addPictureFrame
+//     addSmartArt
+//     addTable
+//     addVideoFrame
+//     insertAudioFrameEmbedded
+//     insertAudioFrameLinked
+//     insertAutoShape
+//     insertChart
+//     insertConnector
+//     insertOleObjectFrame
+//     insertPictureFrame
+//     insertTable
+//     insertVideoFrame
+```
 
-shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0));
+Ancak IShape.getRawFrame() çerçevesi tanımsız olabilir. Bu, bir şeklin bir yer tutucuya bağlandığı durumlarda mantıklıdır. Bu durumda tanımsız şekil çerçeve değerleri üst yer tutucu şekilden devralınır. Eğer o şekil için üst bir yer tutucu yoksa IShape.getRawFrame() temel alınarak etkili çerçeve değerlendirilirken varsayılan değerler kullanılır. Varsayılan değerler x, y, width, height, flipH, flipV ve rotationAngle için sırasıyla 0 ve NullableBool.False'tur. Örneğin:
 
-// şimdi şekil x, y, yükseklik, flipH, flipV değerlerini yer tutucudan devralır ve width=100 ve rotationAngle=0 değerlerini geçersiz kılar.
+``` java
+import com.aspose.slides.*;
 
+Presentation pres = new Presentation("pres.pptx");
+try {
+    // Şekil bir yer tutucuya bağlanmıştır.
+    IShape shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    shape.setRawFrame(new ShapeFrame(Float.NaN, Float.NaN, 100, Float.NaN, NullableBool.NotDefined, NullableBool.NotDefined, 0));
+
+    // Şimdi şekil, x, y, yükseklik, flipH ve flipV değerlerini yer tutucudan miras alır
+    // ve genişlik = 100 ile rotationAngle = 0 değerlerini geçersiz kılar.
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 ### **Değiştirilen Özellikler**
-#### **Aspose.Slides.IShapeCollection.getParent() Metodunun Türü ve Adı Değiştirildi**
-Aspose.Slides.IShapeCollection.Parent özelliğinin türü ISlideComponent’den yeni IGroupShape arabirimine değiştirildi. IGroupShape, ISlideComponent’in bir türevi olduğundan mevcut kodun uyarlanmasına gerek yoktur.
+#### **Aspose.Slides.IShapeCollection.getParent() Yönteminin Tipi ve Adı Değiştirildi**
+Aspose.Slides.IShapeCollection.Parent özelliğinin tipi ISlideComponent'ten yeni IGroupShape arabirimine değiştirildi. IGroupShape arabirimi ISlideComponent'in bir türevidir, bu nedenle mevcut kodun uyarlanmasına gerek yoktur.
 
-Aspose.Slides.IShapeCollection.getParent() metodunun adı getParent’dan getParentGroup() olarak değiştirildi.
-#### **Aspose.Slides.IShapeFrame.getFlipH() ve .getFlipV() Metodlarının Türü Değiştirildi**
-Aspose.Slides.IShapeFrame.getFlipH() metodunun türü bool’tan NullableBool’a değiştirildi.
+Aspose.Slides.IShapeCollection.getParent() metodunun adı getParent'dan getParentGroup() olarak değiştirildi.
+#### **Aspose.Slides.IShapeFrame.getFlipH() ve .getFlipV() Yöntemlerinin Tipi Değiştirildi**
+Aspose.Slides.IShapeFrame.getFlipH() metodunun tipi bool'tan NullableBool'a değiştirildi.
 
-IShape.getFrame() metodu, tüm özelliklerin tanımlı etkili değerlerine sahip IShapeFrame’in etkili örneğini döndürür.
+IShape.getFrame() yöntemi, tüm özellikleri tanımlı etkili değerler içeren IShapeFrame'in etkili örneğini döndürür.
 
-IShape.getRawFrame() metodu, her özelliğin belirsiz olabileceği (özellikle FlipH veya FlipV’nin NullableBool.NotDefined olabileceği) bir IShapeFrame örneği döndürür.
+IShape.getRawFrame() yöntemi, her özelliğin tanımsız değer alabileceği (özellikle FlipH veya FlipV NullableBool.NotDefined olabilen) bir IShapeFrame örneği döndürür.

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 14.6.0 のパブリック API と後方互換性がない変更
+title: Aspose.Slides for .NET 14.6.0 の公開 API と互換性のない変更
 linktitle: Aspose.Slides for .NET 14.6.0
 type: docs
 weight: 80
@@ -16,22 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET の公開 API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、および ODP プレゼンテーション ソリューションを円滑に移行できるようにします。"
+description: "Aspose.Slides for .NET の公開 API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションを円滑に移行できるようにします。"
 ---
-
-{{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for .NET 14.6.0 APIで導入されたすべての[added](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)クラス、メソッド、プロパティなど、 新しい[restrictions](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)やその他の[changes](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/)を一覧表示します。
-
+{{% alert color="info" %}} 
+このページでは、Aspose.Slides for .NET 14.6.0 APIで導入された、すべての[追加項目](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) クラス、メソッド、プロパティなど、また新しい[制限](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) とその他の[変更](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) を一覧表示します。
 {{% /alert %}} 
-## **パブリック API の変更**
-### **追加されたインターフェイス、メソッド、プロパティ**
-#### **Aspose.Slides.Charts.IErrorBarsFormat インターフェイスの追加**
-これはチャート系列のエラーバーを表します。
+## **Public API Changes**
+### **Added Interfaces, Methods and Properties**
+#### **Added the Aspose.Slides.Charts.IErrorBarsFormat Interface**
+このインターフェイスは、チャート系列のエラーバーを表します。
 
 カスタム値タイプの場合、値を指定するには、系列の DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用します。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -64,12 +65,15 @@ description: "Aspose.Slides for .NET の公開 API の更新と破壊的変更�
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Aspose.Slides.Charts.IErrorBarsCustomValues インターフェイスの追加**
-IErrorBarsFormat.ValueType プロパティが Custom の場合、値を指定するには DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用します。
+#### **Added the Aspose.Slides.Charts.IErrorBarsCustomValues Interface**
+IErrorBarsFormat.ValueType プロパティが Custom に等しい場合、値を指定するには、DataPoints コレクション内の特定のデータポイントの ErrorBarCustomValues プロパティを使用します。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -118,12 +122,15 @@ IErrorBarsFormat.ValueType プロパティが Custom の場合、値を指定す
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues インターフェイスの追加**
-ChartDataPoint.ErrorBarsCustomValues プロパティ リスト内の値の型を指定します。
+#### **Added the Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Interface**
+ChartDataPoint.ErrorBarsCustomValues プロパティリスト内の値のタイプを指定します。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -172,10 +179,9 @@ ChartDataPoint.ErrorBarsCustomValues プロパティ リスト内の値の型を
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Aspose.Slides.IShapeCollection.AddClone(...), および .InsertClone(...) メソッドの追加**
-以下のメソッドは、指定されたシェイプのコピーをコレクションに追加または挿入します。
+#### **Added the Aspose.Slides.IShapeCollection.AddClone(...), and .InsertClone(...) Methods**
+次のメソッドは、指定されたシェイプのコピーをコレクションに追加/挿入します。 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -185,8 +191,10 @@ ChartDataPoint.ErrorBarsCustomValues プロパティ リスト内の値の型を
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -211,12 +219,13 @@ ChartDataPoint.ErrorBarsCustomValues プロパティ リスト内の値の型を
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **ViewType 列挙体、IViewProperties インターフェイス、ViewProperties クラス、および IPresentation.ViewProperties プロパティの追加**
-IPresentation.ViewProperties は、プレゼンテーションを PowerPoint で開いたときにビュータイプやノートの表示を変更できるようにします。
+#### **Added the ViewType Enum, IViewProperties Interface, ViewProperties Class and IPresentation.ViewProperties Properties**
+IPresentation.ViewProperty により、開発者は PowerPoint でプレゼンテーションが開かれたときに、プレゼンテーションの表示タイプとノートの表示状態を変更できます。
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 
@@ -225,5 +234,4 @@ IPresentation.ViewProperties は、プレゼンテーションを PowerPoint で
     p.ViewProperties.LastView = ViewType.SlideMasterView;
 
 }
-
 ```

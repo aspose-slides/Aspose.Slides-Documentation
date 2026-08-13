@@ -1,12 +1,12 @@
 ---
-title: Rozwiązanie działające dla zmiany rozmiaru arkusza
+title: Rozwiązanie problemu zmiany rozmiaru arkusza
 type: docs
 weight: 20
 url: /pl/androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - obraz podglądu
-- skalowanie obrazu
+- zmiana rozmiaru obrazu
 - Excel
 - arkusz
 - PowerPoint
@@ -14,36 +14,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Naprawa skalowania OLE arkusza Excel w prezentacjach: dwa sposoby utrzymania ramki obiektu — skalowanie ramki lub arkusza — w formatach PPT i PPTX."
+description: "Napraw zmianę rozmiaru arkusza Excel OLE w prezentacjach: dwa sposoby, aby utrzymać ramki obiektów spójne—skalowanie ramki lub arkusza—w formatach PPT i PPTX."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Zaobserwowano, że arkusze Excel osadzone jako obiekty OLE w prezentacji PowerPoint przy użyciu komponentów Aspose są skalowane do nieokreślonej wartości po pierwszej aktywacji. Zachowanie to powoduje zauważalną różnicę wizualną w prezentacji między stanem przed a po aktywacji obiektu OLE. Zbadaliśmy ten problem szczegółowo i przedstawiliśmy rozwiązanie, które opisano w tym artykule.
+Zaobserwowano, że arkusze Excel osadzone jako obiekty OLE w prezentacji PowerPoint przy użyciu komponentów Aspose są skalowane do nieokreślonej wielkości po pierwszej aktywacji. To zachowanie powoduje zauważalną różnicę wizualną w prezentacji między stanem przed i po aktywacji obiektu OLE. Zbadaliśmy ten problem szczegółowo i przedstawiliśmy rozwiązanie, które opisano w tym artykule.
 
 {{% /alert %}}
 
-## **Background**
+## **Tło**
 
-W artykule [Zarządzaj OLE](/slides/pl/androidjava/manage-ole/), wyjaśniliśmy, jak dodać ramkę OLE do prezentacji PowerPoint przy użyciu Aspose.Slides for Android via Java. Aby rozwiązać [problem podglądu obiektu](/slides/pl/androidjava/object-preview-issue-when-adding-oleobjectframe/), przypisaliśmy obraz wybranego obszaru arkusza do ramki OLE. W wynikowej prezentacji, po dwukrotnym kliknięciu ramki OLE wyświetlającej obraz arkusza, aktywowany jest skoroszyt Excel. Użytkownicy mogą wprowadzać dowolne zmiany w rzeczywistym skoroszycie Excel, a następnie powrócić do slajdu, klikając poza aktywowanym skoroszytem Excel. Rozmiar ramki OLE zmieni się, gdy użytkownik wróci do slajdu. Współczynnik skalowania będzie zależał od rozmiaru ramki OLE i osadzonego skoroszytu Excel.
+W artykule [Manage OLE](/slides/pl/androidjava/manage-ole/), wyjaśniliśmy, jak dodać ramkę OLE do prezentacji PowerPoint przy użyciu Aspose.Slides dla Androida w Javie. Aby rozwiązać [problem podglądu obiektu](/slides/pl/androidjava/object-preview-issue-when-adding-oleobjectframe/), przypisaliśmy obraz wybranego obszaru arkusza do ramki obiektu OLE. W wygenerowanej prezentacji, po dwukrotnym kliknięciu ramki OLE wyświetlającej obraz arkusza, aktywowany jest skoroszyt Excel. Użytkownicy mogą wprowadzić dowolne zmiany w rzeczywistym skoroszycie Excel, a następnie wrócić do slajdu, klikając poza aktywowanym skoroszytem. Rozmiar ramki OLE zmieni się po powrocie użytkownika do slajdu. Współczynnik zmiany rozmiaru będzie zależał od rozmiaru ramki OLE oraz osadzonego skoroszytu Excel.
 
-## **Cause of Resizing**
+## **Przyczyna zmiany rozmiaru**
 
-Ponieważ skoroszyt Excel posiada własny rozmiar okna, próbuje zachować swój pierwotny rozmiar przy pierwszej aktywacji. Z drugiej strony ramka OLE ma własny rozmiar. Według Microsoftu, gdy skoroszyt Excel jest aktywowany, Excel i PowerPoint negocjują rozmiar, aby zapewnić zachowanie prawidłowych proporcji w ramach procesu osadzania. Skalowanie zachodzi w oparciu o różnice pomiędzy rozmiarem okna Excel a rozmiarem i pozycją ramki OLE.
+Ponieważ skoroszyt Excel posiada własny rozmiar okna, próbuje zachować swój pierwotny rozmiar przy pierwszej aktywacji. Z kolei ramka obiektu OLE ma własny rozmiar. Według Microsoft, gdy skoroszyt Excel jest aktywowany, Excel i PowerPoint negocjują rozmiar, aby zapewnić prawidłowe proporcje w ramach procesu osadzania. Zmiana rozmiaru zachodzi w oparciu o różnice między rozmiarem okna Excel a rozmiarem i pozycją ramki obiektu OLE.
 
-## **Working Solution**
+## **Działające rozwiązanie**
 
-Istnieją dwa możliwe rozwiązania, aby uniknąć efektu skalowania.
+Istnieją dwa możliwe rozwiązania, aby uniknąć efektu zmiany rozmiaru.
 
-- Dostosuj rozmiar ramki OLE w prezentacji PowerPoint, aby odpowiadał wysokości i szerokości żądanej liczby wierszy i kolumn w ramce OLE.
-- Zachowaj stały rozmiar ramki OLE i skaluj rozmiar uczestniczących wierszy i kolumn, aby pasowały do wybranego rozmiaru ramki OLE.
+- Skaluj rozmiar ramki OLE w prezentacji PowerPoint, aby dopasować wysokość i szerokość do żądanej liczby wierszy i kolumn w ramce OLE.
+- Utrzymaj stały rozmiar ramki OLE i skaluj rozmiar uczestniczących wierszy i kolumn, aby mieściły się w wybranym rozmiarze ramki OLE.
 
-### **Scale the OLE Frame Size**
+### **Skalowanie rozmiaru ramki OLE**
 
 W tym podejściu nauczymy się, jak ustawić rozmiar ramki OLE osadzonego skoroszytu Excel, aby odpowiadał łącznemu rozmiarowi uczestniczących wierszy i kolumn w arkuszu Excel.
 
-Załóżmy, że mamy szablon arkusza Excel i chcemy dodać go do prezentacji jako ramkę OLE. W tym scenariuszu rozmiar ramki OLE zostanie najpierw obliczony na podstawie łącznej wysokości wierszy i szerokości kolumn uczestniczących w skoroszycie. Następnie ustawimy rozmiar ramki OLE na tę obliczoną wartość. Aby uniknąć czerwonej wiadomości "EMBEDDED OLE OBJECT" dla ramki OLE w PowerPoint, dokonamy także przechwycenia obrazu żądanych fragmentów wierszy i kolumn w skoroszycie i ustawimy go jako obraz ramki OLE.
+Załóżmy, że mamy szablon arkusza Excel i chcemy dodać go do prezentacji jako ramkę OLE. W tym scenariuszu rozmiar ramki obiektu OLE zostanie najpierw obliczony na podstawie łącznych wysokości wierszy i szerokości kolumn uczestniczących w skoroszycie. Następnie ustawimy rozmiar ramki OLE na tę obliczoną wartość. Aby uniknąć czerwonego komunikatu „EMBEDDED OLE OBJECT” dla ramki OLE w PowerPoint, zrobimy także zrzut obrazu żądanych fragmentów wierszy i kolumn w skoroszycie i ustawimy go jako obraz ramki OLE.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -63,10 +69,10 @@ InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Pobierz szerokość i wysokość obrazu OLE w punktach.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
-// Musimy użyć zmodyfikowanego skoroszytu.
+// Potrzebujemy użyć zmodyfikowanego skoroszytu.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -91,6 +97,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -115,13 +125,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-### **Scale the Cell Range Size**
+### **Skalowanie rozmiaru zakresu komórek**
 
-W tym podejściu nauczymy się, jak skalować wysokości uczestniczących wierszy i szerokość uczestniczących kolumn, aby pasowały do własnego rozmiaru ramki OLE.
+W tym podejściu nauczymy się, jak skalować wysokości uczestniczących wierszy i szerokość uczestniczących kolumn, aby dopasować je do niestandardowego rozmiaru ramki OLE.
 
-Załóżmy, że mamy szablon arkusza Excel i chcemy dodać go do prezentacji jako ramkę OLE. W tym scenariuszu ustawimy rozmiar ramki OLE i skalujemy rozmiar wierszy i kolumn, które uczestniczą w obszarze ramki OLE. Następnie zapisujemy skoroszyt do strumienia, aby zastosować zmiany, i konwertujemy go na tablicę bajtów w celu dodania go do ramki OLE. Aby uniknąć czerwonej wiadomości "EMBEDDED OLE OBJECT" dla ramki OLE w PowerPoint, dokonamy także przechwycenia obrazu żądanych fragmentów wierszy i kolumn w skoroszycie i ustawimy go jako obraz ramki OLE.
+Załóżmy, że mamy szablon arkusza Excel i chcemy dodać go do prezentacji jako ramkę OLE. W tym scenariuszu ustawimy rozmiar ramki OLE i skalujemy rozmiar wierszy oraz kolumn uczestniczących w obszarze ramki OLE. Następnie zapisujemy skoroszyt do strumienia, aby zastosować zmiany, i konwertujemy go na tablicę bajtów w celu dodania do ramki OLE. Aby uniknąć czerwonego komunikatu „EMBEDDED OLE OBJECT” dla ramki OLE w PowerPoint, zrobimy także zrzut obrazu żądanych fragmentów wierszy i kolumn w skoroszycie i ustawimy go jako obraz ramki OLE.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -137,7 +151,7 @@ int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Skaluj zakres komórek, aby pasował do rozmiaru ramki.
+// Skaluj zakres komórek, aby dopasować do rozmiaru ramki.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -204,6 +218,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -228,36 +246,36 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-## **Conclusion**
+## **Wnioski**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Istnieją dwa podejścia do naprawy problemu zmiany rozmiaru arkusza. Wybór odpowiedniego podejścia zależy od konkretnych wymagań i scenariusza użycia. Oba podejścia działają tak samo, niezależnie od tego, czy prezentacje są tworzone z szablonu, czy od podstaw. Dodatkowo w tym rozwiązaniu nie ma ograniczenia co do rozmiaru ramki OLE.
+Istnieją dwa podejścia do rozwiązania problemu zmiany rozmiaru arkusza. Wybór odpowiedniego podejścia zależy od konkretnych wymagań i scenariusza użycia. Oba podejścia działają tak samo, niezależnie od tego, czy prezentacje są tworzone od szablonu, czy od podstaw. Dodatkowo w tym rozwiązaniu nie ma ograniczenia co do rozmiaru ramki obiektu OLE.
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Why does an embedded Excel worksheet change size when first activated in PowerPoint?**
+### Dlaczego osadzony arkusz Excel zmienia rozmiar po pierwszej aktywacji w PowerPoint?
 
-Dzieje się tak, ponieważ Excel próbuje zachować pierwotny rozmiar okna przy aktywacji, podczas gdy ramka OLE w PowerPoint ma własne wymiary. PowerPoint i Excel negocjują rozmiar, aby utrzymać proporcje, co może spowodować skalowanie.
+Dzieje się tak, ponieważ Excel stara się zachować pierwotny rozmiar okna po aktywacji, podczas gdy ramka obiektu OLE w PowerPoint ma własne wymiary. PowerPoint i Excel negocjują rozmiar, aby zachować proporcje, co może prowadzić do zmiany rozmiaru.
 
-**Is it possible to prevent this resizing issue entirely?**
+### Czy można całkowicie zapobiec temu problemowi ze zmianą rozmiaru?
 
-Tak. Skalując ramkę OLE do rozmiaru zakresu komórek Excel lub skalując zakres komórek, aby pasował do żądanego rozmiaru ramki OLE, można całkowicie zapobiec niepożądanemu skalowaniu.
+Tak. Skalując ramkę OLE tak, aby dopasowała się do rozmiaru zakresu komórek Excela lub skalując zakres komórek tak, aby dopasował się do żądanego rozmiaru ramki OLE, można zapobiec niepożądanej zmianie rozmiaru.
 
-**Which scaling method should I use, OLE frame scaling or cell range scaling?**
+### Którą metodę skalowania wybrać: skalowanie ramki OLE czy skalowanie zakresu komórek?
 
-Wybierz **skalowanie ramki OLE**, jeśli chcesz zachować pierwotne rozmiary wierszy i kolumn Excela. Wybierz **skalowanie zakresu komórek**, jeśli potrzebujesz stałego rozmiaru ramki OLE w prezentacji.
+Wybierz **skalowanie ramki OLE**, jeśli chcesz zachować oryginalne rozmiary wierszy i kolumn Excela. Wybierz **skalowanie zakresu komórek**, jeśli potrzebujesz stałego rozmiaru ramki OLE w swojej prezentacji.
 
-**Will these solutions work if my presentation is based on a template?**
+### Czy te rozwiązania będą działać, jeśli moja prezentacja opiera się na szablonie?
 
-Tak. Oba rozwiązania działają zarówno dla prezentacji tworzonych z szablonów, jak i od podstaw.
+Tak. Oba rozwiązania działają zarówno dla prezentacji tworzonych na bazie szablonów, jak i od podstaw.
 
-**Is there a limit to the size of the OLE frame when using these methods?**
+### Czy istnieje limit rozmiaru ramki OLE przy użyciu tych metod?
 
-Nie. Możesz ustawić dowolny rozmiar ramki OLE, pod warunkiem odpowiedniego skalowania.
+Nie. Możesz ustawić ramkę obiektu OLE na dowolny rozmiar, pod warunkiem odpowiedniego skalowania.
 
-**Is there a way to avoid the "EMBEDDED OLE OBJECT" placeholder text in PowerPoint?**
+### Czy istnieje sposób, aby uniknąć tekstu zastępczego „EMBEDDED OLE OBJECT” w PowerPoint?
 
-Tak. Przechwytując obraz docelowego zakresu komórek Excel i ustawiając go jako obraz zastępczy ramki OLE, możesz wyświetlić własny podgląd zamiast domyślnego tekstu zastępczego.
+Tak. Tworząc zrzut docelowego zakresu komórek Excel i ustawiając go jako obraz zastępczy ramki OLE, możesz wyświetlić własny obraz podglądu zamiast domyślnego tekstu zastępczego.

@@ -7,11 +7,11 @@ url: /el/cpp/manage-ole/
 keywords:
 - αντικείμενο OLE
 - Σύνδεση & Ενσωμάτωση Αντικειμένων
-- πρόσθεση OLE
+- προσθήκη OLE
 - ενσωμάτωση OLE
-- πρόσθεση αντικειμένου
+- προσθήκη αντικειμένου
 - ενσωμάτωση αντικειμένου
-- πρόσθεση αρχείου
+- προσθήκη αρχείου
 - ενσωμάτωση αρχείου
 - συνδεδεμένο αντικείμενο
 - συνδεδεμένο αρχείο
@@ -25,40 +25,55 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Βελτιστοποιήστε τη διαχείριση αντικειμένων OLE στο PowerPoint και στα αρχεία OpenDocument με το Aspose.Slides για C++. Ενσωματώστε, ενημερώστε και εξαγάγετε περιεχόμενο OLE αδιάσπαστα."
+description: "Βελτιστοποιήστε τη διαχείριση αντικειμένων OLE σε αρχεία PowerPoint και OpenDocument με το Aspose.Slides for C++. Ενσωματώστε, ενημερώστε και εξάγετε το περιεχόμενο OLE απρόσκοπτα."
 ---
-## **Introduction**
+## **Εισαγωγή**
 
-{{% alert title="Πληροφορίες" color="info" %}}
-OLE (Object Linking & Embedding) είναι μια τεχνολογία της Microsoft που επιτρέπει στα δεδομένα και στα αντικείμενα που δημιουργούνται σε μια εφαρμογή να τοποθετούνται σε άλλη εφαρμογή μέσω σύνδεσης ή ενσωμάτωσης.
+{{% alert title="Info" color="info" %}}
+OLE (Object Linking & Embedding) είναι τεχνολογία της Microsoft που επιτρέπει στα δεδομένα και τα αντικείμενα που δημιουργούνται σε μια εφαρμογή να τοποθετούνται σε άλλη εφαρμογή μέσω σύνδεσης ή ενσωμάτωσης. 
 {{% /alert %}} 
 
-Σκεφτείτε ένα γράφημα που δημιουργήθηκε στο MS Excel. Το γράφημα τοποθετείται στη συνέχεια μέσα σε μια διαφάνεια του PowerPoint. Αυτό το γράφημα Excel θεωρείται αντικείμενο OLE. 
+Σκεφτείτε ένα διάγραμμα που δημιουργήθηκε στο MS Excel. Το διάγραμμα τοποθετείται στη συνέχεια σε μια διαφάνεια του PowerPoint. Αυτό το διάγραμμα Excel θεωρείται αντικείμενο OLE. 
 
-- Ένα αντικείμενο OLE μπορεί να εμφανίζεται ως εικονίδιο. Σε αυτήν την περίπτωση, όταν κάνετε διπλό κλικ στο εικονίδιο, το γράφημα ανοίγει στην αντίστοιχη εφαρμογή του (Excel), ή σας ζητείται να επιλέξετε μια εφαρμογή για το άνοιγμα ή την επεξεργασία του αντικειμένου. 
-- Ένα αντικείο OLE μπορεί να εμφανίζει το πραγματικό του περιεχόμενο, όπως τα δεδομένα ενός γραφήματος. Σε αυτήν την περίπτωση, το γράφημα ενεργοποιείται στο PowerPoint, φορτώνεται η διεπαφή του γραφήματος και μπορείτε να τροποποιήσετε τα δεδομένα του γραφήματος μέσα στο PowerPoint.
+- Ένα αντικείμενο OLE μπορεί να εμφανίζεται ως εικονίδιο. Σε αυτή την περίπτωση, όταν κάνετε διπλό κλικ στο εικονίδιο, το διάγραμμα ανοίγει στην σχετική του εφαρμογή (Excel), ή σας ζητείται να επιλέξετε μια εφαρμογή για το άνοιγμα ή την επεξεργασία του αντικειμένου. 
+- Ένα αντικείμενο OLE μπορεί να εμφανίζει τα πραγματικά του περιεχόμενα, όπως τα δεδομένα ενός διαγράμματος. Σε αυτή την περίπτωση, το διάγραμμα ενεργοποιείται στο PowerPoint, φορτώνει η διεπαφή του διαγράμματος και μπορείτε να τροποποιήσετε τα δεδομένα του διαγράμματος μέσα στο PowerPoint.
 
-[Aspose.Slides for C++](https://products.aspose.com/slides/el/cpp/) σας επιτρέπει να εισάγετε OLE Objects στις διαφάνειες ως πλαίσια αντικειμένου OLE ([OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for C++](https://products.aspose.com/slides/el/cpp/) σας επιτρέπει να εισάγετε αντικείμενα OLE σε διαφάνειες ως πλαίσια αντικειμένων OLE ([OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/)).
 
-## **Προσθήκη πλαισίων αντικειμένου OLE στις διαφάνειες**
+## **Προσθήκη πλαισίων αντικειμένων OLE σε διαφάνειες**
 
-Υποθέτοντας ότι έχετε ήδη δημιουργήσει ένα γράφημα στο Microsoft Excel και θέλετε να το ενσωματώσετε σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας το Aspose.Slides for C++, μπορείτε να το κάνετε ως εξής:
+Υποθέτοντας ότι έχετε ήδη δημιουργήσει ένα διάγραμμα στο Microsoft Excel και θέλετε να το ενσωματώσετε σε μια διαφάνεια ως πλαίσιο αντικειμένου OLE χρησιμοποιώντας το Aspose.Slides for C++, μπορείτε να το κάνετε ως εξής:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).  
-2. Αποκτήστε μια αναφορά στη διαφάνεια μέσω του δείκτη της.  
-3. Διαβάστε το αρχείο Excel ως πίνακα bytes.  
-4. Προσθέστε το [OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/) στη διαφάνεια, περιέχοντας τον πίνακα bytes και άλλες πληροφορίες για το αντικείμενο OLE.  
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.  
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
+2. Λάβετε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
+3. Διαβάστε το αρχείο Excel ως πίνακα byte.
+4. Προσθέστε το [OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/) στη διαφάνεια περιλαμβάνοντας τον πίνακα byte και άλλες πληροφορίες σχετικά με το αντικείμενο OLE.
+5. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
 
-Στο παρακάτω παράδειγμα, προσθέσαμε ένα γράφημα από αρχείο Excel σε μια διαφάνεια ως [OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/) χρησιμοποιώντας το Aspose.Slides for C++.  
-**Σημείωση** ότι ο κατασκευαστής [OleEmbeddedDataInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) δέχει ως δεύτερο παράμετρο μια επέκταση ενσωματωμένου αντικειμένου. Αυτή η επέκταση επιτρέπει στο PowerPoint να ερμηνεύσει σωστά τον τύπο αρχείου και να επιλέξει τη σωστή εφαρμογή για το άνοιγμα αυτού του αντικειμένου OLE.
+Στο παρακάτω παράδειγμα, προσθέσαμε ένα διάγραμμα από αρχείο Excel σε μια διαφάνεια ως [OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/) χρησιμοποιώντας το Aspose.Slides for C++.  
+**Σημείωση** ότι ο κατασκευαστής [OleEmbeddedDataInfo](https://reference.aspose.com/slides/el/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) δέχεται μια επέκταση ενσωματωμένου αντικειμένου ως δεύτερη παράμετρο. Αυτή η επέκταση επιτρέπει στο PowerPoint να ερμηνεύει σωστά τον τύπο αρχείου και να επιλέγει τη σωστή εφαρμογή για το άνοιγμα αυτού του αντικειμένου OLE.
 
 ``` cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto slide = presentation->get_Slide(0);
 
-// Προετοιμάστε τα δεδομένα για το αντικείμενο OLE.
+// Prepare data for the OLE object.
 auto fileData = File::ReadAllBytes(u"book.xlsx");
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
@@ -71,11 +86,20 @@ presentation->Dispose();
 
 ### **Προσθήκη συνδεδεμένων πλαισίων αντικειμένου OLE**
 
-Το Aspose.Slides for C++ σας επιτρέπει να προσθέσετε ένα [OleObjectFrame] χωρίς ενσωμάτωση δεδομένων, αλλά μόνο με σύνδεσμο στο αρχείο.
+Aspose.Slides for C++ σας επιτρέπει να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/) χωρίς ενσωμάτωση δεδομένων αλλά μόνο με σύνδεσμο προς το αρχείο.
 
-Αυτός ο κώδικας C++ εμφανίζει πώς να προσθέσετε ένα [OleObjectFrame] με συνδεδεμένο αρχείο Excel σε μια διαφάνεια:
+Αυτός ο κώδικας C++ σας δείχνει πώς να προσθέσετε ένα [OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/) με ένα συνδεδεμένο αρχείο Excel σε μια διαφάνεια:
 
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -86,16 +110,26 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Πρόσβαση σε πλαίσια αντικειμένου OLE**
+## **Πρόσβαση σε πλαίσια αντικειμένων OLE**
 
-Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να το βρείτε ή να το προσπελάσετε ως εξής:
+Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να το βρείτε ή να το προσπελάσετε με αυτόν τον τρόπο:
 
-1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).  
-2. Αποκτήστε την αναφορά της διαφάνειας χρησιμοποιώντας το δείκτη της.  
-3. Προσπελάστε το σχήμα [OleObjectFrame]. Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγουμένως δημιουργημένο PPTX που έχει μόνο ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* (μετατράψαμε) αυτό το αντικείμενο ως [IOleObjectFrame]. Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.  
-4. Μόλις πρόσβαση στο πλαίσιο αντικειμένου OLE, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία σε αυτό.
+1. Φορτώστε μια παρουσία με το ενσωματωμένο αντικείμενο OLE δημιουργώντας μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
+2. Λάβετε την αναφορά της διαφάνειας χρησιμοποιώντας το δείκτη της.
+3. Προσπελάστε το σχήμα [OleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/). Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγουμένως δημιουργημένο PPTX που έχει μόνο ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* το αντικείμενο ως [IOleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ioleobjectframe/). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.
+4. Μόλις αποκτήσετε πρόσβαση στο πλαίσιο αντικειμένου OLE, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία πάνω του.
+
+Στο παρακάτω παράδειγμα, πρόσβαση γίνεται σε ένα πλαίσιο αντικειμένου OLE (αντικείμενο διαγράμματος Excel ενσωματωμένο σε μια διαφάνεια) και στα δεδομένα αρχείου του.
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -114,13 +148,21 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 }
 ```
 
-### **Πρόσβαση στις ιδιότητες συνδεδεμένου πλαισίου αντικειμένου OLE**
+### **Πρόσβαση σε ιδιότητες συνδεδεμένου πλαισίου αντικειμένου OLE**
 
-Το Aspose.Slides σας επιτρέπει να προσπελάσετε τις ιδιότητες του συνδεδεμένου πλαισίου αντικειμένου OLE.
+Το Aspose.Slides σας επιτρέπει να πρόσβαση σε ιδιότητες συνδεδεμένου πλαισίου αντικειμένου OLE.
 
-Αυτός ο κώδικας C++ δείχνει πώς να ελέγξετε αν ένα αντικείμενο OLE είναι συνδεδεμένο και στη συνέχεια να λάβετε τη διαδρομή του συνδεδεμένου αρχείου:
+Αυτός ο κώδικας C++ σας δείχνει πώς να ελέγξετε εάν ένα αντικείμενο OLE είναι συνδεδεμένο και στη συνέχεια να λάβετε τη διαδρομή του συνδεδεμένου αρχείου:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -129,13 +171,13 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 {
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-    // Ελέγξτε εάν το αντικείμενο OLE είναι συνδεδεμένο.
+    // Ελέγξτε αν το αντικείμενο OLE είναι συνδεδεμένο.
     if (oleFrame->get_IsObjectLink())
     {
-        // Εκτυπώστε τη πλήρη διαδρομή προς το συνδεδεμένο αρχείο.
+        // Εκτυπώστε τη πλήρη διαδρομή του συνδεδεμένου αρχείου.
         std::wcout << L"OLE object frame is linked to: " << oleFrame->get_LinkPathLong() << std::endl;
 
-        // Εκτυπώστε τη σχετική διαδρομή προς το συνδεδεμένο αρχείο αν υπάρχει.
+        // Εκτυπώστε τη σχετική διαδρομή του συνδεδεμένου αρχείου αν υπάρχει.
         // Μόνο οι παρουσιάσεις PPT μπορούν να περιέχουν τη σχετική διαδρομή.
         if (!String::IsNullOrEmpty(oleFrame->get_LinkPathRelative()))
         {
@@ -147,24 +189,50 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 
 ## **Αλλαγή δεδομένων αντικειμένου OLE**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Σε αυτήν την ενότητα, το παρακάτω παράδειγμα κώδικα χρησιμοποιεί το [Aspose.Cells for C++](/cells/cpp/). 
 {{% /alert %}}
 
-Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να προσπελάσετε αυτό το αντικείμενο και να τροποποιήσετε τα δεδομένα του με τον εξής τρόπο:
+Εάν ένα αντικείμενο OLE είναι ήδη ενσωματωμένο σε μια διαφάνεια, μπορείτε εύκολα να προσπελάσετε αυτό το αντικείμενο και να τροποποιήσετε τα δεδομένα του με αυτόν τον τρόπο:
 
-1. Φορτώστε μια παρουσίαση με το ενσωματωμένο αντικείμενο OLE δημιουργώντας μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).  
-2. Αποκτήστε τη αναφορά της διαφάνειας μέσω του δείκτη της.  
-3. Προσπελάστε το σχήμα [OLEObjectFrame]. Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγουμένως δημιουργημένο PPTX που έχει ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* (μετατράψαμε) αυτό το αντικείμενο ως [IOleObjectFrame]. Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.  
-4. Μόλις πρόσβαση στο πλαίσιο αντικειμένου OLE, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία σε αυτό.  
-5. Δημιουργήστε ένα αντικείμενο `Workbook` και προσπελάστε τα δεδομένα OLE.  
-6. Προσπελάστε το επιθυμητό `Worksheet` και τροποποιήστε τα δεδομένα.  
-7. Αποθηκεύστε το ενημερωμένο `Workbook` σε ένα stream.  
-8. Αλλάξτε τα δεδομένα του αντικειμένου OLE από το stream.  
+1. Φορτώστε μια παρουσία με το ενσωματωμένο αντικείμενο OLE δημιουργώντας μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
+2. Λάβετε την αναφορά της διαφάνειας μέσω του δείκτη της. 
+3. Προσπελάστε το σχήμα [OLEObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/). Στο παράδειγμά μας, χρησιμοποιήσαμε το προηγούμενο δημιουργημένο PPTX που έχει ένα σχήμα στην πρώτη διαφάνεια. Στη συνέχεια *cast* το αντικείμενο ως [IOleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ioleobjectframe/). Αυτό ήταν το επιθυμητό πλαίσιο αντικειμένου OLE για πρόσβαση.
+4. Μόλις αποκτήσετε πρόσβαση στο πλαίσιο αντικειμένου OLE, μπορείτε να εκτελέσετε οποιαδήποτε λειτουργία πάνω του.
+5. Δημιουργήστε ένα αντικείμενο `Workbook` και προσπελάστε τα δεδομένα OLE.
+6. Προσπελάστε το επιθυμητό `Worksheet` και τροποποιήστε τα δεδομένα.
+7. Αποθηκεύστε το ενημερωμένο `Workbook` σε ροή.
+8. Αλλάξτε τα δεδομένα του αντικειμένου OLE από τη ροή.
 
-Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (αντικείμενο γραφήματος Excel ενσωματωμένο σε διαφάνεια) προσπελάζεται και τα δεδομένα του αρχείου τροποποιούνται για να ενημερωθούν τα δεδομένα του γραφήματος.
+Στο παρακάτω παράδειγμα, ένα πλαίσιο αντικειμένου OLE (αντικείμενο διαγράμματος Excel ενσωματωμένο σε μια διαφάνεια) προσεγγίζεται, και τα δεδομένα αρχείου του τροποποιούνται για την ενημέρωση των δεδομένων του διαγράμματος.
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/OoxmlSaveOptions.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// Το Aspose.Cells για C++ πρέπει να εκκινηθεί πριν χρησιμοποιηθεί οποιοδήποτε από τα τύπους του.
+Aspose::Cells::Startup();
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
@@ -175,12 +243,12 @@ if (oleFrame != nullptr)
 {
     auto oleStream = MakeObject<MemoryStream>(oleFrame->get_EmbeddedData()->get_EmbeddedFileData());
 
-    // Αναγνώστε τα δεδομένα του αντικειμένου OLE ως αντικείμενο Workbook.
+    // Ανάγνωση των δεδομένων του αντικειμένου OLE ως αντικείμενο Workbook.
     auto oleArray = oleStream->ToArray();
     std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
     Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    // Τροποποιήστε τα δεδομένα του workbook.
+    // Τροποποίηση των δεδομένων του workbook.
     auto worksheet = workbook.GetWorksheets().Get(0);
     worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
     worksheet.GetCells().Get(1, 4).PutValue(12);
@@ -195,19 +263,37 @@ if (oleFrame != nullptr)
         MakeArray<uint8_t>(std::vector<uint8_t>(newWorkbookData.GetData(), newWorkbookData.GetData() + newWorkbookData.GetLength())),
         0, newWorkbookData.GetLength());
 
-    // Αλλάξτε τα δεδομένα του αντικειμένου πλαισίου OLE.
+    // Αλλαγή των δεδομένων του αντικειμένου πλαισίου OLE.
     auto newData = MakeObject<OleEmbeddedDataInfo>(newOleStream->ToArray(), oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
     oleFrame->SetEmbeddedData(newData);
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+
+Aspose::Cells::Cleanup();
 ```
 
-## **Ενσωμάτωση άλλων τύπων αρχείων στις διαφάνειες**
+## **Ενσωμάτωση άλλων τύπων αρχείων σε διαφάνειες**
 
-Εκτός από γραφήματα Excel, το Aspose.Slides for C++ σας επιτρέπει να ενσωματώνετε άλλους τύπους αρχείων στις διαφάνειες. Για παράδειγμα, μπορείτε να εισάγετε αρχεία HTML, PDF και ZIP ως αντικείμενα. Όταν ένας χρήστης κάνει διπλό κλικ στο ενσωματωμένο αντικείμενο, ανοίγει αυτόματα στο σχετικό πρόγραμμα, ή του ζητείται να επιλέξει ένα κατάλληλο πρόγραμμα για το άνοιγμά του.
+Εκτός από διαγράμματα Excel, το Aspose.Slides for C++ σας επιτρέπει να ενσωματώνετε άλλους τύπους αρχείων σε διαφάνειες. Για παράδειγμα, μπορείτε να εισάγετε αρχεία HTML, PDF και ZIP ως αντικείμενα. Όταν ένας χρήστης κάνει διπλό κλικ στο εισαχθέν αντικείμενο, αυτό ανοίγει αυτόματα στο αντίστοιχο πρόγραμμα, ή του ζητείται να επιλέξει κατάλληλο πρόγραμμα για άνοιγμά του.
+
+Αυτός ο κώδικας C++ σας δείχνει πώς να ενσωματώσετε HTML και ZIP σε μια διαφάνεια:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -227,11 +313,22 @@ presentation->Dispose();
 
 ## **Ορισμός τύπων αρχείων για ενσωματωμένα αντικείμενα**
 
-Κατά την εργασία με παρουσιάσεις, ίσως χρειαστεί να αντικαταστήσετε παλιά αντικείμενα OLE με νέα ή να αντικαταστήσετε ένα μη υποστηριζόμενο αντικείμενο OLE με ένα υποστηριζόμενο. Το Aspose.Slides for C++ σας επιτρέπει να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο, επιτρέποντας την ενημέρωση των δεδομένων του πλαισίου OLE ή της επέκτασής του.
+Κατά την εργασία με παρουσιάσεις, ίσως χρειαστεί να αντικαταστήσετε παλιά αντικείμενα OLE με νέα ή να αντικαταστήσετε ένα μη υποστηριζόμενο αντικείμενο OLE με ένα υποστηριζόμενο. Το Aspose.Slides for C++ σας επιτρέπει να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο, επιτρέποντάς σας να ενημερώσετε τα δεδομένα πλαισίου OLE ή την επέκτασή του.
 
-Αυτός ο κώδικας C++ δείχνει πώς να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο OLE σε `zip`:
+Αυτός ο κώδικας C++ σας δείχνει πώς να ορίσετε τον τύπο αρχείου για ένα ενσωματωμένο αντικείμενο OLE σε `zip`:
 
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
@@ -241,7 +338,7 @@ auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
 std::wcout << L"Current embedded file extension is: " << fileExtension << std::endl;
 
-// Αλλάξτε τον τύπο αρχείου σε ZIP.
+// Change the file type to ZIP.
 oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(fileData, u"zip"));
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
@@ -250,11 +347,25 @@ presentation->Dispose();
 
 ## **Ορισμός εικόνων εικονιδίου και τίτλων για ενσωματωμένα αντικείμενα**
 
-Μετά την ενσωμάτωση ενός αντικειμένου OLE, προστίθεται αυτόματα μια προεπισκόπηση που αποτελείται από εικόνα εικονιδίου. Αυτή η προεπισκόπηση είναι ό,τι βλέπουν οι χρήστες πριν προσπελάσουν ή ανοίξουν το αντικείμενο OLE. Εάν θέλετε να χρησιμοποιήσετε μια συγκεκριμένη εικόνα και κείμενο ως στοιχεία στην προεπισκόπηση, μπορείτε να ορίσετε την εικόνα εικονιδίου και τον τίτλο χρησιμοποιώντας το Aspose.Slides for C++.
+Μετά την ενσωμάτωση ενός αντικειμένου OLE, προστίθεται αυτόματα μια προεπισκόπηση που αποτελείται από μια εικόνα εικονιδίου. Αυτή η προεπισκόπηση είναι ό,τι βλέπουν οι χρήστες πριν προσπελάσουν ή ανοίξουν το αντικείμενο OLE. Εάν θέλετε να χρησιμοποιήσετε μια συγκεκριμένη εικόνα και κείμενο ως στοιχεία στην προεπισκόπηση, μπορείτε να ορίσετε την εικόνα εικονιδίου και τον τίτλο χρησιμοποιώντας το Aspose.Slides for C++.
 
-Αυτός ο κώδικας C++ δείχνει πώς να ορίσετε την εικόνα εικονιδίου και τον τίτλο για ένα ενσωματωμένο αντικείμενο:
+Αυτός ο κώδικας C++ σας δείχνει πώς να ορίσετε την εικόνα εικονιδίου και τον τίτλο για ένα ενσωματωμένο αντικείμενο: 
 
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
@@ -263,6 +374,7 @@ auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 auto imageData = File::ReadAllBytes(u"image.png");
 auto oleImage = presentation->get_Images()->AddImage(imageData);
 
+// Set a title and the image for the OLE preview.
 oleFrame->set_SubstitutePictureTitle(u"My title");
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
 oleFrame->set_IsObjectIcon(true);
@@ -271,23 +383,48 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Αποτροπή αλλαγής μεγέθους και επανατοποθέτησης πλαισίου αντικειμένου OLE**
+## **Αποτροπή αλλαγής μεγέθους και θέσης πλαισίου OLE αντικειμένου**
 
-Αφού προσθέσετε ένα συνδεδεμένο αντικείμενο OLE σε μια διαφάνεια παρουσίασης, όταν ανοίξετε την παρουσίαση στο PowerPoint, μπορεί να εμφανιστεί ένα μήνυμα που ζητά να ενημερώσετε τις συνδέσεις. Κάνοντας κλικ στο κουμπί "Update Links" (Ενημέρωση Συνδέσεων) μπορεί να αλλάξει το μέγεθος και η θέση του πλαισίου αντικειμένου OLE, επειδή το PowerPoint ενημερώνει τα δεδομένα από το συνδεδεμένο αντικείμενο OLE και ανανεώνει την προεπισκόπηση του αντικειμένου. Για να αποτρέψετε το PowerPoint από το να ζητά ενημέρωση των δεδομένων του αντικειμένου, ορίστε τη μέθοδο `set_UpdateAutomatic` της διεπαφής [IOleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ioleobjectframe/) σε `false`:
+Μετά την προσθήκη ενός συνδεδεμένου αντικειμένου OLE σε μια διαφάνεια παρουσίασης, όταν ανοίγετε την παρουσίαση στο PowerPoint, μπορεί να εμφανιστεί ένα μήνυμα που ζητά την ενημέρωση των συνδέσεων. Το κλικ στο κουμπί «Update Links» μπορεί να αλλάξει το μέγεθος και τη θέση του πλαισίου αντικειμένου OLE επειδή το PowerPoint ενημερώνει τα δεδομένα από το συνδεδεμένο αντικείμενο OLE και ανανεώνει την προεπισκόπηση. Για να αποτρέψετε το PowerPoint από το να ζητά ενημέρωση των δεδομένων του αντικειμένου, ορίστε τη μέθοδο `set_UpdateAutomatic` της διεπαφής [IOleObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ioleobjectframe/) σε `false`:
 
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
 oleFrame->set_UpdateAutomatic(false);
 ```
 
 ## **Εξαγωγή ενσωματωμένων αρχείων**
 
-Το Aspose.Slides for C++ σας επιτρέπει να εξάγετε τα αρχεία που είναι ενσωματωμένα στις διαφάνειες ως αντικείμενα OLE ως εξής:
+Το Aspose.Slides for C++ σας επιτρέπει να εξάγετε τα αρχεία που είναι ενσωματωμένα σε διαφάνειες ως αντικείμενα OLE με τον εξής τρόπο:
 
-1. Δημιουργήστε μια εμφάνιση της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) που περιέχει τα αντικείμενα OLE που επιθυμείτε να εξάγετε.  
-2. Διέλθετε όλες τις μορφές στην παρουσίαση και προσπελάστε τις μορφές [OLEObjectFrame].  
-3. Προσπελάστε τα δεδομένα των ενσωματωμένων αρχείων από τα πλαίσια αντικειμένου OLE και γράψτε τα στο δίσκο.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation) που περιέχει τα αντικείμενα OLE που θέλετε να εξάγετε.
+2. Περιηγηθείτε σε όλα τα σχήματα στην παρουσία και προσπελάστε τα σχήματα [OLEObjectFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/oleobjectframe/).
+3. Προσπελάστε τα δεδομένα των ενσωματωμένων αρχείων από τα πλαίσια αντικειμένων OLE και γράψτε τα στο δίσκο.
+
+Αυτός ο κώδικας C++ σας δείχνει πώς να εξάγετε αρχεία ενσωματωμένα σε μια διαφάνεια ως αντικείμενα OLE:
 
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
@@ -310,20 +447,20 @@ for (int index = 0; index < slide->get_Shapes()->get_Count(); index++)
 presentation->Dispose();
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Θα αποδίδεται το περιεχόμενο OLE κατά τη� εξαγωγή των διαφανειών σε PDF/εικόνες;**
+### Θα αποδοθεί το περιεχόμενο OLE κατά την εξαγωγή διαφανειών σε PDF/εικόνες;
 
-Αυτό που είναι ορατό στη διαφάνεια αποδίδεται—το εικονίδιο/εικόνα αντικατάστασης (προεπισκόπηση). Το "ζωντανό" περιεχόμενο OLE δεν εκτελείται κατά την απόδοση. Αν χρειάζεται, ορίστε τη δική σας εικόνα προεπισκόπησης για να διασφαλίσετε την αναμενόμενη εμφάνιση στο εξαγόμενο PDF.
+Αυτό που είναι ορατό στη διαφάνεια αποδίδεται—το εικονίδιο/εναλλακτική εικόνα (προεπισκόπηση). Το «ζωντανό» περιεχόμενο OLE δεν εκτελείται κατά την απόδοση. Αν χρειάζεται, ορίστε τη δική σας εικόνα προεπισκόπησης ώστε να εξασφαλίσετε την αναμενόμενη εμφάνιση στο εξαγόμενο PDF.
 
-**Πώς μπορώ να κλειδώσω ένα αντικείμενο OLE σε μια διαφάνεια ώστε οι χρήστες να μην το μετακινούν/επεξεργάζονται στο PowerPoint;**
+### Πώς μπορώ να κλειδώσω ένα αντικείμενο OLE σε μια διαφάνεια ώστε οι χρήστες να μην μπορούν να το μετακινήσουν/επεξεργαστούν στο PowerPoint;
 
-Κλειδώστε το σχήμα: το Aspose.Slides παρέχει [shape-level locks](/slides/el/cpp/applying-protection-to-presentation/). Αυτό δεν είναι κρυπτογράφηση, αλλά αποτρέπει αποτελεσματικά τυχαίες επεμβάσεις και μετακινήσεις.
+Κλειδώστε το σχήμα: το Aspose.Slides παρέχει [κλειδώσεις επιπέδου σχήματος](/slides/el/cpp/applying-protection-to-presentation/). Αυτό δεν είναι κρυπτογράφηση, αλλά εμποδίζει αποτελεσματικά ακούσιες επεμβάσεις και μετακινήσεις.
 
-**Γιατί ένα συνδεδεμένο αντικείμενο Excel "πηδά" ή αλλάζει μέγεθος όταν ανοίγω την παρουσίαση;**
+### Γιατί ένα συνδεδεμένο αντικείμενο Excel «πηδά» ή αλλάζει μέγεθος όταν ανοίγω την παρουσίαση;
 
-Το PowerPoint μπορεί να ανανεώσει την προεπισκόπηση του συνδεδεμένου OLE. Για σταθερή εμφάνιση, ακολουθήστε τις πρακτικές του [Working Solution for Worksheet Resizing](/slides/el/cpp/working-solution-for-worksheet-resizing/) — είτε προσαρμόστε το πλαίσιο στην περιοχή, είτε κλιμακώστε την περιοχή σε ένα σταθερό πλαίσιο και ορίστε μια κατάλληλη εικόνα αντικατάστασης.
+Το PowerPoint μπορεί να ανανεώσει την προεπισκόπηση του συνδεδεμένου OLE. Για σταθερή εμφάνιση, ακολουθήστε τις πρακτικές του [Working Solution for Worksheet Resizing](/slides/el/cpp/working-solution-for-worksheet-resizing/)—είτε προσαρμόσετε το πλαίσιο στην περιοχή, είτε κλιμακώσετε την περιοχή σε ένα σταθερό πλαίσιο και ορίστε μια κατάλληλη εναλλακτική εικόνα.
 
-**Θα διατηρηθούν οι σχετικοί δρόμοι (paths) για τα συνδεδεμένα αντικείμενα OLE στη μορφή PPTX;**
+### Θα διατηρηθούν οι σχετικοί δρόμοι για συνδεδεμένα αντικείμενα OLE στη μορφή PPTX;
 
-Στο PPTX, δεν διατίθεται πληροφορία «σχετικό μονοπάτι»—μόνο το πλήρες μονοπάτι. Τα σχετικά μονοπάτια υπάρχουν μόνο στην παλαιότερη μορφή PPT. Για φορητότητα, προτιμήστε αξιόπιστα απόλυτα μονοπάτια/προσβάσιμα URIs ή ενσωμάτωση.
+Στο PPTX, οι πληροφορίες «σχετικού δρόμου» δεν είναι διαθέσιμες—μόνο η πλήρης διαδρομή. Οι σχετικοί δρόμοι υπάρχουν μόνο στην παλαιότερη μορφή PPT. Για φορητότητα, προτιμήστε αξιόπιστες απόλυτες διαδρομές/πρόσβαση μέσω URIs ή ενσωμάτωση.

@@ -1,28 +1,28 @@
 ---
-title: "Δημιουργία Πινάκων χρησιμοποιώντας VSTO και Aspose.Slides for Java"
-linktitle: "Δημιουργία Πινάκων"
+title: Δημιουργία Πινάκων με VSTO και Aspose.Slides for Java
+linktitle: Δημιουργία Πινάκων
 type: docs
 weight: 50
 url: /el/java/creating-a-table-on-powerpoint-slide/
 keywords:
 - δημιουργία πίνακα
-- μεταφορά
+- μετάβαση
 - VSTO
 - αυτοματοποίηση Office
 - PowerPoint
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μεταφορά από την αυτοματοποίηση του Microsoft Office σε Aspose.Slides for Java και δημιουργία πινάκων σε διαφάνειες PowerPoint (PPT, PPTX) σε Java με ευέλικτη μορφοποίηση."
+description: "Μετάβαση από την αυτοματοποίηση Microsoft Office στο Aspose.Slides for Java και δημιουργία πινάκων σε διαφάνειες PowerPoint (PPT, PPTX) με Java με ευέλικτη μορφοποίηση."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Οι πίνακες χρησιμοποιούνται ευρέως για την παρουσίαση δεδομένων σε διαφάνειες. Αυτό το άρθρο δείχνει πώς να δημιουργηθεί ένας πίνακας 15 x 15 με μέγεθος γραμματοσειράς 10 προγραμματιστικά, πρώτα με το [VSTO 2008](/slides/el/java/creating-a-table-on-powerpoint-slide/) και έπειτα με το [Aspose.Slides for Java](/slides/el/java/creating-a-table-on-powerpoint-slide/).
+Οι πίνακες χρησιμοποιούνται συχνά για την προβολή δεδομένων σε διαφάνειες παρουσίασης. Αυτό το άρθρο δείχνει πώς να δημιουργήσετε ένα πίνακα 15 x 15 με μέγεθος γραμματοσειράς 10 προγραμματικά, χρησιμοποιώντας πρώτα [VSTO 2008](/slides/el/java/creating-a-table-on-powerpoint-slide/) και στη συνέχεια [Aspose.Slides for Java](/slides/el/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Δημιουργία Πινάκων**
 ### **Παράδειγμα VSTO 2008**
-Τα παρακάτω βήματα προσθέτουν έναν πίνακα σε μια διαφάνεια Microsoft PowerPoint χρησιμοποιώντας VSTO:
+Τα παρακάτω βήματα προσθέτουν έναν πίνακα σε διαφάνεια Microsoft PowerPoint χρησιμοποιώντας VSTO:
 
 1. Δημιουργήστε μια παρουσίαση.
 1. Προσθέστε μια κενή διαφάνεια στην παρουσίαση.
@@ -34,7 +34,7 @@ description: "Μεταφορά από την αυτοματοποίηση του
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateTableUsingVSTO-CreateTableUsingVSTO.cs" >}}
 ### **Παράδειγμα Aspose.Slides for Java**
-Τα παρακάτω βήματα προσθέτουν έναν πίνακα σε μια διαφάνεια Microsoft PowerPoint χρησιμοποιώντας Aspose.Slides:
+Τα παρακάτω βήματα προσθέτουν έναν πίνακα σε διαφάνεια Microsoft PowerPoint χρησιμοποιώντας Aspose.Slides:
 
 1. Δημιουργήστε μια παρουσίαση.
 1. Προσθέστε έναν πίνακα 15 x 15 στην πρώτη διαφάνεια.

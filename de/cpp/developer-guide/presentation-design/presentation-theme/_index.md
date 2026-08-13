@@ -8,34 +8,46 @@ keywords:
 - PowerPoint-Thema
 - Präsentationsthema
 - Folienthema
-- Theme festlegen
-- Theme ändern
-- Theme verwalten
-- Theme-Farbe
+- Thema festlegen
+- Thema ändern
+- Thema verwalten
+- Themafarbe
 - zusätzliche Palette
-- Theme-Schriftart
-- Theme-Stil
-- Theme-Effekt
+- Themen-Schriftart
+- Themenstil
+- Themaeffekt
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Master-Präsentationsthemen in Aspose.Slides für C++ zum Erstellen, Anpassen und Konvertieren von PowerPoint-Dateien mit einheitlichem Branding."
+description: "Master‑Präsentationsthemen in Aspose.Slides für C++ erstellen, anpassen und PowerPoint‑Dateien mit konsistenter Markenführung konvertieren."
 ---
-Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz visueller Elemente und deren Eigenschaften.
+## **Einleitung**
 
-In PowerPoint umfasst ein Thema Farben, [fonts](/slides/de/cpp/powerpoint-fonts/), [background styles](/slides/de/cpp/presentation-background/) und Effekte.
+Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz von visuellen Elementen und deren Eigenschaften.
+
+In PowerPoint besteht ein Thema aus Farben, [Schriftarten](/slides/de/cpp/powerpoint-fonts/), [Hintergrundstilen](/slides/de/cpp/presentation-background/) und Effekten.
 
 ![theme-constituents](theme-constituents.png)
 
-## **Theme-Farbe ändern**
+## **Themafarbe ändern**
 
-Ein PowerPoint-Thema verwendet einen bestimmten Satz von Farben für verschiedene Elemente einer Folie. Wenn Ihnen die Farben nicht gefallen, ändern Sie sie, indem Sie neue Farben für das Thema anwenden. Um Ihnen die Auswahl einer neuen Theme‑Farbe zu ermöglichen, stellt Aspose.Slides Werte aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28) bereit.
-
-Dieser C++‑Code zeigt, wie Sie die Akzentfarbe für ein Thema ändern:
+Ein PowerPoint‑Thema verwendet einen bestimmten Satz von Farben für verschiedene Elemente einer Folie. Wenn Ihnen die Farben nicht gefallen, ändern Sie sie, indem Sie neue Farben für das Thema anwenden. Damit Sie eine neue Themafarbe auswählen können, stellt Aspose.Slides Werte aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28) bereit.
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
@@ -44,20 +56,60 @@ shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 ```
 
-Sie können den effektiven Wert der resultierenden Farbe auf diese Weise bestimmen:
+Sie können den effektiven Wert der resultierenden Farbe auf diese Weise ermitteln:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = System::MakeObject<Presentation>();
+auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+
 auto fillEffective = shape->get_FillFormat()->GetEffective();
-    
+
 Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(), fillEffective->get_SolidFillColor());
 // ff8064a2 (Farbe [A=255, R=128, G=100, B=162])
 ```
 
-Um die Farbänderungsoperation weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ersten Operation) zu. Dann ändern wir die Farbe im Thema:
+Um den Farbwechsel weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ursprünglichen Operation) zu. Anschließend ändern wir die Farbe im Thema:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+
 auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
-    
+
 otherShape->get_FillFormat()->set_FillType(FillType::Solid);
 otherShape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 
@@ -66,18 +118,33 @@ pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_
 
 Die neue Farbe wird automatisch auf beide Elemente angewendet.
 
-### **Theme‑Farbe aus einer zusätzlichen Palette festlegen**
+### **Themafarbe aus einer zusätzlichen Palette festlegen**
 
-Wenn Sie Luminanz‑Transformationen auf die Haupt‑Theme‑Farbe (1) anwenden, entstehen Farben aus der zusätzlichen Palette (2). Sie können diese Theme‑Farben dann setzen und abrufen.
+Wenn Sie Luminanz‑Transformationen auf die Hauptthemafarbe (1) anwenden, entstehen Farben aus der zusätzlichen Palette (2). Diese Themafarben können Sie dann setzen und abrufen.
 
 ![additional-palette-colors](additional-palette-colors.png)
 
-**1**- Haupt‑Theme‑Farben  
+**1**- Hauptthemafarben  
 **2**- Farben aus der zusätzlichen Palette.
 
-Dieser C++‑Code demonstriert einen Vorgang, bei dem Farben der zusätzlichen Palette aus der Haupt‑Theme‑Farbe gewonnen und anschließend in Formen verwendet werden:
+Dieser C++‑Code demonstriert eine Operation, bei der Farben aus der zusätzlichen Palette aus der Hauptthemafarbe gewonnen und anschließend in Formen verwendet werden:
 
 ```c++
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -141,35 +208,52 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"example.pptx", Export::SaveFormat::Pptx);
 ```
 
-### **Zuordnung von `SchemeColor` zu `IColorScheme`‑Farben**
+### **`SchemeColor` zu `IColorScheme`‑Farben zuordnen**
 
-Wenn Sie mit [SchemeColor](https://reference.aspose.com/slides/de/cpp/aspose.slides.schemecolor/) arbeiten, werden Sie feststellen, dass es die folgenden Theme‑Farbwerte enthält: `Background1`, `Background2`, `Text1` und `Text2`.
+Wenn Sie mit [SchemeColor](https://reference.aspose.com/slides/de/cpp/aspose.slides/schemecolor/) arbeiten, werden Sie feststellen, dass es die folgenden Themenfarbwerte enthält: `Background1`, `Background2`, `Text1` und `Text2`.
 
-Aber `Presentation::get_MasterTheme()::get_ColorScheme()` gibt [IColorScheme](https://reference.aspose.com/slides/de/cpp/aspose.slides.theme/icolorscheme/) zurück, das die entsprechenden Farben wie folgt bereitstellt: `Dark1`, `Dark2`, `Light1` und `Light2`.
+Allerdings gibt `Presentation::get_MasterTheme()::get_ColorScheme()` [IColorScheme](https://reference.aspose.com/slides/de/cpp/aspose.slides.theme/icolorscheme/) zurück, das die entsprechenden Farben wie folgt bereitstellt: `Dark1`, `Dark2`, `Light1` und `Light2`.
 
-Dieser Unterschied besteht nur in der Benennung. Diese Werte beziehen sich auf dieselben Theme‑Farbschlitze und die Zuordnung ist fest:
+Dieser Unterschied besteht nur in der Benennung. Diese Werte beziehen sich auf dieselben Themfarbe‑Slots und die Zuordnung ist festgelegt:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Es gibt keine dynamische Umwandlung zwischen `Text`/`Background` und `Dark`/`Light`. Es handelt sich lediglich um alternative Bezeichnungen für dieselben Theme‑Farben.
+Es gibt keine dynamische Konvertierung zwischen `Text`/`Background` und `Dark`/`Light`. Sie sind lediglich alternative Bezeichnungen für dieselben Themfarben.
 
-Diese Benennungsunterschiede stammen von der Microsoft‑Office‑Terminologie. Ältere Office‑Versionen nutzten `Dark 1`, `Light 1`, `Dark 2` und `Light 2`, während neuere UI‑Versionen dieselben Schlitze als `Text 1`, `Background 1`, `Text 2` und `Background 2` anzeigen.
+Dieser Unterschied in der Benennung stammt aus der Terminologie von Microsoft Office. Ältere Office‑Versionen verwendeten `Dark 1`, `Light 1`, `Dark 2` und `Light 2`, während neuere UI‑Versionen dieselben Slots als `Text 1`, `Background 1`, `Text 2` und `Background 2` anzeigen.
 
-## **Theme‑Schriftart ändern**
+## **Thema‑Schriftart ändern**
 
-Um Ihnen die Auswahl von Schriftarten für Themen und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich denen in PowerPoint):
+Damit Sie Schriftarten für Themen und andere Zwecke auswählen können, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich denen, die in PowerPoint verwendet werden):
 
-* **+mn‑lt** – Body‑Schriftart Latin (Minor Latin Font)
-* **+mj‑lt** – Heading‑Schriftart Latin (Major Latin Font)
-* **+mn‑ea** – Body‑Schriftart Ostasiatisch (Minor East Asian Font)
-* **+mj‑ea** – Body‑Schriftart Ostasiatisch (Major East Asian Font)
+* **+mn-lt** – Körper‑Schriftart Lateinisch (Minor Latin Font)
+* **+mj-lt** – Überschriften‑Schriftart Lateinisch (Major Latin Font)
+* **+mn-ea** – Körper‑Schriftart Ostasiatisch (Minor East Asian Font)
+* **+mj-ea** – Körper‑Schriftart Ostasiatisch (Major East Asian Font)
 
-Dieser C++‑Code zeigt, wie Sie die Latin‑Schriftart einem Theme‑Element zuweisen:
+Dieser C++‑Code zeigt, wie Sie die lateinische Schriftart einem Theme‑Element zuweisen:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 
 auto paragraph = System::MakeObject<Paragraph>();
@@ -181,27 +265,46 @@ shape->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"+mn-lt"));
 ```
 
-Dieser C++‑Code zeigt, wie Sie die Präsentations‑Theme‑Schriftart ändern:
+Dieser C++‑Code zeigt, wie Sie die Schriftart des Präsentationsthemas ändern:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFonts.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
 ```
 
 Die Schriftart in allen Textfeldern wird aktualisiert.
 
-{{% alert color="primary" title="TIP" %}} 
-Vielleicht möchten Sie sich die [PowerPoint fonts](/slides/de/cpp/powerpoint-fonts/) ansehen. 
+{{% alert color="info" title="TIP" %}} 
+Vielleicht möchten Sie sich [PowerPoint-Schriftarten](/slides/de/cpp/powerpoint-fonts/) ansehen.
 {{% /alert %}}
 
-## **Theme‑Hintergrundstil ändern**
+## **Hintergrundstil des Themas ändern**
 
 Standardmäßig stellt die PowerPoint‑App 12 vordefinierte Hintergründe bereit, aber nur 3 dieser 12 Hintergründe werden in einer typischen Präsentation gespeichert.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Zum Beispiel können Sie nach dem Speichern einer Präsentation in der PowerPoint‑App diesen C++‑Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation zu ermitteln:
+Beispielsweise können Sie nach dem Speichern einer Präsentation in der PowerPoint‑App diesen C++‑Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation zu ermitteln:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Theme;
+using namespace System;
+
 auto pres = MakeObject<Presentation>(u"pres.pptx");
         
 int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()->get_Count();
@@ -210,32 +313,61 @@ Console::WriteLine(u"Number of background fill styles for theme is {0}", numberO
 ```
 
 {{% alert color="warning" %}} 
-Mit der Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) der Klasse [FormatScheme](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme/) können Sie den Hintergrundstil in einem PowerPoint‑Theme hinzufügen oder darauf zugreifen. 
+Verwenden Sie die Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) der Klasse [FormatScheme](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme/), können Sie den Hintergrundstil in einem PowerPoint‑Theme hinzufügen oder darauf zugreifen. 
 {{% /alert %}}
 
 Dieser C++‑Code zeigt, wie Sie den Hintergrund für eine Präsentation festlegen:
 
 ```c++
+#include <DOM/IBackground.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 ```
 
-**Index‑Leitfaden**: 0 wird für keine Füllung verwendet. Der Index beginnt bei 1.
+**Index‑Leitfaden**: 0 steht für keine Füllung. Der Index beginnt bei 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Vielleicht möchten Sie sich den [PowerPoint Background](/slides/de/cpp/presentation-background/) ansehen. 
+{{% alert color="info" title="TIP" %}} 
+Vielleicht möchten Sie sich [PowerPoint‑Hintergrund](/slides/de/cpp/presentation-background/) ansehen.
 {{% /alert %}}
 
-## **Theme‑Effekt ändern**
+## **Thema‑Effekt ändern**
 
-Ein PowerPoint‑Theme enthält normalerweise 3 Werte für jedes Stil‑Array. Diese Arrays werden zu den 3 Effekten subtil, moderat und intensiv kombiniert. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
+Ein PowerPoint‑Thema enthält normalerweise 3 Werte für jedes Stil-Array. Diese Arrays werden zu den 3 Effekten kombiniert: subtil, moderat und intensiv. Beispielsweise ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Durch die Verwendung von 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) der Klasse [FormatScheme](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme/) können Sie die Elemente in einem Theme ändern (noch flexibler als die Optionen in PowerPoint).
+Mit den 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) aus der Klasse [FormatScheme](https://reference.aspose.com/slides/de/cpp/class/aspose.slides.theme.i_format_scheme/) können Sie die Elemente eines Themas ändern (noch flexibler als die Optionen in PowerPoint).
 
 ```c++
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IEffectStyle.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
-        
+
 pres->get_MasterTheme()->get_FormatScheme()->get_LineStyles()->idx_get(0)->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
 pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->set_FillType(FillType::Solid);
@@ -253,11 +385,14 @@ Die resultierenden Änderungen bei Füllfarbe, Fülltyp, Schatteneffekt usw.:
 
 ## **FAQ**
 
-**Kann ich ein Theme auf eine einzelne Folie anwenden, ohne den Master zu ändern?**  
-Ja. Aspose.Slides unterstützt Theme‑Überschreibungen auf Folienebene, sodass Sie ein lokales Theme nur auf diese Folie anwenden können, während das Master‑Theme unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/de/cpp/aspose.slides.theme/slidethememanager/)).
+### Kann ich ein Thema auf eine einzelne Folie anwenden, ohne die Masterfolie zu ändern?
 
-**Was ist der sicherste Weg, ein Theme von einer Präsentation in eine andere zu übertragen?**  
-[Clone slides](/slides/de/cpp/clone-slides/) gemeinsam mit ihrem Master in die Zielpräsentation übernehmen. Dadurch bleiben das ursprüngliche Master‑Layout, die Layouts und das zugehörige Theme erhalten, sodass das Erscheinungsbild konsistent bleibt.
+Ja. Aspose.Slides unterstützt Themen‑Überschreibungen auf Folienebene, sodass Sie ein lokales Thema nur auf diese Folie anwenden können, während das Master‑Thema unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/de/cpp/aspose.slides.theme/slidethememanager/)).
 
-**Wie kann ich die „effektiven“ Werte nach allen Vererbungen und Überschreibungen sehen?**  
-Verwenden Sie die ["effektiven" Ansichten](/slides/de/cpp/shape-effective-properties/) der API für Theme/Farbe/Schriftart/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master sowie etwaige lokale Überschreibungen angewendet wurden.
+### Was ist der sicherste Weg, ein Thema von einer Präsentation zur anderen zu übertragen?
+
+[Klonen Sie Folien](/slides/de/cpp/clone-slides/) zusammen mit deren Master in die Zielpräsentation. Dadurch werden der ursprüngliche Master, die Layouts und das zugehörige Thema erhalten, sodass das Aussehen konsistent bleibt.
+
+### Wie kann ich die „effektiven“ Werte nach allen Vererbungen und Überschreibungen sehen?
+
+Verwenden Sie die ["effektiven" Ansichten](/slides/de/cpp/shape-effective-properties/) der API für Thema/Farbe/Schriftart/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master sowie alle lokalen Überschreibungen angewendet wurden.

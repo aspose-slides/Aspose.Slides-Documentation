@@ -21,15 +21,14 @@ description: "Anpassa typsnitt i PowerPoint-bilder med Aspose.Slides för .NET f
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig använda anpassade typsnitt i presentationer utan att installera dem i operativsystemet. Du kan läsa in typsnitt från anpassade mappar, tillhandahålla typsnitt för en specifik presentation via dokumentnivå‑typsnittskällor, eller läsa in externa typsnitt direkt från binär data.
+Aspose.Slides låter dig använda anpassade typsnitt i presentationer utan att installera dem i operativsystemet. Du kan ladda typsnitt från egna mappar, tillhandahålla typsnitt för en specifik presentation via dokumentnivå‑typsnittskällor, eller ladda externa typsnitt direkt från binär data.
 
-Inlästa typsnitt används när en presentation renderas eller exporteras, till exempel till PDF, bilder och andra stödda format. Detta hjälper till att hålla presentationsutdata konsistent över olika miljöer. Artikeln förklarar också hur du granskar de typsnittsmappor som används av Aspose.Slides och hur du rensar typsnittscachen efter att ha arbetat med externa typsnitt.
+Laddade typsnitt används när en presentation renderas eller exporteras, exempelvis till PDF, bilder och andra stödda format. Detta hjälper till att hålla presentationsutdata konsekvent över olika miljöer. Artikeln förklarar också hur du undersöker de typsnittsmappningar som används av Aspose.Slides och hur du rensar typsnittscachen efter att ha arbetat med externa typsnitt.
 
-Registrering av anpassade typsnitt för renderning är separat från inbäddning av typsnitt i en PPTX‑fil. Om ett typsnitt måste lagras i själva presentationen, använd inbäddningsfunktionerna för typsnitt explicit.
+Att registrera anpassade typsnitt för rendering är separat från att bädda in typsnitt i en PPTX‑fil. Om ett typsnitt måste lagras i själva presentationen, använd typsnitts‑inbäddningsfunktionerna explicit.
 
-{{% alert color="primary" %}} 
-
-Aspose Slides låter dig läsa in dessa typsnitt med metoden [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfonts/) :
+{{% alert color="info" %}} 
+Aspose Slides låter dig ladda dessa typsnitt med metoden [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfonts/):
 
 * TrueType (.ttf) och TrueType Collection (.ttc) typsnitt. Se [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
@@ -37,61 +36,65 @@ Aspose Slides låter dig läsa in dessa typsnitt med metoden [FontsLoader.LoadEx
 
 {{% /alert %}}
 
-## **Läs in anpassade typsnitt**
+## **Ladda anpassade typsnitt**
 
-Aspose.Slides låter dig läsa in typsnitt som används i en presentation utan att installera dem på systemet. Detta påverkar exportutdata — såsom PDF, bilder och andra stödda format — så de resulterande dokumenten ser konsistenta ut i olika miljöer. Typsnitt läses in från anpassade kataloger.
+Aspose.Slides låter dig ladda typsnitt som används i en presentation utan att installera dem på systemet. Detta påverkar exportutdata — såsom PDF, bilder och andra stödda format — så att de resulterande dokumenten ser konsistenta ut över olika miljöer. Typsnitt laddas från anpassade kataloger.
 
-1. Ange en eller flera mappar som innehåller typsnitts‑filerna.
-2. Anropa den statiska metoden [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfonts/) för att läsa in typsnitt från dessa mappar.
-3. Läs in och rendera/exportera presentationen.
+1. Ange en eller flera mappar som innehåller typsnittsfilerna.  
+2. Anropa den statiska metoden [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfonts/) för att ladda typsnitt från dessa mappar.  
+3. Ladda och rendera/exportera presentationen.  
 4. Anropa [FontsLoader.ClearCache](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/clearcache/) för att rensa typsnittscachen.
 
-Följande kodexempel demonstrerar processen för att läsa in typsnitt:
-
 ```cs
-// Definiera mappar som innehåller anpassade typsnittsfiler.
-string[] fontFolders = { externalFontFolder1, externalFontFolder2 };
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Läs in anpassade typsnitt från de angivna mapparna.
+// Definiera mappar som innehåller anpassade teckensnittsfiler.
+string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
+
+// Ladda anpassade typsnitt från de angivna mapparna.
 FontsLoader.LoadExternalFonts(fontFolders);
 
 using Presentation presentation = new Presentation("sample.pptx");
 
-// Rendera/exportera presentationen (t.ex. till PDF, bilder eller andra format) med de inlästa typsnitten.
-presentation.Save("output.pdf", SaveFormat.Pdf);
+// Rendera/exportera presentationen (t.ex. till PDF, bilder eller andra format) med de laddade typsnitten.
+presentation.Save("output.pdf", SaveFormat.Pdf");
 
-// Rensa typsnittscachen när arbetet är klart.
+// Rensa typsnittscachen efter att arbetet är slutfört.
 FontsLoader.ClearCache();
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Obs" %}}
 
-[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfonts/) lägger till ytterligare mappar i typsnittssökvägarna, men ändrar inte ordningen för typsnittsinitiering.
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfonts/) lägger till extra mappar i typsnittssökvägarna, men ändrar inte typsnittens initialiseringsordning.  
 Typsnitt initieras i följande ordning:
 
-1. Standard‑operativsystemets typsnittsväg.
-1. Vägarna som lästs in via [FontsLoader](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/).
+1. Operativsystemets standardtypsnittssökväg.  
+1. Sökvägarna som laddas via [FontsLoader](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/).
 
 {{%/alert %}}
 
-## **Hämta anpassade typsnittsmappor**
-Aspose.Slides tillhandahåller metoden [GetFontFolders](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/getfontfolders/) för att låta dig hitta typsnittsmappar. Denna metod returnerar mappar som lagts till via `LoadExternalFonts`‑metoden samt systemets typsnittsmappar.
+## **Hämta anpassade typsnittsmappar**
+Aspose.Slides erbjuder metoden [GetFontFolders](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/getfontfolders/) så att du kan hitta typsnittsmappar. Denna metod returnerar mappar som lagts till via `LoadExternalFonts`‑metoden samt systemets typsnittsmappar.
 
 Denna C#‑kod visar hur du använder [GetFontFolders](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/getfontfolders/):
 
 ```c#
+using Aspose.Slides;
+
 // Den här raden skriver ut mapparna som kontrolleras för typsnittsfiler.
-// Det är mappar som lagts till via LoadExternalFonts-metoden och systemets typsnittsmappor.
+// Det är mappar som lagts till via LoadExternalFonts-metoden och systemets typsnittsmapp.
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
-
 ## **Ange anpassade typsnitt som används med en presentation**
-Aspose.Slides tillhandahåller egenskapen [DocumentLevelFontSources](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/documentlevelfontsources/) för att låta dig specificera externa typsnitt som ska användas med presentationen.
+Aspose.Slides tillhandahåller egenskapen [DocumentLevelFontSources](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/documentlevelfontsources/) så att du kan ange externa typsnitt som ska användas med presentationen.
 
 Denna C#‑kod visar hur du använder egenskapen [DocumentLevelFontSources](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/documentlevelfontsources/):
 
 ```c#
+using Aspose.Slides;
+
 byte[] memoryFont1 = File.ReadAllBytes("customfonts\\CustomFont1.ttf");
 byte[] memoryFont2 = File.ReadAllBytes("customfonts\\CustomFont2.ttf");
 
@@ -101,17 +104,19 @@ loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, m
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
     // Arbeta med presentationen
-    // CustomFont1, CustomFont2 och typsnitt från mapparna assets\fonts & global\fonts samt deras undermappar är tillgängliga för presentationen
+    // CustomFont1, CustomFont2, och typsnitt från mapparna assets\fonts & global\fonts samt deras undermappar är tillgängliga för presentationen
 }
 ```
 
 ## **Hantera typsnitt externt**
 
-Aspose.Slides tillhandahåller metoden [LoadExternalFont](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) för att låta dig läsa in externa typsnitt från binär data.
+Aspose.Slides erbjuder metoden [LoadExternalFont](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) så att du kan ladda externa typsnitt från binär data.
 
-Denna C#‑kod demonstrerar processen för att läsa in typsnitt från en byte‑array: 
+Denna C#‑kod demonstrerar processen för att ladda typsnitt från en byte‑array: 
 
 ```c#
+using Aspose.Slides;
+
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALN.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNBI.TTF"));
 FontsLoader.LoadExternalFont(File.ReadAllBytes("ARIALNI.TTF"));
@@ -129,24 +134,21 @@ finally
 }
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Påverkar anpassade typsnitt export till alla format (PDF, PNG, SVG, HTML)?**
-
+**Påverkar anpassade typsnitt export till alla format (PDF, PNG, SVG, HTML)?**  
 Ja. Anslutna typsnitt används av renderaren för alla exportformat.
 
-**Inbäddas anpassade typsnitt automatiskt i den resulterande PPTX‑filen?**
+**Bäddas anpassade typsnitt automatiskt in i den resulterande PPTX‑filen?**  
+Nej. Att registrera ett typsnitt för rendering är inte samma sak som att bädda in det i en PPTX. Om du behöver att typsnittet finns i presentationsfilen måste du använda de explicita [inbäddningsfunktionerna](/slides/sv/net/embedded-font/).
 
-Nej. Att registrera ett typsnitt för rendering är inte detsamma som att bädda in det i en PPTX. Om du behöver att typsnittet ska finnas i presentationsfilen måste du använda de explicita [inbäddningsfunktionerna](/slides/sv/net/embedded-font/).
+**Kan jag styra fallback‑beteende när ett anpassat typsnitt saknar vissa tecken?**  
+Ja. Konfigurera [font substitution](/slides/sv/net/font-substitution/), [replacement rules](/slides/sv/net/font-replacement/) och [fallback sets](/slides/sv/net/fallback-font/) för att exakt ange vilket typsnitt som används när den begärda tecknet saknas.
 
-**Kan jag kontrollera fallback‑beteende när ett anpassat typsnitt saknar vissa tecken?**
+**Kan jag använda typsnitt i Linux/Docker‑behållare utan att installera dem systembrett?**  
+Ja. Peka på dina egna typsnittsmappar eller ladda typsnitt från byte‑arrayer. Detta tar bort alla beroenden på systemets typsnittskataloger i containerns avbild.
 
-Ja. Konfigurera [font substitution](/slides/sv/net/font-substitution/), [replacement rules](/slides/sv/net/font-replacement/) och [fallback sets](/slides/sv/net/fallback-font/) för att exakt ange vilket typsnitt som ska användas när den begärda tecknet saknas.
+> **Obs för Linux/Docker**: När du anropar `FontsLoader.LoadExternalFonts`, se till att varje element i `directories`‑arrayen innehåller en icke‑tom sökväg till en befintlig katalog. Om en miljövariabel som används för att konstruera en typsnittssökväg är odefinierad eller tom, kan Aspose.Slides försöka tolka det tomma värdet som en fullständig sökväg, vilket resulterar i `System.ArgumentException`.
 
-**Kan jag använda typsnitt i Linux/Docker‑behållare utan att installera dem systemomfattande?**
-
-Ja. Peka på dina egna typsnittsmappar eller läs in typsnitt från byte‑arrayer. Detta tar bort alla beroenden på systemets typsnittskataloger i behållaravbilden.
-
-**Hur är det med licensiering—kan jag bädda in vilket anpassat typsnitt som helst utan restrictioner?**
-
-Du ansvarar för att följa typsnittens licensvillkor. Villkoren varierar; vissa licenser förbjuder inbäddning eller kommersiell användning. Granska alltid typsnittets EULA innan du distribuerar resultat.
+**Hur är det med licensiering — kan jag bädda in valfritt anpassat typsnitt utan restriktioner?**  
+Du är ansvarig för att följa typsnittens licensvillkor. Villkoren varierar; vissa licenser förbjuder inbäddning eller kommersiell användning. Granska alltid typsnittets EULA innan du distribuerar resultat.

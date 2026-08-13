@@ -10,81 +10,81 @@ keywords:
 - sử dụng giấy phép
 - xác thực giấy phép
 - tệp giấy phép
-- phiên bản dùng thử
+- phiên bản đánh giá
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản trình bày
 - Java
 - Aspose.Slides
-description: "Áp dụng, quản lý và khắc phục sự cố giấy phép trong Aspose.Slides for Java. Đảm bảo truy cập liên tục vào đầy đủ tính năng với hướng dẫn cấp phép từng bước của chúng tôi."
+description: "Áp dụng, quản lý và khắc phục sự cố giấy phép trong Aspose.Slides cho Java. Đảm bảo truy cập liên tục vào đầy đủ tính năng với hướng dẫn cấp phép chi tiết của chúng tôi."
 ---
-## **Tổng quan**
+## **Overview**
 
-Aspose.Slides có thể được sử dụng ở chế độ dùng thử hoặc với giấy phép hợp lệ. Phiên bản dùng thử cung cấp cùng chức năng như phiên bản có giấy phép, nhưng sẽ chèn một watermark đánh dấu dùng thử khi mở hoặc lưu bản trình chiếu và giới hạn việc trích xuất văn bản chỉ trên một slide.
+Aspose.Slides có thể được sử dụng ở chế độ đánh giá hoặc với giấy phép hợp lệ. Phiên bản đánh giá cung cấp cùng chức năng như phiên bản có giấy phép, nhưng nó thêm dấu nước đánh giá khi bản trình bày được mở hoặc lưu và giới hạn việc trích xuất văn bản ở một slide.
 
-Bài viết này giải thích cách hoạt động của việc cấp phép trong Aspose.Slides và cách áp dụng giấy phép trước khi sử dụng thư viện. Giấy phép có thể được tải từ tệp, luồng hoặc tài nguyên nhúng bằng cách sử dụng lớp `License`. Bài viết cũng cho biết cách kiểm tra xem giấy phép đã được áp dụng đúng chưa.
+Bài viết này giải thích cách hoạt động của giấy phép trong Aspose.Slides và cách áp dụng giấy phép trước khi sử dụng thư viện. Giấy phép có thể được tải từ tệp, luồng hoặc tài nguyên nhúng bằng cách sử dụng lớp `License`. Bài viết cũng cho thấy cách xác thực xem giấy phép đã được áp dụng đúng chưa.
 
-## **Đánh giá Aspose.Slides**
+## **Evaluate Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bạn có thể tải phiên bản dùng thử của **Aspose.Slides for Java** từ [trang tải xuống](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Phiên bản dùng thử cung cấp các tính năng giống như phiên bản có giấy phép của sản phẩm. Gói dùng thử giống hệt gói đã mua. Phiên bản dùng thử sẽ trở thành có giấy phép sau khi bạn thêm một vài dòng mã để áp dụng giấy phép.
+Bạn có thể tải xuống phiên bản đánh giá của **Aspose.Slides for Java** từ [trang tải xuống](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/). Phiên bản đánh giá cung cấp cùng các chức năng như phiên bản có giấy phép của sản phẩm. Gói đánh giá giống hệt gói đã mua. Phiên bản đánh giá sẽ trở thành có giấy phép ngay sau khi bạn thêm một vài dòng mã để áp dụng giấy phép.
 
-Khi bạn hài lòng với việc dùng thử **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/buy). Chúng tôi khuyên bạn nên xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội ngũ bán hàng của Aspose.
+Khi bạn hài lòng với việc đánh giá **Aspose.Slides**, bạn có thể [mua giấy phép](https://purchase.aspose.com/buy). Chúng tôi khuyên bạn nên xem qua các loại đăng ký khác nhau. Nếu có câu hỏi, hãy liên hệ với đội bán hàng của Aspose.
 
-Mỗi giấy phép Aspose đi kèm một năm đăng ký để nâng cấp miễn phí lên các phiên bản mới hoặc nhận các bản sửa lỗi trong thời gian đăng ký. Người dùng có sản phẩm có giấy phép (hoặc ngay cả phiên bản dùng thử) nhận được hỗ trợ kỹ thuật miễn phí và không giới hạn.
+Mỗi giấy phép Aspose đi kèm với một năm đăng ký để nâng cấp miễn phí lên các phiên bản mới hoặc các bản sửa lỗi được phát hành trong thời gian đăng ký. Người dùng có sản phẩm có giấy phép (hoặc ngay cả phiên bản đánh giá) nhận được hỗ trợ kỹ thuật miễn phí và không giới hạn.
 
 {{% /alert %}} 
 
-**Giới hạn của phiên bản dùng thử**
+**Giới hạn của phiên bản đánh giá**
 
-* Mặc dù phiên bản dùng thử Aspose.Slides (không có giấy phép) cung cấp đầy đủ chức năng sản phẩm, nó sẽ chèn một watermark dùng thử ở đầu tài liệu khi mở và lưu.
-* Khi trích xuất văn bản từ các slide, bạn chỉ được phép trên một slide.
+* Mặc dù phiên bản đánh giá của Aspose.Slides (không có giấy phép được chỉ định) cung cấp đầy đủ chức năng sản phẩm, nó chèn dấu nước đánh giá tại đầu tài liệu khi mở và lưu.
+* Bạn chỉ được trích xuất văn bản từ một slide duy nhất.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Để thử Aspose.Slides mà không bị giới hạn, bạn có thể yêu cầu **Giấy phép tạm thời 30 ngày**. Xem trang [Cách lấy Giấy phép Tạm thời](https://purchase.aspose.com/temporary-license) để biết thêm thông tin.
 
 {{% /alert %}}
 
-## **Cấp phép trong Aspose.Slides**
+## **Licensing in Aspose.Slides**
 
-* Một phiên bản dùng thử sẽ trở thành có giấy phép sau khi bạn mua giấy phép và thêm một vài dòng mã để áp dụng giấy phép.
-* Giấy phép là một tệp XML dạng văn bản thuần chứa các thông tin như tên sản phẩm, số nhà phát triển được cấp phép, ngày hết hạn đăng ký, v.v.
-* Tệp giấy phép được ký kỹ thuật số, vì vậy bạn không được phép sửa đổi tệp. Thậm chí một dấu xuống dòng thừa trong nội dung tệp cũng sẽ làm cho giấy phép không hợp lệ.
-* Aspose.Slides for Java thường tìm giấy phép ở các vị trí sau:
-  * Đường dẫn rõ ràng
+* Một phiên bản đánh giá sẽ trở thành có giấy phép sau khi bạn mua giấy phép và thêm một vài dòng mã để áp dụng giấy phép.
+* Giấy phép là một tệp XML dạng văn bản thuần chứa các chi tiết như tên sản phẩm, số lượng nhà phát triển được cấp phép, ngày hết hạn đăng ký, v.v.
+* Tệp giấy phép được ký kỹ thuật số, vì vậy bạn không được chỉnh sửa tệp. Ngay cả việc vô tình thêm một dòng mới vào nội dung tệp cũng sẽ làm cho giấy phép không hợp lệ.
+* Aspose.Slides for Java thường tìm kiếm giấy phép ở các vị trí sau:
+  * Đường dẫn cụ thể
   * Thư mục chứa Aspose.Slides.jar
-* Để tránh các hạn chế của phiên bản dùng thử, bạn cần đặt giấy phép trước khi sử dụng **Aspose.Slides**. Bạn chỉ cần đặt giấy phép một lần cho mỗi ứng dụng hoặc tiến trình.
+* Để tránh các giới hạn của phiên bản đánh giá, bạn cần thiết lập giấy phép trước khi sử dụng **Aspose.Slides**. Bạn chỉ cần thiết lập giấy phép một lần cho mỗi ứng dụng hoặc tiến trình.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Bạn có thể muốn xem [Cấp phép theo mức tiêu thụ](/slides/vi/java/metered-licensing/).
+Bạn có thể muốn xem [Metered Licensing](/slides/vi/java/metered-licensing/).
 
 {{% /alert %}} 
 
 
-## **Áp dụng giấy phép**
+## **Applying a License**
 
 Giấy phép có thể được tải từ **tệp** hoặc **luồng**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License) để thực hiện các thao tác cấp phép.
+Aspose.Slides cung cấp lớp [License](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License) để thực hiện các thao tác liên quan đến giấy phép.
 
 {{% /alert %}} 
 
 {{% alert color="warning" %}}
 
-Giấy phép mới chỉ có thể kích hoạt Aspose.Slides với phiên bản 21.4 trở lên. Các phiên bản cũ hơn sử dụng hệ thống cấp phép khác và sẽ không nhận diện được các giấy phép này.
+Các giấy phép mới chỉ có thể kích hoạt Aspose.Slides với phiên bản 21.4 trở lên. Các phiên bản cũ hơn sử dụng hệ thống giấy phép khác và sẽ không nhận ra các giấy phép này.
 
 {{% /alert %}}
 
-### **Tệp**
+### **File**
 
-Phương pháp dễ nhất để đặt giấy phép là đặt tệp giấy phép trong thư mục chứa Aspose.Slides.jar hoặc jar của ứng dụng của bạn.
+Phương pháp đơn giản nhất để thiết lập giấy phép là đặt tệp giấy phép trong thư mục chứa Aspose.Slides.jar hoặc jar của ứng dụng của bạn.
 
-Đoạn mã Java sau cho bạn thấy cách đặt tệp giấy phép:
+Mã Java này cho bạn biết cách thiết lập tệp giấy phép:
 
 ``` java
 // Khởi tạo lớp License
@@ -96,15 +96,15 @@ license.setLicense("Aspose.Slides.Java.lic");
 
 {{% alert color="warning" %}} 
 
-Nếu bạn đặt tệp giấy phép ở thư mục khác, khi gọi phương thức [SetLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License#setLicense-java.lang.String-) thì tên tệp giấy phép ở cuối đường dẫn rõ ràng phải trùng với tên tệp giấy phép của bạn.
+Nếu bạn đặt tệp giấy phép ở thư mục khác, khi gọi phương thức [SetLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License#setLicense-java.lang.String-) , tên tệp giấy phép ở cuối đường dẫn cụ thể phải trùng với tên tệp giấy phép của bạn.
 
-Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.Java.lic.xml*. Khi đó, trong mã của bạn, bạn phải truyền đường dẫn tới tệp (kết thúc bằng *Aspose.Slides.Java.lic.xml*) cho phương thức [SetLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License#setLicense-java.lang.String-).
+Ví dụ, bạn có thể đổi tên tệp giấy phép thành *Aspose.Slides.Java.lic.xml*. Sau đó, trong mã của bạn, bạn phải truyền đường dẫn tới tệp (kết thúc bằng *Aspose.Slides.Java.lic.xml*) cho phương thức [SetLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License#setLicense-java.lang.String-).
 
 {{% /alert %}}
 
-### **Luồng**
+### **Stream**
 
-Bạn có thể tải giấy phép từ một luồng. Đoạn mã Java sau cho bạn thấy cách áp dụng giấy phép từ luồng:
+Bạn có thể tải giấy phép từ một luồng. Mã Java này cho bạn biết cách áp dụng giấy phép từ một luồng:
 
 ``` java
 // Khởi tạo lớp License
@@ -116,36 +116,38 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 ### **PHP/Java Bridge**
 
-Nếu bạn sử dụng Aspose.Slides cho PHP thông qua Java, bạn có thể đặt giấy phép qua cầu nối PHP/Java. Cầu nối này cho phép bạn sử dụng các lớp Java trong cú pháp PHP. Để biết thêm thông tin, xem [Giấy phép trong PHP](/slides/vi/php-java/licensing/).
+Nếu bạn sử dụng Aspose.Slides cho PHP thông qua Java, bạn có thể thiết lập giấy phép qua cầu nối PHP/Java. Cầu nối này cho phép bạn sử dụng các lớp Java trong cú pháp PHP. Để biết thêm thông tin, xem [License in PHP](/slides/vi/php-java/licensing/).
 
-## **Xác thực giấy phép**
+## **Validating a License**
 
-Để kiểm tra xem giấy phép đã được đặt đúng chưa, bạn có thể xác thực nó. Đoạn mã Java sau cho bạn thấy cách xác thực giấy phép:
+Để kiểm tra xem giấy phép đã được thiết lập đúng chưa, bạn có thể xác thực nó. Mã Java này cho bạn biết cách xác thực một giấy phép:
 
 ```java
+import com.aspose.slides.*;
+
 License license = new License();
 license.setLicense("Aspose.Slides.Java.lic");
 
-if (License.isLicensed()) 
+if (license.isLicensed()) 
 {
     System.out.println("License is good!");
 }
 ```
 
-## **An toàn đa luồng**
+## **Thread Safety**
 
 {{% alert title="Note" color="warning" %}} 
 
-Phương thức [SetLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License#setLicense-java.io.InputStream-) không an toàn khi gọi đồng thời từ nhiều luồng. Nếu phương thức này phải được gọi đồng thời, bạn nên sử dụng các primitive đồng bộ (như khóa) để tránh vấn đề.
+Phương thức [SetLicense](https://reference.aspose.com/slides/vi/java/com.aspose.slides/License#setLicense-java.io.InputStream-) không an toàn với đa luồng. Nếu phương thức này phải được gọi đồng thời từ nhiều luồng, bạn nên sử dụng các nguyên tắc đồng bộ (như lock) để tránh lỗi.
 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Tôi có thể áp dụng giấy phép trong môi trường hoàn toàn offline (không có kết nối internet) không?**
+### Can I apply the license in a completely offline environment (no internet access)?
 
-Có. Việc xác thực giấy phép được thực hiện nội bộ bằng tệp giấy phép; không cần kết nối internet.
+Yes. License validation is performed locally using the license file; no internet connection is required.
 
-**Điều gì sẽ xảy ra khi gói đăng ký một năm hết hạn? Thư viện có ngừng hoạt động không?**
+### What happens after the one-year subscription expires? Will the library stop working?
 
-Không. Giấy phép là vĩnh viễn: bạn vẫn có thể sử dụng các phiên bản được phát hành trước ngày kết thúc đăng ký; bạn chỉ không đủ điều kiện sử dụng các bản phát hành mới hơn nếu không gia hạn.
+No. The license is perpetual: you can continue using versions released before your subscription end date; you just won’t be eligible to use newer releases without renewing.

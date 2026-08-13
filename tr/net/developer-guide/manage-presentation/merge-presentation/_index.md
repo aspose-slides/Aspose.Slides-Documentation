@@ -1,107 +1,110 @@
 ---
-title: Verimli bir şekilde .NET'te Sunuları Birleştirin
-linktitle: Sunuları Birleştir
+title: .NET'te Sunumları Verimli Bir Şekilde Birleştirin
+linktitle: Sunumları Birleştir
 type: docs
 weight: 40
 url: /tr/net/merge-presentation/
 keywords:
-- PowerPoint birleştir
-- sunuları birleştir
-- slaytları birleştir
-- PPT birleştir
-- PPTX birleştir
-- ODP birleştir
-- PowerPoint birleştir
-- sunuları birleştir
-- slaytları birleştir
-- PPT birleştir
-- PPTX birleştir
-- ODP birleştir
+- PowerPoint birleştirme
+- sunumları birleştirme
+- slaytları birleştirme
+- PPT birleştirme
+- PPTX birleştirme
+- ODP birleştirme
+- PowerPoint birleştirme
+- sunumları birleştirme
+- slaytları birleştirme
+- PPT birleştirme
+- PPTX birleştirme
+- ODP birleştirme
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunularını zahmetsizce birleştirerek iş akışınızı kolaylaştırın."
+description: "Aspose.Slides for .NET ile PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumlarını sorunsuz bir şekilde birleştirerek iş akışınızı kolaylaştırın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, bir sunumu diğerine kaydırmaları klonlayarak birleştirmenizi sağlar. Bu makale, tüm sunuları veya seçili kaydırmaları nasıl birleştireceğinizi, bir slayt ana şablonu veya belirli bir düzeni birleştirme sırasında nasıl kullanacağınızı, farklı slayt boyutlarına sahip sunuları nasıl yöneteceğinizi ve birleştirilmiş kaydırmaları bir sunu bölümüne nasıl ekleyeceğinizi açıklar. Ayrıca, birleşik içerikle ilgili pratik notları kapsar; bunlar arasında konuşmacı notları, yorumlar, şifre korumalı kaynak dosyalar ve iş parçacığı kullanımı bulunur.
+Aspose.Slides, bir sunumdan slaytları kopyalayarak başka bir sunuma birleştirmenizi sağlar. Bu makale, tüm sunumları veya seçili slaytları birleştirme, birleştirme sırasında slayt masterı veya belirli bir düzen kullanma, farklı slayt boyutlarına sahip sunumları işleme ve birleştirilmiş slaytları bir sunum bölümüne ekleme konularını açıklar. Ayrıca, birleştirilmiş içeriğe ilişkin pratik notları, konuşmacı notları, yorumlar, parola korumalı kaynak dosyaları ve iş parçacığı kullanımını kapsar.
 
 ## **Sunum Birleştirmeyi Optimize Edin**
 
-[ Aspose.Slides for .NET](https://products.aspose.com/slides/tr/net/) ile stilleri, düzenleri ve tüm öğeleri koruyarak PowerPoint sunularını sorunsuz bir şekilde birleştirin. Diğer araçların aksine, Aspose.Slides kaliteyi kaybetmeden veya veri kaybı olmadan sunuları birleştirir. Tüm sunuları, belirli kaydırmaları ve hatta farklı dosya biçimlerini (PPT'den PPTX'e vb.) birleştirin.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/tr/net/) ile stilleri, düzenleri ve tüm öğeleri koruyarak PowerPoint sunumlarını sorunsuz bir şekilde birleştirin. Diğer araçların aksine, Aspose.Slides kaliteyi veya veriyi kaybetmeden sunumları birleştirir. Tüm sunumları, belirli slaytları ve hatta farklı dosya biçimlerini (PPT’den PPTX’e vb.) birleştirin.
 
 ### **Birleştirme Özellikleri**
 
-- **Tam Sunu Birleştirme:** Tüm kaydırmaları tek bir dosyada birleştir.
-- **Belirli Kaydırma Birleştirme:** Seçili kaydırmaları seçip birleştirin.
-- **Biçimler Arası Birleştirme:** Farklı biçimlerdeki sunuları bütünlüğü koruyarak entegre edin.
+- **Tam Sunum Birleştirme:** Tüm slaytları tek bir dosyada bir araya getirin.  
+- **Belirli Slayt Birleştirme:** Seçilen slaytları seçin ve birleştirin.  
+- **Çapraz Biçim Birleştirme:** Farklı biçimlerdeki sunumları, bütünlüğü koruyarak bütünleştirin.
 
-{{% alert title="İpucu" color="primary" %}}  
+{{% alert title="Tip" color="info" %}}  
 
-Hızlı ve **ücretsiz çevrim içi araç** arıyorsunuz ve **PowerPoint sunularını birleştirmek** istiyorsunuz? [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/tr/merger) deneyin.  
+Hızlı ve **ücretsiz çevrimiçi araç** arıyorsanız **PowerPoint sunumlarını birleştirmek** için [**Aspose PowerPoint Birleştirici**](https://products.aspose.app/slides/tr/merger)’yi deneyin.  
 
-- **PowerPoint dosyalarını kolayca birleştirin**: Birden çok **PPT, PPTX, ODP** sunusunu tek bir dosyada birleştirin.  
-- **Farklı biçimleri destekler**: **PPT'den PPTX'e**, **PPTX'den ODP'ye** ve daha fazlasını birleştirin.  
-- **Kurulum gerekmez**: Tarayıcınızda doğrudan çalışır, hızlı ve güvenlidir.  
+- **PowerPoint dosyalarını kolayca birleştirin**: Birden fazla **PPT, PPTX, ODP** sunumunu tek bir dosyada birleştirin.  
+- **Farklı biçimleri destekler**: **PPT’den PPTX’e**, **PPTX’den ODP’ye** ve daha fazlasını birleştirin.  
+- **Kurulum gerektirmez**: Tarayıcınızda doğrudan çalışır, hızlı ve güvenlidir.  
 
 [![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/tr/merger)  
 
-PowerPoint dosyalarınızı **Aspose ücretsiz çevrim içi aracı** ile bugün birleştirmeye başlayın!  
+PowerPoint dosyalarınızı **Aspose ücretsiz çevrimiçi aracı** ile bugün birleştirmeye başlayın!  
 
 {{% /alert %}}
 
 ## **Sunum Birleştirme**
 
-[Bir sunumu diğerine birleştirdiğinizde](https://products.aspose.com/slides/tr/net/merger/ppt/), kaydırmalarını tek bir sunuda birleştirerek tek bir dosya elde etmiş olursunuz. 
+Bir sunumu [başka bir sunuma birleştirdiğinizde](https://products.aspose.com/slides/tr/net/merger/ppt/), slaytlarını tek bir sunumda birleştirerek tek bir dosya elde etmiş olursunuz. 
 
-{{% alert title="Bilgi" color="info" %}}
+{{% alert title="Info" color="info" %}}
 
-Çoğu sunu programı (PowerPoint veya OpenOffice) kullanıcıların bu şekilde sunuları birleştirmesine izin veren işlevlere sahip değildir. 
+Çoğu sunum programı (PowerPoint veya OpenOffice) kullanıcıların sunumları bu şekilde birleştirmesine olanak tanıyan işlevlere sahip değildir. 
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/tr/net/) ise sunuları farklı şekillerde birleştirmenize olanak tanır. Tüm şekiller, stiller, metinler, biçimlendirme, yorumlar, animasyonlar vb. kayıpsız bir şekilde birleşir. 
+[**Aspose.Slides for .NET**](https://products.aspose.com/slides/tr/net/), sunumları farklı yollarla birleştirmenizi sağlar. Tüm şekilleri, stilleri, metinleri, biçimlendirmeyi, yorumları, animasyonları vb. kayıpsız bir şekilde birleştirirsiniz, kalite ya da veri kaybı konusunda endişe etmezsiniz. 
 
-**Ayrıca Bakınız**
+**Ayrıca bakınız**
 
-[Kaydırma Kopyalama](https://docs.aspose.com/slides/tr/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
+[Slayt Kopyalama](https://docs.aspose.com/slides/tr/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
 
 {{% /alert %}}
 
 ### **Ne Birleştirilebilir**
 
-Aspose.Slides ile aşağıdakileri birleştirebilirsiniz  
+Aspose.Slides ile şunları birleştirebilirsiniz:
 
-* tüm sunuları. Sunuların tüm kaydırmaları tek bir sunuda birleştirilir  
-* belirli kaydırmaları. Seçilen kaydırmalar tek bir sunuda birleştirilir  
-* aynı biçimdeki sunular (PPT'den PPT'ye, PPTX'den PPTX'e vb.) ve farklı biçimlerdeki sunular (PPT'den PPTX'e, PPTX'den ODP'ye vb.) birbirine.  
+* tüm sunumlar. Sunumlardaki tüm slaytlar tek bir sunumda yer alır  
+* belirli slaytlar. Seçilen slaytlar tek bir sunumda yer alır  
+* aynı biçimdeki (PPT’den PPT’ye, PPTX’den PPTX’e vb.) ve farklı biçimlerdeki (PPT’den PPTX’e, PPTX’den ODP’ye vb.) sunumlar birbiriyle birleştirilebilir.  
 
-{{% alert title="Not" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Sunuların yanı sıra, Aspose.Slides diğer dosyaları da birleştirmenize izin verir:
+Sunumların yanı sıra, Aspose.Slides diğer dosyaları da birleştirmenize olanak tanır:
 
-* [Görseller](https://products.aspose.com/slides/tr/net/merger/image-to-image/), örneğin [JPG'den JPG'ye](https://products.aspose.com/slides/tr/net/merger/jpg-to-jpg/) veya [PNG'den PNG'ye](https://products.aspose.com/slides/tr/net/merger/png-to-png/)  
-* Belgeler, örneğin [PDF'den PDF'ye](https://products.aspose.com/slides/tr/net/merger/pdf-to-pdf/) veya [HTML'den HTML'ye](https://products.aspose.com/slides/tr/net/merger/html-to-html/)  
-* Ve iki farklı dosya örneğin [görselden PDF'ye](https://products.aspose.com/slides/tr/net/merger/image-to-pdf/), [JPG'den PDF'ye](https://products.aspose.com/slides/tr/net/merger/jpg-to-pdf/) veya [TIFF'den PDF'ye](https://products.aspose.com/slides/tr/net/merger/tiff-to-pdf/).  
+* [Görüntüler](https://products.aspose.com/slides/tr/net/merger/image-to-image/), örneğin [JPG’den JPG’ye](https://products.aspose.com/slides/tr/net/merger/jpg-to-jpg/) veya [PNG’den PNG’ye](https://products.aspose.com/slides/tr/net/merger/png-to-png/)  
+* **Belgeler**, örneğin [PDF’den PDF’ye](https://products.aspose.com/slides/tr/net/merger/pdf-to-pdf/) veya [HTML’den HTML’ye](https://products.aspose.com/slides/tr/net/merger/html-to-html/)  
+* ve iki farklı dosya, örneğin [görselden PDF’ye](https://products.aspose.com/slides/tr/net/merger/image-to-pdf/) veya [JPG’den PDF’ye](https://products.aspose.com/slides/tr/net/merger/jpg-to-pdf/) veya [TIFF’den PDF’ye](https://products.aspose.com/slides/tr/net/merger/tiff-to-pdf/).  
 
 {{% /alert %}}
 
 ### **Birleştirme Seçenekleri**
 
-Aşağıdaki seçenekleri uygulayabilirsiniz:
+Aşağıdaki seçenekleri uygulayarak belirleyebilirsiniz:
 
-* çıktı sunusundaki her kaydırmanın benzersiz bir stili koruyup korumayacağı  
-* tüm kaydırmalara aynı stilin uygulanıp uygulanmayacağı  
+* çıktı sunumundaki her slaytın benzersiz bir stil koruyup korumayacağını  
+* tüm slaytlar için tek bir stilin kullanılmasını  
 
-Sunuları birleştirmek için Aspose.Slides, [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone) yöntemlerini ([ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) arayüzü) sunar. `AddClone` metodunun çeşitli uygulamaları, sunu birleştirme işleminin parametrelerini belirler. Her Presentation nesnesinin bir [Slides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/properties/slides) koleksiyonu vardır; bu sayede birleştirmek istediğiniz sunuya `AddClone` metodunu çağırabilirsiniz. 
+Sunumları birleştirmek için Aspose.Slides, [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone) metodlarını ( [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) arabiriminden) sunar. `AddClone` metodlarının çeşitli uygulamaları, sunum birleştirme süreci parametrelerini tanımlar. Her Presentation nesnesinin bir [Slides](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/properties/slides) koleksiyonu vardır; bu nedenle slaytları birleştirmek istediğiniz sunumdan bir `AddClone` yöntemi çağırabilirsiniz. 
 
-`AddClone` yöntemi, kaynak kaydırmanın bir klonu olan bir `ISlide` nesnesi döndürür. Çıktı sunusundaki kaydırmalar, kaynak kaydırmalardan sadece bir kopyadır. Bu nedenle, kaynak sunular etkilenmeden sonuç kaydırmalarda (örneğin stil ya da biçimlendirme seçenekleri ya da düzenler uygulayarak) değişiklik yapabilirsiniz. 
+`AddClone` yöntemi, kaynak slaytın bir klonu olan bir `ISlide` nesnesi döndürür. Çıktı sunumundaki slaytlar, kaynak slaytların sadece bir kopyasıdır. Bu nedenle, sonuç slaytları (örneğin stiller, biçimlendirme seçenekleri veya düzenler uygulamak) üzerinde değişiklik yapabilirsiniz; kaynak sunumlar etkilenmez. 
 
 ## **Sunumları Birleştir** 
 
-Aspose.Slides, kaydırmaların düzen ve stilini koruyarak (varsayılan parametreler) birleştirmenizi sağlayan [**AddClone (ISlide)**](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone) yöntemini sunar. 
+Aspose.Slides, slaytların düzenlerini ve stillerini koruyarak (varsayılan parametreler) slaytları birleştirmenizi sağlayan [**AddClone (ISlide)**](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone) metodunu sunar. 
 
-Bu C# kodu, sunuları nasıl birleştireceğinizi gösterir:
+Bu C# kodu, sunumların nasıl birleştirileceğini gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -114,13 +117,16 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Sunumları Slayt Ana Şablonu ile Birleştir**
+## **Sunumları Slayt Masterı ile Birleştir**
 
-Aspose.Slides, kaydırmaları bir slayt ana şablonu şablonu uygulayarak birleştirmenizi sağlayan [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/tr/net/aspose.slides.islidecollection/addclone/methods/2) yöntemini sunar. Bu sayede, gerekirse çıktının slayt stilini değiştirebilirsiniz. 
+Aspose.Slides, slayt master sunum şablonunu uygulayarak slaytları birleştirmenizi sağlayan [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/tr/net/aspose.slides.islidecollection/addclone/methods/2) metodunu sunar. Bu sayede, gerekirse çıktı sunumundaki slaytların stilini değiştirebilirsiniz. 
 
 Bu C# kodu, açıklanan işlemi gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -133,21 +139,24 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-{{% alert title="Not" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Slayt ana şablonu için düzen otomatik olarak belirlenir. Uygun bir düzen belirlenemezse ve `AddClone` yönteminin `allowCloneMissingLayout` boolean parametresi **true** olarak ayarlanmışsa, kaynak kaydırmanın düzeni kullanılır. Aksi takdirde, [PptxEditException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxeditexception) hatası fırlatılır. 
+Slayt masterının slayt düzeni otomatik olarak belirlenir. Uygun bir düzen belirlenemezse ve `AddClone` metodunun `allowCloneMissingLayout` Boolean parametresi **true** olarak ayarlanmışsa, kaynak slaytın düzeni kullanılır. Aksi takdirde, [PptxEditException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxeditexception) istisnası fırlatılır. 
 
 {{% /alert %}}
 
-Çıktı sunusundaki kaydırmaların farklı bir slayt düzenine sahip olmasını istiyorsanız, birleştirirken [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/tr/net/aspose.slides.islidecollection/addclone/methods/1) yöntemini kullanın. 
+Çıktı sunumundaki slaytların farklı bir slayt düzenine sahip olmasını istiyorsanız, birleştirirken [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/tr/net/aspose.slides.islidecollection/addclone/methods/1) metodunu kullanın. 
 
-## **Sunumlardan Belirli Kaydırmaları Birleştir**
+## **Sunumlardan Belirli Slaytları Birleştir**
 
-Birden fazla sunudan belirli kaydırmaları birleştirmek, özel bir sunu seti oluşturmak için yararlıdır. Aspose.Slides for .NET, sadece ihtiyaç duyduğunuz kaydırmaları seçip içe aktarmanıza olanak tanır. API, orijinal kaydırmaların biçimlendirmesini, düzenini ve tasarımını korur.
+Birden çok sunumdan belirli slaytları birleştirmek, özelleştirilmiş slayt desteleri oluşturmak için faydalıdır. Aspose.Slides for .NET, yalnızca ihtiyacınız olan slaytları seçip içe aktarmanıza olanak tanır. API, orijinal slaytların biçimlendirmesini, düzenini ve tasarımını korur.
 
-Aşağıdaki C# kodu yeni bir sunu oluşturur, iki diğer sunudan başlık kaydırmalarını ekler ve sonucu bir dosyaya kaydeder:
+Aşağıdaki C# kodu, iki farklı sunumdan başlık slaytlarını ekleyerek yeni bir sunum oluşturur ve sonucu bir dosyaya kaydeder:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
 using (Presentation presentation2 = new Presentation("presentation2.pptx"))
@@ -166,8 +175,22 @@ using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 
     presentation.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+static ISlide GetTitleSlide(IPresentation presentation)
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
+        {
+            return slide;
+        }
+    }
+    return null;
+}
 ```
 ```cs
+using Aspose.Slides;
+
 static ISlide GetTitleSlide(IPresentation presentation)
 {
     foreach (ISlide slide in presentation.Slides)
@@ -183,9 +206,12 @@ static ISlide GetTitleSlide(IPresentation presentation)
 
 ## **Sunumları Slayt Düzeni ile Birleştir**
 
-Bu C# kodu, kaydırmaları birleştirirken tercih ettiğiniz slayt düzenini uygulayarak tek bir çıktı sunusu elde etmenizi gösterir:
+Bu C# kodu, slaytları birleştirirken tercih ettiğiniz slayt düzenini uygulayarak tek bir çıktı sunumu elde etmenizi gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -200,17 +226,20 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 
 ## **Farklı Slayt Boyutlarına Sahip Sunumları Birleştir**
 
-{{% alert title="Not" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 
-Farklı slayt boyutlarına sahip sunuları birleştiremezsiniz. 
+Farklı slayt boyutlarına sahip sunumları birleştirmek hata vermez, ancak birleştirilen slaytlar hedef sunumun slayt boyutunu alırken şekiller orijinal konum ve boyutlarını korur; bu nedenle içerik kaydırılabilir veya slayt sınırları dışına çıkabilir. 
 
 {{% /alert %}}
 
-2 farklı slayt boyutuna sahip sunuyu birleştirmek için, boyutları eşitlemek amacıyla sunulardan birinin boyutunu diğerine göre yeniden boyutlandırmanız gerekir. 
+İki farklı slayt boyutuna sahip sunumu birleştirip içeriğin doğru konumlanmasını sağlamak için, sunumlardan birinin boyutunu diğerine eşit olacak şekilde yeniden boyutlandırın. 
 
 Bu örnek kod, açıklanan işlemi gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
 {
@@ -225,11 +254,14 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Kaydırmaları Sunum Bölümüne Birleştir**
+## **Slaytları Sunum Bölümüne Birleştir**
 
-Bu C# kodu, belirli bir kaydırmayı bir sunum bölümüne nasıl birleştireceğinizi gösterir:
+Bu C# kodu, belirli bir slaytı bir sunum bölümüne nasıl birleştireceğinizi gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -243,28 +275,28 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-Kaydırma, bölümün sonuna eklenir. 
+Slayt, bölümün sonuna eklenir. 
 
-{{% alert title="İpucu" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
-Aspose, bir [ÜCRETSİZ Collage web uygulaması](https://products.aspose.app/slides/tr/collage) sunar. Bu çevrim içi hizmeti kullanarak [JPG'den JPG'ye](https://products.aspose.app/slides/tr/collage/jpg) veya PNG'den PNG'ye görüntüleri birleştirebilir, [fotoğraf ızgaraları](https://products.aspose.app/slides/tr/collage/photo-grid) oluşturabilirsiniz vb. 
+Aspose, bir [ÜCRETSİZ Kolaj web uygulaması](https://products.aspose.app/slides/tr/collage) sunar. Bu çevrimiçi hizmeti kullanarak [JPG’den JPG’ye](https://products.aspose.app/slides/tr/collage/jpg) veya PNG’den PNG’ye görselleri birleştirebilir, [fotoğraf ızgaraları](https://products.aspose.app/slides/tr/collage/photo-grid) oluşturabilir ve benzeri işlemler yapabilirsiniz. 
 
 {{% /alert %}}
 
 ## **SSS**
 
-**Birleştirme sırasında konuşmacı notları korunur mu?**
+### Birleştirme sırasında konuşmacı notları korunur mu?
 
-Evet. Kaydırmalar klonlanırken, Aspose.Slides notlar, biçimlendirme ve animasyonlar dahil tüm kaydırma öğelerini aktarır.
+Evet. Slaytları kopyalarken Aspose.Slides, notlar, biçimlendirme ve animasyonlar dahil tüm slayt öğelerini taşır.
 
-**Yorumlar ve yazarları aktarılır mı?**
+### Yorumlar ve yazarları aktarılır mı?
 
-Yorumlar, kaydırma içeriğinin bir parçası olarak kaydırma ile birlikte kopyalanır. Yazar etiketleri, sonuç sunusundaki yorum nesneleri olarak korunur.
+Yorumlar, slayt içeriğinin bir parçası olarak slaytla birlikte kopyalanır. Yorum yazar etiketleri, sonuç sunumda yorum nesneleri olarak korunur.
 
-**Kaynak sunu şifre korumalıysa ne olur?**
+### Kaynak sunum parola korumalıysa ne olur?
 
-[Şifreyle açılmalıdır](/slides/tr/net/password-protected-presentation/) ve [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) kullanılarak açılmalıdır; ardından bu kaydırmalar korumasız bir hedef dosyaya (veya korumalı bir dosyaya da) güvenle klonlanabilir.
+Parola ile [açılmalıdır](/slides/tr/net/password-protected-presentation/) ve [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) kullanılarak yüklenmelidir; yüklendikten sonra bu slaytlar korumasız bir hedef dosyaya (veya korumalı bir dosyaya) güvenle kopyalanabilir.
 
-**Birleştirme işlemi ne kadar iş parçacığı güvenlidir?**
+### Birleştirme işlemi ne kadar thread‑safe?
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini [çoklu iş parçacıklarından](/slides/tr/net/multithreading/) kullanmayın. Önerilen kural “bir belge — bir iş parçacığı”; farklı dosyalar ayrı iş parçacıklarında paralel olarak işlenebilir.
+Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini [birden fazla iş parçacığından](/slides/tr/net/multithreading/) kullanmayın. Önerilen kural “bir belge — bir iş parçacığı”; farklı dosyalar ayrı iş parçacıklarında paralel olarak işlenebilir.

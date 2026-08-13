@@ -1,36 +1,50 @@
 ---
-title: Öffentliche API und nicht rückwärtskompatible Änderungen in Aspose.Slides für Java 15.1.0
+title: Öffentliche API und rückwärts inkompatible Änderungen in Aspose.Slides für Java 15.1.0
+linktitle: Aspose.Slides für Java 15.1.0
 type: docs
 weight: 100
 url: /de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/
+keywords:
+- Migration
+- Legacy-Code
+- moderner Code
+- Legacy-Ansatz
+- moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Überblick über Aktualisierungen der öffentlichen API und kritische Änderungen in Aspose.Slides für Java, um Ihre PowerPoint PPT-, PPTX- und ODP-Präsentationslösungen reibungslos zu migrieren."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+Diese Seite listet alle [hinzugefügten](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) Klassen, Methoden, Eigenschaften usw. sowie neue Einschränkungen und andere [Änderungen](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) auf, die mit der Aspose.Slides for Java 15.1.0 API eingeführt wurden.
 
-Diese Seite listet alle [hinzugefügten](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) Klassen, Methoden, Eigenschaften usw., alle neuen Einschränkungen und andere [Änderungen](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) auf, die mit der Aspose.Slides für Java 15.1.0 API eingeführt wurden.
+{{% /alert %}} {{% alert color="info" %}} 
 
-{{% /alert %}} {{% alert color="primary" %}} 
-
-Es gibt bekannte Probleme mit einigen Bildpunkten und WordArt-Objekten, die in Aspose.Slides für Java 15.2.0 behoben werden.
+Bekannte Probleme mit einigen Bildaufzählungszeichen und WordArt‑Objekten werden in Aspose.Slides for Java 15.2.0 behoben.
 
 {{% /alert %}} 
-## **Öffentliche API-Änderungen**
-### **Funktionalität zur Schriftartenersetzung wurde hinzugefügt**
-Die Möglichkeit, Schriftarten global in der Präsentation und temporär für die Darstellung zu ersetzen, wurde hinzugefügt.
+## **Änderungen an der öffentlichen API**
+### **Funktionalität für Schriftart‑Substitutionen wurde hinzugefügt**
+Die Möglichkeit, Schriftarten global in der gesamten Präsentation und temporär für das Rendern zu ersetzen, wurde hinzugefügt.
 
-Die neue Methode getFontsManager() der Präsentationsklasse wurde eingeführt. Die FontsManager-Klasse hat folgende Mitglieder:
+Neue Methode getFontsManager() der Klasse Presentation wurde eingeführt. Die Klasse FontsManager hat folgende Mitglieder:
 
 **IFontSubstRuleCollection getFontSubstRuleList**() Methode
 
-Dies ist die Sammlung von IFontSubstRule-Instanzen, die zur Schriftartenersetzung während der Darstellung verwendet werden. IFontSubstRule hat die Methoden getSourceFont() und getDestFont(), die das IFontData-Interface implementieren, sowie die Methode getReplaceFontCondition(), die es ermöglicht, die Bedingung der Ersetzung auszuwählen ("WhenInaccessible" oder "Always").
+Dies ist die Sammlung von IFontSubstRule‑Instanzen, die zum Ersetzen von Schriftarten während des Renderns verwendet werden. IFontSubstRule verfügt über die Methoden getSourceFont() und getDestFont() aus dem Interface IFontData sowie die Methode getReplaceFontCondition(), mit der die Ersetzungsbedingung („WhenInaccessible“ oder „Always“) gewählt werden kann.
 
 **IFontData[] getFonts()** Methode kann verwendet werden, um alle in der aktuellen Präsentation verwendeten Schriftarten abzurufen.
 
 **replaceFont(...)** Methoden können verwendet werden, um eine Schriftart dauerhaft in einer Präsentation zu ersetzen. 
 
-Das folgende Beispiel zeigt, wie man eine Schriftart in einer Präsentation ersetzt:
+Das folgende Beispiel zeigt, wie eine Schriftart in einer Präsentation ersetzt wird:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -44,28 +58,27 @@ pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
 ```
 
-Ein weiteres Beispiel zeigt die Schriftartenersetzung für die Darstellung, wenn sie nicht verfügbar ist:
+Ein weiteres Beispiel zeigt die Schriftart‑Substitution beim Rendern, wenn die Schriftart nicht verfügbar ist:
 
 ``` java
+import com.aspose.slides.*;
 
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData destFont = new FontData("Arial");
 
-IFontData sourceFont = new FontData("SomeRareFont");
+    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
 
-IFontData destFont = new FontData("Arial");
+    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
 
-IFontSubstRule fontSubstRule = new FontSubstRule(
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
-sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-fontSubstRuleCollection.add(fontSubstRule);
-
-pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-
-// Arial-Schriftart wird anstelle von SomeRareFont verwendet, wenn sie nicht verfügbar ist
-
-pres.getSlides().get_Item(0).getThumbnail(1, 1);
-
+    // Arial-Schrift wird anstelle von SomeRareFont verwendet, wenn sie nicht verfügbar ist.
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

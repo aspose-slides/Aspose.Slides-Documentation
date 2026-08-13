@@ -1,31 +1,43 @@
 ---
-title: Публичный API и изменения, не совместимые с ранее выпущенными версиями в Aspose.Slides для Java 14.10.0
+title: Публичный API и несовместимые изменения в Aspose.Slides для Java 14.10.0
+linktitle: Aspose.Slides для Java 14.10.0
 type: docs
 weight: 90
 url: /ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/
+keywords:
+- миграция
+- устаревший код
+- современный код
+- устаревший подход
+- современный подход
+- PowerPoint
+- OpenDocument
+- презентация
+- Java
+- Aspose.Slides
+description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides for Java для плавной миграции ваших решений по работе с презентациями PowerPoint PPT, PPTX и ODP."
 ---
-
-{{% alert color="primary" %}} 
-
-Эта страница содержит список всех [добавленных](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) классов, методов, свойств и так далее, любых новых ограничений и других [изменений](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/), введенных в API Aspose.Slides для Java 14.10.0.
-
+{{% alert color="info" %}} 
+Эта страница перечисляет все [добавленные](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) классы, методы, свойства и т.д., любые новые ограничения и другие [изменения](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-10-0/) , введённые в API Aspose.Slides for Java 14.10.0. 
 {{% /alert %}} 
-## **Изменения в публичном API**
-### **Метод com.aspose.slides.FieldType.getFooter() был добавлен**
-Метод getFooter() возвращает тип поля нижнего колонтитула. Он был добавлен для реализации возможности создания полей этого типа и для корректной сериализации презентации.
-### **Элемент com.aspose.slides.ShapeElementFillSource.Own был удален**
-Элемент ShapeElementFillSource.Own был удален как дублирующий. Используйте ShapeElementFillSource.Shape вместо ShapeElementFillSource.Own.
-### **Добавлены методы для удаления точек данных диаграммы и категорий**
-**Добавлены следующие методы, позволяющие удалить точку данных диаграммы из коллекции точек данных диаграммы:**
+## **Изменения публичного API**
+### **Метод com.aspose.slides.FieldType.getFooter() добавлен**
+Метод getFooter() возвращает тип поля нижнего колонтитула. Он добавлен для реализации возможности создания полей этого типа и для корректной сериализации презентаций.
+### **Элемент com.aspose.slides.ShapeElementFillSource.Own удалён**
+Элемент ShapeElementFillSource.Own удалён как дублирующий. Используйте ShapeElementFillSource.Shape вместо ShapeElementFillSource.Own.
+### **Добавлены методы для удаления точек данных и категорий диаграммы**
+**Добавлены следующие методы, позволяющие удалять точку данных диаграммы из коллекции точек данных:**
 
 IChartDataPointCollection.remove(IChartDataPoint)  
-IChartDataPoint.remove()
+IChartDataPoint.remove()  
 
-**Добавлен следующий метод, позволяющий удалить категорию диаграммы из содержащей коллекции:**
+**Добавлен метод, позволяющий удалять категорию диаграммы из содержащей её коллекции:**
 
-IChartCategory.remove()
+IChartCategory.remove()  
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -42,16 +54,14 @@ for (IChartSeries ser : chart.getChartData().getSeries())
     ser.getDataPoints().get_Item(0).remove(); // удалить с помощью ChartDataPoint.remove()
 
     ser.getDataPoints().remove(ser.getDataPoints().get_Item(0)); // ChartDataPointCollection.remove()
-
 }
 
 pres.save("presentation.pptx", SaveFormat.Pptx);
-
 ```
-### **Устаревшие методы Aspose.Slides.ParagraphFormat были удалены**
-Методы getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() и соответствующие методы set были удалены. Они были отмечены как устаревшие давно.
-### **Удалены бесполезные и устаревшие конструктора**
-Следующие конструкторы были удалены:
+### **Устаревшие методы Aspose.Slides.ParagraphFormat удалены**
+Методы getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() и соответствующие методы set удалены. Они были помечены как устаревшие давно.
+### **Неиспользуемые и устаревшие конструкторы удалены**
+Удалены следующие конструкторы:
 
 com.aspose.slides.AlphaBiLevel(float)  
 com.aspose.slides.AlphaModulateFixed(float)  
@@ -64,4 +74,4 @@ com.aspose.slides.Luminance(float, float)
 com.aspose.slides.Tint(float, float)  
 com.aspose.slides.PortionFormat(com.aspose.slides.ParagraphFormat)  
 com.aspose.slides.PortionFormat(com.aspose.slides.Portion)  
-com.aspose.slides.PortionFormat(com.aspose.slides.PortionFormat)  
+com.aspose.slides.PortionFormat(com.aspose.slides.PortionFormat)

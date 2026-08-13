@@ -1,6 +1,6 @@
 ---
-title: PDF veya HTML'den .NET'te Sunumları İçeri Aktarma
-linktitle: Sunumu İçeri Aktar
+title: PDF veya HTML'den .NET'te Sunumları İçe Aktar
+linktitle: Sunumu İçe Aktar
 type: docs
 weight: 60
 url: /tr/net/import-presentation/
@@ -10,37 +10,40 @@ keywords:
 - PDF içe aktar
 - HTML içe aktar
 - PDF'den sunuma
-- PDF'den PPT'ye
-- PDF'den PPTX'e
-- PDF'den ODP'ye
+- PDF'den PPT
+- PDF'den PPTX
+- PDF'den ODP
 - HTML'den sunuma
-- HTML'den PPT'ye
-- HTML'den PPTX'e
-- HTML'den ODP'ye
+- HTML'den PPT
+- HTML'den PPTX
+- HTML'den ODP
 - PowerPoint
 - OpenDocument
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides ile .NET'te PDF ve HTML belgelerini PowerPoint ve OpenDocument sunumlarına sorunsuz ve yüksek performanslı slayt işleme ile zahmetsizce içe aktarın.
+description: "Aspose.Slides ile .NET'te PDF ve HTML belgelerini sorunsuz ve yüksek performanslı slayt işleme için PowerPoint ve OpenDocument sunumlarına zahmetsizce içe aktarın."
 ---
 ## **Giriş**
 
-Aspose.Slides kullanarak, diğer biçimlerdeki dosyalardan sunumları içe aktarabilirsiniz. Aspose.Slides, PDF ve HTML belgelerinden sunumları içe aktarmanıza olanak tanıyan [SlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/slidecollection/) sınıfını sağlar.
+Aspose.Slides kullanarak, diğer formatlardaki dosyalardan sunumları içe aktarabilirsiniz. Aspose.Slides, PDF ve HTML belgelerinden sunumları içe aktarmanıza olanak tanıyan SlideCollection sınıfını sağlar.
 
-## **PDF'den PowerPoint İçe Aktarma**
+## **PDF'den PowerPoint'i İçe Aktar**
 
-Bu durumda, bir PDF'yi PowerPoint sunumuna dönüştürebilirsiniz.
+Bu durumda, bir PDF dosyasını PowerPoint sunumuna dönüştürürsünüz.
 
-<img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;" />
+<img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom: 50%;"/>
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. 
-2. [AddFromPdf](https://reference.aspose.com/slides/tr/net/aspose.slides.slidecollection/addfrompdf/methods/1) metodunu çağırın ve PDF dosyasını iletin. 
-3. Dosyayı PowerPoint formatında kaydetmek için [Save](https://reference.aspose.com/slides/tr/net/aspose.slides.presentation/save/methods/5) metodunu kullanın.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. [AddFromPdf](https://reference.aspose.com/slides/tr/net/aspose.slides.slidecollection/addfrompdf/methods/1) yöntemini çağırın ve PDF dosyasını geçirin.  
+3. Dosyayı PowerPoint formatında kaydetmek için [Save](https://reference.aspose.com/slides/tr/net/aspose.slides.presentation/save/methods/5) yöntemini kullanın.
 
-Bu C# kodu PDF'den PowerPoint'e dönüştürme işlemini gösterir:
+Bu C# kodu PDF'den PowerPoint'e dönüşümü gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     pres.Slides.AddFromPdf("InputPDF.pdf");
@@ -48,21 +51,24 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert  title="TIP" color="primary" %}} 
-**Aspose ücretsiz** [PDF to PowerPoint](https://products.aspose.app/slides/tr/import/pdf-to-powerpoint) web uygulamasını incelemek isteyebilirsiniz, çünkü burada açıklanan sürecin canlı bir uygulamasıdır. 
+{{% alert  title="TIP" color="info" %}} 
+Burada açıklanan sürecin canlı bir uygulaması olduğu için Aspose ücretsiz PDF'den PowerPoint'e web uygulamasına göz atmak isteyebilirsiniz. 
 {{% /alert %}} 
 
-## **HTML'den PowerPoint İçe Aktarma**
+## **HTML'den PowerPoint'i İçe Aktar**
 
-Bu durumda, bir HTML belgesini PowerPoint sunumuna dönüştürebilirsiniz.
+Bu durumda, bir HTML belgesini PowerPoint sunumuna dönüştürürsünüz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun. 
-2. [AddFromHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) metodunu çağırın ve HTML dosyasını iletin. 
-3. Dosyayı PowerPoint belgesi olarak kaydetmek için [Save](https://apireference.aspose.com/slides/tr/net/aspose.slides.presentation/save/methods/5) metodunu kullanın.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. [AddFromHtml](https://reference.aspose.com/slides/tr/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) yöntemini çağırın ve HTML dosyasını geçirin.  
+3. Dosyayı PowerPoint belgesi olarak kaydetmek için [Save](https://apireference.aspose.com/slides/tr/net/aspose.slides.presentation/save/methods/5) yöntemini kullanın.
 
-Bu C# kodu HTML'den PowerPoint'e dönüştürme işlemini gösterir: 
+Bu C# kodu HTML'den PowerPoint'e dönüşümü gösterir: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     using (var htmlStream = File.OpenRead("page.html"))
@@ -76,16 +82,16 @@ using (var presentation = new Presentation())
 
 ## **SSS**
 
-**PDF içe aktarılırken tablolar korunur mu ve algılamaları iyileştirilebilir mi?**
+### PDF içe aktarırken tablolar korunur mu ve tespiti geliştirilebilir mi?
 
-Tablolar içe aktarma sırasında algılanabilir; [PdfImportOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.import/pdfimportoptions/) sınıfı, tablo tanıma özelliğini etkinleştiren bir [DetectTables](https://reference.aspose.com/slides/tr/net/aspose.slides.import/pdfimportoptions/detecttables/) parametresi içerir. Etkinlik, PDF'nin yapısına bağlıdır.
+Tablolar içe aktarım sırasında tespit edilebilir; PdfImportOptions sınıfı, tablo tanımını etkinleştiren DetectTables parametresini içerir. Etkililik, PDF'in yapısına bağlıdır.
 
 {{% alert title="Note" color="warning" %}} 
-Ayrıca Aspose.Slides'i HTML'yi diğer popüler dosya formatlarına dönüştürmek için kullanabilirsiniz: 
+Ayrıca Aspose.Slides'i HTML'yi diğer popüler dosya formatlarına dönüştürmek için de kullanabilirsiniz: 
 
-* [HTML'den görüntüye](https://products.aspose.com/slides/tr/net/conversion/html-to-image/)
-* [HTML'den JPG'ye](https://products.aspose.com/slides/tr/net/conversion/html-to-jpg/)
-* [HTML'den XML'e](https://products.aspose.com/slides/tr/net/conversion/html-to-xml/)
-* [HTML'den TIFF'e](https://products.aspose.com/slides/tr/net/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/tr/net/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/tr/net/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/tr/net/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/tr/net/conversion/html-to-tiff/)
 
 {{% /alert %}}

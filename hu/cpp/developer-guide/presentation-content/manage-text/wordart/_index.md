@@ -1,38 +1,51 @@
 ---
-title: "WordArt hatások létrehozása és alkalmazása C++-ban"
-linktitle: "WordArt"
+title: WordArt hatások létrehozása és alkalmazása C++-ban
+linktitle: WordArt
 type: docs
 weight: 110
 url: /hu/cpp/wordart/
 keywords:
 - WordArt
-- WordArt létrehozása
+- WordArt letrehozasa
 - WordArt sablon
-- WordArt hatás
-- árnyék hatás
-- megjelenítési hatás
-- ragyogás hatás
-- WordArt átalakítás
-- 3D hatás
-- külső árnyék hatás
-- belső árnyék hatás
+- WordArt effektus
+- aranyek hatas
+- megjelenitesi hatas
+- ragyogas hatas
+- WordArt atalakitas
+- 3D hatas
+- kulso aranyek hatas
+- belso aranyek hatas
 - PowerPoint
-- prezentáció
+- bemutato
 - C++
 - Aspose.Slides
-description: "WordArt hatásokat hozhat létre és testreszabhat az Aspose.Slides for C++ segítségével. Ez a lépésről lépésre útmutató segít a fejlesztőknek professzionális szöveggel gazdagítani a prezentációkat C++-ban."
+description: "WordArt hatások létrehozása és testreszabása az Aspose.Slides C++-ban. Ez a lepesrol-lepesre utmutato segit a fejleszteknek a prezentaciok professzionalis szoveggel valo gazdagitasaban C++-ban."
 ---
 ## **Áttekintés**
 
-A WordArt hatások lehetővé teszik, hogy vizuálisan vonzó, stilizált szöveget adjunk a PowerPoint prezentációkhoz. Az Aspose.Slides segítségével a fejlesztők programozott módon hozhatnak létre, testreszabhatnak és kezelhetnek WordArt-ot, akárcsak a Microsoft PowerPoint‑ban – anélkül, hogy az Office telepítve lenne. Ez a cikk áttekintést nyújt a WordArt használatáról, beleértve a szövegelmozdítások, kitöltési stílusok, körvonalak, árnyékok és egyéb formázási lehetőségek alkalmazását, hogy a prezentáció tartalma kifejezőbb és vonzóbb legyen. A WordArt lehetővé teszi, hogy a szöveget grafikus objektumként kezeljük. Effektekből vagy speciális módosításokból áll, amelyeket a szövegre alkalmaznak, hogy az vonzóbb vagy feltűnőbb legyen.
+A WordArt effektusok lehetővé teszik, hogy vizuálisan vonzó, stilizált szöveget adjunk hozzá PowerPoint‑prezentációihoz. Az Aspose.Slides segítségével a fejlesztők programozottan hozhatnak létre, testreszabhatnak és kezelhetnek WordArt‑ot, akárcsak a Microsoft PowerPointben – az Office telepítése nélkül. Ez a cikk áttekintést nyújt a WordArt használatáról, beleértve a szövegrevonatkozó átalakítások, kitöltési stílusok, kontúrok, árnyékok és egyéb formázási lehetőségek alkalmazását, hogy a bemutató tartalma kifejezőbb és vonzóbb legyen. A WordArt lehetővé teszi, hogy a szöveget grafikus objektumként kezelje. Olyan hatásokat vagy különleges módosításokat jelent, amelyeket a szövegre alkalmaznak, hogy az vonzóbb vagy feltűnőbb legyen.
 
-## **Egyszerű WordArt sablon létrehozása és alkalmazása szövegre**
+## **Egyszerű WordArt sablon létrehozása és szövegre alkalmazása**
 
-**Aspose.Slides használata** 
+**Az Aspose.Slides használatával** 
 
-Először egy egyszerű szöveget hozunk létre ezzel a C++ kóddal: 
+Először létrehozunk egy egyszerű szöveget a következő C++ kóddal: 
 
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
@@ -42,31 +55,83 @@ auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(
 portion->set_Text(u"Aspose.Slides");
 ```
 
-Most a szöveg betűméretét nagyobb értékre állítjuk, hogy a hatás jobban észrevehető legyen, ezzel a kóddal:
+Ezután a szöveg betűméretét nagyobb értékre állítjuk, hogy a hatás észrevehetőbb legyen, a következő kóddal:
 
 ``` cpp 
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-**Microsoft PowerPoint használata**
+**A Microsoft PowerPoint használatával**
 
-Nyissa meg a WordArt hatások menüt a Microsoft PowerPointben:
+Nyissa meg a WordArt effektus menüt a Microsoft PowerPointben:
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-A jobb oldali menüből választhat előre definiált WordArt hatást. A bal oldali menüből adhatja meg egy új WordArt beállításait.
+A jobb oldali menüből választhat előre definiált WordArt effektust. A bal oldali menüből adhatja meg az új WordArt beállításait. 
 
-Itt a rendelkezésre álló paraméterek vagy beállítások egy része:
+Az elérhető paraméterek vagy beállítások egy része:
 
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Aspose.Slides használata**
+**Az Aspose.Slides használatával**
 
-Itt a SmallGrid mintaszínt alkalmazzuk a szövegre, és 1-es vastagságú fekete szövegkeretet adunk hozzá ezzel a kóddal:
+Itt a SmallGrid minta színét alkalmazzuk a szövegre, és 1‑es szélességű fekete szövegszegélyt adunk hozzá a következő kóddal:
 
 ``` cpp 
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
@@ -84,19 +149,47 @@ Az eredményül kapott szöveg:
 
 ## **Egyéb WordArt hatások alkalmazása**
 
-**Microsoft PowerPoint használata**
+**A Microsoft PowerPoint használatával**
 
-A program felületéről ezeket a hatásokat szövegre, szövegtömbre, alakzatra vagy hasonló elemre alkalmazhatja:
+A program felületéről ezeket a hatásokat alkalmazhatja szövegre, szövegtömbre, alakzatra vagy hasonló elemre:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Például Árnyék, Tükröződés és Ragyogás hatásokat lehet szövegre alkalmazni; 3D Formátum és 3D Forgatás hatásokat lehet szövegtömbre alkalmazni; A Lágy Szélek tulajdonságot alakzatobjektumra lehet alkalmazni (ez hatással van, ha nincs beállítva 3D Formátum tulajdonság).
+Például az Árnyék, Tükröződés és Ragyogás hatások szövegre, a 3D formátum és 3D forgatás hatások szövegtömbre, a Lágy szélek tulajdonság alakzatra alkalmazható (akkor is hat, ha nincs 3D formátum beállítva). 
 
 ### **Árnyék hatások alkalmazása szövegre**
 
-Itt csak a szövegre vonatkozó tulajdonságokat szeretnénk beállítani. A szövegre árnyék hatást alkalmazunk ezzel a C++ kóddal:
+Itt csak a szövegre vonatkozó tulajdonságokat állítjuk be. A szöveg árnyékhatását a következő C++ kóddal alkalmazzuk:
 
 ``` cpp 
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
@@ -112,30 +205,54 @@ outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-Az Aspose.Slides API három árnyék típust támogat: OuterShadow, InnerShadow és PresetShadow.
+Az Aspose.Slides API háromféle árnyékot támogat: OuterShadow, InnerShadow és PresetShadow. 
 
-A PresetShadow segítségével előre definiált értékekkel árnyékot alkalmazhat szövegre.
+A PresetShadow segítségével előre definiált értékekkel alkalmazhat árnyékot a szövegre. 
 
-**Microsoft PowerPoint használata**
+**A Microsoft PowerPoint használatával**
 
-A PowerPointban egy árnyék típust használhat. Íme egy példa:
+A PowerPointben egyféle árnyékot használhat. Egy példa:
 
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**Aspose.Slides használata**
+**Az Aspose.Slides használatával**
 
-Az Aspose.Slides valójában egyszerre két árnyék típust alkalmazhat: InnerShadow és PresetShadow.
+Az Aspose.Slides valójában egyszerre kétféle árnyékot engedélyez: InnerShadow és PresetShadow.
 
 **Megjegyzések:**
 
-- Ha az OuterShadow és a PresetShadow együtt kerülnek használatra, csak az OuterShadow hatás alkalmazásra kerül.
-- Ha az OuterShadow és az InnerShadow egyszerre kerülnek használatra, az eredő vagy alkalmazott hatás a PowerPoint verziójától függ. Például a PowerPoint 2013‑ban a hatás duplázódik, míg a PowerPoint 2007‑ben az OuterShadow hatás kerül alkalmazásra.
+- Ha az OuterShadow és a PresetShadow együtt kerülnek alkalmazásra, csak az OuterShadow hatás lép érvénybe. 
+- Ha az OuterShadow és az InnerShadow egyszerre kerülnek használatra, az alkalmazott hatás a PowerPoint verziójától függ. Például a PowerPoint 2013‑ban a hatás duplázódik, míg a PowerPoint 2007‑ben az OuterShadow hatása marad érvényben. 
 
 ### **Tükröződés hatások alkalmazása**
 
-Egy tükröződést adunk a szöveghez ezzel a C++ kódmintával:
+A szövegre tükröződést adunk a következő C++ kóddal:
 
 ``` cpp 
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -152,11 +269,37 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-### **Ragyogás hatás alkalmazása**
+### **Ragyogás hatások alkalmazása**
 
-A szövegre ragyogás hatást alkalmazunk, hogy az ragyogjon vagy kitűnjön, ezzel a kóddal:
+A szöveg ragyogás hatását a következő kóddal alkalmazzuk, hogy fényes vagy kiemelkedő legyen:
 
 ``` cpp 
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
@@ -170,15 +313,32 @@ A művelet eredménye:
 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
-{{% alert color="primary" %}} 
-Módosíthatja az árnyék, megjelenítés és ragyogás paramétereit. A hatások tulajdonságai a szöveg minden részére külön-külön kerülnek beállításra. 
+{{% alert color="info" %}} 
+A szöveg árnyék, megjelenítés és ragyogás paramétereit külön‑külön beállíthatja. A hatások tulajdonságai a szöveg egyes részeire külön-külön vonatkoznak. 
 {{% /alert %}} 
 
-### **Átalakítások használata WordArtban**
+### **Átalakítások használata WordArt‑ban**
 
-A set_Transform metódust (ami az egész szövegblokkra vonatkozik) használjuk ezzel a kóddal:
+A set_Transform metódust (amely az egész szövegtömbre vonatkozik) a következő kóddal használjuk:
 
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
@@ -186,23 +346,49 @@ Az eredmény:
 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 A Microsoft PowerPoint és az Aspose.Slides for C++ egy bizonyos számú előre definiált átalakítási típust biztosít. 
 {{% /alert %}} 
 
-**PowerPoint használata**
+**PowerPoint használatával**
 
-Az előre definiált átalakítási típusok eléréséhez lépjen a következő menübe: **Format** -> **TextEffect** -> **Transform**
+Az előre definiált átalakítási típusok eléréséhez válassza a **Formátum** → **Szövegeffektus** → **Átalakítás** menüpontot. 
 
-**Aspose.Slides használata**
+**Az Aspose.Slides használatával**
 
-Az átalakítási típus kiválasztásához használja a TextShapeType enumerációt.
+Az átalakítási típus kiválasztásához használja a TextShapeType enumerációt. 
 
 ### **3D hatások alkalmazása szövegre és alakzatokra**
 
-3D hatást állítunk be egy szövegalakzatra ezzel a mintakóddal:
+A következő példakóddal 3D hatást állítunk be egy szöveges alakzatra:
 
 ``` cpp 
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -234,9 +420,37 @@ Az eredményül kapott szöveg és alakzata:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-A szövegre 3D hatást alkalmazunk ezzel a C++ kóddal:
+3D hatást a szövegre a következő C++ kóddal alkalmazzuk:
 
 ``` cpp 
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -268,51 +482,68 @@ A művelet eredménye:
 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
-{{% alert color="primary" %}} 
-A 3D hatások szövegekre vagy azok alakzataira való alkalmazása, valamint a hatások közötti kölcsönhatások bizonyos szabályokon alapulnak.
+{{% alert color="info" %}} 
+A 3D hatások szövegre vagy azok alakzataira való alkalmazása és a hatások közötti kölcsönhatás bizonyos szabályokon alapul. 
+Képzeljen el egy jelenetet, amely egy szöveget és azt tartalmazó alakzatot ábrázol. A 3D hatás tartalmazza a 3D objektum ábrázolását és a jelenetet, amelyre az objektum került. 
 
-Vegyük figyelembe egy szöveg és a szöveget tartalmazó alakzat jelenetét. A 3D hatás tartalmazza a 3D objektum ábrázolását és a jelenetet, amelyre az objektum el lett helyezve.
+- Ha a jelenet mind a figura, mind a szöveg esetén be van állítva, a figura jelenetnek nagyobb prioritása van – a szöveg jelenete figyelmen kívül marad. 
+- Ha a figura nincs saját jelenettel, de rendelkezik 3D ábrázolással, a szöveg jelenete kerül felhasználásra. 
+- Egyébként – ha az alakzat eredetileg nem rendelkezik 3D hatással – az alakzat lapos, és a 3D hatás csak a szövegre kerül alkalmazásra. 
 
-- Ha a jelenet mind a alakzatra, mind a szövegre be van állítva, akkor az alakzat jelenete kapja a nagyobb prioritást – a szöveg jelenete figyelmen kívül marad.
-- Ha az alakzatnak nincs saját jelenete, de van 3D ábrázolása, akkor a szöveg jelenete kerül felhasználásra.
-- Egyébként – ha az alakzat eredetileg nincs 3D hatással – az alakzat lapos, és a 3D hatás csak a szövegre kerül alkalmazásra.
-
-Ezek a leírások a ThreeDFormat.getLightRig() és a ThreeDFormat.getCamera() metódusokhoz kapcsolódnak.
+Ezek a leírások a ThreeDFormat.getLightRig() és a ThreeDFormat.getCamera() metódusokra vonatkoznak. 
 {{% /alert %}} 
 
 ## **Külső árnyék hatások alkalmazása alakzatokra**
-Az Aspose.Slides for C++ a [**IOuterShadow**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.effects.i_outer_shadow) és a [**IInnerShadow**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.effects.i_inner_shadow) osztályokat biztosítja, amelyek lehetővé teszik, hogy árnyék hatásokat alkalmazzon a TextFrame által hordott szövegre. Kövesse ezeket a lépéseket:
+Az Aspose.Slides for C++ a [**IOuterShadow**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.effects.i_outer_shadow) és a [**IInnerShadow**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.effects.i_inner_shadow) osztályokat biztosítja, amelyek lehetővé teszik árnyékhatások alkalmazását a TextFrame által tartott szövegre. Kövesse ezeket a lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-2. Szerezze meg egy dia referenciaját az index használatával.
-3. Adjon egy Rectangle típusú AutoShape‑ot a diára.
-4. Érje el az AutoShape‑hoz tartozó TextFrame‑et.
-5. Állítsa be az AutoShape FillType‑ját NoFill értékre.
-6. Példányosítsa az OuterShadow osztályt
-7. Állítsa be az árnyék BlurRadius‑át.
-8. Állítsa be az árnyék Direction‑ját
-9. Állítsa be az árnyék Distance‑át.
-10. Állítsa be a RectanglelAlign‑t TopLeft értékre.
-11. Állítsa be az árnyék PresetColor‑át Black értékre.
-12. Mentse a prezentációt PPTX fájlként.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
+2. Szerezze be a diára mutató referenciát az indexének használatával.  
+3. Adjon a diára egy Rectangle típusú AutoShape‑t.  
+4. Hozzáférés a AutoShape‑hez tartozó TextFrame‑hez.  
+5. Állítsa be az AutoShape FillType‑ját NoFill‑re.  
+6. Hozzon létre egy OuterShadow példányt.  
+7. Állítsa be az árnyék BlurRadius‑át.  
+8. Állítsa be az árnyék Direction‑ját.  
+9. Állítsa be az árnyék Distance‑át.  
+10. Állítsa be a RectanglelAlign‑t TopLeft‑re.  
+11. Állítsa be az árnyék PresetColor‑ját Black‑re.  
+12. Írja ki a prezentációt PPTX fájlként.  
 
-Ez a C++ mintakód – a fenti lépések megvalósítása – bemutatja, hogyan alkalmazhatja a külső árnyék hatást egy szövegre:
+Ez a C++ példakód – a fenti lépések megvalósítása – bemutatja, hogyan alkalmazza a külső árnyék hatást egy szövegre:
 
 ``` cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresetColor.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
-// Szerezzük meg a dia referenciaját
+// A dia hivatkozásának lekérése
 auto sld = pres->get_Slides()->idx_get(0);
 
-// Adjunk hozzá egy Rectangle típusú AutoShape‑t
+// Hozzáadunk egy téglalap típusú AutoShape-et
 auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
 
-// Adjunk TextFrame‑et a Rectangle‑hez
+// TextFrame hozzáadása a téglalaphoz
 ashp->AddTextFrame(u"Aspose TextBox");
 
-// Tiltsuk le az alakzat kitöltését, ha a szöveg árnyékát akarjuk
+// Az alakzat kitöltésének letiltása abban az esetben, ha a szöveg árnyékát szeretnénk
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Adjunk hozzá külső árnyékot és állítsuk be az összes szükséges paramétert
+// Külső árnyék hozzáadása és az összes szükséges paraméter beállítása
 ashp->get_EffectFormat()->EnableOuterShadowEffect();
 auto shadow = ashp->get_EffectFormat()->get_OuterShadowEffect();
 shadow->set_BlurRadius(4.0);
@@ -321,74 +552,97 @@ shadow->set_Distance(3);
 shadow->set_RectangleAlign(RectangleAlignment::TopLeft);
 shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
 
-// Mentse a prezentációt a lemezre
+// A prezentáció mentése a lemezre
 pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Belső árnyék hatások alkalmazása alakzatokra**
 Kövesse ezeket a lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.
-2. Szerezze meg a dia referenciáját.
-3. Adjon hozzá egy Rectangle típusú AutoShape‑ot.
-4. Engedélyezze az InnerShadowEffect‑et.
-5. Állítsa be az összes szükséges paramétert.
-6. Állítsa be a ColorType‑ot Scheme értékre.
-7. Állítsa be a Scheme Color‑t.
-8. Mentse a prezentációt [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból.  
+2. Szerezze be a dia referenciáját.  
+3. Adjon hozzá egy Rectangle típusú AutoShape‑t.  
+4. Engedélyezze az InnerShadowEffect‑et.  
+5. Állítsa be az összes szükséges paramétert.  
+6. Állítsa be a ColorType‑ot Scheme‑ként.  
+7. Állítsa be a Scheme Color‑t.  
+8. Írja ki a prezentációt [PPTX](https://docs.fileformat.com/presentation/pptx/) fájlként.  
 
-Ez a mintakód (a fenti lépések alapján) bemutatja, hogyan adjon hozzá egy csatlakozót két alakzat között C++‑ban:
+Ez a példakód (a fenti lépések alapján) bemutatja, hogyan adjon csatlakozót két alakzat között C++‑ban:
 
 ``` cpp
+#include <DOM/ColorType.h>
+#include <DOM/Effects/IInnerShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
-// Szerezzük meg egy dia referenciaját
+// A dia hivatkozásának lekérése
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// Adjunk hozzá egy Rectangle típusú AutoShape‑t
+// Téglalap típusú AutoShape hozzáadása
 auto ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 400.0f, 300.0f);
 ashp->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Adjunk TextFrame‑et a Rectangle‑hez
+// TextFrame hozzáadása a téglalaphoz
 ashp->AddTextFrame(u"Aspose TextBox");
 auto port = ashp->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
 auto pf = port->get_PortionFormat();
 pf->set_FontHeight(50.0f);
 
-// Engedélyezzük az InnerShadowEffect‑et    
+// Belső árnyék effektus engedélyezése    
 auto ef = pf->get_EffectFormat();
 ef->EnableInnerShadowEffect();
 
-// Állítsuk be az összes szükséges paramétert
+// Az összes szükséges paraméter beállítása
 auto shadow = ef->get_InnerShadowEffect();
 shadow->set_BlurRadius(8.0);
 shadow->set_Direction(90.0F);
 shadow->set_Distance(6.0);
 shadow->get_ShadowColor()->set_B(189);
 
-// Állítsuk be a ColorType‑t Scheme‑ként
+// ColorType beállítása Scheme-re
 shadow->get_ShadowColor()->set_ColorType(ColorType::Scheme);
 
-// Állítsuk be a Scheme színt
+// Scheme szín beállítása
 shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
 
-// Mentsük a prezentációt
+// Prezentáció mentése
 presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Használhatok WordArt hatásokat különböző betűtípusokkal vagy írásrendszerekkel (pl. arab, kínai)?**
+### Használhatok‑e WordArt hatásokat különböző betűtípusokkal vagy írásrendszerekkel (pl. arab, kínai)?
 
-Igen, az Aspose.Slides támogatja a Unicode‑ot, és működik minden nagyobb betűtípussal és írásrendszerrel. A WordArt hatásokat, mint az árnyék, kitöltés és körvonal, nyelvtől függetlenül alkalmazhatja, bár a betűtípus elérhetősége és megjelenítése a rendszer betűtípusaitól függhet.
+Igen, az Aspose.Slides támogatja a Unicode‑ot, és működik minden főbb betűtípussal és írásrendszerrel. A WordArt hatásokat – például árnyék, kitöltés és körvonal – a nyelvtől függetlenül alkalmazhatja, bár a betűtípus elérhetősége és a renderelés a rendszer betűtípusaitól függhet.
 
-**Alkalmazhatok WordArt hatásokat a diamester elemeire?**
+### Alkalmazhatok‑e WordArt hatásokat a diamester elemeire?
 
-Igen, a diamester diákon lévő alakzatokra, beleértve a címhelyettesítőket, lábléceket vagy háttérszöveget, alkalmazhat WordArt hatásokat. A mesterelrendezésben végzett módosítások minden kapcsolódó diára kihatnak.
+Igen, WordArt hatásokat alkalmazhat a mesterdiák alakzataira, beleértve a címhelyettesítőket, láblécet vagy háttérszöveget. A mesterelrendezésben végzett módosítások minden kapcsolódó diára kihatnak.
 
-**A WordArt hatások befolyásolják a prezentáció fájlméretét?**
+### Befolyásolják‑e a WordArt hatások a bemutató fájlméretét?
 
-Enyhén. Az olyan WordArt hatások, mint az árnyékok, ragyogások és színátmenetes kitöltések, kismértékben növelhetik a fájlméretet a hozzáadott formázási metaadatok miatt, de a különbség általában elhanyagolható.
+Enyhén. Az olyan WordArt hatások, mint az árnyékok, ragyogás és a színátmenetes kitöltések, kicsit megnövelhetik a fájlméretet a formázási metaadatok hozzáadása miatt, de a különbség általában elhanyagolható.
 
-**Előnézhetem a WordArt hatások eredményét a prezentáció mentése nélkül?**
+### Előnézhetem‑e a WordArt hatások eredményét a prezentáció mentése nélkül?
 
-Igen, a WordArt‑ot tartalmazó diákat képekké (például PNG, JPEG) renderelheti a [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) vagy [ISlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/) interfész `GetImage` metódusával. Ez lehetővé teszi az eredmény előnézetét memóriában vagy a képernyőn a teljes prezentáció mentése vagy exportálása előtt.
+Igen, a WordArt‑ot tartalmazó diákat renderelheti képekké (például PNG, JPEG) a [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) vagy [ISlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/) interfész `GetImage` metódusával. Így a teljes prezentáció mentése vagy exportálása előtt memóriában vagy képernyőn tekintheti meg az eredményt.

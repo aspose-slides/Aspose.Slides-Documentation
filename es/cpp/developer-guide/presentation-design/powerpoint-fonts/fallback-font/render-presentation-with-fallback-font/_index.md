@@ -14,30 +14,47 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Renderizar presentaciones con fuentes de reserva en Aspose.Slides para C++ – mantenga el texto coherente en PPT, PPTX y ODP con ejemplos de código paso a paso en C++."
+description: "Renderizar presentaciones con fuentes de reserva en Aspose.Slides para C++ – mantenga el texto coherente en PPT, PPTX y ODP con ejemplos de código C++ paso a paso."
 ---
+## **Visión general**
 
-El siguiente ejemplo incluye estos pasos:
+Aspose.Slides permite renderizar presentaciones usando reglas de fuentes de reserva. Este artículo muestra cómo crear una colección de reglas de fuentes de reserva, modificar sus reglas eliminando o añadiendo fuentes de reserva, y asignar la colección usando el método `FontsManager::set_FontFallBackRulesCollection`.
 
-1. Creamos la [colección de reglas de fuentes de reserva](/slides/es/cpp/create-fallback-fonts-collection/).
-1. [Remove()](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/remove/) una regla de fuente de reserva y [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) a otra regla.
-1. Pasa la colección de reglas al método [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
-1. Con el método [Presentation::Save()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) podemos guardar la presentación en el mismo formato, o guardarla en otro distinto. Después de que la colección de reglas de fuentes de reserva se asigna a FontsManager, estas reglas se aplican durante cualquier operación sobre la presentación: guardar, renderizar, convertir, etc.
-```cpp
-// Crear nueva instancia de una colección de reglas
+Una vez que la colección de reglas de fuentes de reserva se asigna al `FontsManager` de la presentación, las reglas se aplican durante operaciones como guardar, renderizar y convertir la presentación. El ejemplo demuestra cómo usar las reglas configuradas al renderizar una miniatura de diapositiva y guardarla como una imagen PNG.
+
+## **Renderizar una diapositiva usando reglas de fuentes de reserva**
+
+1. Creamos una [colección de reglas de fuentes de reserva](/slides/es/cpp/create-fallback-fonts-collection/).
+2. Utilizamos [Remove()](https://reference.aspose.com/slides/es/cpp/aspose.slides/fontfallbackrule/remove/) para eliminar una regla de fuente de reserva y [AddFallBackFonts()](https://reference.aspose.com/slides/es/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) para añadir fuentes de reserva a otra regla.
+3. Pasamos la colección de reglas al método [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/es/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
+4. Con el método [Presentation::Save()](https://reference.aspose.com/slides/es/cpp/aspose.slides/presentation/save/) podemos guardar la presentación en el mismo formato o en otro distinto. Después de que la colección de reglas de fuentes de reserva se establezca en FontsManager, estas reglas se aplican durante cualquier operación sobre la presentación: guardar, renderizar, convertir, etc.
+
+``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <DOM/Fonts/FontFallBackRulesCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+// Crear una nueva instancia de una colección de reglas
 auto rulesList = MakeObject<FontFallBackRulesCollection>();
 
-// Crear un número de reglas
+// Crear varias reglas
 rulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x400), static_cast<uint32_t>(0x4FF), u"Times New Roman"));
 //rulesList.Add(new FontFallBackRule(...));
 
 for (const auto& fallBackRule : rulesList)
 {
-	// Intentar eliminar la fuente de reserva "Tahoma" de las reglas cargadas
+	// Intentando eliminar la fuente de reserva "Tahoma" de las reglas cargadas
 	fallBackRule->Remove(u"Tahoma");
 
 	// Y actualizar las reglas para el rango especificado
-	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) && 
+	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) &&
 		(fallBackRule->get_RangeStartIndex() < static_cast<uint32_t>(0x5000)))
 	{
 		fallBackRule->AddFallBackFonts(u"Verdana");
@@ -51,19 +68,17 @@ if (rulesList->get_Count() > 0)
 }
 
 auto pres = System::MakeObject<Presentation>(u"input.pptx");
-// Assigning a prepared rules list for using
+// Asignando la lista de reglas preparada para su uso
 pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
-// Rendering of thumbnail with using of initialized rules collection and saving to PNG
+// Renderizando la miniatura usando la colección de reglas inicializada y guardándola como PNG
 auto image = pres->get_Slide(0)->GetImage(1.f, 1.f);
-image->Save(u"Slide_0.png", ImageFormat::Png);
+image->Save(u"Slide_0.png", Aspose::Slides::ImageFormat::Png);
 image->Dispose();
 
 pres->Dispose();
 ```
 
-
-
-{{% alert color="primary" %}} 
-Obtén más información sobre cómo [Convertir diapositivas de PowerPoint a PNG en C++](/slides/es/cpp/convert-powerpoint-to-png/).
+{{% alert color="info" %}} 
+Obtenga más información sobre cómo [Convertir diapositivas de PowerPoint a PNG en C++](/slides/es/cpp/convert-powerpoint-to-png/).
 {{% /alert %}}

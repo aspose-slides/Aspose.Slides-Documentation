@@ -1,11 +1,11 @@
 ---
-title: Aspose.Slides'ı Değerlendirin
+title: Aspose.Slides Değerlendirme
 type: docs
 weight: 110
 url: /tr/cpp/evaluate-aspose-slides/
 keywords:
-- Aspose.Slides'ı değerlendirme
-- Aspose.Slides değerlendirme
+- Aspose.Slides'ı değerlendir
+- Aspose.Slides değerlendirmesi
 - değerlendirme sürümü
 - tam işlevsellik
 - değerlendirme filigranı
@@ -18,34 +18,34 @@ keywords:
 - Aspose.Slides
 description: "C++ için Aspose.Slides'ı değerlendirin ve PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumları için API özelliklerini keşfedin—ücretsiz denemenize başlayın."
 ---
-## **Aspose.Slides Değerlendirmesi**
+## **Aspose.Slides Değerlendirme**
 
-Aspose.Slides'ı kolayca değerlendirme amacıyla indirebilirsiniz. Değerlendirme indirimi, satın alınan indirme ile aynıdır. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde lisanslı hâle gelir.
+Aspose.Slides'ı değerlendirme amacıyla kolayca indirebilirsiniz. Değerlendirme indirmesi, satın alınan indirme ile aynı dosyayı içerir. Değerlendirme sürümü, lisansı uygulamak için birkaç satır kod eklediğinizde basitçe lisanslı hale gelir.
 
-Aspose.Slides'ın değerlendirme sürümü (lisans belirtilmemişse) tam ürün işlevselliği sağlar, ancak belgeyi açtığınızda ve kaydettiğinizde belgenin üst kısmına bir değerlendirme filigranı ekler ve sunum slaytlarından metin çıkarılırken bir slaytla sınırlı kalır.
+Değerlendirme sürümü (lisans belirtilmediğinde) ürünün tam işlevselliğini sağlar, ancak belge açıldığında ve kaydedildiğinde belgenin üst kısmına bir değerlendirme filigranı ekler ve sunum slaytlarından metin çıkarıldığında bir slayt ile sınırlı kalır.
 
 ![todo:image_alt_text](evaluate-aspose.slides-001.png)
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Değerlendirme sürümü sınırlamaları olmadan Aspose.Slides'ı test etmek isterseniz, 30 günlük Geçici Lisans da talep edebilirsiniz. Lütfen [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) bölümüne bakın.
+Aspose.Slides'ı değerlendirme sürümündeki sınırlamalar olmadan test etmek isterseniz, 30 günlük Geçici Lisans talep edebilirsiniz. Lütfen [Geçici Lisans Nasıl Alınır?](https://purchase.aspose.com/temporary-license) adresine bakın.
 
 {{% /alert %}}
 
 ## **SSS**
 
-**Değerlendirme modunda farklı iş parçacıklarında paralel olarak birden fazla sunumu test edebilir miyim?**
+### Değerlendirme modunda aynı anda farklı iş parçacıklarında birden fazla sunumu test edebilir miyim?
 
-Evet. Farklı belgeleri paralel olarak işleyebilirsiniz; aynı sunum nesnesini [iş parçacıkları arasında](/slides/tr/cpp/multithreading/) paylaşmamalısınız. Değerlendirme modu bu konuda bir engel oluşturmaz.
+Evet. Farklı belgeleri paralel olarak işleyebilirsiniz; aynı sunum nesnesini [iş parçacıkları arasında](/slides/tr/cpp/multithreading/) paylaşmamalısınız. Değerlendirme modu bunun üzerinde bir etki yapmaz.
 
-**Sunucuda veya CI ortamında kütüphaneyi değerlendirmek için Microsoft PowerPoint'i kurmam gerekiyor mu?**
+### Kütüphaneyi bir sunucuda veya CI'de değerlendirmek için Microsoft PowerPoint'i kurmam gerekiyor mu?
 
-Hayır. Aspose.Slides bağımsız bir motor olup, hem değerlendirme hem de üretim aşamasında PowerPoint kurulumu gerektirmez.
+Hayır. Aspose.Slides bağımsız bir motor olduğundan, değerlendirme ya da üretim ortamı için PowerPoint kurulumu gerektirmez.
 
-**Değerlendirme modunda PPT/PPTX'ten PDF ve görüntülere dönüşümü tamamen test edebilir miyim?**
+### Değerlendirme modunda PPT/PPTX'i PDF ve görüntülere tam olarak test edebilir miyim?
 
-Evet. [Dönüştürücüler](/slides/tr/cpp/convert-presentation/) çalışır; çıktı bir filigran içerecektir.
+Evet. [dönüştürücüler](/slides/tr/cpp/convert-presentation/) çalışır; çıktı bir filigran içerecektir.
 
-**Geçici lisansı, filigransız yük testi için kullanabilir miyim?**
+### Yük testi için filigransız bir şekilde geçici lisans kullanabilir miyim?
 
-Evet. 30 günlük geçici lisans, değerlendirme modu sınırlamalarını kaldırır ve filigransız test yapmanıza izin verir.
+Evet. 30 günlük geçici lisans, değerlendirme modundaki sınırlamaları kaldırır ve filigran olmadan test yapmanıza izin verir.

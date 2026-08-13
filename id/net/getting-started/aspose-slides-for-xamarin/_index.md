@@ -15,45 +15,45 @@ keywords:
 - Aspose.Slides
 description: "Bangun aplikasi seluler Xamarin dengan C# untuk melihat, mengedit, dan mengonversi presentasi menggunakan Aspose.Slides, mendukung fitur lengkap untuk PPT, PPTX, dan ODP di Android."
 ---
-## **Pengantar**
+## **Pendahuluan**
 
 Xamarin adalah kerangka kerja yang digunakan untuk pengembangan seluler di .NET C#. Xamarin memiliki alat dan pustaka yang memperluas kemampuan platform .NET. Ini memungkinkan pengembang membangun aplikasi untuk sistem operasi **Android**.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Untuk pengembangan di Xamarin, programmer dapat menggunakan lingkungan pengembangan biasa mereka (C#, Visual Studio, dan pustaka pihak ketiga).
+Untuk pengembangan di Xamarin, programmer dapat menggunakan lingkungan pengembangan mereka yang biasa (C#, Visual Studio, dan perpustakaan pihak ketiga).
 
 {{% /alert %}}
 
-Aspose.Slides API berfungsi pada platform Xamarin. Untuk mencapainya, paket Aspose.Slides .NET menambahkan DLL terpisah untuk Xamarin. Aspose.Slides untuk Xamarin mendukung sebagian besar fitur yang tersedia di versi .NET:
+API Aspose.Slides bekerja di platform Xamarin. Untuk mencapai ini, paket Aspose.Slides .NET menambahkan DLL terpisah untuk Xamarin. Aspose.Slides untuk Xamarin mendukung sebagian besar fitur yang tersedia di versi .NET:
 
-- mengkonversi dan menampilkan presentasi.
+- mengonversi dan menampilkan presentasi.
 - mengedit konten dalam presentasi: teks, bentuk, diagram, SmartArt, audio/video, font, dll.
-- menangani animasi, efek 2D, WordArt, dll.
+- menangani/berinteraksi dengan animasi, efek 2D, WordArt, dll.
 - menangani metadata dan properti dokumen.
 - mencetak, mengkloning, menggabungkan, membandingkan, memecah, dll.
 
-Kami menyediakan perbandingan seluruh fitur di bagian lain yang berada di dekat bagian bawah halaman ini.
+Kami menyediakan perbandingan seluruh fitur di bagian lain yang berada di bagian bawah halaman ini.
 
-Pada API Aspose.Slides untuk Xamarin, kelas, namespace, logika, dan perilaku sedekat mungkin dengan versi .NET. Anda dapat memigrasikan aplikasi Aspose.Slides .NET Anda ke Xamarin dengan biaya minimal.
+Di API Aspose.Slides untuk Xamarin, kelas, namespace, logika, dan perilaku sedekat mungkin dengan versi .NET. Anda dapat memigrasikan aplikasi Aspose.Slides .NET Anda ke Xamarin dengan biaya minimal.
 
 
 ## **Contoh Cepat**
-Anda dapat menggunakan Aspose.Slides untuk Xamarin untuk membangun dan memanfaatkan aplikasi C# Anda melalui Slides for Android.
+Anda dapat menggunakan Aspose.Slides untuk Xamarin untuk membangun dan memanfaatkan aplikasi C# Anda melalui Slides untuk Android.
 
 Kami menyediakan contoh aplikasi Android via Xamarin yang menggunakan Aspose.Slides untuk menampilkan slide presentasi dan menambahkan bentuk baru pada slide saat disentuh. Anda dapat menemukan sumber lengkap contoh pada [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Xamarin).
 
-Mari kita mulai dengan membuat Aplikasi Xamarin Android:
+Mari kita mulai dengan membuat aplikasi Xamarin Android:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/sNkKZnuuGo8phWI-4g4jRA_ZESKpO9RXehPj46RVymXGPcCJuYooePXcBEcb7N6uUUxgocl4o9OjwnajzWKmL2i4MUz3gKKwXw6C0ow_VScN8vlyGBK3SpLKoE_m9BDJ3iNE4xPj)
 
-Pertama, kita membuat tata letak konten yang akan berisi tampilan gambar, tombol Prev, dan Next:
+Pertama, kita membuat tata letak konten yang akan berisi tampilan gambar, tombol Prev, dan tombol Next:
 
 ![todo:image_alt_text](https://lh3.googleusercontent.com/rX9leIvYTVzQa0YAMj_jPUPs-c9_HwGPZUfR5A3FLiTk0-qzUQ29FfM4hammUVXbbw_Ly0LwEM_VnaI6vslEEMcVlEwVMem0LTiX5kYsA4lxtiHrvXfDPruWPOGU1YKDYSWcNM54)
 
 
 
-**XML - content_main.xml - Membuat tata letak konten**
+**XML - content_main.xml - Buat tata letak konten**
 ``` 
  <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -97,13 +97,14 @@ Pertama, kita membuat tata letak konten yang akan berisi tampilan gambar, tombol
 </LinearLayout>
 ```
 
-
-
-Di sini, kami merujuk ke perpustakaan "Aspose.Slides.Droid.dll" yang termasuk contoh presentasi ("HelloWorld.pptx") ke Assets aplikasi Xamarin dan menambahkan inisialisasinya ke MainActivity:
+Di sini, kami merujuk ke pustaka "Aspose.Slides.Droid.dll" yang menyertakan presentasi contoh ("HelloWorld.pptx") ke dalam Assets aplikasi Xamarin dan menambahkan inisialisasinya ke MainActivity:
 
 **C# - MainActivity.cs - Inisialisasi**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -130,18 +131,21 @@ public class MainActivity : AppCompatActivity
     {
         if (presentation != null)
         {
-            presentation Dispose();
+            presentation.Dispose();
             presentation = null;
         }
     }
 }
 ```
 
-Mari tambahkan fungsi untuk menampilkan slide Prev dan Next saat tombol diketuk:
+Mari tambahkan fungsi untuk menampilkan slide Prev dan Next saat tombol ditekan:
 
-**C# - MainActivity.cs - Menampilkan slide pada klik tombol Prev dan Next**
+**C# - MainActivity.cs - Tampilkan slide pada klik tombol Prev dan Next**
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides.Theme;
+
 [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
 public class MainActivity : AppCompatActivity
 {
@@ -271,11 +275,9 @@ public class MainActivity : AppCompatActivity
 }
 ```
 
+Akhirnya, mari implementasikan fungsi untuk menambahkan bentuk elips saat menyentuh slide:
 
-
-Akhirnya, mari implementasikan fungsi untuk menambahkan bentuk elips pada sentuhan di slide:
-
-**C# - MainActivity.cs - Menambahkan elips dengan klik slide**
+**C# - MainActivity.cs - Tambahkan elips dengan klik slide**
 
 ``` csharp
  private void ImageView_Touch(object sender, Android.Views.View.TouchEventArgs e)
@@ -317,15 +319,15 @@ Setiap klik pada slide presentasi akan menambahkan elips berwarna acak:
 | :- | :- | :- |
 |**Fitur presentasi**: | | |
 |Buat presentasi baru |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 97 - 2003 format buka/simpan |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PowerPoint 2007 format buka/simpan |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Format PowerPoint 97 - 2003 buka/simpan |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Format PowerPoint 2007 buka/simpan |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Dukungan ekstensi PowerPoint 2010 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Dukungan ekstensi PowerPoint 2013 |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Dukungan fitur PowerPoint 2016 |terbatas|terbatas|
-|Dukungan fitur PowerPoint 2019 |terbatas|terbatas|
+|Dukungan fitur PowerPoint 2016 |restricted|restricted|
+|Dukungan fitur PowerPoint 2019 |restricted |restricted|
 |Konversi PPT ke PPTX |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Konversi PPTX ke PPT |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|PPTX dalam PPT |terbatas|terbatas|
+|PPTX dalam PPT |restricted|restricted|
 |Pemrosesan tema |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Pemrosesan makro |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Pemrosesan properti dokumen |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -339,11 +341,11 @@ Setiap klik pada slide presentasi akan menambahkan elips berwarna acak:
 |XPS |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |HTML |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |TIFF |{{< emoticons/tick >}}|{{< emoticons/cross >}}|
-|ODP |terbatas|terbatas|
-|SWF |terbatas|terbatas|
+|ODP |restricted |restricted|
+|SWF |restricted|restricted|
 |SVG |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Format impor:** | | |
-|HTML |terbatas|terbatas|
+|HTML |restricted|restricted|
 |ODP |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |THMX |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur master slide:** | | |
@@ -360,7 +362,7 @@ Setiap klik pada slide presentasi akan menambahkan elips berwarna acak:
 |Mengkloning slide |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Mengekspor slide ke gambar |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Membuat/mengedit/menghapus bagian slide |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|**Fitur slide catatan**: | | |
+|**Fitur slide catatan:** | | |
 |Mengakses semua slide catatan yang ada |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur bentuk:** | | |
 |Mengakses semua bentuk slide |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
@@ -368,27 +370,27 @@ Setiap klik pada slide presentasi akan menambahkan elips berwarna acak:
 |Mengkloning bentuk |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Mengekspor bentuk terpisah ke gambar |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Jenis bentuk yang didukung:** | | |
-|Semua jenis bentuk pra‑definisi |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Semua jenis bentuk yang telah ditentukan |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Bingkai gambar |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Tabel |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Diagram |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |SmartArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Diagram lama |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |WordArt |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Objek OLE, ActiveX |terbatas|terbatas|
+|OLE, ActiveX objects |restricted|restricted|
 |Bingkai video |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Bingkai audio |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Penghubung |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Konektor |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur grup bentuk:** | | |
 |Mengakses grup bentuk |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |Membuat grup bentuk |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Melepas grup bentuk yang ada |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Melepaskan grup bentuk yang ada |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur efek bentuk:** | | |
-|Efek 2D |terbatas|terbatas|
+|Efek 2D |restricted|restricted|
 |Efek 3D |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |**Fitur teks:** | | |
 |Pemformatan paragraf |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
-|Pemformatan bagian |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
+|Pemformatan bagian teks |{{< emoticons/tick >}}|{{< emoticons/tick >}}|
 |**Fitur animasi:** | | |
 |Ekspor animasi ke SWF |{{< emoticons/cross >}}|{{< emoticons/cross >}}|
 |Ekspor animasi ke HTML |{{< emoticons/cross >}}|{{< emoticons/cross >}}|

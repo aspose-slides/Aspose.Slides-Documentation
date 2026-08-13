@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση Ιδιοτήτων Παρουσίασης σε Android
+title: Διαχείριση Ιδιοτήτων Παρουσίασης στο Android
 linktitle: Ιδιότητες Παρουσίασης
 type: docs
 weight: 70
@@ -10,12 +10,12 @@ keywords:
 - Ιδιότητες εγγράφου
 - Ενσωματωμένες ιδιότητες
 - Προσαρμοσμένες ιδιότητες
-- Προχωρημένες ιδιότητες
+- Προηγμένες ιδιότητες
 - Διαχείριση ιδιοτήτων
 - Τροποποίηση ιδιοτήτων
 - Μεταδεδομένα εγγράφου
 - Επεξεργασία μεταδεδομένων
-- Γλώσσα διόρθωσης
+- Γλώσσα ελέγχου
 - Προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
@@ -23,49 +23,55 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε πλήρως τις ιδιότητες παρουσίασης στο Aspose.Slides για Android μέσω Java και βελτιστοποιήστε την αναζήτηση, τη διαφήμιση και τη ροή εργασίας στα αρχεία PowerPoint και OpenDocument σας."
+description: "Διαχειριστείτε τις ιδιότητες παρουσίασης στο Aspose.Slides για Android μέσω Java και βελτιστοποιήστε την αναζήτηση, το branding και την ροή εργασιών στα αρχεία PowerPoint και OpenDocument."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides υποστηρίζει δύο τύπους ιδιοτήτων εγγράφου: **Built‑in** και **Custom**. Και οι δύο τύποι ιδιοτήτων μπορούν εύκολα να προσπελαστούν και να διαχειριστούν χρησιμοποιώντας το API του Aspose.Slides.
+Το Aspose.Slides υποστηρίζει δύο τύπους ιδιοτήτων εγγράφων: **Built-in** και **Custom**. Και οι δύο τύποι ιδιοτήτων μπορούν εύκολα να προσπελαστούν και να διαχειριστούν χρησιμοποιώντας το API του Aspose.Slides.
 
-Το Aspose.Slides σας επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου παρουσίασης μέσω της διεπαφής [IDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties/) . Μία παρουσία της διεπαφής αυτής επιστρέφεται από τη μέθοδο [Presentation.getDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) . Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
+Το Aspose.Slides σάς επιτρέπει να εργαστείτε με τις ιδιότητες εγγράφου παρουσίασης μέσω της διεπαφής [IDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties/) . Μια εμφάνιση αυτής της διεπαφής επιστρέφεται από τη μέθοδο [Presentation.getDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) . Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
 
-{{% alert color="primary" %}} 
-Παρακαλούμε σημειώστε ότι τα πεδία **Application** και **Producer** δεν μπορούν να τροποποιηθούν, καθώς αυτά τα πεδία θα εμφανίζουν πάντα "Aspose Ltd." και "Aspose.Slides for Android via Java x.x.x".
+{{% alert color="info" %}} 
+
+Παρακαλούμε σημειώστε ότι τα πεδία **Application** και **AppVersion** δεν μπορούν να τροποποιηθούν. Το Aspose.Slides τα ξαναγράφει σε κάθε αποθήκευση, έτσι ώστε μια αποθηκευμένη παρουσίαση να αναφέρει πάντα το όνομα προϊόντος Aspose.Slides και την έκδοση της βιβλιοθήκης που το παρήγαγε. Οποιαδήποτε τιμή περάσει στη μέθοδο `setNameOfApplication` απορρίπτεται όταν η παρουσίαση γράφεται.
+
 {{% /alert %}} 
 
 ## **Ιδιότητες Εγγράφου στο PowerPoint**
 
-Το Microsoft PowerPoint 2007 επιτρέπει τη διαχείριση των ιδιοτήτων εγγράφου των αρχείων παρουσίασης. Το μόνο που χρειάζεται να κάνετε είναι να κάνετε κλικ στο εικονίδιο του Office και στη συνέχεια στο μενού **Prepare | Properties | Advanced Properties** του Microsoft PowerPoint 2007 όπως φαίνεται παρακάτω:
+Το Microsoft PowerPoint 2007 επιτρέπει τη διαχείριση των ιδιοτήτων εγγράφου των αρχείων παρουσίασης. Το μόνο που χρειάζεται να κάνετε είναι να κάνετε κλικ στο εικονίδιο Office και στη συνέχεια στο στοιχείο μενού **Prepare | Properties | Advanced Properties** του Microsoft PowerPoint 2007 όπως φαίνεται παρακάτω:
 
 |**Επιλογή στοιχείου μενού Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-Αφού επιλέξετε το στοιχείο μενού **Advanced Properties**, θα εμφανιστεί ένας διάλογος που σας επιτρέπει να διαχειριστείτε τις ιδιότητες εγγράφου του αρχείου PowerPoint, όπως φαίνεται παρακάτω στο σχήμα:
+Αφού επιλέξετε το στοιχείο μενού **Advanced Properties**, θα εμφανιστεί ένας διάλογος που επιτρέπει τη διαχείριση των ιδιοτήτων εγγράφου του αρχείου PowerPoint, όπως φαίνεται παρακάτω στη εικόνα:
 
 |**Διάλογος Ιδιοτήτων**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-Στον παραπάνω **Properties Dialog**, μπορείτε να δείτε ότι υπάρχουν πολλές καρτέλες όπως **General**, **Summary**, **Statistics**, **Contents** και **Custom**. Όλες αυτές οι καρτέλες επιτρέπουν τη διαμόρφωση διαφόρων τύπων πληροφοριών σχετικών με τα αρχεία PowerPoint. Η καρτέλα **Custom** χρησιμοποιείται για τη διαχείριση των προσαρμοσμένων ιδιοτήτων των αρχείων PowerPoint.
+Στον παραπάνω **Διάλογος Ιδιοτήτων**, μπορείτε να δείτε ότι υπάρχουν πολλές καρτέλες όπως **General**, **Summary**, **Statistics**, **Contents** και **Custom**. Όλες αυτές οι καρτέλες επιτρέπουν τη διαμόρφωση διαφορετικών τύπων πληροφοριών που σχετίζονται με τα αρχεία PowerPoint. Η καρτέλα **Custom** χρησιμοποιείται για τη διαχείριση των προσαρμοσμένων ιδιοτήτων των αρχείων PowerPoint.
 
-### Εργασία με Ιδιότητες Εγγράφου χρησιμοποιώντας το Aspose.Slides for Android via Java
 
-Όπως περιγράψαμε νωρίτερα, το Aspose.Slides for Android via Java υποστηρίζει δύο είδη ιδιοτήτων εγγράφου, που είναι οι ιδιότητες **Built‑in** και **Custom**. Έτσι, οι προγραμματιστές μπορούν να έχουν πρόσβαση και στα δύο είδη ιδιοτήτων χρησιμοποιώντας το API του Aspose.Slides for Android via Java. Το Aspose.Slides for Android via Java παρέχει μια κλάση [IDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties) που αντιπροσωπεύει τις ιδιότητες εγγράφου που σχετίζονται με ένα αρχείο παρουσίασης μέσω της ιδιότητας **Presentation.DocumentProperties**.
 
-Οι προγραμματιστές μπορούν να χρησιμοποιήσουν την ιδιότητα **IDocumentProperties** που εκτίθεται από το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation) για να έχουν πρόσβαση στις ιδιότητες εγγράφου των αρχείων παρουσίασης όπως περιγράφεται παρακάτω:
+## **Εργασία με Ιδιότητες Εγγράφου χρησιμοποιώντας Aspose.Slides for Android μέσω Java**
 
-## **Πρόσβαση σε Ενσωματωμένες Ιδιότητες**
+Όπως περιγράφηκε προηγουμένως, το Aspose.Slides for Android μέσω Java υποστηρίζει δύο είδη ιδιοτήτων εγγράφου, που είναι οι ιδιότητες **Built-in** και **Custom**. Έτσι, οι προγραμματιστές μπορούν να έχουν πρόσβαση και στα δύο είδη ιδιοτήτων χρησιμοποιώντας το API του Aspose.Slides for Android μέσω Java. Το Aspose.Slides for Android μέσω Java παρέχει μια κλάση [IDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties) που αντιπροσωπεύει τις ιδιότητες εγγράφου που συνδέονται με ένα αρχείο παρουσίασης μέσω της ιδιότητας **Presentation.DocumentProperties**.
 
-Αυτές οι ιδιότητες, όπως εκτίθενται από το αντικείμενο [IDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties) , περιλαμβάνουν: **Creator** (Συγγραφέας), **Description**, **Keywords**, **Created** (Ημερομηνία Δημιουργίας), **Modified** (Ημερομηνία Τροποποίησης), **Printed** (Ημερομηνία Τελευταίου Εκτύπωσης), **LastModifiedBy**, **Keywords**, **SharedDoc** (Κοινοποιείται μεταξύ διαφορετικών δημιουργών;), **PresentationFormat**, **Subject** και **Title**.
+Οι προγραμματιστές μπορούν να χρησιμοποιήσουν την ιδιότητα **IDocumentProperties** που εκτίθεται από το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation) για να έχουν πρόσβαση στις ιδιότητες εγγράφου των αρχείων παρουσίασης, όπως περιγράφεται παρακάτω:
+
+## **Πρόσβαση στις Built-in Ιδιότητες**
+
+Αυτές οι ιδιότητες που εκτίθενται από το αντικείμενο [IDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties) περιλαμβάνουν: **Creator** (Συγγραφέας), **Description**, **Keywords**, **Created** (Ημερομηνία Δημιουργίας), **Modified** (Ημερομηνία Τροποποίησης), **Printed** (Ημερομηνία Τελευταίας Εκτύπωσης), **LastModifiedBy**, **Keywords**, **SharedDoc** (Κοινή χρήση μεταξύ διαφορετικών παραγωγών;), **PresentationFormat**, **Subject** και **Title**
 
 ```java
+import com.aspose.slides.*;
+
 // Δημιουργία της κλάσης Presentation που αντιπροσωπεύει την παρουσίαση
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Δημιουργία αναφοράς στο αντικείμενο IDocumentProperties που σχετίζεται με την Presentation
+    // Δημιουργία αναφοράς σε αντικείμενο IDocumentProperties που σχετίζεται με Presentation
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Εμφάνιση των ενσωματωμένων ιδιοτήτων
@@ -88,14 +94,16 @@ try {
 }
 ```
 
-## **Τροποποίηση Ενσωματωμένων Ιδιοτήτων**
+## **Τροποποίηση Built-in Ιδιοτήτων**
 
-Η τροποποίηση των ενσωματωμένων ιδιοτήτων των αρχείων παρουσίασης είναι εξίσου εύκολη με την πρόσβαση σε αυτές. Μπορείτε απλά να εκχωρήσετε μια συμβολοσειρά σε οποιαδήποτε επιθυμητή ιδιότητα και η τιμή της ιδιότητας θα τροποποιηθεί. Στο παρακάτω παράδειγμα, δείξαμε πώς μπορούμε να τροποποιήσουμε τις ενσωματωμένες ιδιότητες εγγράφου του αρχείου παρουσίασης χρησιμοποιώντας το Aspose.Slides for Android via Java.
+Η τροποποίηση των built-in ιδιοτήτων των αρχείων παρουσίασης είναι εξίσου εύκολη με την πρόσβασή τους. Μπορείτε απλώς να αντιστοιχίσετε μια τιμή συμβολοσειράς σε οποιαδήποτε επιθυμητή ιδιότητα και η τιμή της ιδιότητας θα τροποποιηθεί. Στο παρακάτω παράδειγμα, δείξαμε πώς μπορούμε να τροποποιήσουμε τις built-in ιδιότητες εγγράφου του αρχείου παρουσίασης χρησιμοποιώντας το Aspose.Slides for Android μέσω Java.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Δημιουργία αναφοράς στο αντικείμενο IDocumentProperties που σχετίζεται με την Presentation
+    // Δημιουργία αναφοράς σε αντικείμενο IDocumentProperties που σχετίζεται με Presentation
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Ορισμός των ενσωματωμένων ιδιοτήτων
@@ -105,30 +113,32 @@ try {
     dp.setComments("Aspose Description");
     dp.setManager("Aspose Manager");
     
-    // Αποθήκευση της παρουσίασης σε αρχείο
+    // Αποθήκευση της παρουσίασής σας σε αρχείο
     pres.save("DocProps.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-Αυτό το παράδειγμα τροποποιεί τις ενσωματωμένες ιδιότητες της παρουσίασης, όπως φαίνεται παρακάτω:
+Αυτό το παράδειγμα τροποποιεί τις built-in ιδιότητες της παρουσίασης που μπορούν να προβληθούν όπως φαίνονται παρακάτω:
 
-|**Ενσωματωμένες ιδιότητες εγγράφου μετά τη τροποποίηση**|** |
+|**Built-in ιδιότητες εγγράφου μετά τη τροποποίηση**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Προσθήκη Προσαρμοσμένων Ιδιοτήτων Εγγράφου**
 
-Το Aspose.Slides for Android via Java επιτρέπει επίσης στους προγραμματιστές να προσθέτουν προσαρμοσμένες τιμές για τις ιδιότητες εγγράφου παρουσίασης. Ένα παράδειγμα παρατίθεται παρακάτω που δείχνει πώς να ορίσετε τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
+Το Aspose.Slides for Android μέσω Java επιτρέπει επίσης στους προγραμματιστές να προσθέτουν προσαρμοσμένες τιμές για τις ιδιότητες εγγράφου παρουσίασης. Το παρακάτω παράδειγμα προσθέτει τρεις προσαρμοσμένες ιδιότητες, στη συνέχεια αναζητά το όνομα που είναι αποθηκευμένο στο δείκτη 2 και την αφαιρεί, ώστε η αποθηκευμένη παρουσίαση να διατηρεί μόνο δύο από αυτές. Οι προσαρμοσμένες ιδιότητες ταξινομούνται αλφαβητικά, όχι με τη σειρά που προστέθηκαν.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Λήψη Ιδιοτήτων Εγγράφου
     IDocumentProperties dProps = pres.getDocumentProperties();
     
-    // Προσθήκη Προσαρμοσμένων ιδιοτήτων
+    // Προσθήκη προσαρμοσμένων ιδιοτήτων
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
@@ -146,18 +156,20 @@ try {
 }
 ```
 
-|**Προστέθηκαν Προσαρμοσμένες Ιδιότητες Εγγράφου**|** |
+|**Προσαρμοσμένες Ιδιότητες Εγγράφου Προστέθηκαν**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Πρόσβαση και Τροποποίηση Προσαρμοσμένων Ιδιοτήτων**
 
-Το Aspose.Slides for Android via Java επιτρέπει επίσης στους προγραμματιστές να έχουν πρόσβαση στις τιμές των προσαρμοσμένων ιδιοτήτων. Ένα παράδειγμα παρατίθεται παρακάτω που δείχνει πώς μπορείτε να έχετε πρόσβαση και να τροποποιήσετε όλες αυτές τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
+Το Aspose.Slides for Android μέσω Java επιτρέπει επίσης στους προγραμματιστές να έχουν πρόσβαση στις τιμές των προσαρμοσμένων ιδιοτήτων. Ένα παράδειγμα δίνεται παρακάτω που δείχνει πώς μπορείτε να αποκτήσετε πρόσβαση και να τροποποιήσετε όλες αυτές τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Δημιουργία αναφοράς στο αντικείμενο DocumentProperties που συνδέεται με την Presentation
+    // Δημιουργία αναφοράς σε αντικείμενο DocumentProperties που σχετίζεται με Presentation
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Πρόσβαση και τροποποίηση προσαρμοσμένων ιδιοτήτων
@@ -177,31 +189,35 @@ try {
 }
 ```
 
-Αυτό το παράδειγμα τροποποιεί τις πρόσαρμοσμένες ιδιότητες της παρουσίασης [PPTX ](https://docs.fileformat.com/presentation/pptx/) . Τα παρακάτω σχήματα δείχνουν τις προσαρμοσμένες ιδιότητες της παρουσίασης πριν και μετά την τροποποίηση:
+Αυτό το παράδειγμα τροποποιεί τις προσαρμοσμένες ιδιότητες της παρουσίασης [PPTX](https://docs.fileformat.com/presentation/pptx/). Οι παρακάτω εικόνες δείχνουν τις προσαρμοσμένες ιδιότητες της παρουσίασης πριν και μετά την τροποποίηση:
 
-|**Προσαρμοσμένες Ιδιότητες πριν τη Τροποποίηση**|** |
+|**Προσαρμοσμένες Ιδιότητες πριν από την Τροποποίηση**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Προσαρμοσμένες Ιδιότητες μετά τη Τροποποίηση**|** |
+|**Προσαρμοσμένες Ιδιότητες μετά την Τροποποίηση**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Προηγμένες Ιδιότητες Εγγράφου**
 
-{{% alert color="primary" %}} 
-Νέες μέθοδοι [ReadDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) , [UpdateDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) και [WriteBindedPresentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) έχουν προστεθεί στο [IPresentationInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo) , η λογική του setter της ιδιότητας [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) έχει αλλάξει.
+{{% alert color="info" %}} 
+
+Προστέθηκαν νέες μέθοδοι [ReadDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) , [UpdateDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) και [WriteBindedPresentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) στο [IPresentationInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo) , η λογική του setter της ιδιότητας [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) έχει αλλάξει.
+
 {{% /alert %}} 
 
-Οι δύο νέες μέθοδοι [ReadDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) και [UpdateDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) έχουν προστεθεί στην διεπαφή [IPresentationInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo) . Παρέχουν γρήγορη πρόσβαση στις ιδιότητες εγγράφου και επιτρέπουν την αλλαγή και ενημέρωση των ιδιοτήτων χωρίς να φορτωθεί ολόκληρη η παρουσίαση.
+Οι δύο νέες μέθοδοι [ReadDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) και [UpdateDocumentProperties](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) έχουν προστεθεί στη διεπαφή [IPresentationInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IPresentationInfo). Παρέχουν γρήγορη πρόσβαση σε ιδιότητες εγγράφου και επιτρέπουν την αλλαγή και ενημέρωση των ιδιοτήτων χωρίς τη φόρτωση ολόκληρης της παρουσίασης.
 
-Το τυπικό σενάριο φόρτωσης των ιδιοτήτων, τροποποίησης κάποιας τιμής και ενημέρωσης του εγγράφου μπορεί να υλοποιηθεί με τον παρακάτω τρόπο:
+Το τυπικό σενάριο φόρτωσης των ιδιοτήτων, αλλαγής κάποιας τιμής και ενημέρωσης του εγγράφου μπορεί να υλοποιηθεί με τον ακόλουθο τρόπο:
 
 ```java
-// ανάγνωση πληροφοριών παρουσίασης
+import com.aspose.slides.*;
+
+// διάβαση των πληροφοριών της παρουσίασης
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// λήψη τρεχουσών ιδιοτήτων
+// απόκτηση των τρεχουσών ιδιοτήτων
 IDocumentProperties props = info.readDocumentProperties();
 
 // ορισμός νέων τιμών για τα πεδία Συγγραφέας και Τίτλος
@@ -213,9 +229,11 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Υπάρχει ένας άλλος τρόπος χρήσης των ιδιοτήτων μιας συγκεκριμένης παρουσίασης ως πρότυπο για την ενημέρωση ιδιοτήτων σε άλλες παρουσιάσεις:
+Υπάρχει ένας άλλος τρόπος χρήσης των ιδιοτήτων ενός συγκεκριμένου παρουσίασης ως πρότυπο για ενημέρωση ιδιοτήτων σε άλλες παρουσιάσεις:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -234,6 +252,8 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -242,10 +262,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-Ένα νέο πρότυπο μπορεί να δημιουργηθεί από το μηδέν και στη συνέχεια να χρησιμοποιηθεί για την ενημέρωση πολλαπλών παρουσιάσεων:
+Ένα νέο πρότυπο μπορεί να δημιουργηθεί από το μηδέν και στη συνέχεια να χρησιμοποιηθεί για ενημέρωση πολλαπλών παρουσιάσεων:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -256,13 +278,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
@@ -270,14 +286,14 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-## **Ορισμός Γλώσσας Διόρθωσης**
+## **Ορισμός Γλώσσας Ελέγχου**
 
-Το Aspose.Slides παρέχει την ιδιότητα LanguageId (εκτεθειμένη από την κλάση PortionFormat) για να σας επιτρέπει να ορίσετε τη γλώσσα διόρθωσης για ένα έγγραφο PowerPoint. Η γλώσσα διόρθωσης είναι η γλώσσα για την οποία ελέγχονται η ορθογραφία και η γραμματική στο PowerPoint.
-
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε τη γλώσσα διόρθωσης για ένα PowerPoint: xxx Γιατί λείπει η LanguageId από την κλάση Java PortionFormat;
+Το Aspose.Slides παρέχει την ιδιότητα LanguageId (εκτεθειμένη από την κλάση PortionFormat) για να σας επιτρέψει να ορίσετε τη γλώσσα ελέγχου για ένα έγγραφο PowerPoint. Η γλώσσα ελέγχου είναι η γλώσσα για την οποία ελέγχονται η ορθογραφία και η γραμματική στο PowerPoint.
 
 ```java
-Presentation pres = new Presentation(pptxFileName);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -292,7 +308,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // ορισμός του Id μιας γλώσσας διόρθωσης
+    portionFormat.setLanguageId("zh-CN"); // ορίστε το Id μιας γλώσσας ελέγχου
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -303,15 +319,15 @@ try {
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Αυτός ο κώδικας Java δείχνει πώς να ορίσετε τη προεπιλεγμένη γλώσσα για ολόκληρη την παρουσίαση PowerPoint:
-
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // Προσθέτει ένα νέο σχήμα ορθογωνίου με κείμενο
+    // Προσθέτει ένα νέο σχήμα ορθογώνιο με κείμενο
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
@@ -324,20 +340,20 @@ try {
 
 ## **Ζωντανό Παράδειγμα**
 
-Δοκιμάστε την online εφαρμογή [**Aspose.Slides Metadata**](https://products.aspose.app/slides/el/metadata) για να δείτε πώς να εργάζεστε με ιδιότητες εγγράφου μέσω του API του Aspose.Slides:
+Δοκιμάστε την [**Aspose.Slides Metadata**](https://products.aspose.app/slides/el/metadata) online εφαρμογή για να δείτε πώς να δουλέψετε με ιδιότητες εγγράφου μέσω του Aspose.Slides API:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/el/metadata)
+[![Προβολή & Επεξεργασία Μεταδεδομένων PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/el/metadata)
 
-## ***FAQ**
+## ***ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Πώς μπορώ να αφαιρέσω μια ενσωματωμένη ιδιότητα από μια παρουσίαση;**
+### Πώς μπορώ να αφαιρέσω μια built-in ιδιότητα από μια παρουσίαση;
 
-Οι ενσωματωμένες ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν πλήρως. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις θέσετε κενές, αν η συγκεκριμένη ιδιότητα το επιτρέπει.
+Οι built-in ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν πλήρως. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις ορίσετε κενές, εφόσον η συγκεκριμένη ιδιότητα το επιτρέπει.
 
-**Τι συμβαίνει αν προσθέσω μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη;**
+### Τι συμβαίνει αν προσθέσω μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη;
 
-Αν προσθέσετε μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς το Aspose.Slides ενημερώνει αυτόματα την τιμή της ιδιότητας.
+Αν προσθέσετε μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς το Aspose.Slides ενημερώνει αυτόματα την τιμή της.
 
-**Μπορώ να έχω πρόσβαση στις ιδιότητες της παρουσίασης χωρίς να φορτωθεί πλήρως η παρουσίαση;**
+### Μπορώ να έχω πρόσβαση στις ιδιότητες της παρουσίασης χωρίς να φορτώσω ολόκληρη την παρουσίαση;
 
-Ναι, μπορείτε να έχετε πρόσβαση στις ιδιότητες της παρουσίασης χωρίς να φορτωθεί πλήρως η παρουσίαση χρησιμοποιώντας τη μέθοδο `getPresentationInfo` από την κλάση [PresentationFactory](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentationfactory/) . Στη συνέχεια, χρησιμοποιήστε τη μέθοδο `readDocumentProperties` που παρέχεται από τη διεπαφή [IPresentationInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipresentationinfo/) για να διαβάσετε τις ιδιότητες αποδοτικά, εξοικονομώντας μνήμη και βελτιώνοντας την απόδοση.
+Ναι, μπορείτε να έχετε πρόσβαση στις ιδιότητες της παρουσίασης χωρίς να φορτώσετε ολόκληρη την παρουσίαση χρησιμοποιώντας τη μέθοδο `getPresentationInfo` από την κλάση [PresentationFactory](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentationfactory/) . Στη συνέχεια, χρησιμοποιήστε τη μέθοδο `readDocumentProperties` που παρέχεται από τη διεπαφή [IPresentationInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipresentationinfo/) για να διαβάσετε τις ιδιότητες αποδοτικά, εξοικονομώντας μνήμη και βελτιώνοντας την απόδοση.

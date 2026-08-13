@@ -4,9 +4,9 @@ type: docs
 weight: 20
 url: /tr/jasperreports/ppt-pptx-pdf-and-html-export/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-JasperReports ve JasperServer, raporları Microsoft PowerPoint sunumları olarak dışa aktarma yerleşik yeteneğine sahip değildir, ancak Aspose.Slides for JasperReports ile ek dışa aktarma formatlarına erişebilirsiniz:
+JasperReports ve JasperServer, raporları Microsoft PowerPoint sunumları olarak dışa aktarmak için yerleşik yeteneklere sahip değildir, ancak Aspose.Slides for JasperReports ile ek dışa aktarma formatlarına erişim elde edersiniz:
 
 - Microsoft PowerPoint Sunumu (PPT)
 - Microsoft PowerPoint Sunumu (PPTX)
@@ -15,14 +15,12 @@ JasperReports ve JasperServer, raporları Microsoft PowerPoint sunumları olarak
 
 {{% /alert %}} 
 
-Bu formatlarda belgeler oluşturmak için Aspose.Slides for JasperReports, Aspose'tan piyasa lideri sunum işleme kütüphanesi olan [Aspose.Slides for Java](https://products.aspose.com/slides/tr/java/)nin yerleşik bir sürümüne dayanır. Belgeleri oluşturmak için Microsoft PowerPoint kullanılmaz.
+Bu formatlarda belgeler oluşturmak için, Aspose.Slides for JasperReports, Aspose tarafından sunulan pazar lideri sunum işleme kitaplığı olan [Aspose.Slides for Java](https://products.aspose.com/slides/tr/java/)’nin yerleşik bir sürümüne dayanır. Belgeleri oluşturmak için Microsoft PowerPoint kullanılmaz.
 
-
-
-**Microsoft PowerPoint (PPT) Sunumu Olarak Dışa Aktarılan Örnek Rapor** 
+**Microsoft PowerPoint (PPT) sunumu olarak dışa aktarılan örnek rapor** 
 
 ![todo:image_alt_text](ppt-pptx-pdf-and-html-export_1.png)
 
-**Microsoft PowerPoint Sunumu (PPTX) Olarak Dışa Aktarılan Örnek Rapor** 
+**Microsoft PowerPoint sunumu (PPTX) olarak dışa aktarılan örnek rapor** 
 
 ![todo:image_alt_text](ppt-pptx-pdf-and-html-export_2.png)

@@ -1,6 +1,6 @@
 ---
-title: Administrar listas con viñetas y numeradas en presentaciones en Java
-linktitle: Administrar listas
+title: Gestionar viñetas y listas numeradas en presentaciones en Java
+linktitle: Gestionar listas
 type: docs
 weight: 60
 url: /es/java/manage-lists/
@@ -9,7 +9,7 @@ keywords:
 - lista con viñetas
 - lista numerada
 - viñeta de símbolo
-- viñeta de imagen
+- viñeta con imagen
 - viñeta personalizada
 - lista multinivel
 - crear viñeta
@@ -20,29 +20,32 @@ keywords:
 - presentación
 - Java
 - Aspose.Slides
-description: "Aprenda a crear y dar formato a listas con viñetas, imágenes, multinivel y numeradas en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para Java."
+description: "Aprenda a crear y dar formato a listas con viñetas, con imagen, multinivel y numeradas en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para Java."
 ---
 ## **Visión general**
 
-Aspose.Slides for Java le permite crear y dar formato a listas con viñetas y numeradas en presentaciones PowerPoint y OpenDocument. Un elemento de lista es un párrafo cuyas configuraciones de viñeta se controlan mediante su formato de párrafo.
+Aspose.Slides for Java le permite crear y dar formato a listas con viñetas y numeradas en presentaciones PowerPoint y OpenDocument. Un elemento de lista es un párrafo cuyas configuraciones de viñeta se controlan a través de su formato de párrafo.
 
-Utilice el método [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraph/#getParagraphFormat--) para acceder a la configuración de listas a nivel de párrafo. El punto de entrada principal es [IParagraphFormat.getBullet](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#getBullet--), que devuelve un objeto [IBulletFormat](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/). Con este objeto, puede establecer el tipo de viñeta, el símbolo, la imagen, el color, el tamaño, el estilo de numeración y el número inicial.
+Utilice el [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraph/#getParagraphFormat--) método para acceder a la configuración de la lista a nivel de párrafo. El punto de entrada principal es [IParagraphFormat.getBullet](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#getBullet--), que devuelve un objeto [IBulletFormat](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/). Con este objeto, puede establecer el tipo de viñeta, el símbolo, la imagen, el color, el tamaño, el estilo de numeración y el número inicial.
 
 Este artículo muestra cómo:
 
 - crear una lista con viñetas con un símbolo personalizado
-- crear una viñeta de imagen
-- crear una lista multinivel configurando la profundidad del párrafo
+- crear una viñeta con imagen
+- crear una lista multinivel estableciendo la profundidad del párrafo
 - crear una lista numerada
-- inspeccionar y modificar el formato de listas en una presentación existente
+- inspeccionar y cambiar el formato de la lista en una presentación existente
 
 ## **Crear una lista con viñetas**
 
-Para crear una lista con viñetas, añada objetos [IParagraph](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraph/) a un [ITextFrame](https://reference.aspose.com/slides/es/java/com.aspose.slides/itextframe/) y establezca [IBulletFormat.setType](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setType-byte-) a [BulletType.Symbol](https://reference.aspose.com/slides/es/java/com.aspose.slides/bullettype/#Symbol). Luego puede establecer [IBulletFormat.setChar](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#getColor--) y [IBulletFormat.setHeight](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setHeight-float-) para controlar la apariencia de la viñeta.
+Para crear una lista con viñetas, añada objetos [IParagraph](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraph/) a un [ITextFrame](https://reference.aspose.com/slides/es/java/com.aspose.slides/itextframe/) y establezca [IBulletFormat.setType](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setType-byte-) a [BulletType.Symbol](https://reference.aspose.com/slides/es/java/com.aspose.slides/bullettype/#Symbol). Luego puede establecer [IBulletFormat.setChar](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#getColor--), y [IBulletFormat.setHeight](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setHeight-float-) para controlar la apariencia de la viñeta.
 
 El siguiente código Java muestra cómo crear una lista con viñetas en una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 El resultado:
 
-![Los símbolos de viñetas](symbol_bullets.png)
+![Las viñetas de símbolo](symbol_bullets.png)
 
 ## **Crear una lista numerada**
 
-Utilice listas numeradas cuando el orden de los elementos sea importante. Establezca [IBulletFormat.setType](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setType-byte-) a [BulletType.Numbered](https://reference.aspose.com/slides/es/java/com.aspose.slides/bullettype/#Numbered). También puede elegir un formato de numeración con [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) o establecer [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) cuando la lista deba iniciar con un valor distinto de 1.
+Utilice listas numeradas cuando el orden de los elementos sea importante. Establezca [IBulletFormat.setType](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setType-byte-) a [BulletType.Numbered](https://reference.aspose.com/slides/es/java/com.aspose.slides/bullettype/#Numbered). También puede elegir un formato de numeración con [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) o establecer [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) cuando la lista debe comenzar con un valor distinto de 1.
 
 El siguiente código Java muestra cómo crear una lista numerada en una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,25 +128,27 @@ El resultado:
 
 ![Las viñetas numeradas](numbered_bullets.png)
 
-## **Crear una viñeta de imagen**
+## **Crear una viñeta con imagen**
 
-Aspose.Slides le permite reemplazar un símbolo de viñeta normal por una imagen. Las viñetas de imagen funcionan mejor con imágenes simples que siguen siendo legibles a un tamaño pequeño, como iconos o archivos PNG transparentes de poca dimensión.
+Aspose.Slides le permite reemplazar un símbolo de viñeta regular por una imagen. Las viñetas con imagen funcionan mejor con imágenes simples que siguen siendo legibles en un tamaño pequeño, como iconos o archivos PNG transparentes pequeños.
 
-{{% alert color="primary" %}}
-Idealmente, si planea reemplazar el símbolo de viñeta regular por una imagen, lo mejor es elegir un gráfico sencillo con fondo transparente. Dichas imágenes funcionan bien como símbolos de viñeta personalizados.
+{{% alert color="info" %}}
+Idealmente, si planea reemplazar el símbolo de viñeta regular por una imagen, es mejor elegir un gráfico sencillo con fondo transparente. Estas imágenes funcionan bien como símbolos de viñeta personalizados.
 
 Tenga en cuenta que la imagen se reducirá a un tamaño muy pequeño. Por esa razón, recomendamos encarecidamente seleccionar una imagen que siga siendo clara y visualmente eficaz cuando se use como viñeta en una lista.
 {{% /alert %}}
 
-Para crear una viñeta de imagen, añada una imagen a [Presentation.getImages](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getImages--) y asigne el objeto de imagen devuelto a [IBulletFormat.getPicture](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#getPicture--). Establezca [IBulletFormat.setType](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setType-byte-) a [BulletType.Picture](https://reference.aspose.com/slides/es/java/com.aspose.slides/bullettype/#Picture) antes de asignar la imagen.
+Para crear una viñeta con imagen, añada una imagen a [Presentation.getImages](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getImages--) y asigne el objeto de imagen devuelto a [IBulletFormat.getPicture](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#getPicture--). Establezca [IBulletFormat.setType](https://reference.aspose.com/slides/es/java/com.aspose.slides/ibulletformat/#setType-byte-) a [BulletType.Picture](https://reference.aspose.com/slides/es/java/com.aspose.slides/bullettype/#Picture) antes de asignar la imagen.
 
 Supongamos que tenemos un "image.png":
 
 ![Una imagen para las viñetas](picture_for_bullets.png)
 
-El siguiente código Java muestra cómo crear viñetas de imagen en una diapositiva:
+El siguiente código Java muestra cómo crear viñetas con imagen en una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -180,11 +187,13 @@ El resultado:
 
 ## **Crear una lista multinivel**
 
-Utilice [IParagraphFormat.setDepth](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#setDepth-short-) para colocar los elementos de la lista en diferentes niveles. El nivel 0 es el nivel superior, el nivel 1 está anidado bajo él, y así sucesivamente.
+Utilice [IParagraphFormat.setDepth](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#setDepth-short-) para colocar los elementos de la lista en diferentes niveles. El nivel 0 es el nivel superior, el nivel 1 está anidado debajo de él, y así sucesivamente.
 
 El siguiente código Java muestra cómo crear una lista con viñetas multinivel:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -223,13 +232,15 @@ El resultado:
 
 ![La lista multinivel](multilevel_list.png)
 
-## **Modificar una lista existente**
+## **Cambiar una lista existente**
 
-Para cambiar el formato de una lista en una presentación existente, acceda al párrafo objetivo y actualice sus ajustes de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#getBullet--) . Las mismas propiedades utilizadas para crear listas pueden usarse para inspeccionar o modificar listas cargadas desde un archivo PPT, PPTX o ODP.
+Para cambiar el formato de la lista en una presentación existente, acceda al párrafo objetivo y actualice sus configuraciones de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#getBullet--). Las mismas propiedades usadas para crear listas pueden usarse para inspeccionar o modificar listas cargadas desde un archivo PPT, PPTX o ODP.
 
-El siguiente código Java cambia el primer párrafo en un marco de texto para usar un estilo de lista numerada:
+El siguiente código Java cambia el primer párrafo en un marco de texto para que utilice un estilo de lista numerada:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -248,16 +259,16 @@ try {
 }
 ```
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Se pueden exportar listas con viñetas y numeradas a PDF o imágenes?**
+### ¿Se pueden exportar las listas con viñetas y numeradas a PDF o imágenes?
 
-Sí. Aspose.Slides conserva el formato de la lista cuando el formato de destino admite la disposición de texto y las características de viñeta correspondientes.
+Sí. Aspose.Slides conserva el formato de la lista cuando el formato de destino admite la disposición de texto correspondiente y las características de viñetas.
 
-**¿Puedo editar listas en presentaciones existentes?**
+### ¿Puedo editar listas en presentaciones existentes?
 
-Sí. Cargue la presentación, acceda al párrafo objetivo, inspeccione o actualice sus configuraciones de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#getBullet--) y guarde la presentación.
+Sí. Cargue la presentación, acceda al párrafo objetivo, inspeccione o actualice sus configuraciones de [IParagraphFormat.getBullet](https://reference.aspose.com/slides/es/java/com.aspose.slides/iparagraphformat/#getBullet--), y guarde la presentación.
 
-**¿Pueden las listas contener texto no latino?**
+### ¿Pueden las listas contener texto no latino?
 
-Sí. El texto de los elementos de la lista puede contener caracteres Unicode, por lo que puede crear listas en presentaciones multilingües. Asegúrese de que las fuentes utilizadas en la presentación admitan los caracteres que necesita.
+Sí. El texto de los elementos de lista puede contener caracteres Unicode, por lo que puede crear listas en presentaciones multilingües. Asegúrese de que las fuentes usadas en la presentación soporten los caracteres que necesita.

@@ -1,12 +1,12 @@
 ---
-title: Διαμόρφωση Συλλογών Εφεδρικών Γραμματοσειρών σε C++
-linktitle: Συλλογή Εφεδρικής Γραμματοσειράς
+title: Δι��μόρφωση Συλλογών Εναλλακτικών Γραμματοσειρών σε C++
+linktitle: Συλλογή Εναλλακτικής Γραμματοσειράς
 type: docs
 weight: 20
 url: /el/cpp/create-fallback-fonts-collection/
 keywords:
-- εφεδρική γραμματοσειρά
-- εφεδρικός κανόνας
+- εναλλακτική γραμματοσειρά
+- κανόνας εναλλακτικής γραμματοσειράς
 - συλλογή γραμματοσειρών
 - διαμόρφωση γραμματοσειράς
 - ρύθμιση γραμματοσειράς
@@ -15,27 +15,36 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Ρυθμίστε μια συλλογή εφεδρικών γραμματοσειρών στο Aspose.Slides για C++ ώστε το κείμενο να παραμένει συνεπές και ευκρινές σε παρουσιάσεις PowerPoint και OpenDocument."
+description: "Ρυθμίστε μια συλλογή εναλλακτικών γραμματοσειρών στο Aspose.Slides για C++ ώστε το κείμενο να παραμένει συνεπές και σαφές σε παρουσιάσεις PowerPoint και OpenDocument."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σάς επιτρέπει να διαμορφώσετε μια συλλογή κανόνων εφεδρικής γραμματοσειράς για μια παρουσίαση. Κάθε κανόνας εφεδρικής γραμματοσειράς αντιπροσωπεύεται από την κλάση `FontFallBackRule` και μπορεί να προστεθεί σε μια `FontFallBackRulesCollection`, η οποία υλοποιεί τη διεπαφή `IFontFallBackRulesCollection`.
+Aspose.Slides σας επιτρέπει να διαμορφώσετε μια συλλογή κανόνων εναλλακτικών γραμματοσειρών για μια παρουσίαση. Κάθε κανόνας εναλλακτικής γραμματοσειράς εκπροσωπείται από την κλάση `FontFallBackRule` και μπορεί να προστεθεί σε μια `FontFallBackRulesCollection`, η οποία υλοποιεί τη διεπαφή `IFontFallBackRulesCollection`.
 
-Αφού δημιουργήσετε τη συλλογή, μπορείτε να τη εκχωρήσετε χρησιμοποιώντας τη μέθοδο `set_FontFallBackRulesCollection` του `FontsManager` της παρουσίασης. Ο `FontsManager` ελέγχει τις γραμματοσειρές σε όλη την παρουσίαση, και κάθε αντικείμενο `Presentation` διαθέτει το δικό του `FontsManager`.
+Μετά τη δημιουργία της συλλογής, μπορείτε να την αναθέσετε χρησιμοποιώντας τη μέθοδο `set_FontFallBackRulesCollection` του `FontsManager` της παρουσίασης. Ο `FontsManager` ελέγχει τις γραμματοσειρές σε όλη την παρουσίαση, και κάθε στιγμιότυπο `Presentation` έχει το δικό του `FontsManager`.
 
-Μόλις ο `FontsManager` αρχικοποιηθεί με τη συλλογή εφεδρικών γραμματοσειρών, οι καθορισμένες εφεδρικές γραμματοσειρές εφαρμόζονται κατά την απόδοση της παρουσίασης.
+Μόλις ο `FontsManager` αρχικοποιηθεί με τη συλλογή εναλλακτικών γραμματοσειρών, οι καθορισμένες εναλλακτικές γραμματοσειρές εφαρμόζονται κατά την απόδοση της παρουσίασης.
 
-## **Εφαρμογή Κανόνων Εφεδρικής Γραμματοσειράς**
+## **Εφαρμογή κανόνων εναλλακτικών γραμματοσειρών**
 
 Παραδείγματα της κλάσης [FontFallBackRule](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontfallbackrule/) μπορούν να οργανωθούν σε [FontFallBackRulesCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontfallbackrulescollection/), η οποία υλοποιεί τη διεπαφή [IFontFallBackRulesCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontfallbackrulescollection/). Είναι δυνατόν να προσθέσετε ή να αφαιρέσετε κανόνες από τη συλλογή.
 
-Στη συνέχεια, αυτή η συλλογή μπορεί να περάσει στη μέθοδο [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) της κλάσης [FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/). Ο `FontsManager` ελέγχει τις γραμματοσειρές σε όλη την παρουσίαση.
+Στη συνέχεια, αυτή η συλλογή μπορεί να περάσει στη μέθοδο [set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/) της κλάσης [FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/). Ο FontsManager ελέγχει τις γραμματοσειρές σε όλη την παρουσίαση.
 
-Κάθε [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) έχει μια μέθοδο [get_FontsManager()](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_fontsmanager/) με τη δική της παρουσία της κλάσης `FontsManager`.
+Κάθε [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) διαθέτει τη μέθοδο [get_FontsManager()](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_fontsmanager/), η οποία επιστρέφει τη δική της εμφάνιση της κλάσης FontsManager.
 
-Ακολουθεί ένα παράδειγμα δημιουργίας συλλογής κανόνων εφεδρικής γραμματοσειράς και ανάθεσής της στο `FontsManager` μιας συγκεκριμένης παρουσίασης:  
+Ακολουθεί ένα παράδειγμα για το πώς να δημιουργήσετε μια συλλογή κανόνων εναλλακτικών γραμματοσειρών και να την αναθέσετε στον FontsManager μιας συγκεκριμένης παρουσίασης:
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <DOM/Fonts/FontFallBackRulesCollection.h>
+#include <DOM/IFontFallBackRule.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto userRulesList = MakeObject<FontFallBackRulesCollection>();
 
@@ -45,26 +54,26 @@ userRulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x3040), s
 presentation->get_FontsManager()->set_FontFallBackRulesCollection(userRulesList);
 ```
 
-Μετά την αρχικοποίηση του `FontsManager` με τη συλλογή εφεδρικών γραμματοσειρών, οι εφεδρικές γραμματοσειρές εφαρμόζονται κατά την απόδοση της παρουσίασης.
+Μετά την αρχικοποίηση του FontsManager με τη συλλογή εναλλακτικών γραμματοσειρών, οι εναλλακτικές γραμματοσειρές εφαρμόζονται κατά την απόδοση της παρουσίασης.
 
-{{% alert color="primary" %}} 
-Διαβάστε περισσότερα σχετικά με το πώς να [Render Presentation with Fallback Font](/slides/el/cpp/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Διαβάστε περισσότερα για το πώς να [Απόδοση Παρουσίασης με Εναλλακτική Γραμματοσειρά](/slides/el/cpp/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Θα ενσωματωθούν οι κανόνες εφεδρείας στη διεπαφή PPTX και θα είναι ορατοί στο PowerPoint μετά την αποθήκευση;**
+### Θα ενσωματωθούν οι κανόνες εναλλακτικής γραμματοσειράς στο αρχείο PPTX και θα είναι ορατοί στο PowerPoint μετά την αποθήκευση;
 
-Όχι. Οι κανόνες εφεδρείας είναι ρυθμίσεις απόδοσης σε χρόνο εκτέλεσης· δεν σειριοποιούνται στο PPTX και δεν εμφανίζονται στη διεπαφή του PowerPoint.
+Όχι. Οι κανόνες εναλλακτικής γραμματοσειράς είναι ρυθμίσεις απόδοσης κατά το χρόνο εκτέλεσης· δεν σειριοποιούνται στο PPTX και δεν θα εμφανιστούν στη διεπαφή του PowerPoint.
 
-**Εφαρμόζεται η εφεδρεία σε κείμενο εντός SmartArt, WordArt, γραφημάτων και πινάκων;**
+### Εφαρμόζεται η εναλλακτική γραμματοσειρά σε κείμενο μέσα σε SmartArt, WordArt, διαγράμματα και πίνακες;
 
-Ναι. Ο ίδιος μηχανισμός αντικατάστασης γλυφών χρησιμοποιείται για οποιοδήποτε κείμενο σε αυτά τα αντικείμενα.
+Ναι. Ο ίδιος μηχανισμός αντικατάστασης γλύφων χρησιμοποιείται για οποιοδήποτε κείμενο σε αυτά τα αντικείμενα.
 
-**Διανέμει η Aspose κάποια γραμματοσειρά μαζί με τη βιβλιοθήκη;**
+### Διανέμει η Aspose κάποια γραμματοσειρά με τη βιβλιοθήκη;
 
-Όχι. Εσείς προσθέτετε και χρησιμοποιείτε τις γραμματοσειρές από τη δική σας πλευρά και με τη δική σας ευθύνη.
+Όχι. Προσθέτετε και χρησιμοποιείτε γραμματοσειρές από την πλευρά σας και υπό τη δική σας ευθύνη.
 
-**Μπορούν να χρησιμοποιηθούν ταυτόχρονα η αντικατάσταση/υποκατάσταση για ελλιπείς γραμματοσειρές και η εφεδρεία για ελλιπή γλύφα;**
+### Μπορούν η αντικατάσταση/υποκατάσταση για ελλιπείς γραμματοσειρές και η εναλλακτική για ελλιπή γλύφα να χρησιμοποιηθούν μαζί;
 
-Ναι. Αποτελούν ανεξάρτητα στάδια της ίδιας αλυσίδας επίλυσης γραμματοσειράς: πρώτα η μηχανή επιλύει τη διαθεσιμότητα των γραμματοσειρών ([replacement](/slides/el/cpp/font-replacement/)/[substitution](/slides/el/cpp/font-substitution/)), στη συνέχεια η εφεδρεία γεμίζει τα κενά για ελλιπή γλύφα στις διαθέσιμες γραμματοσειρές.
+Ναι. Είναι ανεξάρτητα στάδια της ίδιας διαδικασίας επίλυσης γραμματοσειρών: πρώτα η μηχανή επιλύει τη διαθεσιμότητα γραμματοσειρών ([αντικατάσταση](/slides/el/cpp/font-replacement/)/[υποκατάσταση](/slides/el/cpp/font-substitution/)), στη συνέχεια η εναλλακτική γεμίζει τα κενά για ελλιπείς γλύφους σε διαθέσιμες γραμματοσειρές.

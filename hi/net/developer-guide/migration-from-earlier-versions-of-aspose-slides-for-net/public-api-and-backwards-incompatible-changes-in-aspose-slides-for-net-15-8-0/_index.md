@@ -1,33 +1,37 @@
 ---
-title: Aspose.Slides for .NET 15.8.0 में सार्वजनिक API और पीछे की असंगत परिवर्तन
+title: Aspose.Slides for .NET 15.8.0 में सार्वजनिक API और पिछड़ने योग्य असंगत परिवर्तन
 linktitle: Aspose.Slides for .NET 15.8.0
 type: docs
 weight: 190
 url: /hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
 keywords:
 - स्थानांतरण
-- पुरानी कोड
+- लेगेसी कोड
 - आधुनिक कोड
-- पुरानी पद्धति
-- आधुनिक पद्धति
+- परम्परागत दृष्टिकोण
+- आधुनिक दृष्टिकोण
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET में सार्वजनिक API अपडेट और ब्रेकिंग परिवर्तन की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रस्तुति समाधान को सहजता से माइग्रेट कर सकें।"
+description: "Aspose.Slides for .NET में सार्वजनिक API अपडेट और ब्रेकिंग बदलावों की समीक्षा करें ताकि आप अपने PowerPoint PPT, PPTX और ODP प्रस्तुति समाधान को सुगमता से माइग्रेट कर सकें।"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-यह पृष्ठ सभी [added](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) या [removed](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) क्लास, मेथड, प्रॉपर्टी और अन्य परिवर्तन की सूची देता है, जो Aspose.Slides for .NET 15.8.0 API के साथ पेश किए गए हैं।
+यह पृष्ठ Aspose.Slides for .NET 15.8.0 API में प्रस्तुत सभी [जोड़े गए](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) या [हटाए गए](/slides/hi/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) क्लास, मेथड, प्रॉपर्टी आदि और अन्य परिवर्तनों की सूची देता है।
 
-{{% /alert %}} 
+{{% /alert %}}
 ## **सार्वजनिक API परिवर्तन**
 #### **Property DoughnutHoleSize को IChartSeries और ChartSeries में जोड़ा गया है**
 डोनट चार्ट में छेद के आकार को निर्दिष्ट करता है।
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -40,5 +44,4 @@ description: "Aspose.Slides for .NET में सार्वजनिक API �
    pres.Save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
 }
-
 ```

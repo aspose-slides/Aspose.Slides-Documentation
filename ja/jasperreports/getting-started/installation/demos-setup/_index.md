@@ -4,22 +4,18 @@ type: docs
 weight: 70
 url: /ja/jasperreports/demos-setup/
 ---
-
-
-Aspose.Slides for JasperReportsに付属しているすべてのデモは、標準的なデモが変更されたものです。すべてのデモをJasperReportsのデモフォルダーにコピーすることをお勧めします：
+Aspose.Slides for JasperReports が提供するすべてのデモは、変更された標準デモです。すべてのデモを JasperReports のデモフォルダーにコピーした方がよいです:
 ...\jasperreports-x.x.x\demo\samples\
 
-レポートを構築してエクスポートするために、標準のコマンドシーケンスを使用します：
+レポートをビルドおよびエクスポートするには、標準のコマンドシーケンスを使用します:
 
 - ant javac
 - ant compile
 - ant fill
 - ant ppt
 
-{{% alert color="primary" %}} 
-
-レポートにデータを埋め込むために、テストデータベースでHSQLDBを実行するのを忘れないでください。そして、aspose-slides-xx.x-jasperreports.zipの\lib\JasperReports X.X.X - X.X.Xフォルダーからaspose.slides.jasperreports.library-xx.x.jarを&#60;InstallDir&#62;\libディレクトリにコピーしてください。
-
+{{% alert color="info" %}} 
+テストデータベースで HSQLDB を実行し、レポートにデータを入力することを忘れないでください。また、aspose-slides-xx.x-jasperreports.zip の \lib\JasperReports X.X.X - X.X.X フォルダーから aspose.slides.jasperreports.library-xx.x.jar を &#60;InstallDir&#62;\lib ディレクトリにコピーしてください。
 {{% /alert %}} 
 
-ほとんどのデモ（チャートを除く）には、すでに生成されたプレゼンテーションがありますので、すべての「ant」ステップをスキップして、すぐに結果を確認できます。
+チャートを除くほとんどのデモはすでにプレゼンテーションが生成されているため、すべての「ant」手順をスキップしてすぐに結果を確認できます。

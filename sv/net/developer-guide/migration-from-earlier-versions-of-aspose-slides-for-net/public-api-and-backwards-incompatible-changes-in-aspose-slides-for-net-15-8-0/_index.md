@@ -1,31 +1,34 @@
 ---
-title: Offentlig API och bakåtinkompatibla förändringar i Aspose.Slides för .NET 15.8.0
+title: Offentligt API och bakåtinkompatibla förändringar i Aspose.Slides för .NET 15.8.0
 linktitle: Aspose.Slides för .NET 15.8.0
 type: docs
 weight: 190
 url: /sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/
 keywords:
-- migrering
+- migration
 - gammal kod
 - modern kod
-- gammal metod
-- modern metod
+- gammalt tillvägagångssätt
+- modernt tillvägagångssätt
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Granska offentliga API-uppdateringar och brytande förändringar i Aspose.Slides för .NET för att smidigt migrera dina PowerPoint PPT, PPTX och ODP presentationslösningar."
+description: "Granska offentliga API-uppdateringar och breaking changes i Aspose.Slides för .NET för att smidigt migrera dina PowerPoint PPT, PPTX och ODP presentationslösningar."
 ---
-{{% alert color="primary" %}}
-Denna sida listar alla [tillagda](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) eller [borttagna](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) klasser, metoder, egenskaper och så vidare, samt andra förändringar som införts med Aspose.Slides för .NET 15.8.0 API.
-{{% /alert %}}
+{{% alert color="info" %}} 
+Den här sidan listar alla [tillagda](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) eller [borttagna](/slides/sv/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) klasser, metoder, egenskaper osv., samt andra förändringar som introducerats med Aspose.Slides för .NET 15.8.0 API.
+{{% /alert %}} 
 ## **Offentliga API-ändringar**
 #### **Egenskapen DoughnutHoleSize har lagts till i IChartSeries och ChartSeries**
 Anger storleken på hålet i ett munkdiagram.
-
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -38,5 +41,4 @@ Anger storleken på hålet i ett munkdiagram.
    pres.Save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat.Pptx);
 
 }
-
 ```

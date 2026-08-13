@@ -1,11 +1,11 @@
 ---
-title: "واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة في Aspose.Slides for .NET 15.4.0"
-linktitle: "Aspose.Slides for .NET 15.4.0"
+title: API العامة والتغييرات غير المتوافقة للخلف في Aspose.Slides لـ .NET 15.4.0
+linktitle: Aspose.Slides لـ .NET 15.4.0
 type: docs
 weight: 150
 url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 keywords:
-- ترحيل
+- الترحيل
 - كود قديم
 - كود حديث
 - نهج قديم
@@ -16,133 +16,232 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "استعراض تحديثات واجهة برمجة التطبيقات العامة والتغييرات المكسرة في Aspose.Slides for .NET للترحيل السلس لحلول العروض التقديمية PowerPoint PPT و PPTX و ODP."
+description: "مراجعة تحديثات API العامة والتغييرات الجذرية في Aspose.Slides لـ .NET للترحيل السلس لحلول عروض PowerPoint PPT، PPTX و ODP الخاصة بك."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-هذه الصفحة تسرد جميع الفئات أو الأساليب أو الخصائص أو غيرها من العناصر التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) وغيرها من التغييرات التي تم تقديمها مع Aspose.Slides for .NET 15.4.0 API.
+هذه الصفحة تُدرج جميع الفئات، الأساليب، الخصائص وغيرها، التي تم [إضافتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) أو [إزالتها](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) ، بالإضافة إلى التغييرات الأخرى التي تم تقديمها مع Aspose.Slides for .NET 15.4.0 API.
+
 {{% /alert %}} 
-## **تغييرات واجهة برمجة التطبيقات العامة**
-#### **تمت إضافة Enum OrganizationChartLayoutType**
-يُمثل تعداد Aspose.Slides.SmartArt.OrganizationChartLayoutType نوع تنسيق العقد الفرعية في مخطط المنظمة.
-#### **تمت إضافة طريقة IBulletFormat.ApplyDefaultParagraphIndentsShifts**
-طريقة Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts تُعيّن الإزاحات غير الصفرية الافتراضية للمسافة البادئة للفقرة (Indent) والهوامش اليسرى (MarginLeft) عندما تكون النقاط مفعّلة (كما تفعل PowerPoint عند تمكين النقاط/الترقيم للفقرة). إذا كانت النقاط معطّلة يتم فقط إعادة تعيين المسافة البادئة والهوامش اليسرى (كما تفعل PowerPoint عند تعطيل النقاط/الترقيم للفقرة).
+## **التغييرات العامة لواجهة برمجة التطبيقات**
+#### **تم إضافة Enum OrganizationChartLayoutType**
+يمثل تعداد Aspose.Slides.SmartArt.OrganizationChartLayoutType نوع تنسيق العقد الفرعية في مخطط المنظمة.
+#### **تم إضافة Method IBulletFormat.ApplyDefaultParagraphIndentsShifts**
+تقوم الطريقة Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts بتعيين إزاحات غير صفرية افتراضية للمسافة البادئة للفقرة (Indent) والهامش الأيسر (MarginLeft) عندما تكون القوائم النقطية مفعلة (كما يفعل PowerPoint عند تمكين القوائم النقطية/الترقيم للفقرة). إذا تم تعطيل القوائم النقطية، فإنها تعيد تعيين المسافة البادئة للفقرة والهامش الأيسر (كما يفعل PowerPoint عند تعطيل القوائم النقطية/الترقيم للفقرة).
 
-اطلع على الأمثلة [here](/slides/ar/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **تمت إضافة طريقة IConnector.Reroute**
-طريقة Aspose.Slides.IConnector.Reroute تعيد توجيه الموصل بحيث يأخذ أقصر مسار ممكن بين الشكلين المتصلين. للقيام بذلك قد تقوم طريقة Reroute() بتغيير الخاصيتين StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex.
+راجع الأمثلة [هنا](/slides/ar/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+#### **تم إضافة Method IConnector.Reroute**
+تقوم الطريقة Aspose.Slides.IConnector.Reroute بإعادة توجيه الموصل بحيث يأخذ أقصر مسار ممكن بين الشكلين المتصلين. للقيام بذلك، قد تقوم طريقة Reroute() بتغيير القيم StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex.
 
 ``` csharp
-using(Presentation input = new Presentation())
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+
+ using(Presentation input = new Presentation())
+
 {
+
   IShapeCollection shapes = input.Slides[0].Shapes;
+
   IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
   IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+
   IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+
   connector.StartShapeConnectedTo = ellipse;
+
   connector.EndShapeConnectedTo = rectangle;
+
   connector.Reroute();
+
   input.Save("output.pptx", SaveFormat.Pptx);
+
 }
+
 ``` 
-#### **تمت إضافة طريقة IPresentation.GetSlideById**
-طريقة Aspose.Slides.IPresentation.GetSlideById(System.UInt32) تُعيد شريحة Slide أو MasterSlide أو LayoutSlide بحسب معرف الشريحة.
+#### **تم إضافة Method IPresentation.GetSlideById**
+تُرجع الطريقة Aspose.Slides.IPresentation.GetSlideById(System.UInt32) شريحة (Slide) أو شريحة رئيسية (MasterSlide) أو شريحة تخطيط (LayoutSlide) بناءً على معرف الشريحة.
 
 ``` csharp
-using (Presentation presentation = new Presentation())
+using System.Diagnostics;
+using Aspose.Slides;
+
+
+ using (Presentation presentation = new Presentation())
+
 {
+
     uint id = presentation.Slides[0].SlideId;
+
     IBaseSlide slide = presentation.GetSlideById(id);
+
     Debug.Assert(presentation.Slides[0] == slide);
+
 }
 ``` 
-#### **تمت إضافة خاصية IShape.ConnectionSiteCount**
-خاصية Aspose.Slides.IShape.ConnectionSiteCount تُعيد عدد مواقع الاتصال على الشكل.
+#### **تم إضافة Property IShape.ConnectionSiteCount**
+تُعيد الخاصية Aspose.Slides.IShape.ConnectionSiteCount عدد نقاط الاتصال على الشكل.
 
 ``` csharp
-using(Presentation input = new Presentation())
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+
+ using(Presentation input = new Presentation())
+
 {
+
   IShapeCollection shapes = input.Slides[0].Shapes;
+
   IConnector connector = shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+
   IAutoShape ellipse = shapes.AddAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+
   IAutoShape rectangle = shapes.AddAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
+
   connector.StartShapeConnectedTo = ellipse;
+
   connector.EndShapeConnectedTo = rectangle;
+
   uint wantedIndex = 6;
+
   if (ellipse.ConnectionSiteCount > wantedIndex)
+
   {
+
     connector.StartShapeConnectionSiteIndex = wantedIndex;
+
   }
+
   input.Save("output.pptx", SaveFormat.Pptx);
+
 }
 ``` 
-#### **تمت إضافة خاصية ISmartArt.IsReversed**
-خاصية Aspose.Slides.SmartArt.ISmartArt.IsReversed تسمح بالحصول على حالة مخطط SmartArt أو تعيينها فيما يتعلق بالاتجاه من اليسار إلى اليمين (LTR) أو من اليمين إلى اليسار (RTL) إذا كان المخطط يدعم الانعكاس.
+#### **تم إضافة Property ISmartArt.IsReversed**
+تتيح الخاصية Aspose.Slides.SmartArt.ISmartArt.IsReversed الحصول على أو تعيين حالة مخطط SmartArt فيما يتعلق بالاتجاه من اليسار إلى اليمين (LTR) أو من اليمين إلى اليسار (RTL)، إذا كان المخطط يدعم العكس.
 
 ``` csharp
-using (Presentation pres = new Presentation())
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
+
+ using (Presentation pres = new Presentation())
+
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
+
   smart.IsReversed = true;
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
 ``` 
-#### **تمت إضافة خاصية ISmartArt.Nodes**
-خاصية Aspose.Slides.SmartArt.ISmartArt.Nodes تُعيد مجموعة الجذور في كائن SmartArt.
+#### **تم إضافة Property ISmartArt.Nodes**
+تُعيد الخاصية Aspose.Slides.SmartArt.ISmartArt.Nodes مجموعة من العقد الجذرية في كائن SmartArt.
 
 ``` csharp
-using (Presentation pres = new Presentation())
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
+
+ using (Presentation pres = new Presentation())
+
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
-  ISmartArtNode node = smart.Nodes[1]; // اختيار العقدة الجذرية الثانية
+
+  ISmartArtNode node = smart.Nodes[1]; // اختر العقدة الجذرية الثانية
+
   node.TextFrame.Text = "Second root node";
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
 ``` 
-#### **تمت إضافة خاصية ISmartArtNode.IsHidden**
-خاصية Aspose.Slides.SmartArt.ISmartArtNode.IsHidden تُعيد true إذا كانت هذه العقدة مخفية في نموذج البيانات.
+#### **تم إضافة Property ISmartArtNode.IsHidden**
+تُعيد الخاصية Aspose.Slides.SmartArt.ISmartArtNode.IsHidden القيمة true إذا كانت هذه العقدة مخفية في نموذج البيانات.
 
 ``` csharp
-using (Presentation pres = new Presentation())
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
+
+ using (Presentation pres = new Presentation())
+
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
+
   ISmartArtNode node = smart.AllNodes.AddNode();
-  bool hidden = node.IsHidden; // returns true
+
+  bool hidden = node.IsHidden; //يرجع true
+
   if(hidden)
+
   {
-    // قم ببعض الإجراءات أو الإشعارات
+
+    //قم ببعض الإجراءات أو الإشعارات
+
   }
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
 ``` 
-#### **تمت إضافة خاصية ISmartArtNode.OrganizationChartLayout**
-خاصية Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout تسمح بالحصول على نوع مخطط المنظمة المرتبط بالعقدة الحالية أو تعيينه.
+#### **تم إضافة Property ISmartArtNode.OrganizationChartLayout**
+تتيح الخاصية Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout الحصول على أو تعيين نوع مخطط المنظمة المرتبط بالعقدة الحالية.
 
 ``` csharp
-using (Presentation pres = new Presentation())
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
+
+ using (Presentation pres = new Presentation())
+
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
+
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
 ``` 
-#### **تمت إضافة طريقة تعيين للخاصية ISmartArt.Layout**
-تمت إضافة طريقة تعيين للخاصية Aspose.Slides.SmartArt.ISmartArt.Layout. تسمح بتغيير نوع تخطيط مخطط موجود.
+#### **تم إضافة طريقة set للخاصية ISmartArt.Layout**
+تم إضافة طريقة set للخاصية Aspose.Slides.SmartArt.ISmartArt.Layout. تسمح بتغيير نوع التخطيط لمخطط موجود.
 
 ``` csharp
-using (Presentation pres = new Presentation())
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
+
+ using (Presentation pres = new Presentation())
+
 {
+
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
+
   smart.Layout = SmartArtLayoutType.BasicProcess;
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+
+  pres.Save("out.pptx", SaveFormat.Pptx);
+
 }
 ``` 
-#### **تغييرات API طفيفة**
-**هذه هي قائمة التغييرات الطفيفة في API:**
+#### **تغييرات طفيفة في واجهة برمجة التطبيقات**
+**هذه هي قائمة التغييرات الطفيفة في واجهة برمجة التطبيقات:**
 
-|Enum Aspose.Slides.BevelColorMode |محذوف، تعداد غير مستخدم |
+|تعداد Aspose.Slides.BevelColorMode |محذوف، تعداد غير مستخدم |
 | :- | :- |
-|Property ThreeDFormatEffectiveData.BevelColorMode |محذوف، خاصية غير مستخدمة |
-|Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |مضافة |
-|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |محذوف |
-|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |محذوف باعتباره غير صالح |
+|خاصية ThreeDFormatEffectiveData.BevelColorMode |محذوفة، خاصية غير مستخدمة |
+|خاصية Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>خاصية Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |مضافة |
+|خاصية Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>وراثة IParagraphFormatEffectiveData من ISlideComponent <br>خاصية Aspose.Slides.IThreeDFormat.AsISlideComponent <br>وراثة IThreeDFormat من ISlideComponent |محذوف |
+|خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>خاصية Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |محذوف باعتبارها قديمة |

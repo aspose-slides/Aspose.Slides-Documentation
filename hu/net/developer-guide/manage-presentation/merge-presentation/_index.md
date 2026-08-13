@@ -1,63 +1,63 @@
 ---
-title: Hatékonyan egyesítse az előadásokat .NET-ben
-linktitle: Előadások egyesítése
+title: Hatékonyan egyesítse a prezentációkat .NET-ben
+linktitle: Prezentációk egyesítése
 type: docs
 weight: 40
 url: /hu/net/merge-presentation/
 keywords:
 - PowerPoint egyesítése
-- előadások egyesítése
+- prezentációk egyesítése
 - diák egyesítése
 - PPT egyesítése
 - PPTX egyesítése
 - ODP egyesítése
-- PowerPoint összevonása
-- előadások összevonása
-- diák összevonása
-- PPT összevonása
-- PPTX összevonása
-- ODP összevonása
+- PowerPoint kombinálása
+- prezentációk kombinálása
+- diák kombinálása
+- PPT kombinálása
+- PPTX kombinálása
+- ODP kombinálása
 - .NET
 - C#
 - Aspose.Slides
-description: "Könnyedén egyesítheti a PowerPoint (PPT, PPTX) és OpenDocument (ODP) előadásokat az Aspose.Slides for .NET segítségével, egyszerűsítve a munkafolyamatát."
+description: "Könnyedén egyesítheti a PowerPoint (PPT, PPTX) és OpenDocument (ODP) prezentációkat az Aspose.Slides for .NET segítségével, egyszerűsítve a munkafolyamatát."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi előadások egyesítését úgy, hogy diák másolását egy előadásból egy másikba klónozza. Ez a cikk bemutatja, hogyan egyesíthet teljes előadásokat vagy kiválasztott diákat, hogyan használhat diamestert vagy egy adott elrendezést az egyesítés során, hogyan kezelhet különböző dia méretű előadásokat, és hogyan adhat egyesített diákat egy előadás szakaszához. Továbbá gyakorlati megjegyzéseket tartalmaz az egyesített tartalommal kapcsolatban, többek között előadói jegyzetek, megjegyzések, jelszóval védett forrásfájlok és szálhasználat tekintetében.
+Az Aspose.Slides lehetővé teszi a prezentációk egyesítését úgy, hogy egy prezentációból származó diák másolatát egy másikba klónozza. Ez a cikk elmagyarázza, hogyan lehet összeolvasztani teljes prezentációkat vagy kiválasztott diákat, hogyan lehet használni egy dia-mestert vagy egy adott elrendezést az egyesítés során, hogyan kezelhetünk különböző dia-méretekkel rendelkező prezentációkat, és hogyan adhatunk összeolvasztott diákot egy prezentáció szekciójához. Emellett gyakorlati megjegyzéseket tartalmaz az egyesített tartalommal kapcsolatban, beleértve a beszélői jegyzeteket, megjegyzéseket, jelszóval védett forrásfájlokat és a szálhasználatot.
 
-## **Optimalizálja az előadások egyesítését**
+## **Optimalizálja a prezentációk egyesítését**
 
-Az [Aspose.Slides for .NET](https://products.aspose.com/slides/hu/net/) segítségével zökkenőmentesen kombinálhatja a PowerPoint‑előadásokat, miközben megőrzi a stílusokat, elrendezéseket és az összes elemet. Más eszközökkel ellentétben az Aspose.Slides minőségromlás vagy adatvesztés nélkül egyesíti az előadásokat. Egyesítheti a teljes előadásokat, konkrét diákat és akár különböző fájlformátumokat (PPT → PPTX stb.).
+Az [Aspose.Slides for .NET](https://products.aspose.com/slides/hu/net/) segítségével zökkenőmentesen egyesítheti a PowerPoint‑prezentációkat, miközben megőrzi a stílusokat, elrendezéseket és minden elemet. Más eszközökkel ellentétben az Aspose.Slides a prezentációkat úgy keveri össze, hogy ne veszítsen a minőségből vagy az adatokból. Összeolvashat teljes prezentációkat, konkrét diákat, és még különböző fájlformátumokat is (PPT → PPTX, stb.).
 
 ### **Egyesítési funkciók**
 
-- **Teljes előadás egyesítése:** Minden dia egyetlen fájlba gyűjtése.
-- **Kiválasztott dia egyesítése:** Kijelölt diák kombinálása.
-- **Keresztformátumú egyesítés:** Különböző formátumú előadások integrálása, az integritás megőrzésével.
+- **Teljes prezentáció egyesítése:** Az összes dia egyetlen fájlba gyűjtése.  
+- **Kiválasztott dia egyesítése:** Kiválasztott diák kombinálása.  
+- **Keresztformátumú egyesítés:** Különböző formátumú prezentációk integrálása az integritás megőrzésével.  
 
-{{% alert title="Tip" color="primary" %}}  
-Szeretne egy gyors és **ingyenes online eszközt** a **PowerPoint‑előadások egyesítéséhez**? Próbálja ki a [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/hu/merger) alkalmazást.  
-- **PowerPoint fájlok egyszerű egyesítése:** Több **PPT, PPTX, ODP** előadást egyetlen fájlba egyesíthet.  
-- **Különböző formátumok támogatása:** Egyesíthet **PPT → PPTX**, **PPTX → ODP** és egyéb formátumokat.  
-- **Nincs telepítés szükséges:** Közvetlenül a böngészőben működik, gyors és biztonságos.  
+{{% alert title="Tip" color="info" %}}  
+Gyors, **ingyenes online eszközt** keres a **PowerPoint‑prezentációk egyesítéséhez**? Próbálja ki a [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/hu/merger) szolgáltatást.  
+
+- **PowerPoint fájlok egyszerű egyesítése**: Több **PPT, PPTX, ODP** prezentáció egyetlen fájlba kombinálása.  
+- **Különböző formátumok támogatása**: **PPT → PPTX**, **PPTX → ODP**, és több.  
+- **Nincs telepítés szükséges**: Közvetlenül böngészőjében működik, gyors és biztonságos.  
 
 [![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/hu/merger)  
 
-Kezdje el egyesíteni PowerPoint fájljait az **Aspose ingyenes online eszközével** még ma!  
+Kezdje el a PowerPoint fájlok egyesítését a **Aspose ingyenes online eszközzel** még ma!  
 {{% /alert %}}
 
-## **Előadások egyesítése**
+## **Prezentációk egyesítése**
 
-Amikor [egy előadást egy másikba egyesít](https://products.aspose.com/slides/hu/net/merger/ppt/), gyakorlatilag a diák egyetlen előadásba kerülnek, egy fájlt hozva létre.
+Amikor [egy prezentációt egy másikba egyesít](https://products.aspose.com/slides/hu/net/merger/ppt/), lényegében a diáikat egyetlen prezentációba kombinálja, hogy egy fájlt kapjon.  
 
-{{% alert title="Info" color="info" %}}
+{{% alert title="Info" color="info" %}}  
+A legtöbb prezentációs program (PowerPoint vagy OpenOffice) nem rendelkezik olyan funkcióval, amely lehetővé tenné a prezentációk ilyen módon történő egyesítését.  
 
-A legtöbb előadáskezelő program (PowerPoint vagy OpenOffice) nem rendelkezik olyan funkcióval, amely lehetővé tenné a prezentációk ilyen módú egyesítését.  
+A [**Aspose.Slides for .NET**](https://products.aspose.com/slides/hu/net/) azonban különböző módokon teszi lehetővé a prezentációk egyesítését. A prezentációkat minden alakzatukkal, stílusukkal, szövegükkel, formázásukkal, megjegyzéseikkel, animációikkal stb. egyesítheti anélkül, hogy a minőség vagy az adatok elvesznének.  
 
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/hu/net/), azonban többféleképpen is lehetővé teszi az előadások egyesítését. Az összes alakzat, stílus, szöveg, formázás, megjegyzés, animáció stb. megmarad, minőség- vagy adatvesztés nélkül.  
-
-**Lásd még**
+**Lásd még**  
 
 [Clone Slides](https://docs.aspose.com/slides/hu/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.*  
 {{% /alert %}}
@@ -66,36 +66,39 @@ A legtöbb előadáskezelő program (PowerPoint vagy OpenOffice) nem rendelkezik
 
 Az Aspose.Slides segítségével egyesíthet  
 
-* teljes előadásokat. Az összes dia egyetlen előadásba kerül  
-* konkrét diákat. A kiválasztott diák egy előadásba kerülnek  
-* ugyanabban a formátumban lévő előadásokat (PPT → PPT, PPTX → PPTX stb.) és különböző formátumúakat (PPT → PPTX, PPTX → ODP stb.) egymáshoz.  
+* teljes prezentációkat. Az összes dia egy prezentációba kerül  
+* konkrét diákat. A kiválasztott diák egy prezentációba kerülnek  
+* prezentációkat egy formátumban (PPT → PPT, PPTX → PPTX stb.) és különböző formátumokban (PPT → PPTX, PPTX → ODP stb.) egymásba.  
 
 {{% alert title="Note" color="warning" %}}  
-Az előadások mellett az Aspose.Slides lehetővé teszi más fájlok egyesítését is:
+Az prezentációkon felül az Aspose.Slides lehetővé teszi más fájlok egyesítését is:  
 
-* [Képek](https://products.aspose.com/slides/hu/net/merger/image-to-image/), például [JPG → JPG](https://products.aspose.com/slides/hu/net/merger/jpg-to-jpg/) vagy [PNG → PNG](https://products.aspose.com/slides/hu/net/merger/png-to-png/)  
-* Dokumentumok, például [PDF → PDF](https://products.aspose.com/slides/hu/net/merger/pdf-to-pdf/) vagy [HTML → HTML](https://products.aspose.com/slides/hu/net/merger/html-to-html/)  
-* Két különböző fájlt, például [kép → PDF](https://products.aspose.com/slides/hu/net/merger/image-to-pdf/), [JPG → PDF](https://products.aspose.com/slides/hu/net/merger/jpg-to-pdf/) vagy [TIFF → PDF](https://products.aspose.com/slides/hu/net/merger/tiff-to-pdf/).  
+* [Images](https://products.aspose.com/slides/hu/net/merger/image-to-image/), például [JPG to JPG](https://products.aspose.com/slides/hu/net/merger/jpg-to-jpg/) vagy [PNG to PNG](https://products.aspose.com/slides/hu/net/merger/png-to-png/)  
+* Dokuments, például [PDF to PDF](https://products.aspose.com/slides/hu/net/merger/pdf-to-pdf/) vagy [HTML to HTML](https://products.aspose.com/slides/hu/net/merger/html-to-html/)  
+* És két különböző fájl, például [image to PDF](https://products.aspose.com/slides/hu/net/merger/image-to-pdf/) vagy [JPG to PDF](https://products.aspose.com/slides/hu/net/merger/jpg-to-pdf/) vagy [TIFF to PDF](https://products.aspose.com/slides/hu/net/merger/tiff-to-pdf/).  
 {{% /alert %}}
 
 ### **Egyesítési beállítások**
 
-Alkalmazhat beállításokat, amelyek meghatározzák, hogy  
+Alkalmazhat olyan beállításokat, amelyek meghatározzák, hogy  
 
-* minden dia az eredmény‑prezentációban megőrizze-e egyedi stílusát  
-* egy adott stílus legyen‑e használva az összes dia számára az eredmény‑prezentációban.  
+* a kimeneti prezentáció minden diája egyedi stílust megtart-e  
+* egy adott stílus legyen-e alkalmazva az összes kimeneti diához.  
 
-Az előadások egyesítéséhez az Aspose.Slides a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone) metódusokat (az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) interfészből) biztosítja. Számos `AddClone` implementáció létezik, amelyek a prezentáció egyesítési folyamat paramétereit határozzák meg. Minden Presentation objektumnak van egy [Slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/properties/slides) gyűjteménye, így a kívánt cél‑prezentációból hívhatja a `AddClone` metódust.
+Az prezentációk egyesítéséhez az Aspose.Slides a [AddClone](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone) metódusokat (az [ISlideCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection) interfészből) biztosítja. Többféle `AddClone` metódus megvalósítás létezik, amelyek meghatározzák az egyesítési folyamat paramétereit. Minden Presentation objektumnak van egy [Slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/properties/slides) gyűjteménye, így a kívánt prezentációból hívhatja a `AddClone` metódust a diák egyesítéséhez.  
 
-A `AddClone` metódus egy `ISlide` objektumot ad vissza, amely az eredeti dia klónja. Az eredmény‑prezentáció diáit egyszerűen a forrás‑diák másolataiként kezelhetjük. Ennek köszönhetően a kapott diákon (például stílusok, formázási opciók vagy elrendezések alkalmazása) változtatásokat végezhet anélkül, hogy a forrás‑prezentációk érintettek lennének.  
+Az `AddClone` metódus egy `ISlide` objektumot ad vissza, amely a forrásdia klónja. A kimeneti prezentáció diái egyszerűen a forrásdiák másolatai. Ennek következtében módosíthatja a létrejött diákot (például stílusok, formázási beállítások vagy elrendezések alkalmazása) anélkül, hogy aggódna a forrásprezentációk hatással való módosulása miatt.  
 
-## **Prezentációk egyesítése**  
+## **Prezentációk egyesítése**
 
-Az Aspose.Slides a [**AddClone (ISlide)**](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone) metódust kínálja, amely lehetővé teszi a diák egyesítését úgy, hogy azok megőrzik az eredeti elrendezéseiket és stílusaikat (alapértelmezett paraméterek).  
+Aspose.Slides a [**AddClone (ISlide)**](https://reference.aspose.com/slides/hu/net/aspose.slides/islidecollection/methods/addclone) metódust biztosítja, amely lehetővé teszi a diák kombinálását úgy, hogy a diák megtartják elrendezésüket és stílusukat (alapértelmezett paraméterek).  
 
-Ez a C# kód bemutatja, hogyan egyesíthetünk prezentációkat:
+Ez a C# kód bemutatja, hogyan lehet prezentációkat egyesíteni:  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -108,13 +111,16 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Prezentációk egyesítése diamesterrel**  
+## **Prezentációk egyesítése dia-mesterrel**
 
-Az Aspose.Slides a [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/hu/net/aspose.slides.islidecollection/addclone/methods/2) metódust biztosítja, amely lehetővé teszi a diák egyesítését egy diamester sablon alkalmazásával. Így szükség esetén megváltoztathatja a kimeneti prezentáció diáinak stílusát.  
+Aspose.Slides a [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/hu/net/aspose.slides.islidecollection/addclone/methods/2) metódust biztosítja, amely lehetővé teszi a diák egyesítését, miközben egy dia-mester prezentációs sablont alkalmaz. Így szükség esetén megváltoztathatja a kimeneti prezentáció diáinak stílusát.  
 
-Az alábbi C# kód demonstrálja a leírt műveletet:
+Ez a C# kód mutatja be a leírt műveletet:  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -128,18 +134,21 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 ```
 
 {{% alert title="Note" color="warning" %}}  
-A diamester elrendezése automatikusan kerül meghatározásra. Ha nem állapítható meg megfelelő elrendezés, és az `allowCloneMissingLayout` logikai paraméter a `AddClone` metódusban true értékre van állítva, akkor a forrásdia elrendezése lesz használva. Ellenkező esetben [PptxEditException](https://reference.aspose.com/slides/hu/net/aspose.slides/pptxeditexception) kivétel keletkezik.  
+A dia-mester elrendezése automatikusan kerül meghatározásra. Ha nem található megfelelő elrendezés, és az `allowCloneMissingLayout` boolean paraméter a `AddClone` metódusban igazra van állítva, a forrásdia elrendezése lesz használva. Ellenkező esetben a [PptxEditException](https://reference.aspose.com/slides/hu/net/aspose.slides/pptxeditexception) kerül dobásra.  
 {{% /alert %}}
 
-Ha azt szeretné, hogy a kimeneti prezentáció diái más elrendezést kapjanak, használja helyette a [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/hu/net/aspose.slides.islidecollection/addclone/methods/1) metódust az egyesítés során.  
+Ha azt szeretné, hogy a kimeneti prezentáció diái más diaelrendezést kapjanak, használja a [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/hu/net/aspose.slides.islidecollection/addclone/methods/1) metódust egyesítéskor.  
 
-## **Kiválasztott diák egyesítése előadásokból**  
+## **Specifikus diák egyesítése prezentációkból**
 
-Kiválasztott diák egyesítése több előadásból hasznos egyedi diakészletek létrehozásához. Az Aspose.Slides for .NET lehetővé teszi, hogy csak a szükséges diákat válassza ki és importálja. Az API megőrzi az eredeti diák formázását, elrendezését és dizájnját.
+Konkrét diák több prezentációból történő egyesítése hasznos egyedi diákkészletek létrehozásához. Az Aspose.Slides for .NET lehetővé teszi, hogy kiválassza és importálja csak a szükséges diákat. Az API megőrzi az eredeti diák formázását, elrendezését és tervezését.  
 
-Az alábbi C# kód egy új prezentációt hoz létre, hozzáadja két másik előadás cím-diáját, majd elmenti az eredményt egy fájlba:
+A következő C# kód egy új prezentációt hoz létre, hozzáadja a cím diákat két másik prezentációból, és elmenti az eredményt egy fájlba:  
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 using (Presentation presentation1 = new Presentation("presentation1.pptx"))
 using (Presentation presentation2 = new Presentation("presentation2.pptx"))
@@ -158,8 +167,22 @@ using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 
     presentation.Save("combined.pptx", SaveFormat.Pptx);
 }
+
+static ISlide GetTitleSlide(IPresentation presentation)
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
+        {
+            return slide;
+        }
+    }
+    return null;
+}
 ```
 ```cs
+using Aspose.Slides;
+
 static ISlide GetTitleSlide(IPresentation presentation)
 {
     foreach (ISlide slide in presentation.Slides)
@@ -173,11 +196,14 @@ static ISlide GetTitleSlide(IPresentation presentation)
 }
 ```
 
-## **Prezentációk egyesítése diakalappal**  
+## **Prezentációk egyesítése diaelrendezéssel**
 
-Ez a C# kód megmutatja, hogyan kombinálhatók a diák előadásokból, miközben a kívánt diakalappal látják el őket, egyetlen kimeneti prezentációt hozva létre:
+Ez a C# kód bemutatja, hogyan lehet a prezentációk diáját egyesíteni, miközben a kívánt diaelrendezést alkalmazza rájuk, hogy egy kimeneti prezentációt kapjon:  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -190,17 +216,20 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Prezentációk egyesítése különböző dia méretekkel**  
+## **Prezentációk egyesítése különböző dia méretekkel**
 
 {{% alert title="Note" color="warning" %}}  
-Nem lehet különböző dia méretű előadásokat egyesíteni.  
+A különböző dia méretekkel rendelkező prezentációk egyesítése nem okoz hibát, de az egyesített diák a célprezentáció dia méretét veszik fel, míg alakzataik megtartják eredeti pozíciójukat és méretüket, így a tartalom elhelyezkedhet hibásan vagy a dia határain kívül.  
 {{% /alert %}}
 
-Két különböző dia méretű prezentáció egyesítéséhez egyik prezentáció méretét át kell állítani, hogy megegyezzen a másikéval.
+A két különböző dia méretű prezentáció egyesítéséhez, a tartalom megfelelő elrendezésének megőrzéséhez, méretezze át az egyiket, hogy a mérete megegyezzen a másikéval.  
 
-Ez a mintakód demonstrálja a leírt műveletet:
+Ez a minta kód demonstrálja a leírt műveletet:  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
    pres2 = new Presentation("pres2.pptx"))
 {
@@ -215,11 +244,14 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-## **Diák egyesítése egy prezentáció szakaszába**  
+## **Diák egyesítése egy prezentáció szekciójába**
 
-Ez a C# kód megmutatja, hogyan egyesíthet egy adott diát egy szakaszba a prezentációban:
+Ez a C# kód bemutatja, hogyan lehet egy adott diát egy szekcióba egyesíteni a prezentációban:  
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres1 = new Presentation("pres1.pptx"),
     pres2 = new Presentation("pres2.pptx"))
 {
@@ -233,26 +265,26 @@ using (Presentation pres1 = new Presentation("pres1.pptx"),
 }
 ```
 
-A dia a szakasz végére kerül hozzáadásra.  
+A dia a szekció végén kerül hozzáadásra.  
 
-{{% alert title="Tip" color="primary" %}}  
-Az Aspose egy [INGYENES Collage webalkalmazást](https://products.aspose.app/slides/hu/collage) biztosít. Ezzel az online szolgáltatással egyesíthet [JPG → JPG](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG → PNG képeket, készíthet [fotórácsokat](https://products.aspose.app/slides/hu/collage/photo-grid) és így tovább.  
+{{% alert title="Tip" color="info" %}}  
+Az Aspose egy [INGYENES Collage webalkalmazást](https://products.aspose.app/slides/hu/collage) biztosít. Ezzel az online szolgáltatással [JPG → JPG](https://products.aspose.app/slides/hu/collage/jpg) vagy PNG → PNG képeket egyesíthet, [fotohálókat](https://products.aspose.app/slides/hu/collage/photo-grid) hozhat létre, stb.  
 {{% /alert %}}
 
 ## **GYIK**
 
-**Megmaradnak a beszámoló jegyzetek az egyesítés során?**  
+### Megmaradnak a beszélői jegyzetek az egyesítés során?
 
-Igen. A diák klónozása során az Aspose.Slides átviszi az összes diaelemet, beleértve a jegyzeteket, formázást és animációkat.
+Igen. A diák klónozásakor az Aspose.Slides átviszi az összes diaelemet, beleértve a jegyzeteket, a formázást és az animációkat.
 
-**Átkerülnek a megjegyzések és szerzőik?**  
+### Átkerülnek a megjegyzések és szerzőik?
 
-A megjegyzések a dia tartalmának részeként másolódnak át. A szerzők címkéi megmaradnak megjegyzésobjektumként a keletkezett prezentációban.
+A megjegyzések, mint a dia tartalmának része, a diával együtt másolódnak. A megjegyzés szerzőjének címkéi megmaradnak a létrejött prezentáció megjegyzésobjektumaiban.
 
-**Mi van, ha a forrás‑prezentáció jelszóval védett?**  
+### Mi van, ha a forrásprezentáció jelszóval van védve?
 
-A [jelszóval megnyitott](/slides/hu/net/password-protected-presentation/) dokumentumot a [LoadOptions.Password](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/password/) segítségével kell betölteni; betöltés után a diákat biztonságosan klónozhatja egy védtelen vagy akár egy védett célfájlba is.
+Azt [a jelszóval kell megnyitni](/slides/hu/net/password-protected-presentation/) a [LoadOptions.Password](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/password/) segítségével; a betöltés után a diák biztonságosan klónozhatók egy védtelen célfájlba (vagy egy védett fájlba is).
 
-**Mennyire szálbiztos az egyesítési művelet?**  
+### Mennyire szálbiztos az egyesítési művelet?
 
-Ne használja ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányt több [szálról](/slides/hu/net/multithreading/). Az ajánlott szabály: „egy dokumentum – egy szál”; különböző fájlok párhuzamosan feldolgozhatók külön szálakon.
+Ne használja ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányt [több szálból](/slides/hu/net/multithreading/). Az ajánlott szabály: „egy dokumentum – egy szál”; különböző fájlok párhuzamosan feldolgozhatók külön szálakon.

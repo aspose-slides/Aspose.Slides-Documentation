@@ -1,5 +1,5 @@
 ---
-title: ワークシートのリサイズに対する実装済みソリューション
+title: ワークシートリサイズの実用的解決策
 type: docs
 weight: 20
 url: /ja/androidjava/working-solution-for-worksheet-resizing/
@@ -14,34 +14,40 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "プレゼンテーションでの Excel ワークシート OLE リサイズを修正します。オブジェクトフレームを一貫させる方法は2つあり、フレームをスケールするかシートをスケールすることで、PPT と PPTX 形式の両方で対応できます。"
+description: "プレゼンテーションでの Excel ワークシート OLE リサイズを修正します：オブジェクトフレームを一定に保つための 2 つの方法—フレームをスケーリングするかシートをスケーリングするか—を PPT と PPTX 形式で提供します。"
 ---
-
-{{% alert color="primary" %}}
-Aspose コンポーネントを使用して PowerPoint プレゼンテーションに OLE オブジェクトとして埋め込まれた Excel ワークシートは、最初のアクティベーション後に不明なスケールにリサイズされることが確認されています。この動作により、OLE オブジェクトのアクティベーション前後でプレゼンテーションに目立つ視覚的差違が生じます。本稿ではこの問題を詳細に調査し、解決策を提供しています。
+{{% alert color="info" %}}
+Excel ワークシートが OLE オブジェクトとして PowerPoint プレゼンテーションに埋め込まれ、Aspose コンポーネントを介して最初にアクティブ化された後、未特定のスケールにリサイズされることが確認されています。この動作により、OLE オブジェクトのアクティブ化前後でプレゼンテーションの見た目に顕著な違いが生じます。本記事ではこの問題を詳細に調査し、解決策を提示しています。
 {{% /alert %}}
 
 ## **背景**
 
-この記事[Manage OLE](/slides/ja/androidjava/manage-ole/)では、Aspose.Slides for Android via Java を使用して PowerPoint プレゼンテーションに OLE フレームを追加する方法を説明しました。[object preview issue](/slides/ja/androidjava/object-preview-issue-when-adding-oleobjectframe/) に対処するため、選択したワークシート領域の画像を OLE オブジェクトフレームに割り当てました。出力されたプレゼンテーションで、ワークシート画像を表示している OLE オブジェクトフレームをダブルクリックすると、Excel ブックがアクティブ化されます。エンドユーザーは実際の Excel ブックに任意の変更を加え、アクティブ化された Excel ブックの外側をクリックしてスライドに戻ることができます。ユーザーがスライドに戻ると OLE オブジェクトフレームのサイズが変わります。リサイズ率は OLE オブジェクトフレームと埋め込まれた Excel ブックのサイズに応じて変わります。
+[Manage OLE](/slides/ja/androidjava/manage-ole/) 記事では、Aspose.Slides for Android via Java を使用して PowerPoint プレゼンテーションに OLE フレームを追加する方法を説明しました。[object preview issue](/slides/ja/androidjava/object-preview-issue-when-adding-oleobjectframe/) に対処するため、選択したワークシート領域の画像を OLE オブジェクトフレームに割り当てました。出力されたプレゼンテーションで、ワークシート画像を表示している OLE オブジェクトフレームをダブルクリックすると Excel ブックがアクティブ化されます。エンドユーザーは実際の Excel ブックを自由に編集でき、編集後はアクティブ化された Excel ブックの外側をクリックしてスライドに戻ります。ユーザーがスライドに戻ると OLE オブジェクトフレームのサイズが変わります。リサイズ率は OLE オブジェクトフレームと埋め込まれた Excel ブックのサイズによって変動します。
 
 ## **リサイズの原因**
 
-Excel ブックには独自のウィンドウサイズがあるため、最初のアクティベーション時に元のサイズを保持しようとします。一方、OLE オブジェクトフレームにも独自のサイズがあります。Microsoft によれば、Excel ブックがアクティブになると、Excel と PowerPoint がサイズを協議し、埋め込みプロセスの一部として正しい比率を保つようにします。リサイズは Excel ウィンドウサイズと OLE オブジェクトフレームのサイズおよび位置の違いに基づいて発生します。
+Excel ブックは独自のウィンドウサイズを持っているため、最初にアクティブ化された際に元のサイズを保持しようとします。一方、OLE オブジェクトフレームは独自のサイズがあります。Microsoft によると、Excel ブックがアクティブ化されると、Excel と PowerPoint が埋め込みプロセスの一部として正しい比率を保つようサイズ交渉を行います。リサイズは Excel ウィンドウサイズと OLE オブジェクトフレームのサイズ・位置の差に基づいて発生します。
 
-## **実装ソリューション**
+## **解決策**
 
-リサイズ効果を回避するための2つの解決策があります。
+リサイズ効果を回避するための 2 つの可能な解決策があります。
 
-- PowerPoint プレゼンテーション内の OLE フレームサイズをスケーリングし、OLE フレーム内の目的の行数と列数の高さと幅に合わせます。
-- OLE フレームサイズを固定したまま、対象となる行と列のサイズをスケーリングして、選択した OLE フレームサイズ内に収めます。
+- PowerPoint プレゼンテーション内の OLE フレームサイズを、OLE フレーム内に配置したい行数と列数の高さ・幅に合わせてスケーリングする。
+- OLE フレームサイズを固定し、対象の行と列のサイズをスケーリングしてフレーム内に収める。
 
 ### **OLE フレームサイズのスケーリング**
 
-このアプローチでは、埋め込まれた Excel ワークブックの OLE フレームサイズを、Excel ワークシート内の対象行と列の合計サイズに合わせて設定する方法を学びます。
+この方法では、埋め込まれた Excel ブックの OLE フレームサイズを、Excel ワークシート内の対象行と列の合計サイズに合わせて設定する方法を学びます。
 
-テンプレート Excel シートがあり、これを OLE フレームとしてプレゼンテーションに追加したいとします。このシナリオでは、まずブック内の対象行と列の合計行高さと列幅に基づいて OLE オブジェクトフレームのサイズを計算します。次に、その計算値で OLE フレームのサイズを設定します。PowerPoint の OLE フレームで赤い「EMBEDDED OLE OBJECT」メッセージが表示されないように、ブック内の対象行と列の必要な部分の画像を取得し、OLE フレーム画像として設定します。
+テンプレートの Excel シートがあり、プレゼンテーションに OLE フレームとして追加したいとします。このシナリオでは、まずブック内の対象行の高さと対象列の幅の合計から OLE オブジェクトフレームのサイズを算出します。次に、算出した値を OLE フレームのサイズとして設定します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ブック内の対象行と列の画像を取得し、OLE フレームのプレビュー画像として設定します。
+
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -51,7 +57,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// PowerPoint でブックファイルが OLE オブジェクトとして使用される際の表示サイズを設定します。
+// PowerPoint でブックファイルが OLE オブジェクトとして使用される場合の表示サイズを設定します。
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -61,8 +67,8 @@ InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // OLE 画像の幅と高さをポイント単位で取得します。
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
 // 変更されたブックを使用する必要があります。
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
@@ -77,7 +83,7 @@ imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// OLE オブジェクト フレームを作成します。
+// OLE オブジェクトフレームを作成します。
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -89,6 +95,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -113,13 +123,17 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
+### **セル範囲サイズのスケーリング**
 
-### **セル範囲のスケーリング**
+この方法では、カスタム OLE フレームサイズに合わせて対象行の高さと対象列の幅をスケーリングする方法を学びます。
 
-このアプローチでは、対象となる行の高さと列の幅をスケーリングして、カスタム OLE フレームサイズに合わせる方法を学びます。
+テンプレートの Excel シートがあり、プレゼンテーションに OLE フレームとして追加したいとします。このシナリオでは、まず OLE フレームのサイズを設定し、フレーム領域に含まれる行と列のサイズをスケーリングしてフレームに合わせます。その後、変更を反映させるためにブックをストリームに保存し、バイト配列に変換して OLE フレームに追加します。PowerPoint の OLE フレームに表示される赤い「EMBEDDED OLE OBJECT」メッセージを回避するため、ブック内の対象行と列の画像を取得し、OLE フレームのプレビュー画像として設定します。
 
-テンプレート Excel シートがあり、これを OLE フレームとしてプレゼンテーションに追加したいとします。このシナリオでは、OLE フレームのサイズを設定し、OLE フレーム領域に含まれる行と列のサイズをスケーリングします。その後、変更を適用するためにブックをストリームに保存し、OLE フレームに追加するためにバイト配列に変換します。PowerPoint の OLE フレームで赤い「EMBEDDED OLE OBJECT」メッセージが表示されないように、ブック内の対象行と列の必要な部分の画像を取得し、OLE フレーム画像として設定します。
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -130,12 +144,12 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// PowerPoint でブック ファイルが OLE オブジェクトとして使用される際の表示サイズを設定します。
+// PowerPoint でブックファイルが OLE オブジェクトとして使用される場合の表示サイズを設定します。
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// フレームサイズに合わせてセル範囲をスケーリングします。
+// セル範囲をフレームサイズに合わせてスケーリングします。
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -153,7 +167,7 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// OLE オブジェクト フレームを作成します。
+// OLE オブジェクトフレームを作成します。
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -166,8 +180,8 @@ presentation.dispose();
 
 ```java
 /**
- * @param width     セル範囲の期待幅（ポイント単位）。
- * @param height    セル範囲の期待高さ（ポイント単位）。
+ * @param width     セル範囲の幅（ポイント単位）の期待値。
+ * @param height    セル範囲の高さ（ポイント単位）の期待値。
  */
 static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float height) {
     double rangeWidth = cellRange.getWidth();
@@ -202,6 +216,10 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -226,35 +244,34 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 }
 ```
 
-
 ## **結論**
 
-{{% alert color="primary" %}} 
-ワークシートのリサイズ問題を解決するためには2つのアプローチがあります。適切なアプローチの選択は、具体的な要件と使用ケースに依存します。どちらのアプローチも、テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも同様に機能します。さらに、このソリューションでは OLE オブジェクトフレームのサイズに制限はありません。
+{{% alert color="info" %}} 
+ワークシートのリサイズ問題を解決する方法は 2 つあります。適切なアプローチの選択は、具体的な要件と使用ケースに依存します。どちらの方法も、テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも同様に機能します。また、このソリューションでは OLE オブジェクトフレームのサイズに制限はありません。
 {{% /alert %}}
 
-## **よくある質問**
+## **FAQ**
 
-**PowerPoint で最初にアクティブ化されたとき、埋め込まれた Excel ワークシートのサイズが変わるのはなぜですか？**
+### なぜ埋め込まれた Excel ワークシートは PowerPoint で最初にアクティブ化されたときにサイズが変わるのですか？
 
-これは、Excel がアクティブ化時に元のウィンドウサイズを保持しようとし、PowerPoint の OLE オブジェクトフレームが独自のサイズを持つためです。PowerPoint と Excel がサイズを協議し、アスペクト比を維持するため、リサイズが発生することがあります。
+Excel はアクティブ化時に元のウィンドウサイズを維持しようとし、PowerPoint の OLE オブジェクトフレームは独自の寸法を持っているためです。PowerPoint と Excel がサイズ交渉を行い、アスペクト比を保つためにリサイズが発生します。
 
-**このリサイズ問題を完全に防ぐことは可能ですか？**
+### このリサイズ問題を完全に防ぐことはできますか？
 
 はい。OLE フレームを Excel のセル範囲サイズに合わせてスケーリングするか、セル範囲を目的の OLE フレームサイズに合わせてスケーリングすることで、不要なリサイズを防止できます。
 
-**どちらのスケーリング方法を使用すべきですか、OLE フレームのスケーリングですか、セル範囲のスケーリングですか？**
+### どのスケーリング手法を使用すべきですか、OLE フレームのスケーリングですかセル範囲のスケーリングですか？
 
-元の Excel 行と列のサイズを維持したい場合は **OLE フレームのスケーリング** を選択してください。プレゼンテーションで OLE フレームを固定サイズにしたい場合は **セル範囲のスケーリング** を選択してください。
+元の Excel の行・列サイズを保持したい場合は **OLE フレームのスケーリング** を選択し、プレゼンテーション内で OLE フレームのサイズを固定したい場合は **セル範囲のスケーリング** を選択してください。
 
-**プレゼンテーションがテンプレートベースの場合でもこれらの解決策は機能しますか？**
+### テンプレートから作成したプレゼンテーションでもこれらの解決策は機能しますか？
 
-はい。テンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも、両方の解決策は機能します。
+はい。両方の解決策はテンプレートから作成したプレゼンテーションでも、ゼロから作成したプレゼンテーションでも同様に機能します。
 
-**これらの方法を使用する際に OLE フレームのサイズに制限はありますか？**
+### これらの方法を使用する際、OLE フレームのサイズに制限はありますか？
 
-いいえ。スケールを適切に設定すれば、OLE オブジェクトフレームは任意のサイズにできます。
+いいえ。スケールを適切に設定すれば、OLE オブジェクトフレームのサイズに制限はありません。
 
-**PowerPoint で「EMBEDDED OLE OBJECT」プレースホルダーのテキストを回避する方法はありますか？**
+### PowerPoint の「EMBEDDED OLE OBJECT」プレースホルダー文字列を回避する方法はありますか？
 
-はい。対象の Excel セル範囲のスナップショットを取得し、OLE フレームのプレースホルダー画像として設定することで、デフォルトのプレースホルダーの代わりにカスタムプレビュー画像を表示できます。
+はい。対象の Excel セル範囲のスナップショットを取得し、それを OLE フレームのプレースホルダー画像として設定すれば、デフォルトのプレースホルダー文字列の代わりにカスタムプレビュー画像を表示できます。

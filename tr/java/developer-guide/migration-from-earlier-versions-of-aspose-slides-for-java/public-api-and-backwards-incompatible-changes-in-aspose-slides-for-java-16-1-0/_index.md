@@ -1,11 +1,11 @@
 ---
-title: Aspose.Slides for Java 16.1.0'da Genel API ve Geriye Uyumsuz Değişiklikler
+title: Aspose.Slides for Java 16.1.0'de Genel API ve Geriye Uyumsuz Değişiklikler
 linktitle: Aspose.Slides for Java 16.1.0
 type: docs
 weight: 200
 url: /tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
 keywords:
-- geçiş
+- göç
 - eski kod
 - modern kod
 - eski yaklaşım
@@ -15,21 +15,20 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for Java'daki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-
-Bu sayfa, Aspose.Slides for Java 16.1.0 API'siyle tanıtılan tüm [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) veya [kaldırılan](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) sınıfları, metodları, özellikleri ve benzeri öğeleri ve diğer değişiklikleri listeler.
-
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for Java 16.1.0 API'siyle tanıtılan [eklenen](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) veya [kaldırılan](/slides/tr/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
 {{% /alert %}} 
 ## **Genel API Değişiklikleri**
 
-
-#### **getRotationAngle() ve setRotationAngle() metodları IChartTextBlockFormat ve ITextFrameFormat arabirimlerine eklendi**
-getRotationAngle() ve setRotationAngle() metodları com.aspose.slides.IChartTextBlockFormat ve com.aspose.slides.ITextFrameFormat arabirimlerine eklenmiştir.
-Bu metodlar, sınırlama kutusu içindeki metne uygulanan özel dönüşüme erişim sağlar.
+#### **getRotationAngle() ve setRotationAngle() metodları IChartTextBlockFormat ve ITextFrameFormat arayüzlerine eklenmiştir**
+getRotationAngle() ve setRotationAngle() metodları com.aspose.slides.IChartTextBlockFormat ve com.aspose.slides.ITextFrameFormat arayüzlerine eklenmiştir.
+Bu metodlar, sınırlayıcı kutu içindeki metne uygulanan özel dönüşümü erişilebilir kılar.
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

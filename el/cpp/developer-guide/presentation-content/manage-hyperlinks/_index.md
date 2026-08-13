@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Υπερσυνδέσμων Παρουσιάσεων σε C++
-linktitle: Διαχείριση Υπερσυνδέσμου
+title: "Διαχείριση Υπερσυνδέσμων Παρουσίασης σε C++"
+linktitle: "Διαχείριση Υπερσυνδέσμου"
 type: docs
 weight: 20
 url: /el/cpp/manage-hyperlinks/
@@ -22,46 +22,76 @@ keywords:
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Διαχειριστείτε εύκολα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για C++—βελτιώστε την αλληλεπίδραση και τη ροή εργασίας σε λίγα λεπτά."
+description: "Διαχειριστείτε άψογα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για C++—ενισχύστε την αλληλεπίδραση και τη ροή εργασίας σε λίγα λεπτά."
 ---
 ## **Εισαγωγή**
 
-Ένας υπερσύνδεσμος είναι μια αναφορά σε ένα αντικείμενο, δεδομένα ή μια θέση σε κάτι. Αυτοί είναι συνηθισμένοι υπερσύνδεσμοι σε παρουσιάσεις PowerPoint:
+Ένας υπερσυνδέσμος είναι μια αναφορά σε ένα αντικείμενο ή δεδομένα ή ένα σημείο σε κάτι. Αυτοί είναι κοινοί υπερσύνδεσμοι σε παρουσιάσεις PowerPoint:
 
-* Σύνδεσμοι σε ιστοσελίδες μέσα σε κείμενα, σχήματα ή πολυμέσα
+* Σύνδεσμοι σε ιστότοπους μέσα σε κείμενα, σχήματα ή πολυμέσα
 * Σύνδεσμοι σε διαφάνειες
 
-Το Aspose.Slides for C++ σάς επιτρέπει να εκτελείτε πολλές εργασίες που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
+Aspose.Slides for C++ σάς επιτρέπει να εκτελείτε πολλές εργασίες που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
 
-{{% alert color="primary" %}} 
-Ίσως θέλετε να δοκιμάσετε το Aspose simple, [δωρεάν διαδικτυακό επεξεργαστή PowerPoint.](https://products.aspose.app/slides/el/editor)
+{{% alert color="info" %}} 
+
+Ίσως θέλετε να δοκιμάσετε το Aspose simple, [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας PowerPoint.](https://products.aspose.app/slides/el/editor)
+
 {{% /alert %}} 
 
-## **Προσθήκη URL Υπερσυνδέσμων**
+## **Προσθήκη Σύνδεσμων URL**
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Κείμενο**
+### **Προσθήκη Σύνδεσμων URL σε Κείμενο**
 
-Αυτός ο κώδικας C++ σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε κείμενο:
+Αυτός ο κώδικας C++ σας δείχνει πώς να προσθέσετε έναν σύνδεσμο ιστοσελίδας σε κείμενο:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto portionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-portionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+portionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 portionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 portionFormat->set_FontHeight(32.0f);
 
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Σχήματα ή Πλαίσια**
+### **Προσθήκη Σύνδεσμων URL σε Σχήματα ή Πλαίσια**
 
-Αυτό το παράδειγμα κώδικα σε C++ σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστοσελίδας σε ένα σχήμα:
+Αυτό το δείγμα κώδικα C++ σας δείχνει πώς να προσθέσετε έναν σύνδεσμο ιστοσελίδας σε ένα σχήμα:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f);
@@ -72,65 +102,132 @@ shape->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies t
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Πολυμέσα**
+### **Προσθήκη Σύνδεσμων URL σε Πολυμέσα**
 
-Το Aspose.Slides σας επιτρέπει να προσθέσετε υπερσυνδέσμους σε εικόνες, ηχητικά και βίντεο αρχεία. 
+Το Aspose.Slides σάς επιτρέπει να προσθέσετε συνδέσμους σε εικόνες, ήχους και βίντεο.
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια **εικόνα**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν σύνδεσμο σε μια **εικόνα**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 // Προσθέτει εικόνα στην παρουσίαση
 auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-// Δημιουργεί πλαίσιο εικόνας στη διαφάνεια 1 βασισμένο στην προηγουμένως προστιθέμενη εικόνα
+// Creates picture frame on slide 1 based on previously added image
 auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
 
-pictureFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+pictureFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 pictureFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **αρχείο ήχου**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν σύνδεσμο σε ένα **αρχείο ήχου**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto audio = pres->get_Audios()->AddAudio(File::ReadAllBytes(u"audio.mp3"));
 auto audioFrame = shapes->AddAudioFrameEmbedded(10.0f, 10.0f, 100.0f, 100.0f, audio);
 
-audioFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+audioFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 audioFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **βίντεο**:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να προσθέσετε έναν σύνδεσμο σε ένα **βίντεο**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto video = pres->get_Videos()->AddVideo(File::ReadAllBytes(u"video.avi"));
 auto videoFrame = shapes->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
 
-videoFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+videoFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Συμβουλή"  color="info"  %}} 
+
 Ίσως θέλετε να δείτε *[Διαχείριση OLE](https://docs.aspose.com/slides/el/cpp/manage-ole/)*.
+
 {{% /alert %}}
+
+
 
 ## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
 
-Καθώς οι υπερσύνδεσμοι σάς επιτρέπουν να προσθέτετε αναφορές σε αντικείμενα ή θέσεις, μπορείτε να τους χρησιμοποιήσετε για να δημιουργήσετε έναν πίνακα περιεχομένων. 
+Δεδομένου ότι οι υπερσύνδεσμοι σάς επιτρέπουν να προσθέτετε αναφορές σε αντικείμενα ή σημεία, μπορείτε να τους χρησιμοποιήσετε για να δημιουργήσετε έναν πίνακα περιεχομένων. 
 
-Αυτό το παράδειγμα κώδικα σας δείχνει πώς να δημιουργήσετε έναν πίνακα περιεχομένων με υπερσυνδέσμους:
+Αυτό το δείγμα κώδικα σας δείχνει πώς να δημιουργήσετε έναν πίνακα περιεχομένων με υπερσυνδέσμους:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slides()->idx_get(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
@@ -154,21 +251,45 @@ paragraph->get_Portions()->Add(linkPortion);
 contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 ```
 
+
 ## **Μορφοποίηση Υπερσυνδέσμων**
 
 ### **Χρώμα**
 
-Με τις μεθόδους [set_ColorSource()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) και [get_ColorSource()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) στο interface [IHyperlink](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink), μπορείτε να ορίσετε το χρώμα για τους υπερσυνδέσμους και επίσης να λάβετε τις πληροφορίες χρώματος από τους υπερσυνδέσμους. Η δυνατότητα αυτή εισήχθη για πρώτη φορά στο PowerPoint 2019, επομένως οι αλλαγές που αφορούν αυτήν την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις του PowerPoint.
+Με τις μεθόδους [set_ColorSource()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) και [get_ColorSource()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) στο interface [IHyperlink](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink), μπορείτε να ορίσετε το χρώμα για τους υπερσυνδέσμους και επίσης να λάβετε τις πληροφορίες χρώματος από τους υπερσυνδέσμους. Η δυνατότητα αυτή εισήχθη για πρώτη φορά στο PowerPoint 2019, έτσι οι αλλαγές που αφορούν την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις του PowerPoint.
 
-Αυτό το παράδειγμα κώδικα επιδεικνύει μια λειτουργία όπου υπερσύνδεσμοι με διαφορετικά χρώματα προστέθηκαν στην ίδια διαφάνεια:
+Αυτό το δείγμα κώδικα δείχνει μια λειτουργία όπου υπερσύνδεσμοι με διαφορετικά χρώματα προστέθηκαν στην ίδια διαφάνεια:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkColorSource.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 450.0f, 50.0f, false);
 shape1->AddTextFrame(u"This is a sample of colored hyperlink.");
 auto shape1PortionFormat = shape1->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape1PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape1PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shape1PortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
 shape1PortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
@@ -176,18 +297,35 @@ shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::ge
 auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 450.0f, 50.0f, false);
 shape2->AddTextFrame(u"This is a sample of usual hyperlink.");
 auto shape2PortionFormat = shape2->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape2PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape2PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 
 ## **Αφαίρεση Υπερσυνδέσμων από Παρουσιάσεις**
 
 ### **Αφαίρεση Υπερσυνδέσμων από Κείμενο**
 
-Αυτός ο κώδικας C++ σας δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από ένα κείμενο σε μια διαφάνεια παρουσίασης:
+Αυτός ο κώδικας C++ σας δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από κείμενο σε μια διαφάνεια παρουσίασης:
 
 ``` cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -214,6 +352,16 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 Αυτός ο κώδικας C++ σας δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από ένα σχήμα σε μια διαφάνεια παρουσίασης: 
 
 ``` cpp
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -223,7 +371,9 @@ for (const auto& shape : slide->get_Shapes())
 pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 ```
 
-## **Μεταβλητός Υπερσύνδεσμος**
+
+
+## **Μεταβλητής Υπερσύνδεσμος**
 
 Η κλάση [Hyperlink](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.hyperlink) είναι μεταβλητή. Με αυτήν την κλάση, μπορείτε να αλλάξετε τις τιμές για τις παρακάτω μεθόδους:
 
@@ -233,9 +383,26 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 - [IHyperlink.set_HighlightClick()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink#ac48a0fa4106cff14cb5772269399587e)
 - [IHyperlink.set_StopSoundOnClick()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink#ad0db04da8009b329d2c79019642aaa43)
 
-Αυτή η απόσπασμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια διαφάνεια και να επεξεργαστείτε το tooltip του αργότερα:
+Το απόσπασμα κώδικα σας δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια διαφάνεια και να επεξεργαστείτε το tooltip του αργότερα:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
@@ -243,38 +410,41 @@ auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto shapePortionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shapePortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shapePortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shapePortionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 shapePortionFormat->set_FontHeight(32.0f);
 
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
+
+
+
 ## **Υποστηριζόμενες Μέθοδοι στο IHyperlinkQueries**
 
-Μπορείτε να έχετε πρόσβαση στο IHyperlinkQueries από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο ο υπερσύνδεσμος ορίζεται. 
+Μπορείτε να αποκτήσετε πρόσβαση στο IHyperlinkQueries από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο ορίζεται ο υπερσύνδεσμος. 
 
 - [IPresentation::get_HyperlinkQueries()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_presentation#a7e84086f34ddc742ea9124ab11727691)
 - [IBaseSlide::get_HyperlinkQueries()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_base_slide#a8593a5a5f6b7e051aa859ec373c66421)
 - [ITextFrame::get_HyperlinkQueries()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_text_frame#a1303ef71d3c50d471e35434dcaaa2e4e)
 
-Η κλάση IHyperlinkQueries υποστηρίζει τις παρακάτω μεθόδους: 
+Η κλάση IHyperlinkQueries υποστηρίζει τις εξής μεθόδους: 
 
 - [IHyperlinkQueries::GetHyperlinkClicks()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink_queries#aaea0b1b68ff2e65240612fb1f08361c1)
 - [IHyperlinkQueries::GetHyperlinkMouseOvers()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink_queries#ac68ac55d183323f11e604b40760b0e4b)
 - [IHyperlinkQueries::GetAnyHyperlinks()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink_queries#acaf9ded3920056054e0e70c24129d73a)
 - [IHyperlinkQueries::RemoveAllHyperlinks()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_hyperlink_queries#a289f52c992f939fe46282536cec7222d)
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να δημιουργήσω εσωτερική πλοήγηση όχι μόνο σε μια διαφάνεια, αλλά και σε μια «ενότητα» ή στην πρώτη διαφάνεια μιας ενότητας;**
+### Πώς μπορώ να δημιουργήσω εσωτερική πλοήγηση όχι μόνο σε μια διαφάνεια, αλλά σε μια «ενότητα» ή στην πρώτη διαφάνεια μιας ενότητας;
 
-Οι ενότητες στο PowerPoint αποτελούν ομάδες διαφανειών· η πλοήγηση τεχνικά στοχεύει σε μια συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε μια ενότητα», συνήθως συνδέεστε με την πρώτη της διαφάνεια.
+Οι ενότητες στο PowerPoint είναι ομάδες διαφανειών· η πλοήγηση τεχνικά στοχεύει σε μια συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε μια ενότητα», συνήθως συνδέεστε στην πρώτη της διαφάνεια.
 
-**Μπορώ να προσθέσω έναν υπερσύνδεσμο σε στοιχεία κύριας διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+### Μπορώ να συνδέσω έναν υπερσύνδεσμο σε στοιχεία κύριας διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;
 
-Ναι. Τα στοιχεία της κύριας διαφάνειας και διατάξεων υποστηρίζουν υπερσυνδέσμους. Τέτοιοι σύνδεσμοι εμφανίζονται στις διαφάνειες-παιδιά και είναι κλικαρίσιμοι κατά τη διάρκεια της παρουσίασης.
+Ναι. Τα στοιχεία της κύριας διαφάνειας και των διάταξής τους υποστηρίζουν υπερσυνδέσμους. Αυτοί οι σύνδεσμοι εμφανίζονται στις διαφάνειες-παιδιά και είναι κλικάρισιμες κατά την παρουσίαση.
 
-**Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
+### Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;
 
-Στα [PDF](/slides/el/cpp/convert-powerpoint-to-pdf/) και [HTML](/slides/el/cpp/convert-powerpoint-to-html/), ναι — οι σύνδεσμοι συνήθως διατηρούνται. Κατά την εξαγωγή σε [images](/slides/el/cpp/convert-powerpoint-to-png/) και [video](/slides/el/cpp/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν μεταφέρεται λόγω της φύσης αυτών των μορφών (πλαίσια raster/βίντεο δεν υποστηρίζουν υπερσυνδέσμους).
+Στα [PDF](/slides/el/cpp/convert-powerpoint-to-pdf/) και [HTML](/slides/el/cpp/convert-powerpoint-to-html/), ναι — οι σύνδεσμοι συνήθως διατηρούνται. Κατά την εξαγωγή σε [images](/slides/el/cpp/convert-powerpoint-to-png/) και [video](/slides/el/cpp/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν θα μεταφερθεί λόγω της φύσης αυτών των μορφών (πλαίσια raster/video δεν υποστηρίζουν υπερσυνδέσμους).

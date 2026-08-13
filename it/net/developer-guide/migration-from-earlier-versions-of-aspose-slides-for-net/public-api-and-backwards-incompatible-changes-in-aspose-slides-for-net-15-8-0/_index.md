@@ -1,5 +1,5 @@
 ---
-title: API pubbliche e modifiche incompatibili retroattive in Aspose.Slides per .NET 15.8.0
+title: Modifiche all'API pubblica e incompatibili retroattive in Aspose.Slides per .NET 15.8.0
 linktitle: Aspose.Slides per .NET 15.8.0
 type: docs
 weight: 190
@@ -16,16 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Esamina gli aggiornamenti dell'API pubblica e le modifiche breaking in Aspose.Slides per .NET per migrare senza problemi le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Rivedi gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per .NET per migrare agevolmente le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}}
-Questa pagina elenca tutte le classi, i metodi, le proprietà e così via aggiunti o rimossi, nonché le altre modifiche introdotte con l'API di Aspose.Slides per .NET 15.8.0.
+{{% alert color="info" %}}
+
+Questa pagina elenca tutti gli [aggiunti](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) o [rimossi](/slides/it/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-8-0/) classi, metodi, proprietà e così via, e altre modifiche introdotte con l'Aspose.Slides per .NET 15.8.0 API.
+
 {{% /alert %}}
 ## **Modifiche all'API pubblica**
 #### **La proprietà DoughnutHoleSize è stata aggiunta a IChartSeries e ChartSeries**
 Specifica la dimensione del foro in un grafico a ciambella.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 

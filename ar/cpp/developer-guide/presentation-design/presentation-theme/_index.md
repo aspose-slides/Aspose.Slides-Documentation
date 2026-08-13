@@ -1,5 +1,5 @@
 ---
-title: إدارة سمات العرض التقديمي في C++
+title: إدارة سمات العروض التقديمية في C++
 linktitle: سمة العرض التقديمي
 type: docs
 weight: 10
@@ -18,24 +18,38 @@ keywords:
 - تأثير السمة
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض التقديمي
 - C++
 - Aspose.Slides
-description: "إدارة سمات العروض التقديمية في Aspose.Slides للغة C++ لإنشاء وتخصيص وتحويل ملفات PowerPoint بعلامة تجارية متسقة."
+description: "إدارة سمات العروض التقديمية في Aspose.Slides للغة C++ لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على هوية العلامة التجارية المتسقة."
 ---
-يُعرّف سمة العرض خصائص عناصر التصميم. عند اختيارك لسمة عرض، فإنك في الواقع تختار مجموعة محددة من العناصر البصرية وخصائصها.
+## **مقدمة**
 
-في PowerPoint، تتكوّن السمة من ألوان، [الخطوط](/slides/ar/cpp/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/cpp/presentation-background/)، وتأثيرات.
+يُعرّف سمة العرض خصائص عناصر التصميم. عندما تختار سمة عرض، فأنت ببساطة تختار مجموعة محددة من العناصر البصرية وخصائصها.
 
-![theme-constituents](theme-constituents.png)
+في PowerPoint، تتألف السمة من الألوان، [الخطوط](/slides/ar/cpp/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/cpp/presentation-background/)، والتأثيرات.
+
+![مكوّنات السمة](theme-constituents.png)
 
 ## **تغيير لون السمة**
 
-تستخدم سمة PowerPoint مجموعة محددة من الألوان لعناصر مختلفة في الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها بتطبيق ألوان جديدة على السمة. لتتمكن من اختيار لون سمة جديد، توفر Aspose.Slides القيم ضمن تعداد [SchemeColor](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28).
+تستخدم سمة PowerPoint مجموعة محددة من الألوان للعناصر المختلفة في الشريحة. إذا لم تعجبك الألوان، يمكنك تغييرها عن طريق تطبيق ألوان جديدة على السمة. لتتمكن من اختيار لون سمة جديد، توفر Aspose.Slides قيمًا تحت تعداد [SchemeColor](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28).
 
-يعرض هذا الكود C++ طريقة تغيير لون التمييز لسمة معينة:
+يعرض لك هذا الشيفرة بلغة C++ كيفية تغيير لون التمييز للسمة:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
@@ -44,41 +58,95 @@ shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 ```
 
-يمكنك تحديد القيمة الفعلية للون الناتج بهذه الطريقة:
+يمكنك تحديد القيمة الفعالة للون الناتج بهذه الطريقة:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = System::MakeObject<Presentation>();
+auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+
 auto fillEffective = shape->get_FillFormat()->GetEffective();
-    
+
 Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(), fillEffective->get_SolidFillColor());
-// ff8064a2 (اللون [A=255, R=128, G=100, B=162])
+// ff8064a2 (لون [A=255, R=128, G=100, B=162])
 ```
 
-للتوضيح الإضافي لعملية تغيير اللون، نقوم بإنشاء عنصر آخر ونعيّن له لون التمييز (من العملية الأولى). ثم نغيّر اللون في السمة:
+لتوضيح عملية تغيير اللون بشكل أكبر، نقوم بإنشاء عنصر آخر ونعيّن له لون التمييز (من العملية الأولية). ثم نغيّر اللون في السمة:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+
 auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
-    
+
 otherShape->get_FillFormat()->set_FillType(FillType::Solid);
 otherShape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 
 pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
 ```
 
-يُطبّق اللون الجديد تلقائيًا على كلا العنصرين.
+يتم تطبيق اللون الجديد تلقائيًا على العنصرين.
 
-### **تحديد لون السمة من لوحة ألوان إضافية**
+### **تعيين لون السمة من لوحة ألوان إضافية**
 
-عند تطبيق تحويلات الإضاءة على لون السمة الرئيسي(1)، تتكوّن ألوان من اللوحة الإضافية(2). يمكنك بعد ذلك تعيين هذه الألوان السمية والحصول عليها.
+عند تطبيق تحويلات الإضاءة على لون السمة الرئيسي(1)، تتشكل ألوان من لوحة الألوان الإضافية(2). يمكنك بعد ذلك ضبط تلك الألوان واسترجاعها.
 
-![additional-palette-colors](additional-palette-colors.png)
+![ألوان لوحة الألوان الإضافية](additional-palette-colors.png)
 
-**1**- ألوان السمة الرئيسية
+**1**- ألوان السمة الأساسية  
+**2**- ألوان من لوحة الألوان الإضافية.
 
-**2**- ألوان من اللوحة الإضافية.
-
-يعرض هذا الكود C++ عملية استخراج ألوان اللوحة الإضافية من لون السمة الرئيسي ثم استخدامها في الأشكال:
+يعرض لك هذا الشيفرة بلغة C++ عملية الحصول على ألوان لوحة الألوان الإضافية من لون السمة الرئيسي ثم استخدامها في الأشكال:
 
 ```c++
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -144,37 +212,54 @@ presentation->Save(u"example.pptx", Export::SaveFormat::Pptx);
 
 ### **ربط `SchemeColor` بألوان `IColorScheme`**
 
-عند العمل مع [SchemeColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/schemecolor/)، قد تلاحظ أنه يحتوي على قيم ألوان السمة التالية:
+عند العمل مع [SchemeColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/schemecolor/)، قد تلاحظ أنه يحتوي على القيم التالية لألوان السمة:
 
 `Background1`، `Background2`، `Text1`، و`Text2`.
 
-مع ذلك، `Presentation::get_MasterTheme()::get_ColorScheme()` تُعيد [IColorScheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/icolorscheme/)، التي تُظهر الألوان المقابلة كالتالي:
+مع ذلك، تُعيد `Presentation::get_MasterTheme()::get_ColorScheme()` [IColorScheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/icolorscheme/)، الذي يكشف عن الألوان المقابلة كـ:
 
 `Dark1`، `Dark2`، `Light1`، و`Light2`.
 
-الاختلاف هنا في التسميات فقط. هذه القيم تشير إلى نفس خانات ألوان السمة والتطابق ثابت:
+هذا الاختلاف فقط في التسمية. هذه القيم تشير إلى نفس خانات ألوان السمة والربط ثابت:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-لا يوجد تحويل ديناميكي بين `Text`/`Background` و`Dark`/`Light`. هي مجرد أسماء بديلة لنفس ألوان السمة.
+لا توجد تحويلات ديناميكية بين `Text`/`Background` و`Dark`/`Light`. إنها مجرد أسماء بديلة لنفس ألوان السمة.
 
-يأتي هذا الاختلاف في التسميات من مصطلحات Microsoft Office. الإصدارات القديمة من Office استخدمت `Dark 1`، `Light 1`، `Dark 2`، و`Light 2`، بينما الإصدارات الحديثة من الواجهة تُظهر نفس الخانات كـ `Text 1`، `Background 1`، `Text 2`، و`Background 2`.
+هذا الاختلاف في التسمية يأتي من مصطلحات Microsoft Office. الإصدارات القديمة من Office استخدمت `Dark 1`، `Light 1`، `Dark 2`، و`Light 2`، بينما إصدارات الواجهة الحديثة تعرض نفس الخانات كـ `Text 1`، `Background 1`، `Text 2`، و`Background 2`.
 
 ## **تغيير خط السمة**
 
-لتتمكن من اختيار الخطوط للسومات وغيرها من الأغراض، تستخدم Aspose.Slides هذه المعرفات الخاصة (مشابهة لتلك المستخدمة في PowerPoint):
+للسماح لك باختيار الخطوط للسّمات وأغراض أخرى، تستخدم Aspose.Slides هذه المعرفات الخاصة (مشابهة لتلك المستخدمة في PowerPoint):
 
-* **+mn-lt** - خط الجسم اللاتيني (خط لاتيني صغير)
-* **+mj-lt** - خط العنوان اللاتيني (خط لاتيني كبير)
-* **+mn-ea** - خط الجسم الآسيوي الشرقي (خط آسيوي شرقي صغير)
-* **+mj-ea** - خط الجسم الآسيوي الشرقي (خط آسيوي شرقي كبير)
+* **+mn‑lt** – خط النص الأساسي اللاتيني (خط لاتيني صغرى)
+* **+mj‑lt** – خط العنوان اللاتيني (خط لاتيني كبرى)
+* **+mn‑ea** – خط النص الأساسي شرق آسيوي (خط شرق آسيوي صغرى)
+* **+mj‑ea** – خط النص الأساسي شرق آسيوي (خط شرق آسيوي كبرى)
 
-يعرض هذا الكود C++ طريقة تعيين الخط اللاتيني لعنصر سمة:
+يعرض لك هذا الشيفرة بلغة C++ كيفية تعيين الخط اللاتيني لعنصر سمة:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+
 auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 
 auto paragraph = System::MakeObject<Paragraph>();
@@ -186,27 +271,46 @@ shape->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"+mn-lt"));
 ```
 
-يعرض هذا الكود C++ طريقة تغيير خط سمة العرض:
+يعرض لك هذا الشيفرة بلغة C++ كيفية تغيير خط سمة العرض:
 
 ```c++
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IFonts.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
 ```
 
-سيتم تحديث الخط في جميع مربعات النص.
+سيتم تحديث الخط في جميع صناديق النص.
 
-{{% alert color="primary" title="TIP" %}} 
+{{% alert color="info" title="TIP" %}} 
 قد ترغب في الاطلاع على [خطوط PowerPoint](/slides/ar/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **تغيير نمط خلفية السمة**
 
-بشكل افتراضي، يوفر تطبيق PowerPoint 12 خلفية مُعرّفة مسبقًا، ولكن يتم حفظ 3 فقط من تلك الخلفيات في عرض تقديمي نموذجي.
+بشكل افتراضي، يوفر تطبيق PowerPoint 12 خلفية محددة مسبقًا لكن يتم حفظ 3 منها فقط في العرض النموذجي.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-على سبيل المثال، بعد حفظ عرض تقديمي في تطبيق PowerPoint، يمكنك تشغيل هذا الكود C++ لمعرفة عدد الخلفيات المُعرّفة مسبقًا في العرض:
+على سبيل المثال، بعد حفظ عرض في تطبيق PowerPoint، يمكنك تشغيل هذه الشيفرة بلغة C++ لمعرفة عدد الخلفيات المحددة مسبقًا في العرض:
 
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Theme;
+using namespace System;
+
 auto pres = MakeObject<Presentation>(u"pres.pptx");
         
 int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()->get_Count();
@@ -218,31 +322,60 @@ Console::WriteLine(u"Number of background fill styles for theme is {0}", numberO
 باستخدام خاصية [BackgroundFillStyles](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) من فئة [FormatScheme](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme/)، يمكنك إضافة أو الوصول إلى نمط الخلفية في سمة PowerPoint. 
 {{% /alert %}}
 
-يعرض هذا الكود C++ طريقة تعيين الخلفية لعرض تقديمي:
+يعرض لك هذا الشيفرة بلغة C++ كيفية تعيين الخلفية لعرض:
 
 ```c++
+#include <DOM/IBackground.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto pres = MakeObject<Presentation>(u"pres.pptx");
+
 pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 ```
 
-**دليل الفهرس**: 0 يُستخدم لعدم وجود تعبئة. الفهرس يبدأ من 1.
+**دليل الفهرس**: 0 يُستخدم لعدم التعبئة. يبدأ الفهرس من 1.
 
-{{% alert color="primary" title="TIP" %}} 
-قد ترغب في الاطلاع على [خلفيات PowerPoint](/slides/ar/cpp/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+قد ترغب في الاطلاع على [خلفية PowerPoint](/slides/ar/cpp/presentation-background/).
 {{% /alert %}}
 
 ## **تغيير تأثير السمة**
 
-عادةً ما تحتوي سمة PowerPoint على 3 قيم لكل مجموعة أنماط. تُدمج تلك المجموعات في ثلاثة تأثيرات: خفيف، متوسط، وشديد. على سبيل المثال، هذا هو الناتج عند تطبيق التأثيرات على شكل معين:
+عادةً ما تحتوي سمة PowerPoint على 3 قيم لكل مصفوفة نمط. تُدمج تلك المصفوفات إلى هذه 3 تأثيرات: خفيف، متوسط، وشديد. على سبيل المثال، هذا هو الناتج عند تطبيق التأثيرات على شكل محدد:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563)، ([LineStyles](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd))، و([EffectStyles](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) من فئة [FormatScheme](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme/) يمكنك تغيير عناصر السمة (بمرونة أكبر من الخيارات المتاحة في PowerPoint).
+باستخدام 3 خصائص ([FillStyles](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563)، ([LineStyles](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd))، ([EffectStyles](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) من فئة [FormatScheme](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.theme.i_format_scheme/) يمكنك تغيير العناصر في سمة (بمرونة أكبر من الخيارات المتاحة في PowerPoint).
 
-يعرض هذا الكود C++ طريقة تغيير تأثير سمة عن طريق تعديل أجزاء من العناصر:
+يعرض لك هذا الشيفرة بلغة C++ كيفية تغيير تأثير سمة عن طريق تعديل أجزاء من العناصر:
 
 ```c++
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IEffectStyle.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
-        
+
 pres->get_MasterTheme()->get_FormatScheme()->get_LineStyles()->idx_get(0)->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
 pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->set_FillType(FillType::Solid);
@@ -254,20 +387,20 @@ pres->get_MasterTheme()->get_FormatScheme()->get_EffectStyles()->idx_get(2)->get
 pres->Save(u"Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
 ```
 
-التغييرات الناتجة في لون التعبئة، نوع التعبئة، تأثير الظل، وغيرها:
+التغييرات الناتجة في لون التعبئة، نوع التعبئة، تأثير الظل، إلخ:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير السمة الرئيسية؟**
+### هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير السمة الرئيسية؟
 
-نعم. تدعم Aspose.Slides تجاوز السمة على مستوى الشريحة، لذا يمكنك تطبيق سمة محلية على تلك الشريحة فقط مع الحفاظ على السمة الرئيسية دون تعديل (عبر [SlideThemeManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/slidethememanager/)).
+نعم. تدعم Aspose.Slides تجاوزات سمة على مستوى الشريحة، بحيث يمكنك تطبيق سمة محلية على تلك الشريحة فقط مع الحفاظ على السمة الرئيسية دون تغيير (عبر [SlideThemeManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/slidethememanager/)).
 
-**ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض تقديمي إلى آخر؟**
+### ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض إلى آخر؟
 
-استخدام [نسخ الشرائح](/slides/ar/cpp/clone-slides/) مع الماستر الخاص بها إلى العرض الهدف. هذا يحافظ على الماستر الأصلي، التخطيطات، والسمة المرتبطة بحيث يبقى المظهر متسقًا.
+[استنساخ الشرائح](/slides/ar/cpp/clone-slides/) مع السمة الرئيسية إلى العرض الهدف. يحافظ ذلك على السمة الأساسية، التخطيطات، والسمة المرتبطة بحيث يبقى المظهر متسقًا.
 
-**كيف يمكنني رؤية القيم "الفعّالة" بعد كل الوراثة والتجاوزات؟**
+### كيف يمكنني رؤية القيم "الفعالية" بعد كل الوراثة والتجاوزات؟
 
-استخدم واجهات برمجة التطبيقات للعرض ["الفعّال"](/slides/ar/cpp/shape-effective-properties/) للسمة/اللون/الخط/التأثير. هذه تُعيد الخصائص النهائية المحسوبة بعد تطبيق الماستر وأي تجاوزات محلية.
+استخدم العرض ["الفعالية"](/slides/ar/cpp/shape-effective-properties/) للـ سمة/اللون/الخط/التأثير. تُعيد هذه القيم الخصائص النهائية بعد تطبيق السمة الرئيسية وأي تجاوزات محلية.

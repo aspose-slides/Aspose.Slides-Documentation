@@ -1,5 +1,5 @@
 ---
-title: Pobieranie efektywnych właściwości kształtów z prezentacji w Javie
+title: Pobieranie efektywnych właściwości kształtu z prezentacji w Javie
 linktitle: Właściwości efektywne
 type: docs
 weight: 50
@@ -7,8 +7,8 @@ url: /pl/java/shape-effective-properties/
 keywords:
 - właściwości kształtu
 - właściwości kamery
-- zestaw świateł
-- kształt skosu
+- zestaw oświetlenia
+- kształt sfazowany
 - ramka tekstowa
 - styl tekstu
 - wysokość czcionki
@@ -17,21 +17,23 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Odkryj, jak Aspose.Slides for Java oblicza i stosuje efektywne właściwości kształtów dla precyzyjnego renderowania PowerPointa."
+description: "Odkryj, jak Aspose.Slides dla Javy oblicza i stosuje efektywne właściwości kształtu, zapewniając precyzyjne renderowanie PowerPoint."
 ---
 ## **Przegląd**
 
-Ten temat wyjaśnia różnicę między **lokalnymi** a **efektywnymi** właściwościami. Wartości lokalne są wartościami ustawionymi bezpośrednio na określonym poziomie formatowania, takimi jak:
+Ten temat wyjaśnia różnicę między **lokalnymi** a **efektywnymi** właściwościami. Lokalnymi wartościami są wartości ustawione bezpośrednio na określonym poziomie formatowania, na przykład:
 
-1. Właściwości fragmentu (portion) na slajdzie.
-1. Style tekstu prototypowego kształtu na układzie lub slajdzie głównym, gdy kształt ramki tekstu fragmentu posiada je.
+1. Właściwości fragmentu na slajdzie.
+1. Style tekstu prototypowego kształtu na układzie lub slajdzie‑mistrzu, gdy kształt ramki tekstowej fragmentu posiada je.
 1. Globalne ustawienia tekstu w prezentacji.
 
-Wartości lokalne mogą być definiowane lub pomijane na dowolnym poziomie. Kiedy Aspose.Slides potrzebuje ostatecznego formatowania „tak jak jest renderowane”, rozwiązuje łańcuch dziedziczenia i zwraca **efektywne** wartości. Można je uzyskać, wywołując metodę `getEffective` na obiekcie formatu lokalnego.
+Lokalne wartości mogą być zdefiniowane lub pominięte na dowolnym poziomie. Gdy Aspose.Slides potrzebuje ostatecznego formatowania „takiego jak wyświetlane”, rozwiązuje łańcuch dziedziczenia i zwraca **efektywne** wartości. Można je uzyskać, wywołując metodę `getEffective` na obiekcie formatu lokalnego.
 
-Poniższy przykład pokazuje, jak uzyskać wartości efektywne. Zakłada, że pierwszy kształt na pierwszym slajdzie jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IAutoShape) z ramką tekstową i co najmniej jednym fragmentem.
+Poniższy przykład pokazuje, jak uzyskać efektywne wartości. Zakłada, że pierwsza forma na pierwszym slajdzie jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IAutoShape) z ramką tekstową i co najmniej jednym fragmentem.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,17 +51,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Dane formatowania efektywnego reprezentują bieżące wyliczone formatowanie po zastosowaniu dziedziczenia. W bieżącej implementacji niektóre obiekty danych efektywnych, takie jak [IPortionFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IPortionFormatEffectiveData), mogą być buforowane wewnętrznie. Ponowne wywołanie `getEffective` po zmianie formatowania rodzica lub odziedziczonego może odświeżyć buforowane dane, a wcześniej uzyskany obiekt może już nie odzwierciedlać wcześniejszego stanu. Jeśli musisz zachować wartości efektywne do późniejszego użycia, skopiuj wymagane właściwości, takie jak wysokość czcionki, kolor wypełnienia, styl czcionki lub wyrównanie, do własnego obiektu danych.
+{{% alert color="info" %}}
+Dane formatowania efektywnego reprezentują bieżące obliczone formatowanie po zastosowaniu dziedziczenia. W bieżącej implementacji niektóre obiekty danych efektywnych, takie jak [IPortionFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IPortionFormatEffectiveData), mogą być przechowywane w pamięci podręcznej wewnętrznie. Ponowne wywołanie `getEffective` po zmianie formatowania rodzica lub dziedziczonego może odświeżyć dane w pamięci podręcznej, a wcześniej uzyskany obiekt może nie odzwierciedlać wcześniejszego stanu. Jeśli potrzebujesz zachować efektywne wartości do późniejszego użycia, skopiuj wymagane właściwości, takie jak wysokość czcionki, kolor wypełnienia, styl czcionki lub wyrównanie, do własnego obiektu danych.
 {{% /alert %}}
 
-## **Pobieranie efektywnych właściwości kamery**
+## **Uzyskaj efektywne właściwości kamery**
 
-Aspose.Slides umożliwia pobranie efektywnych właściwości kamery. Interfejs [ICameraEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ICameraEffectiveData) reprezentuje niezmienny obiekt zawierający efektywne właściwości kamery. Instancja [ICameraEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ICameraEffectiveData) jest udostępniana przez [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormatEffectiveData), które zapewnia efektywne wartości dla [IThreeDFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormat).
+Aspose.Slides umożliwia uzyskanie efektywnych właściwości kamery. Interfejs [ICameraEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ICameraEffectiveData) reprezentuje niezmienny obiekt zawierający efektywne właściwości kamery. Instancja [ICameraEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ICameraEffectiveData) jest udostępniana przez [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormatEffectiveData), który zapewnia efektywne wartości dla [IThreeDFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormat).
 
-Poniższy przykład kodu pokazuje, jak pobrać efektywne właściwości kamery. Zakłada, że pierwszy kształt na pierwszym slajdzie ma formatowanie 3D.
+Poniższy przykład kodu pokazuje, jak uzyskać efektywne właściwości kamery. Zakłada, że pierwsza forma na pierwszym slajdzie ma formatowanie 3D.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -80,13 +84,15 @@ try {
 }
 ```
 
-## **Pobieranie efektywnych właściwości zestawu świateł**
+## **Uzyskaj efektywne właściwości zestawu oświetlenia**
 
-Aspose.Slides umożliwia pobranie efektywnych właściwości zestawu świateł. Interfejs [ILightRigEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ILightRigEffectiveData) reprezentuje niezmienny obiekt zawierający efektywne właściwości zestawu świateł. Instancja [ILightRigEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ILightRigEffectiveData) jest udostępniana przez [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormatEffectiveData), które zapewnia efektywne wartości dla [IThreeDFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormat).
+Aspose.Slides umożliwia uzyskanie efektywnych właściwości zestawu oświetlenia. Interfejs [ILightRigEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ILightRigEffectiveData) reprezentuje niezmienny obiekt zawierający efektywne właściwości zestawu oświetlenia. Instancja [ILightRigEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ILightRigEffectiveData) jest udostępniana przez [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormatEffectiveData), który zapewnia efektywne wartości dla [IThreeDFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormat).
 
-Poniższy przykład kodu pokazuje, jak pobrać efektywne właściwości zestawu świateł. Zakłada, że pierwszy kształt na pierwszym slajdzie ma formatowanie 3D.
+Poniższy przykład kodu pokazuje, jak uzyskać efektywne właściwości zestawu oświetlenia. Zakłada, że pierwsza forma na pierwszym slajdzie ma formatowanie 3D.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,13 +111,15 @@ try {
 }
 ```
 
-## **Pobieranie efektywnych właściwości skosu kształtu**
+## **Uzyskaj efektywne właściwości kształtu ze sfazowaniem**
 
-Aspose.Slides umożliwia pobranie efektywnych właściwości skosu kształtu. Interfejs [IShapeBevelEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeBevelEffectiveData) reprezentuje niezmienny obiekt zawierający efektywne właściwości wypukłości dla kształtu. Instancja [IShapeBevelEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeBevelEffectiveData) jest udostępniana przez [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormatEffectiveData), które zapewnia efektywne wartości dla [IThreeDFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormat).
+Aspose.Slides umożliwia uzyskanie efektywnych właściwości sfazowania kształtu. Interfejs [IShapeBevelEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeBevelEffectiveData) reprezentuje niezmienny obiekt zawierający efektywne właściwości reliefu powierzchni kształtu. Instancja [IShapeBevelEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShapeBevelEffectiveData) jest udostępniana przez [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormatEffectiveData), który zapewnia efektywne wartości dla [IThreeDFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IThreeDFormat).
 
-Poniższy przykład kodu pokazuje, jak pobrać efektywne właściwości górnego skosu kształtu. Zakłada, że pierwszy kształt na pierwszym slajdzie ma formatowanie 3D.
+Poniższy przykład kodu pokazuje, jak uzyskać efektywne właściwości górnego sfazowania kształtu. Zakłada, że pierwsza forma na pierwszym slajdzie ma formatowanie 3D.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -132,13 +140,15 @@ try {
 }
 ```
 
-## **Pobieranie efektywnych właściwości ramki tekstowej**
+## **Uzyskaj efektywne właściwości ramki tekstowej**
 
-Przy użyciu Aspose.Slides możesz pobrać efektywne właściwości ramki tekstowej. Interfejs [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ITextFrameFormatEffectiveData) zawiera efektywne właściwości formatowania ramki tekstowej.
+Korzystając z Aspose.Slides, możesz uzyskać efektywne właściwości ramki tekstowej. Interfejs [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ITextFrameFormatEffectiveData) zawiera efektywne właściwości formatowania ramki tekstowej.
 
-Poniższy przykład kodu pokazuje, jak pobrać efektywne właściwości formatowania ramki tekstowej. Zakłada, że pierwszy kształt na pierwszym slajdzie jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IAutoShape) z ramką tekstową.
+Poniższy przykład kodu pokazuje, jak uzyskać efektywne właściwości formatowania ramki tekstowej. Zakłada, że pierwsza forma na pierwszym slajdzie jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IAutoShape) z ramką tekstową.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -167,13 +177,15 @@ try {
 }
 ```
 
-## **Pobieranie efektywnych właściwości stylu tekstu**
+## **Uzyskaj efektywne właściwości stylu tekstu**
 
-Przy użyciu Aspose.Slides możesz pobrać efektywne właściwości stylu tekstu. Interfejs [ITextStyleEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ITextStyleEffectiveData) zawiera efektywne właściwości stylu tekstu.
+Korzystając z Aspose.Slides, możesz uzyskać efektywne właściwości stylu tekstu. Interfejs [ITextStyleEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ITextStyleEffectiveData) zawiera efektywne właściwości stylu tekstu.
 
-Poniższy przykład kodu pokazuje, jak pobrać efektywne właściwości stylu tekstu. Zakłada, że pierwszy kształt na pierwszym slajdzie jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IAutoShape) z ramką tekstową.
+Poniższy przykład kodu pokazuje, jak uzyskać efektywne właściwości stylu tekstu. Zakłada, że pierwsza forma na pierwszym slajdzie jest [IAutoShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IAutoShape) z ramką tekstową.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -201,11 +213,13 @@ try {
 }
 ```
 
-## **Pobranie efektywnej wartości wysokości czcionki**
+## **Uzyskaj efektywną wartość wysokości czcionki**
 
-Przy użyciu Aspose.Slides możesz pobrać efektywną wysokość czcionki. Poniższy kod demonstruje, jak efektywna wysokość czcionki fragmentu zmienia się po ustawieniu lokalnych wartości wysokości czcionki na różnych poziomach struktury prezentacji.
+Korzystając z Aspose.Slides, możesz uzyskać efektywną wysokość czcionki. Poniższy kod demonstruje, jak efektywna wysokość czcionki fragmentu zmienia się po ustawieniu lokalnych wartości wysokości czcionki na różnych poziomach struktury prezentacji.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -276,13 +290,15 @@ try {
 }
 ```
 
-## **Pobieranie efektywnego formatu wypełnienia tabeli**
+## **Uzyskaj efektywny format wypełnienia tabeli**
 
-Przy użyciu Aspose.Slides możesz pobrać efektywne formatowanie wypełnienia dla różnych części tabeli. Interfejs [IFillFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IFillFormatEffectiveData) zawiera efektywne właściwości formatowania wypełnienia. Formatowanie komórki ma wyższy priorytet niż formatowanie wiersza, formatowanie wiersza ma wyższy priorytet niż formatowanie kolumny, a formatowanie kolumny ma wyższy priorytet niż formatowanie całej tabeli.
+Korzystając z Aspose.Slides, możesz uzyskać efektywne formatowanie wypełnienia dla różnych części tabeli. Interfejs [IFillFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IFillFormatEffectiveData) zawiera efektywne właściwości formatowania wypełnienia. Formatowanie komórki ma wyższy priorytet niż formatowanie wiersza, formatowanie wiersza ma wyższy priorytet niż formatowanie kolumny, a formatowanie kolumny ma wyższy priorytet niż formatowanie całej tabeli.
 
-W rezultacie właściwości [ICellFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ICellFormatEffectiveData) są używane do rysowania komórki tabeli. Poniższy przykład kodu pokazuje, jak pobrać efektywne formatowanie wypełnienia dla różnych części tabeli. Zakłada, że pierwszy kształt na pierwszym slajdzie jest [ITable](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ITable).
+W wyniku tego właściwości [ICellFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ICellFormatEffectiveData) są używane do rysowania komórki tabeli. Poniższy przykład kodu pokazuje, jak uzyskać efektywne formatowanie wypełnienia dla różnych części tabeli. Zakłada, że pierwsza forma na pierwszym slajdzie jest [ITable](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ITable).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -302,36 +318,36 @@ try {
 }
 ```
 
-## **FAQ**
+## **Najczęściej zadawane pytania**
 
-**Czy `getEffective` zwraca migawkę?**
+### Czy `getEffective` zwraca migawkę?
 
-Nie zawsze. Dane efektywne reprezentują wyliczone formatowanie po zastosowaniu dziedziczenia, ale niektóre obiekty danych efektywnych mogą być buforowane wewnętrznie. Kolejne wywołanie `getEffective` może ponownie przeliczyć formatowanie i odświeżyć buforowane dane, więc wcześniej uzyskany obiekt nie powinien być traktowany jako trwała migawka.
+Nie zawsze. Dane efektywne reprezentują obliczone formatowanie po zastosowaniu dziedziczenia, ale niektóre obiekty danych efektywnych mogą być przechowywane w pamięci podręcznej wewnętrznie. Kolejne wywołanie `getEffective` może ponownie obliczyć formatowanie i odświeżyć dane w pamięci podręcznej, więc wcześniej uzyskany obiekt nie powinien być traktowany jako trwała migawka.
 
-**Kiedy powinienem ponownie odczytać efektywne właściwości?**
+### Kiedy powinienem ponownie odczytać efektywne właściwości?
 
-Wywołaj `getEffective` ponownie po zmianie formatowania lokalnego, stylów nadrzędnych, formatowania układu, formatowania głównego lub domyślnych ustawień na poziomie prezentacji. Następne wywołanie ponownie ocenia hierarchię formatowania i zwraca bieżący wynik efektywny.
+Wywołaj `getEffective` ponownie po zmianie lokalnego formatowania, stylów nadrzędnych, formatowania układu, formatowania slajdu‑mistrza lub domyślnych ustawień na poziomie prezentacji. Kolejne wywołanie ponownie ocenia hierarchię formatowania i zwraca bieżący wynik efektywny.
 
-**Czy zmiana lub usunięcie slajdu układu/głównego wpływa na już pobrane efektywne właściwości?**
+### Czy zmiana lub usunięcie slajdu układu/mistrza wpływa na już pobrane efektywne właściwości?
 
-Tak, ale zmiana zostaje odzwierciedlona przy następnym wywołaniu `getEffective`. Jeśli źródło formatowania nadrzędnego zostanie zmienione lub usunięte, wcześniej uzyskane dane efektywne mogą stać się nieaktualne. Po ponownym wywołaniu `getEffective` Aspose.Slides ponownie oceni drzewo formatowania i wynikowe czcionki, kolory, rozmiary lub inne wartości mogą ulec zmianie.
+Tak, ale zmiana zostanie odzwierciedlona przy następnym wywołaniu `getEffective`. Jeśli źródło formatowania nadrzędnego zostanie zmienione lub usunięte, wcześniej uzyskane dane efektywne mogą stać się nieaktualne. Po ponownym wywołaniu `getEffective` Aspose.Slides ponownie ocenia drzewo formatowania i wynikowe czcionki, kolory, rozmiary lub inne wartości mogą ulec zmianie.
 
-**Czy mogę modyfikować wartości poprzez obiekty danych efektywnych?**
+### Czy mogę modyfikować wartości za pośrednictwem obiektów danych efektywnych?
 
-Nie. Obiekty danych efektywnych udostępniają wyliczone wartości. Wprowadzaj zmiany w obiektach formatowania lokalnego, a następnie ponownie pobierz wartości efektywne.
+Nie. Obiekty danych efektywnych udostępniają wyliczone wartości. Wprowadź zmiany w obiektach lokalnego formatowania, a następnie ponownie pobierz efektywne wartości.
 
-**Co się dzieje, jeśli właściwość nie jest ustawiona na poziomie kształtu, układu/głównego ani w ustawieniach globalnych?**
+### Co się dzieje, jeśli właściwość nie jest ustawiona na poziomie kształtu, ani w układzie/mistrzu, ani w ustawieniach globalnych?
 
-Wartość efektywna jest określana przez mechanizm domyślny, obejmujący ustawienia domyślne PowerPointa i Aspose.Slides. Ta rozpoznana wartość staje się częścią bieżących danych efektywnych.
+Wartość efektywna jest określana przez mechanizm domyślny, który obejmuje domyślne ustawienia PowerPoint i Aspose.Slides. Ta ustalona wartość staje się częścią bieżących danych efektywnych.
 
-**Czy na podstawie efektywnej wartości czcionki mogę określić, który poziom dostarczył rozmiar lub krój?**
+### Czy z efektywnej wartości czcionki mogę określić, który poziom dostarczył rozmiar lub krój czcionki?
 
-Nie bezpośrednio. Dane efektywne zwracają końcową wartość. Aby znaleźć źródło, sprawdź wartości lokalne na poziomie fragmentu, akapitu, ramki tekstowej oraz stylów tekstu na poziomach układu, głównego i prezentacji, aby zobaczyć, gdzie pojawiła się pierwsza explicite definicja.
+Nie bezpośrednio. Dane efektywne zwracają wartość końcową. Aby znaleźć źródło, sprawdź lokalne wartości w fragmencie, akapicie, ramce tekstowej oraz stylach tekstu na poziomach układu, mistrza i prezentacji, aby zobaczyć, gdzie pojawia się pierwsza jawna definicja.
 
-**Dlaczego wartości efektywne czasami wyglądają identycznie jak lokalne?**
+### Dlaczego efektywne wartości czasami wyglądają identycznie jak lokalne?
 
 Ponieważ wartość lokalna okazała się ostateczna (nie było potrzebne dziedziczenie z wyższego poziomu). W takich przypadkach wartość efektywna jest identyczna z lokalną.
 
-**Kiedy powinienem używać właściwości efektywnych, a kiedy pracować tylko z lokalnymi?**
+### Kiedy powinienem używać efektywnych właściwości, a kiedy pracować wyłącznie z lokalnymi?
 
-Używaj danych efektywnych, gdy potrzebny jest wynik „tak jak jest renderowane” po zastosowaniu całego dziedziczenia, np. aby dopasować kolory, wcięcia lub rozmiary. Jeśli musisz zachować te wartości niezależnie od późniejszych zmian formatowania, skopiuj wymagane właściwości do własnego obiektu. Jeśli chcesz zmienić formatowanie na określonym poziomie, zmodyfikuj właściwości lokalne, a następnie, w razie potrzeby, ponownie odczytaj dane efektywne, aby zweryfikować rezultat.
+Używaj danych efektywnych, gdy potrzebny jest wynik „tak jak wyświetlane” po zastosowaniu całego dziedziczenia, na przykład w celu dopasowania kolorów, wcięć lub rozmiarów. Jeśli musisz zachować te wartości niezależnie od późniejszych zmian formatowania, skopiuj wymagane właściwości do własnego obiektu. Jeśli potrzebujesz zmienić formatowanie na określonym poziomie, zmodyfikuj właściwości lokalne, a następnie, w razie potrzeby, ponownie odczytaj dane efektywne, aby zweryfikować rezultat.

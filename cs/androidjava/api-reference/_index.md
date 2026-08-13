@@ -1,22 +1,22 @@
 ---
-title: Reference API
+title: Referenční API
 type: docs
 weight: 50
 url: /cs/androidjava/api-reference/
 keywords:
-- API reference
+- Referenční API
 - PowerPoint
 - OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Vytvářejte, upravujte a převádějte prezentace v Javě - není potřeba PowerPoint. Aspose.Slides pro Android podporuje PPT, PPTX a ODP s rychlým exportem do SVG/PDF."
+description: "Vytvářejte, upravujte a převádějte prezentace v Javě — bez potřeby PowerPointu. Aspose.Slides pro Android podporuje PPT, PPTX a ODP s rychlým exportem do SVG/PDF."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-Aspose.Slides for Android via Java je knihovna tříd, která umožňuje aplikacím Java pro Android číst a zapisovat prezentační dokumenty bez použití Microsoft PowerPoint® nebo jiného softwaru. Aspose.Slides for Android via Java vám umožňuje spravovat text, tvary, tabulky a animace; přidávat audio a video do snímků; prohlížet snímky; a exportovat snímky do formátu SVG, PDF a dalších.
+Aspose.Slides pro Android via Java je knihovna tříd, která umožňuje Java aplikacím pro Android číst a zapisovat prezentační dokumenty bez použití Microsoft PowerPoint® nebo jiného softwaru. Aspose.Slides pro Android via Java vám umožňuje spravovat text, tvary, tabulky a animace; přidávat audio a video do snímků; náhledy snímků; a exportovat snímky do formátu SVG, PDF a dalších.
 
-Nejnovější referenční dokumentaci API najdete na [Aspose.Slides for Android via Java API Reference](https://reference.aspose.com/slides/cs/androidjava/).
+Nejnovější referenci API najdete na [Aspose.Slides pro Android via Java API reference](https://reference.aspose.com/slides/cs/androidjava/).
 
 {{% /alert %}}

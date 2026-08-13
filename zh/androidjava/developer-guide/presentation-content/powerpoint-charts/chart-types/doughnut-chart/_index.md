@@ -15,23 +15,31 @@ keywords:
 - Aspose.Slides
 description: "了解如何在 Aspose.Slides for Android via Java 中创建和自定义环形图，支持 PowerPoint 格式的动态演示文稿。"
 ---
+## **概述**
 
-## **指定环形图的中心间隙**
-{{% alert color="primary" %}} 
+本文展示了如何在 Aspose.Slides 中使用环形图，包括将图表添加到幻灯片、设置中心孔的大小以及保存演示文稿。重点介绍了 `setDoughnutHoleSize` 方法，并演示了在代码中自定义此图表类型的基本步骤。
 
-Aspose.Slides for Android via Java 现在支持指定环形图中心孔的大小。在本主题中，我们将通过示例了解如何指定环形图中心孔的大小。
+文中还包含了简短的 FAQ，涵盖了环形图的相关场景，如使用多系列创建多环、使用炸裂环形图以及将图表导出为栅格图像或 SVG。
+
+## **在环形图中指定中心间隙**
+{{% alert color="info" %}} 
+
+Aspose.Slides for Android via Java 现已支持指定环形图中心孔的大小。本文将通过示例演示如何设置环形图中心孔的大小。
 
 {{% /alert %}} 
 
-要指定环形图中心孔的大小，请遵循以下步骤：
+要在环形图中指定中心孔的大小，请按以下步骤操作：
 
-1. 实例化 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) 对象。  
-2. 在幻灯片上添加环形图。  
-3. 指定环形图中心孔的大小。  
-4. 将演示文稿写入磁盘。  
+1. 实例化 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation) 对象。
+1. 在幻灯片上添加环形图。
+1. 指定环形图中心孔的大小。
+1. 将演示文稿写入磁盘。
 
-在下面的示例中，我们已经设置了环形图中心孔的大小。  
+下面的示例演示了如何设置环形图中心孔的大小。
+
 ```java
+import com.aspose.slides.*;
+
 // 创建 Presentation 类的实例
 Presentation pres = new Presentation();
 try {
@@ -46,17 +54,16 @@ try {
 }
 ```
 
+## **FAQ**
 
-## **常见问题**
+### 能否创建具有多个环的多层环形图？
 
-**我可以创建具有多个环的多层环形图吗？**
+可以。向单个环形图中添加多个 series——每个 series 将成为一个独立的环。环的顺序由 series 在集合中的顺序决定。
 
-是的。向单个环形图添加多个系列——每个系列都会成为一个独立的环。环的顺序由集合中系列的顺序决定。
+### 是否支持“炸裂”环形图（分离的切片）？
 
-**是否支持“炸开”环形图（分离切片）？**
+支持。Aspose.Slides 提供了 Exploded Doughnut [chart type](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/) 并在数据点上提供了 explosion 属性，可用于分离单个切片。
 
-是的。提供 Exploded Doughnut [chart type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/) 图表类型以及数据点的 explode 属性；您可以分离各个切片。
+### 如何获取环形图的图像（PNG/SVG）用于报告？
 
-**如何获取环形图的图像（PNG/SVG）用于报告？**
-
-图表是一种形状；您可以将其渲染为 [raster image](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) 或将图表导出为 [SVG image](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-)。
+图表本身是一个 shape；您可以将其渲染为 [raster image](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) 或导出为 [SVG image](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-)。

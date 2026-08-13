@@ -4,13 +4,11 @@ type: docs
 weight: 45
 url: /sv/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
-
-För att integrera Aspose.Slides för JasperReports med JasperServer måste du utföra flera ytterligare steg och uppdatera JasperServer-konfigurationsfilerna. Denna artikel förklarar hur.
-
+{{% alert color="info" %}} 
+För att integrera Aspose.Slides för JasperReports med JasperServer krävs det att man utför flera ytterligare steg och uppdaterar JasperServers konfigurationsfiler. Denna artikel förklarar hur.
 {{% /alert %}} 
 
-1. Lägg till nya exportegenskaper i **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**-konfigurationsfilen.
+1. Lägg till nya exportörsegenskaper i konfigurationsfilen **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -27,7 +25,7 @@ För att integrera Aspose.Slides för JasperReports med JasperServer måste du u
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- lägg till detta element i exporterConfigMap -->
+    <!-- lägg till detta objekt i exporterConfigMap -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```

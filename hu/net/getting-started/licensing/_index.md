@@ -17,126 +17,112 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Alkalmazza, kezelje és hárítsa el a licenceket az Aspose.Slides for .NET-ben. Biztosítsa a teljes funkcionalitáshoz való zavartalan hozzáférést lépésről lépésre szóló licencelési útmutatónkkal."
+description: "Alkalmazza, kezelje és hibaelhárítsa a licenceket az Aspose.Slides for .NET-ben. Biztosítsa a folyamatos hozzáférést a teljes funkcionalitáshoz részletes, lepesrol-lepesre utmutatonnal."
 ---
 ## **Áttekintés**
 
-Aspose.Slides értékelő módban vagy érvényes licenccel használható. Az értékelő verzió ugyanazt a funkcionalitást biztosítja, mint a licencelt verzió, de hozzáad egy értékelő vízjelet a prezentációk megnyitásakor vagy mentésekor, és korlátozza a szövegkinyerést egy diára.
+Az Aspose.Slides használható értékelő módban vagy érvényes licenccel. Az értékelő verzió ugyanazt a funkcionalitást nyújtja, mint a licencelt verzió, de egy értékelő vízjelet helyez el a prezentáció megnyitásakor vagy mentésekor, és a szövegkivonást egy diára korlátozza.
 
-Ez a cikk elmagyarázza, hogyan működik a licencelés az Aspose.Slides‑ben, és hogyan kell licencet alkalmazni a könyvtár használata előtt. A licenc betölthető egy fájlból, adatfolyamból vagy beágyazott erőforrásból a `License` osztály használatával. A cikk azt is bemutatja, hogyan lehet ellenőrizni, hogy a licenc helyesen lett‑e alkalmazva.
+Ez a cikk leírja, hogyan működik a licencelés az Aspose.Slides-ben, és hogyan alkalmazzunk licencet a könyvtár használata előtt. Licencet fájlból, streamből vagy beágyazott erőforrásból lehet betölteni a `License` osztály használatával. A cikk bemutatja azt is, hogyan validálhatjuk, hogy a licenc helyesen lett-e alkalmazva.
 
-## **Aspose.Slides értékelése**
-{{% alert color="primary" %}} 
+## **Az Aspose.Slides értékelése**
+{{% alert color="info" %}} 
 
-Letöltheti az **Aspose.Slides for NET** értékelő verzióját [a NuGet letöltőoldaláról](https://www.nuget.org/packages/Aspose.Slides.NET/). Az értékelő verzió ugyanazokat a funkciókat biztosítja, mint a termék licencelt verziója. Az értékelő csomag megegyezik a megvásárolt csomaggal. Az értékelő verzió egyszerűen licencelté válik, miután néhány kódsort hozzáad (a licenc alkalmazásához).
+Letöltheti a **Aspose.Slides for NET** értékelő verzióját a [NuGet letöltési oldaláról](https://www.nuget.org/packages/Aspose.Slides.NET/). Az értékelő verzió ugyanazokat a funkciókat biztosítja, mint a termék licencelt verziója. Az értékelő csomag megegyezik a megvásárolt csomaggal. Az értékelő verzió egyszerűen licencelté válik, miután néhány kódsort hozzáad (a licenc alkalmazásához).
 
-Miután elégedett az **Aspose.Slides** értékelésével, [licencet vásárolhat](https://purchase.aspose.com/buy). Javasoljuk, hogy tekintse át a különböző előfizetési típusokat. Ha kérdése van, lépjen kapcsolatba az Aspose értékesítési csapatával.
+Miután elégedett a **Aspose.Slides** értékelésével, [vásárolhat licencet](https://purchase.aspose.com/buy). Ajánljuk, hogy tekintse át a különböző előfizetéstípusokat. Kérdések esetén lépjen kapcsolatba az Aspose értékesítési csapatával.
 
-Minden Aspose licenc egyéves előfizetést tartalmaz, amely ingyenes frissítéseket biztosít az előfizetési időszakon belül megjelenő új verziókhoz vagy javításokhoz. A licencelt termékekkel vagy akár az értékelő verziókkal is a felhasználók ingyenes és korlátlan technikai támogatást kapnak.
-
+Minden Aspose licenc egyéves előfizetést tartalmaz, amely ingyenes frissítéseket biztosít az előfizetési időszakban kiadott új verziókra vagy javításokra. A licencelt termékek vagy akár az értékelő verziók felhasználói ingyenes és korlátlan technikai támogatást kapnak.
 {{% /alert %}} 
 
-**Az értékelő verzió korlátai**
+**Az értékelő verzió korlátozásai**
 
-* Míg az Aspose.Slides értékelő verziója (licenc nélkül) teljes termékfunkcionalitást nyújt, megnyitáskor és mentéskor a dokumentum tetejére egy értékelő vízjelet helyez el.
-* A szövegek kinyerése során legfeljebb egy diára vagy korlátozva.
+* Míg az Aspose.Slides értékelő verziója (licenc megadása nélkül) teljes termékfunkcionalitást nyújt, egy értékelő vízjelet helyez a dokumentum tetejére megnyitáskor és mentéskor.
+* A szövegek kivonása a prezentációdiákból egy diára van korlátozva.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides korlátok nélküli teszteléséhez kérhet **30 napos ideiglenes licencet**. További információért tekintse meg a [Ideiglenes licenc beszerzése](https://purchase.aspose.com/temporary-license) oldalt.
-
+Aspose.Slides korlátok nélküli teszteléséhez kérhet **30 napos ideiglenes licencet**. További információkért tekintse meg a [Hogyan lehet ideiglenes licencet kérni](https://purchase.aspose.com/temporary-license) oldalt.
 {{% /alert %}}
 
-## **Licencelés az Aspose.Slides‑ben**
-* Egy értékelő verzió licencelté válik, miután licencet vásárol, és néhány kódsort hozzáad (a licenc alkalmazásához).
-* A licenc egy egyszerű szöveges XML‑fájl, amely tartalmazza a termék nevét, a licencelt fejlesztők számát, az előfizetés lejárati dátumát és egyéb adatokat.
-* A licencfájl digitálisan alá van írva, ezért nem szabad módosítani. Még egy véletlenül beillesztett sortörés is érvénytelenné teheti.
-* Aspose.Slides for .NET általában a licencet a következő helyeken keresi:
+## **Licencelés az Aspose.Slides-ben**
+* Az értékelő verzió licencelté válik, miután megvásárol egy licencet, és néhány kódsort hozzáad (a licenc alkalmazásához).
+* A licenc egy egyszerű szöveges XML fájl, amely tartalmazza a termék nevét, a licencelt fejlesztők számát, az előfizetés lejárati dátumát stb.
+* A licencfájl digitálisan alá van írva, ezért azt nem szabad módosítani. Még egy felesleges sortörés hozzáadása a fájl tartalmához is érvényteleníti azt.
+* Az Aspose.Slides for .NET általában a következő helyeken keres licencet:
   * Kifejezett útvonal
-  * A komponens DLL‑jét tartalmazó mappa (az Aspose.Slides‑ben szerepel)
-  * A komponens DLL‑jét meghívó assembly‑t tartalmazó mappa (az Aspose.Slides‑ben szerepel)
-  * A belépő assembly‑t (a .exe‑t) tartalmazó mappa
-  * A komponens DLL‑jét meghívó assembly‑ben beágyazott erőforrás (az Aspose.Slides‑ben szerepel).
-* Az értékelő verzió korlátainak elkerülése érdekében licencet kell beállítani az Aspose.Slides használata előtt. Az alkalmazáson vagy folyamaton belül csak egyszer kell beállítani a licencet.
-
-{{% alert color="primary" %}} 
-
-Érdemes lehet megnézni a [Mérő licencelést](https://docs.aspose.com/slides/hu/net/metered-licensing/).
-
+  * A komponens DLL-jét tartalmazó mappa (az Aspose.Slides része)
+  * Az a mappa, amely a komponens DLL-jét meghívó assembly-t tartalmazza (az Aspose.Slides része)
+  * Az belépő assembly-t (az Ön .exe) tartalmazó mappa
+  * Beágyazott erőforrás az assembly-ben, amely a komponens DLL-jét meghívja (az Aspose.Slides része).
+* Az értékelő verzióval járó korlátozások elkerülése érdekében a használat előtt licencet kell beállítani az Aspose.Slides-ben. A licencet csak egyszer kell beállítani alkalmazásonként vagy folyamatként.
+{{% alert color="info" %}} 
+Érdemes megnézni a [Metered Licensing](https://docs.aspose.com/slides/hu/net/metered-licensing/) oldalt.
 {{% /alert %}} 
 
-
 ## **Licenc alkalmazása**
-A licenc betölthető **fájlból**, **adatfolyamból** vagy **beágyazott erőforrásból**. 
+Egy licenc betölthető **fájlból**, **streamből** vagy **beágyazott erőforrásból**. 
 
-{{% alert color="primary" %}}
-
+{{% alert color="info" %}}
 Az Aspose.Slides a [License](https://reference.aspose.com/slides/hu/net/aspose.slides/license) osztályt biztosítja a licencelési műveletekhez.
-
 {{% /alert %}} 
 
 {{% alert color="warning" %}} 
-
-Az új licencek csak a 21.4 vagy újabb verzióval aktiválhatják az Aspose.Slides‑t. A korábbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
-
+Az új licencek csak a 21.4-es vagy későbbi verzióval aktiválhatók az Aspose.Slides-ben. A korábbi verziók más licencelési rendszert használnak, és nem ismerik fel ezeket a licenceket.
 {{% /alert %}}
 
 ### **Fájl**
-A licenc beállításának legegyszerűbb módja, ha a licencfájlt a komponens DLL‑jét (az Aspose.Slides‑ben) tartalmazó mappában helyezi el, és csak a fájlnevet adja meg útvonal nélkül.
+A licenc beállításának legegyszerűbb módja, ha a licencfájlt ugyanabban a mappában helyezi el, ahol a komponens DLL-je (az Aspose.Slides része) található, és csak a fájlnevet adja meg az útvonal nélkül.
 
-Ez a C# kód megmutatja, hogyan kell beállítani egy licencfájlt:
-
+Ez a C# kód megmutatja, hogyan állíthat be licencfájlt:
 ``` csharp
 // Létrehozza a License osztályt 
 Aspose.Slides.License license = new Aspose.Slides.License();
 
-// Beállítja a licencfájl elérési útját
+// Beállítja a licencfájl útvonalát
 license.SetLicense("Aspose.Slides.lic");
 ```
-
 {{% alert color="warning" %}} 
+Ha a licencfájlt más könyvtárba helyezi, a [SetLicense](https://reference.aspose.com/slides/hu/net/aspose.slides/license/setlicense/#setlicense_1) metódus hívásakor a megadott explicit útvonal végén szereplő licencfájl neve meg kell egyezzen a licencfájl nevével.
 
-Ha a licencfájlt más könyvtárba helyezi, a [SetLicense](https://reference.aspose.com/slides/hu/net/aspose.slides/license/setlicense/#setlicense_1) metódus hívásakor a megadott kifejezett útvonal végén megadott licencfájl névnek meg kell egyeznie a licencfájl nevével.
-
-Például megváltoztathatja a licencfájl nevét *Aspose.Slides.lic.xml*-re. Ezután a kódban át kell adnia a fájl elérési útját (a *Aspose.Slides.lic.xml*-re végződve) a [SetLicense](https://reference.aspose.com/slides/hu/net/aspose.slides/license/setlicense/#setlicense_1) metódusnak.
-
+Például megváltoztathatja a licencfájl nevét *Aspose.Slides.lic.xml*-ra. Ezután a kódban a [SetLicense](https://reference.aspose.com/slides/hu/net/aspose.slides/license/setlicense/#setlicense_1) metódusnak meg kell adnia a fájl útvonalát (amely *Aspose.Slides.lic.xml*-ra végződik).
 {{% /alert %}}
 
-### **Adatfolyam**
-Licencet betölthet adatfolyamból. Ez a C# kód megmutatja, hogyan kell licencet alkalmazni adatfolyamból:
-
+### **Stream**
+Licencet betölthet streamből. Ez a C# kód megmutatja, hogyan alkalmazzon licencet streamből:
 ``` csharp
-// Példányosítja a License osztályt 
+// Létrehozza a License osztályt
 Aspose.Slides.License license = new Aspose.Slides.License();
 
-// Beállítja a licencet adatfolyam segítségével
-license.SetLicense(myStream);
+// Megnyitja a licencfájlt streamként
+using FileStream licenseStream = File.OpenRead("Aspose.Slides.lic");
+
+// Beállítja a licencet streamen keresztül
+license.SetLicense(licenseStream);
 ```
 
 ### **Beágyazott erőforrás**
-A licencet beágyazott erőforrásként csomagolhatja az alkalmazásával (hogy ne vesszen el), ha a licencet egy, a komponens DLL‑t meghívó assembly‑be beágyazott erőforrásként adja hozzá (az Aspose.Slides‑ben).
+Beágyazott erőforrásként hozzáadhatja a licencet az alkalmazásához (hogy ne vesszen el), a licencet a komponens DLL-jét meghívó egyik assembly-be ágyazva (az Aspose.Slides része).
 
 Így adhatja hozzá a licencfájlt beágyazott erőforrásként:
+1. A Visual Studio-ban adja a licenc (.lic) fájlt a projekthez a következő módon: nyissa meg a **File** > **Add Existing Item** > **Add** menüt. 
+2. Válassza ki a fájlt a **Solution Explorer**-ben.
+3. A **Properties** ablakban állítsa a **Build Action**-t **Embedded Resource** értékre.
+4. Az assembly-ben beágyazott licenc eléréséhez adja a licencfájlt beágyazott erőforrásként a projekthez, majd adja át a licencfájl nevét a `SetLicense` metódusnak. 
 
-1. A Visual Studio‑ban adja a licenc (.lic) fájlt a projekthez a következő módon: menjen a **File** > **Add Existing Item** > **Add** menüpontra. 
-2. Válassza ki a fájlt a **Solution Explorer**‑ben.
-3. A **Properties** ablakban állítsa a **Build Action** értékét **Embedded Resource**‑re.
-4. Az assembly‑ben beágyazott licenc eléréséhez adja a licencfájlt beágyazott erőforrásként a projekthez, majd adja át a licencfájl nevét a `SetLicense` metódusnak. 
+A `License` osztály automatikusan megtalálja a licencfájlt a beágyazott erőforrásokban. Nem szükséges meghívni a `GetExecutingAssembly` és a `GetManifestResourceStream` metódusokat a `System.Reflection.Assembly` osztályból a Microsoft .NET Framework-ön.
 
-
-A `License` osztály automatikusan megtalálja a licencfájlt a beágyazott erőforrásokban. Nem szükséges meghívni a `System.Reflection.Assembly` osztály `GetExecutingAssembly` és `GetManifestResourceStream` metódusait a Microsoft .NET Framework‑ben.
-
+Ez a C# kód megmutatja, hogyan állítson be licencet beágyazott erőforrásként:
 ``` csharp
-// Példányosítja a License osztályt
+// Létrehozza a License osztályt
 Aspose.Slides.License license = new Aspose.Slides.License();
 
-// Átadja az assembly-ben beágyazott licencfájl nevét
+// Átadja a beágyazott licencfájl nevét az assembly-ben
 license.SetLicense("Aspose.Slides.lic");
 ```
 
 ## **Licenc ellenőrzése**
-Annak ellenőrzésére, hogy a licenc megfelelően lett‑e beállítva, ellenőrizheti azt. Ez a C# kód megmutatja, hogyan lehet ellenőrizni egy licencet:
-
+Annak ellenőrzésére, hogy a licenc megfelelően lett-e beállítva, validálhatja azt. Ez a C# kód megmutatja, hogyan validálja a licencet:
 ```c#
 Aspose.Slides.License license = new Aspose.Slides.License();
 
@@ -151,17 +137,13 @@ if (license.IsLicensed())
 
 ## **Szálbiztonság**
 {{% alert title="Note" color="warning" %}} 
-
-A [license.SetLicense](https://reference.aspose.com/slides/hu/net/aspose.slides/license/setlicense/) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szálból kell meghívni, érdemes szinkronizációs primitíveket (például lock‑ot) használni a problémák elkerülése érdekében. 
-
+A [license.SetLicense](https://reference.aspose.com/slides/hu/net/aspose.slides/license/setlicense/) metódus nem szálbiztos. Ha ezt a metódust egyszerre több szálból kell hívni, érdemes szinkronizációs primitíveket (például zárat) használni a problémák elkerülése érdekében. 
 {{% /alert %}}
 
 ## **GYIK**
 
-**Alkalmazhatom a licencet teljesen offline környezetben (internetkapcsolat nélkül)?**
+### Alkalmazhatom a licencet teljesen offline környezetben (internetkapcsolat nélkül)?
+Igen. A licencvalidálás helyileg történik a licencfájl használatával; internetkapcsolat nem szükséges.
 
-Igen. A licenc ellenőrzése helyben, a licencfájl segítségével történik; internetkapcsolat nem szükséges.
-
-**Mi történik, ha az egyéves előfizetés lejár? Leáll a könyvtár működése?**
-
-Nem. A licenc örökös: a feliratkozási dátum előtt kiadott verziókat továbbra is használhatja; csak a megújítás nélkül nem lesz jogosult az újabb kiadásokra.
+### Mi történik, ha az egyéves előfizetés lejár? Leáll a könyvtár működése?
+Nem. A licenc időhatáros: továbbra is használhatja a feliratkozási dátuma előtt kiadott verziókat; azonban új kiadások használatához megújítás szükséges.

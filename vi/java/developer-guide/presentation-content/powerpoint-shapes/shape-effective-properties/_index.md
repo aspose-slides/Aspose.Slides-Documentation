@@ -1,37 +1,39 @@
 ---
-title: Lấy Thuộc tính Hiệu lực của Hình dạng từ Bản trình chiếu trong Java
-linktitle: Thuộc tính Hiệu lực
+title: "Lấy Thuộc tính Hiệu lực của Hình từ Bản trình chiếu trong Java"
+linktitle: "Thuộc tính Hiệu lực"
 type: docs
 weight: 50
 url: /vi/java/shape-effective-properties/
 keywords:
-- thuộc tính hình dạng
-- thuộc tính camera
-- bộ ánh sáng
-- hình dạng bevel
-- khung văn bản
-- kiểu văn bản
-- chiều cao phông chữ
-- định dạng đổ màu
-- PowerPoint
-- bản trình chiếu
-- Java
-- Aspose.Slides
-description: "Khám phá cách Aspose.Slides cho Java tính toán và áp dụng các thuộc tính hiệu lực của hình dạng để hiển thị PowerPoint một cách chính xác."
+- "thuộc tính hình"
+- "thuộc tính camera"
+- "bộ ánh sáng"
+- "độ gọt hình"
+- "khung văn bản"
+- "kiểu văn bản"
+- "chiều cao phông chữ"
+- "định dạng đổ màu"
+- "PowerPoint"
+- "bản trình chiếu"
+- "Java"
+- "Aspose.Slides"
+description: "Khám phá cách Aspose.Slides cho Java tính toán và áp dụng các thuộc tính hình hiệu lực để hiển thị PowerPoint chính xác."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích sự khác nhau giữa các thuộc tính **cục bộ** và **hiệu lực**. Giá trị cục bộ là các giá trị được đặt trực tiếp ở một mức định dạng cụ thể, chẳng hạn như:
+Chủ đề này giải thích sự khác nhau giữa các thuộc tính **cục bộ** và **hiệu lực**. Giá trị cục bộ là các giá trị được đặt trực tiếp ở một mức định dạng cụ thể, chẳng hạn như:
 
-1. Thuộc tính đoạn trên một slide.  
-1. Các kiểu văn bản hình dạng nguyên mẫu trên bố cục hoặc slide chủ, khi hình dạng khung văn bản của đoạn có một.  
-1. Cài đặt văn bản toàn cục trong một bản thuyết trình.  
+1. Các thuộc tính phần trên một slide.  
+1. Kiểu văn bản hình dạng nguyên mẫu trên bố cục hoặc slide master, khi khung văn bản của phần có một kiểu.  
+1. Cài đặt văn bản toàn cục trong một bản trình chiếu.
 
-Giá trị cục bộ có thể được định nghĩa hoặc bỏ qua ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng cuối cùng "được hiển thị", nó giải quyết chuỗi kế thừa và trả về các giá trị **hiệu lực**. Bạn có thể lấy chúng bằng cách gọi phương thức `getEffective` trên đối tượng định dạng cục bộ.
+Giá trị cục bộ có thể được định nghĩa hoặc bỏ qua ở bất kỳ mức nào. Khi Aspose.Slides cần định dạng “như đã hiển thị” cuối cùng, nó sẽ giải quyết chuỗi kế thừa và trả về các giá trị **hiệu lực**. Bạn có thể lấy chúng bằng cách gọi phương thức `getEffective` trên đối tượng định dạng cục bộ.
 
-Ví dụ sau minh họa cách lấy các giá trị hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) có khung văn bản và ít nhất một đoạn.
+Ví dụ sau cho thấy cách lấy các giá trị hiệu lực. Giả sử hình đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) với khung văn bản và ít nhất một phần.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,17 +51,17 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Dữ liệu định dạng hiệu lực đại diện cho định dạng tính toán hiện tại sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu hiệu lực, như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPortionFormatEffectiveData), có thể được lưu trong bộ nhớ đệm nội bộ. Gọi lại `getEffective` sau khi thay đổi định dạng cha hoặc kế thừa có thể làm mới dữ liệu đã cache, và một đối tượng đã lấy trước đó có thể không còn đại diện cho trạng thái trước đó. Nếu bạn cần bảo lưu các giá trị hiệu lực để sử dụng lại sau, sao chép các thuộc tính cần thiết, chẳng hạn như chiều cao phông chữ, màu nền, kiểu phông chữ hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
+{{% alert color="info" %}}
+Dữ liệu định dạng hiệu lực đại diện cho định dạng hiện tại đã được tính toán sau khi áp dụng kế thừa. Trong triển khai hiện tại, một số đối tượng dữ liệu hiệu lực, chẳng hạn như [IPortionFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IPortionFormatEffectiveData), có thể được lưu trong bộ nhớ cache nội bộ. Gọi lại `getEffective` sau khi thay đổi định dạng cha hoặc định dạng kế thừa có thể làm mới dữ liệu đã lưu, và một đối tượng đã lấy trước đây có thể không còn đại diện cho trạng thái trước đó. Nếu bạn cần lưu giữ các giá trị hiệu lực để sử dụng sau, sao chép các thuộc tính cần thiết, chẳng hạn như chiều cao phông chữ, màu nền, kiểu phông chữ hoặc căn chỉnh, vào đối tượng dữ liệu của riêng bạn.
 {{% /alert %}}
 
 ## **Lấy Thuộc tính Hiệu lực của Camera**
 
 Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của camera. Giao diện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ICameraEffectiveData) đại diện cho một đối tượng bất biến chứa các thuộc tính camera hiệu lực. Một thể hiện [ICameraEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ICameraEffectiveData) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormatEffectiveData), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormat).
 
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính hiệu lực cho camera. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -84,9 +86,9 @@ try {
 
 Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của Light Rig. Giao diện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ILightRigEffectiveData) đại diện cho một đối tượng bất biến chứa các thuộc tính Light Rig hiệu lực. Một thể hiện [ILightRigEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ILightRigEffectiveData) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormatEffectiveData), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormat).
 
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính hiệu lực cho Light Rig. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
-
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -105,13 +107,13 @@ try {
 }
 ```
 
-## **Lấy Thuộc tính Hiệu lực của Đối tượng Bevel**
+## **Lấy Thuộc tính Hiệu lực của Độ Gọt Hình (Bevel Shape)**
 
-Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của bevel hình dạng. Giao diện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeBevelEffectiveData) đại diện cho một đối tượng bất biến chứa các thuộc tính relief cho một hình dạng. Một thể hiện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeBevelEffectiveData) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormatEffectiveData), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormat).
-
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính hiệu lực cho bevel trên cùng của một hình dạng. Giả sử hình dạng đầu tiên trên slide đầu tiên có định dạng 3D.
+Aspose.Slides cho phép bạn lấy các thuộc tính hiệu lực của độ gọt hình. Giao diện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeBevelEffectiveData) đại diện cho một đối tượng bất biến chứa các thuộc tính relief mặt cho một hình. Một thể hiện [IShapeBevelEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShapeBevelEffectiveData) được phơi bày thông qua [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormatEffectiveData), cung cấp các giá trị hiệu lực cho [IThreeDFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IThreeDFormat).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -132,13 +134,13 @@ try {
 }
 ```
 
-## **Lấy Thuộc tính Hiệu lực của Khung Văn bản**
+## **Lấy Thuộc tính Hiệu lực của Khung Văn Bản**
 
 Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu lực của khung văn bản. Giao diện [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextFrameFormatEffectiveData) chứa các thuộc tính định dạng khung văn bản hiệu lực.
 
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính định dạng khung văn bản hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) có khung văn bản.
-
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -167,13 +169,13 @@ try {
 }
 ```
 
-## **Lấy Thuộc tính Hiệu lực của Kiểu Văn bản**
+## **Lấy Thuộc tính Hiệu lực của Kiểu Văn Bản**
 
 Sử dụng Aspose.Slides, bạn có thể lấy các thuộc tính hiệu lực của kiểu văn bản. Giao diện [ITextStyleEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextStyleEffectiveData) chứa các thuộc tính kiểu văn bản hiệu lực.
 
-Mẫu mã dưới đây cho thấy cách lấy các thuộc tính kiểu văn bản hiệu lực. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) có khung văn bản.
-
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -201,11 +203,13 @@ try {
 }
 ```
 
-## **Lấy Giá trị Chiều cao Phông chữ Hiệu lực**
+## **Lấy Giá Trị Chiều Cao Phông Chữ Hiệu lực**
 
-Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ hiệu lực. Mã dưới đây minh họa cách chiều cao phông chữ hiệu lực của một đoạn thay đổi sau khi các giá trị chiều cao phông chữ cục bộ được đặt ở các mức cấu trúc bản thuyết trình khác nhau.
+Sử dụng Aspose.Slides, bạn có thể lấy chiều cao phông chữ hiệu lực. Đoạn mã sau minh họa cách chiều cao phông chữ hiệu lực của một phần thay đổi sau khi giá trị chiều cao phông chữ cục bộ được đặt ở các mức cấu trúc bản trình chiếu khác nhau.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -276,13 +280,15 @@ try {
 }
 ```
 
-## **Lấy Định dạng Đổ màu Hiệu lực cho Bảng**
+## **Lấy Định Dạng Đổ Màu Hiệu lực cho Bảng**
 
-Sử dụng Aspose.Slides, bạn có thể lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giao diện [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IFillFormatEffectiveData) chứa các thuộc tính định dạng đổ màu hiệu lực. Định dạng ô có ưu tiên cao hơn định dạng hàng, định dạng hàng cao hơn định dạng cột, và định dạng cột cao hơn định dạng toàn bảng.
+Sử dụng Aspose.Slides, bạn có thể lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giao diện [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IFillFormatEffectiveData) chứa các thuộc tính định dạng đổ màu hiệu lực. Định dạng ô có ưu tiên cao hơn định dạng hàng, định dạng hàng có ưu tiên cao hơn định dạng cột, và định dạng cột có ưu tiên cao hơn định dạng toàn bảng.
 
-Do đó, các thuộc tính của [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ICellFormatEffectiveData) được sử dụng để vẽ ô bảng. Mẫu mã dưới đây cho thấy cách lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giả sử hình dạng đầu tiên trên slide đầu tiên là một [ITable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITable).
+Kết quả là các thuộc tính [ICellFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ICellFormatEffectiveData) được sử dụng để vẽ ô bảng. Đoạn mã sau cho thấy cách lấy định dạng đổ màu hiệu lực cho các phần khác nhau của bảng. Giả sử hình đầu tiên trên slide đầu tiên là một [ITable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITable).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -304,34 +310,34 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**`getEffective` có trả về một bản sao không?**
+### `getEffective` có trả về một ảnh chụp nhanh không?
 
-Không phải luôn luôn. Dữ liệu hiệu lực đại diện cho định dạng đã tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu hiệu lực có thể được lưu trong bộ nhớ đệm nội bộ. Một lời gọi `getEffective` tiếp theo có thể tính lại định dạng và làm mới dữ liệu đã cache, vì vậy một đối tượng đã lấy trước đó không nên được coi là một bản sao bền vững.
+Không phải luôn luôn. Dữ liệu hiệu lực đại diện cho định dạng đã tính toán sau khi áp dụng kế thừa, nhưng một số đối tượng dữ liệu hiệu lực có thể được lưu trong cache nội bộ. Lần gọi `getEffective` tiếp theo có thể tính lại định dạng và làm mới dữ liệu đã lưu, vì vậy một đối tượng đã lấy trước không nên được xem như một ảnh chụp nhanh bền vững.
 
-**Khi nào tôi nên đọc lại các thuộc tính hiệu lực?**
+### Khi nào tôi nên đọc lại các thuộc tính hiệu lực?
 
-Gọi `getEffective` lại sau khi thay đổi định dạng cục bộ, kiểu cha, định dạng bố cục, định dạng master hoặc các mặc định ở mức bản thuyết trình. Lời gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả hiệu lực hiện tại.
+Hãy gọi lại `getEffective` sau khi thay đổi định dạng cục bộ, kiểu cha, định dạng bố cục, định dạng master hoặc các giá trị mặc định ở mức bản trình chiếu. Lần gọi tiếp theo sẽ đánh giá lại cây định dạng và trả về kết quả hiệu lực hiện tại.
 
-**Việc thay đổi hoặc xoá một slide bố cục/master có ảnh hưởng tới các thuộc tính hiệu lực đã được lấy trước không?**
+### Thay đổi hoặc xóa một slide bố cục/master có ảnh hưởng đến các thuộc tính hiệu lực đã được lấy chưa?
 
-Có, nhưng thay đổi sẽ được phản ánh ở lời gọi `getEffective` tiếp theo. Nếu nguồn định dạng cha bị thay đổi hoặc xoá, dữ liệu hiệu lực đã lấy trước có thể trở nên lỗi thời. Khi `getEffective` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc giá trị khác có thể thay đổi.
+Có, nhưng thay đổi sẽ được phản ánh ở lần gọi `getEffective` kế tiếp. Nếu nguồn định dạng cha bị thay đổi hoặc xóa, dữ liệu hiệu lực đã lấy trước có thể trở nên lỗi thời. Khi `getEffective` được gọi lại, Aspose.Slides sẽ đánh giá lại cây định dạng và các phông chữ, màu sắc, kích thước hoặc các giá trị khác có thể thay đổi.
 
-**Tôi có thể sửa đổi giá trị thông qua các đối tượng dữ liệu hiệu lực không?**
+### Tôi có thể sửa đổi giá trị thông qua các đối tượng dữ liệu hiệu lực không?
 
-Không. Các đối tượng dữ liệu hiệu lực chỉ hiển thị các giá trị đã tính toán. Thực hiện thay đổi trong các đối tượng định dạng cục bộ, sau đó lại lấy các giá trị hiệu lực.
+Không. Các đối tượng dữ liệu hiệu lực chỉ hiển thị các giá trị đã tính toán. Thực hiện các thay đổi trong các đối tượng định dạng cục bộ, sau đó lại lấy các giá trị hiệu lực.
 
-**Nếu một thuộc tính không được đặt ở mức hình dạng, cũng không ở bố cục/master, cũng không ở cài đặt toàn cục thì gì sẽ xảy ra?**
+### Điều gì xảy ra nếu một thuộc tính không được đặt ở mức hình, cũng không ở bố cục/master, cũng không trong cài đặt toàn cục?
 
-Giá trị hiệu lực được xác định bằng cơ chế mặc định, bao gồm các mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết sẽ trở thành một phần của dữ liệu hiệu lực hiện tại.
+Giá trị hiệu lực sẽ được xác định bởi cơ chế mặc định, bao gồm các mặc định của PowerPoint và Aspose.Slides. Giá trị đã giải quyết sẽ trở thành một phần của dữ liệu hiệu lực hiện tại.
 
-**Từ một giá trị phông chữ hiệu lực, tôi có thể biết mức nào đã cung cấp kích thước hoặc kiểu chữ không?**
+### Từ một giá trị phông chữ hiệu lực, tôi có thể biết được mức nào đã cung cấp kích thước hoặc kiểu chữ không?
 
-Không trực tiếp. Dữ liệu hiệu lực chỉ trả về giá trị cuối cùng. Để tìm nguồn, kiểm tra các giá trị cục bộ ở đoạn, đoạn văn, khung văn bản và các kiểu văn bản ở mức bố cục, master và bản thuyết trình để xem nơi định nghĩa đầu tiên xuất hiện.
+Không trực tiếp. Dữ liệu hiệu lực chỉ trả về giá trị cuối cùng. Để tìm nguồn gốc, kiểm tra các giá trị cục bộ ở phần, đoạn, khung văn bản và các kiểu văn bản ở mức bố cục, master và bản trình chiếu để xem nơi định nghĩa rõ ràng đầu tiên xuất hiện.
 
-**Tại sao đôi khi các giá trị hiệu lực trông giống hệt với giá trị cục bộ?**
+### Tại sao các giá trị hiệu lực đôi khi trông giống hệt với giá trị cục bộ?
 
-Bởi vì giá trị cục bộ đã trở thành giá trị cuối cùng (không cần kế thừa ở mức cao hơn). Trong các trường hợp đó, giá trị hiệu lực trùng với giá trị cục bộ.
+Bởi vì giá trị cục bộ đã trở thành giá trị cuối cùng (không cần kế thừa ở mức cao hơn). Trong những trường hợp này, giá trị hiệu lực trùng với giá trị cục bộ.
 
-**Khi nào tôi nên sử dụng thuộc tính hiệu lực, và khi nào chỉ làm việc với các thuộc tính cục bộ?**
+### Khi nào tôi nên sử dụng các thuộc tính hiệu lực, và khi nào tôi chỉ nên làm việc với các thuộc tính cục bộ?
 
-Sử dụng dữ liệu hiệu lực khi bạn cần kết quả "được hiển thị" sau khi mọi kế thừa đã được áp dụng, chẳng hạn để đồng bộ màu sắc, thụt lề hoặc kích thước. Nếu bạn muốn bảo lưu các giá trị này bất chấp các thay đổi định dạng sau này, sao chép các thuộc tính cần thiết vào đối tượng riêng của bạn. Nếu bạn cần thay đổi định dạng ở một mức cụ thể, chỉnh sửa các thuộc tính cục bộ và sau đó, nếu cần, đọc lại dữ liệu hiệu lực để xác nhận kết quả.
+Sử dụng dữ liệu hiệu lực khi bạn cần kết quả “như đã hiển thị” sau khi tất cả các cấp kế thừa được áp dụng, chẳng hạn để đồng bộ màu sắc, thụt lề hoặc kích thước. Nếu bạn muốn lưu giữ các giá trị này bất chấp các thay đổi định dạng sau này, sao chép các thuộc tính cần thiết vào đối tượng của riêng bạn. Nếu bạn muốn thay đổi định dạng ở một mức cụ thể, chỉnh sửa các thuộc tính cục bộ và sau đó, nếu cần, đọc lại dữ liệu hiệu lực để xác nhận kết quả.

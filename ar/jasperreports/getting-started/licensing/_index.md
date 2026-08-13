@@ -4,27 +4,27 @@ type: docs
 weight: 50
 url: /ar/jasperreports/licensing/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+Aspose.Slides لـ JasperReports متاح كإصدار تجريبي مجاني غير محدود الوقت من [صفحة التحميل](https://downloads.aspose.com/slides/ar/jasperreport). إصدار التجربة والإصدارات المرخصة للمنتج يتم تحميلهما من نفس الرابط.
 
-Aspose.Slides لـ JasperReports متاح كتقييم مجاني غير محدود المدة من [صفحة التحميل](https://downloads.aspose.com/slides/jasperreport). النسخ التجريبية والترخيصية للمنتج هي نفس النسخة التي يتم تحميلها.
+عند رضاك عن النسخة التجريبية، [اشترِ ترخيصًا](https://purchase.aspose.com/buy). تأكد من فهمك وموافقتك على شروط الاشتراك.
 
-عندما تكون راضيًا عن التقييم، [اشترِ ترخيصًا](https://purchase.aspose.com/buy). تأكد من فهمك وامتناك لشروط الاشتراك.
+يمكن تنزيل الترخيص من صفحة الطلب بعد إتمام الدفع. الترخيص هو ملف XML نصي واضح موقّع رقمياً يحتوي على معلومات مثل اسم العميل، المنتج المشترى ونوع الترخيص. لا تقم بتعديل محتوى ملف الترخيص بأي شكل: فإن ذلك يبطل الترخيص.
 
-الترخيص متاح للتنزيل من صفحة الطلب بعد دفع طلب الشراء. الترخيص هو ملف XML موقع رقميًا يحتوي على معلومات مثل اسم العميل، والمنتج المشتراة ونوع الترخيص. لا تقم بتعديل محتوى ملف الترخيص بأي شكل من الأشكال: القيام بذلك يبطل الترخيص.
+حمّل الترخيص إلى جهازك وانسخه إلى المجلد المناسب (على سبيل المثال مجلد التطبيق الخاص بك أو **JasperReports\lib**).
+{{% /alert %}}
 
-قم بتنزيل الترخيص إلى جهاز الكمبيوتر الخاص بك وانسخه إلى المجلد المناسب (على سبيل المثال، مجلد التطبيق الخاص بك أو **JasperReports\lib**).
-
-## **قيود النسخة التجريبية**
-توفر النسخة التجريبية من Aspose.Slides (بدون ترخيص محدد) جميع وظائف المنتج، ولكن (عند حفظ العروض التقديمية الخاصة بك) تقوم بإدخال علامة مائية تجريبية في وسط كل شريحة كما هو موضح في الشكل أدناه:
+## **قيود نسخة التقييم**
+الإصدار التجريبي من Aspose.Slides (بدون ترخيص محدد) يوفر جميع وظائف المنتج، لكنه (عند حفظ العروض التقديمية) يضيف علامة مائية تجريبية في وسط كل شريحة كما هو موضح في الشكل أدناه:
 
 ![todo:image_alt_text](evaluation_watermark.png) 
 
 ## **تطبيق الترخيص**
-هناك عدة طرق لتطبيق الترخيص، يعتمد ذلك على ما إذا كنت تعمل على JasperReports أو JasperServer.
+هناك عدة طرق لتطبيق الترخيص، وذلك حسب ما إذا كنت تعمل على JasperReports أو JasperServer.
 
 ### **تطبيق الترخيص لـ JasperReports**
-استخدم مكالمة مباشرة لطريقة setLicense مشابهة لما هو موجود في Aspose.Slides لـ Java.
+استخدم استدعاء مباشر لطريقة setLicense مشابه لـ Aspose.Slides للـ Java.
 
 ```java
 import com.aspose.slides.jasperreports.License;
@@ -32,20 +32,20 @@ import com.aspose.slides.jasperreports.License;
 ..... 
 
 try {
-    //إنشاء كائن دفق يحتوي على ملف الترخيص
+    //إنشاء كائن تدفق يحتوي على ملف الترخيص
     FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 	
-    //Instantiate the License class
+    //إنشاء نسخة من فئة License
     License license = new License();
 	
-    //Set the license through the stream object
+    //ضبط الترخيص من خلال كائن التدفق
     license.setLicense(fstream);
 } catch(Exception ex) {
     System.out.println(ex.toString());
 }
 ```
 
-أو، قم بتعيين معلمة المصدر في الكود.
+أو، عيّن معلمة المُصدِّر في الشيفرة.
 
 ```java
 ASPptExporter exporter = new ASPptExporter (); 
@@ -54,7 +54,7 @@ exporter.exportReport();
 ```
 
 ### **تطبيق الترخيص على JasperServer**
-قم بتعيين معلمة المصدر في applicationContext.xml.
+قُم بضبط معلمة المُصدِّر في ملف applicationContext.xml.
 
 ``` xml
 <bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">

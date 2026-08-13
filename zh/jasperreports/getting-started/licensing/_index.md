@@ -1,51 +1,51 @@
 ---
-title: 许可
+title: 授权
 type: docs
 weight: 50
 url: /zh/jasperreports/licensing/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+Aspose.Slides for JasperReports 可从[下载页面](https://downloads.aspose.com/slides/zh/jasperreport)免费无限时长评估。评估版和授权版使用相同的下载链接。
 
-Aspose.Slides for JasperReports 提供免费的无限期评估版本，您可以从 [下载页面](https://downloads.aspose.com/slides/jasperreport) 获取。评估版和许可版的产品下载是相同的。
+评估满意后，[购买许可证](https://purchase.aspose.com/buy)。请确保您已了解并同意订阅条款。
 
-当您对评估版本满意时，请 [购买许可证](https://purchase.aspose.com/buy)。确保您了解并同意订阅条款。
+许可证可在订单付款后从订单页面下载。许可证是一个明文的、经过数字签名的 XML 文件，包含客户端名称、购买的产品以及许可证类型等信息。请不要以任何方式修改许可证文件的内容：这样会使许可证失效。
 
-许可证在订单支付后可以从订单页面下载。许可证是一个明文的、数字签名的 XML 文件，包含客户名称、购买的产品和许可证类型等信息。请勿以任何方式修改许可证文件的内容：这样会使许可证无效。
+将许可证下载到电脑并复制到相应文件夹（例如您的应用程序文件夹或 **JasperReports\lib**）。 
+{{% /alert %}}
 
-将许可证下载到您的计算机，并复制到适当的文件夹（例如您的应用程序文件夹或 **JasperReports\lib**）。
-
-## **评估版本限制**
-Aspose.Slides 的评估版本（未指定许可证）提供了完整的产品功能，但（当您保存演示文稿时）会在每张幻灯片的中心注入一个评估水印，如下图所示：
+## **评估版限制**
+Aspose.Slides 的评估版（未指定许可证）提供完整的产品功能，但在保存演示文稿时，会在每张幻灯片的中心插入评估水印，如下图所示：
 
 ![todo:image_alt_text](evaluation_watermark.png) 
 
 ## **应用许可证**
-根据您是在使用 JasperReports 还是 JasperServer，应用许可证的方法有几种。
+根据您是使用 JasperReports 还是 JasperServer，有多种应用许可证的方法。
 
-### **为 JasperReports 应用许可证**
-使用直接的 setLicense 方法调用，类似于 Aspose.Slides for Java。
+### **在 JasperReports 中应用许可证**
+使用类似于 Aspose.Slides for Java 的直接 setLicense 方法调用。
 
 ```java
 import com.aspose.slides.jasperreports.License;
 
-.....
+..... 
 
 try {
-    // 创建一个包含许可证文件的流对象
+    //创建包含许可证文件的流对象
     FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 	
-    // 实例化许可证类
+    //实例化 License 类
     License license = new License();
 	
-    // 通过流对象设置许可证
+    //通过流对象设置许可证
     license.setLicense(fstream);
 } catch(Exception ex) {
     System.out.println(ex.toString());
 }
 ```
 
-或者，在代码中设置导出参数。
+或者，在代码中设置导出器参数。
 
 ```java
 ASPptExporter exporter = new ASPptExporter (); 
@@ -54,7 +54,7 @@ exporter.exportReport();
 ```
 
 ### **在 JasperServer 上应用许可证**
-在 applicationContext.xml 中设置导出参数。
+在 applicationContext.xml 中设置导出器参数。
 
 ``` xml
 <bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">

@@ -1,42 +1,43 @@
 ---
-title: PPT‑ről PPTX‑re konvertálás
+title: PPT to PPTX konvertálás
 type: docs
 weight: 30
 url: /hu/java/ppt-to-pptx-conversion/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Az Aspose.Slides for Java támogatja a PPT‑ről PPTX‑re konvertálást. A legtöbb prezentációs funkció – mester diák, szerkezet stb. – megmarad a formátumok közti átalakítás során, azonban vannak [néhány korlátozás](/slides/hu/java/ppt-to-pptx-conversion/).
+A PPT to PPTX konvertálást támogatja az Aspose.Slides for Java. A legtöbb prezentációs funkció – mester diák, struktúra és így tovább – megmarad a formátumok közti átalakításkor, de vannak [a few limitations](/slides/hu/java/ppt-to-pptx-conversion/).
 
 {{% /alert %}} 
-## **A konverzióban támogatott funkciók**
-Aspose.Slides for Java részleges támogatást nyújt a PPT fájlformátum PPTX‑re történő konvertálásához. A konverzió támogatása csak a közelmúltban került bevezetésre az Aspose.Slides for Java-ban, ezért vannak korlátozások, és leginkább egyszerű prezentációk esetében működik jól. Az a fő előny, amelyet az Aspose.Slides for Java biztosít a PPT‑ről PPTX‑re konvertáláskor, hogy mennyire könnyen használható az API. A kódról szóló példák megtekintéséhez olvassa el a [PPT konvertálása PPTX-re](). Az alábbi listák bemutatják, mely funkciók támogatottak és melyek nem a PPT‑ről PPTX‑re konvertálás során.
+## **A konverzió során támogatott funkciók**
+Az Aspose.Slides for Java részleges támogatást nyújt a PPT fájlformátum PPTX formátumba történő konvertálásához. A konvertálás támogatása most először került be az Aspose.Slides for Java-ba, ezért van néhány korlátozása, és leginkább egyszerű bemutatók esetén működik a legjobban. Az Aspose.Slides for Java legnagyobb előnye a PPT‑ről PPTX‑re történő konvertálásban az, hogy az API rendkívül könnyen használható. A kódpéldák megtekintéséhez olvasd el a [Converting PPT to PPTX]() szekciót. Az alábbi listák azt magyarázzák, mely funkciók támogatottak és melyek nem a PPT‑ről PPTX‑re konvertálás során.
 
-**Forrás PPT prezentáció**
+
+**Forrás PPT bemutató**
 
 ![todo:image_alt_text](ppt-to-pptx-conversion_1.png)
 
 
 
-**A konverzió után PPTX‑ben**
+**PPTX-re konvertálás után**
 
 ![todo:image_alt_text](ppt-to-pptx-conversion_2.png)
 
 
 
 ## **Támogatott funkciók**
-A következő funkciók támogatottak a konverzióhoz:
+A következő funkciók támogatottak a konverzió során:
 
-- Mesterek, elrendezések és diák szerkezetének konvertálása.
+- A master, elrendezés és dia struktúrájának konvertálása.
 - Diagramok konvertálása.
 - Csoportos alakzatok.
-- Alakzatok (autoshapes), például téglalapok és ellipszisek konvertálása.
+- Automatikus alakzatok konvertálása, beleértve a téglalapokat és ellipsziseket.
 - Egyedi geometriájú alakzatok.
-- Textúrák és képek kitöltési stílusa az alakzatok (autoshapes) számára.
-- Helyőrzők konvertálása.
-- Vonalak és vonalláncok konvertálása.
-- Vonal- és kitöltésformátumok.
-- Színátmenetes kitöltési stílusok.
-- OLE keretek, táblázatok, videó- és audio keretek stb.
+- Textúrák és képek kitöltési stílusai automatikus alakzatokhoz.
+- Helyettesítők konvertálása.
+- Vonalak és poligonvonalak konvertálása.
+- Vonal- és kitöltési formátumok.
+- Gradiens kitöltési stílusok.
+- OLE keretek, táblázatok, video- és audio keretek stb.
 - Animációs és diavetítés tulajdonságok.
-- Szöveg konvertálása szövegkeretekben és szöveghelyeken.
+- Szöveg konvertálása szövegkeretekben és szövegbefoglalókban.

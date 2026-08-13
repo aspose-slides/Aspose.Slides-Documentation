@@ -15,21 +15,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migra dall'automazione Microsoft Office a Aspose.Slides per .NET e crea nuove presentazioni PowerPoint (PPT, PPTX) in C# con codice pulito e affidabile."
+description: "Esegui la migrazione dall'automazione di Microsoft Office a Aspose.Slides per .NET e crea nuove presentazioni PowerPoint (PPT, PPTX) in C# con codice pulito e affidabile."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-VSTO è stato sviluppato per consentire ai programmatori di creare applicazioni che potessero essere eseguite all'interno di Microsoft Office. VSTO è basato su COM ma è avvolto in un oggetto .NET in modo da poter essere utilizzato nelle applicazioni .NET. VSTO richiede il supporto del framework .NET così come il runtime basato su CLR di Microsoft Office. Sebbene possa essere usato per creare componenti aggiuntivi per Microsoft Office, è quasi impossibile usarlo come componente lato server. Presenta inoltre seri problemi di distribuzione.
+VSTO è stato sviluppato per consentire agli sviluppatori di creare applicazioni che possano essere eseguite all'interno di Microsoft Office. VSTO è basato su COM ma è avvolto in un oggetto .NET, in modo da poter essere utilizzato nelle applicazioni .NET. VSTO richiede il supporto del framework .NET così come l'ambiente di runtime basato su CLR di Microsoft Office. Sebbene possa essere usato per realizzare componenti aggiuntivi di Microsoft Office, è quasi impossibile da utilizzare come componente lato server. Presenta inoltre seri problemi di distribuzione.
 
-Aspose.Slides per .NET è un componente che può essere utilizzato per manipolare presentazioni Microsoft PowerPoint, proprio come VSTO, ma offre diversi vantaggi:
+Aspose.Slides for .NET è un componente che può essere usato per manipolare presentazioni Microsoft PowerPoint, proprio come VSTO, ma presenta diversi vantaggi:
 
 - Aspose.Slides contiene solo codice gestito e non richiede l'installazione del runtime di Microsoft Office.
-- Può essere usato come componente lato client o come componente lato server.
-- La distribuzione è semplice poiché Aspose.Slides è contenuto in un singolo DLL.
+- Può essere utilizzato come componente client o come componente server.
+- La distribuzione è semplice poiché Aspose.Slides è contenuto in un unico DLL.
 
 {{% /alert %}} 
 ## **Creare una presentazione**
-Di seguito sono riportati due esempi di codice che illustrano come VSTO e Aspose.Slides per .NET possono essere usati per raggiungere lo stesso obiettivo. Il primo esempio è [VSTO](/slides/it/net/create-a-new-presentation/); [il secondo esempio](/slides/it/net/create-a-new-presentation/) utilizza Aspose.Slides.
+Di seguito sono riportati due esempi di codice che illustrano come VSTO e Aspose.Slides for .NET possano essere usati per raggiungere lo stesso obiettivo. Il primo esempio è [VSTO](/slides/it/net/create-a-new-presentation/); [il secondo esempio](/slides/it/net/create-a-new-presentation/) utilizza Aspose.Slides.
 ### **Esempio VSTO**
 **L'output VSTO** 
 
@@ -38,7 +38,7 @@ Di seguito sono riportati due esempi di codice che illustrano come VSTO e Aspose
 
 
 ```c#
-//Nota: PowerPoint è uno spazio dei nomi definito sopra in questo modo
+//Nota: PowerPoint è uno spazio dei nomi che è stato definito sopra in questo modo
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 //Crea una presentazione
@@ -73,6 +73,9 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Crea una presentazione
 Presentation pres = new Presentation();
 
@@ -87,5 +90,5 @@ ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
 ((IAutoShape)slide.Shapes[1]).TextFrame.Text = "Slide Title Sub-Heading";
 
 //Scrivi l'output su disco
-pres.Save("c:\\data\\outAsposeSlides.pptx", SaveFormat.Ppt);
+pres.Save("outAsposeSlides.pptx", SaveFormat.Ppt);
 ```

@@ -7,7 +7,7 @@ url: /ar/cpp/image/
 keywords:
 - إضافة صورة
 - إضافة صورة
-- إضافة bitmap
+- إضافة صورة نقطية
 - استبدال صورة
 - استبدال صورة
 - من الويب
@@ -15,47 +15,62 @@ keywords:
 - إضافة PNG
 - إضافة JPG
 - إضافة SVG
+- موارد SVG الخارجية
+- محلل SVG
+- صور SVG المرتبطة
+- خطوط SVG
 - إضافة EMF
 - إضافة WMF
 - إضافة TIFF
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
-- EMF
-- SVG
 - C++
 - Aspose.Slides
 description: "تبسيط إدارة الصور في PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++، مما يحسن الأداء ويُؤتمت سير العمل الخاص بك."
 ---
+## **المقدمة**
 
-## **الصور في شرائح العرض**
+تجعل الصور العروض التقديمية أكثر جاذبية وجمالاً بصرياً. في Microsoft PowerPoint، يمكنك إدراج صور إلى الشرائح من ملفات أو الإنترنت أو مصادر أخرى. وبالمثل، تسمح لك مكتبة Aspose.Slides بإضافة صور إلى شرائح العرض بطرق متعددة.
 
-تجعل الصور العروض التقديمية أكثر جذبًا وإثارة للاهتمام. في Microsoft PowerPoint، يمكنك إدراج الصور من ملف أو من الإنترنت أو من مواقع أخرى إلى الشرائح. بالمثل، يتيح Aspose.Slides إضافة الصور إلى الشرائح في عروضك باستخدام إجراءات مختلفة. 
+{{% alert title="نصيحة" color="info" %}} 
 
-{{% alert title="نصيحة" color="primary" %}} 
-
-يوفر Aspose محولات مجانية—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) و[PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—تسمح للناس بإنشاء عروض تقديمية بسرعة من الصور. 
+توفر Aspose محولات مجانية—[JPEG إلى PowerPoint](https://products.aspose.app/slides/ar/import/jpg-to-ppt) و[PNG إلى PowerPoint](https://products.aspose.app/slides/ar/import/png-to-ppt)—تتيح لك إنشاء عروض تقديمية بسرعة من الصور. 
 
 {{% /alert %}} 
 
 {{% alert title="معلومات" color="info" %}}
 
-إذا كنت ترغب في إضافة صورة ككائن إطار—خصوصًا إذا كنت تخطط لاستخدام خيارات تنسيق قياسية عليه لتغيير حجمه، إضافة تأثيرات، وما إلى ذلك—اطلع على [Picture Frame](/slides/ar/cpp/picture-frame/). 
+إذا أردت إضافة صورة كإطار صورة—خاصة إذا كنت تخطط لتغيير حجمها أو تطبيق تأثيرات أو استخدام خيارات تنسيق قياسية أخرى—راجع [إطار الصورة](/slides/ar/cpp/picture-frame/). 
 
 {{% /alert %}} 
 
 {{% alert title="ملاحظة" color="warning" %}}
 
-يمكنك التعامل مع عمليات الإدخال/الإخراج المتعلقة بالصور وعروض PowerPoint لتحويل صورة من صيغة إلى أخرى. راجع هذه الصفحات: تحويل [image to JPG](https://products.aspose.com/slides/cpp/conversion/image-to-jpg/)؛ تحويل [JPG to image](https://products.aspose.com/slides/cpp/conversion/jpg-to-image/)؛ تحويل [JPG to PNG](https://products.aspose.com/slides/cpp/conversion/jpg-to-png/)، تحويل [PNG to JPG](https://products.aspose.com/slides/cpp/conversion/png-to-jpg/)؛ تحويل [PNG to SVG](https://products.aspose.com/slides/cpp/conversion/png-to-svg/)، تحويل [SVG to PNG](https://products.aspose.com/slides/cpp/conversion/svg-to-png/). 
+يمكنك تحويل الصور من صيغة إلى أخرى. راجع الصفحات التالية: تحويل [صورة إلى JPG](https://products.aspose.com/slides/ar/cpp/conversion/image-to-jpg/)، [JPG إلى صورة](https://products.aspose.com/slides/ar/cpp/conversion/jpg-to-image/)، [JPG إلى PNG](https://products.aspose.com/slides/ar/cpp/conversion/jpg-to-png/)، [PNG إلى JPG](https://products.aspose.com/slides/ar/cpp/conversion/png-to-jpg/)، [PNG إلى SVG](https://products.aspose.com/slides/ar/cpp/conversion/png-to-svg/)، و[SVG إلى PNG](https://products.aspose.com/slides/ar/cpp/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-يدعم Aspose.Slides عمليات مع الصور في هذه الصيغ الشائعة: JPEG، PNG، GIF، وغيرها. 
+تدعم Aspose.Slides الصور بصيغ شائعة مثل JPEG وPNG وBMP وGIF وغيرها.
 
-## **إضافة صور مخزنة محليًا إلى الشرائح**
+## **إضافة صور مخزنة محلياً إلى الشرائح**
 
-يمكنك إضافة صورة أو عدة صور من جهاز الكمبيوتر إلى شريحة في عرض تقديمي. يظهر لك هذا المثال البرمجي بلغة C++ كيفية إضافة صورة إلى شريحة:
+يمكنك إضافة صورة أو أكثر مخزنة على جهاز الكمبيوتر الخاص بك إلى شريحة عرض. يوضح الكود التجريبي التالي بلغة C++ كيفية إضافة صورة إلى شريحة:
+
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -65,19 +80,31 @@ slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f,
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-
-
-
 ## **إضافة صور من الويب إلى الشرائح**
 
-إذا كانت الصورة التي تريد إضافتها إلى شريحة غير متوفرة على جهازك، يمكنك إضافتها مباشرة من الويب. 
+إذا كانت الصورة التي تريد إضافتها إلى شريحة غير مخزنة على جهازك، يمكنك إضافتها مباشرة من الويب.
 
-يعرض لك هذا المثال البرمجي كيفية إضافة صورة من الويب إلى شريحة بلغة C++:
+يظهر الكود التجريبي التالي بلغة C++ كيفية إضافة صورة من الويب إلى شريحة:
+
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <net/web_client.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
-    
-auto webClient = System::MakeObject<WebClient>();
+
+auto webClient = System::MakeObject<System::Net::WebClient>();
 auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
 
 auto image = pres->get_Images()->AddImage(imageData);
@@ -86,13 +113,28 @@ slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f,
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+## **إضافة صور إلى القوالب الأساسية للشرائح**
 
-## **إضافة صور إلى القوالب الرئيسية للشرائح**
+القالب الأساسي للشرائح يخزن ويتحكم في معلومات مثل السمة وتنسيق الشرائح التي تستخدمه. عند إضافة صورة إلى القالب الأساسي، تظهر الصورة على كل شريحة تعتمد على ذلك القالب.
 
-القالب الرئيسي للشرائح هو الشريحة العليا التي تخزن وتتحكم في معلومات (السمة، التخطيط، إلخ) لجميع الشرائح تحته. لذلك، عندما تضيف صورة إلى القالب الرئيسي، تظهر تلك الصورة على كل شريحة تحت ذلك القالب. 
+يظهر الكود التجريبي التالي بلغة C++ كيفية إضافة صورة إلى القالب الأساسي للشرائح:
 
-يظهر لك هذا المثال البرمجي بلغة C++ كيفية إضافة صورة إلى القالب الرئيسي:
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
@@ -103,145 +145,450 @@ masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 1
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
+## **إضافة صور كخلفية للشرائح**
 
-## **إضافة صور كخلفيات للشرائح**
-
-قد تقرر استخدام صورة كخلفية لشريحة معينة أو لعدة شرائح. في هذه الحالة، عليك الاطلاع على *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/cpp/presentation-background/#setting-images-as-background-for-slides)*.
+يمكنك استخدام صورة كخلفية لشريحة أو أكثر. للحصول على تفاصيل، راجع *[تعيين الصور كخلفيات للشرائح](/slides/ar/cpp/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **إضافة SVG إلى العروض التقديمية**
-يمكنك إضافة أو إدراج أي صورة في عرض تقديمي باستخدام طريقة [AddPictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#ab55ae8c24dd32665637725a26ca1c1a9) التي تنتمي إلى واجهة [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection). 
 
-لإنشاء كائن صورة يعتمد على صورة SVG، يمكنك فعل ذلك بهذه الطريقة:
+يمكن إضافة محتوى SVG إلى عرض تقديمي باستخدام فئة [SvgImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/svgimage/). يمكن بعد ذلك إضافة كائن [ISvgImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isvgimage/) الناتج إلى مجموعة صور العرض واستخدامه لإنشاء إطار صورة.
 
-1. إنشاء كائن SvgImage لإدراجه في ImageShapeCollection
-2. إنشاء كائن PPImage من ISvgImage
-3. إنشاء كائن PictureFrame باستخدام واجهة IPPImage
+يعرض المثال التالي بلغة C++ كيفية استيراد سلسلة SVG مضمونة. جميع الصور والأنماط والموارد الأخرى المستخدمة في هذا SVG مدمجة مباشرةً في محتوى SVG.
 
-يعرض لك هذا المثال البرمجي تنفيذ الخطوات المذكورة لإضافة صورة SVG إلى عرض تقديمي:
-``` cpp
-// مسار مجلد المستندات
-System::String dataDir = u"D:\\Documents\\";
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
 
-// اسم ملف SVG المصدر
-System::String svgFileName = dataDir + u"sample.svg";
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// اسم ملف العرض التقديمي الناتج
-System::String outPptxPath = dataDir + u"presentation.pptx";
+auto svgContent = String(uR"(
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>)");
 
-// إنشاء عرض تقديمي جديد
-auto p = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto svgImage = MakeObject<SvgImage>(svgContent);
+auto image = presentation->get_Images()->AddImage(svgImage);
 
-// قراءة محتوى ملف SVG
-System::String svgContent = File::ReadAllText(svgFileName);
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle, 20.0f, 20.0f,
+    static_cast<float>(image->get_Width()),
+    static_cast<float>(image->get_Height()),
+    image);
 
-// إنشاء كائن SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// إنشاء كائن PPImage
-System::SharedPtr<IPPImage> ppImage = p->get_Images()->AddImage(svgImage);
-
-// إنشاء إطار صورة جديد
-p->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 200.0f, 100.0f, static_cast<float>(ppImage->get_Width()), static_cast<float>(ppImage->get_Height()), ppImage);
-
-// حفظ العرض التقديمي بصيغة PPTX
-p->Save(outPptxPath, SaveFormat::Pptx);
+presentation->Save(u"self-contained-svg.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **استيراد محتوى SVG بموارد خارجية**
+
+قد تشير ملفات SVG المستخرجة من أدوات التصميم أو محررات المخططات أو أنظمة الأيقونات أو خطوط الأنابيب الويب إلى موارد مخزنة خارج مستند SVG. على سبيل المثال، قد يحتوي SVG على ارتباط صورة مثل `images/photo.png`، أو قيمة CSS `url(...)`، أو عنوان URL للخط.
+
+لاستيراد مثل هذا المحتوى، أنشئ تنفيذًا لـ[IExternalResourceResolver](https://reference.aspose.com/slides/ar/cpp/aspose.slides.import/iexternalresourceresolver/) ومرره، إلى جانب عنوان URI أساسي، إلى مُنشئ `SvgImage` المناسب. يُحدد العنوان الأساسي موقع مستند SVG ويُستخدم لحل الروابط النسبية.
+
+توفر واجهة [ISvgImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isvgimage/) إمكانية الوصول إلى معلومات حول SVG المستورد:
+
+- `get_SvgContent()` تُعيد ترميز SVG كسلسلة.
+- `get_SvgData()` تُعيد محتوى SVG كمصفوفة بايتات.
+- `get_BaseUri()` تُعيد العنوان الأساسي المستخدم للروابط النسبية.
+- `get_ExternalResourceResolver()` تُعيد محلل الموارد المعين لصورة SVG.
+
+### **تنفيذ محلل موارد خارجية**
+
+يحتوي المحلل على طريقتين:
+
+- [ResolveUri](https://reference.aspose.com/slides/ar/cpp/aspose.slides.import/iexternalresourceresolver/resolveuri/) يجمع العنوان الأساسي ورابط المورد النسبي ويعيد عنوان URI مطلق. أعد سلسلة فارغة عندما لا يمكن حل الرابط أو غير مسموح به.
+- [GetEntity](https://reference.aspose.com/slides/ar/cpp/aspose.slides.import/iexternalresourceresolver/getentity/) تُعيد تدفقًا قابلًا للقراءة لعنوان URI مطلق للمورد. أعد `nullptr` عندما يكون المورد مفقودًا أو محجوبًا أو غير متاح. يمكن أيضًا إرجاع تدفق احتياطي عندما يكون ذلك مناسبًا.
+
+يعرض المثال التالي محللًا يحمل الموارد المرتبطة فقط من دليل محلي مسموح به. تُحظر الموارد الشبكية والمسارات خارج الدليل المسموح. تُعاد صورة احتياطية اختيارية للروابط غير المحلولة.
+
+```cpp
+#include <Import/IExternalResourceResolver.h>
+#include <system/array.h>
+#include <system/io/file.h>
+#include <system/io/memory_stream.h>
+#include <system/io/path.h>
+#include <system/io/stream.h>
+#include <system/string.h>
+#include <system/smart_ptr.h>
+#include <system/string_comparison.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides::Import;
+using namespace System;
+using namespace System::IO;
+
+class LocalSvgResourceResolver : public IExternalResourceResolver
+{
+public:
+    LocalSvgResourceResolver(String allowedRoot, ArrayPtr<uint8_t> fallbackImageData = nullptr)
+        : _allowedRoot(Path::GetFullPath(allowedRoot)),
+          _fallbackImageData(fallbackImageData)
+    {
+    }
+
+    String ResolveUri(String baseUri, String relativeUri) override
+    {
+        if (String::IsNullOrWhiteSpace(baseUri) ||
+            String::IsNullOrWhiteSpace(relativeUri))
+        {
+            return String::Null;
+        }
+
+        auto baseAddress = SharedPtr<Uri>();
+        auto absoluteAddress = SharedPtr<Uri>();
+        if (!Uri::TryCreate(baseUri, UriKind::Absolute, baseAddress) ||
+            !Uri::TryCreate(baseAddress, relativeUri, absoluteAddress))
+        {
+            return String::Null;
+        }
+
+        // هذا المحلل يسمح بشكل مقصود بالملفات المحلية فقط.
+        if (!absoluteAddress->get_IsFile())
+        {
+            return String::Null;
+        }
+
+        auto resourcePath = Path::GetFullPath(absoluteAddress->get_LocalPath());
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return String::Null;
+        }
+
+        return absoluteAddress->get_AbsoluteUri();
+    }
+
+    SharedPtr<Stream> GetEntity(String absoluteUri) override
+    {
+        auto resourceUri = SharedPtr<Uri>();
+        if (!Uri::TryCreate(absoluteUri, UriKind::Absolute, resourceUri) ||
+            !resourceUri->get_IsFile())
+        {
+            return nullptr;
+        }
+
+        auto resourcePath = Path::GetFullPath(resourceUri->get_LocalPath());
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return nullptr;
+        }
+
+        if (File::Exists(resourcePath))
+        {
+            return File::OpenRead(resourcePath);
+        }
+
+        // استخدم مرحلة احتياطية فقط لموارد الصورة. إرجاع تدفق صورة
+        // لخط أو ورقة أنماط مفقودة لن يكون ذلك صالحًا.
+        if (_fallbackImageData != nullptr && IsImageFile(resourcePath))
+        {
+            return MakeObject<MemoryStream>(_fallbackImageData, false);
+        }
+
+        return nullptr;
+    }
+
+private:
+    String _allowedRoot;
+    ArrayPtr<uint8_t> _fallbackImageData;
+
+    bool IsInsideAllowedRoot(String resourcePath)
+    {
+        auto normalizedRoot = _allowedRoot;
+        auto directorySeparator = String(Path::DirectorySeparatorChar, 1);
+        if (!normalizedRoot.EndsWith(directorySeparator))
+        {
+            normalizedRoot += directorySeparator;
+        }
+
+        auto normalizedPath = Path::GetFullPath(resourcePath);
+        auto comparison = Path::DirectorySeparatorChar == u'\\'
+            ? StringComparison::OrdinalIgnoreCase
+            : StringComparison::Ordinal;
+
+        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
+               String::Equals(normalizedPath, _allowedRoot, comparison);
+    }
+
+    static bool IsImageFile(String path)
+    {
+        auto extension = Path::GetExtension(path);
+
+        return String::Equals(extension, u".png", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".jpg", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".jpeg", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".gif", StringComparison::OrdinalIgnoreCase) ||
+               String::Equals(extension, u".bmp", StringComparison::OrdinalIgnoreCase);
+    }
+};
+```
+
+### **حل الروابط المرتبطة أثناء استيراد SVG**
+
+افترض أن `assets/diagram.svg` يحتوي على إشارة نسبية مثل:
+
+```xml
+<image href="images/photo.png" x="20" y="20" width="320" height="180" />
+```
+
+يعرض المثال التالي بلغة C++ كيفية تمرير URI ملف SVG كعنوان أساسي وتوفير محلل مخصص. يُحوّل المحلل رابط الصورة النسبي إلى عنوان URI مطلق ويُعيد تدفقًا يحتوي على المورد المرتبط بينما تقوم Aspose.Slides بمعالجة SVG.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <Import/IExternalResourceResolver.h>
+#include <system/array.h>
+#include <system/environment.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Import;
+using namespace System;
+using namespace System::IO;
+
+auto svgFilePath = Path::GetFullPath(Path::Combine(u"assets", u"diagram.svg"));
+auto assetDirectory = Path::GetDirectoryName(svgFilePath);
+if (String::IsNullOrEmpty(assetDirectory))
+{
+    assetDirectory = Environment::get_CurrentDirectory();
+}
+
+auto svgContent = File::ReadAllText(svgFilePath);
+
+// العنوان الأساسي يمثل موقع مستند SVG.
+auto baseUri = MakeObject<Uri>(svgFilePath)->get_AbsoluteUri();
+
+auto fallbackImageData = ArrayPtr<uint8_t>();
+auto fallbackImagePath = Path::Combine(assetDirectory, u"fallback.png");
+if (File::Exists(fallbackImagePath))
+{
+    fallbackImageData = File::ReadAllBytes(fallbackImagePath);
+}
+
+auto resolver = MakeObject<LocalSvgResourceResolver>(assetDirectory, fallbackImageData);
+auto svgImage = MakeObject<SvgImage>(svgContent, resolver, baseUri);
+
+// ISvgImage تعرض المحتوى الأصلي، البيانات الثنائية، العنوان الأساسي، والمحلل.
+auto importedContent = svgImage->get_SvgContent();
+auto importedData = svgImage->get_SvgData();
+auto importedBaseUri = svgImage->get_BaseUri();
+auto importedResolver = svgImage->get_ExternalResourceResolver();
+
+auto presentation = MakeObject<Presentation>();
+auto image = presentation->get_Images()->AddImage(svgImage);
+
+presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
+    ShapeType::Rectangle, 20.0f, 20.0f,
+    static_cast<float>(image->get_Width()),
+    static_cast<float>(image->get_Height()),
+    image);
+
+presentation->Save(u"svg-with-linked-resources.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+توفر فئة `SvgImage` أيضًا إصدارات تتقبل بيانات SVG كمصفوفة بايتات أو تدفق، إلى جانب محلل موارد خارجي وعنوان URI أساسي.
+
+{{% alert title="هام" color="warning" %}}
+
+يمكّن محلل الموارد الموارد الخارجية أثناء معالجة Aspose.Slides وعرض SVG. لا يُعدّل الترميز الأصلي لـ SVG ولا يدمج الموارد المحلولة تلقائيًا فيه.
+
+عند إضافة `ISvgImage` إلى مجموعة صور العرض، قد يحتوي ملف PPTX على تمثيل SVG الأصلي وصورة نقطية احتياطية. قد يظهر مورد مرتبط في الصورة الاحتياطية المُولدة بينما يبقى الرابط النسبي مثل `images/photo.png` دون تغيير في SVG المخزن. لذلك قد تتجاهل التطبيقات التي تعرض تمثيل SVG الأصلي المحتوى المرتبط عندما يكون المورد الخارجي الأصلي غير متوفر.
+
+{{% /alert %}}
+
+### **إنشاء صورة SVG محمولة**
+
+لإنشاء صورة SVG لا تعتمد على ملفات خارجية، اجعل SVG ذاتيًا قبل إنشاء `SvgImage`. على سبيل المثال، استبدل عناوين URL للصور المرتبطة بـ URIs من نوع `data:` التي تحتوي على بيانات الصورة:
+
+```xml
+<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+```
+
+بعد دمج جميع الموارد المطلوبة في محتوى SVG، أنشئ `SvgImage`، أضفه إلى مجموعة صور العرض، وأدرجه في إطار صورة كما هو موضح في المثال السابق.
+
+### **معالجة الموارد المفقودة أو المحجوبة**
+
+أعد سلسلة فارغة من `ResolveUri` عندما يكون عنوان URI للمورد غير صالح أو محظور أو لا يمكن حله. أعد `nullptr` من `GetEntity` عندما لا يمكن قراءة المورد. تواصل Aspose.Slides معالجة SVG بدون هذا المورد عندما يكون ذلك ممكنًا.
+
+يمكن إرجاع تدفق احتياطي لمورد مفقود، لكن يجب أن يكون محتواه متوافقًا مع نوع المورد المطلوب. على سبيل المثال، أعد تدفق صورة فقط لمورد صورة مفقود، وليس للخط أو ورقة الأنماط.
+
+{{% alert title="الأمان" color="warning" %}}
+
+لا تحلّ أي مسارات ملفات عشوائية أو عناوين URL شبكية غير مقيدة من ملفات SVG غير موثوقة. قيد المخططات المسموح بها، الأدلة، والمضيفين. بالنسبة للموارد الشبكية، طبّق أيضًا مهلات الاتصال، حدود حجم الاستجابة، والتحقق من المحتوى.
+
+{{% /alert %}}
 
 ## **تحويل SVG إلى مجموعة من الأشكال**
-تحويل Aspose.Slides لـ SVG إلى مجموعة من الأشكال مشابه للوظيفة الموجودة في PowerPoint للعمل مع صور SVG:
+يمكن لـ Aspose.Slides تحويل SVG إلى مجموعة من الأشكال، مماثلة للوظيفة المقابلة في PowerPoint:
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-تُوفر الوظيفة من خلال أحد التحميلات الزائدة لطريقة [AddGroupShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a07def8851fe87a8f73a1621d2375d13b) في واجهة [IShapeCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection) التي تستقبل كائن [ISvgImage](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_svg_image) كوسيط أول. 
+توفر هذه الوظيفة من خلال إصدارة من طريقة [AddGroupShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/) في واجهة [IShapeCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/) التي تستقبل كائن [ISvgImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/isvgimage/) كوسيط أول.
 
-يعرض لك هذا المثال البرمجي كيفية استخدام الطريقة المذكورة لتحويل ملف SVG إلى مجموعة من الأشكال:
+يعرض الكود التجريبي التالي بلغة C++ كيفية استخدام هذه الطريقة لتحويل ملف SVG إلى مجموعة من الأشكال:
+
 ``` cpp 
-// مسار مجلد المستندات
-System::String dataDir = u"D:\\Documents\\";
+#include <DOM/IPresentation.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
 // اسم ملف SVG المصدر
-System::String svgFileName = dataDir + u"sample.svg";
+auto svgFileName = System::String(u"sample.svg");
 
 // اسم ملف العرض التقديمي الناتج
-System::String outPptxPath = dataDir + u"presentation.pptx";
+auto outPptxPath = System::String(u"presentation.pptx");
 
 // إنشاء عرض تقديمي جديد
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
 
 // قراءة محتوى ملف SVG
-System::String svgContent = File::ReadAllText(svgFileName);
+auto svgContent = File::ReadAllText(svgFileName);
 
 // إنشاء كائن SvgImage
-System::SharedPtr<ISvgImage> svgImage = System::MakeObject<SvgImage>(svgContent);
+auto svgImage = System::MakeObject<SvgImage>(svgContent);
 
 // الحصول على حجم الشريحة
-System::Drawing::SizeF slideSize = presentation->get_SlideSize()->get_Size();
+auto slideSize = presentation->get_SlideSize()->get_Size();
 
-// تحويل صورة SVG إلى مجموعة من الأشكال وتوسيعها لتناسب حجم الشريحة
+// تحويل صورة SVG إلى مجموعة من الأشكال وتكبيرها لتتناسب مع حجم الشريحة
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
 
 // حفظ العرض التقديمي بصيغة PPTX
 presentation->Save(outPptxPath, SaveFormat::Pptx);
 ```
 
-
 ## **إضافة صور كـ EMF إلى الشرائح**
-يسمح Aspose.Slides للغة C++ بإنشاء صور EMF من جداول إكسل وإضافة تلك الصور كـ EMF في الشرائح باستخدام Aspose.Cells. 
+تتيح Aspose.Slides for C++ إنشاء صور EMF من أوراق عمل Excel باستخدام Aspose.Cells وإضافتها إلى شرائح العرض.
 
-يعرض لك هذا المثال البرمجي كيفية تنفيذ المهمة الموصوفة:
+يعرض الكود التجريبي التالي بلغة C++ كيفية القيام بذلك:
+
 ``` cpp 
-System::String dataDir = u"D:\\Documents\\";
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/ImageOrPrintOptions.h"
+#include "Aspose.Cells/ImageType.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/SheetRender.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
 
-StringPtr cellsXls = new String(dataDir.ToWCS().c_str());
-cellsXls->Append(L"chart.xls");
-intrusive_ptr<Aspose::Cells::IWorkbook> book = Aspose::Cells::Factory::CreateIWorkbook(cellsXls);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-intrusive_ptr<Aspose::Cells::IWorksheet> sheet = book->GetIWorksheets()->GetObjectByIndex(0);
-intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> options = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-options->SetHorizontalResolution(200);
-options->SetVerticalResolution(200);
-options->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetEmf());
+// يجب تشغيل Aspose.Cells للـ C++ قبل استخدام أي من أنواعه.
+Aspose::Cells::Startup();
 
-// Save the workbook to stream
-intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> sr = Aspose::Cells::Factory::CreateISheetRender(sheet, options);
+auto workbook = Aspose::Cells::Workbook(u"chart.xls");
+auto sheet = workbook.GetWorksheets().Get(0);
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+// Render the worksheet as EMF.
+auto options = Aspose::Cells::ImageOrPrintOptions();
+options.SetHorizontalResolution(200);
+options.SetVerticalResolution(200);
+options.SetImageType(Aspose::Cells::Drawing::ImageType::Emf);
 
-pres->get_Slides()->RemoveAt(0);
+auto sheetRender = Aspose::Cells::SheetRender(sheet, options);
 
-System::String EmfSheetName;
-for (int32_t j = 0; j < sr->GetPageCount(); j++)
+auto presentation = System::MakeObject<Presentation>();
+presentation->get_Slides()->RemoveAt(0);
+
+for (auto pageIndex = 0; pageIndex < sheetRender.GetPageCount(); pageIndex++)
 {
-    EmfSheetName = dataDir + u"test" + System::String::FromWCS(sheet->GetName()->value()) + u" Page" + (j + 1) + u".out.emf";
-    sr->ToImage(j, new String(EmfSheetName.ToWCS().c_str()));
+    // تُعيد Aspose.Cells الصفحة المُرسَّمة كمت buffer، وتضيفها Aspose.Slides كصورة.
+    auto emfData = sheetRender.ToImage(pageIndex);
+    auto emfBytes = System::MakeArray<uint8_t>(emfData.GetLength(), emfData.GetData());
+    auto emfImage = presentation->get_Images()->AddImage(emfBytes);
 
-    auto bytes = System::IO::File::ReadAllBytes(EmfSheetName);
-    auto emfImage = pres->get_Images()->AddImage(bytes);
-
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = pres->get_SlideSize()->get_Size();
+    auto slide = presentation->get_Slides()->AddEmptySlide(
+        presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
+    auto slideSize = presentation->get_SlideSize()->get_Size();
     slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
 }
 
-pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
-```
+presentation->Save(u"Saved.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+workbook.Dispose();
 
+Aspose::Cells::Cleanup();
+```
 
 ## **استبدال الصور في مجموعة الصور**
 
-يتيح Aspose.Slides استبدال الصور المخزنة في مجموعة الصور الخاصة بالعرض (بما فيها تلك المستخدمة من قبل أشكال الشرائح). يوضح هذا القسم عدة نهج لتحديث الصور في المجموعة. توفر الـ API طرقًا مباشرة لاستبدال صورة باستخدام بيانات بايت خام، أو كائن [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) موجود، أو صورة أخرى موجودة بالفعل في المجموعة. 
+تتيح لك Aspose.Slides استبدال الصور المخزنة في مجموعة صور العرض، بما في ذلك الصور المستخدمة في أشكال الشرائح. تصف هذه الفقرة عدة طرق لتحديث الصور في المجموعة. يمكنك استبدال صورة باستخدام بيانات بايتية خام، أو كائن [IImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iimage/)، أو صورة أخرى موجودة مسبقًا في المجموعة.
 
 اتبع الخطوات التالية:
 
-1. تحميل ملف العرض الذي يحتوي على الصور باستخدام فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-2. تحميل صورة جديدة من ملف إلى مصفوفة بايت.
-3. استبدال الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايت.
-4. في النهج الثاني، تحميل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) واستبدال الصورة المستهدفة بذلك الكائن.
-5. في النهج الثالث، استبدال الصورة المستهدفة بصورة موجودة بالفعل في مجموعة صور العرض.
-6. كتابة العرض المعدل كملف PPTX. 
+1. حمّل ملف العرض الذي يحتوي على صور باستخدام فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/).
+1. حمّل صورة جديدة من ملف إلى مصفوفة بايتات.
+1. استبدل الصورة المستهدفة بالصورة الجديدة باستخدام مصفوفة البايتات.
+1. في النهج الثاني، حمّل الصورة إلى كائن [IImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iimage/) واستبدل الصورة المستهدفة بذلك الكائن.
+1. في النهج الثالث، استبدل الصورة المستهدفة بصورة موجودة مسبقًا في مجموعة صور العرض.
+1. احفظ العرض المعدل كملف PPTX.
+
 ```cpp
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// إنشاء كائن فئة Presentation الذي يمثل ملف عرض تقديمي.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // الطريقة الأولى.
@@ -264,10 +611,9 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 {{% alert title="معلومات" color="info" %}}
 
-باستخدام محول Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) يمكنك بسهولة تحريك النصوص، وإنشاء GIFs من النصوص، وما إلى ذلك. 
+باستخدام أداة Aspose المجانية للتحويل من نص إلى GIF، يمكنك بسهولة تحريك النص وإنشاء ملفات GIF من النص. 
 
 {{% /alert %}}
 
@@ -275,20 +621,20 @@ presentation->Dispose();
 
 **هل تبقى دقة الصورة الأصلية كما هي بعد الإدراج؟**
 
-نعم. يتم الحفاظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على كيفية تحجيم [picture](/slides/ar/cpp/picture-frame/) على الشريحة وأي ضغط يُطبق عند الحفظ.
+نعم. تُحافظ على بكسلات المصدر، لكن المظهر النهائي يعتمد على طريقة تحجيم [الصورة](/slides/ar/cpp/picture-frame/) على الشريحة وأي ضغط يُطبق عند الحفظ.
 
-**ما هي أفضل طريقة لاستبدال نفس الشعار عبر العشرات من الشرائح مرة واحدة؟**
+**ما هي أفضل طريقة لاستبدال الشعار نفسه عبر عشرات الشرائح مرة واحدة؟**
 
-ضع الشعار على الشريحة الرئيسية أو على تخطيط، واستبدله في مجموعة صور العرض—ستنتشر التغييرات إلى جميع العناصر التي تستخدم هذا المورد.
+ضع الشعار على الشريحة الرئيسية أو نموذج تخطيط واستبدله في مجموعة صور العرض—سيتردد التحديث إلى جميع العناصر التي تستخدم هذا المورد.
 
-**هل يمكن تحويل SVG المُدرَج إلى أشكال يمكن تعديلها؟**
+**هل يمكن تحويل SVG تم إدخاله إلى أشكال قابلة للتحرير؟**
 
-نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، وبعد ذلك تصبح الأجزاء الفردية قابلة للتعديل باستخدام خصائص الشكل القياسية.
+نعم. يمكنك تحويل SVG إلى مجموعة من الأشكال، ثم تصبح الأجزاء الفردية قابلة للتحرير باستخدام خصائص الشكل القياسية.
 
-**كيف يمكنني ضبط صورة كخلفية لعدة شرائح في آن واحد؟**
+**كيف يمكنني تعيين صورة كخلفية لعدة شرائح في آن واحد؟**
 
-[Assign the image as the background](/slides/ar/cpp/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب—سيتم توريث الخلفية إلى جميع الشرائح التي تستخدم ذلك القالب/التخطيط.
+[عيّن الصورة كخلفية](/slides/ar/cpp/presentation-background/) على الشريحة الرئيسية أو التخطيط المناسب—ست inherit أي شريحة تستخدم ذلك النموذج الخلفية.
 
-**كيف أمنع أن يصبح حجم العرض كبيرًا جدًا بسبب كثرة الصور؟**
+**كيف أمنع أن يصبح العرض كبيرًا جدًا بسبب كثرة الصور؟**
 
-أعد استخدام مصدر صورة واحد بدلاً من النسخ المتكررة، اختر دقة معقولة، طبق الضغط عند الحفظ، واحفظ الرسومات المتكررة على القالب الرئيسي حيثما كان ذلك مناسبًا.
+أعد استخدام مورد صورة واحد بدلاً من النسخ المتعددة، اختر دقة معقولة، طبّق ضغطًا عند الحفظ، واحتفظ بالرسومات المتكررة على القالب الرئيسي حيثما كان ذلك مناسبًا.

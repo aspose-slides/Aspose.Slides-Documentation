@@ -1,6 +1,6 @@
 ---
-title: C++ でプレゼンテーションからシェイプの有効プロパティを取得
-linktitle: 有効プロパティ
+title: "C++ でプレゼンテーションからシェイプの実効プロパティを取得する"
+linktitle: "実効プロパティ"
 type: docs
 weight: 50
 url: /ja/cpp/shape-effective-properties/
@@ -11,27 +11,37 @@ keywords:
 - ベベル シェイプ
 - テキスト フレーム
 - テキスト スタイル
-- フォントの高さ
+- フォント 高さ
 - 塗りつぶし 書式
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ が正確な PowerPoint のレンダリングのために、シェイプの有効プロパティをどのように計算し適用するかをご紹介します。"
+description: "Aspose.Slides for C++ が PowerPoint の正確なレンダリングのために実効シェイプ プロパティを計算および適用する方法を紹介します。"
 ---
 ## **概要**
 
-このトピックは **local** と **effective** プロパティの違いを説明します。ローカル値は、特定の書式設定レベルで直接設定された値で、例えば以下のようなものです：
+このトピックでは **ローカル** プロパティと **実効** プロパティの違いについて説明します。ローカル値は、特定の書式設定レベルで直接設定された値で、以下のようなものがあります。
 
-1. スライド上の portion プロパティ。
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプテキストスタイル（portion のテキストフレームシェイプに設定がある場合）。
-1. プレゼンテーション全体のテキスト設定。
+1. スライド上の部分（Portion）プロパティ。
+1. レイアウトまたはマスタースライド上のプロトタイプシェイプのテキストスタイル（対象の部分のテキストフレームシェイプが持っている場合）。
+1. プレゼンテーション全体のグローバルテキスト設定。
 
-ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「as rendered」書式設定を必要とする場合、継承チェーンを解決して **effective** 値を返します。これらはローカル書式オブジェクトの `GetEffective` メソッドを呼び出すことで取得できます。
+ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「描画結果」としての書式設定を必要とする場合、継承チェーンを解決して **実効** 値を返します。これらはローカル書式オブジェクトの `GetEffective` メソッドを呼び出すことで取得できます。
 
-以下の例は effective 値の取得方法を示します。最初のスライドの最初のシェイプがテキストフレームと少なくとも 1 つの portion を持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
+以下の例は実効値の取得方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持ち、少なくとも1つの部分を含む [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,17 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-Effective 書式データは、継承が適用された後に計算された現在の書式設定を表します。現在の実装では、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformateffectivedata/) などの一部の effective データオブジェクトが内部でキャッシュされる可能性があります。親や継承された書式設定を変更した後に `GetEffective` を再度呼び出すとキャッシュが更新され、以前に取得したオブジェクトは以前の状態を表さなくなることがあります。後で再利用するために effective 値を保持したい場合は、フォント高さ、塗りつぶし色、フォントスタイル、配置などの必要なプロパティを自分のデータオブジェクトにコピーしてください。
+{{% alert color="info" %}}
+実効書式データは、継承が適用された後に計算された現在の書式を表します。現在の実装では、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformateffectivedata/) のような一部の実効データオブジェクトが内部でキャッシュされる場合があります。親や継承された書式を変更した後に `GetEffective` を再度呼び出すとキャッシュが更新され、以前取得したオブジェクトは以前の状態を表さなくなることがあります。実効値を後で再利用する必要がある場合は、フォント高さ、塗りつぶし色、フォントスタイル、配置など必要なプロパティを自分のデータオブジェクトにコピーしてください。
 {{% /alert %}}
 
-## **カメラの Effective プロパティの取得**
+## **カメラの実効プロパティの取得**
 
-Aspose.Slides はカメラの effective プロパティを取得できます。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icameraeffectivedata/) インターフェイスは、変更不可能なオブジェクトで、effective カメラプロパティを格納します。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icameraeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の effective 値を提供します。
+Aspose.Slides はカメラの実効プロパティを取得できます。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icameraeffectivedata/) インターフェイスは、実効カメラプロパティを含む不変オブジェクトを表します。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icameraeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の実効値を提供します。
 
-以下のコードサンプルはカメラの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプが 3D 書式設定を持つことを前提としています。
+以下のコードサンプルはカメラの実効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプが 3D 書式設定を持っていることを前提としています。
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -78,13 +99,24 @@ System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
 presentation->Dispose();
 ```
 
-## **ライトリグの Effective プロパティの取得**
+## **ライトリグの実効プロパティの取得**
 
-Aspose.Slides はライトリグの effective プロパティを取得できます。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilightrigeffectivedata/) インターフェイスは、変更不可能なオブジェクトで、effective ライトリグプロパティを格納します。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilightrigeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の effective 値を提供します。
+Aspose.Slides はライトリグの実効プロパティを取得できます。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilightrigeffectivedata/) インターフェイスは、実効ライトリグプロパティを含む不変オブジェクトを表します。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilightrigeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の実効値を提供します。
 
-以下のコードサンプルはライトリグの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプが 3D 書式設定を持つことを前提としています。
+以下のコードサンプルはライトリグの実効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプが 3D 書式設定を持っていることを前提としています。
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -101,13 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **シェイプベベルの Effective プロパティの取得**
+## **ベベルシェイプの実効プロパティの取得**
 
-Aspose.Slides はシェイプベベルの effective プロパティを取得できます。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/) インターフェイスは、シェイプのフェイスリリーフプロパティを格納した変更不可能なオブジェクトです。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の effective 値を提供します。
+Aspose.Slides はシェイプベベルの実効プロパティを取得できます。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/) インターフェイスは、シェイプの実効面リリーフプロパティを含む不変オブジェクトを表します。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を通じて公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の実効値を提供します。
 
-以下のコードサンプルはシェイプの上部ベベルの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプが 3D 書式設定を持つことを前提としています。
+以下のコードサンプルはシェイプの上部ベベルの実効プロパティを取得する方法を示しています。最初のスライドの最初のシェイプが 3D 書式設定を持っていることを前提としています。
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -127,13 +170,24 @@ System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
 presentation->Dispose();
 ```
 
-## **テキストフレームの Effective プロパティの取得**
+## **テキストフレームの実効プロパティの取得**
 
-Aspose.Slides を使用すると、テキストフレームの effective プロパティを取得できます。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformateffectivedata/) インターフェイスは effective テキストフレーム書式設定プロパティを含みます。
+Aspose.Slides を使用して、テキストフレームの実効プロパティを取得できます。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformateffectivedata/) インターフェイスは実効テキストフレーム書式プロパティを含みます。
 
-以下のコードサンプルはテキストフレームの effective 書式設定プロパティを取得する方法を示します。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
+以下のコードサンプルは実効テキストフレーム書式プロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -166,13 +220,26 @@ System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
 presentation->Dispose();
 ```
 
-## **テキストスタイルの Effective プロパティの取得**
+## **テキストスタイルの実効プロパティの取得**
 
-Aspose.Slides を使用すると、テキストスタイルの effective プロパティを取得できます。[ITextStyleEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextstyleeffectivedata/) インターフェイスは effective テキストスタイルプロパティを含みます。
+Aspose.Slides を使用して、テキストスタイルの実効プロパティを取得できます。[ITextStyleEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextstyleeffectivedata/) インターフェイスは実効テキストスタイルプロパティを含みます。
 
-以下のコードサンプルはテキストスタイルの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
+以下のコードサンプルは実効テキストスタイルプロパティを取得する方法を示しています。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -199,11 +266,30 @@ for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
 presentation->Dispose();
 ```
 
-## **Effective フォント高さの取得**
+## **実効フォント高さの取得**
 
-Aspose.Slides を使用すると、effective フォント高さを取得できます。以下のコードは、プレゼンテーション構造の異なるレベルでローカルフォント高さが設定された後に、portion の effective フォント高さがどのように変化するかを示しています。
+Aspose.Slides を使用して、実効フォント高さを取得できます。以下のコードは、プレゼンテーション構造のさまざまなレベルでローカルフォント高さが設定された後、部分の実効フォント高さがどのように変化するかを示しています。
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -260,13 +346,29 @@ presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **テーブルの Effective 塗りつぶし形式の取得**
+## **テーブルの実効塗りつぶし書式の取得**
 
-Aspose.Slides を使用すると、テーブルの各部分に対する effective 塗りつぶし書式設定を取得できます。[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ifillformateffectivedata/) インターフェイスは effective 塗りつぶし書式設定プロパティを含みます。セルの書式設定は行の書式設定より優先され、行の書式設定は列の書式設定より優先され、列の書式設定はテーブル全体の書式設定より優先されます。
+Aspose.Slides を使用して、テーブルの各部位に対する実効塗りつぶし書式を取得できます。[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ifillformateffectivedata/) インターフェイスは実効塗りつぶし書式プロパティを含みます。セル書式は行書式より優先度が高く、行書式は列書式より優先度が高く、列書式はテーブル全体の書式より優先度が高くなります。
 
-その結果、[ICellFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icellformateffectivedata/) のプロパティがテーブルセルの描画に使用されます。以下のコードサンプルはテーブルの各部分に対する effective 塗りつぶし書式設定を取得する方法を示します。最初のスライドの最初のシェイプが [ITable](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itable/) であることを前提としています。
+その結果、テーブルセルの描画には [ICellFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icellformateffectivedata/) のプロパティが使用されます。以下のコードサンプルはテーブルの各部位に対する実効塗りつぶし書式を取得する方法を示しています。最初のスライドの最初のシェイプが [ITable](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itable/) であることを前提としています。
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -282,34 +384,34 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**`GetEffective` はスナップショットを返しますか？**
+### `GetEffective` はスナップショットを返しますか？
 
-必ずしもそうではありません。Effective データは継承が適用された後に計算された書式設定を表しますが、一部の effective データオブジェクトは内部でキャッシュされることがあります。`GetEffective` を再度呼び出すと書式設定が再計算されキャッシュが更新されるため、以前に取得したオブジェクトは永続的なスナップショットとして扱うべきではありません。
+必ずしも返しません。実効データは継承が適用された後に計算された書式を表しますが、一部の実効データオブジェクトは内部でキャッシュされる可能性があります。`GetEffective` を再度呼び出すと書式が再計算されキャッシュが更新されるため、以前取得したオブジェクトを永続的なスナップショットとして扱うべきではありません。
 
-**いつ effective プロパティを再取得すべきですか？**
+### 実効プロパティはいつ再取得すべきですか？
 
-ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーションレベルのデフォルトを変更した後に `GetEffective` を再度呼び出してください。次の呼び出しで書式階層が再評価され、現在の effective 結果が返されます。
+ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーション全体のデフォルトを変更した後に `GetEffective` を再度呼び出します。次の呼び出しで書式階層が再評価され、現在の実効結果が返されます。
 
-**レイアウト/マスタースライドを変更または削除すると、すでに取得した effective プロパティに影響しますか？**
+### 取得済みの実効プロパティは、レイアウト／マスタースライドを変更・削除するとどうなりますか？
 
-はい。ただし、変更は次回の `GetEffective` 呼び出しで反映されます。親の書式ソースが変更または削除された場合、以前に取得した effective データは古くなる可能性があります。`GetEffective` を再度呼び出すと Aspose.Slides が書式ツリーを再評価し、フォント、色、サイズ、その他の値が変わることがあります。
+変更は次回の `GetEffective` 呼び出しで反映されます。親書式ソースが変更または削除されると、以前取得した実効データは古くなる可能性があります。`GetEffective` を再度呼び出すと Aspose.Slides が書式ツリーを再評価し、フォントや色、サイズなどの値が変わることがあります。
 
-**effective データオブジェクトを介して値を変更できますか？**
+### 実効データオブジェクトを通じて値を変更できますか？
 
-できません。Effective データオブジェクトは計算された値を公開するだけです。ローカル書式オブジェクトで変更を行い、再度 effective 値を取得してください。
+できません。実効データオブジェクトは計算済みの値を公開するだけです。変更はローカル書式オブジェクトで行い、必要に応じて再度実効値を取得してください。
 
-**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
+### シェイプレベルでもレイアウト／マスターでもグローバル設定でもプロパティが設定されていない場合は？
 
-effective 値は PowerPoint と Aspose.Slides のデフォルトを含む既定のメカニズムによって決定されます。その解決された値が現在の effective データの一部となります。
+実効値は PowerPoint と Aspose.Slides のデフォルト機構によって決定されます。その解決された値が現在の実効データの一部となります。
 
-**effective フォント値から、どのレベルがサイズやフォント名を提供したか判断できますか？**
+### 実効フォント値から、どのレベルがサイズやフォント名を提供したか判別できますか？
 
-直接は判断できません。Effective データは最終的な値を返すだけです。どのレベルで最初に明示的に定義されたかを知りたい場合は、portion、段落、テキストフレーム、レイアウト、マスター、プレゼンテーションレベルのローカル値を順に確認してください。
+直接は判別できません。実効データは最終的な値のみを返します。どのレベルで最初に明示的に定義されたかを知りたい場合は、部分、段落、テキストフレーム、レイアウト、マスター、プレゼンテーションの各ローカル値を順に確認してください。
 
-**なぜ effective 値がローカル値と同じに見えることがありますか？**
+### 実効値がローカル値と同じに見えるのはなぜですか？
 
-ローカル値が最終的な値となり、上位レベルからの継承が必要なかったためです。そのような場合、effective 値はローカル値と一致します。
+ローカル値が最終的な値となった（上位レベルからの継承が不要だった）ためです。このような場合、実効値はローカル値と同一になります。
 
-**effective プロパティを使用すべきタイミングと、ローカルプロパティだけを使用すべきタイミングは？**
+### 実効プロパティを使用すべきタイミングと、ローカルプロパティだけを使用すべきタイミングは？
 
-すべての継承が適用された後の「レンダリング後」結果が必要な場合は effective データを使用します（例: 色、インデント、サイズの整合）。後で書式が変更されても保持したい場合は、必要なプロパティを自分のオブジェクトにコピーしてください。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて effective データを再取得して結果を確認してください。
+すべての継承が適用された「描画結果」が必要なときは実効データを使用します。たとえば、色やインデント、サイズを正確に合わせる必要がある場合です。これらの値を後で変更されても保持したい場合は、必要なプロパティを自分のオブジェクトにコピーしてください。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて実効データを再取得して結果を確認します。

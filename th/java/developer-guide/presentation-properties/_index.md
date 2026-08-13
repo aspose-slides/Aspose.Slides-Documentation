@@ -1,73 +1,75 @@
 ---
-title: จัดการคุณสมบัติการนำเสนอใน Java
-linktitle: คุณสมบัติการนำเสนอ
+title: จัดการคุณสมบัตินำเสนอใน Java
+linktitle: คุณสมบัตินำเสนอ
 type: docs
 weight: 70
 url: /th/java/presentation-properties/
 keywords:
 - คุณสมบัติ PowerPoint
-- คุณสมบัติการนำเสนอ
+- คุณสมบัตินำเสนอ
 - คุณสมบัติเอกสาร
 - คุณสมบัติมาตรฐาน
-- คุณสมบัติแบบกำหนดเอง
+- คุณสมบัติกำหนดเอง
 - คุณสมบัติขั้นสูง
 - จัดการคุณสมบัติ
 - แก้ไขคุณสมบัติ
 - เมตาดาต้าเอกสาร
 - แก้ไขเมตาดาต้า
-- ภาษาตรวจสอบ
-- ภาษาตั้งค่าเริ่มต้น
+- ภาษาตรวจสอบการพิสูจน์
+- ภาษาปริยาย
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เชี่ยวชาญการจัดการคุณสมบัติการนำเสนอใน Aspose.Slides สำหรับ Java และทำให้การค้นหา, การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นไปอย่างราบรื่น."
+description: "ควบคุมคุณสมบัตินำเสนอใน Aspose.Slides for Java และทำให้การค้นหา, การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นไปอย่างมีประสิทธิภาพ"
 ---
 ## **บทนำ**
 
-Aspose.Slides รองรับคุณสมบัติของเอกสารสองประเภท: **Built-in** และ **Custom**. ทั้งสองประเภทของคุณสมบัตินี้สามารถเข้าถึงและจัดการได้อย่างง่ายดายโดยใช้ Aspose.Slides API.
+Aspose.Slides รองรับสองประเภทของคุณสมบัติเอกสาร: **Built-in** และ **Custom**. ทั้งสองประเภทของคุณสมบัตินี้สามารถเข้าถึงและจัดการได้อย่างง่ายดายโดยใช้ Aspose.Slides API.
 
-Aspose.Slides อนุญาตให้คุณทำงานกับคุณสมบัติเอกสารของงานนำเสนอผ่านอินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties/) . อินสแตนซ์ของอินเทอร์เฟซนี้จะถูกส่งกลับโดยเมธอด [Presentation.getDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getDocumentProperties--) . ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข และจัดการคุณสมบัติเหล่านี้.
+Aspose.Slides ช่วยให้คุณทำงานกับคุณสมบัติเอกสารของงานนำเสนอผ่านอินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties/) อินเทอร์เฟซ ตัวอย่างของอินเทอร์เฟซนี้จะถูกส่งคืนโดยเมธอด [Presentation.getDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getDocumentProperties--) ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไขและจัดการคุณสมบัติเหล่านี้.
 
-{{% alert color="primary" %}} 
-โปรดทราบว่า ฟิลด์ **Application** และ **Producer** ไม่สามารถแก้ไขได้ เพราะฟิลด์เหล่านี้จะแสดงเสมอว่า "Aspose Ltd." และ "Aspose.Slides for Java x.x.x".
+{{% alert color="info" %}} 
+โปรดทราบว่า ฟิลด์ **Application** และ **AppVersion** ไม่สามารถแก้ไขได้ Aspose.Slides จะเขียนทับฟิลด์เหล่านี้ทุกครั้งที่บันทึก ดังนั้นงานนำเสนอที่บันทึกแล้วจะรายงานว่า "Aspose.Slides for Java" และเวอร์ชันของไลบรารีที่สร้างมัน ค่าที่ส่งไปยัง `setNameOfApplication` จะถูกละทิ้งเมื่อเขียนงานนำเสนอ
 {{% /alert %}} 
 
 ## **คุณสมบัติเอกสารใน PowerPoint**
 
-Microsoft PowerPoint 2007 อนุญาตให้จัดการคุณสมบัติเอกสารของไฟล์งานนำเสนอ เพียงคลิกที่ไอคอน Office แล้วเลือกเมนู **Prepare | Properties | Advanced Properties** ของ Microsoft PowerPoint 2007 ตามที่แสดงด้านล่าง:
+Microsoft PowerPoint 2007 อนุญาตให้จัดการคุณสมบัติเอกสารของไฟล์งานนำเสนอ คุณต้องทำเพียงคลิกที่ไอคอน Office แล้วเลือกเมนู **Prepare | Properties | Advanced Properties** ของ Microsoft PowerPoint 2007 ตามที่แสดงด้านล่าง:
 
-|**เลือกเมนู Advanced Properties**|** **|
+|**เลือกเมนู Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-หลังจากคุณเลือกเมนู **Advanced Properties** กล่องโต้ตอบจะปรากฏขึ้นเพื่อให้คุณจัดการคุณสมบัติเอกสารของไฟล์ PowerPoint ตามที่แสดงในรูปต่อไปนี้:
+หลังจากคุณเลือกเมนู **Advanced Properties** จะปรากฏหน้าต่างที่ให้คุณจัดการคุณสมบัติเอกสารของไฟล์ PowerPoint ตามที่แสดงในรูปด้านล่าง:
 
-|**กล่องโต้ตอบ Properties**|** **|
+|**หน้าต่าง Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-ใน **กล่องโต้ตอบ Properties** ด้านบน คุณจะเห็นว่า มีแท็บหลายหน้าเช่น **General**, **Summary**, **Statistics**, **Contents** และ **Custom**. ทั้งหมดนี้ช่วยกำหนดค่าข้อมูลต่าง ๆ ที่เกี่ยวกับไฟล์ PowerPoint. แท็บ **Custom** ใช้จัดการคุณสมบัติ custom ของไฟล์ PowerPoint.
+ใน **หน้าต่าง Properties** ด้านบนคุณจะเห็นว่ามีหลายแท็บเช่น **General**, **Summary**, **Statistics**, **Contents** และ **Custom** แท็บเหล่านี้ช่วยให้กำหนดค่าข้อมูลประเภทต่างๆ ที่เกี่ยวข้องกับไฟล์ PowerPoint ได้ แท็บ **Custom** ใช้สำหรับจัดการคุณสมบัติแบบกำหนดเองของไฟล์ PowerPoint
 
 ทำงานกับคุณสมบัติเอกสารโดยใช้ Aspose.Slides for Java
 
-อย่างที่ได้อธิบายไว้ก่อนหน้านี้ Aspose.Slides for Java รองรับคุณสมบัติเอกสารสองประเภทคือ **Built-in** และ **Custom**. ดังนั้นนักพัฒนาสามารถเข้าถึงคุณสมบัติทั้งสองประเภทได้ด้วย API ของ Aspose.Slides for Java. Aspose.Slides for Java มีคลาส [IDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties) ที่แสดงคุณสมบัติเอกสารที่เชื่อมโยงกับไฟล์งานนำเสนอผ่านพร็อพเพอร์ตี้ **Presentation.DocumentProperties**.
+ดังที่เราอธิบายไว้ก่อนหน้านี้ว่า Aspose.Slides for Java รองรับสองประเภทของคุณสมบัติเอกสาร คือคุณสมบัติ **Built-in** และ **Custom** ดังนั้นนักพัฒนาสามารถเข้าถึงทั้งสองประเภทโดยใช้ Aspose.Slides for Java API Aspose.Slides for Java มีคลาส [IDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties) ที่แสดงคุณสมบัติเอกสารที่เชื่อมโยงกับไฟล์งานนำเสนอผ่านคุณสมบัติ **Presentation.DocumentProperties**.
 
-นักพัฒนาสามารถใช้พร็อพเพอร์ตี้ **IDocumentProperties** ที่เปิดเผยโดยอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation) เพื่อเข้าถึงคุณสมบัติเอกสารของไฟล์งานนำเสนอได้ตามที่อธิบายด้านล่าง:
+นักพัฒนาสามารถใช้คุณสมบัติ **IDocumentProperties** ที่เปิดเผยโดยอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation) เพื่อเข้าถึงคุณสมบัติเอกสารของไฟล์งานนำเสนอได้ตามที่อธิบายด้านล่าง:
 
 ## **เข้าถึงคุณสมบัติ Built-in**
 
-คุณสมบัติเหล่านี้ที่เปิดเผยโดยอ็อบเจ็กต์ [IDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties) ประกอบด้วย: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** และ **Title**
+คุณสมบัติเหล่านี้ที่เปิดเผยโดยอ็อบเจกต์ [IDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties) ประกอบด้วย: **Creator** (ผู้เขียน), **Description**, **Keywords**, **Created** (วันที่สร้าง), **Modified** (วันที่แก้ไข), **Printed** (วันที่พิมพ์ครั้งล่าสุด), **LastModifiedBy**, **Keywords**, **SharedDoc** (แชร์ระหว่างผู้ผลิตต่างๆ?), **PresentationFormat**, **Subject** และ **Title**
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของการนำเสนอ
+import com.aspose.slides.*;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงการนำเสนอ
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // สร้างอ้างอิงไปยังอ็อบเจ็กต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
+    // สร้างออปเจ็กต์อ้างอิงถึง IDocumentProperties ที่เชื่อมโยงกับการนำเสนอ
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // แสดงคุณสมบัติ Built-in
+    // แสดงคุณสมบัติ built-in
     System.out.println("Category : " + dp.getCategory());
     System.out.println("Current Status : " + dp.getContentStatus());
     System.out.println("Creation Date : " + dp.getCreatedTime());
@@ -89,45 +91,49 @@ try {
 
 ## **แก้ไขคุณสมบัติ Built-in**
 
-การแก้ไขคุณสมบัติ Built-in ของไฟล์งานนำเสนอทำได้ง่ายเหมือนการเข้าถึงมัน คุณเพียงกำหนดค่าเป็นสตริงให้กับคุณสมบัติใดก็ได้ที่ต้องการและค่าจะถูกแก้ไข ในตัวอย่างด้านล่าง เราได้สาธิตวิธีการแก้ไขคุณสมบัติเอกสาร Built-in ของไฟล์งานนำเสนอโดยใช้ Aspose.Slides for Java
+การแก้ไขคุณสมบัติ Built-in ของไฟล์งานนำเสนอง่ายเท่ากับการเข้าถึงคุณสมบัตินั้น คุณสามารถกำหนดค่าข้อความให้กับคุณสมบัติใดก็ได้ที่ต้องการและค่าของคุณสมบัตินั้นจะถูกแก้ไข ในตัวอย่างด้านล่างเราจะแสดงวิธีการแก้ไขคุณสมบัติเอกสาร Built-in ของไฟล์งานนำเสนอโดยใช้ Aspose.Slides for Java.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // สร้างอ้างอิงไปยังอ็อบเจ็กต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
+    // สร้างออปเจ็กต์อ้างอิงถึง IDocumentProperties ที่เชื่อมโยงกับการนำเสนอ
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // ตั้งค่าคุณสมบัติ Built-in
+    // กำหนดคุณสมบัติ built-in
     dp.setAuthor("Aspose.Slides for Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
     dp.setComments("Aspose Description");
     dp.setManager("Aspose Manager");
     
-    // บันทึกการนำเสนอของคุณลงไฟล์
+    // บันทึกงานนำเสนอของคุณลงไฟล์
     pres.save("DocProps.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-ตัวอย่างนี้แก้ไขคุณสมบัติ Built-in ของงานนำเสนอซึ่งสามารถดูได้ตามด้านล่าง:
+ตัวอย่างนี้จะแก้ไขคุณสมบัติ Built-in ของงานนำเสนอซึ่งสามารถดูได้ตามด้านล่าง:
 
-|**คุณสมบัติเอกสาร Built-in หลังการแก้ไข**|** **|
+|**คุณสมบัติเอกสาร Built-in หลังการแก้ไข**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **เพิ่มคุณสมบัติเอกสาร Custom**
+## **เพิ่มคุณสมบัติเอกสารแบบกำหนดเอง**
 
-Aspose.Slides for Java ยังอนุญาตให้ผู้พัฒนาสามารถเพิ่มค่าที่กำหนดเองสำหรับคุณสมบัติเอกสารของงานนำเสนอได้ ตัวอย่างด้านล่างแสดงวิธีตั้งค่าคุณสมบัติ custom สำหรับงานนำเสนอ
+Aspose.Slides for Java ยังอนุญาตให้ผู้พัฒนาสามารถเพิ่มค่าที่กำหนดเองสำหรับคุณสมบัติเอกสารของงานนำเสนอ ตัวอย่างด้านล่างเพิ่มคุณสมบัติแบบกำหนดเองสามรายการ จากนั้นค้นหาชื่อที่จัดเก็บในดัชนี 2 และลบคุณสมบัตินั้นออก ดังนั้นงานนำเสนอที่บันทึกไว้จะเหลือสองรายการ คุณสมบัติแบบกำหนดเองจะถูกจัดเรียงตามตัวอักษร ไม่ใช่ตามลำดับการเพิ่ม
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // รับคุณสมบัติเอกสาร
     IDocumentProperties dProps = pres.getDocumentProperties();
     
-    // เพิ่มคุณสมบัติแบบกำหนดเอง
+    // เพิ่มคุณสมบัติกำหนดเอง
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
@@ -138,83 +144,91 @@ try {
     // ลบคุณสมบัติที่เลือก
     dProps.removeCustomProperty(getPropertyName);
     
-    // บันทึกการนำเสนอ
+    // บันทึกงานนำเสนอ
     pres.save("CustomDemo.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-|**เพิ่มคุณสมบัติเอกสาร Custom**|** **|
+|**เพิ่มคุณสมบัติเอกสารแบบกำหนดเอง**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **เข้าถึงและแก้ไขคุณสมบัติ Custom**
+## **เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง**
 
-Aspose.Slides for Java ยังอนุญาตให้ผู้พัฒนาสามารถเข้าถึงค่าของคุณสมบัติ custom ได้ ตัวอย่างด้านล่างแสดงวิธีที่คุณสามารถเข้าถึงและแก้ไขคุณสมบัติ custom ทั้งหมดของงานนำเสนอ
+Aspose.Slides for Java ยังอนุญาตให้ผู้พัฒนาสามารถเข้าถึงค่าของคุณสมบัติแบบกำหนดเอง ตัวอย่างด้านล่างแสดงวิธีการเข้าถึงและแก้ไขคุณสมบัติเหล่านี้ทั้งหมดสำหรับงานนำเสนอหนึ่งชุด
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // สร้างอ้างอิงไปยังอ็อบเจ็กต์ DocumentProperties ที่เชื่อมโยงกับ Presentation
+    // สร้างออปเจ็กต์อ้างอิงถึง DocumentProperties ที่เชื่อมโยงกับการนำเสนอ
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง
+    // เข้าถึงและแก้ไขคุณสมบัติกำหนดเอง
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // แสดงชื่อและค่าของคุณสมบัติแบบกำหนดเอง
+        // แสดงชื่อและค่าของคุณสมบัติกำหนดเอง
         System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
         System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // แก้ไขค่าของคุณสมบัติแบบกำหนดเอง
+        // แก้ไขค่าของคุณสมบัติกำหนดเอง
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
-    // บันทึกการนำเสนอของคุณลงไฟล์
+    // บันทึกงานนำเสนอของคุณลงไฟล์
     pres.save("CustomDemoModified.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-ตัวอย่างนี้แก้ไขคุณสมบัติ custom ของ [PPTX](https://docs.fileformat.com/presentation/pptx/) งานนำเสนอ รูปต่อไปนี้แสดงคุณสมบัติ custom ของงานนำหน้าก่อนและหลังการแก้ไข:
+ตัวอย่างนี้แก้ไขคุณสมบัติแบบกำหนดเองของงานนำเสนอ [PPTX ](https://docs.fileformat.com/presentation/pptx/) รูปต่อไปนี้แสดงคุณสมบัติแบบกำหนดเองของงานนำเสนอก่อนและหลังการแก้ไข:
 
-|**คุณสมบัติ Custom ก่อนการแก้ไข**|** **|
+|**คุณสมบัติแบบกำหนดเองก่อนการแก้ไข**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**คุณสมบัติ Custom หลังการแก้ไข**|** **|
+|**คุณสมบัติแบบกำหนดเองหลังการแก้ไข**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **คุณสมบัติเอกสารขั้นสูง**
 
-{{% alert color="primary" %}} 
-เมธอดใหม่ [ReadDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), และ [WriteBindedPresentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) ได้รับการเพิ่มเข้าไปใน [IPresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo) และตรรกะของเซตเตอร์ [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) ถูกเปลี่ยนแปลง
+{{% alert color="info" %}} 
+
+มีเมธอดใหม่ [ReadDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), และ [WriteBindedPresentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) ถูกเพิ่มไปยังอินเทอร์เฟซ [IPresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo) โดยตรรกะของตัวตั้งค่า [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/th/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) ได้ถูกเปลี่ยนแปลง
+
 {{% /alert %}} 
 
-เมธอดใหม่สองตัว [ReadDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) และ [UpdateDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ได้รับการเพิ่มเข้าไปในอินเทอร์เฟซ [IPresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo) พวกมันให้การเข้าถึงคุณสมบัติเอกสารอย่างรวดเร็วและอนุญาตให้เปลี่ยนแปลงและอัปเดตคุณสมบัติโดยไม่ต้องโหลดงานนำเสนอทั้งหมด
+เมธอดใหม่สองตัว [ReadDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) และ [UpdateDocumentProperties](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ได้ถูกเพิ่มเข้าไปในอินเทอร์เฟซ [IPresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPPresentationInfo) พวกมันให้การเข้าถึงคุณสมบัติเอกสารอย่างรวดเร็วและอนุญาตให้เปลี่ยนแปลงและอัปเดตคุณสมบัติได้โดยไม่ต้องโหลดงานนำเสนอทั้งหมด
 
-สถานการณ์ทั่วไปคือโหลดคุณสมบัติ, เปลี่ยนค่าบางอย่างและอัปเดตเอกสารสามารถทำได้ตามวิธีต่อไปนี้:
+สถานการณ์ทั่วไปคือโหลดคุณสมบัติ, เปลี่ยนค่าแล้วอัปเดตเอกสาร ซึ่งสามารถทำได้ตามวิธีต่อไปนี้:
 
 ```java
-// อ่านข้อมูลของการนำเสนอ
+import com.aspose.slides.*;
+
+// อ่านข้อมูลของงานนำเสนอ
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// รับคุณสมบัติปัจจุบัน
+// ดึงคุณสมบัติปัจจุบัน
 IDocumentProperties props = info.readDocumentProperties();
 
 // ตั้งค่าข้อมูลใหม่ของฟิลด์ Author และ Title
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
-// อัปเดตการนำเสนอด้วยค่าที่ใหม่
+// อัปเดตงานนำเสนอด้วยค่าใหม่
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-มีอีกวิธีหนึ่งคือนำคุณสมบัติของงานนำเสนอเฉพาะหนึ่งไปใช้เป็นเทมเพลตเพื่ออัปเดตคุณสมบัติในงานนำเสนออื่น ๆ:
+อีกวิธีหนึ่งคือใช้คุณสมบัติของงานนำเสนอหนึ่งเป็นแม่แบบเพื่ออัปเดตคุณสมบัติในงานนำเสนออื่น ๆ:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -227,12 +241,16 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
+    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -241,10 +259,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-เทมเพลตใหม่สามารถสร้างจากศูนย์และนำไปใช้เพื่ออัปเดตหลายงานนำเสนอได้:
+สามารถสร้างแม่แบบใหม่จากศูนย์แล้วใช้เพื่ออัปเดตหลายงานนำเสนอ:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -255,27 +275,24 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
-{
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
     toUpdate.writeBindedPresentation(path);
 }
 ```
 
-## **ตั้งค่าภาษา Proofing**
+## **กำหนดภาษาตรวจสอบการพิสูจน์**
 
-Aspose.Slides มีพร็อพเพอร์ตี้ LanguageId (เผยโดยคลาส PortionFormat) เพื่อให้คุณตั้งค่าภาษา proofing สำหรับเอกสาร PowerPoint ภาษา proofing คือภาษาที่จะตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
+Aspose.Slides มีคุณสมบัติ LanguageId (เปิดเผยโดยคลาส PortionFormat) เพื่อให้คุณตั้งค่าภาษาตรวจสอบการพิสูจน์สำหรับเอกสาร PowerPoint ได้ ภาษาตรวจสอบการพิสูจน์คือภาษาที่จะทำการตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
 
-โค้ด Java นี้จะแสดงวิธีตั้งค่าภาษา proofing สำหรับ PowerPoint: xxx ทำไม LanguageId ถึงไม่มีอยู่ในคลาส Java PortionFormat?
+โค้ด Java นี้แสดงวิธีการตั้งค่าภาษาตรวจสอบการพิสูจน์สำหรับ PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
+String pptxFileName = "presentation.pptx";
+
 Presentation pres = new Presentation(pptxFileName);
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -291,7 +308,7 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // ตั้งค่า Id ของภาษาตรวจสอบ
+    portionFormat.setLanguageId("zh-CN"); // ตั้งค่า Id ของภาษาตรวจสอบการพิสูจน์
 
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
@@ -300,11 +317,13 @@ try {
 }
 ```
 
-## **ตั้งค่าภาษาเริ่มต้น**
+## **กำหนดภาษาปริยาย**
 
-โค้ด Java นี้จะแสดงวิธีตั้งค่าภาษาเริ่มต้นสำหรับงานนำเสนอ PowerPoint ทั้งหมด:
+โค้ด Java นี้แสดงวิธีตั้งค่าภาษาปริยายสำหรับงานนำเสนอ PowerPoint ทั้งหมด:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -314,7 +333,7 @@ try {
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
-    // ตรวจสอบภาษาของ portion แรก
+    // ตรวจสอบภาษาของส่วนแรก
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
@@ -323,20 +342,20 @@ try {
 
 ## **ตัวอย่างสด**
 
-ลองใช้แอปออนไลน์ [**Aspose.Slides Metadata**](https://products.aspose.app/slides/th/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารผ่าน Aspose.Slides API:
+ลองแอปออนไลน์ [**Aspose.Slides Metadata**](https://products.aspose.app/slides/th/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารผ่าน Aspose.Slides API:
 
-[![ดูและแก้ไขเมทาดาต้า PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/th/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/th/metadata)
 
 ## ***คำถามที่พบบ่อย**
 
-**ฉันจะลบคุณสมบัติ Built-in ออกจากงานนำเสนอได้อย่างไร?**
+### ฉันจะลบคุณสมบัติ Built-in จากงานนำเสนอได้อย่างไร?
 
-คุณสมบัติ Built-in เป็นส่วนหนึ่งของงานนำเสนอที่ไม่สามารถลบออกได้ทั้งหมด อย่างไรก็ตามคุณสามารถเปลี่ยนค่า หรือกำหนดให้เป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาตให้ทำเช่นนั้น
+คุณสมบัติ Built-in เป็นส่วนสำคัญของงานนำเสนอและไม่สามารถลบออกได้อย่างสมบูรณ์ อย่างไรก็ตามคุณสามารถเปลี่ยนค่าได้หรือกำหนดให้เป็นค่าว่างถ้าคุณสมบัตินั้นอนุญาต
 
-**เกิดอะไรขึ้นหากฉันเพิ่มคุณสมบัติ custom ที่มีอยู่แล้ว?**
+### จะเกิดอะไรขึ้นถ้าฉันเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้ว?
 
-หากคุณเพิ่มคุณสมบัติ custom ที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อน เพราะ Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
+หากคุณเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้ว ค่าเดิมจะถูกเขียนทับด้วยค่าที่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อน เพราะ Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
 
-**ฉันสามารถเข้าถึงคุณสมบัติของงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอทั้งหมดหรือไม่?**
+### ฉันสามารถเข้าถึงคุณสมบัติของงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอเต็มรูปแบบได้หรือไม่?
 
-ได้ คุณสามารถเข้าถึงคุณสมบัติของงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอทั้งหมดโดยใช้เมธอด `getPresentationInfo` จากคลาส [PresentationFactory](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationfactory/) แล้วใช้เมธอด `readDocumentProperties` ของอินเทอร์เฟซ [IPresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationinfo/) เพื่ออ่านคุณสมบัติอย่างมีประสิทธิภาพ ลดการใช้หน่วยความจำและเพิ่มประสิทธิภาพ.
+ได้ คุณสามารถเข้าถึงคุณสมบัติของงานนำเสนอโดยไม่ต้องโหลดเต็มโดยใช้เมธอด `getPresentationInfo` จากคลาส [PresentationFactory](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationfactory/) จากนั้นใช้เมธอด `readDocumentProperties` ของอินเทอร์เฟซ [IPresentationInfo](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentationinfo/) เพื่ออ่านคุณสมบัติอย่างมีประสิทธิภาพ ช่วยประหยัดหน่วยความจำและปรับปรุงประสิทธิภาพ

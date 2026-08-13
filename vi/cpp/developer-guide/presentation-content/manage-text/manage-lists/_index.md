@@ -5,44 +5,63 @@ type: docs
 weight: 70
 url: /vi/cpp/manage-lists/
 keywords:
-  - dấu đầu dòng
-  - danh sách có dấu đầu dòng
-  - danh sách đánh số
-  - dấu đầu dòng ký hiệu
-  - dấu đầu dòng hình ảnh
-  - dấu đầu dòng tùy chỉnh
-  - danh sách đa cấp
-  - tạo dấu đầu dòng
-  - thêm dấu đầu dòng
-  - thêm danh sách
-  - PowerPoint
-  - OpenDocument
-  - bản trình bày
-  - C++
-  - Aspose.Slides
-description: "Tìm hiểu cách tạo và định dạng danh sách có dấu đầu dòng, dấu đầu dòng hình ảnh, danh sách đa cấp và danh sách đánh số trong các bản trình bày PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho C++."
+- "dấu đầu dòng"
+- "danh sách có dấu đầu dòng"
+- "danh sách đánh số"
+- "dấu đầu dòng ký hiệu"
+- "dấu đầu dòng hình ảnh"
+- "dấu đầu dòng tùy chỉnh"
+- "danh sách đa cấp"
+- "tạo dấu đầu dòng"
+- "thêm dấu đầu dòng"
+- "thêm danh sách"
+- "PowerPoint"
+- "OpenDocument"
+- "bản trình bày"
+- "C++"
+- "Aspose.Slides"
+description: "Tìm hiểu cách tạo và định dạng các danh sách có dấu đầu dòng, hình ảnh, đa cấp và đánh số trong bản trình bày PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho C++."
 ---
 ## **Overview**
 
-Aspose.Slides for C++ cho phép bạn tạo và định dạng danh sách có dấu đầu dòng và đánh số trong các bản trình bày PowerPoint và OpenDocument. Một mục danh sách là một đoạn văn mà các thiết lập dấu đầu dòng được kiểm soát thông qua định dạng đoạn văn của nó.
+Aspose.Slides cho C++ cho phép bạn tạo và định dạng các danh sách có dấu đầu dòng và đánh số trong các bản trình bày PowerPoint và OpenDocument. Một mục danh sách là một đoạn văn mà các cài đặt dấu đầu dòng được kiểm soát thông qua định dạng đoạn văn của nó.
 
-Sử dụng phương thức [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/get_paragraphformat/) để truy cập các thiết lập danh sách ở mức đoạn văn. Điểm vào chính là [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_bullet/), trả về một đối tượng [IBulletFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/). Với đối tượng này, bạn có thể đặt kiểu dấu đầu dòng, ký hiệu, hình ảnh, màu, kích thước, kiểu đánh số và số bắt đầu.
+Sử dụng phương thức [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/get_paragraphformat/) để truy cập các cài đặt danh sách ở mức đoạn văn. Điểm vào chính là [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_bullet/), nó trả về một đối tượng [IBulletFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/). Với đối tượng này, bạn có thể đặt kiểu dấu đầu dòng, ký hiệu, hình ảnh, màu, kích thước, kiểu đánh số và số bắt đầu.
 
 Bài viết này hướng dẫn cách:
 
-- tạo danh sách có dấu đầu dòng với ký hiệu tùy chỉnh
-- tạo dấu đầu dòng bằng hình ảnh
+- tạo danh sách có dấu đầu dòng bằng ký hiệu tùy chỉnh
+- tạo dấu đầu dòng hình ảnh
 - tạo danh sách đa cấp bằng cách đặt độ sâu đoạn văn
 - tạo danh sách đánh số
 - kiểm tra và thay đổi định dạng danh sách trong một bản trình bày hiện có
 
-## **Create a Bulleted List**
+## **Tạo danh sách có dấu đầu dòng**
 
-Để tạo danh sách có dấu đầu dòng, thêm các đối tượng [Paragraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/paragraph/) vào một [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) và đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Symbol](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/). Sau đó bạn có thể đặt [IBulletFormat::set_Char](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/get_color/) và [IBulletFormat::set_Height](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_height/) để kiểm soát giao diện dấu đầu dòng.
+Để tạo danh sách có dấu đầu dòng, thêm các đối tượng [Paragraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/paragraph/) vào một [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) và đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Symbol](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/). Sau đó bạn có thể đặt [IBulletFormat::set_Char](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/get_color/) và [IBulletFormat::set_Height](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_height/) để kiểm soát ngoại hình của dấu đầu dòng.
 
-Mã C++ dưới đây minh họa cách tạo danh sách có dấu đầu dòng trong một slide:
+Mã C++ sau đây minh họa cách tạo danh sách có dấu đầu dòng trong một slide:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -79,15 +98,30 @@ presentation->Dispose();
 
 Kết quả:
 
-![The symbol bullets](symbol_bullets.png)
+![Các dấu đầu dòng biểu tượng](symbol_bullets.png)
 
-## **Create a Numbered List**
+## **Tạo danh sách đánh số**
 
-Sử dụng danh sách đánh số khi thứ tự các mục quan trọng. Đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Numbered](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/). Bạn cũng có thể chọn định dạng đánh số với [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) hoặc đặt [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) khi danh sách cần bắt đầu từ giá trị khác 1.
+Sử dụng danh sách đánh số khi thứ tự các mục quan trọng. Đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Numbered](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/). Bạn cũng có thể chọn định dạng đánh số bằng [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) hoặc đặt [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) khi danh sách cần bắt đầu từ một giá trị khác 1.
 
-Mã C++ dưới đây cho thấy cách tạo danh sách đánh số trong một slide:
+Mã C++ sau đây cho thấy cách tạo danh sách đánh số trong một slide:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -116,29 +150,44 @@ presentation->Dispose();
 
 Kết quả:
 
-![The numbered bullets](numbered_bullets.png)
+![Các dấu đầu dòng đã đánh số](numbered_bullets.png)
 
-## **Create a Picture Bullet**
+## **Tạo dấu đầu dòng hình ảnh**
 
-Aspose.Slides cho phép bạn thay thế ký hiệu dấu đầu dòng thường bằng một hình ảnh. Dấu đầu dòng bằng hình ảnh hoạt động tốt nhất với các hình ảnh đơn giản, vẫn đọc được ở kích thước nhỏ, chẳng hạn như biểu tượng hoặc file PNG trong suốt nhỏ.
+Aspose.Slides cho phép bạn thay thế ký hiệu dấu đầu dòng thông thường bằng một hình ảnh. Dấu đầu dòng hình ảnh hoạt động tốt nhất với các hình ảnh đơn giản vẫn còn đọc được ở kích thước nhỏ, chẳng hạn như biểu tượng hoặc tệp PNG trong suốt nhỏ.
 
-{{% alert color="primary" %}}
-
-Lý tưởng nhất, nếu bạn dự định thay thế ký hiệu dấu đầu dòng thường bằng một hình ảnh, nên chọn một đồ họa đơn giản có nền trong suốt. Những hình ảnh như vậy hoạt động tốt như các ký hiệu dấu đầu dòng tùy chỉnh.
-
-Hãy nhớ rằng hình ảnh sẽ được thu nhỏ xuống kích thước rất nhỏ. Vì lý do này, chúng tôi khuyến nghị mạnh mẽ chọn một hình ảnh vẫn rõ ràng và hiệu quả về mặt thị giác khi được dùng làm dấu đầu dòng trong danh sách.
-
+{{% alert color="info" %}}
+Lý tưởng, nếu bạn dự định thay thế ký hiệu dấu đầu dòng thông thường bằng một hình ảnh, tốt nhất là chọn một đồ họa đơn giản với nền trong suốt. Những hình ảnh như vậy hoạt động hiệu quả như các ký hiệu dấu đầu dòng tùy chỉnh.
 {{% /alert %}}
 
-Để tạo dấu đầu dòng bằng hình ảnh, thêm một hình ảnh vào [IPresentation::get_Images](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_images/) và gán đối tượng [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/) trả về cho [IBulletFormat::get_Picture](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/get_picture/). Đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Picture](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/) trước khi gán hình ảnh.
+Để tạo dấu đầu dòng hình ảnh, thêm một hình ảnh vào [IPresentation::get_Images](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_images/) và gán đối tượng [IPPImage](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ippimage/) trả về cho [IBulletFormat::get_Picture](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/get_picture/). Đặt [IBulletFormat::set_Type](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ibulletformat/set_type/) thành [BulletType::Picture](https://reference.aspose.com/slides/vi/cpp/aspose.slides/bullettype/) trước khi gán hình ảnh.
 
-Giả sử chúng ta có file "image.png":
+Giả sử chúng ta có một "image.png":
 
-![A picture for the bullets](picture_for_bullets.png)
+![Hình ảnh cho các dấu đầu dòng](picture_for_bullets.png)
 
-Mã C++ dưới đây cho thấy cách tạo dấu đầu dòng bằng hình ảnh trong một slide:
+Mã C++ sau đây cho thấy cách tạo dấu đầu dòng hình ảnh trong một slide:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -177,15 +226,28 @@ presentation->Dispose();
 
 Kết quả:
 
-![The picture bullets](picture_bullets.png)
+![Các dấu đầu dòng hình ảnh](picture_bullets.png)
 
-## **Create a Multilevel List**
+## **Tạo danh sách đa cấp**
 
-Sử dụng [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_depth/) để đặt các mục danh sách ở các cấp độ khác nhau. Cấp độ 0 là cấp cao nhất, cấp độ 1 nằm bên dưới nó, và tiếp tục như vậy.
+Sử dụng [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/set_depth/) để đặt các mục danh sách ở các cấp độ khác nhau. Cấp độ 0 là cấp cao nhất, cấp độ 1 là cấp con bên dưới, và cứ tiếp tục như vậy.
 
-Mã C++ dưới đây cho thấy cách tạo danh sách có dấu đầu dòng đa cấp:
+Mã C++ sau đây cho thấy cách tạo danh sách có dấu đầu dòng đa cấp:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -219,15 +281,28 @@ presentation->Dispose();
 
 Kết quả:
 
-![The multilevel list](multilevel_list.png)
+![Danh sách đa cấp](multilevel_list.png)
 
-## **Change an Existing List**
+## **Thay đổi danh sách hiện có**
 
-Để thay đổi định dạng danh sách trong một bản trình bày hiện có, truy cập đoạn văn mục tiêu và cập nhật các thiết lập [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_bullet/) của nó. Các thuộc tính đã dùng để tạo danh sách có thể được dùng để kiểm tra hoặc sửa đổi danh sách được tải từ file PPT, PPTX hoặc ODP.
+Để thay đổi định dạng danh sách trong một bản trình bày hiện có, truy cập đoạn văn mục tiêu và cập nhật các cài đặt [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_bullet/) của nó. Các thuộc tính giống như khi tạo danh sách có thể được sử dụng để kiểm tra hoặc sửa đổi các danh sách đã được tải từ tệp PPT, PPTX hoặc ODP.
 
-Mã C++ dưới đây thay đổi đoạn văn đầu tiên trong một khung văn bản để sử dụng kiểu danh sách đánh số:
+Mã C++ sau đây thay đổi đoạn văn đầu tiên trong một khung văn bản để sử dụng kiểu danh sách đánh số:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -248,14 +323,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Can bulleted and numbered lists be exported to PDF or images?**
+### Có thể xuất danh sách có dấu đầu dòng và đánh số ra PDF hoặc hình ảnh không?
 
-Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
+Có. Aspose.Slides giữ nguyên định dạng danh sách khi định dạng đích hỗ trợ bố cục văn bản và tính năng dấu đầu dòng tương ứng.
 
-**Can I edit lists in existing presentations?**
+### Tôi có thể chỉnh sửa danh sách trong các bản trình bày hiện có không?
 
-Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_bullet/) settings, and save the presentation.
+Có. Tải bản trình bày, truy cập đoạn văn mục tiêu, kiểm tra hoặc cập nhật các cài đặt [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraphformat/get_bullet/) của nó và lưu lại bản trình bày.
 
-**Can lists contain non-Latin text?**
+### Danh sách có thể chứa văn bản không phải Latin không?
 
-Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.
+Có. Văn bản các mục danh sách có thể chứa ký tự Unicode, vì vậy bạn có thể tạo danh sách trong các bản trình bày đa ngôn ngữ. Đảm bảo các phông chữ được sử dụng trong bản trình bày hỗ trợ các ký tự bạn cần.

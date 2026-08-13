@@ -1,6 +1,6 @@
 ---
-title: Notlarla PowerPoint Sunumlarını .NET'te TIFF'e Dönüştürme
-linktitle: PowerPoint'ten Notlarla TIFF'e
+title: .NET'te Notlu PowerPoint Sunumlarını TIFF'e Dönüştür
+linktitle: Notlu PowerPoint'ten TIFF'e
 type: docs
 weight: 100
 url: /tr/net/convert-powerpoint-to-tiff-with-notes/
@@ -11,46 +11,51 @@ keywords:
 - PPT dönüştür
 - PPTX dönüştür
 - PowerPoint'ten TIFF'e
-- sunumu TIFF'e
-- slaytı TIFF'e
+- sunumdan TIFF'e
+- slayttan TIFF'e
 - PPT'den TIFF'e
-- PPTX'den TIFF'e
+- PPTX'ten TIFF'e
 - PPT'yi TIFF olarak kaydet
 - PPTX'i TIFF olarak kaydet
 - PPT'yi TIFF'e dışa aktar
 - PPTX'i TIFF'e dışa aktar
-- Notlu PowerPoint
-- Notlu sunum
-- Notlu slayt
-- Notlu PPT
-- Notlu PPTX
-- Notlu TIFF
+- notlu PowerPoint
+- notlu sunum
+- notlu slayt
+- notlu PPT
+- notlu PPTX
+- notlu TIFF
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarını notlarla TIFF'e dönüştürün. Slaytları konuşmacı notlarıyla verimli bir şekilde dışa aktarmayı öğrenin."
+description: "Aspose.Slides for .NET kullanarak PowerPoint sunumlarını notlarla TIFF'e dönüştürün. Konuşmacı notlarıyla slaytları verimli bir şekilde nasıl dışa aktaracağınızı öğrenin."
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET, notlu PowerPoint ve OpenDocument sunumlarını (PPT, PPTX ve ODP) TIFF formatına dönüştürmek için basit bir çözüm sunar. Bu format, yüksek kaliteli görüntü depolama, baskı ve belge arşivleme için yaygın olarak kullanılır. Aspose.Slides ile yalnızca tamamen notlu sunumları dışa aktarmakla kalmaz, aynı zamanda Not Slaytı görünümünde slayt küçük resimleri de oluşturabilirsiniz. Dönüştürme işlemi, tüm sunumu notları ve düzeni koruyarak bir dizi TIFF görüntüsüne dönüştüren `Save` metodunu kullanan [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı sayesinde basit ve etkilidir.
+Aspose.Slides for .NET, notlar ile birlikte PowerPoint ve OpenDocument sunumlarını (PPT, PPTX ve ODP) TIFF formatına dönüştürmek için basit bir çözüm sunar. Bu format, yüksek kaliteli görüntü depolama, baskı ve belge arşivleme için yaygın olarak kullanılır. Aspose.Slides ile yalnızca konuşmacı notlarıyla tüm sunumları dışa aktarmakla kalmaz, aynı zamanda Not Slaytı görünümünde slayt küçük resimleri de oluşturabilirsiniz. Dönüştürme işlemi basit ve etkilidir; `Save` yöntemi kullanılarak [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı, notları ve düzeni koruyarak tüm sunumu bir dizi TIFF görüntüsüne dönüştürür.
 
-## **Sunumu Notlarla TIFF'e Dönüştürme**
+## **Sunumu Notlarla TIFF’e Dönüştürme**
 
-PowerPoint veya OpenDocument bir sunumu notlarla TIFF olarak kaydetmek Aspose.Slides for .NET ile aşağıdaki adımları içerir:
+Aspose.Slides for .NET kullanarak bir PowerPoint veya OpenDocument sunumunu notlarla birlikte TIFF’e kaydetmek aşağıdaki adımları içerir:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfının örneğini oluşturun: PowerPoint veya OpenDocument dosyasını yükleyin.  
-2. Çıktı düzeni seçeneklerini yapılandırın: Notların ve yorumların nasıl görüntüleneceğini belirtmek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notescommentslayoutingoptions/) sınıfını kullanın.  
-3. Sunumu TIFF olarak kaydedin: Yapılandırılmış seçenekleri [Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/methods/save/index) metoduna geçirin.
+1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfını örnekleyin: PowerPoint veya OpenDocument dosyasını yükleyin.
+1. Çıktı düzeni seçeneklerini yapılandırın: Notların ve yorumların nasıl görüntüleneceğini belirlemek için [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/notescommentslayoutingoptions/) sınıfını kullanın.
+1. Sunumu TIFF olarak kaydedin: Yapılandırılmış seçenekleri [Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/methods/save/index) yöntemine geçirin.
 
 Diyelim ki aşağıdaki slaytı içeren bir "speaker_notes.pptx" dosyamız var:
 
-![Sunum slaytı notlarla](slide_with_notes.png)
+![Konuşmacı notlarıyla sunum slaytı](slide_with_notes.png)
+
+Aşağıdaki kod snippet’i, [SlidesLayoutOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) özelliğini kullanarak Not Slaytı görünümünde sunumu bir TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir.
 
 ```c#
-// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Bir sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 using (Presentation presentation = new Presentation("speaker_notes.pptx"))
 {
-    // Not düzeniyle TIFF seçeneklerini yapılandır.
+    // Notlarla TIFF seçeneklerini yapılandırın.
     TiffOptions tiffOptions = new TiffOptions
     {
         DpiX = 300,
@@ -62,29 +67,31 @@ using (Presentation presentation = new Presentation("speaker_notes.pptx"))
         }
     };
 
-    // Sunumu konuşmacı notlarıyla TIFF olarak kaydet.
+    // Sunumu konuşmacı notlarıyla birlikte TIFF olarak kaydedin.
     presentation.Save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
 Sonuç:
 
-![Notlu TIFF görüntüsü](TIFF_with_notes.png)
+![Konuşmacı notlarıyla TIFF görüntüsü](TIFF_with_notes.png)
 
-{{% alert title="İpucu" color="primary" %}}
-Aspose'in [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) hizmetine bir göz atın.
+{{% alert title="İpucu" color="info" %}}
+
+Aspose [Ücretsiz PowerPoint'ten Afiş Dönüştürücü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) sitesine göz atın.
+
 {{% /alert %}}
 
 ## **SSS**
 
-**Not alanının sonuç TIFF içindeki konumunu kontrol edebilir miyim?**
+### Oluşan TIFF içinde not alanının konumunu kontrol edebilir miyim?
 
-Evet. Notların konumunu seçmek için [notes layout settings](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) üzerinden `None`, `BottomTruncated` veya `BottomFull` gibi seçenekleri kullanabilirsiniz; bu seçenekler sırasıyla notları gizler, tek bir sayfaya sığdırır veya ek sayfalara akmasına izin verir.
+Evet. Notların konumunu belirlemek için [notes layout settings](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) üzerinden `None`, `BottomTruncated` veya `BottomFull` gibi seçenekleri kullanabilirsiniz; bu seçenekler sırasıyla notları gizler, tek bir sayfaya sığdırır veya ek sayfalara akmasına izin verir.
 
-**Görünür kalite kaybı olmadan notlu bir TIFF dosyasının boyutunu nasıl küçültebilirim?**
+### Görünür kalite kaybı olmadan not içeren bir TIFF dosyasının boyutunu nasıl küçültebilirim?
 
-[Efficient compression](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/compressiontype/) (ör. `LZW` veya `RLE`), makul bir DPI değeri ve kabul edilebilir ise daha düşük bir [pixel format](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/pixelformat/) (ör. monokrom için 8 bpp veya 1 bpp) seçin. Ayrıca [image dimensions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/imagesize/) değerini hafifçe azaltmak, okunabilirliği belirgin şekilde etkilemeden boyutu düşürmeye yardımcı olabilir.
+[Efficient compression](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/compressiontype/) (ör. `LZW` veya `RLE`) seçin, makul bir DPI değeri ayarlayın ve kabul edilebiliyorsa daha düşük bir [pixel format](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/pixelformat/) (ör. monokrom için 8 bpp veya 1 bpp) kullanın. [Image dimensions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/imagesize/) biraz küçültülmesi de okunabilirliği belirgin etkilemeden yardımcı olabilir.
 
-**Orijinal fontlar sistemde eksik olduğunda notlardaki font sonuçları etkiler mi?**
+### Notlardaki yazı tipi, sistemde orijinal yazı tipleri eksikse sonucu etkiler mi?
 
-Evet. Eksik fontlar [substitution](/slides/tr/net/font-selection-sequence/) işlemini tetikleyerek metin ölçüleri ve görünümünü değiştirebilir. Bunu önlemek için gerekli fontları [supply the required fonts](/slides/tr/net/custom-font/) sağlayın veya varsayılan bir [fallback font](/slides/tr/net/fallback-font/) ayarlayarak istenen tipografların kullanılmasını garanti edin.
+Evet. Eksik yazı tipleri [substitution](/slides/tr/net/font-selection-sequence/) tetikleyerek metin ölçüleri ve görünümünü değiştirebilir. Bunun önüne geçmek için gerekli yazı tiplerini [supply the required fonts](/slides/tr/net/custom-font/) sağlayın veya varsayılan bir [fallback font](/slides/tr/net/fallback-font/) ayarlayarak istenen tipografinin kullanılmasını garantileyin.

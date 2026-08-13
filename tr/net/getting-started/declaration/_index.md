@@ -15,25 +15,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'in güven gereksinimleri, izinleri ve barındırma sınırlamaları hakkında bilgi edinin, böylece PPT, PPTX ve ODP işleyen uygulamaları sunucularda güvenli bir şekilde dağıtabilirsiniz."
+description: "Aspose.Slides for .NET güven gereksinimleri, izinler ve barındırma sınırlamaları hakkında bilgi edinin, böylece PPT, PPTX ve ODP işleyen uygulamaları sunucularda güvenle dağıtabilirsiniz."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tüm Aspose .NET bileşenleri, bazı işlemler (örneğin yazı tiplerini ayrıştırma) için zaman zaman kayıt defteri ayarlarına, sistem dosyalarına ve sanal dizinin dışındaki diğer konumlardaki dosyalara erişmeleri gerektiğinden Full Trust izin kümesini gerektirir. Ayrıca, Aspose .NET Bileşenleri, birçok durumda Full Trust izin kümesini zorunlu kılan temel .NET sistem sınıflarına dayanır. 
+Tüm Aspose .NET bileşenleri Full Trust izin setini gerektirir çünkü bazen belirli işlemler (örneğin font ayrıştırma) için kayıt defteri ayarlarına, sistem dosyalarına ve sanal dizinin dışındaki diğer konumlardaki dosyalara erişmeleri gerekir. Ayrıca Aspose .NET Bileşenleri, birçok durumda Full Trust izin setini gerektiren temel .NET sistem sınıflarına dayanır. 
 
 {{% /alert %}} 
 
-Farklı şirketlerin birden çok uygulamasını barındıran İnternet Servis Sağlayıcıları genellikle Medium Trust güvenlik seviyesini uygular. .NET 2.0 senaryosunda, bu güvenlik seviyesi aşağıdaki kısıtlamaları getirir: 
+Internet Service Providers, which host multiple applications from different companies, mostly enforce the Medium Trust security level. In a .NET 2.0 case, such a security level applies these constraints: 
 
-- OleDbPermission mevcut değildir. Bu, ADO.NET yönetilen OLE DB veri sağlayıcısını kullanarak veritabanlarına erişemeyeceğiniz anlamına gelir.
-- EventLogPermission mevcut değildir. Bu, Windows olay günlüğüne erişemeyeceğiniz anlamına gelir.
-- ReflectionPermission mevcut değildir. Bu, yansıma (reflection) kullanamayacağınız anlamına gelir.
-- RegistryPermission mevcut değildir. Bu, kayıt defterine erişemeyeceğiniz anlamına gelir.
-- WebPermission kısıtlanmıştır. Bu, uygulamanızın yalnızca <trust> öğesinde tanımladığınız bir adresle veya adres aralığıyla iletişim kurabileceği anlamına gelir.
-- FileIOPermission kısıtlanmıştır. Bu, yalnızca uygulamanızın sanal dizin hiyerarşisindeki dosyalara erişebileceğiniz anlamına gelir.
+- OleDbPermission mevcut değil. Bu, veritabanlarına erişmek için ADO.NET yönetilen OLE DB veri sağlayıcısını kullanamayacağınız anlamına gelir.
+- EventLogPermission mevcut değil. Bu, Windows olay günlüğüne erişemeyeceğiniz anlamına gelir.
+- ReflectionPermission mevcut değil. Bu, yansıma kullanamayacağınız anlamına gelir.
+- RegistryPermission mevcut değil. Bu, kayıt defterine erişemeyeceğiniz anlamına gelir.
+- WebPermission kısıtlıdır. Bu, uygulamanızın yalnızca <trust> öğesinde tanımladığınız bir adresle veya adres aralığıyla iletişim kurabileceği anlamına gelir.
+- FileIOPermission kısıtlıdır. Bu, yalnızca uygulamanızın sanal dizin hiyerarşisindeki dosyalara erişebileceğiniz anlamına gelir.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Yukarıdaki nedenlerden dolayı, Aspose .NET bileşenleri yalnızca Full Trust izin kümesini sağlayan sunucularda kullanılabilir. 
+Yukarıdaki nedenlerden dolayı Aspose .NET bileşenleri yalnızca Full Trust izin setini veren sunucularda kullanılabilir. 
 
 {{% /alert %}}

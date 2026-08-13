@@ -1,52 +1,52 @@
 ---
 title: Android पर प्रस्तुति हाइपरलिंक प्रबंधित करें
-linktitle: हाइपरलिंक प्रबंधित करें
+linktitle: हाइपरलिंक प्रबंधन
 type: docs
 weight: 20
 url: /hi/androidjava/manage-hyperlinks/
 keywords:
-  - URL जोड़ें
-  - हाइपरलिंक जोड़ें
-  - हाइपरलिंक बनाएं
-  - हाइपरलिंक स्वरूपित करें
-  - हाइपरलिंक हटाएँ
-  - हाइपरलिंक अद्यतन करें
-  - पाठ हाइपरलिंक
-  - स्लाइड हाइपरलिंक
-  - आकृति हाइपरलिंक
-  - चित्र हाइपरलिंक
-  - वीडियो हाइपरलिंक
-  - परिवर्तनीय हाइपरलिंक
-  - PowerPoint
-  - OpenDocument
-  - प्रस्तुति
-  - Android
-  - Java
-  - Aspose.Slides
-description: "Aspose.Slides for Android via Java के साथ PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक को सहजता से प्रबंधित करें—कुछ ही मिनटों में इंटरैक्टिविटी और कार्यप्रवाह को बढ़ाएँ।"
+- URL जोड़ें
+- हाइपरलिंक जोड़ें
+- हाइपरलिंक बनाएं
+- हाइपरलिंक को स्वरूपित करें
+- हाइपरलिंक हटाएं
+- हाइपरलिंक अपडेट करें
+- पाठ हाइपरलिंक
+- स्लाइड हाइपरलिंक
+- आकार हाइपरलिंक
+- छवि हाइपरलिंक
+- वीडियो हाइपरलिंक
+- परिवर्तनशील हाइपरलिंक
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android via Java के साथ PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक को आसानी से प्रबंधित करें—इंटरैक्टिविटी और कार्यप्रवाह को मिनटों में सुधारें।"
 ---
 ## **परिचय**
 
-हाइपरलिंक किसी वस्तु, डेटा या किसी स्थान का संदर्भ होता है। नीचे PowerPoint प्रस्तुतियों में आमतौर पर उपयोग किए जाने वाले हाइपरलिंक हैं:
+हाइपरलिंक कोई वस्तु, डेटा या किसी स्थान का संदर्भ होता है। ये PowerPoint प्रस्तुतियों में सामान्य हाइपरलिंक हैं:
 
-* पाठ, आकृति या मीडिया के भीतर वेबसाइटों के लिंक
-* स्लाइड्स के लिंक
+* पाठ, आकार या मीडिया के भीतर वेबसाइटों के लिंक
+* स्लाइडों के लिंक
 
 Aspose.Slides for Android via Java आपको प्रस्तुतियों में हाइपरलिंक से संबंधित कई कार्य करने की अनुमति देता है।
 
-{{% alert color="primary" %}} 
-
-आप Aspose Simple, [नि:शुल्क ऑनलाइन PowerPoint संपादक.](https://products.aspose.app/slides/hi/editor)
-
+{{% alert color="info" %}} 
+आप Aspose Simple, [नि:शुल्क ऑनलाइन PowerPoint संपादक।](https://products.aspose.app/slides/hi/editor) को देखना चाह सकते हैं।
 {{% /alert %}} 
 
 ## **URL हाइपरलिंक जोड़ें**
 
 ### **पाठ में URL हाइपरलिंक जोड़ें**
 
-यह Java कोड दिखाता है कि कैसे आप किसी पाठ में वेबसाइट हाइपरलिंक जोड़ सकते हैं:
+यह Java कोड आपको दिखाता है कि कैसे एक वेबसाइट हाइपरलिंक को पाठ में जोड़ें:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -63,11 +63,13 @@ try {
 }
 ```
 
-### **आकृतियों या फ्रेम्स में URL हाइपरलिंक जोड़ें**
+### **आकार या फ्रेम में URL हाइपरलिंक जोड़ें**
 
-यह Java नमूना कोड दिखाता है कि कैसे आप किसी आकृति में वेबसाइट हाइपरलिंक जोड़ सकते हैं:
+यह Java नमूना कोड आपको दिखाता है कि कैसे एक वेबसाइट हाइपरलिंक को आकार में जोड़ें:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -85,35 +87,41 @@ try {
 
 Aspose.Slides आपको चित्रों, ऑडियो और वीडियो फ़ाइलों में हाइपरलिंक जोड़ने की अनुमति देता है। 
 
-यह नमूना कोड दिखाता है कि कैसे आप **चित्र** में हाइपरलिंक जोड़ सकते हैं:
+यह नमूना कोड दिखाता है कि कैसे एक **चित्र** में हाइपरलिंक जोड़ें:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	// प्रस्तुति में छवि जोड़ता है
+	// प्रस्तुति में चित्र जोड़ता है
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// पहले जोड़ी गई छवि के आधार पर स्लाइड 1 पर चित्र फ्रेम बनाता है
+	// पहले जोड़े गए चित्र के आधार पर स्लाइड 1 पर चित्र फ्रेम बनाता है
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-यह नमूना कोड दिखाता है कि कैसे आप **ऑडियो फ़ाइल** में हाइपरलिंक जोड़ सकते हैं:
+यह नमूना कोड दिखाता है कि कैसे एक **ऑडियो फ़ाइल** में हाइपरलिंक जोड़ें:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -129,9 +137,14 @@ try {
 }
 ```
 
-यह नमूना कोड दिखाता है कि कैसे आप **वीडियो** में हाइपरलिंक जोड़ सकते हैं:
+यह नमूना कोड दिखाता है कि कैसे एक **वीडियो** में हाइपरलिंक जोड़ें:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -147,19 +160,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-आप देखना चाहेंगे *[Manage OLE](/slides/hi/androidjava/manage-ole/)*।
-
+{{%  alert  title="Tip"  color="info"  %}} 
+आप *[OLE प्रबंधन](/slides/hi/androidjava/manage-ole/)* देखना चाह सकते हैं।
 {{% /alert %}}
 
-## **हाइपरलिंक का उपयोग करके सामग्री तालिका बनाएं**
+## **सामग्री-सूची बनाने के लिए हाइपरलिंक का उपयोग करें**
 
-चूंकि हाइपरलिंक आपको वस्तुओं या स्थानों के संदर्भ जोड़ने की अनुमति देते हैं, आप उनका उपयोग करके सामग्री तालिका बना सकते हैं। 
+चूंकि हाइपरलिंक आपको वस्तुओं या स्थानों के संदर्भ जोड़ने की अनुमति देते हैं, आप उनका उपयोग करके सामग्री-सूची बना सकते हैं। 
 
-यह नमूना कोड दिखाता है कि कैसे आप हाइपरलिंक के साथ एक सामग्री तालिका बना सकते हैं:
+यह नमूना कोड दिखाता है कि कैसे हाइपरलिंक के साथ सामग्री-सूची बनाएं:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -188,15 +202,18 @@ try {
 }
 ```
 
-## **हाइपरलिंक को स्वरूपित करें**
+## **हाइपरलिंक का स्वरूप**
 
 ### **रंग**
 
-आप [ColorSource](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) प्रॉपर्टी के साथ, [IHyperlink](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlink) इंटरफ़ेस में, हाइपरलिंक का रंग सेट कर सकते हैं और हाइपरलिंक से रंग की जानकारी प्राप्त कर सकते हैं। इस सुविधा को पहली बार PowerPoint 2019 में प्रस्तुत किया गया था, इसलिए इस प्रॉपर्टी से संबंधित परिवर्तन पुराने PowerPoint संस्करणों में लागू नहीं होते।
+आप [IHyperlink](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlink) इंटरफ़ेस में [ColorSource](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) प्रॉपर्टी का उपयोग करके हाइपरलिंक का रंग सेट कर सकते हैं और हाइपरलिंक से रंग जानकारी प्राप्त कर सकते हैं। यह सुविधा PowerPoint 2019 में पहली बार पेश की गई थी, इसलिए इस प्रॉपर्टी में परिवर्तन पुराने PowerPoint संस्करणों पर लागू नहीं होते।
 
-यह नमूना कोड दर्शाता है कि कैसे विभिन्न रंगों के हाइपरलिंक एक ही स्लाइड में जोड़े गए:
+यह नमूना कोड एक ऑपरेशन दर्शाता है जहाँ विभिन्न रंगों के हाइपरलिंक एक ही स्लाइड में जोड़े गए हैं:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -221,17 +238,19 @@ try {
 
 ### **पाठ से हाइपरलिंक हटाएँ**
 
-यह Java कोड दिखाता है कि कैसे आप प्रस्तुति स्लाइड में किसी पाठ से हाइपरलिंक को हटाएँ:
+यह Java कोड आपको दिखाता है कि कैसे प्रस्तुति स्लाइड के पाठ से हाइपरलिंक हटाएँ:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -248,12 +267,14 @@ try {
 }
 ```
 
-### **आकृतियों या फ्रेम्स से हाइपरलिंक हटाएँ**
+### **आकार या फ्रेम से हाइपरलिंक हटाएँ**
 
-यह Java कोड दिखाता है कि कैसे आप प्रस्तुति स्लाइड में किसी आकृति से हाइपरलिंक को हटाएँ: 
+यह Java कोड आपको दिखाता है कि कैसे प्रस्तुति स्लाइड के आकार से हाइपरलिंक हटाएँ:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -268,7 +289,7 @@ try {
 
 ## **परिवर्तनीय हाइपरलिंक**
 
-[Hyperlink](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Hyperlink) क्लास परिवर्तनीय है। इस क्लास के साथ, आप इन प्रॉपर्टीज़ के मान बदल सकते हैं:
+The [Hyperlink](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Hyperlink) क्लास परिवर्तनीय है। इस क्लास के साथ आप इन गुणों के मान बदल सकते हैं:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -276,9 +297,11 @@ try {
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-कोड स्निपेट दिखाता है कि कैसे आप स्लाइड में हाइपरलिंक जोड़ें और बाद में इसका टूलटिप संपादित करें:
+यह कोड स्निपेट दिखाता है कि कैसे एक स्लाइड में हाइपरलिंक जोड़ें और बाद में उसका टूलटिप संपादित करें:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -289,21 +312,24 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// पहले जोड़े गए हाइपरलिंक का टूलटिप बदलता है
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-## **IHyperlinkQueries में समर्थित प्रॉपर्टीज़**
+## **IHyperlinkQueries में समर्थित गुण**
 
-आप प्रस्तुतिकरण, स्लाइड, या उस पाठ से [IHyperlinkQueries](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlinkQueries) तक पहुँच सकते हैं जिसके लिए हाइपरलिंक परिभाषित है।
+आप प्रस्तुति, स्लाइड, या उस पाठ से [IHyperlinkQueries](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlinkQueries) तक पहुंच सकते हैं जिसके लिए हाइपरलिंक परिभाषित है।
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
 - [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlinkQueries) क्लास इन मेथड्स और प्रॉपर्टीज़ का समर्थन करता है:
+यह [IHyperlinkQueries](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlinkQueries) क्लास इन मेथड्स और गुणों का समर्थन करता है:
 
 - [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
 - [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
@@ -312,14 +338,14 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं केवल स्लाइड तक नहीं, बल्कि एक "सेक्शन" या सेक्शन की पहली स्लाइड तक आंतरिक नेविगेशन कैसे बना सकता हूँ?**
+### मैं एक स्लाइड के अलावा, "सेक्शन" या सेक्शन की पहली स्लाइड पर आंतरिक नेविगेशन कैसे बना सकता हूँ?
 
-PowerPoint में सेक्शन स्लाइड्स का समूह होते हैं; नेविगेशन तकनीकी रूप से एक विशिष्ट स्लाइड को लक्षित करता है। "सेक्शन तक नेविगेट" करने के लिए, आप सामान्यतः उसकी पहली स्लाइड से लिंक बनाते हैं।
+PowerPoint में सेक्शन स्लाइडों का समूह होते हैं; नेविगेशन तकनीकी रूप से एक विशिष्ट स्लाइड को लक्षित करता है। "सेक्शन पर नेविगेट" करने के लिए, आप आमतौर पर उसकी पहली स्लाइड से लिंक करते हैं।
 
-**क्या मैं मास्टर स्लाइड तत्वों पर हाइपरलिंक संलग्न कर सकता हूँ ताकि यह सभी स्लाइडों पर कार्य करे?**
+### क्या मैं मास्टर स्लाइड के तत्वों पर हाइपरलिंक लगा सकता हूँ ताकि यह सभी स्लाइडों पर काम करे?
 
-हाँ। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक को समर्थन देते हैं। ऐसे लिंक चाइल्ड स्लाइड्स पर दिखाई देते हैं और स्लाइडशो के दौरान क्लिक योग्य होते हैं।
+हां। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक का समर्थन करते हैं। ऐसे लिंक चाइल्ड स्लाइडों पर दिखाई देते हैं और स्लाइडशो के दौरान क्लिक करने योग्य होते हैं।
 
-**क्या हाइपरलिंक PDF, HTML, इमेजेज़ या वीडियो में एक्सपोर्ट करते समय संरक्षित रहते हैं?**
+### क्या हाइपरलिंक PDF, HTML, छवियों या वीडियो में निर्यात करने पर संरक्षित रहेंगे?
 
-[PDF](/slides/hi/androidjava/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/androidjava/convert-powerpoint-to-html/) में, हाँ—लिंक सामान्यतः संरक्षित रहते हैं। जब आप [images](/slides/hi/androidjava/convert-powerpoint-to-png/) और [video](/slides/hi/androidjava/convert-powerpoint-to-video/) में एक्सपोर्ट करते हैं, तो क्लिक करने की क्षमता उन प्रारूपों की प्रकृति के कारण (रास्टर फ्रेम/वीडियो हाइपरलिंक का समर्थन नहीं करते) नहीं बनी रहती।
+[PDF](/slides/hi/androidjava/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/androidjava/convert-powerpoint-to-html/) में हाँ—लिंक सामान्यतः संरक्षित रहते हैं। जब [छवियों](/slides/hi/androidjava/convert-powerpoint-to-png/) और [वीडियो](/slides/hi/androidjava/convert-powerpoint-to-video/) में निर्यात किया जाता है, तो क्लिक करने की क्षमता नहीं रहती क्योंकि उन फ़ॉर्मेट्स की प्रकृति (रास्टर फ्रेम/वीडियो हाइपरलिंक को समर्थन नहीं देते) के कारण।

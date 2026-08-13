@@ -6,7 +6,7 @@ weight: 20
 url: /th/net/create-fallback-fonts-collection/
 keywords:
 - ฟอนต์สำรอง
-- กฎฟอนต์สำรอง
+- กฎสำรอง
 - คอลเลกชันฟอนต์
 - กำหนดค่าฟอนต์
 - ตั้งค่าฟอนต์
@@ -16,27 +16,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "ตั้งค่าคอลเลกชันฟอนต์สำรองใน Aspose.Slides สำหรับ .NET เพื่อให้ข้อความคงความสอดคล้องและคมชัดในงานพรีเซนเทชัน PowerPoint และ OpenDocument"
+description: "ตั้งค่าคอลเลกชันฟอนต์สำรองใน Aspose.Slides สำหรับ .NET เพื่อให้ข้อความคงความสอดคล้องและคมชัดในงานนำเสนอ PowerPoint และ OpenDocument"
 ---
-## **Overview**
+## **ภาพรวม**
 
-Aspose.Slides ให้คุณกำหนดคอลเลกชันของกฎฟอนต์สำรองสำหรับงานพรีเซนเทชัน แต่ละกฎฟอนต์สำรองถูกแทนด้วยคลาส `FontFallBackRule` และสามารถเพิ่มลงใน `FontFallBackRulesCollection` ที่ทำงานตามอินเทอร์เฟซ `IFontFallBackRulesCollection`  
+Aspose.Slides อนุญาตให้คุณกำหนดคอลเลกชันของกฎฟอนต์สำรองสำหรับการนำเสนอ แต่ละกฎฟอนต์สำรองถูกแทนด้วยคลาส `FontFallBackRule` และสามารถเพิ่มลงใน `FontFallBackRulesCollection` ซึ่งทำการ implements อินเตอร์เฟซ `IFontFallBackRulesCollection`  
 
-หลังจากสร้างคอลเลกชันแล้ว คุณสามารถกำหนดให้กับคุณสมบัติ `FontFallBackRulesCollection` ของ `FontsManager` ในพรีเซนเทชัน `FontsManager` จะควบคุมฟอนต์ทั่วทั้งพรีเซนเทชัน และแต่ละอินสแตนซ์ของ `Presentation` จะมี `FontsManager` ของตนเอง  
+หลังจากสร้างคอลเลกชันแล้ว คุณสามารถกำหนดให้กับ property `FontFallBackRulesCollection` ของ `FontsManager` ของการนำเสนอ `FontsManager` ควบคุมฟอนต์ทั่วการนำเสนอ และแต่ละอินสแตนซ์ของ `Presentation` จะมี `FontsManager` ของตนเอง  
 
-เมื่อ `FontsManager` ถูกกำหนดค่าเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองที่ระบุจะถูกนำไปใช้ระหว่างการเรนเดอร์พรีเซนเทชัน  
+เมื่อ `FontsManager` ถูกเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองที่ระบุจะถูกใช้ในระหว่างการเรนเดอร์การนำเสนอ  
 
-## **ใช้กฎฟอนต์สำรอง**
+## **นำกฎฟอนต์สำรองไปใช้**
 
-อินสแตนซ์ของ [FontFallBackRule](https://reference.aspose.com/slides/th/net/aspose.slides/FontFallBackRule) สามารถจัดระเบียบเป็น [FontFallBackRulesCollection](https://reference.aspose.com/slides/th/net/aspose.slides/fontfallbackrulescollection) ซึ่งทำตามอินเทอร์เฟซ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/th/net/aspose.slides/ifontfallbackrulescollection) สามารถเพิ่มหรือเอากฎออกจากคอลเลกชันได้  
+อินสแตนซ์ของ [FontFallBackRule](https://reference.aspose.com/slides/th/net/aspose.slides/FontFallBackRule) คลาสสามารถจัดระเบียบเป็น [FontFallBackRulesCollection](https://reference.aspose.com/slides/th/net/aspose.slides/fontfallbackrulescollection) ที่ implements อินเตอร์เฟซ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/th/net/aspose.slides/ifontfallbackrulescollection) สามารถเพิ่มหรือเอากฎออกจากคอลเลกชันได้  
 
-จากนั้นคอลเลกชันนี้อาจถูกกำหนดให้กับคุณสมบัติ [FontFallBackRulesCollection ](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) ของคลาส [FontsManager](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager)  FontsManager ควบคุมฟอนต์ทั่วงานพรีเซนเทชัน  
+จากนั้นคอลเลกชันนี้อาจถูกกำหนดให้กับ [FontFallBackRulesCollection ](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)property ของคลาส [FontsManager](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager) FontsManager ควบคุมฟอนต์ทั่วการนำเสนอ  
 
-แต่ละ [Presentation ](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) มีคุณสมบัติ [FontsManager ](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/properties/fontsmanager) ที่มีอินสแตนซ์ของคลาส FontsManager ของตนเอง  
+แต่ละ [Presentation ](https://reference.aspose.com/slides/th/net/aspose.slides/presentation) มี [FontsManager ](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/properties/fontsmanager)property ที่มีอินสแตนซ์ของคลาส FontsManager ของตนเอง  
 
-นี่คือตัวอย่างวิธีสร้างคอลเลกชันกฎฟอนต์สำรองและกำหนดให้กับ FontsManager ของพรีเซนเทชันที่ต้องการ:  
+ต่อไปนี้เป็นตัวอย่างวิธีสร้างคอลเลกชันของกฎฟอนต์สำรองและกำหนดให้กับ FontsManager ของการนำเสนอที่ต้องการ:  
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
 	IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -48,26 +50,26 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-หลังจากที่ FontsManager ถูกกำหนดค่าเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองจะถูกนำไปใช้ระหว่างการเรนเดอร์พรีเซนเทชัน  
+หลังจาก FontsManager ถูกเริ่มต้นด้วยคอลเลกชันฟอนต์สำรอง ฟอนต์สำรองจะถูกใช้ในระหว่างการเรนเดอร์การนำเสนอ  
 
-{{% alert color="primary" %}} 
-อ่านเพิ่มเติมเกี่ยวกับวิธีการ [Render Presentation with Fallback Font](/slides/th/net/render-presentation-with-fallback-font/). 
+{{% alert color="info" %}} 
+อ่านเพิ่มเติมเกี่ยวกับการ [เรนเดอร์การนำเสนอด้วยฟอนต์สำรอง](/slides/th/net/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**กฎฟอนต์สำรองของฉันจะถูกฝังลงในไฟล์ PPTX และปรากฏใน PowerPoint หลังจากบันทึกหรือไม่?**
+### กฎฟอนต์สำรองของฉันจะถูกฝังลงในไฟล์ PPTX และปรากฏใน PowerPoint หลังจากบันทึกหรือไม่?
 
-ไม่ กฎฟอนต์สำรองเป็นการตั้งค่าการเรนเดอร์ขณะทำงาน; ไม่ได้ถูกจัดเก็บลงในไฟล์ PPTX และจะไม่ปรากฏใน UI ของ PowerPoint  
+No. กฎฟอนต์สำรองเป็นการตั้งค่าการเรนเดอร์ในเวลารันไทม์; ไม่ได้ถูกจัดเก็บลงในไฟล์ PPTX ดังนั้นจะไม่ปรากฏใน UI ของ PowerPoint.  
 
-**กฎฟอนต์สำรองใช้กับข้อความภายใน SmartArt, WordArt, ชาร์ตและตารางหรือไม่?**
+### ฟอนต์สำรองจะนำไปใช้กับข้อความภายใน SmartArt, WordArt, แผนภูมิ และตารางหรือไม่?
 
-ใช่ กลไกการแทนที่ glyph เดียวกันจะถูกใช้กับข้อความใด ๆ ในวัตถุเหล่านี้  
+Yes. กลไกการแทนที่ glyph เดียวกันจะถูกใช้กับข้อความใด ๆ ในวัตถุเหล่านี้.  
 
-**Aspose แจกจ่ายฟอนต์ใด ๆ มาพร้อมกับไลบรารีหรือไม่?**
+### Aspose แจกจ่ายฟอนต์ใดๆ มาพร้อมกับไลบรารีหรือไม่?
 
-ไม่ คุณต้องเพิ่มและใช้ฟอนต์ด้วยตนเองและรับผิดชอบต่อการใช้งานนั้น  
+No. คุณต้องเพิ่มและใช้ฟอนต์ด้วยตนเองและรับผิดชอบต่อการใช้ฟอนต์นั้น.  
 
-**สามารถใช้การแทนที่/การทดแทนฟอนต์ที่หายไปร่วมกับการสำรองฟอนต์สำหรับ glyph ที่หายไปได้หรือไม่?**
+### การแทนที่/การสับเปลี่ยนฟอนต์ที่หายไปและฟอนต์สำรองสำหรับ glyph ที่หายไปสามารถใช้ร่วมกันได้หรือไม่?
 
-ใช่ ทั้งสองเป็นขั้นตอนอิสระของสายงานการแก้ปัญหาฟอนต์เดียวกัน: ก่อนแรกเอนจินจะตรวจสอบความพร้อมของฟอนต์ ([replacement](/slides/th/net/font-replacement/)/[substitution](/slides/th/net/font-substitution/)) จากนั้นการสำรองฟอนต์จะเติมช่องว่างของ glyph ที่หายไปในฟอนต์ที่มีอยู่  
+Yes. พวกมันเป็นขั้นตอนอิสระของกระบวนการแก้ไขฟอนต์เดียวกัน: ก่อนแรกเอ็นจินจะตรวจสอบว่าฟอนต์พร้อมใช้งานหรือไม่ ([replacement](/slides/th/net/font-replacement/)/[substitution](/slides/th/net/font-substitution/)), จากนั้นฟอนต์สำรองจะเติมช่องว่างสำหรับ glyph ที่หายไปในฟอนต์ที่มีอยู่.

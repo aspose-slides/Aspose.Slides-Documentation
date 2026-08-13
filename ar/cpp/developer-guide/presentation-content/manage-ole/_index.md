@@ -5,7 +5,7 @@ type: docs
 weight: 40
 url: /ar/cpp/manage-ole/
 keywords:
-- عنصر OLE
+- كائن OLE
 - ربط وتضمين الكائنات
 - إضافة OLE
 - تضمين OLE
@@ -25,56 +25,81 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تحسين إدارة كائنات OLE في ملفات PowerPoint و OpenDocument باستخدام Aspose.Slides للغة C++. تضمين، تحديث، وتصدير محتوى OLE بسلاسة."
+description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides for C++. قم بتضمين محتوى OLE وتحديثه وتصديره بسلاسة."
 ---
+## **المقدمة**
 
 {{% alert title="Info" color="info" %}}
-
-OLE (الربط والتضمين للكائنات) هو تكنولوجيا من Microsoft تسمح للبيانات والكائنات التي تم إنشاؤها في تطبيق واحد بأن تُوضع في تطبيق آخر عبر الربط أو التضمين. 
-
+OLE (Object Linking & Embedding) هي تقنية من مايكروسوفت تسمح بنقل البيانات والكائنات التي تم إنشاؤها في تطبيق واحد إلى تطبيق آخر عبر الربط أو التضمين. 
 {{% /alert %}} 
 
-تُعتبر المخطط الذي تم إنشاؤه في MS Excel مثالًا. يتم وضع المخطط داخل شريحة PowerPoint. يُعد ذلك المخطط في Excel كائن OLE. 
+تخيل مخططًا تم إنشاؤه في MS Excel. ثم يتم وضع المخطط داخل شريحة PowerPoint. يُعتبر ذلك المخطط في Excel كائن OLE. 
 
-- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عند النقر المزدوج على الأيقونة، يُفتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تحرير الكائن. 
-- قد يعرض كائن OLE محتوياته الفعلية، مثل محتويات المخطط. في هذه الحالة، يُفعَّل المخطط في PowerPoint، يتم تحميل واجهة المخطط، وتستطيع تعديل بيانات المخطط داخل PowerPoint.
+- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عند النقر المزدوج على الأيقونة، يفتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تحرير الكائن. 
+- قد يعرض كائن OLE محتواه الفعلي، مثل محتوى المخطط. في هذه الحالة، يتم تنشيط المخطط في PowerPoint، تُحمَّل واجهة المخطط، وتستطيع تعديل بيانات المخطط داخل PowerPoint.
 
-يتيح لك [Aspose.Slides for C++](https://products.aspose.com/slides/cpp/) إدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for C++](https://products.aspose.com/slides/ar/cpp/) يسمح لك بإدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/)).
 
 ## **إضافة إطارات كائن OLE إلى الشرائح**
 
-بافتراض أنك قد أنشأت مخططًا في Microsoft Excel وتريد تضمينه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for C++، يمكنك القيام بذلك بهذه الطريقة:
+افترض أنك قد أنشأت مخططًا في Microsoft Excel وتريد تضمينه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for C++، يمكنك القيام بذلك بهذه الطريقة:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-2. احصل على مرجع الشريحة عبر فهرسها.  
-3. قراءة ملف Excel كمصفوفة بايت.  
-4. إضافة الـ [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) إلى الشريحة مع تضمين مصفوفة البايت وغيرها من المعلومات حول كائن OLE.  
-5. حفظ العرض المُعدَّل كملف PPTX.  
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+2. الحصول على مرجع الشريحة عبر فهرسها.
+3. قراءة ملف Excel كمصفوفة بايت.
+4. إضافة الـ [OleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/) إلى الشريحة مع تضمين مصفوفة البايت ومعلومات أخرى عن كائن OLE.
+5. كتابة العرض التقديمي المعدل كملف PPTX.
 
-في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كـ [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) باستخدام Aspose.Slides for C++. **ملاحظة** أن منشئ الـ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) يقبل امتداد الكائن القابل للتضمين كوسيطة ثانية. يتيح هذا الامتداد لـ PowerPoint تفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا.
+في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كـ [OleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/) باستخدام Aspose.Slides for C++.
+**ملاحظة** أن مُنشئ الـ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/ar/cpp/aspose.slides.dom.ole/oleembeddeddatainfo/) يأخذ امتداد الكائن القابل للتضمين كمعامل ثانٍ. يتيح هذا الامتداد لبرنامج PowerPoint تفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا.
+
 ``` cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <drawing/size_f.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slideSize = presentation->get_SlideSize()->get_Size();
 auto slide = presentation->get_Slide(0);
 
-// Prepare data for the OLE object.
+// إعداد البيانات لكائن OLE.
 auto fileData = File::ReadAllBytes(u"book.xlsx");
 auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
-// Add the OLE object frame to the slide.
+// إضافة إطار كائن OLE إلى الشريحة.
 slide->get_Shapes()->AddOleObjectFrame(0, 0, slideSize.get_Width(), slideSize.get_Height(), dataInfo);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 ### **إضافة إطارات OLE مرتبطة**
 
-يتيح لك Aspose.Slides for C++ إضافة [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) دون تضمين البيانات، بل فقط عبر رابط إلى الملف.
+Aspose.Slides for C++ يسمح لك بإضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/) دون تضمين البيانات وإنما باستخدام ارتباط فقط إلى الملف.
 
-يظهر لك هذا الكود في C++ كيفية إضافة [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) مع ملف Excel مرتبط إلى شريحة:
+هذا الكود C++ يوضح لك كيفية إضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/) مع ملف Excel مرتبط إلى شريحة:
+
 ```cpp
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -85,18 +110,26 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-
 ## **الوصول إلى إطارات OLE**
 
-إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك بسهولة العثور عليه أو الوصول إليه بهذه الطريقة:
+إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك العثور عليه أو الوصول إليه بسهولة بهذه الطريقة:
 
-1. تحميل عرض يحتوي على كائن OLE مضمّن بإنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-2. احصل على مرجع الشريحة باستخدام فهرستها.  
-3. الوصول إلى شكل [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا ملف PPTX الذي أنشأناه مسبقًا والذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم قمنا *بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). كان هذا هو إطار كائن OLE المطلوب الوصول إليه.  
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.  
+1. تحميل عرض تقديمي يحتوي على كائن OLE المضمّن بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+2. الحصول على مرجع الشريحة باستخدام فهرسها.
+3. الوصول إلى شكل الـ [OleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا الـ PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم *قمنا بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ioleobjectframe/). كان هذا هو إطار OLE المطلوب الوصول إليه.
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
 
-في المثال أدناه، تم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وبيانات ملفه.
+في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وبيانات ملفه.
+
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -105,19 +138,31 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 { 
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
-    // الحصول على بيانات الملف المضمن.
-    // الحصول على امتداد الملف المضمن.
+    // احصل على بيانات الملف المضمّن.
+    auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+
+    // احصل على امتداد الملف المضمّن.
+    auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
+
     // ...
 }
 ```
 
-
 ### **الوصول إلى خصائص إطار OLE المرتبط**
 
-يسمح لك Aspose.Slides بالوصول إلى خصائص إطار كائن OLE المرتبط.
+Aspose.Slides يسمح لك بالوصول إلى خصائص إطار OLE المرتبط.
 
-يظهر لك هذا الكود في C++ كيفية التحقق مما إذا كان كائن OLE مرتبطًا ثم الحصول على مسار الملف المرتبط:
+هذا الكود C++ يوضح لك كيفية التحقق مما إذا كان كائن OLE مرتبطًا ثم الحصول على مسار الملف المرتبط:
+
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 auto slide = presentation->get_Slide(0);
 auto shape = slide->get_Shape(0);
@@ -129,11 +174,11 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
     // تحقق مما إذا كان كائن OLE مرتبطًا.
     if (oleFrame->get_IsObjectLink())
     {
-        // اطبع المسار الكامل للملف المرتبط.
+        // طباعة المسار الكامل للملف المرتبط.
         std::wcout << L"OLE object frame is linked to: " << oleFrame->get_LinkPathLong() << std::endl;
 
-        // اطبع المسار النسبي للملف المرتبط إذا كان موجودًا.
-        // يمكن فقط لعروض PPT أن تحتوي على المسار النسبي.
+        // طباعة المسار النسبي للملف المرتبط إذا كان موجودًا.
+        // يمكن فقط لملفات PPT أن تحتوي على المسار النسبي.
         if (!String::IsNullOrEmpty(oleFrame->get_LinkPathRelative()))
         {
             std::wcout << L"OLE object frame relative path: " << oleFrame->get_LinkPathRelative() << std::endl;
@@ -142,44 +187,68 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
 }
 ```
 
-
 ## **تغيير بيانات كائن OLE**
 
-{{% alert color="primary" %}} 
-
-في هذا القسم، يستخدم مثال الكود أدناه [Aspose.Cells for C++](/cells/cpp/).
-
+{{% alert color="info" %}} 
+في هذا القسم، يستخدم المثال البرمجي أدناه [Aspose.Cells for C++](/cells/cpp/). 
 {{% /alert %}}
 
-إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك بسهولة الوصول إلى هذا الكائن وتعديل بياناته بهذه الطريقة:
+إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك بسهولة الوصول إلى ذلك الكائن وتعديل بياناته بهذه الطريقة:
 
-1. تحميل عرض يحتوي على كائن OLE مضمّن بإنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).  
-2. احصل على مرجع الشريحة عبر فهرستها.  
-3. الوصول إلى شكل [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا ملف PPTX الذي أنشأناه مسبقًا والذي يحتوي على شكل واحد في الشريحة الأولى. ثم قمنا *بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/). كان هذا هو إطار كائن OLE المطلوب الوصول إليه.  
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.  
-5. إنشاء كائن `Workbook` والوصول إلى بيانات OLE.  
-6. الوصول إلى `Worksheet` المطلوب وتعديل البيانات.  
-7. حفظ `Workbook` المحدث في تدفق.  
-8. تغيير بيانات كائن OLE من التدفق.  
+1. تحميل عرض تقديمي يحتوي على كائن OLE المضمّن بإنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) .
+2. الحصول على مرجع الشريحة عبر فهرسها. 
+3. الوصول إلى شكل الـ [OLEObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/). في مثالنا، استخدمنا الـ PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد على الشريحة الأولى. ثم *قمنا بتحويل* ذلك الكائن إلى [IOleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ioleobjectframe/). كان هذا هو إطار OLE المطلوب الوصول إليه.
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
+5. إنشاء كائن `Workbook` والوصول إلى بيانات OLE.
+6. الوصول إلى الـ `Worksheet` المطلوب وتعديل البيانات.
+7. حفظ الـ `Workbook` المحدث في تدفق.
+8. تغيير بيانات كائن OLE من التدفق.
 
 في المثال أدناه، تم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وتم تعديل بيانات ملفه لتحديث بيانات المخطط.
+
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include "Aspose.Cells/Cell.h"
+#include "Aspose.Cells/Cells.h"
+#include "Aspose.Cells/Initializer.h"
+#include "Aspose.Cells/OoxmlSaveOptions.h"
+#include "Aspose.Cells/SaveFormat.h"
+#include "Aspose.Cells/U16String.h"
+#include "Aspose.Cells/Vector.h"
+#include "Aspose.Cells/Workbook.h"
+#include "Aspose.Cells/Worksheet.h"
+#include "Aspose.Cells/WorksheetCollection.h"
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// يجب بدء Aspose.Cells for C++ قبل استخدام أي من أنواعه.
+Aspose::Cells::Startup();
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-// احصل على الشكل الأول كإطار كائن OLE.
+// Get the first shape as an OLE object frame.
 auto oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
 if (oleFrame != nullptr)
 {
     auto oleStream = MakeObject<MemoryStream>(oleFrame->get_EmbeddedData()->get_EmbeddedFileData());
 
-    // قراءة بيانات كائن OLE ككائن دفتر عمل.
+    // قراءة بيانات كائن OLE ككائن Workbook.
     auto oleArray = oleStream->ToArray();
     std::vector<uint8_t> workbookData(oleArray->data().begin(), oleArray->data().end());
     Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookData.data(), workbookData.size()));
 
-    // تعديل بيانات دفتر العمل.
+    // تعديل بيانات المصنف.
     auto worksheet = workbook.GetWorksheets().Get(0);
     worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
     worksheet.GetCells().Get(1, 4).PutValue(12);
@@ -200,15 +269,31 @@ if (oleFrame != nullptr)
 }
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
-```
 
+Aspose::Cells::Cleanup();
+```
 
 ## **تضمين أنواع ملفات أخرى في الشرائح**
 
-بالإضافة إلى مخططات Excel، يتيح لك Aspose.Slides for C++ تضمين أنواع أخرى من الملفات في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML وPDF وZIP ككائنات. عند النقر المزدوج على الكائن المدرج، يفتح تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج مناسب لفتحه.
+بالإضافة إلى مخططات Excel، Aspose.Slides for C++ يسمح لك بتضمين أنواع ملفات أخرى في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML وPDF وZIP ككائنات. عند النقر المزدوج على الكائن المُدرج، يفتح تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج ملائم لفتحه.
 
-يظهر لك هذا الكود في C++ كيفية تضمين HTML وZIP في شريحة:
+هذا الكود C++ يوضح لك كيفية تضمين HTML وZIP في شريحة:
+
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
@@ -226,13 +311,24 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **تحديد نوع الملف للكائنات المضمنة**
 
-## **تحديد أنواع الملفات للكائنات المضمّنة**
+عند العمل مع العروض التقديمية، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير مدعوم بآخر مدعوم. Aspose.Slides for C++ يسمح لك بتحديد نوع الملف لكائن مضمّن، مما يتيح لك تحديث بيانات إطار OLE أو امتداده.
 
-عند العمل على العروض التقديمية، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير مدعوم بآخر مدعوم. يتيح لك Aspose.Slides for C++ تحديد نوع الملف للكائن المضمّن، مما يمكنك من تحديث بيانات إطار OLE أو امتداده.
+هذا الكود C++ يوضح لك كيفية تعيين نوع الملف لكائن OLE مضمّن إلى `zip`:
 
-يظهر لك هذا الكود في C++ كيفية تعيين نوع الملف لكائن OLE مضمّن إلى `zip`:
 ``` cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Ole/OleEmbeddedDataInfo.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::DOM::Ole;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
@@ -242,25 +338,39 @@ auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
 std::wcout << L"Current embedded file extension is: " << fileExtension << std::endl;
 
-// تغيير نوع الملف إلى ZIP.
+// غيّر نوع الملف إلى ZIP.
 oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(fileData, u"zip"));
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **تعيين صور الأيقونات والعناوين للكائنات المضمنة**
 
-## **تعيين صور الأيقونات والعناوين للكائنات المضمّنة**
+بعد تضمين كائن OLE، تُضاف معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة ما يراه المستخدمون قبل الوصول أو فتح كائن OLE. إذا رغبت في استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for C++.
 
-بعد تضمين كائن OLE، يتم إضافة معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول إلى كائن OLE أو فتحه. إذا رغبت في استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for C++.
+هذا الكود C++ يوضح لك كيفية تعيين صورة الأيقونة والعنوان لكائن مضمّن:
 
-يظهر لك هذا الكود في C++ كيفية تعيين صورة الأيقونة والعنوان لكائن مضمّن:
 ``` cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
-// إضافة صورة إلى موارد العرض التقديمي.
+// Add an image to the presentation resources.
 auto imageData = File::ReadAllBytes(u"image.png");
 auto oleImage = presentation->get_Images()->AddImage(imageData);
 
@@ -273,25 +383,48 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **منع إطار كائن OLE من تغيير حجمه وإعادة وضعه**
 
-## **منع تعديل حجم وإعادة تموضع إطار كائن OLE**
+بعد إضافة كائن OLE مرتبط إلى شريحة عرض تقديمي، قد تظهر رسالة في PowerPoint تطلب تحديث الروابط عند فتح العرض. النقر على زر "Update Links" قد يغيّر حجم وموقع إطار كائن OLE لأن PowerPoint يحدث البيانات من الكائن المرتبط ويُجِدِّد معاينة الكائن. لمنع PowerPoint من طلب تحديث بيانات الكائن، عيّن الخاصية `set_UpdateAutomatic` لواجهة [IOleObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ioleobjectframe/) إلى `false`:
 
-بعد إضافة كائن OLE مرتبط إلى شريحة عرض تقديمي، عند فتح العرض في PowerPoint قد تظهر لك رسالة تطلب تحديث الروابط. قد يؤدي النقر على زر "Update Links" إلى تغيير حجم وتموضع إطار كائن OLE لأن PowerPoint يحدث البيانات من كائن OLE المرتبط ويُحدّث معاينة الكائن. لمنع PowerPoint من طلب تحديث بيانات الكائن، قم بتعيين طريقة `set_UpdateAutomatic` لواجهة [IOleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ioleobjectframe/) إلى `false`:
 ```cpp
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto slide = presentation->get_Slide(0);
+auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
+
 oleFrame->set_UpdateAutomatic(false);
 ```
 
+## **استخراج الملفات المضمنة**
 
-## **استخراج الملفات المضمّنة**
+Aspose.Slides for C++ يسمح لك باستخراج الملفات المضمنة في الشرائح ككائنات OLE بهذه الطريقة:
 
-يتيح لك Aspose.Slides for C++ استخراج الملفات المضمّنة في الشرائح ككائنات OLE بهذه الطريقة:
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) التي تحتوي على كائنات OLE التي تريد استخراجها.
+2. التمرُّر عبر جميع الأشكال في العرض التقديمي والوصول إلى أشكال [OLEObjectFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/oleobjectframe/).
+3. الوصول إلى بيانات الملفات المضمنة من إطارات OLE وكتابتها إلى القرص.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) التي تحتوي على كائنات OLE التي ترغب في استخراجها.  
-2. التجول عبر جميع الأشكال في العرض والوصول إلى أشكال [OLEObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/).  
-3. الوصول إلى بيانات الملفات المضمّنة من إطارات OLE وكتابتها إلى القرص.  
+هذا الكود C++ يوضح لك كيفية استخراج الملفات المضمنة في شريحة ككائنات OLE:
 
-يظهر لك هذا الكود في C++ كيفية استخراج الملفات المضمّنة في شريحة ككائنات OLE:
 ``` cpp
+#include <DOM/IOleEmbeddedDataInfo.h>
+#include <DOM/IOleObjectFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
@@ -314,21 +447,20 @@ for (int index = 0; index < slide->get_Shapes()->get_Count(); index++)
 presentation->Dispose();
 ```
 
+## **الأسئلة الشائعة**
 
-## **FAQ**
+### هل سيتم عرض محتوى OLE عند تصدير الشرائح إلى PDF/صور؟
 
-**هل سيتم عرض محتوى OLE عند تصدير الشرائح إلى PDF/صور؟**
+ما هو مرئي على الشريحة يُركّب—الأيقونة/صورة البديل (المعاينة). لا يتم تنفيذ محتوى OLE "الحي" أثناء التركيب. إذا لزم الأمر، عيّن صورة معاينة مخصصة لضمان المظهر المتوقع في ملف PDF المُصدَّر.
 
-ما يُعرض على الشريحة هو ما يتم تصييره — أي الأيقونة/صورة البديل (المعاينة). لا يتم تنفيذ محتوى OLE "الحي" أثناء التصيير. إذا لزم الأمر، قم بتعيين صورة المعاينة الخاصة بك لضمان الشكل المتوقع في ملف PDF المصدَّر.
+### كيف يمكنني قفل كائن OLE على شريحة بحيث لا يتمكن المستخدمون من تحريكه/تحريره في PowerPoint؟
 
-**كيف يمكنني قفل كائن OLE على شريحة بحيث لا يتمكن المستخدمون من تحريكه/تحريره في PowerPoint؟**
+قفل الشكل: Aspose.Slides يوفر [shape-level locks](/slides/ar/cpp/applying-protection-to-presentation/). هذا ليس تشفيرًا، لكنه يمنع فعليًا التعديلات غير المقصودة والتحريك.
 
-قم بقفل الشكل: تقدم Aspose.Slides [قفل على مستوى الشكل](/slides/ar/cpp/applying-protection-to-presentation/). هذا ليس تشفيرًا، لكنه يمنع عمليًا التعديلات والتحركات العارضة.
+### لماذا "يقفز" كائن Excel المرتبط أو يتغير حجمه عند فتح العرض؟
 
-**لماذا يقفز كائن Excel المرتبط أو يتغير حجمه عند فتح العرض التقديمي؟**
+قد يقوم PowerPoint بتحديث معاينة OLE المرتبط. لتحقيق مظهر ثابت، اتبع ممارسات [Working Solution for Worksheet Resizing](/slides/ar/cpp/working-solution-for-worksheet-resizing/)—إما ضبط الإطار على النطاق، أو تكبير النطاق إلى إطار ثابت وتعيين صورة بديلة مناسبة.
 
-قد يقوم PowerPoint بتحديث معاينة كائن OLE المرتبط. للحصول على مظهر ثابت، اتبع ممارسات [الحل العملي لإعادة تحجيم ورقة العمل](/slides/ar/cpp/working-solution-for-worksheet-resizing/) — إما ضبط الإطار ليتناسب مع النطاق، أو تحجيم النطاق لإطار ثابت وتعيين صورة بديلة مناسبة.
+### هل سيتم الحفاظ على المسارات النسبية لكائنات OLE المرتبطة في تنسيق PPTX؟
 
-**هل سيتم الحفاظ على المسارات النسبية لكائنات OLE المرتبطة في صيغة PPTX؟**
-
-في صيغة PPTX، لا تتوفر معلومات "المسار النسبي" — فقط المسار الكامل. تُستخدم المسارات النسبية في الصيغة القديمة PPT. للحصول على قابلية نقل، يُفضَّل الاعتماد على مسارات مطلقة موثوقة/عناوين URI يمكن الوصول إليها أو التضمين.
+في PPTX لا تتوفر معلومات "المسار النسبي"—فقط المسار الكامل. تُوجد المسارات النسبية في تنسيق PPT الأقدم. للانتقالية، يُفضَّل استخدام مسارات مطلقة موثوقة/URIs قابلة للوصول أو التضمين.

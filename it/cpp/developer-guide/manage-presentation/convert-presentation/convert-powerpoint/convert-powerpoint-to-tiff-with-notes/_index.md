@@ -27,15 +27,15 @@ keywords:
 - TIFF con note
 - C++
 - Aspose.Slides
-description: "Converti presentazioni PowerPoint in TIFF con note utilizzando Aspose.Slides per C++. Scopri come esportare diapositive con note del relatore in modo efficiente."
+description: Converti presentazioni PowerPoint in TIFF con note utilizzando Aspose.Slides per C++. Scopri come esportare diapositive con note del relatore in modo efficiente.
 ---
 ## **Introduzione**
 
-Aspose.Slides per C++ fornisce una soluzione semplice per convertire presentazioni PowerPoint e OpenDocument (PPT, PPTX e ODP) con note nel formato TIFF. Questo formato è ampiamente usato per l'archiviazione di immagini ad alta qualità, la stampa e l'archiviazione di documenti. Con Aspose.Slides, è possibile non solo esportare intere presentazioni con note del relatore, ma anche generare miniature delle diapositive nella vista Note Slide. Il processo di conversione è semplice ed efficiente, utilizzando il metodo `Save` della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) per trasformare l'intera presentazione in una serie di immagini TIFF mantenendo le note e il layout.
+Aspose.Slides per C++ offre una soluzione semplice per convertire presentazioni PowerPoint e OpenDocument (PPT, PPTX e ODP) con note nel formato TIFF. Questo formato è ampiamente utilizzato per l'archiviazione di immagini ad alta qualità, la stampa e l'archiviazione di documenti. Con Aspose.Slides, è possibile non solo esportare intere presentazioni con note del relatore, ma anche generare miniatura delle diapositive nella visualizzazione Note della diapositiva. Il processo di conversione è semplice ed efficiente, utilizzando il metodo `Save` della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) per trasformare l'intera presentazione in una serie di immagini TIFF preservando note e layout.
 
 ## **Convertire una presentazione in TIFF con note**
 
-Salvare una presentazione PowerPoint o OpenDocument in TIFF con note utilizzando Aspose.Slides per C++ richiede i seguenti passaggi:
+Salvare una presentazione PowerPoint o OpenDocument in TIFF con note utilizzando Aspose.Slides per C++ comporta i seguenti passaggi:
 
 1. Istanziare la classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/): caricare un file PowerPoint o OpenDocument.  
 1. Configurare le opzioni di layout di output: utilizzare la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/notescommentslayoutingoptions/) per specificare come devono essere visualizzate note e commenti.  
@@ -45,16 +45,24 @@ Supponiamo di avere un file "speaker_notes.pptx" con la seguente diapositiva:
 
 ![La diapositiva della presentazione con note del relatore](slide_with_notes.png)
 
-Il frammento di codice qui sotto dimostra come convertire la presentazione in un'immagine TIFF nella vista Note Slide usando il metodo [set_SlidesLayoutOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/).
-
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/SaveFormat.h>
+#include <Export/TiffOptions.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Instanzia la classe Presentation che rappresenta un file di presentazione.
 auto presentation = MakeObject<Presentation>(u"speaker_notes.pptx");
 
 auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
 notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Visualizza le note sotto la diapositiva.
 
-// Configura le opzioni TIFF con il layout delle note.
+// Configura le opzioni TIFF con layout delle note.
 auto tiffOptions = MakeObject<TiffOptions>();
 tiffOptions->set_DpiX(300);
 tiffOptions->set_DpiY(300);
@@ -70,22 +78,20 @@ Il risultato:
 
 ![L'immagine TIFF con note del relatore](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-
-Scopri il Convertitore gratuito di PowerPoint in Poster di Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/it/conversion/convert-ppt-to-poster-online).
-
+{{% alert title="Tip" color="info" %}}
+Scopri Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/it/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Posso controllare la posizione dell'area delle note nel TIFF risultante?**
+### Posso controllare la posizione dell'area delle note nel TIFF risultante?
 
-Sì. Utilizza le [impostazioni di layout delle note](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/) per scegliere tra opzioni come `None`, `BottomTruncated` o `BottomFull`, che rispettivamente nascondono le note, le adattano a una singola pagina o consentono loro di estendersi su pagine aggiuntive.
+Sì. Utilizzare le [impostazioni di layout delle note](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_slideslayoutoptions/) per scegliere tra opzioni come `None`, `BottomTruncated` o `BottomFull`, che rispettivamente nascondono le note, le adattano a una singola pagina o consentono di estenderle su pagine aggiuntive.
 
-**Come posso ridurre le dimensioni di un file TIFF con note senza perdita di qualità visibile?**
+### Come posso ridurre le dimensioni di un file TIFF con note senza una perdita visibile di qualità?
 
-Scegli una [compressione efficiente](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) (ad es. `LZW` o `RLE`), imposta un DPI ragionevole e, se accettabile, utilizza un [formato di pixel](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) più basso (come 8 bpp o 1 bpp per il bianco e nero). Ridurre leggermente le [dimensioni dell'immagine](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_imagesize/) può aiutare senza compromettere notevolmente la leggibilità.
+Scegliere una [compressione efficiente](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) (ad es. `LZW` o `RLE`), impostare un DPI ragionevole e, se accettabile, utilizzare un [pixel format](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) più basso (come 8 bpp o 1 bpp per il bianco e nero). Ridurre leggermente le [dimensioni dell'immagine](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/tiffoptions/set_imagesize/) può anche aiutare senza compromettere visibilmente la leggibilità.
 
-**Il tipo di carattere nelle note influisce sul risultato se i caratteri originali mancano nel sistema?**
+### Il carattere nelle note influisce sul risultato se i caratteri originali sono mancanti nel sistema?
 
-Sì. I caratteri mancanti attivano la [sostituzione](/slides/it/cpp/font-selection-sequence/), che può modificare le metriche e l'aspetto del testo. Per evitarlo, [fornisci i caratteri richiesti](/slides/it/cpp/custom-font/) o imposta un [carattere di fallback](/slides/it/cpp/fallback-font/) predefinito in modo che vengano utilizzati i caratteri previsti.
+Sì. I caratteri mancanti attivano la [sostituzione](/slides/it/cpp/font-selection-sequence/), che può modificare le metriche e l'aspetto del testo. Per evitarlo, [fornire i caratteri richiesti](/slides/it/cpp/custom-font/) o impostare un [carattere di fallback](/slides/it/cpp/fallback-font/) predefinito in modo che vengano utilizzati i tipi di carattere desiderati.

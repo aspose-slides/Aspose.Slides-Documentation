@@ -5,29 +5,29 @@ type: docs
 weight: 90
 url: /ru/net/extracting-images-from-presentation-shapes/
 keywords:
-- извлечение изображения
-- получить изображение
+- извлекать изображение
+- получать изображение
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Извлеките изображения из фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET — быстрое, удобное для кода решение."
+description: "Извлекайте изображения из фигур в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET — быстрое, удобное для кода решение."
 ---
 ## **Обзор**
 
-Изображения в презентации могут появляться в нескольких типах фигур: как обычные рамки изображений, как заливка изображением, применённая к фигурам, как изображения‑предпросмотр OLE‑объектов, как миниатюры видеокадров или аудиокадров, как изображения масштабирования или как изображения, вложенные в таблицы, диаграммы и объекты SmartArt. Aspose.Slides хранит эти изображения в коллекции изображений презентации, доступной через [ImageCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/imagecollection/) и [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) объекты.
+Изображения в презентации могут появляться в нескольких типах фигур: как обычные рамки рисунков, как заливка рисунками, применяемая к фигурам, как изображения‑предпросмотры OLE‑объектов, как миниатюры видеокадров или аудиокадров, как изображения масштабирования или как изображения, вложенные в таблицы, диаграммы и фигуры SmartArt. Aspose.Slides хранит эти изображения в коллекции изображений презентации, доступной через объекты [ImageCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/imagecollection/) и [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/).
 
-Если вам нужно экспортировать каждый встроенный в презентацию ресурс изображения, пройдите по `presentation.Images`. Эта статья посвящена иной задаче: обходу фигур, чтобы найти, где изображения используются на слайдах, чтобы сохранённые файлы могли сохранять полезный контекст, такой как номер слайда, позиция фигуры и тип источника (рамка изображения, изображение‑заливка, превью медиа, превью OLE или изображение масштабирования).
+Если вам нужно только экспортировать каждый ресурс изображения, встроенный в презентацию, пройдите по `presentation.Images`. Эта статья сосредоточена на другой задаче: обходе фигур для поиска мест использования изображений на слайдах, чтобы сохранённые файлы могли сохранять полезный контекст, такой как номер слайда, положение фигуры и тип источника (рамка рисунка, изображение‑заливка, медиа‑предпросмотр, OLE‑предпросмотр или изображение масштабирования).
 
-{{% alert title="Tip" color="primary" %}}
-Используйте [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) для сохранения оригинальных закодированных данных изображения и типа файла. Используйте [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) вместе с [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) когда необходимо нормализовать вывод в конкретный формат, например PNG.
+{{% alert title="Tip" color="info" %}}
+Используйте [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) для сохранения оригинальных закодированных данных изображения и типа файла. Используйте [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) совместно с [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) когда требуется нормализовать вывод в конкретный формат, например PNG.
 {{% /alert %}}
 
 ## **Общие вспомогательные методы**
 
-Вспомогательные методы ниже делают примеры короче. `SaveOriginalImage` записывает оригинальные встроенные байты, выбирает безопасное расширение из MIME‑типа и пропускает дублирующие бинарные данные изображений по хэшу SHA‑256.
+Ниже приведённые вспомогательные методы делают примеры короче. `SaveOriginalImage` записывает оригинальные встроенные байты, выбирает безопасное расширение из MIME‑типа и пропускает дублирующие бинарные данные изображений по хэшу SHA‑256.
 
 ```c#
 using Aspose.Slides;
@@ -162,11 +162,13 @@ private static string MakeSafeFileNamePart(string value)
 }
 ```
 
-## **Извлечение изображений из рамок изображений**
+## **Извлечение изображений из рамок рисунков**
 
-Используйте этот подход для изображений, вставленных как отдельные объекты. [IPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ipictureframe/) хранит своё изображение в `PictureFormat.Picture.Image`, которое возвращает объект [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/).
+Используйте этот подход для изображений, вставленных как отдельные объекты. Объект [IPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ipictureframe/) хранит своё изображение в `PictureFormat.Picture.Image`, который возвращает объект [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -193,11 +195,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Извлечение изображений из фигур, залитых изображением**
+## **Извлечение изображений из фигур, залитых изображениями**
 
-Фигуры могут использовать изображение как заливку. Сначала проверьте тип заливки фигуры: если это не [FillType.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/filltype/), изображение для извлечения отсутствует. Пример ниже обрабатывает объекты [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) и сохраняет каждое изображение как PNG через [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/).
+Фигуры могут использовать рисунок в качестве заливки. Сначала проверьте тип заливки фигуры: если это не [FillType.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/filltype/), изображение извлекать нечего. Пример ниже работает с объектами [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) и сохраняет каждое изображение как PNG через [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +229,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Извлечение изображений‑превью из рамок OLE‑объектов**
+## **Извлечение предварительных изображений из рамок OLE‑объектов**
 
-[IOleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe/) может иметь заменяющее изображение, которое PowerPoint использует как превью объекта на слайде. Это изображение доступно через `SubstitutePictureFormat.Picture.Image`. Извлечение этой картинки даёт вам изображение‑превью, а не содержимое встроенного OLE‑пакета.
+Объект [IOleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe/) может иметь заменяющее изображение, которое PowerPoint использует как предварительный просмотр объекта на слайде. Это изображение доступно через `SubstitutePictureFormat.Picture.Image`. Извлекая эту картинку, вы получаете предварительный просмотр, а не содержимое встроенного OLE‑пакета.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -260,11 +266,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Извлечение изображений‑превью из видеокадров**
+## **Извлечение предварительных изображений из видеокадров**
 
-[IVideoFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ivideoframe/) также может хранить изображение‑превью в `PictureFormat.Picture.Image`. Это постер или миниатюра, отображаемая на слайде, а не кадр, декодированный из видеопотока.
+Объект [IVideoFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ivideoframe/) также может хранить предварительное изображение в `PictureFormat.Picture.Image`. Это постер или миниатюра, отображаемая на слайде, а не кадр, декодированный из видеопотока.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -295,11 +303,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Извлечение изображений‑превью из аудиокадров**
+## **Извлечение предварительных изображений из аудиокадров**
 
-[IAudioFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudioframe/) может хранить миниатюру в `PictureFormat.Picture.Image`. Это изображение, отображаемое для аудио‑объекта на слайде.
+Объект [IAudioFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudioframe/) может хранить миниатюру в `PictureFormat.Picture.Image`. Это изображение, показываемое для аудиобъекта на слайде.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -330,11 +340,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Извлечение изображений из объектов масштабирования**
+## **Извлечение изображений из объектов Zoom**
 
-[IZoomFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/izoomframe/) и [ISectionZoomFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/isectionzoomframe/) могут использовать пользовательские изображения. Читайте `ZoomImage` из рамки масштабирования.
+Фигуры [IZoomFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/izoomframe/) и [ISectionZoomFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/isectionzoomframe/) могут использовать пользовательские изображения. Читайте `ZoomImage` из рамки масштабирования.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Извлечение изображений из рамок обзора масштабирования**
+## **Извлечение изображений из рамок Summary Zoom**
 
-[ISummaryZoomFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/isummaryzoomframe/) также является фигурой. Его элементы разделов могут использовать пользовательские изображения, доступные через свойство `ZoomImage` каждого раздела обзора масштабирования.
+Объект [ISummaryZoomFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/isummaryzoomframe/) также является фигурой. Его элементы разделов могут использовать пользовательские изображения, доступные через свойство `ZoomImage` каждого раздела summary zoom.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -412,9 +426,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Извлечение изображений из фигур таблиц**
 
-[ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) – это фигура. Изображения в таблице обычно хранятся как заливка изображением в ячейках таблицы.
+Объект [ITable](https://reference.aspose.com/slides/ru/net/aspose.slides/itable/) является фигурой. Изображения в таблице обычно хранятся как заливки рисунками в ячейках таблицы.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -456,9 +472,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Извлечение изображений из фигур диаграмм**
 
-[IChart](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/) – это фигура. Пример ниже извлекает изображение из заливки области диаграммы.
+Объект [IChart](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/) является фигурой. Пример ниже извлекает изображение из заливки рисунком области диаграммы.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +510,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Извлечение изображений из фигур SmartArt**
 
-[ISmartArt](https://reference.aspose.com/slides/ru/net/aspose.slides.smartart/ismartart/) является фигурой. В зависимости от макета SmartArt изображения могут храниться в заливках маркеров узлов или в форматах заливки фигур узлов.
+Объект [ISmartArt](https://reference.aspose.com/slides/ru/net/aspose.slides.smartart/ismartart/) является фигурой. В зависимости от макета SmartArt изображения могут храниться в заливках маркеров узлов или в форматах заливки фигур узлов.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -544,9 +564,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Включение изображений внутри сгруппированных фигур**
 
-Сгруппированные фигуры содержат собственные коллекции фигур. Общий вспомогательный метод `EnumerateShapes` имеет параметр `includeGroupedShapes`. Установите его в `true`, когда нужно проверять фигуры внутри объектов [IGroupShape](https://reference.aspose.com/slides/ru/net/aspose.slides/igroupshape/). Пример ниже извлекает изображения из рамок изображений, фигур, залитых изображением, превью OLE‑объектов, миниатюр видеокадров и миниатюр аудиокадров. Чтобы также включить изображения из таблиц, диаграмм, SmartArt и обзора масштабирования, повторно используйте специализированную логику извлечения из предыдущих разделов, сохраняя тот же рекурсивный обход фигур.
+Сгруппированные фигуры содержат собственные коллекции фигур. Общий вспомогательный метод `EnumerateShapes` имеет параметр `includeGroupedShapes`. Установите его в `true`, когда нужно проверять фигуры внутри объектов [IGroupShape](https://reference.aspose.com/slides/ru/net/aspose.slides/igroupshape/). Пример ниже извлекает изображения из рамок рисунков, фигур, залитых рисунками, предварительных просмотров OLE‑объектов, миниатюр видеокадров и аудиокадров. Чтобы включить также изображения таблиц, диаграмм, SmartArt и summary zoom, переиспользуйте специализированную логику извлечения из предыдущих разделов, сохраняя тот же рекурсивный обход фигур.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -619,45 +641,45 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Пограничные случаи и практические замечания**
+## **Особые случаи и практические замечания**
 
-- **Дублирующие изображения:** Несколько фигур могут ссылаться на одно и то же изображение или на разные изображения с одинаковыми байтами. Вычисляйте хеш [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) перед записью файлов, если требуется один файл вывода на уникальное изображение.
-- **Оригинальные данные vs. преобразованный вывод:** Сохранение [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) сохраняет встроенные JPEG, PNG, GIF, SVG, EMF или WMF данные. Сохранение [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) через [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) полезно, когда нужен единый формат вывода.
-- **Неподдерживаемые типы заливки:** Сплошные, градиентные, шаблонные и беззаливные фигуры не содержат изображения‑заливки. Проверьте [FillType](https://reference.aspose.com/slides/ru/net/aspose.slides/filltype/) перед чтением `PictureFillFormat`.
-- **Сгруппированные фигуры:** Коллекция фигур верхнего уровня слайда не разворачивает группы. Рекурсивно проверяйте [IGroupShape.Shapes](https://reference.aspose.com/slides/ru/net/aspose.slides/igroupshape/), когда важен сгруппированный контент.
-- **Превью OLE‑объектов:** [IOleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe/) может предоставлять изображение‑превью через `SubstitutePictureFormat`, но это лишь превью на слайде, а не встроенный файл внутри OLE‑объекта.
-- **Миниатюры видеокадров:** [IVideoFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ivideoframe/) может предоставлять изображение‑превью через `PictureFormat`, но это лишь постер, отображаемый на слайде, а не кадр, извлечённый из видеопотока.
-- **Миниатюры аудиокадров:** [IAudioFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudioframe/) может предоставлять значок или миниатюру через `PictureFormat`; это не встроенные аудиоданные.
-- **Изображения масштабирования:** Фигуры масштабирования слайда, раздела и обзора могут использовать пользовательские [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) объекты через `ZoomImage`.
-- **Вложенные модели фигур:** Объекты таблицы, диаграммы и SmartArt реализуют [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/), но их изображения часто хранятся во вложенных объектах форматирования ячеек таблицы, элементов диаграммы или узлов SmartArt.
-- **Обрезанные или трансформированные изображения:** Доступ к [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) даёт вам хранимый ресурс изображения. Он не учитывает обрезку, прозрачность, переокраску, вращение или другие визуальные эффекты, применённые фигурой.
+- **Дублирующие изображения:** Несколько фигур могут ссылаться на одно и то же изображение или на отдельные изображения с идентичными байтами. Хешируйте [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) перед записью файлов, если хотите один файл вывода на каждое уникальное изображение.
+- **Оригинальные данные vs. преобразованный вывод:** Сохранение [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) сохраняет встроенные JPEG, PNG, GIF, SVG, EMF или WMF данные. Сохранение [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) через [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) удобно, когда нужен единый формат вывода.
+- **Неподдерживаемые типы заливки:** Сплошные, градиентные, узорные и беззаливные фигуры не содержат рисунка‑заливки. Проверьте [FillType](https://reference.aspose.com/slides/ru/net/aspose.slides/filltype/) перед чтением `PictureFillFormat`.
+- **Сгруппированные фигуры:** Коллекция фигур верхнего уровня слайда не разворачивает группы. Рекурсивно проверяйте [IGroupShape.Shapes](https://reference.aspose.com/slides/ru/net/aspose.slides/igroupshape/), когда важен содержимое групп.
+- **Предпросмотр OLE‑объектов:** Объект [IOleObjectFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe/) может предоставлять изображение‑предпросмотр через `SubstitutePictureFormat`, но это лишь предварительный просмотр слайда, а не встроенный файл внутри OLE‑объекта.
+- **Миниатюры видеокадров:** Объект [IVideoFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ivideoframe/) может предоставлять изображение‑предпросмотр через `PictureFormat`, но это лишь постер, отображаемый на слайде, а не кадр, извлечённый из видеопотока.
+- **Миниатюры аудиокадров:** Объект [IAudioFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iaudioframe/) может предоставлять значок или миниатюру через `PictureFormat`; это не встроенные аудиоданные.
+- **Изображения Zoom:** Фигуры slide zoom, section zoom и summary zoom могут использовать пользовательские объекты [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) через `ZoomImage`.
+- **Вложенные модели фигур:** Объекты таблиц, диаграмм и SmartArt реализуют [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/), но их изображения часто хранятся в вложенных объектах форматирования ячеек таблицы, элементов диаграммы или узлов SmartArt.
+- **Обрезанные или трансформированные картинки:** Доступ к [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) даёт хранимый ресурс изображения. Он не учитывает обрезку, прозрачность, перекраску, поворот или другие визуальные эффекты, применённые фигурой.
 
 ## **FAQ**
 
-**Могу ли я извлечь оригинальное изображение без обрезки, эффектов или трансформаций фигуры?**
+### Можно ли извлечь оригинальное изображение без обрезки, эффектов или трансформаций фигуры?
 
-Да. Обратитесь к объекту [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) и запишите [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) на диск. Это сохраняет оригинальное закодированное изображение, хранящееся в презентации, а не способ его отображения на слайде.
+Да. Обратитесь к объекту [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) и запишите [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) на диск. Это сохраняет оригинальное закодированное изображение, хранящееся в презентации, а не то, как оно отображается на слайде.
 
-**Могу ли я экспортировать каждое извлечённое изображение как PNG?**
+### Можно ли экспортировать каждое извлечённое изображение как PNG?
 
-Да. Используйте [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) для получения объекта [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/), а затем вызовите [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) с [ImageFormat.Png](https://reference.aspose.com/slides/ru/net/aspose.slides/imageformat/). Этот процесс преобразует вывод и может не сохранять оригинальный тип файла или векторные данные.
+Да. Используйте [IPPImage.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) чтобы получить объект [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/), а затем вызовите [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) с параметром [ImageFormat.Png](https://reference.aspose.com/slides/ru/net/aspose.slides/imageformat/). Это преобразует вывод и может не сохранять оригинальный тип файла или векторные данные.
 
-**Как избежать сохранения одного и того же изображения более одного раза?**
+### Как избежать многократного сохранения одного и того же изображения?
 
-Используйте хеш [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) и храните хеши в наборе. Если новое изображение имеет уже существующий хеш, пропустите его или запишите другую ссылку на уже существующий файл вывода.
+Используйте хеш от [IPPImage.BinaryData](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) и храните хеши в наборе. Если новое изображение имеет уже существующий хеш, пропустите его или запишите другую ссылку на существующий файл вывода.
 
-**Почему некоторые фигуры не дают изображение?**
+### Почему некоторые фигуры не дают изображения?
 
-Рамки изображений, фигуры, залитые изображением, рамки OLE‑объектов, медиа‑рамки, рамки масштабирования, таблицы, диаграммы и объекты SmartArt могут ссылаться на изображения. Некоторые типы фигур раскрывают изображения через вложенные объекты форматирования, поэтому простая проверка `PictureFormat` или `FillFormat` фигуры не всегда достаточна.
+Рамки рисунков, фигуры, залитые рисунками, рамки OLE‑объектов, медиа‑рамки, рамки zoom, таблицы, диаграммы и объекты SmartArt могут ссылаться на изображения. Некоторые типы фигур раскрывают изображения через вложенные объекты форматирования, поэтому простой проверка `PictureFormat` или `FillFormat` может быть недостаточной.
 
-**Могу ли я извлечь миниатюру, показываемую для видеокадра?**
+### Можно ли извлечь миниатюру, показываемую для видеокадра?
 
-Да. Используйте [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ivideoframe/) и читайте `PictureFormat.Picture.Image`. Это извлекает постер‑изображение, хранящееся вместе с видеокадром, а не кадр, генерируемый из видеофайла.
+Да. Используйте [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ivideoframe/) и прочитайте `PictureFormat.Picture.Image`. Это извлекает постер‑изображение, хранящееся вместе с видеокадром, а не кадр, полученный из видеофайла.
 
-**Как определить, какие фигуры используют конкретное изображение из коллекции изображений презентации?**
+### Как определить, какие фигуры используют конкретное изображение из коллекции изображений презентации?
 
 Aspose.Slides не хранит обратные ссылки от [IPPImage](https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) к фигурам. Постройте сопоставление во время обхода: каждый раз, когда находите ссылку на изображение, фиксируйте номер слайда, путь к фигуре и хеш изображения или элемент коллекции.
 
-**Могу ли я извлечь изображения, встроенные в OLE‑объекты, например прикреплённые документы?**
+### Можно ли извлечь изображения, встроенные в OLE‑объекты, например прикреплённые документы?
 
-Вы можете извлечь превью OLE‑объекта со [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe/). Однако это превью не является самим вложенным документом. Чтобы извлечь изображения из встроенного файла, извлеките данные OLE и проанализируйте их с помощью специализированных инструментов для соответствующего формата.
+Вы можете извлечь предварительный просмотр OLE‑объекта из [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/ioleobjectframe/). Однако этот предварительный просмотр не является самим вложенным документом. Чтобы извлечь изображения изнутри вложенного файла, извлеките OLE‑данные и проанализируйте их специализированными инструментами для соответствующего типа файла.

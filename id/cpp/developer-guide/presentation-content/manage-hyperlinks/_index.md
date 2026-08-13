@@ -1,16 +1,16 @@
 ---
-title: "Kelola Hyperlink Presentasi di C++"
-linktitle: "Kelola Hyperlink"
+title: Kelola Hyperlink Presentasi di C++
+linktitle: Kelola Hyperlink
 type: docs
 weight: 20
 url: /id/cpp/manage-hyperlinks/
 keywords:
-- tambahkan URL
-- tambahkan hyperlink
-- buat hyperlink
-- format hyperlink
-- hapus hyperlink
-- perbarui hyperlink
+- menambahkan URL
+- menambahkan hyperlink
+- membuat hyperlink
+- memformat hyperlink
+- menghapus hyperlink
+- memperbarui hyperlink
 - hyperlink teks
 - hyperlink slide
 - hyperlink bentuk
@@ -24,44 +24,74 @@ keywords:
 - Aspose.Slides
 description: "Kelola hyperlink dengan mudah dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++—tingkatkan interaktivitas dan alur kerja dalam hitungan menit."
 ---
-## **Pendahuluan**
+## **Pengantar**
 
-Hyperlink adalah referensi ke sebuah objek atau data atau suatu tempat dalam sesuatu. Berikut ini adalah hyperlink umum dalam Presentasi PowerPoint:
+Hyperlink adalah referensi ke objek, data, atau tempat dalam sesuatu. Berikut ini adalah hyperlink umum dalam Presentasi PowerPoint:
 
-* Link ke situs web di dalam teks, bentuk, atau media
-* Link ke slide
+* Tautan ke situs web di dalam teks, bentuk, atau media
+* Tautan ke slide
 
 Aspose.Slides untuk C++ memungkinkan Anda melakukan banyak tugas yang melibatkan hyperlink dalam presentasi. 
 
-{{% alert color="primary" %}} 
-Anda mungkin ingin mencoba Aspose sederhana, [editor PowerPoint online gratis.](https://products.aspose.app/slides/id/editor)
+{{% alert color="info" %}} 
+
+Anda mungkin ingin melihat Aspose sederhana, [editor PowerPoint online gratis.](https://products.aspose.app/slides/id/editor)
+
 {{% /alert %}} 
 
-## **Tambah Hyperlink URL**
+## **Menambahkan Hyperlink URL**
 
-### **Tambah Hyperlink URL ke Teks**
+### **Menambahkan Hyperlink URL ke Teks**
 
 Kode C++ ini menunjukkan cara menambahkan hyperlink situs web ke teks:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto portionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-portionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+portionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 portionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 portionFormat->set_FontHeight(32.0f);
 
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Tambah Hyperlink URL ke Bentuk atau Bingkai**
+### **Menambahkan Hyperlink URL ke Bentuk atau Bingkai**
 
-Contoh kode C++ ini menunjukkan cara menambahkan hyperlink situs web ke sebuah bentuk:
+Contoh kode ini dalam C++ menunjukkan cara menambahkan hyperlink situs web ke bentuk:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f);
@@ -72,20 +102,35 @@ shape->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies t
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Tambah Hyperlink URL ke Media**
+### **Menambahkan Hyperlink URL ke Media**
 
-Aspose.Slides memungkinkan Anda menambahkan hyperlink ke file gambar, audio, dan video. 
+Aspose.Slides memungkinkan Anda menambahkan hyperlink ke gambar, file audio, dan video. 
 
 Contoh kode ini menunjukkan cara menambahkan hyperlink ke **gambar**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 // Menambahkan gambar ke presentasi
 auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
+// Membuat frame gambar pada slide 1 berdasarkan gambar yang ditambahkan sebelumnya
 auto pictureFrame = shapes->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
 
-pictureFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+pictureFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 pictureFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -94,12 +139,25 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 Contoh kode ini menunjukkan cara menambahkan hyperlink ke **file audio**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAudioFrame.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto audio = pres->get_Audios()->AddAudio(File::ReadAllBytes(u"audio.mp3"));
 auto audioFrame = shapes->AddAudioFrameEmbedded(10.0f, 10.0f, 100.0f, 100.0f, audio);
 
-audioFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+audioFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 audioFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
@@ -108,30 +166,68 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 Contoh kode ini menunjukkan cara menambahkan hyperlink ke **video**:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/IVideoCollection.h>
+#include <DOM/IVideoFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
 auto video = pres->get_Videos()->AddVideo(File::ReadAllBytes(u"video.avi"));
 auto videoFrame = shapes->AddVideoFrame(10.0f, 10.0f, 100.0f, 100.0f, video);
 
-videoFrame->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+videoFrame->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 videoFrame->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
+
 Anda mungkin ingin melihat *[Kelola OLE](https://docs.aspose.com/slides/id/cpp/manage-ole/)*.
+
 {{% /alert %}}
 
 
 
 ## **Gunakan Hyperlink untuk Membuat Daftar Isi**
 
-Karena hyperlink memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakannya untuk membuat daftar isi. 
+Karena hyperlink memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakan mereka untuk membuat daftar isi. 
 
 Contoh kode ini menunjukkan cara membuat daftar isi dengan hyperlink:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto firstSlide = presentation->get_Slides()->idx_get(0);
 auto secondSlide = presentation->get_Slides()->AddEmptySlide(firstSlide->get_LayoutSlide());
@@ -156,21 +252,44 @@ contentTable->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 ```
 
 
-## **Format Hyperlink**
+## **Memformat Hyperlink**
 
 ### **Warna**
 
-Dengan metode [set_ColorSource()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) dan [get_ColorSource()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) dalam antarmuka [IHyperlink](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink), Anda dapat mengatur warna untuk hyperlink dan juga mendapatkan informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan yang melibatkan properti ini tidak berlaku untuk versi PowerPoint yang lebih lama.
+Dengan metode [set_ColorSource()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#ab739ae21025485366d44a3b72e0d7dac) dan [get_ColorSource()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#af5370af1ba9fba7b22fcc8a7ce344494) pada antarmuka [IHyperlink](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink), Anda dapat mengatur warna untuk hyperlink serta memperoleh informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan pada properti ini tidak berlaku untuk versi PowerPoint yang lebih lama.
 
 Contoh kode ini mendemonstrasikan operasi di mana hyperlink dengan warna berbeda ditambahkan ke slide yang sama:
 
 ``` cpp
+#include <DOM/FillType.h>
+#include <DOM/Hyperlink.h>
+#include <DOM/HyperlinkColorSource.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 450.0f, 50.0f, false);
 shape1->AddTextFrame(u"This is a sample of colored hyperlink.");
 auto shape1PortionFormat = shape1->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape1PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape1PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shape1PortionFormat->get_HyperlinkClick()->set_ColorSource(HyperlinkColorSource::PortionFormat);
 shape1PortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
 shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
@@ -178,19 +297,35 @@ shape1PortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::ge
 auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 200.0f, 450.0f, 50.0f, false);
 shape2->AddTextFrame(u"This is a sample of usual hyperlink.");
 auto shape2PortionFormat = shape2->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shape2PortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shape2PortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
 
 
-## **Hapus Hyperlink dari Presentasi**
+## **Menghapus Hyperlink dari Presentasi**
 
-### **Hapus Hyperlink dari Teks**
+### **Menghapus Hyperlink dari Teks**
 
 Kode C++ ini menunjukkan cara menghapus hyperlink dari teks dalam slide presentasi:
 
 ``` cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -212,11 +347,21 @@ for (const auto& shape : slide->get_Shapes())
 pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 ```
 
-### **Hapus Hyperlink dari Bentuk atau Bingkai**
+### **Menghapus Hyperlink dari Bentuk atau Bingkai**
 
-Kode C++ ini menunjukkan cara menghapus hyperlink dari sebuah bentuk dalam slide presentasi: 
+Kode C++ ini menunjukkan cara menghapus hyperlink dari bentuk dalam slide presentasi: 
 
 ``` cpp
+#include <DOM/IHyperlinkManager.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"demo.pptx");
 auto slide = pres->get_Slides()->idx_get(0);
 for (const auto& shape : slide->get_Shapes())
@@ -228,9 +373,9 @@ pres->Save(u"pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
 
 
 
-## **Hyperlink Mutable**
+## **Hyperlink yang Dapat Diubah**
 
-Kelas [Hyperlink](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.hyperlink) bersifat mutable. Dengan kelas ini, Anda dapat mengubah nilai untuk metode-metode berikut:
+Kelas [Hyperlink](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.hyperlink) bersifat dapat diubah. Dengan kelas ini, Anda dapat mengubah nilai untuk metode-metode berikut:
 
 - [IHyperlink::set_TargetFrame()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#af2d9c5672517d98afe5868903a5a637f)
 - [IHyperlink::set_Tooltip()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#adf1c8eee89bd292292293e58da79a6f2)
@@ -238,9 +383,26 @@ Kelas [Hyperlink](https://reference.aspose.com/slides/id/cpp/class/aspose.slides
 - [IHyperlink.set_HighlightClick()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#ac48a0fa4106cff14cb5772269399587e)
 - [IHyperlink.set_StopSoundOnClick()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_hyperlink#ad0db04da8009b329d2c79019642aaa43)
 
-Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip-nya kemudian:
+Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip‑nya kemudian:
 
 ``` cpp
+#include <DOM/Hyperlink.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
 auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 50.0f, false);
@@ -248,7 +410,7 @@ auto shape = shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 600.0f, 
 shape->AddTextFrame(u"Aspose: File Format APIs");
 
 auto shapePortionFormat = shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat();
-shapePortionFormat->set_HyperlinkClick(MakeObject<Hyperlink>(u"https://www.aspose.com/"));
+shapePortionFormat->set_HyperlinkClick(System::MakeObject<Hyperlink>(u"https://www.aspose.com/"));
 shapePortionFormat->get_HyperlinkClick()->set_Tooltip(u"More than 70% Fortune 100 companies trust Aspose APIs");
 shapePortionFormat->set_FontHeight(32.0f);
 
@@ -260,7 +422,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Metode yang Didukung dalam IHyperlinkQueries**
 
-Anda dapat mengakses IHyperlinkQueries dari sebuah presentasi, slide, atau teks yang memiliki hyperlink yang didefinisikan. 
+Anda dapat mengakses IHyperlinkQueries dari presentasi, slide, atau teks tempat hyperlink didefinasikan. 
 
 - [IPresentation::get_HyperlinkQueries()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_presentation#a7e84086f34ddc742ea9124ab11727691)
 - [IBaseSlide::get_HyperlinkQueries()](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_base_slide#a8593a5a5f6b7e051aa859ec373c66421)
@@ -275,14 +437,14 @@ Kelas IHyperlinkQueries mendukung metode-metode berikut:
 
 ## **FAQ**
 
-**Bagaimana saya dapat membuat navigasi internal tidak hanya ke sebuah slide, tetapi ke "bagian" atau slide pertama dari sebuah bagian?**
+### Bagaimana saya dapat membuat navigasi internal tidak hanya ke slide, tetapi ke "bagian" atau slide pertama dari sebuah bagian?
 
-Bagian dalam PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk "menavigasi ke sebuah bagian", biasanya Anda menautkan ke slide pertamanya.
+Bagian di PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk "menavigasi ke sebuah bagian", Anda biasanya menautkan ke slide pertamanya.
 
-**Apakah saya dapat menempelkan hyperlink pada elemen master slide sehingga berfungsi pada semua slide?**
+### Bisakah saya menempelkan hyperlink pada elemen master slide sehingga berfungsi pada semua slide?
 
-Ya. Elemen master slide dan layout mendukung hyperlink. Tautan tersebut muncul pada slide turunan dan dapat diklik selama presentasi.
+Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan semacam itu muncul pada slide anak dan dapat diklik selama tayangan slide.
 
-**Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
+### Apakah hyperlink akan dipertahankan saat diekspor ke PDF, HTML, gambar, atau video?
 
 Di [PDF](/slides/id/cpp/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/cpp/convert-powerpoint-to-html/), ya—tautan biasanya dipertahankan. Saat mengekspor ke [gambar](/slides/id/cpp/convert-powerpoint-to-png/) dan [video](/slides/id/cpp/convert-powerpoint-to-video/), kemampuan mengklik tidak akan terbawa karena sifat format tersebut (frame raster/video tidak mendukung hyperlink).

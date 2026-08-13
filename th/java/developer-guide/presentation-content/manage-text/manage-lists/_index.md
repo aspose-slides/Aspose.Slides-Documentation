@@ -1,48 +1,51 @@
 ---
-title: จัดการรายการหัวข้อย่อยและรายการลำดับเลขในงานนำเสนอด้วย Java
+title: จัดการรายการแบบมีจุดหัวข้อและลำดับเลขในงานนำเสนอด้วย Java
 linktitle: จัดการรายการ
 type: docs
 weight: 60
 url: /th/java/manage-lists/
 keywords:
-- หัวข้อย่อย
-- รายการหัวข้อย่อย
+- จุดหัวข้อ
+- รายการแบบมีจุดหัวข้อ
 - รายการลำดับเลข
-- หัวข้อย่อยสัญลักษณ์
-- หัวข้อย่อยรูปภาพ
-- หัวข้อย่อยกำหนดเอง
+- จุดหัวข้อสัญลักษณ์
+- จุดหัวข้อรูปภาพ
+- จุดหัวข้อกำหนดเอง
 - รายการหลายระดับ
-- สร้างหัวข้อย่อย
-- เพิ่มหัวข้อย่อย
+- สร้างจุดหัวข้อ
+- เพิ่มจุดหัวข้อ
 - เพิ่มรายการ
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและจัดรูปแบบรายการหัวข้อย่อย, รูปภาพ, หลายระดับ, และลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ Java."
+description: "เรียนรู้วิธีการสร้างและจัดรูปแบบรายการแบบมีจุดหัวข้อ รูปภาพ หลายระดับ และลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides สำหรับ Java ช่วยให้คุณสร้างและจัดรูปแบบรายการแบบหัวข้อย่อยและรายการลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument รายการแต่ละรายการเป็นย่อหน้าที่การตั้งค่าหัวข้อย่อยถูกควบคุมผ่านรูปแบบย่อหน้า
+Aspose.Slides for Java ช่วยให้คุณสร้างและจัดรูปแบบรายการแบบมีจุดหัวข้อและรายการลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument รายการหนึ่งเป็นย่อหน้าที่การตั้งค่าจุดหัวข้อถูกควบคุมผ่านรูปแบบย่อหน้าของมัน
 
-ใช้เมธอด [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getParagraphFormat--) เพื่อเข้าถึงการตั้งค่ารายการระดับย่อหน้า จุดเข้าถึงหลักคือ [IParagraphFormat.getBullet](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getBullet--), ซึ่งคืนค่าอ็อบเจกต์ [IBulletFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/) ด้วยอ็อบเจกต์นี้คุณสามารถตั้งค่าชนิดของหัวข้อย่อย, สัญลักษณ์, รูปภาพ, สี, ขนาด, สไตล์การนับเลข, และหมายเลขเริ่มต้น
+ใช้เมธอด [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/#getParagraphFormat--) เพื่อเข้าถึงการตั้งค่ารายการระดับย่อหน้า จุดเริ่มต้นหลักคือ [IParagraphFormat.getBullet](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getBullet--) ซึ่งคืนค่าออบเจ็กต์ [IBulletFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/) ด้วยออบเจ็กต์นี้ คุณสามารถตั้งค่าชนิดของจุดหัวข้อ สัญลักษณ์ รูปภาพ สี ขนาด สไตล์การลำดับเลข และหมายเลขเริ่มต้นได้
 
 บทความนี้แสดงวิธีการ:
 
-- สร้างรายการหัวข้อย่อยด้วยสัญลักษณ์กำหนดเอง
-- สร้างหัวข้อย่อยแบบรูปภาพ
-- สร้างรายการหลายระดับโดยตั้งค่าความลึกของย่อหน้า
+- สร้างรายการแบบมีจุดหัวข้อด้วยสัญลักษณ์ที่กำหนดเอง
+- สร้างจุดหัวข้อรูปภาพ
+- สร้างรายการหลายระดับโดยกำหนดความลึกของย่อหน้า
 - สร้างรายการลำดับเลข
-- ตรวจสอบและเปลี่ยนแปลงการจัดรูปแบบรายการในงานนำเสนอที่มีอยู่
+- ตรวจสอบและเปลี่ยนรูปแบบรายการในงานนำเสนอที่มีอยู่
 
-## **สร้างรายการหัวข้อย่อย**
+## **สร้างรายการแบบมีจุดหัวข้อ**
 
-เพื่อสร้างรายการหัวข้อย่อย ให้เพิ่มอ็อบเจกต์ [IParagraph](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/) vào [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) และตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-byte-) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/#Symbol) จากนั้นคุณสามารถตั้งค่า [IBulletFormat.setChar](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#getColor--), และ [IBulletFormat.setHeight](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setHeight-float-) เพื่อควบคุมลักษณะของหัวข้อย่อยได้
+เพื่อสร้างรายการแบบมีจุดหัวข้อ ให้เพิ่มออบเจ็กต์ [IParagraph](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraph/) ลงใน [ITextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/itextframe/) และตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-byte-) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/#Symbol) จากนั้นคุณสามารถตั้งค่า [IBulletFormat.setChar](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#getColor--), และ [IBulletFormat.setHeight](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setHeight-float-) เพื่อควบคุมลักษณะของจุดหัวข้อได้
 
-โค้ด Java ด้านล่างแสดงวิธีการสร้างรายการหัวข้อย่อยในสไลด์:
+โค้ด Java ต่อไปนี้แสดงวิธีสร้างรายการแบบมีจุดหัวข้อในสไลด์:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 ผลลัพธ์:
 
-![หัวข้อย่อยสัญลักษณ์](symbol_bullets.png)
+![จุดหัวข้อสัญลักษณ์](symbol_bullets.png)
 
 ## **สร้างรายการลำดับเลข**
 
-ใช้รายการลำดับเลขเมื่อลำดับของรายการมีความสำคัญ ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-byte-) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/#Numbered) คุณยังสามารถเลือกรูปแบบการนับเลขด้วย [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) หรือกำหนดค่าเริ่มต้นด้วย [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เมื่อรายการควรเริ่มจากค่าที่ไม่ใช่ 1
+ใช้รายการลำดับเลขเมื่อลำดับของรายการมีความสำคัญ ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-byte-) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/#Numbered) คุณยังสามารถเลือกรูปแบบการลำดับเลขด้วย [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) หรือกำหนดค่าเริ่มต้นด้วย [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) หากต้องการให้รายการเริ่มจากค่าที่ไม่ใช่ 1
 
-โค้ด Java ด้านล่างแสดงวิธีการสร้างรายการลำดับเลขในสไลด์:
+โค้ด Java ต่อไปนี้แสดงวิธีสร้างรายการลำดับเลขในสไลด์:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,27 +126,29 @@ try {
 
 ผลลัพธ์:
 
-![หัวข้อย่อยลำดับเลข](numbered_bullets.png)
+![จุดหัวข้อลำดับเลข](numbered_bullets.png)
 
-## **สร้างหัวข้อย่อยแบบรูปภาพ**
+## **สร้างจุดหัวข้อรูปภาพ**
 
-Aspose.Slides อนุญาตให้คุณแทนที่สัญลักษณ์หัวข้อย่อยทั่วไปด้วยรูปภาพ หัวข้อย่อยแบบรูปภาพทำงานได้ดีที่สุดกับรูปภาพที่เรียบง่ายและยังคงอ่านได้เมื่อลดขนาดลงเล็ก เช่น ไอคอนหรือไฟล์ PNG โปร่งใสขนาดเล็ก
+Aspose.Slides อนุญาตให้คุณแทนที่สัญลักษณ์จุดหัวข้อปกติด้วยภาพ จุดหัวข้อรูปภาพทำงานได้ดีที่สุดกับภาพที่เรียบง่ายและยังคงอ่านได้ที่ขนาดเล็ก เช่น ไอคอนหรือไฟล์ PNG โปร่งใสขนาดเล็ก
 
-{{% alert color="primary" %}}
-โดยอุดมคติ หากคุณวางแผนจะแทนที่สัญลักษณ์หัวข้อย่อยทั่วไปด้วยรูปภาพ ควรเลือกกราฟิกที่เรียบง่ายพร้อมพื้นหลังโปร่งใส รูปภาพเช่นนี้ทำงานได้ดีในฐานะสัญลักษณ์หัวข้อย่อยกำหนดเอง
+{{% alert color="info" %}}
+โดยทั่วไป หากคุณมีแผนจะเปลี่ยนสัญลักษณ์จุดหัวข้อปกติเป็นภาพ ควรเลือกกราฟิกที่เรียบง่ายพร้อมพื้นหลังโปร่งใส ภาพดังกล่าวทำงานได้ดีเป็นสัญลักษณ์จุดหัวข้อแบบกำหนดเอง
 
-ควรจำไว้ว่ารูปภาพจะถูกย่อขนาดลงเป็นขนาดเล็กมาก ดังนั้นเราขอแนะนำให้เลือกรูปภาพที่ยังคงชัดเจนและมีประสิทธิภาพทางสายตาเมื่อใช้เป็นหัวข้อย่อยในรายการ
+ควรจำไว้ว่า ภาพจะถูกย่อขนาดลงเป็นขนาดเล็กมาก ด้วยเหตุนี้ เราขอแนะนำอย่างยิ่งให้เลือกภาพที่คงความคมชัดและมีประสิทธิภาพเชิงสายตาเมื่อใช้เป็นจุดหัวข้อในรายการ
 {{% /alert %}}
 
-ในการสร้างหัวข้อย่อยแบบรูปภาพ ให้เพิ่มรูปภาพไปยัง [Presentation.getImages](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getImages--) และกำหนดอ็อบเจกต์รูปภาพที่คืนค่าให้กับ [IBulletFormat.getPicture](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#getPicture--) ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-byte-) เป็น [BulletType.Picture](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/#Picture) ก่อนกำหนดรูปภาพ
+เพื่อสร้างจุดหัวข้อรูปภาพ ให้เพิ่มภาพลงใน [Presentation.getImages](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getImages--) แล้วกำหนดออบเจ็กต์ภาพที่คืนค่าให้กับ [IBulletFormat.getPicture](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#getPicture--) ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibulletformat/#setType-byte-) เป็น [BulletType.Picture](https://reference.aspose.com/slides/th/java/com.aspose.slides/bullettype/#Picture) ก่อนกำหนดภาพ
 
-สมมติว่าเรามีไฟล์ "image.png":
+สมมติว่าเรามีไฟล์ “image.png”:
 
-![รูปภาพสำหรับหัวข้อย่อย](picture_for_bullets.png)
+![รูปภาพสำหรับจุดหัวข้อ](picture_for_bullets.png)
 
-โค้ด Java ด้านล่างแสดงวิธีการสร้างหัวข้อย่อยแบบรูปภาพในสไลด์:
+โค้ด Java ต่อไปนี้แสดงวิธีสร้างจุดหัวข้อรูปภาพในสไลด์:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -176,15 +183,17 @@ try {
 
 ผลลัพธ์:
 
-![หัวข้อย่อยรูปภาพ](picture_bullets.png)
+![จุดหัวข้อรูปภาพ](picture_bullets.png)
 
 ## **สร้างรายการหลายระดับ**
 
-ใช้เมธอด [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setDepth-short-) เพื่อวางรายการบนระดับที่แตกต่างกัน ระดับ 0 คือระดับบนสุด, ระดับ 1 อยู่ด้านล่างของระดับ 0, เป็นต้น
+ใช้ [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#setDepth-short-) เพื่อวางรายการในระดับที่ต่างกัน ระดับ 0 คือระดับบนสุด ระดับ 1 อยู่ด้านในระดับนั้นและต่อไป
 
-โค้ด Java ด้านล่างแสดงวิธีการสร้างรายการหัวข้อย่อยหลายระดับ:
+โค้ด Java ต่อไปนี้แสดงวิธีสร้างรายการแบบมีจุดหัวข้อหลายระดับ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -225,11 +234,13 @@ try {
 
 ## **เปลี่ยนรายการที่มีอยู่**
 
-เพื่อเปลี่ยนการจัดรูปแบบรายการในงานนำเสนอที่มีอยู่ ให้เข้าถึงย่อหน้าย่อยเป้าหมายและอัปเดตการตั้งค่า [IParagraphFormat.getBullet](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getBullet--) ของมัน คุณสามารถใช้คุณสมบัติเดียวกับที่ใช้สร้างรายการเพื่อทำการตรวจสอบหรือปรับแก้รายการที่โหลดจากไฟล์ PPT, PPTX หรือ ODP ได้
+เพื่อเปลี่ยนรูปแบบรายการในงานนำเสนอที่มีอยู่ ให้เข้าถึงย่อหน้าที่ต้องการและอัปเดตการตั้งค่า [IParagraphFormat.getBullet](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getBullet--) ของมัน คุณสามารถใช้คุณสมบัติเช่นเดียวกับที่ใช้สร้างรายการเพื่อสอบถามหรือแก้ไขรายการที่โหลดจากไฟล์ PPT, PPTX หรือ ODP ได้
 
-โค้ด Java ด้านล่างเปลี่ยนย่อหน้าแรกใน TextFrame ให้ใช้สไตล์รายการลำดับเลข:
+โค้ด Java ต่อไปนี้เปลี่ยนย่อหน้าแรกในเฟรมข้อความให้ใช้สไตล์รายการลำดับเลข:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -250,14 +261,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**รายการหัวข้อย่อยและรายการลำดับเลขสามารถส่งออกเป็น PDF หรือรูปภาพได้หรือไม่?**
+### สามารถส่งออกรายการแบบมีจุดหัวข้อและรายการลำดับเลขเป็น PDF หรือภาพได้หรือไม่?
 
-ได้ Aspose.Slides จะรักษาการจัดรูปแบบรายการเมื่อรูปแบบเป้าหมายสนับสนุนการจัดวางข้อความและคุณสมบัติดังกล่าว
+ใช่ Aspose.Slides รักษารูปแบบรายการเมื่อรูปแบบเป้าหมายสนับสนุนการจัดวางข้อความและคุณสมบัติของจุดหัวข้อที่สอดคล้องกัน
 
-**ฉันสามารถแก้ไขรายการในงานนำเสนอที่มีอยู่ได้หรือไม่?**
+### ฉันสามารถแก้ไขรายการในงานนำเสนอที่มีอยู่ได้หรือไม่?
 
-ได้ โหลดงานนำเสนอ, เข้าถึงย่อหน้าย่อยเป้าหมาย, ตรวจสอบหรืออัปเดตการตั้งค่า [IParagraphFormat.getBullet](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getBullet--) ของมัน แล้วบันทึกงานนำเสนอ
+ใช่ โหลดงานนำเสนอเข้ามา เข้าถึงย่อหน้าที่ต้องการ ตรวจสอบหรืออัปเดตการตั้งค่า [IParagraphFormat.getBullet](https://reference.aspose.com/slides/th/java/com.aspose.slides/iparagraphformat/#getBullet--) ของมัน แล้วบันทึกงานนำเสนอ
 
-**รายการสามารถมีข้อความที่ไม่ใช้อักษรละตินได้หรือไม่?**
+### รายการสามารถมีข้อความที่ไม่ใช่อักษรละตินได้หรือไม่?
 
-ได้ ข้อความของรายการสามารถมีอักขระ Unicode ได้ ดังนั้นคุณสามารถสร้างรายการในงานนำเสนอหลายภาษาได้ ตรวจสอบให้แน่ใจว่าแบบอักษรที่ใช้ในงานนำเสนอสนับสนุนอักขระที่คุณต้องการ
+ใช่ ข้อความของรายการสามารถประกอบด้วยอักขระยูนิโค้ดได้ ดังนั้นคุณจึงสร้างรายการในงานนำเสนอหลายภาษได้ ตรวจสอบให้แน่ใจว่าแบบอักษรที่ใช้ในงานนำเสนอสนับสนุนอักขระที่คุณต้องการ

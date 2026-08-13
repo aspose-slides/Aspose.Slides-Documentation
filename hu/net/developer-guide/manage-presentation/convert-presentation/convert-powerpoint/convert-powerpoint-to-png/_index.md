@@ -1,15 +1,15 @@
 ---
-title: PowerPoint diák konvertálása PNG-re .NET-ben
+title: PowerPoint-diák konvertálása PNG-re .NET környezetben
 linktitle: PowerPoint PNG-re
 type: docs
 weight: 30
 url: /hu/net/convert-powerpoint-to-png/
 keywords:
-- PowerPoint konvertálása
-- prezentáció konvertálása
-- dia konvertálása
-- PPT konvertálása
-- PPTX konvertálása
+- PowerPoint konvertálás
+- prezentáció konvertálás
+- dia konvertálás
+- PPT konvertálás
+- PPTX konvertálás
 - PowerPoint PNG-re
 - prezentáció PNG-re
 - dia PNG-re
@@ -22,33 +22,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertálja a PowerPoint prezentációkat magas minőségű PNG képekké gyorsan az Aspose.Slides for .NET segítségével, biztosítva a pontos, automatizált eredményeket."
+description: "Konvertálja a PowerPoint-prezentációkat gyorsan magas minőségű PNG képekké az Aspose.Slides for .NET segítségével, biztosítva a pontos, automatizált eredményeket."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet a PowerPoint‑prezentációkat PNG‑képekké konvertálni az Aspose.Slides használatával. Megmutatja, hogyan lehet PPT, PPTX és ODP formátumú prezentációs fájlokat betölteni, a diák képekké renderelni, és az eredményeket PNG formátumban menteni.  
+Ez a cikk bemutatja, hogyan konvertálhatók a PowerPoint‑prezentációk PNG képekké az Aspose.Slides használatával. Megmutatja, hogyan tölthető be a prezentációs fájlok PPT, PPTX és ODP formátumokban, hogyan renderelhetők a diák képekké, és hogyan menthetők az eredmények PNG formátumban.
 
-A cikk azt is bemutatja, hogyan lehet testre szabni a létrehozott PNG‑képeket méretezési értékek beállításával vagy a kívánt szélesség és magasság megadásával.
+A cikk továbbá bemutatja, hogyan testreszabhatók a generált PNG képek skálázási értékek beállításával vagy a kívánt szélesség és magasság megadásával.
 
-## **PowerPoint konvertálása PNG‑be**
+## **PowerPoint konvertálása PNG-re**
 
-Kövesse az alábbi lépéseket:
+Kövesse ezeket a lépéseket:
 
-1. Hozza létre a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztály példányát.
-2. Szerezze meg a diát az [Presentation.Slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/properties/slides) gyűjteményből az [ISlide](https://reference.aspose.com/slides/hu/net/aspose.slides/islide) interfész alatt. 
-3. Használja az [ISlide.GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) metódust minden dia bélyegképének lekéréséhez. 
-4. Használja az [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.ipresentation/save/methods/5) metódust a dia bélyegkép PNG formátumba mentéséhez. 
+1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztálypéldányt.  
+2. Szerezze be a diát az [Presentation.Slides](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/properties/slides) gyűjteményből az [ISlide](https://reference.aspose.com/slides/hu/net/aspose.slides/islide) interfész alatt.  
+3. Használja az [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) metódust, hogy a diát a kívánt méretezésben renderelje.  
+4. Használja az [IPresentation.Save(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.ipresentation/save/methods/5) metódust a diakép PNG formátumba mentéséhez.  
 
-Ez a C# kód bemutatja, hogyan lehet egy PowerPoint‑prezentációt PNG‑vé konvertálni. A Presentation objektum képes PPT, PPTX, ODP stb. betöltésére, majd a prezentáció minden diája PNG vagy más képformátumba kerül átalakításra.
+Ez a C# kód bemutatja, hogyan konvertálható egy PowerPoint‑prezentáció PNG‑re. A Presentation objektum betölti a PPT, PPTX, ODP stb. formátumú fájlokat, majd a prezentáció minden diája PNG formátumba vagy más képpformátumba konvertálható.
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     for (var index = 0; index < pres.Slides.Count; index++)
     {
         ISlide slide = pres.Slides[index];
 
-        using (IImage image = slide.GetImage())
+        using (IImage image = slide.GetImage(1f, 1f))
         {
             image.Save($"slide_{index}.png", ImageFormat.Png);
         }
@@ -56,13 +58,19 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **PowerPoint konvertálása PNG‑be egyedi méretekkel**
+{{% alert color="info" %}} 
+**Megjegyzés:** `1f, 1f` méretezési argumentumok a diát teljes méretben renderelik, így egy 720×540 pt méretű dia 720×540 px képet eredményez. A paraméter nélküli [GetImage()](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) túlterhelés egy sokkal kisebb előnézeti bélyegképet ad vissza. 
+{{% /alert %}} 
 
-Ha egy adott méretezés szerinti PNG‑fájlokat szeretne, beállíthatja a `desiredX` és `desiredY` értékeket, amelyek meghatározzák a létrejövő bélyegkép méreteit.  
+## **PowerPoint konvertálása PNG-re egyedi méretekkel**
 
-Ez a C# kód bemutatja a leírt műveletet:
+Ha egy bizonyos méretarány körül PNG fájlokat szeretne kapni, beállíthatja a `desiredX` és `desiredY` értékeket, amelyek meghatározzák a létrehozott bélyegkép méreteit. 
+
+Ez a C# kód demonstrálja a leírt műveletet:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     float scaleX = 2f;
@@ -79,13 +87,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **PowerPoint konvertálása PNG‑be egyedi mérettel**
+## **PowerPoint konvertálása PNG-re egyedi mérettel**
 
-Ha egy adott méretű PNG‑fájlokat szeretne, átadhatja a kívánt `width` és `height` argumentumokat az `imageSize` számára.  
+Ha egy bizonyos méret körül PNG fájlokat szeretne kapni, átadhatja a kívánt `width` és `height` argumentumokat az `imageSize` paraméternek. 
 
-Ez a kód bemutatja, hogyan lehet egy PowerPoint‑ot PNG‑vé konvertálni a képek méretének megadásával: 
+Ez a kód bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt PNG‑re a képek méretének megadásával: 
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     Size size = new Size(960, 720);
@@ -103,14 +114,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **GYIK**
 
-**Hogyan exportálhatok csak egy konkrét alakzatot (például diagramot vagy képet) a teljes dia helyett?**  
+### Hogyan exportálhatok csak egy adott alakzatot (például diagramot vagy képet) a teljes dia helyett?
 
-Az Aspose.Slides támogatja az [generating thumbnails for individual shapes](/slides/hu/net/create-shape-thumbnails/); egy alakzatot PNG‑képpé renderelhet.
+Az Aspose.Slides támogatja az [egyedi alakzatok bélyegképeinek generálását](/slides/hu/net/create-shape-thumbnails/); egy alakzatot PNG képpé renderelhet.
 
-**Támogatott a párhuzamos konvertálás szerveren?**  
+### Támogatott-e a párhuzamos konvertálás egy szerveren?
 
-Igen, de [don’t share](/slides/hu/net/multithreading/) egyetlen prezentációpéldányt a szálak között. Használjon külön példányt szálanként vagy folyamatanként.
+Igen, de [ne ossza meg](/slides/hu/net/multithreading/) egyetlen presentation példányt szálak között. Használjon külön példányt szálanként vagy folyamatanként.
 
-**Mik a próbaverziós korlátozások PNG‑exportálás esetén?**  
+### Mik a próbaverzió korlátozásai PNG exportálásakor?
 
-Az értékelő mód vízjelet ad a kimeneti képekhez, és [other restrictions](/slides/hu/net/licensing/) alkalmaz, amíg licenc nem kerül beállításra.
+Az értékelő mód vízjelet helyez a kimeneti képekre, és [egyéb korlátozásokat](/slides/hu/net/licensing/) alkalmaz, amíg a licenc nincs aktiválva.

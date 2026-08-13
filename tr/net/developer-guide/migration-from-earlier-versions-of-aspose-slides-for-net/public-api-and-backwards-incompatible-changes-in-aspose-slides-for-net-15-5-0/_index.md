@@ -1,6 +1,6 @@
 ---
-title: "Genel API ve Geriye Yönelik Uyumsuz Değişiklikler Aspose.Slides for .NET 15.5.0"
-linktitle: "Aspose.Slides for .NET 15.5.0"
+title: Aspose.Slides for .NET 15.5.0'da Genel API ve Geriye Uyumlu Olmayan Değişiklikler
+linktitle: Aspose.Slides for .NET 15.5.0
 type: docs
 weight: 160
 url: /tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/
@@ -16,25 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'te genel API güncellemelerini ve geriye uyumsuz değişiklikleri gözden geçirerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizin sorunsuz bir şekilde geçişini sağlayın."
+description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-
-Bu sayfa, Aspose.Slides for .NET 15.5.0 API'siyle tanıtılan tüm [added](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) veya [removed](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
-
+{{% alert color="info" %}} 
+Bu sayfa, Aspose.Slides for .NET 15.5.0 API'sı ile tanıtılan [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) veya [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
 {{% /alert %}} 
-## **Public API Değişiklikleri**
+## **Genel API Değişiklikleri**
 #### **CommonSlideViewProperties Sınıfı ve ICommonSlideViewProperties Arayüzü Eklendi**
-Aspose.Slides.CommonSlideViewProperties sınıfı ve Aspose.Slides.ICommonSlideViewProperties arayüzü ortak slayt görüntüleme özelliklerini temsil eder (şu anda görüntü ölçeği seçenekleri).
+Aspose.Slides.CommonSlideViewProperties sınıfı ve Aspose.Slides.ICommonSlideViewProperties arayüzü ortak slayt görünüm özelliklerini temsil eder (şu anda görünüm ölçekleme seçenekleri).
 #### **IAxis.LabelOffset Özelliği Eklendi**
-IAxis.LabelOffset özelliği, etiketlerin eksene olan mesafesini belirler. Kategori veya tarih eksenine uygulanır.
+IAxis.LabelOffset özelliği etiketlerin eksenden olan mesafesini belirtir. Kategori veya tarih eksenine uygulanır.
 #### **IChartTextBlockFormat.AutofitType Özelliği Eklendi**
-Bu özelliğin değiştirilmesi yalnızca şu grafik bölümleri için belirli bir etki yaratabilir: DataLabel ve DataLabelFormat (PowerPoint 2013'te tam destek; PowerPoint 2007'de renderleme için etkisi yoktur).
+Bu özelliğin değiştirilmesi sadece şu grafik bölümleri için belirli bir etki oluşturabilir: DataLabel ve DataLabelFormat (PowerPoint 2013'te tam destek; PowerPoint 2007'de renderleme için etkisi yok).
 #### **IChartTextBlockFormat.WrapText Özelliği Eklendi**
-Bu özelliğin değiştirilmesi yalnızca şu grafik bölümleri için belirli bir etki yaratabilir: DataLabel ve DataLabelFormat (PowerPoint 2007/2013'te tam destek).
+Bu özelliğin değiştirilmesi sadece şu grafik bölümleri için belirli bir etki oluşturabilir: DataLabel ve DataLabelFormat (PowerPoint 2007/2013'te tam destek).
 #### **Margin Özellikleri IChartTextBlockFormat'a Eklendi**
-Bu özelliklerin değiştirilmesi yalnızca şu grafik bölümleri için belirli bir etki yaratabilir: DataLabel ve DataLabelFormat (PowerPoint 2013'te tam destek; PowerPoint 2007'de renderleme için etkisi yoktur).
+Bu özelliklerin değiştirilmesi sadece şu grafik bölümleri için belirli bir etki oluşturabilir: DataLabel ve DataLabelFormat (PowerPoint 2013'te tam destek; PowerPoint 2007'de renderleme için etkisi yok).
 #### **ViewProperties.NotesViewProperties Özelliği Eklendi**
-Aspose.Slides.ViewProperties.NotesViewProperties özelliği eklendi. Notlar görüntüleme moduyla ilişkili ortak görüntü özelliklerini belirtir.
+Aspose.Slides.ViewProperties.NotesViewProperties özelliği eklendi. Notlar görünüm moduyla ilişkili ortak görünüm özelliklerini belirtir.
 #### **ViewProperties.SlideViewProperties Özelliği Eklendi**
-Aspose.Slides.ViewProperties.SlideViewProperties özelliği eklendi. Slayt görüntüleme moduyla ilişkili ortak görüntü özelliklerini belirtir.
+Aspose.Slides.ViewProperties.SlideViewProperties özelliği eklendi. Slayt görünüm modu ile ilişkili ortak görünüm özelliklerini belirtir.

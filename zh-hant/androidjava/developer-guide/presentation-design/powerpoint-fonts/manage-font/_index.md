@@ -15,65 +15,67 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "在 Java 中使用 Aspose.Slides for Android 控制字型：嵌入、替代並載入自訂字型，以確保 PPT、PPTX 與 ODP 簡報清晰、符合品牌且一致。"
+description: "使用 Aspose.Slides for Android 在 Java 中控制字型：嵌入、替代並載入自訂字型，以確保 PPT、PPTX 與 ODP 簡報的清晰度、品牌安全性與一致性。"
 ---
 ## **概述**
 
-Aspose.Slides 允許您直接在程式碼中管理投影片文字的字型屬性。您可以透過形狀、文字框、段落與文字區段來存取投影片中的文字，然後對選取的文字套用格式設定。
+Aspose.Slides 允許您直接在程式碼中管理簡報文字的字型屬性。您可以透過形狀、文字框、段落和文字片段來存取投影片中的文字，然後對所選文字套用格式設定。
 
-本文說明如何為簡報中現有的文字設定與字型相關的屬性，包括字型族、粗體與斜體樣式、段落對齊方式以及字型顏色。亦示範如何建立文字方塊、向其中加入文字，並在將結果儲存為 PPTX 檔案之前，設定字型族、粗體、斜體、底線、字型大小與顏色等屬性。
+本文說明如何為簡報中現有的文字設定字型相關屬性，包括字型族、粗體與斜體樣式、段落對齊方式與字型顏色。還示範如何建立文字方塊、加入文字，並在將結果儲存為 PPTX 檔案之前設定字型族、粗體、斜體、底線、字型大小與顏色等屬性。
 
 ## **管理字型相關屬性**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-簡報通常同時包含文字與圖像。文字可以以各種方式格式化，以突顯特定段落與字詞，或符合企業樣式。文字格式化協助使用者變化簡報內容的外觀與感受。本文說明如何使用 Aspose.Slides for Android via Java 來設定投影片上文字段落的字型屬性。
+簡報通常同時包含文字與影像。文字可以以各種方式格式化，以突顯特定段落與詞彙，或符合企業樣式。文字格式化協助使用者變化簡報內容的外觀與感受。本文示範如何使用 Aspose.Slides for Android via Java 來設定投影片上段落文字的字型屬性。
 
 {{% /alert %}} 
 
-使用 Aspose.Slides for Android via Java 來管理段落的字型屬性：
+要使用 Aspose.Slides for Android via Java 管理段落的字型屬性：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 類別的執行個體。
-1. 以索引取得投影片的參考。
-1. 取得投影片中的 [Placeholder](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/placeholder/) 形狀，並將其型別轉換為 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/)。
-1. 從由 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/) 所公開的 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 取得 [Paragraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/paragraph/)。
-1. 使段落兩端對齊。
-1. 取得 [Paragraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/paragraph/) 文字的 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/)。
-1. 使用 [FontData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fontdata/) 定義字型，並相應設定文字 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 的 **Font**。
-   1. 設定字型為粗體。
-   1. 設定字型為斜體。
-1. 使用由 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 物件公開的 [FillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fillformat/) 設定字型顏色。
-1. 將修改後的簡報儲存為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 類別的實例。
+2. 使用索引取得投影片的參照。
+3. 取得投影片中的 [Placeholder](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/placeholder/) 形狀，並將其型別轉換為 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/)。
+4. 從由 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/) 暴露的 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 中取得 [Paragraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/paragraph/)。
+5. 對段落設定兩端對齊。
+6. 取得 [Paragraph](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/paragraph/) 文字的 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/)。
+7. 使用 [FontData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fontdata/) 定義字型，並相應設定文字 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 的 **Font**。
+   1. 將字型設定為粗體。
+   2. 將字型設定為斜體。
+8. 使用由 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 物件暴露的 [FillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fillformat/) 設定字型顏色。
+9. 將修改後的簡報儲存為 PPTX 檔案。
 
-以下提供上述步驟的實作範例。它會取得一個未經裝飾的簡報，並對其中一張投影片的字型進行格式化。下列螢幕截圖顯示輸入檔案以及程式碼片段如何變更它。程式碼會變更字型、顏色與字型樣式。
+以下示範上述步驟的實作。它會取得一個未經格式化的簡報，並對其中一張投影片的字型進行格式化。下列螢幕截圖顯示輸入檔案以及程式碼片段如何變更它。程式碼會變更字型、顏色與字型樣式。
 
 |![todo:image_alt_text](http://i.imgur.com/rqpPgJn.jpg)|
 | :- |
-|**圖示：輸入檔案中的文字**|
-
+|**圖：輸入檔案中的文字**|
 
 |![todo:image_alt_text](http://i.imgur.com/rY27Lt9.png)|
 | :- |
-|**圖示：相同文字的更新後格式**|
+|**圖：相同文字的更新格式**|
 
 ```java
-// 實例化一個表示 PPTX 檔案的 Presentation 物件
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// 建立代表 PPTX 檔案的 Presentation 物件
 Presentation pres = new Presentation("FontProperties.pptx");
 try {
 	// 使用投影片位置存取投影片
 	ISlide slide = pres.getSlides().get_Item(0);
 
-	// 存取投影片中的第一與第二個占位符，並將其型別轉換為 AutoShape
+	// 存取投影片中的第一與第二個佔位符，並將其型別轉換為 AutoShape
 	ITextFrame tf1 = ((IAutoShape) slide.getShapes().get_Item(0)).getTextFrame();
 	ITextFrame tf2 = ((IAutoShape) slide.getShapes().get_Item(1)).getTextFrame();
 
-	// 取得第一個段落
+	// 存取第一個段落
 	IParagraph para1 = tf1.getParagraphs().get_Item(0);
 	IParagraph para2 = tf2.getParagraphs().get_Item(0);
 
-	// 將段落兩端對齊
+	// 將段落設定為兩端對齊
 	para2.getParagraphFormat().setAlignment(TextAlignment.JustifyLow);
 
-	// 取得第一個文字區段
+	// 存取第一個文字片段
 	IPortion port1 = para1.getPortions().get_Item(0);
 	IPortion port2 = para2.getPortions().get_Item(0);
 
@@ -81,7 +83,7 @@ try {
 	FontData fd1 = new FontData("Elephant");
 	FontData fd2 = new FontData("Castellar");
 
-	// 將新字型指派給文字區段
+	// 將新字型指派給文字片段
 	port1.getPortionFormat().setLatinFont(fd1);
 	port2.getPortionFormat().setLatinFont(fd2);
 
@@ -107,33 +109,36 @@ try {
 ```
 
 ## **設定文字字型屬性**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-如同 **管理字型相關屬性** 中所述，[Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 用於在段落中保存具有相似格式樣式的文字。本文說明如何使用 Aspose.Slides for Android via Java 建立含有文字的文字方塊，然後定義特定字型以及字型族類別的各種其他屬性。
+如同 **管理字型相關屬性** 中所述，[Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 用於在段落中保存具有相同格式樣式的文字。本文示範如何使用 Aspose.Slides for Android via Java 建立文字方塊，加入文字，然後定義特定字型及字型族類別的各種屬性。
 
 {{% /alert %}} 
 
 建立文字方塊並設定其中文字的字型屬性：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 類別的執行個體。
-1. 以索引取得投影片的參考。
-1. 向投影片加入類型為 **Rectangle** 的 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/)。
-1. 移除與該 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/) 相關聯的填充樣式。
-1. 取得該 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/) 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/)。
-1. 向 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 中加入一些文字。
-1. 取得與該 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 相關聯的 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 物件。
-1. 定義用於該 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 的字型。
-1. 使用 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 物件公開的相關屬性，設定粗體、斜體、底線、顏色與高度等其他字型屬性。
-1. 將修改後的簡報寫入為 PPTX 檔案。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation) 類別的實例。
+2. 使用索引取得投影片的參照。
+3. 在投影片上新增類型為 **Rectangle** 的 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/)。
+4. 移除與該 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/) 相關的填充樣式。
+5. 存取 [AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/) 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/)。
+6. 向 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 中加入一些文字。
+7. 取得與該 [TextFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/textframe/) 相關的 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 物件。
+8. 為該 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 定義要使用的字型。
+9. 使用 [Portion](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/portion/) 物件暴露的相關屬性，設定其他字型屬性，如粗體、斜體、底線、顏色與字型高度。
+10. 將修改後的簡報寫入為 PPTX 檔案。
 
-以下提供上述步驟的實作範例。
+以下示範上述步驟的實作。
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
-|**圖示：由 Aspose.Slides for Android via Java 設定部分字型屬性的文字**|
+|**圖：由 Aspose.Slides for Android via Java 設定部分字型屬性的文字**|
 
 ```java
-// 實例化一個表示 PPTX 檔案的 Presentation 物件
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// 建立代表 PPTX 檔案的 Presentation 物件
 Presentation pres = new Presentation();
 try {
 	// 取得第一張投影片
@@ -142,14 +147,14 @@ try {
 	// 新增類型為 Rectangle 的 AutoShape
 	IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
 	
-	// 移除與 AutoShape 相關聯的任何填充樣式
+	// 移除與 AutoShape 相關的任何填充樣式
 	ashp.getFillFormat().setFillType(FillType.NoFill);
 	
 	// 存取與 AutoShape 相關聯的 TextFrame
 	ITextFrame tf = ashp.getTextFrame();
 	tf.setText("Aspose TextBox");
 	
-	// 存取與 TextFrame 相關聯的 Portion
+	// 存取與 TextFrame 相關的 Portion
 	IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
 	
 	// 為 Portion 設定字型

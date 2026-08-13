@@ -21,11 +21,11 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: "Importera PDF- och HTML-dokument till PowerPoint- och OpenDocument-presentationer i Java med Aspose.Slides på ett enkelt och högpresterande sätt för sömlös bildbearbetning."
+description: "Importera enkelt PDF- och HTML-dokument till PowerPoint- och OpenDocument-presentationer i Java med Aspose.Slides för sömlös, högpresterande bildbehandling."
 ---
 ## **Introduktion**
 
-Med Aspose.Slides kan du importera presentationer från filer i andra format. Aspose.Slides tillhandahåller klassen [SlideCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/slidecollection/) som möjliggör import av presentationer från PDF‑ och HTML‑dokument.
+Med Aspose.Slides kan du importera presentationer från filer i andra format. Aspose.Slides tillhandahåller klassen [SlideCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/slidecollection/) som gör att du kan importera presentationer från PDF- och HTML‑dokument.
 
 ## **Importera PowerPoint från PDF**
 
@@ -33,13 +33,15 @@ I det här fallet konverterar du en PDF till en PowerPoint‑presentation.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/) .
-2. Anropa metoden [addFromPdf()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) och skicka PDF‑filen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/). 
+2. Anropa metoden [addFromPdf()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) och skicka PDF‑filen. 
 3. Använd metoden [save()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation#save-java.lang.String-int-) för att spara filen i PowerPoint‑format.
 
-Den här Java‑koden demonstrerar PDF‑till‑PowerPoint‑operationen:
+Denna Java‑kod visar PDF‑till‑PowerPoint‑operationen:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -49,21 +51,25 @@ try {
 }
 ```
 
-{{% alert  title="Tip" color="primary" %}} 
-Du kanske vill kolla in **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/sv/import/pdf-to-powerpoint) webbapp eftersom den är en levande implementation av processen som beskrivs här. 
+{{% alert  title="Tip" color="info" %}} 
+Du kanske vill prova den **gratis Aspose**‑webbappen [PDF till PowerPoint](https://products.aspose.app/slides/sv/import/pdf-to-powerpoint) eftersom den är en live‑implementation av processen som beskrivs här. 
 {{% /alert %}} 
 
 ## **Importera PowerPoint från HTML**
 
 I det här fallet konverterar du ett HTML‑dokument till en PowerPoint‑presentation.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/) .
-2. Anropa metoden [addFromHtml()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) och skicka PDF‑filen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/). 
+2. Anropa metoden [addFromHtml()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) och skicka en ström med HTML‑dokumentet. 
 3. Använd metoden [save()](https://reference.aspose.com/slides/sv/java/com.aspose.slides/Presentation#save-java.lang.String-int-) för att spara filen i PowerPoint‑format.
 
-Den här Java‑koden demonstrerar HTML‑till‑PowerPoint‑operationen: 
+Denna Java‑kod visar HTML‑till‑PowerPoint‑operationen: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -82,16 +88,16 @@ try {
 
 ## **FAQ**
 
-**Bevaras tabeller vid import av en PDF, och kan deras upptäckt förbättras?**
+### Bevaras tabeller när en PDF importeras, och kan deras identifiering förbättras?
 
-Tabeller kan upptäckas under import; [PdfImportOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pdfimportoptions/) innehåller en [setDetectTables](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-)‑metod som möjliggör tabelligenkänning. Effektiviteten beror på PDF‑filens struktur.
+Tabeller kan upptäckas under import; [PdfImportOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pdfimportoptions/) innehåller en [setDetectTables](https://reference.aspose.com/slides/sv/java/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-)‑metod som möjliggör tabelligenkänning. Effektiviteten beror på PDF:ens struktur.
 
 {{% alert title="Note" color="warning" %}} 
 Du kan också använda Aspose.Slides för att konvertera HTML till andra populära filformat: 
 
-* [HTML to image](https://products.aspose.com/slides/sv/java/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/sv/java/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/sv/java/conversion/html-to-xml/)
-* [HTML to TIFF](https://products.aspose.com/slides/sv/java/conversion/html-to-tiff/)
+* [HTML till bild](https://products.aspose.com/slides/sv/java/conversion/html-to-image/)
+* [HTML till JPG](https://products.aspose.com/slides/sv/java/conversion/html-to-jpg/)
+* [HTML till XML](https://products.aspose.com/slides/sv/java/conversion/html-to-xml/)
+* [HTML till TIFF](https://products.aspose.com/slides/sv/java/conversion/html-to-tiff/)
 
 {{% /alert %}}

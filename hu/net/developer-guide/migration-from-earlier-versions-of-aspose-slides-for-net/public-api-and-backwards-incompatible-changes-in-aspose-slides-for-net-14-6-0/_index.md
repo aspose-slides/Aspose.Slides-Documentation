@@ -6,9 +6,9 @@ weight: 80
 url: /hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/
 keywords:
 - migráció
-- örökölt kód
+- régi kód
 - modern kód
-- örökölt megközelítés
+- régi megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
@@ -16,21 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át a nyilvános API frissítéseket és a visszafelé nem kompatibilis változásokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át az Aspose.Slides for .NET nyilvános API frissítéseit és törődésre alkalmas változásait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
-
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) osztályt, metódust, tulajdonságot stb., az új [korlátozásokat](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) és egyéb [változásokat](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/), amelyeket az Aspose.Slides for .NET 14.6.0 API bevezet.
-
+{{% alert color="info" %}} 
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) osztályt, metódust, tulajdonságot stb., valamint minden új [korlátozást](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) és egyéb [változást](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-6-0/) az Aspose.Slides for .NET 14.6.0 API-val bevezetve.
 {{% /alert %}} 
-## **Nyilvános API módosítások**
+## **Nyilvános API-módosítások**
 ### **Hozzáadott interfészek, metódusok és tulajdonságok**
-#### **Hozzáadott az Aspose.Slides.Charts.IErrorBarsFormat interfész**
+#### **Az Aspose.Slides.Charts.IErrorBarsFormat interfész hozzáadva**
 Ez a diagram sorozat hibasávjait képviseli.
 
-Egyéni értéktípus esetén az érték megadásához a sorozat DataPoints gyűjteményének adott adatpontjának ErrorBarCustomValues tulajdonságát kell használni.
+Egyéni értéktípus esetén az érték megadásához használja a sorozat DataPoints gyűjteményének adott adatpontjának ErrorBarCustomValues tulajdonságát.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -63,12 +65,15 @@ Egyéni értéktípus esetén az érték megadásához a sorozat DataPoints gyű
     pres.Save("ErrorBars.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Hozzáadott az Aspose.Slides.Charts.IErrorBarsCustomValues interfész**
-Amikor az IErrorBarsFormat.ValueType tulajdonság egyenlő a Custom értékkel, az érték megadásához a DataPoints gyűjtemény adott adatpontjának ErrorBarCustomValues tulajdonságát kell használni.
+#### **Az Aspose.Slides.Charts.IErrorBarsCustomValues interfész hozzáadva**
+Ha az IErrorBarsFormat.ValueType tulajdonság értéke Custom, az érték megadásához használja a DataPoints gyűjtemény adott adatpontjának ErrorBarCustomValues tulajdonságát.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -117,12 +122,15 @@ Amikor az IErrorBarsFormat.ValueType tulajdonság egyenlő a Custom értékkel, 
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Hozzáadott az Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues interfész**
-Meghatározza az értéktípusokat a ChartDataPoint.ErrorBarsCustomValues tulajdonságlistában.
+#### **Az Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues interfész hozzáadva**
+A ChartDataPoint.ErrorBarsCustomValues tulajdonságlista értéktípusait határozza meg.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -171,10 +179,9 @@ Meghatározza az értéktípusokat a ChartDataPoint.ErrorBarsCustomValues tulajd
     pres.Save("ErrorBarsCustomValues", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Hozzáadott az Aspose.Slides.IShapeCollection.AddClone(...), és .InsertClone(...) metódusok**
-A következő metódusok egy megadott alakzat másolatát adják hozzá/illesztik be a gyűjteménybe. 
+#### **Az Aspose.Slides.IShapeCollection.AddClone(...), és .InsertClone(...) metódusok hozzáadva**
+Az alábbi metódusok egy megadott alakzat másolatát adják hozzá/illesztik be a gyűjteménybe. 
 
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape)
 - Aspose.Slides.IShapeCollection.AddClone(IShape sourceShape, float x, float y)
@@ -184,8 +191,10 @@ A következő metódusok egy megadott alakzat másolatát adják hozzá/illeszti
 - Aspose.Slides.IShapeCollection.InsertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
 ``` csharp
+using Aspose.Slides;
 
- using (Presentation srcPres = new Presentation(dataPath_ShapeCloning + "Source Frame.pptx"))
+
+ using (Presentation srcPres = new Presentation("Source Frame.pptx"))
 
 {
 
@@ -210,12 +219,13 @@ A következő metódusok egy megadott alakzat másolatát adják hozzá/illeszti
     destShapes.InsertClone(0, sourceShapes[0], 50, 150);
 
 }
-
 ``` 
-#### **Hozzáadott a ViewType felsorolt, IViewProperties interfész, ViewProperties osztály és az IPresentation.ViewProperties tulajdonságok**
-Az IPresentation.ViewProperty lehetővé teszi a fejlesztők számára, hogy megváltoztassák a prezentáció nézet típusát és a jegyzetek láthatóságát, amikor a prezentáció PowerPointban nyílik meg.
+#### **A ViewType enum, az IViewProperties interfész, a ViewProperties osztály és az IPresentation.ViewProperties tulajdonságok hozzáadva**
+Az IPresentation.ViewProperty lehetővé teszi a fejlesztők számára, hogy megváltoztassák a bemutató nézet típusát és a jegyzetek láthatóságát, amikor a bemutatót a PowerPoint megnyitja.
 
 ``` csharp
+using Aspose.Slides;
+
 
  using(Presentation p = new Presentation())
 

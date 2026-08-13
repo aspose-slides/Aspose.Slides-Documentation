@@ -1,48 +1,51 @@
 ---
-title: مدیریت فهرست‌های گلوله‌ای و شماره‌دار در ارائه‌ها در Java
+title: مدیریت فهرست‌های بولت‌دار و عددی در ارائه‌ها در جاوا
 linktitle: مدیریت فهرست‌ها
 type: docs
 weight: 60
 url: /fa/java/manage-lists/
 keywords:
-- گلوله
-- فهرست گلوله‌ای
-- فهرست شماره‌دار
-- گلوله نمادین
-- گلوله تصویری
-- گلوله سفارشی
+- بولت
+- فهرست بولت‌دار
+- فهرست عددی
+- بولت نماد
+- بولت تصویری
+- بولت سفارشی
 - فهرست چندسطحی
-- ایجاد گلوله
-- افزودن گلوله
+- ایجاد بولت
+- افزودن بولت
 - افزودن فهرست
 - PowerPoint
 - OpenDocument
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "یاد بگیرید چگونه فهرست‌های گلوله‌ای، تصویری، چندسطحی و شماره‌دار را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Java ایجاد و قالب‌بندی کنید."
+description: "یاد بگیرید چگونه فهرست‌های بولت‌دار، تصویری، چندسطحی و عددی را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای جاوا ایجاد و قالب‌بندی کنید."
 ---
-## **بررسی کلی**
+## **بررسی اجمالی**
 
-Aspose.Slides for Java به شما امکان می‌دهد فهرست‌های گلوله‌ای و شماره‌دار را در ارائه‌های PowerPoint و OpenDocument ایجاد و قالب‌بندی کنید. یک مورد فهرست، پاراگرافی است که تنظیمات گلوله آن از طریق قالب‌بندی پاراگراف کنترل می‌شود.
+Aspose.Slides for Java به شما امکان می‌دهد فهرست‌های بولت‌دار و عددی را در ارائه‌های PowerPoint و OpenDocument ایجاد و قالب‌بندی کنید. یک مورد فهرست یک پاراگراف است که تنظیمات بولت آن از طریق قالب‌بندی پاراگراف کنترل می‌شود.
 
-از متد[IParagraph.getParagraphFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/#getParagraphFormat--) برای دسترسی به تنظیمات فهرست در سطح پاراگراف استفاده کنید. نقطه ورود اصلی [IParagraphFormat.getBullet](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getBullet--) است که یک شیء[IBulletFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/) را برمی‌گرداند. با این شیء می‌توانید نوع گلوله، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و شماره آغاز را تنظیم کنید.
+از روش [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/#getParagraphFormat--) برای دسترسی به تنظیمات فهرست در سطح پاراگراف استفاده کنید. نقطه ورود اصلی [IParagraphFormat.getBullet](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getBullet--) است که یک شیء [IBulletFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/) را برمی‌گرداند. با این شیء می‌توانید نوع بولت، نماد، تصویر، رنگ، اندازه، سبک شماره‌گذاری و شماره شروع را تنظیم کنید.
 
 این مقاله نشان می‌دهد چگونه:
 
-- یک فهرست گلوله‌ای با نماد سفارشی ایجاد کنید
-- یک گلوله تصویری ایجاد کنید
-- یک فهرست چندسطحی با تنظیم عمق پاراگراف ایجاد کنید
-- یک فهرست شماره‌دار ایجاد کنید
-- قالب‌بندی فهرست را در یک ارائه موجود بررسی و تغییر دهید
+- فهرست بولت‌دار با نماد سفارشی ایجاد شود
+- بولت تصویری ایجاد شود
+- فهرست چندسطحی با تنظیم عمق پاراگراف ایجاد شود
+- فهرست عددی ایجاد شود
+- قالب‌بندی فهرست در یک ارائه موجود را بررسی و تغییر دهید
 
-## **ایجاد فهرست گلوله‌ای**
+## **ایجاد فهرست بولت‌دار**
 
-برای ایجاد فهرست گلوله‌ای، اشیاء[IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) را به یک[ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اضافه کنید و[IBulletFormat.setType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setType-byte-) را روی[BulletType.Symbol](https://reference.aspose.com/slides/fa/java/com.aspose.slides/bullettype/#Symbol) تنظیم کنید. سپس می‌توانید[IBulletFormat.setChar](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setChar-char-)،[IBulletFormat.getColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#getColor--) و[IBulletFormat.setHeight](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setHeight-float-) را برای کنترل ظاهر گلوله تنظیم کنید.
+برای ایجاد فهرست بولت‌دار، اشیای [IParagraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraph/) را به یک [ITextFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/) اضافه کنید و [IBulletFormat.setType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setType-byte-) را به [BulletType.Symbol](https://reference.aspose.com/slides/fa/java/com.aspose.slides/bullettype/#Symbol) تنظیم کنید. سپس می‌توانید [IBulletFormat.setChar](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setChar-char-)، [IBulletFormat.getColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#getColor--) و [IBulletFormat.setHeight](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setHeight-float-) را برای کنترل ظاهر بولت تنظیم کنید.
 
-کد Java زیر نحوه ایجاد فهرست گلوله‌ای را در یک اسلاید نشان می‌دهد:
+کد جاوا زیر نشان می‌دهد چگونه فهرست بولت‌دار در یک اسلاید ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 نتیجه:
 
-![گلوله‌های نمادین](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
-## **ایجاد فهرست شماره‌دار**
+## **ایجاد فهرست عددی**
 
-زمانی که ترتیب موارد مهم است از فهرست‌های شماره‌دار استفاده کنید. [IBulletFormat.setType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setType-byte-) را روی[BulletType.Numbered](https://reference.aspose.com/slides/fa/java/com.aspose.slides/bullettype/#Numbered) تنظیم کنید. همچنین می‌توانید یک قالب شماره‌گذاری را با[IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) انتخاب کنید یا هنگام نیاز به شروع از مقدار دیگری غیر از 1،[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) را تنظیم کنید.
+وقتی ترتیب موارد مهم است از فهرست‌های عددی استفاده کنید. [IBulletFormat.setType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setType-byte-) را به [BulletType.Numbered](https://reference.aspose.com/slides/fa/java/com.aspose.slides/bullettype/#Numbered) تنظیم کنید. همچنین می‌توانید قالب شماره‌گذاری را با [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) انتخاب کنید یا با [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) زمانی که فهرست باید از مقداری غیر از 1 شروع شود، مقدار شروع را تنظیم کنید.
 
-کد Java زیر نحوه ایجاد فهرست شماره‌دار را در یک اسلاید نشان می‌دهد:
+کد جاوا زیر نشان می‌دهد چگونه فهرست عددی در یک اسلاید ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,27 +126,28 @@ try {
 
 نتیجه:
 
-![گلوله‌های شماره‌دار](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
-## **ایجاد گلوله تصویری**
+## **ایجاد بولت تصویری**
 
-Aspose.Slides به شما امکان می‌دهد نماد گلوله عادی را با یک تصویر جایگزین کنید. گلوله‌های تصویری بهترین عملکرد را با تصاویر ساده‌ای که در اندازه کوچک نیز قابل خواندن باشند، مانند آیکون‌ها یا فایل‌های PNG شفاف کوچک، دارند.
+Aspose.Slides به شما اجازه می‌دهد نماد بولت معمولی را با یک تصویر جایگزین کنید. بولت‌های تصویری بهترین عملکرد را با تصاویر ساده‌ای که در اندازه کوچک نیز قابل خواندن هستند، مانند آیکون‌ها یا فایل‌های PNG شفاف کوچک، دارند.
 
-{{% alert color="primary" %}}
-در صورتی که قصد دارید نماد گلوله عادی را با تصویر جایگزین کنید، بهتر است گرافیک ساده‌ای با پس‌زمینه شفاف انتخاب کنید. این گونه تصاویر به عنوان نمادهای سفارشی گلوله به خوبی عمل می‌کنند.
-
-به یاد داشته باشید که تصویر به اندازه بسیار کوچک‌تری مقیاس می‌شود. به همین دلیل، به شدت توصیه می‌شود تصویری انتخاب کنید که حتی در این مقیاس نیز واضح و بصری مؤثر باقی بماند.
+{{% alert color="info" %}}
+در صورت برنامه‌ریزی برای جایگزینی نماد بولت معمولی با یک تصویر، بهتر است گرافیک ساده‌ای با پس‌زمینه شفاف انتخاب کنید. چنین تصاویری به‌عنوان نمادهای بولت سفارشی به خوبی عمل می‌کنند.
+به‌خاطر داشته باشید که تصویر به اندازه بسیار کوچکی مقیاس‌دهی می‌شود. برای این دلیل، به‌ شدت توصیه می‌کنیم تصویری انتخاب کنید که هنگام استفاده به‌عنوان بولت در یک فهرست واضح و مؤثر باقی بماند.
 {{% /alert %}}
 
-برای ایجاد گلوله تصویری، یک تصویر به[Presentation.getImages](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getImages--) اضافه کنید و شیء تصویر بازگردانده‌شده را به[IBulletFormat.getPicture](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#getPicture--) اختصاص دهید. قبل از اختصاص تصویر،[IBulletFormat.setType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setType-byte-) را روی[BulletType.Picture](https://reference.aspose.com/slides/fa/java/com.aspose.slides/bullettype/#Picture) تنظیم کنید.
+برای ایجاد بولت تصویری، یک تصویر را به [Presentation.getImages](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getImages--) اضافه کنید و شیء تصویر بازگردانده‌شده را به [IBulletFormat.getPicture](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#getPicture--) اختصاص دهید. قبل از اختصاص تصویر، [IBulletFormat.setType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibulletformat/#setType-byte-) را به [BulletType.Picture](https://reference.aspose.com/slides/fa/java/com.aspose.slides/bullettype/#Picture) تنظیم کنید.
 
-فرض کنید فایل "image.png" داریم:
+فرض کنید تصویر "image.png" داریم:
 
-![تصویر برای گلوله‌ها](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
-کد Java زیر نحوه ایجاد گلوله‌های تصویری را در یک اسلاید نشان می‌دهد:
+کد جاوا زیر نشان می‌دهد چگونه بولت‌های تصویری در یک اسلاید ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -176,15 +182,17 @@ try {
 
 نتیجه:
 
-![گلوله‌های تصویری](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
 ## **ایجاد فهرست چندسطحی**
 
-از[IParagraphFormat.setDepth](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setDepth-short-) برای قرار دادن موارد فهرست در سطوح مختلف استفاده کنید. سطح 0 بالاترین سطح است، سطح 1 زیرمجموعه آن و به همین ترتیب.
+از [IParagraphFormat.setDepth](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#setDepth-short-) برای قرار دادن موارد فهرست در سطوح مختلف استفاده کنید. سطح 0 بالاترین سطح است، سطح 1 زیر آن تو در تو می‌شود و به همین ترتیب.
 
-کد Java زیر نحوه ایجاد فهرست گلوله‌ای چندسطحی را نشان می‌دهد:
+کد جاوا زیر نشان می‌دهد چگونه فهرست بولت‌دار چندسطحی ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -221,15 +229,17 @@ try {
 
 نتیجه:
 
-![فهرست چندسطحی](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
 ## **تغییر فهرست موجود**
 
-برای تغییر قالب‌بندی فهرست در یک ارائه موجود، پاراگراف هدف را دسترسی یافته و تنظیمات[IParagraphFormat.getBullet](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getBullet--) آن را به‌روزرسانی کنید. همان خصوصیات استفاده‌شده برای ایجاد فهرست‌ها می‌توانند برای بررسی یا اصلاح فهرست‌های بارگذاری‌شده از فایل‌های PPT، PPTX یا ODP به کار روند.
+برای تغییر قالب‌بندی فهرست در یک ارائه موجود، پاراگراف هدف را دسترسی پیدا کنید و تنظیمات [IParagraphFormat.getBullet](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getBullet--) آن را به‌روزرسانی کنید. همان خصوصیات مورد استفاده برای ایجاد فهرست‌ها می‌توانند برای بررسی یا اصلاح فهرست‌های بارگذاری‌شده از فایل PPT، PPTX یا ODP استفاده شوند.
 
-کد Java زیر اولین پاراگراف در یک چارچوب متن را به سبک فهرست شماره‌دار تغییر می‌دهد:
+کد جاوا زیر اولین پاراگراف در یک فریم متن را به سبک فهرست عددی تغییر می‌دهد:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -250,14 +260,14 @@ try {
 
 ## **سوالات متداول**
 
-**آیا می‌توان فهرست‌های گلوله‌ای و شماره‌دار را به PDF یا تصویر صادر کرد؟**
+### آیا فهرست‌های بولت‌دار و عددی می‌توانند به PDF یا تصویر صادر شوند؟
 
-بله. Aspose.Slides قالب‌بندی فهرست را زمانی که فرمت هدف از چیدمان متن و ویژگی‌های گلوله مربوطه پشتیبانی کند، حفظ می‌کند.
+بله. Aspose.Slides قالب‌بندی فهرست را زمانی که فرمت هدف از چیدمان متن و ویژگی‌های بولت مربوطه پشتیبانی می‌کند، حفظ می‌کند.
 
-**آیا می‌توان فهرست‌ها را در ارائه‌های موجود ویرایش کرد؟**
+### آیا می‌توانم فهرست‌ها را در ارائه‌های موجود ویرایش کنم؟
 
-بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات[IParagraphFormat.getBullet](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getBullet--) آن را بررسی یا به‌روزرسانی کنید و سپس ارائه را ذخیره کنید.
+بله. ارائه را بارگذاری کنید، به پاراگراف هدف دسترسی پیدا کنید، تنظیمات [IParagraphFormat.getBullet](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iparagraphformat/#getBullet--) آن را بررسی یا به‌روزرسانی کنید و ارائه را ذخیره کنید.
 
-**آیا فهرست‌ها می‌توانند متن غیرلاتین داشته باشند؟**
+### آیا فهرست‌ها می‌توانند متن غیرلاتین داشته باشند؟
 
-بله. متن مورد فهرست می‌تواند شامل کاراکترهای یونیکد باشد، بنابراین می‌توانید فهرست‌ها را در ارائه‌های چندزبانه ایجاد کنید. اطمینان حاصل کنید که فونت‌های استفاده‌شده در ارائه از کاراکترهای مورد نیاز پشتیبانی می‌کنند.
+بله. متن موارد فهرست می‌تواند شامل کاراکترهای یونیکد باشد، بنابراین می‌توانید فهرست‌ها را در ارائه‌های چندزبانه ایجاد کنید. اطمینان حاصل کنید که فونت‌های استفاده‌شده در ارائه، کاراکترهای مورد نیاز شما را پشتیبانی می‌کنند.

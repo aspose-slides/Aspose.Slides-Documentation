@@ -1,34 +1,44 @@
 ---
-title: تكوين مجموعات خطوط الاحتياطي على Android
-linktitle: مجموعة خطوط الاحتياطي
+title: "تكوين مجموعات الخطوط الاحتياطية على Android"
+linktitle: "مجموعة الخطوط الاحتياطية"
 type: docs
 weight: 20
 url: /ar/androidjava/create-fallback-fonts-collection/
 keywords:
-- خط احتياطي
-- قاعدة احتياطي
-- مجموعة خطوط
-- تكوين الخط
-- إعداد الخط
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- Android
-- Java
-- Aspose.Slides
-description: "إعداد مجموعة خطوط احتياطية في Aspose.Slides لنظام Android عبر Java للحفاظ على تناسق النص وجعله واضحًا وحادًا في عروض PowerPoint وOpenDocument."
+- "خط احتياطي"
+- "قاعدة احتياطية"
+- "مجموعة خطوط"
+- "تكوين الخط"
+- "إعداد الخط"
+- "PowerPoint"
+- "OpenDocument"
+- "عرض تقديمي"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "قم بإعداد مجموعة خطوط احتياطية في Aspose.Slides لنظام Android عبر Java للحفاظ على النص متسقًا وواضحًا في عروض PowerPoint وOpenDocument."
 ---
+## **نظرة عامة**
 
-## **تطبيق قواعد الاحتياط**
+تتيح لك Aspose.Slides تكوين مجموعة من قواعد الخط الاحتياطي لعرض تقديمي. يتم تمثيل كل قاعدة احتياطية بواسطة الفئة `FontFallBackRule` ويمكن إضافتها إلى `FontFallBackRulesCollection`، والتي تنفّذ الواجهة `IFontFallBackRulesCollection`.
 
-يمكن تنظيم كائنات [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) التي تنفذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection). يمكن إضافة أو إزالة القواعد من المجموعة.
+بعد إنشاء المجموعة، يمكنك تعيينها إلى خاصية `FontFallBackRulesCollection` في `FontsManager` الخاص بالعرض التقديمي. يتحكم `FontsManager` في الخطوط عبر العرض التقديمي، ولكل مثيل `Presentation` مدير خطوط خاص به (`FontsManager`).
 
-بعد ذلك يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) في فئة [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager). يتحكم FontsManager في الخطوط عبر العرض التقديمي.
+بمجرد تهيئة `FontsManager` بمجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية المحددة أثناء عملية عرض التقديم.
 
-كل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) يحتوي على طريقة [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) مع نسخة خاصة من فئة [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager).
+## **تطبيق قواعد الاحتياطي**
 
-فيما يلي مثال على كيفية إنشاء مجموعة قواعد الخطوط الاحتياطية وتعيينها إلى [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) لعروض تقديمية معينة:  
+يمكن تنظيم كائنات الفئة [FontFallBackRule](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/FontFallBackRulesCollection)‏، التي تنفّذ واجهة [IFontFallBackRulesCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IFontFallBackRulesCollection)‏. يمكن إضافة أو إزالة القواعد من المجموعة.
+
+بعد ذلك يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/FontFallBackRulesCollection) في فئة [FontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/FontsManager)‏. يتحكم `FontsManager` في الخطوط عبر العرض التقديمي.
+
+كل [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) يمتلك طريقة [getFontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation#getFontsManager--) مع مثيل خاص به من فئة [FontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/FontsManager)‏.
+
+فيما يلي مثال لكيفية إنشاء مجموعة قواعد خطوط الاحتياطي وتعيينها في [FontsManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation#getFontsManager--) لعرض تقديمي معين:  
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -42,27 +52,26 @@ try {
 }
 ```
 
+بعد تهيئة `FontsManager` بمجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض التقديم.
 
-بعد تهيئة FontsManager بمجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض الشرائح.
-
-{{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [عرض العرض التقديمي بخط احتياطي](/slides/ar/androidjava/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+اقرأ المزيد حول كيفية [عرض تقديم مع خط احتياطي](/slides/ar/androidjava/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**هل سيتم تضمين قواعد الاحتياط في ملف PPTX وستكون مرئية في PowerPoint بعد الحفظ؟**
+### هل سيتم تضمين قواعد الاحتياطي في ملف PPTX وستظهر في PowerPoint بعد الحفظ؟
 
-لا. قواعد الاحتياط هي إعدادات عرض في وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
+لا. قواعد الاحتياطي هي إعدادات عرض في وقت التشغيل؛ لا يتم تسلسلها إلى ملف PPTX ولن تظهر في واجهة PowerPoint.
 
-**هل ينطبق الاحتياط على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟**
+### هل يتم تطبيق الاحتياطي على النص داخل SmartArt وWordArt والرسوم البيانية والجداول؟
 
-نعم. يتم استخدام نفس آلية استبدال الحروف لأي نص في هذه الكائنات.
+نعم. يتم استخدام نفس آلية استبدال الرموز لأي نص في هذه الكائنات.
 
-**هل توزع Aspose أي خطوط مع المكتبة؟**
+### هل تقوم Aspose بتوزيع أي خطوط مع المكتبة؟
 
-لا. تقوم بإضافة واستخدام الخطوط من جانبك وتكون مسؤولاً عنها.
+لا. تقوم بإضافة واستخدام الخطوط من جانبك وتتحمل المسؤولية الكاملة.
 
-**هل يمكن استخدام الاستبدال/الاستبدال للخطوط المفقودة والاحتياط للرموز المفقودة معًا؟**
+### هل يمكن استخدام الاستبدال/البديل للخطوط المفقودة والاحتياطي للرموز المفقودة معًا؟
 
-نعم. إنها مراحل مستقلة من نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توفر الخطوط ([replacement](/slides/ar/androidjava/font-replacement/)/[substitution](/slides/ar/androidjava/font-substitution/))، ثم يملأ الاحتياط الفجوات للرموز المفقودة في الخطوط المتاحة.
+نعم. إنهما مرحلتان مستقلتان من نفس خط أنابيب حل الخطوط: أولاً يقوم المحرك بحل توافر الخطوط ([replacement](/slides/ar/androidjava/font-replacement/)/[substitution](/slides/ar/androidjava/font-substitution/))، ثم يملأ الاحتياطي الفجوات للرموز المفقودة في الخطوط المتاحة.

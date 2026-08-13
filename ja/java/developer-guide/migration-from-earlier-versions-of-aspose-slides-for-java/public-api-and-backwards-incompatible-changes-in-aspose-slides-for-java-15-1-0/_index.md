@@ -1,36 +1,50 @@
 ---
-title: Aspose.Slides for Java 15.1.0における公開APIと後方互換性のない変更
+title: Aspose.Slides for Java 15.1.0 の公開 API と後方互換性のない変更
+linktitle: Aspose.Slides for Java 15.1.0
 type: docs
 weight: 100
 url: /ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java の公開 API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションを円滑に移行できるようにします。"
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
+このページは Aspose.Slides for Java 15.1.0 API で導入された、すべての [追加された](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) クラス、メソッド、プロパティなど、 新しい制限やその他の [変更](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) を一覧表示します。
 
-このページでは、Aspose.Slides for Java 15.1.0 APIで追加されたすべての[クラス](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/)、メソッド、プロパティなど、新しい制約やその他の[変更](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/)を一覧表示します。
+{{% /alert %}} {{% alert color="info" %}} 
 
-{{% /alert %}} {{% alert color="primary" %}} 
-
-いくつかの画像の箇条書きやWordArtオブジェクトに既知の問題があります。これらはAspose.Slides for Java 15.2.0で修正される予定です。
+一部の画像バレットと WordArt オブジェクトに既知の問題があり、これらは Aspose.Slides for Java 15.2.0 で修正される予定です。
 
 {{% /alert %}} 
-## **公開APIの変更**
-### **フォント置き換え機能が追加されました**
-プレゼンテーション全体でフォントをグローバルに置き換える機能と、レンダリング用に一時的な置き換え機能が追加されました。
+## **公開 API の変更**
+### **フォント置換機能が追加されました**
+プレゼンテーション全体およびレンダリング時に一時的にフォントを置換する機能が追加されました。
 
-Presentationクラスの新しいメソッドgetFontsManager()が導入されました。FontsManagerクラスには次のメンバーがあります：
+Presentation クラスに新しく getFontsManager() メソッドが導入されました。FontsManager クラスには以下のメンバーがあります:
 
 **IFontSubstRuleCollection getFontSubstRuleList**() メソッド
 
-これは、レンダリング中にフォントを置き換えるために使用されるIFontSubstRuleインスタンスのコレクションです。 IFontSubstRuleには、IFontDataインターフェイスを実装するgetSourceFont()およびgetDestFont()メソッドと、置き換えの条件を選択できるgetReplaceFontCondition()メソッドがあります（「WhenInaccessible」または「Always」）。
+これはレンダリング中にフォントを置換するために使用される IFontSubstRule インスタンスのコレクションです。IFontSubstRule には IFontData インターフェイスを実装する getSourceFont() と getDestFont() メソッド、および置換条件（「WhenInaccessible」または「Always」）を選択できる getReplaceFontCondition() メソッドがあります。
 
-**IFontData[] getFonts()** メソッドを使用して、現在のプレゼンテーションで使用されているすべてのフォントを取得できます。
+**IFontData[] getFonts**() メソッドは、現在のプレゼンテーションで使用されているすべてのフォントを取得するために使用できます。
 
-**replaceFont(...)** メソッドを使用して、プレゼンテーション内のフォントを永続的に置き換えることができます。 
+**replaceFont(...)** メソッドは、プレゼンテーション内のフォントを永続的に置換するために使用できます。
 
-以下の例は、プレゼンテーション内のフォントを置き換える方法を示しています：
+以下の例は、プレゼンテーション内のフォントを置換する方法を示しています:
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -44,30 +58,27 @@ pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
 
 ```
 
-もう一つの例では、アクセスできないときのレンダリング用のフォント置き換えを示します：
+別の例として、アクセスできない場合にレンダリング用のフォント置換を示します:
 
 ``` java
-
-
+import com.aspose.slides.*;
 
 Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData destFont = new FontData("Arial");
 
-IFontData sourceFont = new FontData("SomeRareFont");
+    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
 
-IFontData destFont = new FontData("Arial");
+    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
 
-IFontSubstRule fontSubstRule = new FontSubstRule(
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
 
-sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-fontSubstRuleCollection.add(fontSubstRule);
-
-pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-
-// SomeRareFontがアクセスできないときにArialフォントが使用されます
-
-pres.getSlides().get_Item(0).getThumbnail(1, 1);
-
+    // Arial フォントは、SomeRareFont にアクセスできない場合に代わりに使用されます。
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    slideImage.dispose();
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

@@ -1,34 +1,32 @@
 ---
-title: "Δημόσιο API και Ασυμβίβαστες Αλλαγές σε Aspose.Slides για Java 16.1.0"
-linktitle: "Aspose.Slides για Java 16.1.0"
+title: Δημόσιο API και Ασυμβατότητες Προς Τα Πίσω στην Aspose.Slides για Java 16.1.0
+linktitle: Aspose.Slides για Java 16.1.0
 type: docs
 weight: 200
 url: /el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
 keywords:
-- μετάβαση
-- παραδοσιακός κώδικας
+- μετανάστευση
+- παλαιός κώδικας
 - σύγχρονος κώδικας
-- παραδοσιακή προσέγγιση
+- παλαιά προσέγγιση
 - σύγχρονη προσέγγιση
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των breaking changes στο Aspose.Slides για Java, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
+description: "Ανασκόπηση των ενημερώσεων του δημόσιου API και των αλλαγών‑σπασίματος στην Aspose.Slides για Java, ώστε να μεταφέρετε ομαλά τις λύσεις παρουσίασης PowerPoint PPT, PPTX και ODP."
 ---
-{{% alert color="primary" %}} 
-
-Αυτή η σελίδα καταγράφει όλες τις [προστέθηκαν](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) ή [αφαιρέθηκαν](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το Aspose.Slides for Java 16.1.0 API.
-
+{{% alert color="info" %}} 
+Αυτή η σελίδα απαριθμεί όλα τα [προστέθηκαν](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) ή [αφαιρέθηκαν](/slides/el/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) κλάσεις, μεθόδους, ιδιότητες κ.λπ., καθώς και άλλες αλλαγές που εισήχθησαν με το API του Aspose.Slides για Java 16.1.0.
 {{% /alert %}} 
-## **Αλλαγές Δημόσιου API**
-
-#### **Οι μέθοδοι getRotationAngle() και setRotationAngle() προστέθηκαν στις διεπαφές IChartTextBlockFormat και ITextFrameFormat**  
-Οι μέθοδοι getRotationAngle() και setRotationAngle() προστέθηκαν στις διεπαφές com.aspose.slides.IChartTextBlockFormat και com.aspose.slides.ITextFrameFormat.  
-Παρέχουν πρόσβαση στην προσαρμοσμένη περιστροφή που εφαρμόζεται στο κείμενο εντός του πλαισίου.
-
+## **Αλλαγές δημόσιου API**
+#### **Οι μέθοδοι getRotationAngle() και setRotationAngle() προστέθηκαν στις διεπαφές IChartTextBlockFormat και ITextFrameFormat**
+Οι μέθοδοι getRotationAngle() και setRotationAngle() προστέθηκαν στις διεπαφές com.aspose.slides.IChartTextBlockFormat και com.aspose.slides.ITextFrameFormat.
+Παρέχουν πρόσβαση στην προσαρμοσμένη περιστροφή που εφαρμόζεται στο κείμενο μέσα στο περιοριστικό πλαίσιο.
 ``` java
+import com.aspose.slides.*;
+
 
 
 

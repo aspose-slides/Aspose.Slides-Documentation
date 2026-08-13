@@ -1,5 +1,5 @@
 ---
-title: Správa hypertextových odkazů v prezentaci v Java
+title: Spravovat hypertextové odkazy v prezentaci v Javě
 linktitle: Spravovat hypertextový odkaz
 type: docs
 weight: 20
@@ -11,8 +11,8 @@ keywords:
 - formátovat hypertextový odkaz
 - odstranit hypertextový odkaz
 - aktualizovat hypertextový odkaz
-- hypertextový odkaz v textu
-- hypertextový odkaz na snímku
+- textový hypertextový odkaz
+- hypertextový odkaz na snímek
 - hypertextový odkaz na tvar
 - hypertextový odkaz na obrázek
 - hypertextový odkaz na video
@@ -22,28 +22,30 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Bez námahy spravujte hypertextové odkazy v PowerPoint a OpenDocument prezentacích s Aspose.Slides pro Java — zvyšte interaktivitu a efektivitu během několika minut."
+description: "Jednoduše spravujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Javu — zvyšte interaktivitu a efektivitu během několika minut."
 ---
 ## **Úvod**
 
-Hyperlink je odkaz na objekt nebo data či místo v něčem. Toto jsou běžné hyperlinky v prezentacích PowerPoint:
+Hyperlink je odkaz na objekt nebo data nebo místo v něčem. Toto jsou běžné hypertextové odkazy v prezentacích PowerPoint:
 
 * Odkazy na webové stránky v textu, tvarech nebo médiích
 * Odkazy na snímky
 
-Aspose.Slides pro Java vám umožňuje provádět mnoho úkolů souvisejících s hyperlinky v prezentacích. 
+Aspose.Slides pro Java vám umožňuje provádět mnoho úkolů souvisejících s hypertextovými odkazy v prezentacích. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Možná budete chtít vyzkoušet jednoduchý, [bezplatný online editor PowerPointu.](https://products.aspose.app/slides/cs/editor)
 {{% /alert %}} 
 
-## **Přidání URL hyperlinků**
+## **Přidat URL hypertextové odkazy**
 
-### **Přidání URL hyperlinků k textu**
+### **Přidat URL odkazy do textu**
 
-Tento kód v jazyce Java ukazuje, jak přidat odkaz na webovou stránku do textu:
+Tento Java kód ukazuje, jak přidat hypertextový odkaz na webovou stránku do textu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -60,11 +62,13 @@ try {
 }
 ```
 
-### **Přidání URL hyperlinků k tvarům nebo rámcům**
+### **Přidat URL odkazy na tvary nebo rámy**
 
-Tento ukázkový kód v jazyce Java ukazuje, jak přidat odkaz na webovou stránku do tvaru:
+Tento ukázkový kód v Javě ukazuje, jak přidat hypertextový odkaz na webovou stránku do tvaru:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -78,22 +82,24 @@ try {
 }
 ```
 
-### **Přidání URL hyperlinků k médiím**
+### **Přidat URL odkazy na média**
 
-Aspose.Slides vám umožňuje přidávat hyperlinky k obrázkům, zvukovým a video souborům. 
+Aspose.Slides vám umožňuje přidávat hypertextové odkazy na obrázky, audio a video soubory. 
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **obrázku**:
+Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz na **obrázek**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Přidá obrázek do prezentace
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
 	// Vytvoří rámeček obrázku na snímku 1 na základě dříve přidaného obrázku
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
@@ -102,15 +108,19 @@ try {
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **zvukovému souboru**:
+Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz na **audio soubor**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -126,9 +136,14 @@ try {
 }
 ```
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **videu**:
+Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz na **video**:
 
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -144,17 +159,20 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{% alert title="Tip" color="info" %}} 
 Možná budete chtít vidět *[Spravovat OLE](/slides/cs/java/manage-ole/)*.
 {{% /alert %}}
 
 ## **Použití hypertextových odkazů k vytvoření obsahu**
 
-Protože hypertextové odkazy umožňují přidávat odkazy na objekty nebo místa, můžete je použít k vytvoření obsahu.
+Protože hypertextové odkazy vám umožňují přidávat odkazy na objekty nebo místa, můžete je použít k vytvoření obsahu.
 
 Tento ukázkový kód ukazuje, jak vytvořit obsah s hypertextovými odkazy:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -183,15 +201,18 @@ try {
 }
 ```
 
-## **Formátování hypertextových odkazů**
+## **Formátovat hypertextové odkazy**
 
 ### **Barva**
 
-S vlastností [ColorSource](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Hyperlink#setColorSource-int-) v rozhraní [IHyperlink](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlink) můžete nastavit barvu pro hypertextové odkazy a také získat informaci o barvě z hyperlinků. Tato funkce byla poprvé představena v PowerPointu 2019, takže změny týkající se této vlastnosti se nepoužijí na starší verze PowerPointu.
+Pomocí vlastnosti [ColorSource](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Hyperlink#setColorSource-int-) v rozhraní [IHyperlink](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlink) můžete nastavit barvu hypertextových odkazů a také získat informaci o barvě odkazů. Tato funkce byla poprvé představena v PowerPointu 2019, takže změny týkající se této vlastnosti se nevztahují na starší verze PowerPointu.
 
 Tento ukázkový kód demonstruje operaci, při které byly na stejný snímek přidány hypertextové odkazy s různými barvami:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -212,21 +233,23 @@ try {
 }
 ```
 
-## **Odstranění hypertextových odkazů z prezentací**
+## **Odstranit hypertextové odkazy z prezentací**
 
-### **Odstranění hypertextových odkazů z textu**
+### **Odstranit hypertextové odkazy z textu**
 
-Tento kód v jazyce Java ukazuje, jak odstranit hypertextový odkaz z textu na snímku prezentace:
+Tento Java kód ukazuje, jak odstranit hypertextový odkaz z textu v snímku prezentace:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -243,12 +266,14 @@ try {
 }
 ```
 
-### **Odstranění hypertextových odkazů z tvarů nebo rámců**
+### **Odstranit hypertextové odkazy z tvarů nebo rámců**
 
-Tento kód v jazyce Java ukazuje, jak odstranit hypertextový odkaz z tvaru na snímku prezentace: 
+Tento Java kód ukazuje, jak odstranit hypertextový odkaz z tvaru v snímku prezentace: 
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -261,9 +286,9 @@ try {
 }
 ```
 
-## **Měnitelný hypertextový odkaz**
+## **Změnitelný Hyperlink**
 
-Třída [Hyperlink](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Hyperlink) je měnitelná. Pomocí této třídy můžete měnit hodnoty následujících vlastností:
+Třída [Hyperlink](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Hyperlink) je měnitelná. Pomocí této třídy můžete měnit hodnoty těchto vlastností:
 
 - [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
 - [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
@@ -271,9 +296,11 @@ Třída [Hyperlink](https://reference.aspose.com/slides/cs/java/com.aspose.slide
 - [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
 - [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Tento útržek kódu ukazuje, jak přidat hypertextový odkaz na snímek a později upravit jeho popisek (tooltip):
+Úryvek kódu ukazuje, jak přidat hypertextový odkaz do snímku a později upravit jeho tooltip:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -284,6 +311,9 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Změní tooltip hypertextového odkazu, který již byl přidán
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
@@ -292,7 +322,7 @@ try {
 
 ## **Podporované vlastnosti v IHyperlinkQueries**
 
-Můžete získat přístup k [IHyperlinkQueries](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlinkQueries) z prezentace, snímku nebo textu, pro který je hypertextový odkaz definován. 
+K [IHyperlinkQueries](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlinkQueries) můžete přistupovat z prezentace, snímku nebo textu, pro který je hypertextový odkaz definován. 
 
 - [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
 - [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
@@ -305,16 +335,16 @@ Třída [IHyperlinkQueries](https://reference.aspose.com/slides/cs/java/com.aspo
 - [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
 - [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jak mohu vytvořit vnitřní navigaci nejen k snímku, ale i k „sekci“ nebo k prvnímu snímku sekce?**
+### Jak mohu vytvořit vnitřní navigaci nejen na snímek, ale na „sekci“ nebo první snímek sekce?
 
-Sekce v PowerPointu jsou seskupení snímků; navigace technicky cílí na konkrétní snímek. Chcete-li „přejít do sekce“, obvykle odkazujete na její první snímek.
+Sekce v PowerPointu jsou seskupení snímků; navigace technicky cílí na konkrétní snímek. Pro „navigaci do sekce“ obvykle odkazujete na její první snímek.
 
-**Mohu připojit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
+### Mohu přiřadit hypertextový odkaz k elementům hlavního snímku, aby fungoval na všech snímcích?
 
-Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Tyto odkazy se objeví na podřízených snímcích a jsou klikatelné během prezentace.
+Ano. Prvky hlavního snímku a rozložení podporují hypertextové odkazy. Takové odkazy se zobrazí na podřízených snímcích a jsou klikatelné během prezentace.
 
-**Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
+### Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?
 
-V [PDF](/slides/cs/java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/java/convert-powerpoint-to-html/) ano — odkazy jsou obecně zachovány. Při exportu do [obrázků](/slides/cs/java/convert-powerpoint-to-png/) a [videí](/slides/cs/java/convert-powerpoint-to-video/) nebude klikatelnost zachována kvůli povaze těchto formátů (rasterové snímky/video nepodporují hypertextové odkazy).
+V [PDF](/slides/cs/java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/java/convert-powerpoint-to-html/) ano – odkazy jsou obecně zachovány. Při exportu do [obrázků](/slides/cs/java/convert-powerpoint-to-png/) a [videí](/slides/cs/java/convert-powerpoint-to-video/) klikatelnost nepřetrvá kvůli povaze těchto formátů (rasterové snímky/video nepodporují hypertextové odkazy).

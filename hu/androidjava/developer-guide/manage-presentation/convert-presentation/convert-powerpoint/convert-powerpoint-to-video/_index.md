@@ -1,54 +1,50 @@
 ---
-title: PowerPoint bemutatók konvertálása videóvá Androidon
-linktitle: PowerPoint videóra
+title: PowerPoint prezentációk videóvá konvertálása Androidon
+linktitle: PowerPoint videóvá
 type: docs
 weight: 130
 url: /hu/androidjava/convert-powerpoint-to-video/
 keywords:
-- PowerPoint konvertálása
-- prezentáció konvertálása
-- PPT konvertálása
-- PPTX konvertálása
-- PowerPoint videóvá
-- prezentáció videóvá
-- PPT videóvá
-- PPTX videóvá
-- PowerPoint MP4-re
-- prezentáció MP4-re
-- PPT MP4-re
-- PPTX MP4-re
+- PowerPoint átalakítása
+- prezentáció átalakítása
+- PPT átalakítása
+- PPTX átalakítása
+- PowerPoint videóvá alakítása
+- prezentáció videóvá alakítása
+- PPT videóvá alakítása
+- PPTX videóvá alakítása
+- PowerPoint MP4-re konvertálása
+- prezentáció MP4-re konvertálása
+- PPT MP4-re konvertálása
+- PPTX MP4-re konvertálása
 - PPT mentése MP4-ként
 - PPTX mentése MP4-ként
-- PPT exportálása MP4-ba
-- PPTX exportálása MP4-ba
+- PPT exportálása MP4-be
+- PPTX exportálása MP4-be
 - videó konvertálás
 - PowerPoint
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan konvertálhatja a PowerPoint bemutatókat videóvá Java-ban. Fedezze fel a példakódot és az automatizálási technikákat, hogy egyszerűsítse munkafolyamatát."
+description: "Ismerje meg, hogyan konvertálhat PowerPoint prezentációkat videóvá Java-ban. Fedezze fel a mintakódot és az automatizálási technikákat, hogy egyszerűsítse munkafolyamatát."
 ---
 ## **Bevezetés**
 
-PowerPoint előadás videóvá konvertálásával a következő előnyöket kapja
+A PowerPoint prezentáció videóvá konvertálásával a következő előnyöket kapja  
 
-* **A hozzáférhetőség növekedése:** Minden eszköz (függetlenül a platformtól) alapértelmezetten videolejátszóval rendelkezik a bemutató‑megnyitó alkalmazásokhoz képest, így a felhasználók könnyebben nyitják meg vagy játszák le a videókat.
-* **Nagyobb elérés:** Videók segítségével széles közönséget érhet el, és olyan információval célozhatja meg őket, ami egy bemutatóban esetleg unalmasnak tűnne. A legtöbb felmérés és statisztika azt mutatja, hogy az emberek a videókat többet nézik és fogyasztják, mint más tartalmakat, és általában ezt a formát részesítik előnyben.
+* **Növekvő hozzáférhetőség:** Minden eszköz (függetlenül a platformtól) alapértelmezés szerint videolejátszóval rendelkezik, szemben a prezentációk megnyitását megkíváló alkalmazásokkal, így a felhasználók könnyebben tudnak videókat megnyitni vagy lejátszni.  
+* **Szélesebb elérés:** Videókkal nagy közönséghez juthat el, és olyan információkat célozhat meg, amelyek egy prezentációban unalmasnak tűnhetnek. A legtöbb felmérés és statisztika azt mutatja, hogy az emberek a videókat gyakrabban nézik és fogyasztják más tartalomtípusokkal szemben, és általában előnyben részesítik ezt a formát.  
 
-{{% alert color="primary" %}} 
-Érdemes megnézni a [**PowerPoint to Video Online Converter**](https://products.aspose.app/slides/hu/conversion/ppt-to-word) mert ez egy élő és hatékony megvalósítása a leírt folyamatnak.
-{{% /alert %}} 
+## **PowerPoint videóvá konvertálása az Aspose.Slides-ban**
 
-## **PowerPoint videóvá konvertálása az Aspose.Slides-ben**
+Az Aspose.Slides támogatja a prezentációk videóvá konvertálását.
 
-Az Aspose.Slides támogatja a bemutató videóvá konvertálását.
-
-* Használja a **Aspose.Slides**-t, hogy a bemutató diákból kereteket (frame-eket) állítson elő, amelyek egy adott FPS‑nek (képkocka per másodperc) felelnek meg
-* Használjon egy harmadik fél eszközt, például a **ffmpeg**-et ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) a keretek alapján videó létrehozásához. 
+* **Aspose.Slides** használatával generálhat egy sor képkockát (a prezentáció diái alapján), amely egy adott FPS-nek (képkocka másodpercenként) felel meg  
+* Harmadik fél által biztosított segédprogramot, például a **ffmpeg**-et ([java számára](https://github.com/bramp/ffmpeg-cli-wrapper)) használhat a képkockák alapján videó elkészítéséhez.  
 
 ### **PowerPoint videóvá konvertálása**
 
-1. Adja hozzá ezt a POM fájlhoz:
+1. Add this to your POM file:
 ```xml
    <dependency>
      <groupId>net.bramp.ffmpeg</groupId>
@@ -57,15 +53,20 @@ Az Aspose.Slides támogatja a bemutató videóvá konvertálását.
    </dependency>
 ```
 
-2. Töltse le az ffmpeg-et [itt](https://ffmpeg.org/download.html).
+2. Download ffmpeg [itt](https://ffmpeg.org/download.html).
 
-4. Futtassa a PowerPoint videó Java kódot.
+3. Run the PowerPoint to video Java code.
 
-Ez a Java kód bemutatja, hogyan konvertáljon egy prezentációt (amely egy ábrát és két animációs effektust tartalmaz) videóvá:
+Ez a Java kód bemutatja, hogyan konvertálhat egy prezentációt (amely egy ábrát és két animációs hatást tartalmaz) videóvá:
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
-    // Hozzáad egy mosoly alakzatot, majd animálja
+    // Hozzáad egy mosoly alakzatot, majd animálja azt
     IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
@@ -99,7 +100,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Állítsa be az ffmpeg binárisok mappáját. Lásd ezt az oldalt: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Állítsa be az ffmpeg binárisok mappáját. Lásd ezt az oldalt: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -118,35 +119,48 @@ try {
 }
 ```
 
-## **Videóeffektek**
+## **Videóhatások**
 
-Animációkat alkalmazhat a diák objektumaira, és áttűnéseket használhat a diák között. 
+Animációkat alkalmazhat a diákon lévő objektumokra, és átmeneteket használhat a diák között.  
 
-{{% alert color="primary" %}} 
-Érdemes megtekinteni ezeket a cikkeket: [PowerPoint Animation](https://docs.aspose.com/slides/hu/androidjava/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/hu/androidjava/shape-animation/), és [Shape Effect](https://docs.aspose.com/slides/hu/androidjava/shape-effect/).
+{{% alert color="info" %}} 
+
+Érdemes megnéznie ezeket a cikkeket: [PowerPoint Animation](https://docs.aspose.com/slides/hu/androidjava/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/hu/androidjava/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/hu/androidjava/shape-effect/).
+
 {{% /alert %}} 
 
-Az animációk és áttűnések élvezetesebbé és érdekesebbé teszik a diavetítéseket – és ugyanígy működnek a videókkal is. Adjunk egy új diát és áttűnést a korábbi prezentáció kódjához:
+Az animációk és átmenetek élvezetesebbé és érdekesebbé teszik a diavetítéseket – és ugyanezt teszik a videókkal is. Adjunk hozzá egy új diát és átmenetet a korábbi prezentáció kódjához:
+
 ```java
-// Hozzáad egy mosoly alakzatot és animálja
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+// Az előbb létrehozott animált mosoly alakzatot tartalmazó prezentáció.
+Presentation presentation = new Presentation();
+try {
+    // Új diát és animált átmenetet ad hozzá
 
-// Hozzáad egy új diát és animált átmenetet
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Az Aspose.Slides szöveganimációt is támogat. Így animáljuk az objektumok bekezdéseit, amelyek egyesével fognak megjelenni (az késleltetés egy másodpercre van beállítva):
+Az Aspose.Slides szövegek animálását is támogatja. Így objektumok bekezdéseit animáljuk, amelyek egyesével, egymás után jelennek meg (a késleltetés egy másodpercre van beállítva):
+
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Szöveget és animációkat ad hozzá
@@ -162,18 +176,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -201,7 +212,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Állítsa be az ffmpeg binárisok mappáját. Lásd ezt az oldalt: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Állítsa be az ffmpeg binárisok mappáját. Lásd ezt az oldalt: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -222,14 +233,17 @@ try {
 
 ## **Videókonverziós osztályok**
 
-A PowerPoint videóvá konvertálásához szükséges feladatok elvégzéséhez az Aspose.Slides biztosítja a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationanimationsgenerator/) és a [PresentationPlayer](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationplayer/) osztályokat.
+Az PowerPoint videóvá konvertálási feladatok elvégzéséhez az Aspose.Slides biztosítja a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationanimationsgenerator/) és a [PresentationPlayer](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationplayer/) osztályokat.
 
-[PresentationAnimationsGenerator] lehetővé teszi a videó képkockaméretének beállítását (amelyet később létrehoznak) a konstruktorán keresztül. Ha átad egy prezentáció példányt, a `Presentation.SlideSize` lesz használva, és olyan animációkat generál, amelyeket a [PresentationPlayer] használ.
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationanimationsgenerator/) lehetővé teszi, hogy a videó képkockaméretét (amely később létrejön) a konstruktorán keresztül állítsa be. Ha a prezentáció egy példányát adja át, a `Presentation.SlideSize` lesz felhasználva, és olyan animációkat generál, amelyeket a [PresentationPlayer](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationplayer/) használ.
 
-Amikor az animációk generálódnak, egy `NewAnimation` esemény jön létre minden egyes következő animációhoz, amelynek van egy [IPresentationAnimationPlayer] paramétere. Az utóbbi egy osztály, amely egy külön animáció lejátszóját képviseli.
+When animations are generated, a `NewAnimation` event is generated for each subsequent animation, which has the [IPresentationAnimationPlayer](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationanimationplayer/) parameter. The latter is a class that represents a player for a separate animation.
 
-Az [IPresentationAnimationPlayer] használatához a [Duration] (az animáció teljes időtartama) tulajdonságot és a [SetTimePosition] metódust használjuk. Minden animáció pozíciója a *0 és a duration* tartományon belül van beállítva, majd a `GetFrame` metódus egy BufferedImage-et ad vissza, amely az adott pillanatban az animáció állapotát mutatja:
+To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationanimationplayer/), the [Duration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `getFrame` method will return an [IImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iimage/) that corresponds to the animation state at that moment:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Hozzáad egy mosoly alakzatot és animálja
@@ -245,21 +259,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // kezdeti animáció állapota
-            try {
-                // kezdeti animáció állapota bitmap
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+            animationPlayer.setTimePosition(0); // kezdeti animációs állapot
+            // kezdeti animációs állapot bitmap
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // animáció végső állapota
-            try {
-                // animáció utolsó képkockája
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // animáció utolsó képkockája
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // Generálja az animációkat. A fenti visszahívás minden egyes animációra lefut.
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -268,8 +279,11 @@ try {
 }
 ```
 
-Ahhoz, hogy a prezentáció összes animációja egyszerre játsszon le, a [PresentationPlayer] osztályt használjuk. Ez az osztály a konstruktorában kap egy [PresentationAnimationsGenerator] példányt és az FPS-t a hatásokhoz, majd a `FrameTick` eseményt hívja meg az összes animációhoz, hogy lejátszásra kerüljenek:
+To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationplayer/) class is used. This class takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -278,11 +292,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -296,9 +306,9 @@ try {
 }
 ```
 
-Ezután az előállított képkockákat össze lehet állítani egy videóvá. Lásd a [Convert PowerPoint to Video](https://docs.aspose.com/slides/hu/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) részt.
+Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/hu/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.
 
-## **Támogatott animációk és effektusok**
+## **Támogatott animációk és effektek**
 
 **Belépés**:
 
@@ -353,7 +363,7 @@ Ezután az előállított képkockákat össze lehet állítani egy videóvá. L
 | **Swivel** | ![supported](v.png) | ![supported](v.png) |
 | **Bounce** | ![supported](v.png) | ![supported](v.png) |
 
-**Mozgás útvonalak:**
+**Mozgás útvonalak**:
 
 | Animáció típusa | Aspose.Slides | PowerPoint |
 |---|---|---|
@@ -364,16 +374,16 @@ Ezután az előállított képkockákat össze lehet állítani egy videóvá. L
 | **Loops** | ![supported](v.png) | ![supported](v.png) |
 | **Custom Path** | ![supported](v.png) | ![supported](v.png) |
 
-## **FAQ**
+## **GYIK**
 
-**Lehetőség van jelszóval védett prezentációk konvertálására?**
+### Lehetőség van jelszóval védett prezentációk konvertálására?
 
-Igen, az Aspose.Slides lehetővé teszi a [password-protected presentations](/slides/hu/androidjava/password-protected-presentation/) használatát. Az ilyen fájlok feldolgozásakor meg kell adni a megfelelő jelszót, hogy a könyvtár hozzáférhessen a prezentáció tartalmához.
+Igen, az Aspose.Slides lehetővé teszi a [jelszóval védett prezentációk](/slides/hu/androidjava/password-protected-presentation/) használatát. Az ilyen fájlok feldolgozásakor meg kell adnia a helyes jelszót, hogy a könyvtár hozzáférhessen a prezentáció tartalmához.
 
-**Az Aspose.Slides támogatja a felhasználást felhő megoldásokban?**
+### Támogatja-e az Aspose.Slides a felhőmegoldásokat?
 
-Igen, az Aspose.Slides integrálható felhőalkalmazásokba és szolgáltatásokba. A könyvtár úgy van tervezve, hogy szerverkörnyezetben működjön, biztosítva a magas teljesítményt és skálázhatóságot a fájlok csoportos feldolgozásához.
+Igen, az Aspose.Slides integrálható felhőalkalmazásokba és -szolgáltatásokba. A könyvtár úgy lett tervezve, hogy szerverkörnyezetben működjön, biztosítva a magas teljesítményt és a skálázhatóságot a fájlok kötegelt feldolgozásához.
 
-**Vannak méretkorlátozások a prezentációk konvertálása során?**
+### Vannak-e méretkorlátok a konverzió során?
 
-Az Aspose.Slides képes gyakorlatilag bármilyen méretű prezentációt kezelni. Nagyon nagy fájlok esetén azonban további rendszererőforrásokra lehet szükség, és néha ajánlott a prezentáció optimalizálása a teljesítmény javítása érdekében.
+Az Aspose.Slides képes szinte bármilyen méretű prezentáció kezelésére. Nagyon nagy fájlok esetén azonban további rendszererőforrásokra lehet szükség, és gyakran javasolt a prezentáció optimalizálása a teljesítmény javítása érdekében.

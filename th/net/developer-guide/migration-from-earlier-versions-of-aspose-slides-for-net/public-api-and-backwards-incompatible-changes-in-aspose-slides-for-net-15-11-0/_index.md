@@ -6,27 +6,25 @@ weight: 210
 url: /th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/
 keywords:
 - การย้ายข้อมูล
-- โค้ดเดิม
+- โค้ดเก่า
 - โค้ดสมัยใหม่
-- วิธีการเดิม
-- วิธีการสมัยใหม่
+- แนวทางเก่า
+- แนวทางสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ทบทวนการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เกิดการแตกหักใน Aspose.Slides สำหรับ .NET เพื่อการย้าย PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น"
+description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้แตกหักใน Aspose.Slides สำหรับ .NET เพื่อการย้ายข้อมูล PowerPoint PPT, PPTX และ ODP ของคุณได้อย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
-
-หน้านี้แสดงรายการคลาส, เมธอด, คุณสมบัติ ฯลฯ ทั้งหมดที่ [added](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) หรือ [removed](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) ที่เพิ่มหรือที่ถูกลบ, และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำกับ Aspose.Slides for .NET 15.11.0 API.
-
+{{% alert color="info" %}} 
+หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่[เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)หรือ[ลบ](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) และการเปลี่ยนแปลงอื่น ๆ ที่นำมาใช้กับ Aspose.Slides for .NET 15.11.0 API
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
 
 #### **คุณสมบัติที่ล้าสมัยในคลาส DataLabelCollection ถูกลบ**
-Obsolete properties in DataLabelCollection class have been deleted:
+คุณสมบัติที่ล้าสมัยในคลาส DataLabelCollection ถูกลบ:
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -41,23 +39,24 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **คุณสมบัติใหม่ FirstSlideNumber ถูกเพิ่มเข้าในคลาส Presentation**
-The new property FirstSlideNumber added to Presentation allows to get or to set the number of first slide in a presentation.
+#### **คุณสมบัติใหม่ FirstSlideNumber ถูกเพิ่มในคลาส Presentation**
+คุณสมบัติใหม่ FirstSlideNumber ที่เพิ่มใน Presentation ทำให้สามารถรับหรือกำหนดหมายเลขสไลด์แรกของงานนำเสนอได้
 
-When a new FirstSlideNumber value is specified all slide numbers are recalculated.
+เมื่อกำหนดค่าของ FirstSlideNumber ใหม่ หมายเลขสไลด์ทั้งหมดจะถูกคำนวณใหม่
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

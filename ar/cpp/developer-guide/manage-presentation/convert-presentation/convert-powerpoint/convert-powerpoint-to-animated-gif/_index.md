@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint إلى صور GIF متحركة في C++
+title: تحويل عروض PowerPoint التقديمية إلى GIF متحرك في C++
 linktitle: PowerPoint إلى GIF
 type: docs
 weight: 65
@@ -26,34 +26,48 @@ keywords:
 - العرض التقديمي
 - C++
 - Aspose.Slides
-description: "تحويل عروض PowerPoint (PPT, PPTX) بسهولة إلى صور GIF متحركة باستخدام Aspose.Slides للغة C++. نتائج سريعة وعالية الجودة."
+description: "قم بتحويل عروض PowerPoint (PPT, PPTX) بسهولة إلى GIF متحرك باستخدام Aspose.Slides للغة C++. نتائج سريعة وعالية الجودة."
 ---
+## **نظرة عامة**
+
+تسمح لك Aspose.Slides بتحويل عروض PowerPoint التقديمية إلى ملفات GIF متحركة باستخدام عدد قليل من أسطر الشيفرة. هذا مفيد عندما تحتاج إلى مشاركة محتوى الشرائح بتنسيق متحرك خفيف الوزن ومدعوم على نطاق واسع يمكن تضمينه في صفحات الويب أو في تطبيقات المراسلة أو في الوثائق. توضح هذه المقالة كيفية تصدير عرض تقديمي إلى GIF باستخدام الإعدادات الافتراضية وكيفية تخصيص النتيجة عن طريق تكوين خيارات مثل حجم الإطار، وتأخير الشريحة، ومعدل إطار الانتقال عبر [GifOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/gifoptions/).
 
 ## **تحويل العروض التقديمية إلى GIF متحرك باستخدام الإعدادات الافتراضية**
 
-يعرض هذا المثال البرمجي بلغة C++ كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات القياسية:
+يعرض لك هذا المثال البرمجي بلغة C++ كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام الإعدادات القياسية:
+
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif);
 ```
 
+سيتم إنشاء GIF المتحرك باستخدام المعلمات الافتراضية.
 
-سيتم إنشاء GIF المتحرك باستخدام المعلمات الافتراضية. 
-
-{{%  alert  title="نصيحة"  color="primary"  %}} 
-
-إذا كنت تفضل تخصيص معلمات الـ GIF، يمكنك استخدام الفئة [GifOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.gif_options). راجع المثال البرمجي أدناه. 
-
+{{%  alert  title="TIP"  color="info"  %}} 
+إذا كنت تفضّل تخصيص معلمات GIF، يمكنك استخدام الفئة [GifOptions](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.export.gif_options). راجع المثال البرمجي أدناه. 
 {{% /alert %}} 
 
 ## **تحويل العروض التقديمية إلى GIF متحرك باستخدام إعدادات مخصصة**
 
-يعرض هذا المثال البرمجي كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام إعدادات مخصصة في C++:
+يعرض لك هذا المثال البرمجي كيفية تحويل عرض تقديمي إلى GIF متحرك باستخدام إعدادات مخصصة في C++:
+
 ``` cpp
+#include <DOM/Presentation.h>
+#include <Export/GifOptions.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto gifOptions = System::MakeObject<GifOptions>();
 // حجم GIF الناتج
-gifOptions->set_FrameSize(Size(960, 720));
-// المدة التي ستظهر فيها كل شريحة حتى يتم استبدالها بالأخرى
+gifOptions->set_FrameSize(System::Drawing::Size(960, 720));
+// المدة التي ستُظهر فيها كل شريحة قبل أن تتغيّر إلى التالية
 gifOptions->set_DefaultDelay(2000);
 // زيادة عدد الإطارات في الثانية لتحسين جودة حركة الانتقال
 gifOptions->set_TransitionFps(35);
@@ -62,19 +76,16 @@ auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 pres->Save(u"pres.gif", SaveFormat::Gif, gifOptions);
 ```
 
-
-{{% alert title="معلومات" color="info" %}}
-
-قد ترغب في تجربة أداة تحويل مجانية من النص إلى GIF تم تطويرها من قبل Aspose. 
-
+{{% alert title="Info" color="info" %}}
+قد ترغب في الاطلاع على أداة تحويل مجانية [Text to GIF](https://products.aspose.app/slides/ar/text-to-gif) تم تطويرها بواسطة Aspose. 
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**ماذا لو لم تكن الخطوط المستخدمة في العرض التقديمي مثبتة على النظام؟**
+### ماذا لو لم تكن الخطوط المستخدمة في العرض التقديمي مثبتة على النظام؟
 
-قم بتثبيت الخطوط المفقودة أو [اضبط الخطوط الاحتياطية](/slides/ar/cpp/powerpoint-fonts/). ستستبدل Aspose.Slides الخطوط، لكن قد يختلف الشكل. من أجل الهوية التجارية، تأكد دائمًا من توفر الخطوط المطلوبة بشكل صريح.
+قم بتثبيت الخطوط المفقودة أو [تكوين الخطوط الاحتياطية](/slides/ar/cpp/powerpoint-fonts/). سيقوم Aspose.Slides بالبديل، لكن قد يختلف المظهر. بالنسبة للهوية البصرية، تأكد دائمًا من توفر الخطوط المطلوبة بشكل صريح.
 
-**هل يمكنني إضافة علامة مائية على إطارات GIF؟**
+### هل يمكنني وضع علامة مائية فوق إطارات GIF؟
 
-نعم. [أضف كائنًا/شعارًا شبه شفاف](/slides/ar/cpp/watermark/) إلى الشريحة الأساسية أو إلى الشرائح الفردية قبل التصدير — ستظهر العلامة المائية على كل إطار.
+نعم. يمكنك [إضافة كائن/شعار شبه شفاف](/slides/ar/cpp/watermark/) إلى الشريحة الرئيسية أو إلى الشرائح الفردية قبل التصدير — ستظهر العلامة المائية على كل إطار.

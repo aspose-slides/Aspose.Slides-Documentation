@@ -1,91 +1,125 @@
 ---
-title: ایحاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در C++
-linktitle: ایحاد یا به‌روزرسانی نمودارها
+title: ایجاد یا بروزرسانی نمودارهای ارائه پاورپوینت در C++
+linktitle: ایجاد یا بروزرسانی نمودارها
 type: docs
 weight: 10
 url: /fa/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
-- افزودن نمودار
-- ایجاد نمودار
-- ویرایش نمودار
-- تغییر نمودار
-- به‌روزرسانی نمودار
-- نمودار پراکنده
-- نمودار دایره‌ای
-- نمودار خطی
-- نمودار درخت‌نقشه
-- نمودار سهام
-- نمودار جعبه‌ای و شانه‌ای
-- نمودار قیفی
-- نمودار خورشیدگرد
-- نمودار هیستوگرام
-- نمودار رادار
-- نمودار چنددسته‌ای
-- PowerPoint
-- ارائه
-- C++
-- Aspose.Slides
-description: "نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای C++ ایجاد و سفارشی کنید. نمودارها را اضافه، قالب‌بندی و ویرایش کنید با مثال‌های کد عملی در C++."
+  - افزودن نمودار
+  - ایجاد نمودار
+  - ویرایش نمودار
+  - تغییر نمودار
+  - بروزرسانی نمودار
+  - نمودار پراکنده
+  - نمودار دایره‌ای
+  - نمودار خطی
+  - نمودار درخت‌نقشه
+  - نمودار سهام
+  - نمودار جعبه‌ای و ویسکر
+  - نمودار قیفی
+  - نمودار شعاعی
+  - نمودار هیستوگرام
+  - نمودار رادار
+  - نمودار چنددسته‌ای
+  - پاورپوینت
+  - ارائه
+  - C++
+  - Aspose.Slides
+description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های پاورپوینت با استفاده از Aspose.Slides برای C++. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کاربردی کد در C++."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله راهنمای جامعی برای ایجاد و سفارشی‌سازی نمودارها با Aspose.Slides ارائه می‌دهد. شما خواهید آموخت که چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلفی را برای مطابقت با نیازهای طراحی خاص خود اعمال کنید. در طول مقاله، مثال‌های کد دقیق هر گام را نشان می‌دهند؛ از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سری‌ها، محورها و افسانه‌ها. با دنبال کردن این راهنما، درک محکمی از چگونگی یکپارچه‌سازی تولید دینامیک نمودار در برنامه‌های خود به دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله راهنمای جامع‌ای برای ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides ارائه می‌دهد. شما می‌آموزید چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلف را اعمال کنید تا مطابق با الزامات طراحی خاص شما باشد. در طول مقاله، مثال‌های کد تفصیلی هر گام را نشان می‌دهند؛ از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سeries، محورها و لیجندها. با دنبال کردن این راهنما، درک محکمی از چگونگی یکپارچه‌سازی تولید دینامیک نمودار در برنامه‌های خود به دست می‌آورید و فرایند ساخت ارائه‌های مبتنی بر داده را ساده می‌کنید.
 
 ## **ایجاد نمودار**
 
-نمودارها به افراد کمک می‌کنند تا داده‌ها را به‌سرعت تجسم کنند و بینش‌هایی پیدا کنند که شاید از یک جدول یا صفحه‌گسترده به‌وضوح دیده نشود.
+نمودارها به افراد کمک می‌کنند تا داده‌ها را به‌سرعت بصری‌سازی کرده و بینش‌های جدیدی کسب کنند که ممکن است از یک جدول یا صفحه‌گسترده به‌راحتی قابل مشاهده نباشند.
 
-**چرا باید نمودار بسازیم؟**
+**چرا ایجاد نمودار؟**
 
-استفاده از نمودارها به شما این امکان را می‌دهد که
+استفاده از نمودارها به شما امکان می‌دهد
 
-* مقادیر زیاد داده را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید
-* الگوها و روندهای داده را آشکار کنید
-* جهت و شتاب داده را در طول زمان یا نسبت به واحد اندازه‌گیری خاصی استنتاج کنید
-* نقاط دورنگام، ناهنجاری‌ها، انحراف‌ها، خطاها، داده‌های بی‌معنی و غیره را شناسایی کنید
+* حجم زیادی از داده‌ها را در یک اسلاید تجمیع، فشرده یا خلاصه کنید
+* الگوها و روندهای موجود در داده‌ها را آشکار کنید
+* جهت و شتاب داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید
+* نقاط دور افتادگی، انحرافات، خطاها، داده‌های نامعقول و غیره را شناسایی کنید
 * داده‌های پیچیده را به‌صورت مؤثر ارتباط یا ارائه دهید
 
-در PowerPoint می‌توانید از طریق تابع Insert نمودارها را ایجاد کنید؛ این تابع قالب‌های متنوعی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با استفاده از Aspose.Slides می‌توانید نمودارهای معمولی (بر پایهٔ انواع مشهور نمودار) و نمودارهای سفارشی بسازید.
+در PowerPoint می‌توانید از طریق تابع Insert نمودارها را ایجاد کنید؛ این تابع قالب‌هایی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با استفاده از Aspose.Slides می‌توانید نمودارهای معمولی (بر پایهٔ انواع رایج نمودار) و نمودارهای سفارشی ایجاد کنید.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-برای ایجاد نمودار، Aspose.Slides کلاس enum [ChartType](https://reference.aspose.com/slides/fa/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) را تحت فضایی‌نام [Aspose::Slides::Charts](https://reference.aspose.com/slides/fa/cpp/namespace/aspose.slides.charts/) ارائه می‌کند. مقادیر این enum به انواع مختلف نمودارها متناظر هستند. 
+برای امکان‌پذیر ساختن ایجاد نمودارها، Aspose.Slides کلاس enum [ChartType](https://reference.aspose.com/slides/fa/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) را تحت فضای نام [Aspose::Slides::Charts](https://reference.aspose.com/slides/fa/cpp/namespace/aspose.slides.charts/) فراهم می‌کند. مقادیر این enum به انواع مختلف نمودارها مت对应 می‌شوند. 
 
 {{% /alert %}} 
 
-### **ایجاد نمودارهای عادی**
+### **ایجاد نمودارهای معمولی**
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های اولیه اضافه کنید و نوع نمودار مورد نظر خود را تعیین کنید.  
-1. عنوانی برای نمودار تعیین کنید.  
-1. به کاربرگ دادهٔ نمودار دسترسی پیدا کنید.  
-1. تمام سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با برخی داده‌ها اضافه کنید و نوع نمودار مورد نظر خود را مشخص کنید.  
+1. عنوانی برای نمودار اضافه کنید.  
+1. به برگهٔ داده‌های نمودار دسترسی پیدا کنید.  
+1. تمام سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
 1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.  
 1. رنگ پر کردن برای سری‌های نمودار تنظیم کنید.  
-1. برچسب‌هایی برای سری‌های نمودار اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. برچسب‌ها را برای سری‌های نمودار اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-این کد C++ نشان می‌دهد چگونه یک نمودار عادی ایجاد کنید:
+این کد C++ نشان می‌دهد چگونه یک نمودار معمولی ایجاد کنید:
 
 ```c++
-// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
 	// یک نمونه از کلاس ارائه ایجاد می‌کند که نمایانگر یک فایل PPTX است
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// به اسلاید اول دسترسی می‌یابد
+	// دسترس به اسلاید اول
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+	// یک نمودار با دادهٔ پیش‌فرض اضافه می‌کند
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
-	// اندیس شیت دادهٔ نمودار را تنظیم می‌کند
+	// ایندکس شیت دادهٔ نمودار را تنظیم می‌کند
 	int defaultWorksheetIndex = 0;
 
-	// ورق کار دادهٔ نمودار را دریافت می‌کند
+	// برگهٔ دادهٔ نمودار را دریافت می‌کند
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// عنوان نمودار را تنظیم می‌کند
@@ -94,7 +128,7 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// سری‌ها و دسته‌بندی‌های پیش‌فرض تولید‌شده را حذف می‌کند
+	// سری‌ها و دسته‌های پیش‌فرض ایجاد شده را حذف می‌کند
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
@@ -105,7 +139,7 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// دسته‌بندی‌ها را اضافه می‌کند
+	// دسته‌ها را اضافه می‌کند
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
@@ -137,14 +171,14 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// برچسب اول به‌طوری تنظیم می‌شود که نام دسته را نشان دهد
+	// برچسب اول طوری تنظیم شده است که نام دسته را نمایش دهد
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// مقدار برچسب سوم نشان داده می‌شود
+	// مقدار را برای برچسب سوم نمایش می‌دهد
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
@@ -155,29 +189,67 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 
 ```
 
-### **ایجاد نمودارهای پراکنده**
-نمودارهای پراکنده (که به‌عنوان scatter plots یا گراف‌های x‑y نیز شناخته می‌شوند) برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر اغلب استفاده می‌شوند.
+### **ایجاد نمودارهای پراکندگی**
+نمودارهای پراکندگی (که به‌عنوان scatter plots یا نمودارهای x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نمایش همبستگی بین دو متغیر استفاده می‌شوند.
 
-ممکن است بخواهید از نمودار پراکنده استفاده کنید وقتی که
+ممکن است بخواهید از نمودار پراکندگی استفاده کنید وقتی
 
 * داده‌های عددی جفت‌ شده دارید
-* دو متغیر دارید که به‌خوبی با هم جفت می‌شوند
-* می‌خواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه
-* یک متغیر مستقل دارید که برای یک متغیر وابسته مقادیر متعددی دارد
+* دو متغیری دارید که به‌خوبی با هم جفت می‌شوند
+* می‌خواهید تعیین کنید آیا دو متغیر به هم مرتبط هستند یا خیر
+* یک متغیر مستقل دارید که مقادیر متعددی برای متغیر وابسته دارد
 
-این کد C++ نشان می‌دهد چگونه یک نمودار پراکنده با سری‌های مختلف نشانگرها ایجاد کنید:
+این کد C++ نشان می‌دهد چگونه یک نمودار پراکندگی با مجموعهٔ متفاوتی از نشانگرها ایجاد کنید:
 
 ```c++
-// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	//یک نمونه از کلاس ارائه ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	// یک نمونه از کلاس ارائه که نمایانگر یک فایل PPTX است
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//به اسلاید اول دسترسی می‌یابد
+	// دسترسی به اسلاید اول
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+	// یک نمودار با دادهٔ پیش‌فرض اضافه می‌کند
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
 	// عنوان نمودار را تنظیم می‌کند
@@ -186,13 +258,13 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// سری‌های پیش‌فرض تولید‌شده را حذف می‌کند 
+	// سری‌های پیش‌فرض ایجاد شده را حذف می‌کند
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// اندیس شیت دادهٔ نمودار را تنظیم می‌کند
+	// ایندکس شیت دادهٔ نمودار را تنظیم می‌کند
 	int defaultWorksheetIndex = 0;
 
-	// ورق کار دادهٔ نمودار را دریافت می‌کند
+	// برگهٔ دادهٔ نمودار را دریافت می‌کند
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
@@ -264,7 +336,7 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 
 
 	SharedPtr<IChartDataPoint> point2 = series->get_DataPoints()->idx_get(2);
-	point2->get_Format()->set_Fill()->set_FillType(FillType::Solid);
+	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
 	// حاشیهٔ بخش را تنظیم می‌کند
@@ -292,7 +364,7 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// خطوط راهنمای نمودار را نشان می‌دهد
+	// خطوط راهنما برای نمودار را نمایش می‌دهد
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
 	// زاویهٔ چرخش بخش‌های نمودار دایره‌ای را تنظیم می‌کند
@@ -304,34 +376,71 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 ```
 
 ### **ایجاد نمودارهای دایره‌ای**
-نمودارهای دایره‌ای برای نشان دادن نسبت بخش به کل داده‌ها، به‌ویژه زمانی که داده‌ها شامل برچسب‌های رده‌ای با مقادیر عددی باشند، مناسب هستند. اما اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، ممکن است بهتر باشد به جای آن از نمودار ستونی استفاده کنید.
+نمودارهای دایره‌ای بهترین کاربرد را برای نشان دادن رابطهٔ بخش به کل در داده‌ها دارند، به‌ویژه وقتی داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. اما اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، بهتر است به‌جای آن از نمودار میله‌ای استفاده کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (در این مورد، `ChartType.Pie`) اضافه کنید.  
-1. به کاربرگ دادهٔ نمودار IChartDataWorkbook دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
-1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. نقاط جدید برای نمودار اضافه کنید و رنگ‌های سفارشی برای بخش‌های نمودار دایره‌ای تنظیم کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع مورد نظر (در این مثال `ChartType.Pie`) اضافه کنید.  
+1. به `IChartDataWorkbook` داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.  
+1. نقاط جدیدی برای نمودارها اضافه کنید و رنگ‌های سفارشی برای بخش‌های نمودار دایره‌ای تنظیم کنید.  
 1. برچسب‌ها را برای سری‌ها تنظیم کنید.  
-1. خطوط رهنمایی برای برچسب‌های سری تنظیم کنید.  
+1. خطوط راهنما برای برچسب‌های سری تنظیم کنید.  
 1. زاویهٔ چرخش اسلایدهای نمودار دایره‌ای را تنظیم کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد C++ نشان می‌دهد چگونه یک نمودار دایره‌ای ایجاد کنید:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+	// مسیر به پوشه اسناد.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	// یک نمونه از کلاس Presentation ایجاد می‌کند که یک فایل PPTX را نمایان می‌سازد
+	// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// به اسلاید اول دسترسی می‌یابد
+	// دسترسی به اسلاید اول
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+	// یک نمودار با داده پیش‌فرض اضافه می‌کند
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
 	// عنوان نمودار را تنظیم می‌کند
@@ -340,17 +449,17 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// سری‌ها و دسته‌بندی‌های پیش‌فرض تولید‌شده را حذف می‌کند
+	// سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// ایندکس برگه دادهٔ نمودار را تنظیم می‌کند
+	// ایندکس شیت دادهٔ نمودار را تنظیم می‌کند
 	int defaultWorksheetIndex = 0;
 
-	// برگه کار دادهٔ نمودار را دریافت می‌کند
+	// برگه دادهٔ نمودار را دریافت می‌کند
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// دسته‌بندی‌ها را اضافه می‌کند
+	// دسته‌ها را اضافه می‌کند
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
@@ -419,7 +528,7 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// سری را طوری تنظیم می‌کند که خطوط راهنما برای نمودار نمایش داده شود
+	// سری را برای نمایش خطوط راهنما در نمودار تنظیم می‌کند
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
 	// زاویهٔ چرخش بخش‌های نمودار دایره‌ای را تنظیم می‌کند
@@ -432,29 +541,57 @@ description: "نمودارها را در ارائه‌های PowerPoint با ا�
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (که به‌عنوان line graphs نیز شناخته می‌شوند) برای نمایش تغییرات مقدار در طول زمان مناسب‌اند. با استفاده از نمودار خطی می‌توانید داده‌های زیادی را هم‌زمان مقایسه کنید، تغییرات و روندها را در طول زمان ردیابی کنید، ناهنجاری‌ها را در سری‌های داده برجسته کنید و غیره.
+نمودارهای خطی (که به‌عنوان line graphs نیز شناخته می‌شوند) برای موقعیت‌هایی مناسب‌اند که می‌خواهید تغییرات مقدار در طول زمان را نشان دهید. با استفاده از یک نمودار خطی می‌توانید داده‌های زیادی را همزمان مقایسه کنید، تغییرات و روندها را در طول زمان ردیابی کنید، ناهنجاری‌ها را در سری داده‌ها برجسته کنید و غیره.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (در این مورد، `ChartType::Line`) اضافه کنید.  
-1. به کاربرگ دادهٔ نمودار IChartDataWorkbook دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
-1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع مورد نظر (در این مثال `ChartType::Line`) اضافه کنید.  
+1. به `IChartDataWorkbook` داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد C++ نشان می‌دهد چگونه یک نمودار خطی ایجاد کنید:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-به‌طور پیش‌فرض نقاط یک نمودار خطی توسط خطوط مستقیم پیوسته به‌هم متصل می‌شوند. اگر می‌خواهید به‌جای خطوط پیوسته از خط‌های نقطه‌چین استفاده کنید، می‌توانید نوع dash دلخواه خود را به‌این شکل مشخص کنید:
+به‌طور پیش‌فرض، نقاط یک نمودار خطی با خطوط پیوستهٔ مستقیم به‌هم متصل می‌شوند. اگر می‌خواهید به‌جای خطوط پیوسته از خط‌چین استفاده کنید، می‌توانید نوع dash مورد نظر خود را به‌این شکل مشخص کنید:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+auto pres = System::MakeObject<Presentation>();
+
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
 {
@@ -464,27 +601,51 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 ### **ایجاد نمودارهای درخت‌نقشه (Tree Map)**
 
-نمودارهای درخت‌نقشه برای داده‌های فروش مناسب هستند وقتی که می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و هم‌زمان به‌سرعت توجه را به آیتم‌های بزرگ‌مساهم هر دسته جلب کنید.
+نمودارهای درخت‌نقشه برای داده‌های فروش مناسب‌اند وقتی می‌خواهید اندازهٔ نسبی دسته‌های داده را نشان دهید و هم‌زمان به‌سرعت به مواردی که سهم بزرگ‌تری در هر دسته دارند، توجه جلب کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (در این مورد، `ChartType.TreeMap`) اضافه کنید.  
-1. به کاربرگ دادهٔ نمودار IChartDataWorkbook دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
-1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع مورد نظر (در این مثال `ChartType.TreeMap`) اضافه کنید.  
+1. به `IChartDataWorkbook` داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد C++ نشان می‌دهد چگونه یک نمودار درخت‌نقشه ایجاد کنید:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/ParentLabelLayoutType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	//یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	//یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// به اسلاید اول دسترسی می‌یابد
+	// دسترسی به اسلاید اول
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Treemap, 50, 50, 500, 400);
@@ -540,43 +701,70 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 ### **ایجاد نمودارهای سهام (Stock)**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (`ChartType.OpenHighLowClose`) اضافه کنید.  
-1. به کاربرگ دادهٔ نمودار IChartDataWorkbook دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
-1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. قالب‌بندی خطوط HiLowLines را مشخص کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع `ChartType.OpenHighLowClose` اضافه کنید.  
+1. به `IChartDataWorkbook` داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.  
+1. قالب‌بندی HiLowLines را تعیین کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-مثال کد C++ برای ایجاد نمودار سهام:
+نمونهٔ کد C++ برای ایجاد یک نمودار سهام:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IUpDownBarsManager.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	//یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//به اسلاید اول دسترسی می‌یابد
+	// دسترسی به اسلاید اول
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+	// یک نمودار با داده پیش‌فرض اضافه می‌کند
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
-	// اندیس شیت دادهٔ نمودار را تنظیم می‌کند
+	// ایندکس شیت دادهٔ نمودار را تنظیم می‌کند
 	int defaultWorksheetIndex = 0;
 
-	// ورق کار دادهٔ نمودار را دریافت می‌کند
+	// برگهٔ دادهٔ نمودار را دریافت می‌کند
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// سری‌ها و دسته‌بندی‌های پیش‌فرض تولید‌شده را حذف می‌کند
+	// سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// دسته‌بندی‌ها را اضافه می‌کند
+	// دسته‌ها را اضافه می‌کند
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
@@ -615,7 +803,7 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
 
-	// گروه سری‌ها را تنظیم می‌کند
+	// گروه سری را تنظیم می‌کند
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars (true);
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 
@@ -630,27 +818,47 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **ایجاد نمودارهای جعبه‌ای و شانه‌ای (Box and Whisker)**
+### **ایجاد نمودارهای جعبه‌ای و ویسکر (Box and Whisker)**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (`ChartType.BoxAndWhisker`) اضافه کنید.  
-1. به کاربرگ دادهٔ نمودار IChartDataWorkbook دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
-1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع `ChartType.BoxAndWhisker` اضافه کنید.  
+1. به `IChartDataWorkbook` داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-این کد C++ نشان می‌دهد چگونه یک نمودار جعبه‌ای و شانه‌ای ایجاد کنید:
+این کد C++ نشان می‌دهد چگونه یک نمودار جعبه‌ای و ویسکر ایجاد کنید:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/QuartileMethodType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// به اسلاید اول دسترسی می‌یابد
+	// دسترسی به اسلاید اول
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -688,20 +896,39 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **ایجاد نمودارهای قیفی (Funnel)**
+### **ایجاد نمودارهای قیف (Funnel)**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (`ChartType.Funnel`) اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع `ChartType.Funnel` اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-این کد C++ نشان می‌دهد چگونه یک نمودار قیفی ایجاد کنید:
+این کد C++ نشان می‌دهد چگونه یک نمودار قیف ایجاد کنید:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	// یک نمونه از کلاس Presentation که نمایانگر فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// به اسلاید اول دسترسی می‌یابد
@@ -736,20 +963,43 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **ایجاد نمودارهای خورشیدگرد (Sunburst)**
+### **ایجاد نمودارهای شعاعی (Sunburst)**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (در این مورد، `ChartType.sunburst`) اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع `ChartType.sunburst` اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-این کد C++ نشان می‌دهد چگونه یک نمودار خورشیدگرد ایجاد کنید:
+این کد C++ نشان می‌دهد چگونه یک نمودار شعاعی ایجاد کنید:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// به اسلاید اول دسترسی می‌یابد
@@ -798,30 +1048,53 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// فایل ارائه را بر روی دیسک می‌نویسد
+	// فایل ارائه را روی دیسک می‌نویسد
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+
 ```
 
-### **ایجاد نمودارهای هیستوگرام (Histogram)**
+### **ایجاد نمودارهای هیستوگرام**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های اولیه اضافه کنید و نوع دلخواه خود (`ChartType.Histogram`) را تعیین کنید.  
-1. به کاربرگ دادهٔ نمودار `IChartDataWorkbook` دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌هایی اضافه کنید و نوع `ChartType.Histogram` را انتخاب کنید.  
+1. به `IChartDataWorkbook` داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد C++ نشان می‌دهد چگونه یک نمودار هیستوگرام ایجاد کنید:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// به اسلاید اول دسترسی می‌یابد
+	// دسترسی به اسلاید اول
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -846,16 +1119,24 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **ایجاد نمودارهای رادار (Radar)**
+### **ایجاد نمودارهای راداری**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های اولیه اضافه کنید و نوع دلخواه خود (`ChartType.Radar`) را تعیین کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌ای اضافه کنید و نوع `ChartType.Radar` را انتخاب کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
-این کد C++ نشان می‌دهد چگونه یک نمودار رادار ایجاد کنید:
+این کد C++ نشان می‌دهد چگونه یک نمودار راداری ایجاد کنید:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
@@ -865,33 +1146,55 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 ### **ایجاد نمودارهای چنددسته‌ای (Multi-Category)**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) ایجاد کنید.  
-1. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-1. یک نمودار با داده‌های پیش‌فرض و نوع دلخواه (`ChartType.ClusteredColumn`) اضافه کنید.  
-1. به کاربرگ دادهٔ نمودار IChartDataWorkbook دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
-1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+1. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+1. یک نمودار با داده‌های پیش‌فرض و نوع `ChartType.ClusteredColumn` اضافه کنید.  
+1. به `IChartDataWorkbook` داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد C++ نشان می‌دهد چگونه یک نمودار چنددسته‌ای ایجاد کنید:
 
 ```c++
-	// مسیر پوشه اسناد.
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// مسیر به پوشهٔ اسناد.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+	// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// به اسلاید اول دسترسی می‌یابد
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+	// یک نمودار با داده پیش‌فرض اضافه می‌کند
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// اندیس شیت دادهٔ نمودار را تنظیم می‌کند
+	// ایندکس شیت دادهٔ نمودار را تنظیم می‌کند
 	int defaultWorksheetIndex = 0;
 
-	// ورق کار دادهٔ نمودار را دریافت می‌کند
+	// برگهٔ دادهٔ نمودار را دریافت می‌کند
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 	// کاربرگ را پاک می‌کند
@@ -901,7 +1204,7 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	chart->get_ChartData()->get_Categories()->Clear();
 
 
-	// دسته‌بندی‌ها را اضافه می‌کند
+	// دسته‌ها را اضافه می‌کند
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
@@ -938,11 +1241,21 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 ### **ایجاد نمودارهای نقشه (Map)**
 
-نقشه‌نمودار تصویری از یک ناحیه با داده‌هاست. نمودارهای نقشه برای مقایسه داده‌ها یا مقادیر در مناطق جغرافیایی مختلف مناسب هستند.
+نمودار نقشه تصویری از منطقه‌ای است که شامل داده‌ها می‌شود. نمودارهای نقشه بهترین کاربرد را برای مقایسه داده‌ها یا مقادیر در مناطق جغرافیایی مختلف دارند.
 
 این کد C++ نشان می‌دهد چگونه یک نمودار نقشه ایجاد کنید:
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
@@ -951,18 +1264,59 @@ pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 ### **ایجاد نمودارهای ترکیبی (Combination)**
 
-نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا شباهت‌های بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و ارتباطات بین آن‌ها را شناسایی کنید.
+نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک نمودار ترکیب می‌کند. این نمودار به شما اجازه می‌دهد تا تفاوت‌ها بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و به شناسایی روابط بین آنها کمک می‌کند.
 
 ![The combination chart](combination_chart.png)
 
-کد C++ زیر نحوهٔ ایجاد نمودار ترکیبی نمایش داده‌شده در بالا را در یک ارائهٔ PowerPoint نشان می‌دهد:
+کد C++ زیر نشان می‌دهد چگونه نمودار ترکیبی نشان‌داده‌شده در بالا را در یک ارائهٔ PowerPoint ایجاد کنید:
 
 ```cpp
+#include <DOM/Chart/AxisPositionType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IAxisFormat.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // عنوان نمودار را تنظیم کنید.
+    // تنظیم عنوان نمودار.
     chart->set_HasTitle(true);
     chart->get_ChartTitle()->AddTextFrameForOverriding(u"Chart Title");
     chart->get_ChartTitle()->set_Overlay(false);
@@ -971,24 +1325,24 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // افسانه (legend) نمودار را تنظیم کنید.
+    // تنظیم افسانه (Legend) نمودار.
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // سری‌ها و دسته‌بندی‌های پیش‌فرض تولید‌شده را حذف کنید.
+    // حذف سری‌ها و دسته‌های پیش‌فرض تولید شده.
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
     const int worksheetIndex = 0;
     auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // دسته‌بندی‌های جدید را اضافه کنید.
+    // دسته‌های جدید را اضافه می‌کند.
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 4, 0, ObjectExt::Box<String>(u"Category 4")));
 
-    // اولین سری را اضافه کنید.
+    // سری اول را اضافه می‌کند.
     auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1"));
     auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chart->get_Type());
 
@@ -1048,21 +1402,21 @@ static void SetAxisTitle(SharedPtr<IAxis> axis, String axisTitle)
 
 static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // محور افقی را تنظیم کنید.
+    // تنظیم محور افقی.
     auto horizontalAxis = chart->get_Axes()->get_HorizontalAxis();
     horizontalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     horizontalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(horizontalAxis, u"X Axis");
 
-    // محور عمودی را تنظیم کنید.
+    // تنظیم محور عمودی.
     auto verticalAxis = chart->get_Axes()->get_VerticalAxis();
     verticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
     verticalAxis->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
     SetAxisTitle(verticalAxis, u"Y Axis 1");
 
-    // رنگ خطوط شبکه اصلی عمودی را تنظیم کنید.
+    // تنظیم رنگ خطوط شبکهٔ اصلی عمودی.
     auto majorGridLinesFormat = verticalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat();
     majorGridLinesFormat->set_FillType(FillType::Solid);
     majorGridLinesFormat->get_SolidFillColor()->set_Color(Color::FromArgb(217, 217, 217));
@@ -1070,7 +1424,7 @@ static void SetPrimaryAxesFormat(SharedPtr<IChart> chart)
 
 static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
 {
-    // محور افقی ثانویه را تنظیم کنید.
+    // تنظیم محور افقی ثانویه.
     auto secondaryHorizontalAxis = chart->get_Axes()->get_SecondaryHorizontalAxis();
     secondaryHorizontalAxis->set_Position(AxisPositionType::Bottom);
     secondaryHorizontalAxis->set_CrossType(CrossesType::Maximum);
@@ -1078,7 +1432,7 @@ static void SetSecondaryAxesFormat(SharedPtr<IChart> chart)
     secondaryHorizontalAxis->get_MajorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
     secondaryHorizontalAxis->get_MinorGridLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::NoFill);
 
-    // محور عمودی ثانویه را تنظیم کنید.
+    // تنظیم محور عمودی ثانویه.
     auto secondaryVerticalAxis = chart->get_Axes()->get_SecondaryVerticalAxis();
     secondaryVerticalAxis->set_Position(AxisPositionType::Right);
     secondaryVerticalAxis->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
@@ -1109,34 +1463,51 @@ static void CreateComboChart()
 
 ## **به‌روزرسانی نمودارها**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) که شامل نمودار مورد نظر است، ایجاد کنید.  
-2. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-3. تمام اشکال را مرور کنید تا نمودار مورد نظر را پیدا کنید.  
-4. به کاربرگ دادهٔ نمودار دسترسی پیدا کنید.  
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) که شامل نمودار مورد نظر است را ایجاد کنید.  
+2. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+3. تمام اشکال را مرور کنید تا نمودار مورد نظر یافت شود.  
+4. به برگهٔ داده‌های نمودار دسترسی پیدا کنید.  
 5. داده‌های سری‌های نمودار را با تغییر مقادیر سری‌ها اصلاح کنید.  
-6. یک سری جدید اضافه کنید و داده‌های آن را پر کنید.  
-7. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
+6. یک سری جدید اضافه کرده و داده‌های آن را پر کنید.  
+7. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX بنویسید.  
 
 این کد C++ نشان می‌دهد چگونه یک نمودار را به‌روزرسانی کنید:
 
 ```c++
-// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
 // به اسلاید اول دسترسی می‌یابد
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+// یک نمودار با داده پیش‌فرض اضافه می‌کند
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
-// اندیس شیت دادهٔ نمودار را تنظیم می‌کند
+// ایندکس شیت دادهٔ نمودار را تنظیم می‌کند
 int32_t defaultWorksheetIndex = 0;
 
-// ورق کار دادهٔ نمودار را دریافت می‌کند
+// برگهٔ دادهٔ نمودار را دریافت می‌کند
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// نام دسته‌بندی نمودار را تغییر می‌دهد
+// نام دستهٔ نمودار را تغییر می‌دهد
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
@@ -1145,7 +1516,7 @@ System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->i
 
 // داده‌های سری را به‌روزرسانی می‌کند
 fact->GetCell(defaultWorksheetIndex, 0, 1, System::ObjectExt::Box<System::String>(u"New_Series1"));
-// تغییر نام سری
+// نام سری را تغییر می‌دهد
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(90));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
@@ -1153,21 +1524,21 @@ series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::B
 // سری دوم نمودار را می‌گیرد
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// اکنون داده‌های سری را به‌روزرسانی می‌کند
+// در حال به‌روزرسانی داده‌های سری
 fact->GetCell(defaultWorksheetIndex, 0, 2, System::ObjectExt::Box<System::String>(u"New_Series2"));
-// تغییر نام سری
+// نام سری را تغییر می‌دهد
 series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(23));
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(67));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// حالا، یک سری جدید اضافه می‌کند
+// در حال افزودن یک سری جدید
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
 // سری سوم نمودار را می‌گیرد
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
-// اکنون داده‌های سری را پر می‌کند
+// در حال پر کردن داده‌های سری
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, System::ObjectExt::Box<int32_t>(20)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, System::ObjectExt::Box<int32_t>(50)));
 series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, System::ObjectExt::Box<int32_t>(30)));
@@ -1181,21 +1552,34 @@ pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::
 ## **تنظیم بازهٔ داده برای نمودارها**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.presentation) که شامل نمودار است باز کنید.  
-2. ارجاع اسلاید را از طریق ایندکس آن دریافت کنید.  
-3. تمام اشکال را مرور کنید تا نمودار مورد نظر را پیدا کنید.  
+2. مرجع اسلاید را از طریق شاخص آن به‌دست آورید.  
+3. تمام اشکال را مرور کنید تا نمودار مورد نظر یافت شود.  
 4. به داده‌های نمودار دسترسی پیدا کنید و بازه را تنظیم کنید.  
 5. ارائهٔ اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.  
 
-این کد C++ نشان می‌دهد چگونه بازهٔ داده برای یک نمودار تنظیم شود:
+این کد C++ نشان می‌دهد چگونه بازهٔ دادهٔ یک نمودار را تنظیم کنید:
 
 ```cpp
-// مسیر پوشه اسناد.
-String dataDir = GetDataPath();
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// یک نمونه از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+// مسیر به پوشهٔ اسناد.
+String dataDir = u"../documents/";
+
+// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// به اولین اسلاید دسترسی می‌یابد و یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+// به اولین اسلاید دسترسی می‌یابد و یک نمودار با داده پیش‌فرض اضافه می‌کند
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
@@ -1203,13 +1587,34 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
-هنگامی که از نشانگر پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار نماد نشانگر پیش‌فرض متفاوتی دریافت می‌کند.
+هنگام استفاده از نشانگر پیش‌فرض در نمودارها، هر سری نمودار به‌صورت خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
 
 این کد C++ نشان می‌دهد چگونه نشانگر سری نمودار به‌صورت خودکار تنظیم شود:
 
-```cpp
-// مسیر پوشه اسناد.
-String dataDir = GetDataPath();
+``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// مسیر به پوشهٔ اسناد.
+String dataDir = u"../documents/";
 
 auto pres = System::MakeObject<Presentation>();
 
@@ -1249,20 +1654,20 @@ chart->get_Legend()->set_Overlay(false);
 pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-## **سوالات متداول**
+## **سؤال‌های متداول**
 
-**کدام انواع نمودارها توسط Aspose.Slides پشتیبانی می‌شوند؟**
+### چه انواع نموداری توسط Aspose.Slides پشتیبانی می‌شوند؟
 
-Aspose.Slides دامنهٔ وسیعی از انواع نمودارها را شامل می‌شود؛ از جمله نمودارهای ستونی، خطی، دایره‌ای، مساحتی، پراکنده، هیستوگرام، رادار و بسیاری دیگر. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تجسم دادهٔ خود انتخاب کنید.
+Aspose.Slides طیف گسترده‌ای از انواع نمودارها از جمله میله‌ای، خطی، دایره‌ای، مساحتی، پراکنده، هیستوگرام، راداری و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تصویری داده‌های خود انتخاب کنید.
 
-**چگونه می‌توانم یک نمودار جدید به اسلاید اضافه کنم؟**
+### چگونه یک نمودار جدید به اسلاید اضافه کنم؟
 
-برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد می‌کنید، اسلاید مورد نظر را با استفاده از ایندکس آن بازیابی می‌کنید و سپس متد افزودن نمودار را صدا می‌زنید؛ در این متد نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیماً در ارائهٔ شما وارد می‌کند.
+برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید، اسلاید مورد نظر را با استفاده از شاخص آن بازیابی کنید و سپس متد افزودن نمودار را فراخوانی کنید؛ در این فراخوانی نوع نمودار و داده‌های اولیه را مشخص می‌نمایید. این فرایند نمودار را مستقیماً در ارائهٔ شما یکپارچه می‌کند.
 
-**چگونه می‌توانم داده‌های نمایش‌داده‌شده در یک نمودار را به‌روزرسانی کنم؟**
+### چگونه می‌توان داده‌های نمایش داده‌شده در یک نمودار را به‌روز کرد؟
 
-می‌توانید داده‌های یک نمودار را با دسترسی به کتاب‌کار دادهٔ آن ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/))، پاک کردن سری‌ها و دسته‌بندی‌های پیش‌فرض و سپس افزودن داده‌های سفارشی خود، به‌روزرسانی کنید. این کار به‌صورت برنامه‌نویسی امکان تازه‌سازی نمودار برای نمایش جدیدترین داده‌ها را فراهم می‌کند.
+می‌توانید داده‌های یک نمودار را با دسترسی به کتاب‌کار داده‌های آن (`IChartDataWorkbook`)، پاک‌سازی سری‌ها و دسته‌های پیش‌فرض و افزودن داده‌های سفارشی خود به‌روز کنید. این امکان به‌صورت برنامه‌نویسی باعث می‌شود تا نمودار بازتاب دهندهٔ جدیدترین داده‌ها باشد.
 
-**آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
+### آیا می‌توان ظاهر نمودار را سفارشی‌سازی کرد؟
 
-بله، Aspose.Slides گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و عناصر قالب‌بندی دیگر را برای تطبیق ظاهر نمودار با نیازهای طراحی خاص خود تغییر دهید.
+بله، Aspose.Slides گزینه‌های گسترده‌ای برای سفارشی‌سازی ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، لیجندها و سایر عناصر قالب‌بندی را تغییر دهید تا ظاهر نمودار مطابق با الزامات طراحی خاص شما باشد.

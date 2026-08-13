@@ -5,46 +5,51 @@ type: docs
 weight: 20
 url: /hu/net/manage-hyperlinks/
 keywords:
-  - URL hozzáadása
-  - hiperhivatkozás hozzáadása
-  - hiperhivatkozás létrehozása
-  - hiperhivatkozás formázása
-  - hiperhivatkozás eltávolítása
-  - hiperhivatkozás frissítése
-  - szöveges hiperhivatkozás
-  - diára mutató hiperhivatkozás
-  - alakzatra mutató hiperhivatkozás
-  - képre mutató hiperhivatkozás
-  - videóra mutató hiperhivatkozás
-  - módosítható hiperhivatkozás
-  - PowerPoint
-  - OpenDocument
-  - prezentáció
-  - .NET
-  - C#
-  - Aspose.Slides
+- URL hozzáadása
+- hiperhivatkozás hozzáadása
+- hiperhivatkozás létrehozása
+- hiperhivatkozás formázása
+- hiperhivatkozás eltávolítása
+- hiperhivatkozás frissítése
+- szöveges hiperhivatkozás
+- diára mutató hiperhivatkozás
+- alakzatra mutató hiperhivatkozás
+- képre mutató hiperhivatkozás
+- videóra mutató hiperhivatkozás
+- módosítható hiperhivatkozás
+- PowerPoint
+- OpenDocument
+- prezentáció
+- .NET
+- C#
+- Aspose.Slides
 description: "Könnyedén kezelheti a hiperhivatkozásokat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for .NET segítségével — növelje az interaktivitást és a munkafolyamatot percek alatt."
 ---
 ## **Bevezetés**
 
-A hiperhivatkozás egy hivatkozás egy objektumra, adatra vagy egy helyre valamiben. Ezek gyakori hiperhivatkozások PowerPoint‑prezentációkban:
+A hiperhivatkozás egy objektumra, adatra vagy helyre mutató hivatkozás. Ezek a leggyakoribb hiperhivatkozások a PowerPoint‑prezentációkban:
 
 * Weboldalakra mutató hivatkozások szövegekben, alakzatokban vagy médiában
-* Diára mutató hivatkozások
+* Diákra mutató hivatkozások
 
-Az Aspose.Slides for .NET lehetővé teszi, hogy számos feladatot végezzen el a prezentációkban lévő hiperhivatkozásokkal kapcsolatban. 
+Az Aspose.Slides for .NET lehetővé teszi számos, a hiperhivatkozásokkal kapcsolatos feladat végrehajtását a prezentációkban. 
 
-{{% alert color="primary" %}} 
-Érdemes kipróbálni az Aspose egyszerű, ingyenes online PowerPoint szerkesztőt.[free online PowerPoint editor.](https://products.aspose.app/slides/hu/editor)
+{{% alert color="info" %}} 
+
+Érdemes megnézni az Aspose egyszerű, [ingyenes online PowerPoint szerkesztőjét.](https://products.aspose.app/slides/hu/editor)
+
 {{% /alert %}} 
 
-## **URL hiperhivatkozások hozzáadása**
+## **URL‑hivatkozások hozzáadása**
 
-### **URL hiperhivatkozások hozzáadása szöveghez**
+### **URL‑hivatkozások hozzáadása szöveghez**
 
-Ez a C# kód megmutatja, hogyan adhat hozzá egy weboldal hiperhivatkozást egy szöveghez:
+Ez a C# kód megmutatja, hogyan adhatunk weboldal‑hivatkozást egy szöveghez:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -57,11 +62,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **URL hiperhivatkozások hozzáadása alakzatokhoz vagy keretekhez**
+### **URL‑hivatkozások hozzáadása alakzatokhoz vagy keretekhez**
 
-Ez a C# minta kód megmutatja, hogyan adhat hozzá egy weboldal hiperhivatkozást egy alakzathoz:
+Ez a C# példa megmutatja, hogyan adhatunk weboldal‑hivatkozást egy alakzathoz:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -73,13 +81,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **URL hiperhivatkozások hozzáadása médiához**
+### **URL‑hivatkozások hozzáadása médiához**
 
-Az Aspose.Slides lehetővé teszi, hogy hiperhivatkozásokat adjon képekhez, hang‑ és videófájlokhoz. 
+Az Aspose.Slides lehetővé teszi hivatkozások hozzáadását képekhez, hang- és videofájlokhoz. 
 
-Ez a példa kód megmutatja, hogyan adjon hiperhivatkozást egy **képre**:
+Ez a példa megmutatja, hogyan adhatunk hivatkozást egy **képre**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     // Képet ad a prezentációhoz
@@ -94,9 +105,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Ez a példa kód megmutatja, hogyan adjon hiperhivatkozást egy **hangfájlra**:
+Ez a példa megmutatja, hogyan adhatunk hivatkozást egy **hangfájlra**:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -109,9 +123,12 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Ez a példa kód megmutatja, hogyan adjon hiperhivatkozást egy **videóra**:
+Ez a példa megmutatja, hogyan adhatunk hivatkozást egy **videóra**:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -124,17 +141,24 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-Érdemes megnézni a *[Manage OLE](https://docs.aspose.com/slides/hu/net/manage-ole/)*.
+{{%  alert  title="Tip"  color="info"  %}} 
+
+Érdemes megnézni a *[OLE kezelése](https://docs.aspose.com/slides/hu/net/manage-ole/)* oldalt.
+
 {{% /alert %}}
+
 
 ## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-Mivel a hiperhivatkozások lehetővé teszik hivatkozások hozzáadását objektumokra vagy helyekre, használhatja őket tartalomjegyzék létrehozásához. 
+Mivel a hiperhivatkozások lehetővé teszik objektumokra vagy helyekre mutató hivatkozások hozzáadását, felhasználhatók tartalomjegyzék létrehozására is. 
 
-Ez a minta kód megmutatja, hogyan hozhat létre egy tartalomjegyzéket hiperhivatkozásokkal:
+Ez a példa megmutatja, hogyan hozhatunk létre tartalomjegyzéket hiperhivatkozásokkal:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -165,11 +189,15 @@ using (var presentation = new Presentation())
 
 ### **Szín**
 
-A [ColorSource](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/colorsource) tulajdonsággal a [IHyperlink](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink) felületén beállíthatja a hiperhivatkozások színét, és lekérheti a színinformációt is. A funkciót először a PowerPoint 2019‑ben vezették be, ezért a tulajdonságra vonatkozó változtatások nem alkalmazhatók a régebbi PowerPoint‑verziókra.
+A [IHyperlink](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink) interfész [ColorSource](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/colorsource) tulajdonságával beállítható a hiperhivatkozások színe, valamint lekérdezhető a színinformáció. A funkció először a PowerPoint 2019‑ben jelent meg, így a tulajdonságra vonatkozó módosítások nem alkalmazhatók a régebbi PowerPoint‑verziókra.
 
-Ez a példa kód bemutat egy műveletet, ahol különböző színű hiperhivatkozásokat adtak hozzá ugyanahhoz a diához:
+Ez a példa bemutatja, hogyan adhatunk különböző színű hiperhivatkozásokat ugyanarra a diára:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -186,18 +214,20 @@ using (Presentation presentation = new Presentation())
     presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 }
 ```
-
 ### **Hang**
 
-Az Aspose.Slides ezeket a tulajdonságokat biztosítja, hogy hangsúlyozza a hiperhivatkozást egy hanggal:
+Az Aspose.Slides a következő tulajdonságokkal teszi lehetővé a hiperhivatkozás hanggal való kiemelését:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
 #### **Hiperhivatkozás hangjának hozzáadása**
 
-Ez a C# kód megmutatja, hogyan állíthat be egy olyan hiperhivatkozást, amely hangot lejátszik, és egy másik hiperhivatkozással állítja le:
+Ez a C# kód megmutatja, hogyan állítható be egy hangot lejátékozó hiperhivatkozás, illetve hogyan állítható le egy másik hiperhivatkozással:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	// Új hangot ad a prezentáció hanggyűjteményéhez
@@ -205,14 +235,14 @@ using (Presentation pres = new Presentation())
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Új alakzatot ad hozzá a következő diára mutató hiperhivatkozással
+	// Új alakzatot ad hozzá a hiperhivatkozással a következő diára
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// Ellenőrzi a hiperhivatkozást a "Nincs hang" esetére
+	// Ellenőrzi a hiperhivatkozást "Nincs hang"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
-		// Beállítja a hangot lejátszó hiperhivatkozást
+		// Beállítja a hangot lejátékozó hiperhivatkozást
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
@@ -232,9 +262,11 @@ using (Presentation pres = new Presentation())
 
 #### **Hiperhivatkozás hangjának kinyerése**
 
-Ez a C# kód megmutatja, hogyan nyerheti ki egy hiperhivatkozásban használt hangot:
+Ez a C# kód megmutatja, hogyan nyerhető ki egy hiperhivatkozáshoz rendelt hang:
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
@@ -244,7 +276,7 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 	if (link.Sound != null)
 	{
-		// Kinyeri a hiperhivatkozás hangját bájt tömbbe
+		// Kivonja a hiperhivatkozás hangját bájt tömbbe
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
@@ -254,9 +286,12 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 ### **Hiperhivatkozások eltávolítása szövegből**
 
-Ez a C# kód megmutatja, hogyan távolíthatja el a hiperhivatkozást egy szövegből egy prezentációs dián:
+Ez a C# kód megmutatja, hogyan távolítható el egy hiperhivatkozás egy szövegből a prezentációs dián:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -281,9 +316,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Hiperhivatkozások eltávolítása alakzatokból vagy keretekből**
 
-Ez a C# kód megmutatja, hogyan távolíthatja el a hiperhivatkozást egy alakzatról egy prezentációs dián: 
+Ez a C# kód megmutatja, hogyan távolítható el egy hiperhivatkozás egy alakzatról a prezentációs dián: 
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -297,16 +335,19 @@ using (Presentation pres = new Presentation("demo.pptx"))
 
 ## **Módosítható hiperhivatkozás**
 
-A [Hyperlink](https://reference.aspose.com/slides/hu/net/aspose.slides/hyperlink) osztály módosítható. Ezzel az osztállyal megváltoztathatja az alábbi tulajdonságok értékét:
+A [Hyperlink](https://reference.aspose.com/slides/hu/net/aspose.slides/hyperlink) osztály módosítható. Ezzel az osztállyal megváltoztatható a következő tulajdonságok értéke:
 
 - [IHyperlink.TargetFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/targetframe)
 - [IHyperlink.Tooltip](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/tooltip)
 - [IHyperlink.History](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-A kódrészlet megmutatja, hogyan adjon hiperhivatkozást egy diára, és később szerkessze a tooltip‑jét:
+Ez a kódrészlet megmutatja, hogyan adhatunk hiperhivatkozást egy diára, majd később módosíthatjuk a felbukkanó szöveget (tooltip):
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -325,13 +366,13 @@ using (Presentation presentation = new Presentation())
 
 ## **Támogatott tulajdonságok az IHyperlinkQueries‑ben**
 
-Hozzáférhet az IHyperlinkQueries‑hez egy prezentációból, diából vagy szövegkeretből, amelyhez a hiperhivatkozás definiálva van. 
+Az IHyperlinkQueries‑hez hozzáférhetünk egy prezentációból, diából vagy szövegkeretből, amelyhez a hiperhivatkozás definiálva van. 
 
 - [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentation/properties/hyperlinkqueries)
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/hu/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
 - [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-Az IHyperlinkQueries osztály támogatja ezeket a metódusokat és tulajdonságokat: 
+Az IHyperlinkQueries osztály a következő metódusokat és tulajdonságokat támogatja: 
 
 - [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
 - [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/hu/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
@@ -340,14 +381,14 @@ Az IHyperlinkQueries osztály támogatja ezeket a metódusokat és tulajdonságo
 
 ## **GYIK**
 
-**Hogyan hozhatok létre belső navigációt nem csak egy diára, hanem egy „szakaszra” vagy egy szakasz első diájára?**
+### Hogyan hozhatok létre belső navigációt, nem csak egy diára, hanem egy „szakaszra” vagy egy szakasz első diájára?
 
-A PowerPoint‑ban a szakaszok a diákat csoportosítják; a navigáció technikailag egy konkrét diára irányul. „Szakaszra navigáláshoz” általában az első diájára mutató hivatkozást kell létrehozni.
+A PowerPoint‑szakaszok a diák csoportosításai; a navigáció technikailag egy konkrét diát céloz meg. Egy „szakaszra” navigáláshoz általában a szakasz első diájára kell hivatkozni.
 
-**Csatolhatok hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
+### Csatolhatok-e hiperhivatkozást a mesterdia‑diák elemeire, hogy az összes dián működjön?
 
-Igen. A mesterdia és elrendezés elemei támogatják a hiperhivatkozásokat. Az ilyen hivatkozások megjelennek a gyermekdiákon, és kattinthatóak a diavetítés során.
+Igen. A mesterdia‑dia és a sablon elemei támogatják a hiperhivatkozásokat. Az ilyen linkek megjelennek a gyermekdiákon, és a bemutató során kattinthatók.
 
-**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
+### Megmaradnak‑e a hiperhivatkozások PDF, HTML, képek vagy videó exportálása esetén?
 
-A [PDF](/slides/hu/net/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/net/convert-powerpoint-to-html/) esetén igen – a linkek általában megmaradnak. A [képek](/slides/hu/net/convert-powerpoint-to-png/) és [videó](/slides/hu/net/convert-powerpoint-to-video/) exportálásakor a kattinthatóság nem marad meg, mivel ezek a formátumok (raszteres képkockák/videó) nem támogatják a hiperhivatkozásokat.
+A [PDF](/slides/hu/net/convert-powerpoint-to-pdf/) és a [HTML](/slides/hu/net/convert-powerpoint-to-html/) esetén igen – a linkek általában megmaradnak. Képek [images](/slides/hu/net/convert-powerpoint-to-png/) és videó [video](/slides/hu/net/convert-powerpoint-to-video/) exportálása során a kattinthatóság nem marad meg, mivel ezek a formátumok (raster képkockák/videó) nem támogatják a hiperhivatkozásokat.

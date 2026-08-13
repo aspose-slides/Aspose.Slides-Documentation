@@ -1,6 +1,6 @@
 ---
-title: Publiczny API i zmiany niekompatybilne wstecz w Aspose.Slides for .NET 14.2.0
-linktitle: Aspose.Slides for .NET 14.2.0
+title: Public API i zmiany niezgodne wstecznie w Aspose.Slides dla .NET 14.2.0
+linktitle: Aspose.Slides dla .NET 14.2.0
 type: docs
 weight: 40
 url: /pl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-2-0/
@@ -16,17 +16,17 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Przejrzyj aktualizacje publicznego API i zmiany łamiące w Aspose.Slides for .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
+description: "Przeglądaj aktualizacje publicznego API i zmiany niezgodne wstecz w Aspose.Slides dla .NET, aby płynnie migrować rozwiązania prezentacji PowerPoint PPT, PPTX i ODP."
 ---
-## **Publiczny API i zmiany niekompatybilne wstecz**
-{{% alert color="primary" %}} 
+## **Public API i zmiany niezgodne wstecznie**
+{{% alert color="info" %}} 
 
-Wprowadziliśmy pewne zmiany w API Aspose.Slides for .NET 14.2.0. Niektóre właściwości i metody zostały usunięte, a niektóre przeniesiono do innej przestrzeni nazw.
+Wprowadziliśmy kilka zmian w API Aspose.Slides dla .NET 14.2.0. Niektóre właściwości i metody zostały usunięte, a niektóre przeniesiono do innej przestrzeni nazw.
 
 {{% /alert %}} 
 ### **Metody Aspose.Slides.IPresentation.Write(…) usunięte**
-Te metody zapisywały obiekty Presentation wyłącznie do pliku w formacie PPTX. W nowym API klasa Presentation służy do pracy ze wszystkimi formatami. Można używać metod Presentation.Save(…) do zapisywania obiektów Presentation we wszystkich obsługiwanych formatach.
-### **Klasy związane ze stylami motywu przeniesiono do przestrzeni nazw Aspose.Slides.Theme**
+Te metody zapisywały obiekty Presentation wyłącznie do pliku w formacie PPTX. W nowym API klasa Presentation służy do pracy ze wszystkimi formatami. Można używać metod Presentation.Save(…) aby zapisać obiekty Presentation we wszystkich obsługiwanych formatach.
+### **Klasy związane ze stylami motywów przeniesiono do przestrzeni nazw Aspose.Slides.Theme**
 Poniższe klasy zostały przeniesione z przestrzeni nazw Aspose.Slides do przestrzeni nazw Aspose.Slides.Theme.
 
 - Types ColorScheme
@@ -55,5 +55,5 @@ Poniższe klasy zostały przeniesione z przestrzeni nazw Aspose.Slides do przest
 - IFormatScheme
 - ILineFormatCollection
 - ILineFormatCollectionEffectiveData
-### **Zmiany od Aspose.Slides for .NET 8.X.0**
-Funkcje Aspose.Slides for .NET 8.4 zostały dodane do Aspose.Slides for .NET 14.2.0
+### **Zmiany od Aspose.Slides dla .NET 8.X.0**
+Funkcje Aspose.Slides dla .NET 8.4 zostały dodane do Aspose.Slides dla .NET 14.2.0

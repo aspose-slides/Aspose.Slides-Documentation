@@ -21,7 +21,7 @@ keywords:
 - PPTX opslaan als MP4
 - PPT exporteren naar MP4
 - PPTX exporteren naar MP4
-- video conversie
+- video-conversie
 - PowerPoint
 - Android
 - Java
@@ -32,21 +32,15 @@ description: "Leer hoe u PowerPoint-presentaties naar video kunt converteren in 
 
 Door uw PowerPoint‑presentatie naar video te converteren, krijgt u 
 
-* **Toename in toegankelijkheid:** Alle apparaten (onafhankelijk van het platform) zijn standaard uitgerust met videospelers in tegenstelling tot toepassingen voor het openen van presentaties, waardoor gebruikers het gemakkelijker vinden om video's te openen of af te spelen.
-* **Grotere bereik:** Met video's kunt u een groot publiek bereiken en hen informeren met inhoud die anders wellicht saai zou lijken in een presentatie. De meeste enquêtes en statistieken suggereren dat mensen video's vaker bekijken en consumeren dan andere vormen van content, en ze geven doorgaans de voorkeur aan dergelijke content.
+* **Verbeterde toegankelijkheid:** Alle apparaten (ongeacht het platform) zijn standaard uitgerust met videospelers in plaats van presentatiesoftware, waardoor gebruikers het makkelijker vinden om video's te openen of af te spelen.
+* **Grotere bereik:** Met video’s kunt u een breed publiek bereiken en hen informeren met inhoud die in een presentatie anders misschien als saai wordt ervaren. De meeste onderzoeken en statistieken geven aan dat mensen video’s meer bekijken en consumeren dan andere vormen van content, en ze geven doorgaans de voorkeur aan dit type inhoud.
 
-{{% alert color="primary" %}} 
+## **PowerPoint‑naar‑Video‑conversie in Aspose.Slides**
 
-U wilt misschien onze [**PowerPoint naar Video Online Converter**](https://products.aspose.app/slides/nl/conversion/ppt-to-word) bekijken, want dit is een live en effectieve implementatie van het hier beschreven proces.
+Aspose.Slides ondersteunt conversie van presentaties naar video.
 
-{{% /alert %}} 
-
-## **PowerPoint naar video‑conversie in Aspose.Slides**
-
-Aspose.Slides ondersteunt conversie van presentatie naar video.
-
-* Gebruik **Aspose.Slides** om een reeks frames (van de presentatieslides) te genereren die overeenkomen met een bepaalde FPS (frames per seconde).
-* Gebruik een hulpprogramma van derden zoals **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) om een video op basis van de frames te maken. 
+* Gebruik **Aspose.Slides** om een reeks frames te genereren (van de presentatieslides) die overeenkomen met een bepaalde FPS (frames per seconde).
+* Gebruik een hulpprogramma van derden zoals **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) om een video te maken op basis van de frames. 
 
 ### **PowerPoint naar video converteren**
 
@@ -61,11 +55,14 @@ Aspose.Slides ondersteunt conversie van presentatie naar video.
 
 2. Download ffmpeg [hier](https://ffmpeg.org/download.html).
 
-4. Voer de PowerPoint‑naar‑video Java‑code uit.
+3. Voer de PowerPoint‑naar‑video Java‑code uit.
 
-Deze Java‑code laat zien hoe u een presentatie (met een afbeelding en twee animatie‑effecten) naar een video kunt converteren:
-
+Deze Java‑code laat zien hoe u een presentatie (met een afbeelding en twee animatie‑effecten) naar een video converteert:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Voegt een glimlachvorm toe en animeert deze vervolgens
@@ -102,7 +99,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Configureer ffmpeg-binaries map. Zie deze pagina: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Configureer de ffmpeg-binaire map. Zie deze pagina: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -125,35 +122,40 @@ try {
 
 U kunt animaties toepassen op objecten op dia's en overgangen tussen dia's gebruiken. 
 
-{{% alert color="primary" %}} 
-
-U wilt misschien deze artikelen bekijken: [PowerPoint‑animatie](https://docs.aspose.com/slides/nl/androidjava/powerpoint-animation/), [Vorm‑animatie](https://docs.aspose.com/slides/nl/androidjava/shape-animation/), en [Vorm‑effect](https://docs.aspose.com/slides/nl/androidjava/shape-effect/).
-
+{{% alert color="info" %}} 
+U wilt misschien deze artikelen bekijken: [PowerPoint‑animatie](https://docs.aspose.com/slides/nl/androidjava/powerpoint-animation/), [Vormanimatie](https://docs.aspose.com/slides/nl/androidjava/shape-animation/), en [Vorm‑effect](https://docs.aspose.com/slides/nl/androidjava/shape-effect/).
 {{% /alert %}} 
 
-Animaties en overgangen maken diavoorstellingen boeiender en interessanter — en ze hebben hetzelfde effect op video's. Laten we een extra dia en overgang toevoegen aan de code voor de vorige presentatie:
-
+Animaties en overgangen maken diavoorstellingen boeiender en interessanter – en ze doen hetzelfde voor video’s. Laten we een extra dia en overgang aan de code voor de vorige presentatie toevoegen:
 ```java
-// Voegt een glimlachvorm toe en animeert deze
+import com.aspose.slides.*;
+import java.awt.Color;
 
-// ...
+// De presentatie met de hierboven gemaakte geanimeerde glimlachvorm.
+Presentation presentation = new Presentation();
+try {
+    // Voegt een nieuwe dia toe en een geanimeerde overgang
 
-// Voegt een nieuwe dia toe en een geanimeerde overgang
+    ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().setType(BackgroundType.OwnBackground);
 
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
 
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
 
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+    newSlide.getSlideShowTransition().setType(TransitionType.Push);
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
-Aspose.Slides ondersteunt ook animatie voor tekst. Dus we animeren alinea’s op objecten, die één voor één verschijnen (met een vertraging van een seconde):
-
+Aspose.Slides ondersteunt ook animatie voor tekst. We animeren dus alinea’s op objecten, die één voor één verschijnen (met een vertraging van een seconde):
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 Presentation presentation = new Presentation();
 try {
     // Voegt tekst en animaties toe
@@ -169,18 +171,15 @@ try {
     paragraphCollection.add(para1);
     paragraphCollection.add(para2);
     paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
 
     ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
     IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
     IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
 
     effect1.getTiming().setTriggerDelayTime(1f);
     effect2.getTiming().setTriggerDelayTime(1f);
     effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
 
     final int fps = 33;
     ArrayList<String> frames = new ArrayList<String>();
@@ -208,7 +207,7 @@ try {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
 
-    // Configureer de map met ffmpeg-binaries. Zie deze pagina: https://github.com/rosenbjerg/FFMpegCore#installation
+    // Configureer de ffmpeg-binaire map. Zie deze pagina: https://github.com/bramp/ffmpeg-cli-wrapper
     FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
     FFprobe ffprobe = new FFprobe("path/to/ffprobe");
 
@@ -229,15 +228,16 @@ try {
 
 ## **Klassen voor video‑conversie**
 
-Om u in staat te stellen PowerPoint‑naar‑video‑conversietaken uit te voeren, biedt Aspose.Slides de klassen [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationanimationsgenerator/) en [PresentationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationplayer/) aan.
+Om u PowerPoint‑naar‑video‑conversietaken te laten uitvoeren, biedt Aspose.Slides de klassen [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationanimationsgenerator/) en [PresentationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationplayer/) aan.
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationanimationsgenerator/) stelt u in staat de frame‑grootte voor de video (die later wordt aangemaakt) in te stellen via de constructor. Als u een instantie van de presentatie doorgeeft, wordt `Presentation.SlideSize` gebruikt en genereert het animaties die [PresentationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationplayer/) gebruikt.
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationanimationsgenerator/) stelt u in staat de frame‑grootte voor de video (die later wordt aangemaakt) in te stellen via de constructor. Als u een instantie van de presentatie doorgeeft, wordt `Presentation.SlideSize` gebruikt en genereert deze animaties die [PresentationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationplayer/) gebruikt.
 
-Wanneer animaties worden gegenereerd, wordt voor elke opeenvolgende animatie een `NewAnimation`‑event gegenereerd, met de parameter [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/). Deze laatste is een klasse die een speler voor een afzonderlijke animatie voorstelt.
+Wanneer animaties worden gegenereerd, wordt voor elke volgende animatie een `NewAnimation`‑event gegenereerd, dat een [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/)‑parameter heeft. Deze klasse vertegenwoordigt een speler voor een afzonderlijke animatie.
 
-Om te werken met [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/), worden de eigenschap [Duration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (de volledige duur van de animatie) en de methode [SetTimePosition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) gebruikt. Elke animatie‑positie wordt ingesteld binnen het bereik *0 tot duur*, waarna de `GetFrame`‑methode een BufferedImage retourneert die overeenkomt met de animatiestatus op dat moment:
-
+Om te werken met [IPresentationAnimationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/), worden de eigenschap [Duration](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (de volledige duur van de animatie) en de methode [SetTimePosition](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) gebruikt. Elke animatie‑positie wordt ingesteld binnen het bereik *0 tot duur*, en vervolgens geeft de `getFrame`‑methode een [IImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimage/) terug die overeenkomt met de animatiestatus op dat moment:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Voegt een glimlachvorm toe en animeert deze
@@ -253,21 +253,18 @@ try {
         animationsGenerator.setNewAnimation(animationPlayer ->
         {
             System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
+
             animationPlayer.setTimePosition(0); // initiële animatiestatus
-            try {
-                // bitmap van de initiële animatiestatus
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            animationPlayer.setTimePosition(animationPlayer.getDuration()); // laatste frame van de animatie
-            try {
-                // laatste frame van de animatie
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            // bitmap van de initiële animatiestatus
+            animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
+
+            animationPlayer.setTimePosition(animationPlayer.getDuration()); // finale status van de animatie
+            // laatste frame van de animatie
+            animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
         });
+
+        // Genereer de animaties. De callback hierboven wordt voor elk van hen uitgevoerd.
+        animationsGenerator.run(presentation.getSlides());
     } finally {
         if (animationsGenerator != null) animationsGenerator.dispose();
     }
@@ -276,9 +273,10 @@ try {
 }
 ```
 
-Om alle animaties in een presentatie tegelijk af te spelen, wordt de klasse [PresentationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationplayer/) gebruikt. Deze klasse neemt een instantie van [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationanimationsgenerator/) en FPS voor effecten in de constructor en roept vervolgens het `FrameTick`‑event aan voor alle animaties om ze af te spelen:
-
+Om alle animaties in een presentatie tegelijk af te spelen, wordt de klasse [PresentationPlayer](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationplayer/) gebruikt. Deze klasse neemt een instantie van [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentationanimationsgenerator/) en een FPS voor de effecten in de constructor en roept vervolgens het `FrameTick`‑event aan voor alle animaties om ze af te spelen:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("animated.pptx");
 try {
     PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
@@ -287,11 +285,7 @@ try {
         try {
             player.setFrameTick((sender, arguments) ->
             {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
             });
             animationsGenerator.run(presentation.getSlides());
         } finally {
@@ -305,7 +299,7 @@ try {
 }
 ```
 
-Vervolgens kunnen de gegenereerde frames worden samengevoegd om een video te maken. Zie de sectie [Convert PowerPoint to Video](https://docs.aspose.com/slides/nl/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Vervolgens kunnen de gegenereerde frames worden samengevoegd tot een video. Zie de sectie [Convert PowerPoint to Video](https://docs.aspose.com/slides/nl/androidjava/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
 ## **Ondersteunde animaties en effecten**
 
@@ -313,76 +307,76 @@ Vervolgens kunnen de gegenereerde frames worden samengevoegd om een video te mak
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Verschijnen** | ![not supported](x.png) | ![supported](v.png) |
+| **Vervagen** | ![supported](v.png) | ![supported](v.png) |
+| **Invliegen** | ![supported](v.png) | ![supported](v.png) |
+| **Inzweven** | ![supported](v.png) | ![supported](v.png) |
+| **Splitsen** | ![supported](v.png) | ![supported](v.png) |
+| **Wegvegen** | ![supported](v.png) | ![supported](v.png) |
+| **Vorm** | ![supported](v.png) | ![supported](v.png) |
+| **Wiel** | ![supported](v.png) | ![supported](v.png) |
+| **Willekeurige balken** | ![supported](v.png) | ![supported](v.png) |
+| **Groeien en draaien** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoomen** | ![supported](v.png) | ![supported](v.png) |
+| **Draaien** | ![supported](v.png) | ![supported](v.png) |
+| **Stuiteren** | ![supported](v.png) | ![supported](v.png) |
 
 **Nadruk**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
 | **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Kleurpuls** | ![not supported](x.png) | ![supported](v.png) |
+| **Wiegen** | ![supported](v.png) | ![supported](v.png) |
+| **Draaien** | ![supported](v.png) | ![supported](v.png) |
+| **Groeien/Krimpelen** | ![not supported](x.png) | ![supported](v.png) |
+| **Desatureren** | ![not supported](x.png) | ![supported](v.png) |
+| **Donkerder maken** | ![not supported](x.png) | ![supported](v.png) |
+| **Lichter maken** | ![not supported](x.png) | ![supported](v.png) |
+| **Transparantie** | ![not supported](x.png) | ![supported](v.png) |
+| **Objectkleur** | ![not supported](x.png) | ![supported](v.png) |
+| **Complementaire kleur** | ![not supported](x.png) | ![supported](v.png) |
+| **Lijnekleur** | ![not supported](x.png) | ![supported](v.png) |
+| **Vulkleur** | ![not supported](x.png) | ![supported](v.png) |
 
 **Uitgang**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Verdwijnen** | ![not supported](x.png) | ![supported](v.png) |
+| **Vervagen** | ![supported](v.png) | ![supported](v.png) |
+| **Uithalen** | ![supported](v.png) | ![supported](v.png) |
+| **Uitzweven** | ![supported](v.png) | ![supported](v.png) |
+| **Splitsen** | ![supported](v.png) | ![supported](v.png) |
+| **Wegvegen** | ![supported](v.png) | ![supported](v.png) |
+| **Vorm** | ![supported](v.png) | ![supported](v.png) |
+| **Willekeurige balken** | ![supported](v.png) | ![supported](v.png) |
+| **Krompen en draaien** | ![not supported](x.png) | ![supported](v.png) |
+| **Zoomen** | ![supported](v.png) | ![supported](v.png) |
+| **Draaien** | ![supported](v.png) | ![supported](v.png) |
+| **Stuiteren** | ![supported](v.png) | ![supported](v.png) |
 
-**Bewegingspaden:** 
+**Bewegingspaden**:
 
 | Animatietype | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Lijnen** | ![supported](v.png) | ![supported](v.png) |
+| **Boogjes** | ![supported](v.png) | ![supported](v.png) |
+| **Draaiingen** | ![supported](v.png) | ![supported](v.png) |
+| **Vormen** | ![supported](v.png) | ![supported](v.png) |
+| **Lussen** | ![supported](v.png) | ![supported](v.png) |
+| **Aangepast pad** | ![supported](v.png) | ![supported](v.png) |
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Is het mogelijk om presentaties die met een wachtwoord beschermd zijn te converteren?**
+### Is het mogelijk om presentaties die met een wachtwoord beveiligd zijn te converteren?
 
-Ja, Aspose.Slides ondersteunt het werken met [wachtwoord‑beveiligde presentaties](/slides/nl/androidjava/password-protected-presentation/). Bij het verwerken van dergelijke bestanden moet u het juiste wachtwoord opgeven zodat de bibliotheek toegang krijgt tot de inhoud van de presentatie.
+Ja, Aspose.Slides maakt het mogelijk om met [wachtwoordbeveiligde presentaties](/slides/nl/androidjava/password-protected-presentation/) te werken. Bij het verwerken van dergelijke bestanden moet u het juiste wachtwoord opgeven zodat de bibliotheek toegang krijgt tot de inhoud van de presentatie.
 
-**Ondersteunt Aspose.Slides het gebruik in cloud‑oplossingen?**
+### Ondersteunt Aspose.Slides gebruik in cloud‑oplossingen?
 
-Ja, Aspose.Slides kan worden geïntegreerd in cloud‑applicaties en -services. De bibliotheek is ontworpen om te werken in serveromgevingen, waardoor hoge prestaties en schaalbaarheid gegarandeerd zijn voor batchverwerking van bestanden.
+Ja, Aspose.Slides kan worden geïntegreerd in cloud‑applicaties en -services. De bibliotheek is ontworpen om in serveromgevingen te werken, wat zorgt voor hoge prestaties en schaalbaarheid bij batchverwerking van bestanden.
 
-**Zijn er groottebeperkingen voor presentaties tijdens de conversie?**
+### Zijn er grootte‑beperkingen voor presentaties tijdens conversie?
 
-Aspose.Slides kan presentaties van vrijwel elke grootte aan. Echter, bij zeer grote bestanden kunnen extra systeembronnen nodig zijn, en het wordt soms aanbevolen de presentatie te optimaliseren om de prestaties te verbeteren.
+Aspose.Slides kan praktisch elke grootte van een presentatie aan. Bij het werken met zeer grote bestanden kunnen echter extra systeembronnen nodig zijn, en het wordt soms aangeraden de presentatie te optimaliseren om de prestaties te verbeteren.

@@ -5,17 +5,17 @@ weight: 50
 url: /fa/java/api-reference/
 keywords:
 - مرجع API
-- PowerPoint
-- OpenDocument
+- پاورپوینت
+- سند باز
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-description: "ایجاد، ویرایش و تبدیل ارائه‌ها در Java — بدون نیاز به PowerPoint. Aspose.Slides از فرمت‌های PPT، PPTX و ODP با خروجی سریع SVG/PDF پشتیبانی می‌کند."
+description: "ایجاد، ویرایش و تبدیل ارائه‌ها در جاوا—بدون نیاز به پاورپوینت. Aspose.Slides از PPT، PPTX و ODP پشتیبانی می‌کند و خروجی سریع SVG/PDF دارد."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java یک کتابخانه کلاسی است که به برنامه‌های Java امکان می‌دهد اسناد ارائه را بدون استفاده از Microsoft PowerPoint® یا سایر برنامه‌ها بخوانند و بنویسند. Aspose.Slides for Java اجازه می‌دهد متن، اشکال، جداول & انیمیشن‌ها، صدا و ویدئو را به اسلایدها اضافه کنید، پیش‌نمایش اسلایدها را ببینید، اسلایدها را به قالب SVG، PDF و موارد دیگر صادر کنید.
+Aspose.Slides for Java یک کتابخانه کلاسی است که به برنامه‌های Java امکان خواندن و نوشتن اسناد ارائه را بدون استفاده از Microsoft PowerPoint® یا سایر برنامه‌ها می‌دهد. Aspose.Slides for Java امکان مدیریت متن، اشکال، جداول و انیمیشن‌ها، افزودن صدا و ویدئو به اسلایدها، پیش‌نمایش اسلایدها، خروجی اسلایدها به فرمت SVG، PDF و موارد دیگر را فراهم می‌کند.
 
-آخرین مرجع API را می‌توانید در [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/fa/java) بیابید.
+آخرین مرجع API را می‌توانید در [مرجع API Aspose.Slides for Java](https://reference.aspose.com/slides/fa/java) پیدا کنید.
 
 {{% /alert %}}

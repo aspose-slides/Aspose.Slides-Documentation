@@ -1,24 +1,36 @@
 ---
-title: Aspose.Slides for Java 14.8.0 における公開 API と後方互換性のない変更
+title: Aspose.Slides for Java 14.8.0 のパブリック API と後方互換性のない変更
+linktitle: Aspose.Slides for Java 14.8.0
 type: docs
 weight: 70
 url: /ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/
+keywords:
+- 移行
+- レガシーコード
+- モダンコード
+- レガシーアプローチ
+- モダンアプローチ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Java のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できます。"
 ---
-
-{{% alert color="primary" %}} 
-
-このページでは、Aspose.Slides for Java 14.8.0 APIに導入されたすべての [追加された](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) クラス、メソッド、プロパティなど、任意の新しい制限やその他の [変更](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) を一覧表示します。
-
+{{% alert color="info" %}} 
+このページでは、Aspose.Slides for Java 14.8.0 APIで導入された、すべての[added](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) クラス、メソッド、プロパティなど、新しい制限やその他の[changes](/slides/ja/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) を一覧表示しています。
 {{% /alert %}} 
-## **公開 API の変更**
+## **Public API Changes**
 ### **Aspose.Slides.Charts.IChartSeries.getOverlap()、IChartSeriesGroup.getOverlap()、および setOverlap(byte) メソッドを追加**
-Aspose.Slides.Charts.IChartSeries.getOverlap() は、2D チャートでの棒と列の重なり具合を取得します（範囲は -100 から 100）。
-このメソッドは特定の系列だけでなく、親系列グループのすべての系列に対しても適用されます - これは適切なグループプロパティの投影です。
+Aspose.Slides.Charts.IChartSeries.getOverlap() は、2D チャートにおける棒や列の重なり度合いを取得します（範囲は -100 から 100）。
+このメソッドは特定のシリーズだけでなく、親シリーズ グループのすべてのシリーズに適用されます。これは該当するグループ プロパティの投影です。
 
-- 親系列グループにアクセスするには IChartSeries.getParentSeriesGroup() メソッドを使用します。
+- 親シリーズ グループにアクセスするには IChartSeries.getParentSeriesGroup() メソッドを使用します。
 - 値を管理するには IChartSeriesGroup.getOverlap() および setOverlap(byte) メソッドを使用します。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -28,25 +40,29 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
-### **ShapeThumbnailBounds.Appearance 列挙値を追加**
-この形状サムネイルを作成するメソッドにより、開発者は形状の外観の境界内に形状サムネイルを生成できます。すべての形状効果を考慮に入れます。生成された形状サムネイルはスライドの境界によって制限されます。
+### **ShapeThumbnailBounds.Appearance 列挙体の値を追加**
+この形状サムネイル作成メソッドにより、開発者は外観の境界内で形状サムネイルを生成できます。すべての形状エフェクトを考慮し、生成されたサムネイルはスライドの境界で制限されます。
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
-### **VbaProject クラスおよび IVbaProject インターフェースを追加、Presentation.getVbaProject() および setVbaProject(VbaProject) メソッドを変更**
-新しい機能により、開発者はプレゼンテーション内で VBA プロジェクトを作成および編集できるようになりました。
+### **VbaProject クラスと IVbaProject インターフェイスを追加、Presentation.getVbaProject() および setVbaProject(VbaProject) メソッドを変更**
+新機能により、開発者はプレゼンテーション内で VBA プロジェクトを作成および編集できるようになりました。
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -84,6 +100,6 @@ pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
+pres.save("test.pptm", SaveFormat.Pptm);
 
 ```

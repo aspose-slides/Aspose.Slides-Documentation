@@ -5,11 +5,11 @@ type: docs
 weight: 60
 url: /cs/net/convert-powerpoint-to-jpg/
 keywords:
-- převod PowerPoint
-- převod prezentace
-- převod snímku
-- převod PPT
-- převod PPTX
+- převést PowerPoint
+- převést prezentaci
+- převést snímek
+- převést PPT
+- převést PPTX
 - PowerPoint na JPG
 - prezentace na JPG
 - snímek na JPG
@@ -25,26 +25,28 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Převod snímků PowerPoint (PPT, PPTX) na vysoce kvalitní JPG obrázky v C# pomocí Aspose.Slides pro .NET s rychlými a spolehlivými ukázkami kódu."
+description: "Převést snímky PowerPoint (PPT, PPTX) na vysoce kvalitní JPG obrázky v C# pomocí Aspose.Slides pro .NET s rychlými, spolehlivými ukázkami kódu."
 ---
 ## **Úvod**
 
-Převod prezentací PowerPoint a OpenDocument na obrázky JPG pomáhá při sdílení snímků, optimalizaci výkonu a vkládání obsahu do webových stránek nebo aplikací. Aspose.Slides pro .NET vám umožňuje převést soubory PPTX, PPT a ODP na vysoce kvalitní JPEG obrázky. Tento průvodce vysvětluje různé metody převodu.
+Konverze prezentací PowerPoint a OpenDocument do JPG obrázků pomáhá při sdílení snímků, optimalizaci výkonu a vkládání obsahu na webové stránky nebo do aplikací. Aspose.Slides pro .NET vám umožňuje převést soubory PPTX, PPT a ODP na vysoce kvalitní JPEG obrázky. Tento průvodce vysvětluje různé metody konverze.
 
-S těmito funkcemi je snadné implementovat vlastní prohlížeč prezentací a vytvořit náhled pro každý snímek. To může být užitečné, pokud chcete chránit snímky prezentace před kopírováním nebo ukázat prezentaci v režimu jen ke čtení. Aspose.Slides umožňuje převést celou prezentaci nebo konkrétní snímek do obrazových formátů.
+S těmito funkcemi je snadné implementovat vlastní prohlížeč prezentací a vytvořit náhled pro každý snímek. To může být užitečné, pokud chcete chránit snímky před kopírováním nebo předvést prezentaci v režimu jen pro čtení. Aspose.Slides vám umožňuje převést celou prezentaci nebo konkrétní snímek do obrazových formátů.
 
-## **Převod snímků prezentace na obrázky JPG**
+## **Převod snímků prezentace na JPG obrázky**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation) .
-2. Získejte objekt snímku typu [ISlide](https://reference.aspose.com/slides/cs/net/aspose.slides/islide) z kolekce [Presentation.Slides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/properties/slides) .
-3. Vytvořte obrázek snímku pomocí metody [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/#getimage_5) .
-4. Zavolejte metodu [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/#save_3) na objektu obrázku. Jako argumenty předávejte název výstupního souboru a formát obrázku.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation).
+1. Získejte objekt snímku typu [ISlide](https://reference.aspose.com/slides/cs/net/aspose.slides/islide) z kolekce [Presentation.Slides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/properties/slides).
+1. Vytvořte obrázek snímku pomocí metody [ISlide.GetImage(float,float)](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/#getimage_5).
+1. Zavolejte metodu [IImage.Save(string,ImageFormat)](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/#save_3) na objektu obrázku. Jako argumenty předávejte název výstupního souboru a formát obrázku.
 
-{{% alert color="primary" %}} 
-**Poznámka:** Převod PPT, PPTX nebo ODP na JPG se liší od převodu do jiných formátů v Aspose.Slides .NET API. Pro jiné formáty typicky používáte metodu [IPresentation.Save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/save/#save_5). Nicméně pro převod na JPG musíte použít metodu [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/#save_3).
+{{% alert color="info" %}} 
+**Note:** Konverze PPT, PPTX nebo ODP na JPG se liší od konverze do jiných formátů v API Aspose.Slides .NET. Pro jiné formáty obvykle používáte metodu [IPresentation.Save(String,SaveFormat,ISaveOptions)](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/save/#save_5). Pro konverzi na JPG však musíte použít metodu [IImage.Save(string,ImageFormat)](https://reference.aspose.com/slides/cs/net/aspose.slides/iimage/save/#save_3).
 {{% /alert %}} 
 
 ```c#
+using Aspose.Slides;
+
 int scaleX = 1;
 int scaleY = scaleX;
 
@@ -63,11 +65,14 @@ using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt
 }
 ```
 
-## **Převod snímků na JPG s přizpůsobenými rozměry**
+## **Převod snímků na JPG s vlastními rozměry**
 
-Aby bylo možné změnit rozměry výsledných JPG obrázků, můžete nastavit velikost obrázku předáním parametru do metody [ISlide.GetImage(Size)](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/#getimage_6). To vám umožní generovat obrázky s konkrétními hodnotami šířky a výšky, což zajišťuje, že výstup splňuje vaše požadavky na rozlišení a poměr stran. Tato flexibilita je zvláště užitečná při vytváření obrázků pro webové aplikace, zprávy nebo dokumentaci, kde jsou vyžadovány přesné rozměry obrázku.
+Chcete-li změnit rozměry výsledných JPG obrázků, můžete nastavit velikost obrázku předáním parametru do metody [ISlide.GetImage(Size)](https://reference.aspose.com/slides/cs/net/aspose.slides/islide/getimage/#getimage_6). To vám umožní generovat obrázky s konkrétními hodnotami šířky a výšky, čímž zajistíte, že výstup splní vaše požadavky na rozlišení a poměr stran. Tato flexibilita je zvláště užitečná při vytváření obrázků pro webové aplikace, zprávy nebo dokumentaci, kde jsou vyžadovány přesné rozměry obrázků.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+
 Size imageSize = new Size(1200, 800);
 
 using (Presentation presentation = new Presentation("PowerPoint_Presentation.pptx"))
@@ -85,17 +90,19 @@ using (Presentation presentation = new Presentation("PowerPoint_Presentation.ppt
 }
 ```
 
-## **Vykreslení komentářů při ukládání snímků jako obrázky**
+## **Vykreslení komentářů při ukládání snímků jako obrázků**
 
-Aspose.Slides pro .NET poskytuje funkci, která umožňuje vykreslit komentáře na snímcích prezentace při jejich převodu na JPG obrázky. Tato funkčnost je zvláště užitečná pro zachování anotací, zpětné vazby nebo diskusí přidaných spolupracovníky v PowerPoint prezentacích. Povolením této možnosti zajistíte, že komentáře budou viditelné v generovaných obrázcích, což usnadní revizi a sdílení zpětné vazby, aniž byste museli otevřít původní soubor prezentace.
+Aspose.Slides pro .NET poskytuje funkci, která umožňuje vykreslit komentáře na snímcích prezentace při jejich konverzi do JPG obrázků. Tato funkčnost je zvláště užitečná pro zachování anotací, zpětné vazby nebo diskusí přidaných spolupracovníky v PowerPoint prezentacích. Povolením této možnosti zajistíte, že komentáře budou viditelné v generovaných obrázcích, což usnadní revizi a sdílení zpětné vazby bez nutnosti otevírat původní soubor prezentace.
 
-Předpokládejme, že máme soubor prezentace „sample.pptx“ s snímkem, který obsahuje komentáře:
+Řekněme, že máme soubor prezentace „sample.pptx“ se snímkem, který obsahuje komentáře:
 
 ![Snímek s komentáři](slide_with_comments.png)
 
-Následující C# kód převádí snímek na JPG obrázek a zachovává komentáře:
-
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int scaleX = 2;
 int scaleY = scaleX;
 
@@ -124,37 +131,35 @@ Výsledek:
 
 ![JPG obrázek s komentáři](image_with_comments.png)
 
-## **Další informace**
+## **Viz také**
 
-Podívejte se na další možnosti převodu PPT, PPTX nebo ODP na obrázky, například:
+- [Převod PowerPointu na GIF](/slides/cs/net/convert-powerpoint-to-animated-gif/)
+- [Převod PowerPointu na PNG](/slides/cs/net/convert-powerpoint-to-png/)
+- [Převod PowerPointu na TIFF](/slides/cs/net/convert-powerpoint-to-tiff/)
+- [Převod PowerPointu na SVG](/slides/cs/net/render-a-slide-as-an-svg-image/)
 
-- [Převod PowerPoint na GIF](/slides/cs/net/convert-powerpoint-to-animated-gif/)
-- [Převod PowerPoint na PNG](/slides/cs/net/convert-powerpoint-to-png/)
-- [Převod PowerPoint na TIFF](/slides/cs/net/convert-powerpoint-to-tiff/)
-- [Převod PowerPoint na SVG](/slides/cs/net/render-a-slide-as-an-svg-image/)
-
-{{% alert color="primary" %}} 
-Chcete-li vidět, jak Aspose.Slides převádí PowerPoint na JPG obrázky, vyzkoušejte tyto bezplatné online převodníky: PowerPoint [PPTX na JPG](https://products.aspose.app/slides/cs/conversion/pptx-to-jpg) a [PPT na JPG](https://products.aspose.app/slides/cs/conversion/ppt-to-jpg). 
+{{% alert color="info" %}} 
+Chcete-li vidět, jak Aspose.Slides převádí PowerPoint na JPG obrázky, vyzkoušejte tyto bezplatné online převaděče: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/cs/conversion/pptx-to-jpg) a [PPT to JPG](https://products.aspose.app/slides/cs/conversion/ppt-to-jpg). 
 {{% /alert %}} 
 
-![Bezplatný online převodník PPTX na JPG](ppt-to-jpg.png)
+![Bezplatný online převaděč PPTX na JPG](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
-Aspose poskytuje [ZDARMA kolážovou webovou aplikaci](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG obrázky, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně.
+{{% alert title="Tip" color="info" %}}
+Aspose nabízí [ZDARMA Collage webovou aplikaci](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete spojovat [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG obrázky, vytvářet [fotogalerie](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně.
 
-Použitím stejných principů popsaných v tomto článku můžete převádět obrázky z jednoho formátu do druhého. Pro více informací navštivte tyto stránky: převod [obrázku na JPG](https://products.aspose.com/slides/cs/net/conversion/image-to-jpg/); převod [JPG na obrázek](https://products.aspose.com/slides/cs/net/conversion/jpg-to-image/); převod [JPG na PNG](https://products.aspose.com/slides/cs/net/conversion/jpg-to-png/), převod [PNG na JPG](https://products.aspose.com/slides/cs/net/conversion/png-to-jpg/); převod [PNG na SVG](https://products.aspose.com/slides/cs/net/conversion/png-to-svg/), převod [SVG na PNG](https://products.aspose.com/slides/cs/net/conversion/svg-to-png/).
+Pomocí stejných principů popsaných v tomto článku můžete převádět obrázky z jednoho formátu do druhého. Další informace najdete na těchto stránkách: převod [obrázku na JPG](https://products.aspose.com/slides/cs/net/conversion/image-to-jpg/); převod [JPG na obrázek](https://products.aspose.com/slides/cs/net/conversion/jpg-to-image/); převod [JPG na PNG](https://products.aspose.com/slides/cs/net/conversion/jpg-to-png/), převod [PNG na JPG](https://products.aspose.com/slides/cs/net/conversion/png-to-jpg/); převod [PNG na SVG](https://products.aspose.com/slides/cs/net/conversion/png-to-svg/), převod [SVG na PNG](https://products.aspose.com/slides/cs/net/conversion/svg-to-png/).
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Podporuje tato metoda hromadný převod?**
+### Podporuje tato metoda dávkovou konverzi?
 
-Ano, Aspose.Slides umožňuje hromadný převod více snímků na JPG v jedné operaci.
+Ano, Aspose.Slides umožňuje dávkovou konverzi více snímků do JPG v jediném operaci.
 
-**Podporuje převod SmartArt, grafy a další složité objekty?**
+### Podporuje konverze SmartArt, grafy a další složité objekty?
 
-Ano, Aspose.Slides vykresluje veškerý obsah, včetně SmartArt, grafů, tabulek, tvarů a dalšího. Přesnost vykreslení se však může mírně lišit oproti PowerPointu, zejména při použití vlastních nebo chybějících písem.
+Ano, Aspose.Slides vykresluje veškerý obsah, včetně SmartArt, grafů, tabulek, tvarů a dalšího. Přesnost vykreslení se však může mírně lišit od PowerPointu, zejména při použití vlastních nebo chybějících fontů.
 
-**Existují omezení počtu snímků, které lze zpracovat?**
+### Existují nějaká omezení počtu snímků, které lze zpracovat?
 
-Aspose.Slides samo o sobě neklade žádná přísná omezení na počet snímků, které můžete zpracovat. Nicméně můžete narazit na chybu nedostatku paměti při práci s velkými prezentacemi nebo obrázky s vysokým rozlišením.
+Aspose.Slides sám neukládá žádná přísná omezení počtu snímků, které můžete zpracovat. Může se však objevit chyba nedostatku paměti při práci s velkými prezentacemi nebo obrázky vysokého rozlišení.

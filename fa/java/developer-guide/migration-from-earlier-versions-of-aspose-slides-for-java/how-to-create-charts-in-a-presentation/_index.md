@@ -1,5 +1,5 @@
 ---
-title: چگونه نمودارها را در ارائه‌ها با استفاده از جاوا ایجاد کنیم
+title: نحوه ایجاد نمودارها در ارائه‌ها با استفاده از جاوا
 linktitle: ایجاد نمودار
 type: docs
 weight: 30
@@ -16,19 +16,22 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه در ارائه‌های PowerPoint PPT، PPTX و ODP با استفاده از جاوا و Aspose.Slides نمودارها را با APIهای نمودار قدیمی و مدرن ایجاد کنید."
+description: "نحوه ایجاد نمودارها در ارائه‌های PowerPoint (PPT, PPTX) و ODP با استفاده از جاوا و Aspose.Slides با بهره‌گیری از هر دو API نمودارهای قدیمی و مدرن را بیاموزید."
 ---
-{{% alert color="primary" %}} 
-یک API جدید [Aspose.Slides for Java API](https://docs.aspose.com/slides/fa/java/) منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از صفر و ویرایش اسناد موجود را پشتیبانی می‌کند.
+{{% alert color="info" %}} 
+
+یک [Aspose.Slides for Java API](https://docs.aspose.com/slides/fa/java/) جدید منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از صفر و ویرایش اسناد موجود را پشتیبانی می‌کند.
+
 {{% /alert %}} 
 ## **پشتیبانی از کدهای قدیمی**
-برای استفاده از کدهای قدیمی که با نسخه‌های Aspose.Slides برای جاوا قبل از 14.x.x توسعه یافته‌اند، باید تغییرات جزئی در کد خود اعمال کنید تا کد همانند قبل کار کند. تمام کلاس‌هایی که در نسخه‌های قدیمی Aspose.Slides برای جاوا تحت فضای‌نام‌های com.aspose.slides و com.aspose.slides.pptx وجود داشتند، اکنون در یک فضای‌نامی واحد com.aspose.slides ترکیب شده‌اند. لطفاً به قطعه کد ساده زیر برای ایجاد یک نمودار معمولی از ابتدا در پرزنتیشن با استفاده از API قدیمی Aspose.Slides نگاه کنید و مراحل مهاشت به API جدید ترکیب‌شده را دنبال کنید.
-## **رویکرد قدیمی Aspose.Slides برای جاوا**
+برای استفاده از کدهای قدیمی که با نسخه‌های قبل از 14.x.x Aspose.Slides for Java توسعه یافته‌اند، نیاز است تغییرات جزئی در کد خود اعمال کنید تا همانند قبل کار کند. تمام کلاس‌هایی که در نسخه‌های قبلی Aspose.Slides for Java در فضای‌نام‌های com.aspose.slides و com.aspose.slides.pptx وجود داشتند، اکنون در یک فضای‌نام com.aspose.slides ترکیب شده‌اند. لطفاً به قطعه کد ساده زیر برای ایجاد یک نمودار عادی از صفر در ارائه با استفاده از API قدیمی Aspose.Slides نگاه کنید و مراحل انتقال به API ترکیبی جدید را دنبال کنید.
+## **رویکرد قدیمی Aspose.Slides for Java**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateChartEx-CreateChartEx.java" >}}
-## **رویکرد جدید Aspose.Slides برای جاوا 14.x.x**
+## **رویکرد جدید Aspose.Slides for Java 14.x.x**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateAChart-CreateAChart.java" >}}
-لطفاً به قطعه کد ساده زیر برای ایجاد یک نمودار پراکنده از ابتدا در پرزنتیشن با استفاده از API قدیمی Aspose.Slides و نحوه‌ٔ دستیابی به آن با API جدید ترکیب‌شده نگاه کنید.
-## **رویکرد قدیمی Aspose.Slides برای جاوا**
+
+لطفاً به قطعه کد ساده زیر برای ایجاد یک نمودار پراکنده از صفر در ارائه با استفاده از API قدیمی Aspose.Slides نگاه کنید و نحوه‌ی رسیدن به همان نتیجه با API ترکیبی جدید را ببینید.
+## **رویکرد قدیمی Aspose.Slides for Java**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-ExistingChart-ExistingChart.java" >}}
-## **رویکرد جدید Aspose.Slides برای جاوا 14.x.x**
+## **رویکرد جدید Aspose.Slides for Java 14.x.x**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateScatterChart-CreateScatterChart.java" >}}

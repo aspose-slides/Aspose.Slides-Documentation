@@ -4,8 +4,10 @@ type: docs
 weight: 45
 url: /pl/jasperreports/integration-with-jasperserver/
 ---
-{{% alert color="primary" %}} 
-Aby zintegrować Aspose.Slides dla JasperReports z JasperServer, konieczne jest wykonanie kilku dodatkowych kroków i aktualizacja plików konfiguracyjnych JasperServer. Ten artykuł wyjaśnia, jak to zrobić.
+{{% alert color="info" %}} 
+
+Aby zintegrować Aspose.Slides for JasperReports z JasperServer, należy wykonać kilka dodatkowych kroków i zaktualizować pliki konfiguracyjne JasperServer. Ten artykuł wyjaśnia, jak to zrobić.
+
 {{% /alert %}} 
 
 1. Dodaj nowe właściwości eksportera do pliku konfiguracyjnego **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml**.

@@ -1,11 +1,11 @@
 ---
-title: Dynamiczne dodawanie tekstu przy użyciu VSTO i Aspose.Slides dla .NET
-linktitle: Dynamiczne dodawanie tekstu
+title: Dodawanie tekstu dynamicznie przy użyciu VSTO i Aspose.Slides dla .NET
+linktitle: Dodawanie tekstu dynamicznie
 type: docs
 weight: 20
 url: /pl/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
 keywords:
-- dodawanie tekstu
+- dodaj tekst
 - migracja
 - VSTO
 - automatyzacja Office
@@ -14,15 +14,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Zobacz, jak migrować z automatyzacji Microsoft Office do Aspose.Slides dla .NET oraz dodawać dynamiczny tekst do prezentacji PowerPoint (PPT, PPTX) w języku C#."
+description: "Zobacz, jak migrować z automatyzacji Microsoft Office do Aspose.Slides dla .NET i dynamicznie dodawać tekst do prezentacji PowerPoint (PPT, PPTX) w C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Typowym zadaniem, które programiści muszą wykonać, jest dynamiczne dodawanie tekstu do slajdów. Ten artykuł pokazuje przykłady kodu dodającego tekst dynamicznie przy użyciu [VSTO](/slides/pl/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) i [Aspose.Slides for .NET](/slides/pl/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
+Częstym zadaniem, które programiści muszą wykonać, jest dynamiczne dodawanie tekstu do slajdów. Ten artykuł pokazuje przykłady kodu do dynamicznego dodawania tekstu przy użyciu [VSTO](/slides/pl/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) oraz [Aspose.Slides for .NET](/slides/pl/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 
 {{% /alert %}} 
 ## **Dynamiczne dodawanie tekstu**
-Obie metody wykonują następujące kroki:
+Obie metody podążają za następującymi krokami:
 
 1. Utwórz prezentację.
 1. Dodaj pusty slajd.
@@ -30,14 +30,14 @@ Obie metody wykonują następujące kroki:
 1. Ustaw tekst.
 1. Zapisz prezentację.
 ## **Przykład kodu VSTO**
-Poniższe fragmenty kodu tworzą prezentację z pustym slajdem i ciągiem tekstu.
+Poniższe fragmenty kodu tworzą prezentację z pustym slajdem i ciągiem tekstu na nim.
 
 **Prezentacja utworzona w VSTO** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_1.png)
 
 ```c#
-//Uwaga: PowerPoint jest przestrzenią nazw, która została zdefiniowana powyżej w następujący sposób
+//Uwaga: PowerPoint jest przestrzenią nazw, która została zdefiniowana powyżej w ten sposób
 //using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 
 //Utwórz prezentację
@@ -71,13 +71,16 @@ pres.SaveAs("c:\\outVSTO.ppt",
 
 
 ## **Przykład Aspose.Slides dla .NET**
-Poniższe fragmenty kodu używają Aspose.Slides do utworzenia prezentacji z pustym slajdem i ciągiem tekstu.
+Poniższe fragmenty kodu używają Aspose.Slides do stworzenia prezentacji z pustym slajdem i ciągiem tekstu na nim.
 
 **Prezentacja utworzona przy użyciu Aspose.Slides dla .NET** 
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-net_2.png)
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 //Utwórz prezentację
 Presentation pres = new Presentation();
 
@@ -103,6 +106,6 @@ IPortion port = tf.Paragraphs[0].Portions[0];
 port.PortionFormat.FontBold = NullableBool.True;
 port.PortionFormat.FontHeight = 32;
 
-//Zapisz wynik na dysku
-pres.Save("c:\\outAspose.ppt", SaveFormat.Ppt);
+//Zapisz wynik na dysk
+pres.Save("outAspose.ppt", SaveFormat.Ppt);
 ```

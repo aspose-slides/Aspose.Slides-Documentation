@@ -1,6 +1,6 @@
 ---
-title: PowerPoint-prezentációk konvertálása XPS-be C++-ban
-linktitle: PowerPoint XPS-re
+title: PowerPoint prezentációk konvertálása XPS-be C++-ban
+linktitle: PowerPoint XPS-be
 type: docs
 weight: 70
 url: /hu/cpp/convert-powerpoint-to-xps
@@ -10,11 +10,11 @@ keywords:
 - dia konvertálása
 - PPT konvertálása
 - PPTX konvertálása
-- PowerPoint XPS-re
-- prezentáció XPS-re
-- dia XPS-re
-- PPT XPS-re
-- PPTX XPS-re
+- PowerPoint XPS-be
+- prezentáció XPS-be
+- dia XPS-be
+- PPT XPS-be
+- PPTX XPS-be
 - PPT mentése XPS-ként
 - PPTX mentése XPS-ként
 - PPT exportálása XPS-be
@@ -23,70 +23,83 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "PowerPoint PPT/PPTX konvertálása magas minőségű, platformfüggetlen XPS-re C++-ban az Aspose.Slides használatával. Kapjon lépésről‑lépésre útmutatót és mintakódot."
+description: "PowerPoint PPT/PPTX konvertálása magas minőségű, platformfüggetlen XPS formátumba C++-ban az Aspose.Slides segítségével. Kapjon lépésről-lépésre útmutatót és mintakódot."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi a PowerPoint‑prezentációk XPS‑be konvertálását úgy, hogy egy PPT vagy PPTX fájlt XPS formátumban mentünk. Ez a cikk azt mutatja be, mikor lehet hasznos az XPS formátum, és hogyan hajtható végre a konvertálás az Aspose.Slides segítségével alapértelmezett vagy egyedi [XpsOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/xpsoptions/) beállításokkal.
+Az Aspose.Slides lehetővé teszi, hogy a PowerPoint‑prezentációkat XPS‑be konvertálja egy PPT vagy PPTX fájl XPS formátumban történő mentésével. Ez a cikk elmagyarázza, mikor lehet hasznos az XPS formátum, és bemutatja, hogyan hajtható végre a konvertálás az Aspose.Slides‑sel alapértelmezett vagy egyéni [XpsOptions](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/xpsoptions/) beállítások használatával.
 
-## **Az XPS-ről**
-A Microsoft a [XPS](https://docs.fileformat.com/page-description-language/xps/) formátumot fejlesztette ki a [PDF](https://docs.fileformat.com/pdf/) alternatívájaként. Lehetővé teszi a tartalom nyomtatását egy PDF‑hez nagyon hasonló fájl kimenetével. Az XPS formátum XML‑en alapul. Az XPS fájl elrendezése vagy szerkezete minden operációs rendszeren és nyomtatón azonos marad.
+## **Az XPS‑ről**
+
+A Microsoft a [XPS](https://docs.fileformat.com/page-description-language/xps/)‑t a [PDF](https://docs.fileformat.com/pdf/) alternatívájaként fejlesztette ki. Lehetővé teszi a tartalom nyomtatását egy PDF‑hez nagyon hasonló fájl kimenetével. Az XPS formátum XML‑en alapul. Az XPS fájl elrendezése vagy szerkezete minden operációs rendszeren és nyomtatón ugyanaz marad. 
 
 ## **Mikor használjuk a Microsoft XPS formátumot**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Azt szeretné megtekinteni, hogy az Aspose.Slides hogyan konvertálja a PPT vagy PPTX prezentációkat XPS formátumba, látogassa meg [ezt az ingyenes online konverter alkalmazást](https://products.aspose.app/slides/hu/conversion). 
+Az Aspose.Slides hogyan konvertálja a PPT vagy PPTX prezentációt XPS formátumba, megtekinthető a [ezt az ingyenes online konverter alkalmazást](https://products.aspose.app/slides/hu/conversion). 
 
 {{% /alert %}} 
 
-Ha csökkenteni szeretné a tárolási költségeket, konvertálhatja a Microsoft PowerPoint prezentációját XPS formátumba. Így könnyebben mentheti, oszthatja meg és nyomtathatja a dokumentumait.
+Ha csökkenteni szeretné a tárolási költségeket, átkonvertálhatja a Microsoft PowerPoint‑prezentációját XPS formátumba. Így könnyebbé válik a dokumentumok mentése, megosztása és nyomtatása. 
 
-A Microsoft továbbra is erős XPS‑támogatást biztosít a Windowsban (még a Windows 10‑ben is), ezért érdemes megfontolni a fájlok ebbe a formátumba történő mentését. Ha Windows 8.1‑et, Windows 8‑at, Windows 7‑et vagy Windows Vista‑t használ, az XPS valójában a legjobb lehetőség lehet bizonyos műveletekhez.
+Microsoft továbbra is erőteljes támogatást biztosít az XPS‑hez Windowsban (még a Windows 10‑ben is), ezért érdemes lehet ebbe a formátumba menteni a fájlokat. Ha Windows 8.1, Windows 8, Windows 7 vagy Windows Vista rendszerekkel dolgozik, akkor az XPS valójában a legjobb lehetőség bizonyos műveletekhez. 
 
-- **Windows 8** az OXPS (Open XPS) formátumot használja az XPS fájlokhoz. Az OXPS az eredeti XPS formátum szabványosított változata. A Windows 8 jobb XPS‑támogatást nyújt, mint a PDF‑et. 
-  - **XPS:** Beépített XPS‑megtekintő/olvasó és XPS‑nyomtatás elérhető. 
-  - **PDF:** PDF‑olvasó érhető el, de nincs PDF‑nyomtatás. 
+- **Windows 8** az OXPS (Open XPS) formátumot használja az XPS fájlokhoz. Az OXPS az eredeti XPS formátum szabványosított változata. A Windows 8 jobb támogatást nyújt az XPS fájlokhoz, mint a PDF fájlokhoz. 
+  - **XPS:** Beépített XPS néző/olvasó és XPS‑re nyomtatás funkció elérhető. 
+  - **PDF:** PDF‑olvasó elérhető, de nincs PDF‑re nyomtatás funkció. 
 
-- **Windows 7** és **Windows Vista** az eredeti XPS formátumot használják. Ezek az operációs rendszerek szintén jobb XPS‑támogatást nyújtanak, mint a PDF‑t. 
-  - **XPS:** Beépített XPS‑megtekintő és XPS‑nyomtatás elérhető. 
-  - **PDF:** Nincs PDF‑olvasó. Nincs PDF‑nyomtatás. 
+- **Windows 7 és Windows Vista** az eredeti XPS formátumot használják. Ezek az operációs rendszerek szintén jobb támogatást nyújtanak az XPS fájlokhoz, mint a PDF‑ekhez. 
+  - **XPS:** Beépített XPS néző és XPS‑re nyomtatás funkció elérhető. 
+  - **PDF:** Nincs PDF‑olvasó. Nincs PDF‑re nyomtatás funkció. 
 
 |<p>**Bemeneti PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Kimeneti XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
-A Microsoft végül bevezette a PDF nyomtatási funkciót a Windows 10‑ben. Korábban a felhasználók a dokumentumok nyomtatását az XPS formátumon keresztül végezték.
+A Microsoft végül bevezette a PDF nyomtatási műveletek támogatását a Windows 10‑ben elérhető Nyomtatás PDF‑be funkción keresztül. Korábban a felhasználók a dokumentumokat az XPS formátumon keresztül nyomtatták. 
 
-## **XPS konvertálás az Aspose.Slides‑el**
+## **XPS konvertálás az Aspose.Slides‑szel**
 
-A [**Aspose.Slides**](https://products.aspose.com/slides/hu/cpp/) C++‑hoz a [**Save**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) metódust használhatja, amely a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályban érhető el, a teljes prezentáció XPS dokumentummá konvertálásához.
+A C++‑os [**Aspose.Slides**](https://products.aspose.com/slides/hu/cpp/)‑ban a [**Save**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) metódust használhatja a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból, hogy az egész prezentációt XPS dokumentummá konvertálja. 
 
-XPS‑re történő konvertáláskor a prezentációt a következő beállítások egyikével kell menteni:
+Az XPS‑re történő konvertáláskor a prezentációt a következő beállítások egyikével kell menteni:
 
-- Alapértelmezett beállítások ([**XPSOptions**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.xps_options) nélkül)
-- Egyedi beállítások ([**XPSOptions**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.xps_options) használatával)
+- Alapértelmezett beállítások (az [**XPSOptions**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.xps_options) nélkül)
+- Egyéni beállítások (az [**XPSOptions**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.xps_options) használatával)
 
-### **Prezentációk XPS‑be konvertálása alapértelmezett beállításokkal**
+### **Prezentációk konvertálása XPS‑re alapértelmezett beállításokkal**
 
-Ez a C++‑kódrészlet megmutatja, hogyan konvertálhat egy prezentációt XPS dokumentummá szabványos beállításokkal:
+Ez a C++‑os példakód bemutatja, hogyan konvertálhat prezentációt XPS dokumentummá szabványos beállítások használatával:
 
 ``` cpp
-// Hozzon létre egy Presentation objektumot, amely egy prezentációs fájlt képvisel
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+// Példányosít egy Presentation objektumot, amely egy prezentáció fájlt képvisel
 auto pres = System::MakeObject<Presentation>(u"Convert_XPS.pptx");
 // A prezentáció mentése XPS dokumentumba
 pres->Save(u"XPS_Output_Without_XPSOption_out.xps", SaveFormat::Xps);
 ```
 
-### **Prezentációk XPS‑be konvertálása egyedi beállításokkal**
-Ez a kódrészlet megmutatja, hogyan konvertálhat egy prezentációt XPS dokumentummá egyedi beállításokkal C++‑ban:
+### **Prezentációk konvertálása XPS‑re egyéni beállításokkal**
+
+Ez a példakód bemutatja, hogyan konvertálhat prezentációt XPS dokumentummá egyéni beállításokkal C++‑ban:
 
 ``` cpp
-// Hozzon létre egy Presentation objektumot, amely egy prezentációs fájlt képvisel
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <Export/XpsOptions.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+// Létrehoz egy Presentation objektumot, amely egy prezentációs fájlt képvisel
 auto pres = System::MakeObject<Presentation>(u"Convert_XPS_Options.pptx");
-// Hozzon létre egy TiffOptions osztályt
+// Létrehozza az XpsOptions osztályt
 auto options = System::MakeObject<XpsOptions>();
 
-// Metafájlok mentése PNG-ként
+// Metafájlok mentése PNG formátumban
 options->set_SaveMetafilesAsPng(true);
 
 // A prezentáció mentése XPS dokumentumba
@@ -95,10 +108,10 @@ pres->Save(u"XPS_With_Options_out.xps", SaveFormat::Xps, options);
 
 ## **GYIK**
 
-**Menthetek XPS‑t egy adatfolyamba a fájl helyett?**
+### Menthetek XPS‑t adatfolamba fájl helyett?
 
-Igen — az Aspose.Slides lehetővé teszi a közvetlen exportálást adatfolyamba, ami ideális web API‑k, szerver‑oldali folyamatok vagy bármely olyan scenárió számára, ahol a XPS‑t a fájlrendszer érintése nélkül szeretné elküldeni.
+**Igen**—az Aspose.Slides lehetővé teszi a közvetlen exportot adatfolamba, ami ideális web‑API‑k, szerveroldali feldolgozási láncok vagy bármely olyan esetben, amikor az XPS‑t a fájlrendszer érintése nélkül szeretnénk elküldeni.
 
-**A rejtett diák átmennek XPS‑be, és kizárhatom őket?**
+### A rejtett diák átkerülnek XPS‑be, és kizárhatom őket?
 
-Alapértelmezés szerint csak a normál (látható) diák kerülnek renderelésre. [Elrejtheti vagy kizárhatja a rejtett diákot](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/xpsoptions/set_showhiddenslides/) a [export beállítások](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/xpsoptions/) segítségével mentés előtt, így a kimenet pontosan azokat az oldalakat tartalmazza, amelyeket szeretne.
+Alapértelmezés szerint csak a normál (látható) diák kerülnek renderelésre. A [rejtett diák felvételét vagy kizárását](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/xpsoptions/set_showhiddenslides/) a [export beállítások](https://reference.aspose.com/slides/hu/cpp/aspose.slides.export/xpsoptions/) segítségével állíthatja be mentés előtt XPS‑be, biztosítva, hogy a kimenet pontosan a kívánt oldalakat tartalmazza.

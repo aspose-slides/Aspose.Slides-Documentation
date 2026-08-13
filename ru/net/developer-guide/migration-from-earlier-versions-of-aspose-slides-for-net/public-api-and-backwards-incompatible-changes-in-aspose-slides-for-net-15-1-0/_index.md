@@ -1,14 +1,14 @@
 ---
-title: Публичный API и обратно несовместимые изменения в Aspose.Slides для .NET 15.1.0
-linktitle: Aspose.Slides для .NET 15.1.0
+title: Публичный API и несовместимые изменения в Aspose.Slides for .NET 15.1.0
+linktitle: Aspose.Slides for .NET 15.1.0
 type: docs
 weight: 130
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/
 keywords:
 - миграция
-- наследуемый код
+- устаревший код
 - современный код
-- наследуемый подход
+- устаревший подход
 - современный подход
 - PowerPoint
 - OpenDocument
@@ -16,23 +16,22 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Изучите обновления публичного API и разрушающие изменения в Aspose.Slides для .NET, чтобы плавно мигрировать ваши решения презентаций PowerPoint PPT, PPTX и ODP."
+description: "Обзор обновлений публичного API и разрывных изменений в Aspose.Slides for .NET для плавной миграции ваших решений по работе с презентациями PowerPoint PPT, PPTX и ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Эта страница перечисляет все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) или [удалённые](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) классы, методы, свойства и т.д., а также другие изменения, введённые в API Aspose.Slides for .NET 15.1.0.
+Эта страница перечисляет все [added](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) или [removed](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) классы, методы, свойства и т.д., а также другие изменения, внесённые в API Aspose.Slides for .NET 15.1.0.
 
 {{% /alert %}} 
-## **Изменения публичного API**
-#### **Добавлена функциональность подстановки шрифтов**
-Добавлена возможность глобальной замены шрифта по всей презентации и временной замены при рендеринге.
+## **Public API Chages**
+#### **Fonts Substitutions Functinality Has Been Added**
+Добавлена возможность глобально заменять шрифт во всей презентации и временно для рендеринга.
 
-В классе Presentation введено новое свойство "FontsManager". Класс FontsManager содержит следующие члены:
+В классе Presentation введено новое свойство **FontsManager**. Класс FontsManager имеет следующие члены:
 
 **IFontSubstRuleCollection FontSubstRuleList** Property
 
-Эта коллекция экземпляров IFontSubstRule используется для подстановки шрифтов во время рендеринга. IFontSubstRule имеет свойства SourceFont и DestFont, реализующие интерфейс IFontData, и свойство ReplaceFontCondition, позволяющее выбрать условие замены ("WhenInaccessible" или "Always").
+Эта коллекция экземпляров IFontSubstRule используется для подстановки шрифтов во время рендеринга. IFontSubstRule содержит свойства SourceFont и DestFont, реализующие интерфейс IFontData, а также свойство ReplaceFontCondition, позволяющее выбрать условие замены («WhenInaccessible» или «Always»).
 
 **IFontData[] GetFonts()** Method
 
@@ -45,6 +44,9 @@ description: "Изучите обновления публичного API и р
 Следующий пример показывает, как заменить шрифт в презентации:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -59,9 +61,11 @@ description: "Изучите обновления публичного API и р
 
 ``` 
 
-Другой пример демонстрирует подстановку шрифта при рендеринге, когда шрифт недоступен:
+Другой пример демонстрирует подстановку шрифта для рендеринга, когда шрифт недоступен:
 
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -79,8 +83,8 @@ description: "Изучите обновления публичного API и р
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Arial font will be used instead of SomeRareFont when inaccessible
+            // Шрифт Arial будет использоваться вместо SomeRareFont, когда недоступен
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ```

@@ -1,44 +1,46 @@
 ---
-title: Διαχείριση Θεμάτων Παρουσίασης σε Android
+title: Διαχείριση Θεμάτων Παρουσίασης στο Android
 linktitle: Θέμα Παρουσίασης
 type: docs
 weight: 10
 url: /el/androidjava/presentation-theme/
 keywords:
-- Θέμα PowerPoint
-- Θέμα παρουσίασης
-- Θέμα διαφάνειας
-- Ορισμός θέματος
-- Αλλαγή θέματος
-- Διαχείριση θέματος
-- Χρώμα θέματος
-- Επιπλέον παλέτα
-- Γραμματοσειρά θέματος
-- Στυλ θέματος
-- Εφέ θέματος
+- θέμα PowerPoint
+- θέμα παρουσίασης
+- θέμα διαφάνειας
+- ορισμός θέματος
+- αλλαγή θέματος
+- διαχείριση θέματος
+- χρώμα θέματος
+- επιπρόσθετη παλέτα
+- γραμματοσειρά θέματος
+- στυλ θέματος
+- εφέ θέματος
 - PowerPoint
 - OpenDocument
-- Παρουσίαση
+- παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Κύρια θέματα παρουσίασης στο Aspose.Slides για Android μέσω Java για δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή εταιρική εικόνα."
+description: "Διαχειριστείτε τα θέματα παρουσίασης στο Aspose.Slides για Android μέσω Java για δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή εταιρική ταυτότητα."
 ---
 ## **Εισαγωγή**
 
-Ένα θέμα παρουσίασης καθορίζει τις ιδιότητες των στοιχείων σχεδίασης. Όταν επιλέγετε ένα θέμα παρουσίασης, ουσιαστικά επιλέγετε ένα συγκεκριμένο σύνολο οπτικών στοιχείων και των ιδιοτήτων τους.
+Ένα θέμα παρουσίασης ορίζει τις ιδιότητες των στοιχείων σχεδίασης. Όταν επιλέγετε ένα θέμα παρουσίασης, ουσιαστικά επιλέγετε ένα συγκεκριμένο σύνολο οπτικών στοιχείων και τις ιδιότητές τους.
 
-Στο PowerPoint, ένα θέμα περιλαμβάνει χρώματα, [γραμματοσειρές](/slides/el/androidjava/powerpoint-fonts/), [στυλ φόντου](/slides/el/androidjava/presentation-background/), και εφέ.
+Στο PowerPoint, ένα θέμα αποτελείται από χρώματα, [γραμματοσειρές](/slides/el/androidjava/powerpoint-fonts/), [στυλ φόντου](/slides/el/androidjava/presentation-background/), και εφέ.
 
-![συστατικά-θέματος](theme-constituents.png)
+![theme-constituents](theme-constituents.png)
 
-## **Αλλαγή Χρώματος Θέματος**
+## **Αλλαγή χρώματος θέματος**
 
-Ένα θέμα PowerPoint χρησιμοποιεί ένα συγκεκριμένο σύνολο χρωμάτων για διαφορετικά στοιχεία σε μια διαφάνεια. Εάν δεν σας αρέσουν τα χρώματα, τα αλλάζετε εφαρμόζοντας νέα χρώματα για το θέμα. Για να επιλέξετε νέο χρώμα θέματος, το Aspose.Slides παρέχει τιμές στην απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SchemeColor).
+Ένα θέμα PowerPoint χρησιμοποιεί ένα συγκεκριμένο σύνολο χρωμάτων για διαφορετικά στοιχεία σε μία διαφάνεια. Αν δεν σας αρέσουν τα χρώματα, τα αλλάζετε εφαρμόζοντας νέα χρώματα στο θέμα. Για να μπορείτε να επιλέξετε νέο χρώμα θέματος, το Aspose.Slides παρέχει τιμές στην απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SchemeColor).
 
 Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε το χρώμα έμφασης για ένα θέμα:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
@@ -51,44 +53,68 @@ try {
 }
 ```
 
-Μπορείτε να καθορίσετε την αποτελεσματική τιμή του προκύπτοντος χρώματος με αυτόν τον τρόπο:
+Μπορείτε να προσδιορίσετε την αποτελεσματική τιμή του τελικού χρώματος με αυτόν τον τρόπο:
 
 ```java
-IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+import com.aspose.slides.*;
+import java.awt.Color;
 
-Color effectiveColor = fillEffective.getSolidFillColor();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]", 
-        effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    shape.getFillFormat().setFillType(FillType.Solid);
+
+    shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    IFillFormatEffectiveData fillEffective = shape.getFillFormat().getEffective();
+
+    Color effectiveColor = fillEffective.getSolidFillColor();
+
+    System.out.println(String.format("Color [A=%d, R=%d, G=%d, B=%d]",
+            effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Για να αποδείξουμε περαιτέρω τη λειτουργία αλλαγής χρώματος, δημιουργούμε ένα άλλο στοιχείο και του αναθέτουμε το χρώμα έμφασης (από την αρχική λειτουργία). Στη συνέχεια αλλάζουμε το χρώμα στο θέμα:
+Για να δείξουμε περαιτέρω τη λειτουργία αλλαγής χρώματος, δημιουργούμε ένα ακόμη στοιχείο και του αναθέτουμε το χρώμα έμφασης (από την αρχική λειτουργία). Στη συνέχεια αλλάζουμε το χρώμα στο θέμα:
 
 ```java
-IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-otherShape.getFillFormat().setFillType(FillType.Solid);
+Presentation pres = new Presentation();
+try {
+    IAutoShape otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 120, 100, 100);
 
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+    otherShape.getFillFormat().setFillType(FillType.Solid);
 
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+    otherShape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
+    pres.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Το νέο χρώμα εφαρμόζεται αυτόματα και στα δύο στοιχεία.
 
-### **Ορισμός Χρώματος Θέματος από Επιπλέον Παλέτα**
+### **Ορισμός χρώματος θέματος από επιπρόσθετη παλέτα**
 
-Καθώς εφαρμόζετε μετασχηματισμούς φωτεινότητας στο κύριο χρώμα θέματος (1), δημιουργούνται χρώματα από την επιπλέον παλέτα (2). Στη συνέχεια μπορείτε να ορίσετε και να λάβετε αυτά τα χρώματα θέματος.
+Όταν εφαρμόζετε μετασχηματισμούς φωτεινότητας στο κύριο χρώμα θέματος (1), σχηματίζονται χρώματα από την επιπρόσθετη παλέτα (2). Στη συνέχεια μπορείτε να ορίσετε και να λάβετε αυτά τα χρώματα θέματος.
 
-![χρώματα-επιπλέον-παλέτας](additional-palette-colors.png)
+![additional-palette-colors](additional-palette-colors.png)
 
 **1** - Κύρια χρώματα θέματος
 
-**2** - Χρώματα από την επιπλέον παλέτα.
+**2** - Χρώματα από την επιπρόσθετη παλέτα.
 
-Αυτός ο κώδικας Java επιδεικνύει μια λειτουργία όπου τα χρώματα της επιπλέον παλέτας λαμβάνονται από το κύριο χρώμα θέματος και στη συνέχεια χρησιμοποιούνται σε σχήματα:
+Αυτός ο κώδικας Java δείχνει μια λειτουργία όπου τα χρώματα της επιπρόσθετης παλέτας λαμβάνονται από το κύριο χρώμα θέματος και στη συνέχεια χρησιμοποιούνται σε σχήματα:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -99,7 +125,7 @@ try {
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
 
-    // Έμφαση 4, Ανοιχτότερο 80%
+    // Έμφαση 4, Φωτεινότερο 80%
     IShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 50, 50);
 
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -107,7 +133,7 @@ try {
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.2f);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.8f);
 
-    // Έμφαση 4, Ανοιχτότερο 60%
+    // Έμφαση 4, Φωτεινότερο 60%
     IShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 50, 50);
 
     shape3.getFillFormat().setFillType(FillType.Solid);
@@ -115,7 +141,7 @@ try {
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.4f);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.AddLuminance, 0.6f);
 
-    // Έμφαση 4, Ανοιχτότερο 40%
+    // Έμφαση 4, Φωτεινότερο 40%
     IShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 50, 50);
 
     shape4.getFillFormat().setFillType(FillType.Solid);
@@ -137,79 +163,95 @@ try {
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(ColorTransformOperation.MultiplyLuminance, 0.5f);
 
-    presentation.save(path + "example_accent4.pptx", SaveFormat.Pptx);
+    presentation.save("example_accent4.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-### **Χαρτογράφηση `SchemeColor` σε Χρώματα `IColorScheme`**
+### **Χαρτογράφηση `SchemeColor` σε χρώματα `IColorScheme`**
 
-Όταν εργάζεστε με το [SchemeColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/schemecolor/), μπορεί να παρατηρήσετε ότι περιέχει τις ακόλουθες τιμές χρωμάτων θέματος:
+Όταν εργάζεστε με [SchemeColor](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/schemecolor/), μπορεί να παρατηρήσετε ότι περιέχει τις παρακάτω τιμές χρωμάτων θέματος:
 
 `Background1`, `Background2`, `Text1`, και `Text2`.
 
-Ωστόσο, η μέθοδος `Presentation.getMasterTheme().getColorScheme()` επιστρέφει το [IColorScheme](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icolorscheme/), το οποίο εκθέτει τα αντίστοιχα χρώματα ως:
+Ωστόσο, η μέθοδος Presentation.getMasterTheme().getColorScheme() επιστρέφει [IColorScheme](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/icolorscheme/), η οποία εκθέτει τα αντίστοιχα χρώματα ως:
 
 `Dark1`, `Dark2`, `Light1`, και `Light2`.
 
-Αυτή η διαφορά είναι μόνο στην ονομασία. Οι τιμές αναφέρονται στα ίδια «υποδοχείς» χρώματος θέματος και η αντιστοίχηση είναι σταθερή:
+Αυτή η διαφορά είναι μόνο στην ονοματολογία. Οι τιμές αναφέρονται στα ίδια slots χρώματος θέματος και η αντιστοίχηση είναι σταθερή:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Δεν υπάρχει δυναμική μετατροπή μεταξύ `Text`/`Background` και `Dark`/`Light`. Απλώς είναι εναλλακτικά ονόματα για τα ίδια χρώματα θέματος.
+Δεν υπάρχει δυναμική μετατροπή μεταξύ Text/Background και Dark/Light. Είναι απλώς εναλλακτικά ονόματα για τα ίδια χρώματα θέματος.
 
-Αυτή η διαφορά ονομασίας προέρχεται από την ορολογία του Microsoft Office. Οι παλαιότερες εκδόσεις του Office χρησιμοποιούσαν `Dark 1`, `Light 1`, `Dark 2`, και `Light 2`, ενώ οι νεότερες εκδόσεις UI εμφανίζουν τα ίδια «υποδοχείς» ως `Text 1`, `Background 1`, `Text 2`, και `Background 2`.
+Αυτή η διαφορά στην ονοματολογία προέρχεται από την ορολογία του Microsoft Office. Οι παλαιότερες εκδόσεις του Office χρησιμοποιούσαν `Dark 1`, `Light 1`, `Dark 2` και `Light 2`, ενώ οι νεότερες εκδόσεις UI εμφανίζουν τα ίδια slots ως `Text 1`, `Background 1`, `Text 2` και `Background 2`.
 
-## **Αλλαγή Γραμματοσειράς Θέματος**
+## **Αλλαγή γραμματοσειράς θέματος**
 
-Για να μπορείτε να επιλέγετε γραμματοσειρές για θέματα και άλλους σκοπούς, το Aspose.Slides χρησιμοποιεί αυτούς τους ειδικούς αναγνωριστές (παρόμοιους με αυτούς που χρησιμοποιεί το PowerPoint):
+Για να μπορείτε να επιλέξετε γραμματοσειρές για θέματα και άλλους σκοπούς, το Aspose.Slides χρησιμοποιεί αυτούς τους ειδικούς αναγνωριστικούς (παρόμοιους με εκείνους που χρησιμοποιούνται στο PowerPoint):
 
-* **+mn-lt** - Σώμα Γραμματοσειράς Λατινικά (Μικρή Λατινική Γραμματοσειρά)
-* **+mj-lt** - Κεφαλίδα Γραμματοσειράς Λατινικά (Μεγάλη Λατινική Γραμματοσειρά)
-* **+mn-ea** - Σώμα Γραμματοσειράς Ανατολικής Ασίας (Μικρή Γραμματοσειρά Ανατολικής Ασίας)
-* **+mj-ea** - Σώμα Γραμματοσειράς Ανατολικής Ασίας (Μεγάλη Γραμματοσειρά Ανατολικής Ασίας)
+* **+mn-lt** - Body Font Latin (Minor Latin Font)
+* **+mj-lt** -Heading Font Latin (Major Latin Font)
+* **+mn-ea** - Body Font East Asian (Minor East Asian Font)
+* **+mj-ea** - Body Font East Asian (Major East Asian Font)
 
 Αυτός ο κώδικας Java δείχνει πώς να αναθέσετε τη λατινική γραμματοσειρά σε ένα στοιχείο θέματος:
 
 ```java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
+import com.aspose.slides.*;
 
-Paragraph paragraph = new Paragraph();
+Presentation pres = new Presentation();
+try {
+    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 
-Portion portion = new Portion("Theme text format");
+    Paragraph paragraph = new Paragraph();
 
-paragraph.getPortions().add(portion);
+    Portion portion = new Portion("Theme text format");
 
-shape.getTextFrame().getParagraphs().add(paragraph);
+    paragraph.getPortions().add(portion);
 
-portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+    shape.getTextFrame().getParagraphs().add(paragraph);
+
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε τη γραμματοσειρά θέματος της παρουσίασης:
+Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε τη γραμματοσειρά του θέματος παρουσίασης:
 
 ```java
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 Η γραμματοσειρά σε όλα τα πλαίσια κειμένου θα ενημερωθεί.
 
-{{% alert color="primary" title="TIP" %}} 
-Μπορείτε να θέλετε να δείτε τις [γραμματοσειρές PowerPoint](/slides/el/androidjava/powerpoint-fonts/).
+{{% alert color="info" title="TIP" %}} 
+Μπορείτε να δείτε [γραμματοσειρές PowerPoint](/slides/el/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Αλλαγή Στυλ Φόντου Θέματος**
+## **Αλλαγή στυλ φόντου θέματος**
 
-Προεπιλογή, η εφαρμογή PowerPoint παρέχει 12 προκαθορισμένα φόντα, αλλά μόνο 3 από αυτά αποθηκεύονται σε μια τυπική παρουσίαση.
+Από προεπιλογή, η εφαρμογή PowerPoint παρέχει 12 προορισμένα φόντα, αλλά μόνο 3 από αυτά τα 12 φόντα αποθηκεύονται σε μια τυπική παρουσίαση.
 
 ![todo:image_alt_text](presentation-design_8.png)
 
-Για παράδειγμα, μετά την αποθήκευση μιας παρουσίασης στην εφαρμογή PowerPoint, μπορείτε να εκτελέσετε αυτόν τον κώδικα Java για να μάθετε τον αριθμό των προκαθορισμένων φόντων στην παρουσίαση:
+Για παράδειγμα, αφού αποθηκεύσετε μια παρουσίαση στην εφαρμογή PowerPoint, μπορείτε να εκτελέσετε αυτόν τον κώδικα Java για να βρείτε τον αριθμό των προορισμένων φόντων στην παρουσίαση:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     int numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
@@ -227,26 +269,36 @@ try {
 Αυτός ο κώδικας Java δείχνει πώς να ορίσετε το φόντο για μια παρουσίαση:
 
 ```java
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("pres.pptx");
+try {
+    pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
-**Οδηγός ευρετηρίου**: 0 χρησιμοποιείται για καμία γέμιση. Το ευρετήριο ξεκινά από το 1.
+**Οδηγός ευρετηρίου**: 0 χρησιμοποιείται για κανέναν γέμισμα. Το ευρετήριο ξεκινά από 1.
 
-{{% alert color="primary" title="TIP" %}} 
-Μπορείτε να θέλετε να δείτε το [Φόντο PowerPoint](/slides/el/androidjava/presentation-background/).
+{{% alert color="info" title="TIP" %}} 
+Μπορείτε να δείτε [φόντο PowerPoint](/slides/el/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **Αλλαγή Εφέ Θέματος**
+## **Αλλαγή εφέ θέματος**
 
 Ένα θέμα PowerPoint συνήθως περιέχει 3 τιμές για κάθε σειρά στυλ. Αυτές οι σειρές συνδυάζονται σε αυτά τα 3 εφέ: διακριτό, μέτριο και έντονο. Για παράδειγμα, αυτό είναι το αποτέλεσμα όταν τα εφέ εφαρμόζονται σε ένα συγκεκριμένο σχήμα:
 
 ![todo:image_alt_text](presentation-design_10.png)
 
-Χρησιμοποιώντας 3 ιδιότητες ([FillStyles](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme) μπορείτε να αλλάξετε τα στοιχεία σε ένα θέμα (ακόμη πιο ευέλικτα από τις επιλογές στο PowerPoint).
+Χρησιμοποιώντας 3 ιδιότητες ([FillStyles](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme#getEffectStyles--)) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FormatScheme) μπορείτε να αλλάξετε τα στοιχεία σε ένα θέμα (ακόμα πιο ευέλικτα από τις επιλογές στο PowerPoint).
 
 Αυτός ο κώδικας Java δείχνει πώς να αλλάξετε ένα εφέ θέματος τροποποιώντας μέρη των στοιχείων:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(Color.RED);
@@ -263,20 +315,20 @@ try {
 }
 ```
 
-Οι προκύπτουσες αλλαγές στο χρώμα γεμίσματος, τύπο γεμίσματος, εφέ σκιάς κ.λπ.:
+Οι resulting αλλαγές σε χρώμα γεμίσματος, τύπο γεμίσματος, εφέ σκιάς κ.λπ.:
 
 ![todo:image_alt_text](presentation-design_11.png)
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Μπορώ να εφαρμόσω ένα θέμα σε μία μόνο διαφάνεια χωρίς να αλλάξω το master;**
+### Μπορώ να εφαρμόσω ένα θέμα σε μία διαφάνεια χωρίς να αλλάξω το master;
 
-Ναι. Το Aspose.Slides υποστηρίζει παραβιάσεις θέματος επιπέδου διαφάνειας, ώστε μπορείτε να εφαρμόσετε τοπικό θέμα μόνο σε αυτή τη διαφάνεια, διατηρώντας αμετάβλητο το master θέμα (μέσω του [SlideThemeManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidethememanager/)).
+Ναι. Το Aspose.Slides υποστηρίζει παραπλήσιες αλλαγές θέματος επιπέδου διαφάνειας, ώστε να μπορείτε να εφαρμόσετε ένα τοπικό θέμα μόνο σε εκείνη τη διαφάνεια διατηρώντας το master θέμα αμετάβλητο (μέσω του [SlideThemeManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidethememanager/)).
 
-**Ποιος είναι ο πιο ασφαλής τρόπος για να μεταφέρετε ένα θέμα από μια παρουσίαση σε άλλη;**
+### Ποιος είναι ο πιο ασφαλής τρόπος να μεταφέρετε ένα θέμα από μία παρουσίαση σε άλλη;
 
-[Clone slides](/slides/el/androidjava/clone-slides/) μαζί με το master τους στη στοχευόμενη παρουσίαση. Αυτό διατηρεί το αρχικό master, τις διατάξεις και το συσχετισμένο θέμα, ώστε η εμφάνιση να παραμένει συνεπής.
+[Clone slides](/slides/el/androidjava/clone-slides/) μαζί με το master τους στη στόχευση παρουσίαση. Αυτό διατηρεί το αρχικό master, τις διατάξεις και το συσχετισμένο θέμα ώστε η εμφάνιση να παραμένει συνεπής.
 
-**Πώς μπορώ να δω τις "αποτελεσματικές" τιμές μετά από όλες τις κληρονομήσεις και παραβιάσεις;**
+### Πώς μπορώ να δω τις «αποτελεσματικές» τιμές μετά από όλα τα κληρονομίες και τις αντικαταστάσεις;
 
-Χρησιμοποιήστε τις ["αποτελεσματικές"](/slides/el/androidjava/shape-effective-properties/) προβολές του API για θέμα/χρώμα/γραμματοσειρά/εφέ. Αυτές επιστρέφουν τις επιλυμένες, τελικές ιδιότητες μετά την εφαρμογή του master συν τυχόν τοπικές παραβιάσεις.
+Χρησιμοποιήστε τις «αποτελεσματικές» προβολές του API (/slides/el/androidjava/shape-effective-properties/) για θέμα/χρώμα/γραμματοσειρά/εφέ. Αυτές επιστρέφουν τις επιλυμένες, τελικές ιδιότητες μετά την εφαρμογή του master και τυχόν τοπικών παρακάμψεων.

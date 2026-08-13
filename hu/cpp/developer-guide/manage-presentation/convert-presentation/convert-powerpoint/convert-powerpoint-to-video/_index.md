@@ -1,53 +1,77 @@
 ---
-title: PowerPoint-prezentációk videóvá alakítása C++-ban
-linktitle: PowerPoint videóvá
+title: PowerPoint prezentációk videóvá konvertálása C++-ban
+linktitle: PowerPoint videó
 type: docs
 weight: 130
 url: /hu/cpp/convert-powerpoint-to-video/
 keywords:
-- PowerPoint átalakítása
-- prezentáció átalakítása
-- PPT átalakítása
-- PPTX átalakítása
-- PowerPoint videóvá
-- prezentáció videóvá
-- PPT videóvá
-- PPTX videóvá
-- PowerPoint MP4-re
-- prezentáció MP4-re
-- PPT MP4-re
-- PPTX MP4-re
+- PowerPoint konvertálása
+- prezentáció konvertálása
+- PPT konvertálása
+- PPTX konvertálása
+- PowerPoint videóvá konvertálása
+- prezentáció videóvá konvertálása
+- PPT videóvá konvertálása
+- PPTX videóvá konvertálása
+- PowerPoint MP4-re konvertálása
+- prezentáció MP4-re konvertálása
+- PPT MP4-re konvertálása
+- PPTX MP4-re konvertálása
 - PPT mentése MP4-ként
 - PPTX mentése MP4-ként
 - PPT exportálása MP4-be
 - PPTX exportálása MP4-be
-- videó átalakítás
+- videó konvertálás
 - PowerPoint
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet PowerPoint-prezentációkat videóvá alakítani C++-ban. Fedezze fel a mintakódot és az automatizálási technikákat, amelyek egyszerűsítik a munkafolyamatát."
+description: "Ismerje meg, hogyan konvertálhatja a PowerPoint prezentációkat videóvá C++-ban. Fedezze fel a mintakódot és az automatizálási technikákat, hogy egyszerűsítse a munkafolyamatát."
 ---
 ## **Bevezetés**
 
-PowerPoint‑prezentáció videóvá alakításával 
+PowerPoint prezentációja videóvá konvertálásával a következőket kapja:
 
-* **Növekvő hozzáférhetőség:** Minden eszköz (platformtól függetlenül) alapértelmezés szerint videolejátszóval rendelkezik, szemben a prezentáció‑megnyitó alkalmazásokkal, így a felhasználók könnyebben nyitják meg vagy játsszák le a videókat.
-* **Nagyobb elérés:** Videókkal széles közönséget érhetünk el, és olyan információkat közvetíthetünk, amelyek egy prezentációban unalmasnak tűnhetnek. A legtöbb felmérés és statisztika szerint az emberek a videót többet nézik és fogyasztják, mint más tartalomtípusokat, és általában ezt a formát részesítik előnyben.
+* **A hozzáférhetőség növelése:** Minden eszköz (függetlenül a platformtól) alapértelmezés szerint videolejátszóval rendelkezik a prezentáció‑megnyitó alkalmazásokhoz képest, így a felhasználók könnyebben nyitják meg vagy játsszák le a videókat.
+* **Nagyobb elérés:** Videókkal nagy közönséget érhet el, és információkkal célozhatja őket, amelyek egy prezentációban egyébként unalmasnak tűnhetnek. A legtöbb felmérés és statisztika szerint az emberek a videókat gyakrabban nézik és fogyasztják, mint más tartalomtípusokat, és általában előnyben részesítik ezeket.
 
-Az [Aspose.Slides 22.11](https://docs.aspose.com/slides/hu/cpp/aspose-slides-for-cpp-22-11-release-notes/)‑ben bevezettük a prezentáció‑videó konverzió támogatását. 
+Az [Aspose.Slides 22.11](https://docs.aspose.com/slides/hu/cpp/aspose-slides-for-cpp-22-11-release-notes/) verzióban bevezettük a prezentáció‑videó‑konvertálás támogatását.
 
-* Használja az Aspose.Slides‑t a diákból származó képkockák (keretek) előállításához, egy adott FPS‑hez (képkocka másodpercenként)
-* Használjon egy harmadik féltől származó segédprogramot, például a `ffmpeg`‑et a képkockák alapján videó létrehozásához.
+* Használja az Aspose.Slides‑t a diákból származó képkockák sorozatának előállításához, amelyek egy adott FPS‑nek (képkocka másodpercenként) felelnek meg.
+* Használjon harmadik féltől származó segédprogramot, például a `ffmpeg`‑et, a képkockák alapján videó létrehozásához.
 
-## **PowerPoint prezentáció konvertálása videóvá**
+## **PowerPoint prezentáció videóvá konvertálása**
 
-1. Töltse le az ffmpeg‑et [itt](https://ffmpeg.org/download.html).
+1. Töltse le a ffmpeg‑et [itt](https://ffmpeg.org/download.html).
 2. Adja hozzá a `ffmpeg.exe` elérési útját a `PATH` környezeti változóhoz.
 3. Futtassa a PowerPoint‑videó kódot.
 
-Ez a C++ kód bemutatja, hogyan konvertálhat egy prezentációt (egy ábrával és két animációs effektussal) videóvá:
+Ez a C++ kód bemutatja, hogyan lehet egy prezentációt (amely egy ábrát és két animációs hatást tartalmaz) videóvá konvertálni:
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -76,30 +100,42 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-## **Videóhatások**
+## **Videó effektusok**
 
-Animációkat alkalmazhat a diák objektumaira, valamint átmeneteket a diák között.
+Az animációkat alkalmazhatja a diák objektumaira, és használhat áttűnéseket a diák között.
 
-{{% alert color="primary" %}} 
-
-Érdemes megnézni ezeket a cikkeket: [PowerPoint animáció](https://docs.aspose.com/slides/hu/cpp/powerpoint-animation/), [Alakzat animáció](https://docs.aspose.com/slides/hu/cpp/shape-animation/), és [Alakzat effektus](https://docs.aspose.com/slides/hu/cpp/shape-effect/).
-
+{{% alert color="info" %}} 
+Érdemes lehet ezeket a cikkeket elolvasni: [PowerPoint animáció](https://docs.aspose.com/slides/hu/cpp/powerpoint-animation/), [Ábra animáció](https://docs.aspose.com/slides/hu/cpp/shape-animation/), és [Ábra effektus](https://docs.aspose.com/slides/hu/cpp/shape-effect/).
 {{% /alert %}} 
 
-Az animációk és átmenetek élvezetesebbé és érdekesebbé teszik a diavetítéseket – és ugyanezt teszik a videókkal is. Adjuk hozzá a kódhoz egy újabb diát és átmenetet a korábbi prezentációhoz:
+Az animációk és áttűnések a diavetítést vonzóbbá és érdekesebbé teszik – és ugyanígy hatnak a videókra is. Adjunk egy újabb diát és áttűnést a korábbi prezentáció kódjához:
 
 ```c++
-// Hozzáad egy mosoly alakzatot és animálja
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
 
-// ...
+// Hozzáad egy mosoly alakzatot és animálja, ahogy fent mutattuk
+auto presentation = System::MakeObject<Presentation>();
 
-// Hozzáad egy új diát és animált átmenetet
+// Hozzáad egy új diát és animált áttűnést
 
 System::SharedPtr<ISlide> newSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_Slide(0)->get_LayoutSlide());
 
@@ -116,9 +152,37 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-Az Aspose.Slides szövegekre is támogat animációt. Így beállíthatunk bekezdés‑animációkat az objektumokon, amelyek egyesével jelennek meg (az egy másodperces késleltetést beállítva):
+Aspose.Slides szövegekre is támogat animációt. Így a objektumokon lévő bekezdéseket animáljuk, amelyek egyesével jelennek meg (az eltolás egy másodpercre van beállítva):
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -130,7 +194,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Hozzáad szöveget és animációkat
+    // Szöveget és animációkat ad hozzá
     System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210.0f, 120.0f, 300.0f, 300.0f);
     System::SharedPtr<Paragraph> para1 = System::MakeObject<Paragraph>();
     para1->get_Portions()->Add(System::MakeObject<Portion>(u"Aspose Slides for C++"));
@@ -159,48 +223,69 @@ void Run()
     effect3->get_Timing()->set_TriggerDelayTime(1.0f);
     effect4->get_Timing()->set_TriggerDelayTime(1.0f);
 
-    // Átalakítja a képkockákat videóvá
+    // Képkockákat videóvá konvertál
     const int32_t fps = 33;
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-## **Videókonverziós osztályok**
+## **Videó konvertáló osztályok**
 
-Annak érdekében, hogy PowerPoint‑videó konverziós feladatokat hajthasson végre, az Aspose.Slides a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_animations_generator/) és a [PresentationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_player/) osztályokat biztosítja.
+A PowerPoint‑videó konvertálási feladatok elvégzéséhez az Aspose.Slides a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_animations_generator/) és a [PresentationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_player/) osztályokat biztosítja.
 
-A PresentationAnimationsGenerator lehetővé teszi a videó képkockaméretének beállítását (amelyet később létrehoz) a konstruktorán keresztül. Ha egy prezentáció példányát adja át, a `Presentation.SlideSize` kerül felhasználásra, és olyan animációkat generál, amelyeket a [PresentationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_player/) használ.
+A PresentationAnimationsGenerator a videó képkockaméretét (amely később lesz létrehozva) a konstruktorában állíthatja be. Ha a prezentáció egy példányát adja át, a `Presentation.SlideSize` lesz használva, és olyan animációkat generál, amelyeket a [PresentationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_player/) használ.
 
-Animációk generálásakor minden egyes további animációhoz egy `NewAnimation` esemény keletkezik, amely a [IPresentationAnimationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player/) paramétert kapja. Az utóbbi egy külön animáció lejátszását megvalósító osztály.
+Az animációk generálásakor minden egyes animációhoz egy `NewAnimation` esemény keletkezik, amelynek van egy [IPresentationAnimationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player/) paramétere. Az utóbbi egy olyan osztály, amely egy különálló animáció lejátszóját képviseli.
 
-Az [IPresentationAnimationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player/) használatához a [get_Duration](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (az animáció teljes időtartama) tulajdonságot és a [SetTimePosition](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) metódust használjuk. Minden animáció pozíciója a *0-tól időtartamig* tartományban állítható be, és a `GetFrame` metódus egy Bitmapet ad vissza, amely az adott pillanatban lévő animációs állapotot tükrözi.
+Az [IPresentationAnimationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player/) használatához a [get_Duration](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (az animáció teljes időtartama) tulajdonságot és a [SetTimePosition](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0) metódust használjuk. Minden animáció pozíciója a *0‑tól‑az‑időtartamig* tartományon belül állítható be, majd a `GetFrame` metódus egy Bitmapet ad vissza, amely az adott pillanatban lévő animációs állapotot tükrözi.
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
     System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
-    // kezdeti animációs állapot
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
-    // kezdeti animációs állapot bitmap
+    // az animáció kezdeti állapota
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
+    // az animáció kezdeti állapotának bitmapje
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
-    // animáció végső állapota
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
-    // animáció utolsó képkockája
-    lastBitmap->Save(u"last.png");
+    // az animáció végső állapota
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
+    // az animáció utolsó képkockája
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -221,9 +306,19 @@ void Run()
 }
 ```
 
-Az összes animáció egyidejű lejátszásához a [PresentationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_player/) osztályt használjuk. Ez az osztály egy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_animations_generator/) példányt és az FPS‑t veszi át a konstruktorában, majd a `FrameTick` eseményt hívja meg az összes animációra a lejátszáshoz:
+Az összes animáció egyszerre történő lejátszásához egy prezentációban a [PresentationPlayer](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_player/) osztályt használjuk. Ez az osztály a konstruktorában egy [PresentationAnimationsGenerator](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.export.presentation_animations_generator/) példányt és az effektus FPS‑ét veszi, majd a `FrameTick` eseményt hívja meg minden animációra, hogy lejátszásra kerüljön:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -241,86 +336,84 @@ void Run()
 }
 ```
 
-Ezután a generált képkockákból videó állítható össze. Lásd a [Convert PowerPoint to Video](https://docs.aspose.com/slides/hu/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video) szakaszt.
+A generált képkockákat ezután összeállíthatja videó létrehozásához. Lásd a [Convert PowerPoint to Video](https://docs.aspose.com/slides/hu/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video) részt.
 
 ## **Támogatott animációk és effektusok**
 
+**Belépés**:
 
-**Bevezető**:
-
-| Animáció típusa | Aspose.Slides | PowerPoint |
+| Animációtípus | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Megjelenés** | ![not supported](x.png) | ![supported](v.png) |
-| **Halványulás** | ![supported](v.png) | ![supported](v.png) |
-| **Beúszás** | ![supported](v.png) | ![supported](v.png) |
-| **Lebegő beúszás** | ![supported](v.png) | ![supported](v.png) |
-| **Szétválasztás** | ![supported](v.png) | ![supported](v.png) |
-| **Törlés** | ![supported](v.png) | ![supported](v.png) |
-| **Alakzat** | ![supported](v.png) | ![supported](v.png) |
-| **Kerék** | ![supported](v.png) | ![supported](v.png) |
-| **Véletlen sávok** | ![supported](v.png) | ![supported](v.png) |
-| **Növekedés és fordítás** | ![not supported](x.png) | ![supported](v.png) |
-| **Nagyítás** | ![supported](v.png) | ![supported](v.png) |
-| **Forgatás** | ![supported](v.png) | ![supported](v.png) |
-| **Ugrálás** | ![supported](v.png) | ![supported](v.png) |
-
+| **Appear** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Fade** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Fly In** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Float In** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Split** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Wipe** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Shape** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Wheel** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Random Bars** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Grow & Turn** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Zoom** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Swivel** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Bounce** | ![támogatott](v.png) | ![támogatott](v.png) |
 
 **Kiemelés**:
 
-| Animáció típusa | Aspose.Slides | PowerPoint |
+| Animációtípus | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Impulzus** | ![not supported](x.png) | ![supported](v.png) |
-| **Színimpulzus** | ![not supported](x.png) | ![supported](v.png) |
-| **Bambusz** | ![supported](v.png) | ![supported](v.png) |
-| **Forgás** | ![supported](v.png) | ![supported](v.png) |
-| **Növekedés/Kicsinyítés** | ![not supported](x.png) | ![supported](v.png) |
-| **Telítetlenné tétel** | ![not supported](x.png) | ![supported](v.png) |
-| **Sötétítés** | ![not supported](x.png) | ![supported](v.png) |
-| **Világosítás** | ![not supported](x.png) | ![supported](v.png) |
-| **Átlátszóság** | ![not supported](x.png) | ![supported](v.png) |
-| **Objektum színe** | ![not supported](x.png) | ![supported](v.png) |
-| **Komplementer szín** | ![not supported](x.png) | ![supported](v.png) |
-| **Vonal színe** | ![not supported](x.png) | ![supported](v.png) |
-| **Kitöltés színe** | ![not supported](x.png) | ![supported](v.png) |
+| **Pulse** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Color Pulse** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Teeter** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Spin** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Grow/Shrink** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Desaturate** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Darken** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Lighten** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Transparency** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Object Color** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Complementary Color** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Line Color** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Fill Color** | ![nem támogatott](x.png) | ![támogatott](v.png) |
 
-**Kijáró**:
+**Kilépés**:
 
-| Animáció típusa | Aspose.Slides | PowerPoint |
+| Animációtípus | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Eltűnés** | ![not supported](x.png) | ![supported](v.png) |
-| **Halványulás** | ![supported](v.png) | ![supported](v.png) |
-| **Kifutás** | ![supported](v.png) | ![supported](v.png) |
-| **Lebegő kifutás** | ![supported](v.png) | ![supported](v.png) |
-| **Szétválasztás** | ![supported](v.png) | ![supported](v.png) |
-| **Törlés** | ![supported](v.png) | ![supported](v.png) |
-| **Alakzat** | ![supported](v.png) | ![supported](v.png) |
-| **Véletlen sávok** | ![supported](v.png) | ![supported](v.png) |
-| **Kicsinyítés és fordítás** | ![not supported](x.png) | ![supported](v.png) |
-| **Nagyítás** | ![supported](v.png) | ![supported](v.png) |
-| **Forgatás** | ![supported](v.png) | ![supported](v.png) |
-| **Ugrálás** | ![supported](v.png) | ![supported](v.png) |
+| **Disappear** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Fade** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Fly Out** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Float Out** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Split** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Wipe** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Shape** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Random Bars** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Shrink & Turn** | ![nem támogatott](x.png) | ![támogatott](v.png) |
+| **Zoom** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Swivel** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Bounce** | ![támogatott](v.png) | ![támogatott](v.png) |
 
-**Mozgásútvonalak**:
+**Mozgás útvonalak**:
 
-| Animáció típusa | Aspose.Slides | PowerPoint |
+| Animációtípus | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Vonalak** | ![supported](v.png) | ![supported](v.png) |
-| **Ívek** | ![supported](v.png) | ![supported](v.png) |
-| **Fordulatok** | ![supported](v.png) | ![supported](v.png) |
-| **Alakzatok** | ![supported](v.png) | ![supported](v.png) |
-| **Hurkok** | ![supported](v.png) | ![supported](v.png) |
-| **Egyéni útvonal** | ![supported](v.png) | ![supported](v.png) |
+| **Lines** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Arcs** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Turns** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Shapes** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Loops** | ![támogatott](v.png) | ![támogatott](v.png) |
+| **Custom Path** | ![támogatott](v.png) | ![támogatott](v.png) |
 
 ## **GYIK**
 
-**Lehetőség van jelszóval védett prezentációk konvertálására?**
+### Lehet jelszóval védett prezentációkat konvertálni?
 
-Igen, az Aspose.Slides támogatja a [jelszóval védett prezentációk](/slides/hu/cpp/password-protected-presentation/) kezelését. Ilyen fájlok feldolgozásakor a helyes jelszó megadása szükséges ahhoz, hogy a könyvtár hozzáférhessen a prezentáció tartalmához.
+Az Aspose.Slides lehetővé teszi a [jelszóval védett prezentációk](/slides/hu/cpp/password-protected-presentation/) használatát. Az ilyen fájlok feldolgozásához meg kell adnia a megfelelő jelszót, hogy a könyvtár hozzáférhessen a prezentáció tartalmához.
 
-**Az Aspose.Slides használható felhőmegoldásokban?**
+### Támogatja‑e az Aspose.Slides a felhőmegoldásokban való használatot?
 
-Igen, az Aspose.Slides integrálható felhőalkalmazásokba és szolgáltatásokba. A könyvtár szerver környezetben való futásra lett tervezve, magas teljesítményt és skálázhatóságot biztosítva a kötegelt fájlfeldolgozáshoz.
+Az Aspose.Slides integrálható felhőalkalmazásokba és szolgáltatásokba. A könyvtár úgy van tervezve, hogy szerverkörnyezetben működjön, biztosítva a magas teljesítményt és a skálázhatóságot a fájlok kötegelt feldolgozásához.
 
-**Van méretkorlátozás a prezentációk konvertálásakor?**
+### Vannak‑e méretkorlátok a prezentációk konvertálása során?
 
-Az Aspose.Slides gyakorlatilag bármilyen méretű prezentációt képes kezelni. Nagyon nagy fájlok esetén azonban további rendszererőforrásokra lehet szükség, és gyakran ajánlott a prezentáció optimalizálása a teljesítmény javítása érdekében.
+Az Aspose.Slides képes gyakorlatilag bármilyen méretű prezentációk kezelésére. Nagyon nagy fájlok esetén azonban további rendszererőforrásokra lehet szükség, és néha ajánlott a prezentáció optimalizálása a teljesítmény javítása érdekében.

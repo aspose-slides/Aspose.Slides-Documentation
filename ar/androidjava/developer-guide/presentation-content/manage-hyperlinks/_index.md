@@ -1,50 +1,52 @@
 ---
 title: إدارة الروابط التشعبية للعرض التقديمي على Android
-linktitle: إدارة الرابط التشعبي
+linktitle: إدارة الارتباط التشعبي
 type: docs
 weight: 20
 url: /ar/androidjava/manage-hyperlinks/
 keywords:
 - إضافة URL
-- إضافة رابط تشعبي
-- إنشاء رابط تشعبي
-- تنسيق رابط تشعبي
-- إزالة رابط تشعبي
-- تحديث رابط تشعبي
-- رابط تشعبي نصي
-- رابط تشعبي للشرائح
-- رابط تشعبي للشكل
-- رابط تشعبي للصورة
-- رابط تشعبي للفيديو
-- رابط تشعبي قابل للتعديل
+- إضافة ارتباط تشعبي
+- إنشاء ارتباط تشعبي
+- تنسيق ارتباط تشعبي
+- إزالة ارتباط تشعبي
+- تحديث ارتباط تشعبي
+- ارتباط تشعبي للنص
+- ارتباط تشعبي للشرائح
+- ارتباط تشعبي للشكل
+- ارتباط تشعبي للصورة
+- ارتباط تشعبي للفيديو
+- ارتباط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "إدارة الروابط التشعبية بسهولة في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لنظام Android عبر Java—حسّن التفاعل وسير العمل في دقائق."
+description: "قم بإدارة الروابط التشعبية بسهولة في عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides للأندرويد عبر Java — عزّز التفاعلية وسير العمل في دقائق."
 ---
+## **مقدمة**
 
-الرابط التشعبي هو إشارة إلى كائن أو بيانات أو مكان ما في شيء ما. هذه أمثلة شائعة للروابط التشعبية في عروض PowerPoint:
+الارتباط التشعبي هو إشارة إلى كائن أو بيانات أو مكان في شيء ما. هذه أمثلة على الارتباطات التشعبية الشائعة في عروض PowerPoint التقديمية:
 
-* روابط إلى مواقع ويب داخل النصوص أو الأشكال أو الوسائط
+* روابط إلى المواقع داخل النصوص أو الأشكال أو الوسائط
 * روابط إلى الشرائح
 
-يتيح لك Aspose.Slides for Android via Java تنفيذ العديد من المهام المتعلقة بالروابط التشعبية في العروض التقديمية.
+Aspose.Slides for Android عبر Java يتيح لك تنفيذ العديد من المهام المتعلقة بالارتباطات التشعبية في العروض التقديمية.
 
-{{% alert color="primary" %}} 
-
-قد ترغب في تجربة Aspose البسيط، [محرر PowerPoint المجاني على الإنترنت.](https://products.aspose.app/slides/editor)
-
+{{% alert color="info" %}} 
+قد ترغب في تجربة Aspose البسيط، [محرر PowerPoint المجاني عبر الإنترنت](https://products.aspose.app/slides/ar/editor)
 {{% /alert %}} 
 
 ## **إضافة روابط URL**
 
 ### **إضافة روابط URL إلى النص**
 
-يعرض هذا الكود بلغة Java كيفية إضافة رابط لموقع ويب إلى نص:
+يعرض لك هذا الكود Java كيفية إضافة ارتباط تشعبي لموقع ويب إلى نص:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -61,11 +63,13 @@ try {
 }
 ```
 
-
 ### **إضافة روابط URL إلى الأشكال أو الإطارات**
 
-يعرض هذا المثال بلغة Java كيفية إضافة رابط لموقع ويب إلى شكل:
+يعرض لك هذا الكود النموذجي بلغة Java كيفية إضافة ارتباط تشعبي لموقع ويب إلى شكل:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -79,39 +83,45 @@ try {
 }
 ```
 
-
 ### **إضافة روابط URL إلى الوسائط**
 
-يسمح Aspose.Slides لك بإضافة روابط تشعبية إلى الصور، والصوت، وملفات الفيديو.
+يتيح لك Aspose.Slides إضافة ارتباطات تشعبية إلى ملفات الصور والصوت والفيديو.
 
-هذا المثال يوضح كيفية إضافة رابط تشعبي إلى **صورة**:
+يعرض لك هذا الكود النموذجي كيفية إضافة ارتباط تشعبي إلى **صورة**:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	// يضيف صورة إلى العرض التقديمي
+	// إضافة صورة إلى العرض التقديمي
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// ينشئ إطار صورة على الشريحة 1 بناءً على الصورة المضافة مسبقًا
+	// إنشاء إطار صورة على الشريحة 1 بناءً على الصورة المضافة مسبقًا
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
+يعرض لك هذا الكود النموذجي كيفية إضافة ارتباط تشعبي إلى **ملف صوتي**:
 
-هذا المثال يوضح كيفية إضافة رابط تشعبي إلى **ملف صوتي**:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -127,9 +137,14 @@ try {
 }
 ```
 
+يعرض لك هذا الكود النموذجي كيفية إضافة ارتباط تشعبي إلى **فيديو**:
 
-هذا المثال يوضح كيفية إضافة رابط تشعبي إلى **فيديو**:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -145,19 +160,20 @@ try {
 }
 ```
 
-
-{{%  alert  title="Tip"  color="primary"  %}} 
-
-قد ترغب في مشاهدة *[Manage OLE](/slides/ar/androidjava/manage-ole/)*.
-
+{{%  alert  title="Tip"  color="info"  %}} 
+قد ترغب في الاطلاع على *[إدارة OLE](/slides/ar/androidjava/manage-ole/)*.
 {{% /alert %}}
 
-## **استخدام الروابط التشعبية لإنشاء فهرس**
+## **استخدام الارتباطات التشعبية لإنشاء جدول محتويات**
 
-نظرًا لأن الروابط التشعبية تتيح لك إضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء فهرس.
+نظرًا لأن الارتباطات التشعبية تسمح لك بإضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات.
 
-هذا المثال يوضح كيفية إنشاء فهرس مع روابط تشعبية:
+يعرض لك هذا الكود النموذجي كيفية إنشاء جدول محتويات باستخدام الارتباطات التشعبية:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -186,15 +202,18 @@ try {
 }
 ```
 
-
-## **تنسيق الروابط التشعبية**
+## **تنسيق الارتباطات التشعبية**
 
 ### **اللون**
 
-باستخدام الخاصية [ColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) في واجهة [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink)، يمكنك تعيين اللون للروابط التشعبية وكذلك الحصول على معلومات اللون منها. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint الأقدم.
+باستخدام خاصية [ColorSource](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Hyperlink#setColorSource-int-) في واجهة [IHyperlink](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlink)، يمكنك ضبط لون الارتباطات التشعبية وكذلك الحصول على معلومات اللون من الارتباطات. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint الأقدم.
 
-يعرض هذا الكود مثالًا على إضافة روابط تشعبية بألوان مختلفة إلى الشريحة نفسها:
+يوضح لك هذا الكود النموذجي عملية إضافة ارتباطات تشعبية بألوان مختلفة إلى الشريحة نفسها:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -215,21 +234,23 @@ try {
 }
 ```
 
+## **إزالة الارتباطات التشعبية من العروض التقديمية**
 
-## **إزالة الروابط التشعبية من العروض التقديمية**
+### **إزالة الارتباطات التشعبية من النص**
 
-### **إزالة الروابط التشعبية من النص**
+يعرض لك هذا الكود Java كيفية إزالة الارتباط التشعبي من نص في شريحة عرض تقديمي:
 
-يعرض هذا الكود بلغة Java كيفية إزالة الرابط التشعبي من نص داخل شريحة عرض تقديمي:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -246,12 +267,14 @@ try {
 }
 ```
 
+### **إزالة الارتباطات التشعبية من الأشكال أو الإطارات**
 
-### **إزالة الروابط التشعبية من الأشكال أو الإطارات**
+يعرض لك هذا الكود Java كيفية إزالة الارتباط التشعبي من شكل في شريحة عرض تقديمي:
 
-يعرض هذا الكود بلغة Java كيفية إزالة الرابط التشعبي من شكل داخل شريحة عرض تقديمي:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -264,19 +287,21 @@ try {
 }
 ```
 
+## **الارتباط التشعبي القابل للتعديل**
 
-## **رابط تشعبي قابل للتعديل**
+الفئة [Hyperlink](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Hyperlink) قابلة للتعديل. باستخدام هذه الفئة، يمكنك تعديل القيم للخاصيات التالية:
 
-فئة [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Hyperlink) قابلة للتعديل. باستخدام هذه الفئة، يمكنك تغيير القيم للخصائص التالية:
+- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
+- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
+- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlink#setHistory-boolean-)
+- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
+- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+يعرض لك مقطع الشيفرة كيفية إضافة ارتباط تشعبي إلى شريحة وتعديل تلميحه اللاحقًا:
 
-يعرض مقطع الكود كيفية إضافة رابط تشعبي إلى شريحة وتعديل تلميحه لاحقًا:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -287,38 +312,40 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// يغيّر تلميح الارتباط التشعبي الذي تم إضافته مسبقًا
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **الخصائص المدعومة في IHyperlinkQueries**
 
-يمكنك الوصول إلى [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries) من عرض تقديمي أو شريحة أو نص تم تعريف الرابط التشعبي لها.
+يمكنك الوصول إلى [IHyperlinkQueries](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlinkQueries) من عرض تقديمي أو شريحة أو نص تم تعريف الارتباط التشعبي له.
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentation#getHyperlinkQueries--)
+- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
+- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-تدعم فئة [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries) الطرق والخصائص التالية:
+تدعم الفئة [IHyperlinkQueries](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlinkQueries) هذه الأساليب والخصائص:
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
+- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
+- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
+- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني إنشاء تنقل داخلي ليس فقط إلى شريحة، بل إلى "قسم" أو الشريحة الأولى في القسم؟**
+### كيف يمكنني إنشاء تنقل داخلي ليس فقط إلى شريحة، بل إلى “قسم” أو إلى الشريحة الأولى في القسم؟
 
-الأقسام في PowerPoint هي تجميعات للشرائح؛ يستهدف التنقل تقنيًا شريحة محددة. للانتقال إلى قسم، عادةً ما يتم الربط إلى شريحته الأولى.
+الأقسام في PowerPoint هي مجموعات من الشرائح؛ يتوجه التنقل تقنيًا إلى شريحة محددة. لل«انتقال إلى قسم»، عادةً ما تقوم بالربط إلى شريحته الأولى.
 
-**هل يمكنني إرفاق رابط تشعبي بعناصر الشريحة الرئيسية بحيث يعمل على جميع الشرائح؟**
+### هل يمكنني إرفاق ارتباط تشعبي بعناصر الشريحة الرئيسة بحيث يعمل على جميع الشرائح؟
 
-نعم. تدعم عناصر الشريحة الرئيسية وتخطيطها الروابط التشعبية. تظهر هذه الروابط على الشرائح الفرعية وتكون قابلة للنقر أثناء عرض الشرائح.
+نعم. تدعم عناصر الشريحة الرئيسة وتخطيطها الارتباطات التشعبية. تظهر هذه الروابط على الشرائح الفرعية ويمكن النقر عليها أثناء عرض الشرائح.
 
-**هل سيتم الحفاظ على الروابط التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
+### هل سيتم الحفاظ على الارتباطات التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟
 
-في [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/androidjava/convert-powerpoint-to-html/)، نعم—عادةً ما يتم الحفاظ على الروابط. عند التصدير إلى [الصور](/slides/ar/androidjava/convert-powerpoint-to-png/) و[الفيديو](/slides/ar/androidjava/convert-powerpoint-to-video/)، لن يتم نقل قابلية النقر بسبب طبيعة هذه الصيغ (الإطارات النقطية/الفيديو لا تدعم الروابط التشعبية).
+في [PDF](/slides/ar/androidjava/convert-powerpoint-to-pdf/) و [HTML](/slides/ar/androidjava/convert-powerpoint-to-html/)، نعم — عادةً ما يتم الحفاظ على الروابط. عند التصدير إلى [images](/slides/ar/androidjava/convert-powerpoint-to-png/) و [video](/slides/ar/androidjava/convert-powerpoint-to-video/)، لن يتم نقل قابلية النقر بسبب طبيعة هذه الصيغ (الإطارات النقطية/الفيديو لا تدعم الارتباطات التشعبية).

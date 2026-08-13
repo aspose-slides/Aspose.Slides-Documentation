@@ -1,43 +1,45 @@
 ---
-title: تبدیل ارائه‌های پاورپوینت به GIFهای انیمیشن‌دار در اندروید
-linktitle: پاورپوینت به GIF
+title: تبدیل ارائه‌های PowerPoint به GIFهای متحرک در Android
+linktitle: PowerPoint به GIF
 type: docs
 weight: 65
 url: /fa/androidjava/convert-powerpoint-to-animated-gif/
 keywords:
-- GIF انیمیشن‌دار
-- تبدیل پاورپوینت
+- GIF متحرک
+- تبدیل PowerPoint
 - تبدیل ارائه
 - تبدیل اسلاید
 - تبدیل PPT
 - تبدیل PPTX
-- پاورپوینت به GIF
+- PowerPoint به GIF
 - ارائه به GIF
 - اسلاید به GIF
 - PPT به GIF
 - PPTX به GIF
-- ذخیره PPT به عنوان GIF
-- ذخیره PPTX به عنوان GIF
-- صدور PPT به عنوان GIF
-- صدور PPTX به عنوان GIF
+- ذخیره PPT به صورت GIF
+- ذخیره PPTX به صورت GIF
+- صادرات PPT به صورت GIF
+- صادرات PPTX به صورت GIF
 - تنظیمات پیش‌فرض
 - تنظیمات سفارشی
-- پاورپوینت
+- PowerPoint
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "به‌راحتی ارائه‌های پاورپوینت (PPT، PPTX) را با Aspose.Slides برای اندروید از طریق جاوا به GIFهای انیمیشن‌دار تبدیل کنید. نتایج سریع و با کیفیت بالا."
+description: "به‌راحتی ارائه‌های PowerPoint (PPT، PPTX) را به GIFهای متحرک با Aspose.Slides برای Android از طریق Java تبدیل کنید. نتایج سریع و با کیفیت بالا."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides به شما امکان تبدیل ارائه‌های PowerPoint به پرونده‌های GIF انیمیشنی را با تنها چند خط کد می‌دهد. این زمانی مفید است که نیاز به به‌اشتراک‌گذاری محتوای اسلایدها در قالب سبکی، پشتیبانی‌شده گسترده و انیمیشنی داشته باشید که می‌تواند در صفحات وب، پیام‌رسان‌ها یا اسناد جاسازی شود. این مقاله توضیح می‌دهد چگونه یک ارائه را به GIF صادر کنید با استفاده از تنظیمات پیش‌فرض و چگونه خروجی را با پیکربندی گزینه‌هایی مانند اندازه فریم، تأخیر اسلاید و نرخ فریم انتقال از طریق [GifOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/gifoptions/) سفارشی کنید.
+Aspose.Slides به شما امکان می‌دهد ارائه‌های PowerPoint را به فایل‌های GIF متحرک تبدیل کنید تنها با چند خط کد. این قابلیت زمانی مفید است که بخواهید محتوای اسلایدها را در قالبی سبک، به‌راحتی پشتیبانی‌شده و متحرک به‌اشتراک بگذارید که می‌تواند در صفحات وب، پیام‌رسان‌ها یا مستندات جاسازی شود. این مقاله نحوهٔ خروجی گرفتن یک ارائه به‌صورت GIF با تنظیمات پیش‌فرض و همچنین چگونگی سفارشی‌سازی خروجی با پیکربندی گزینه‌هایی مانند اندازهٔ فریم، تاخیر اسلاید و نرخ فریم انتقال را از طریق [GifOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/gifoptions/) توضیح می‌دهد.
 
-## **تبدیل ارائه‌ها به GIF انیمیشنی با استفاده از تنظیمات پیش‌فرض**
+## **تبدیل ارائه‌ها به GIF متحرک با تنظیمات پیش‌فرض**
 
-این کد نمونه در Java نشان می‌دهد چگونه یک ارائه را به GIF انیمیشنی با تنظیمات استاندارد تبدیل کنید:
+این کد نمونه در Java نشان می‌دهد چگونه یک ارائه را به GIF متحرک با تنظیمات استاندارد تبدیل کنید:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	pres.save("pres.gif", SaveFormat.Gif);
@@ -46,17 +48,20 @@ try {
 }
 ```
 
-GIF انیمیشنی با پارامترهای پیش‌فرض ایجاد خواهد شد.
+GIF متحرک با پارامترهای پیش‌فرض ایجاد خواهد شد.
 
-{{%  alert  title="TIP"  color="primary"  %}} 
-اگر مایل به سفارشی‌سازی پارامترهای GIF هستید، می‌توانید از کلاس [GifOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/GifOptions) استفاده کنید. کد نمونه زیر را ببینید.
+{{% alert title="نکته" color="info" %}} 
+اگر مایل به سفارشی‌سازی پارامترهای GIF هستید، می‌توانید از کلاس [GifOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/GifOptions) استفاده کنید. نمونهٔ کد زیر را ببینید.
 {{% /alert %}} 
 
-## **تبدیل ارائه‌ها به GIF انیمیشنی با استفاده از تنظیمات سفارشی**
+## **تبدیل ارائه‌ها به GIF متحرک با تنظیمات سفارشی**
 
-این کد نمونه نشان می‌دهد چگونه یک ارائه را به GIF انیمیشنی با تنظیمات سفارشی در Java تبدیل کنید:
+این کد نمونه نشان می‌دهد چگونه یک ارائه را به GIF متحرک با تنظیمات سفارشی در Java تبدیل کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
 	GifOptions gifOptions = new GifOptions();
@@ -70,16 +75,16 @@ try {
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-ممکن است بخواهید یک مبدل رایگان [Text to GIF](https://products.aspose.app/slides/fa/text-to-gif) تولید شده توسط Aspose را بررسی کنید.
+{{% alert title="اطلاع" color="info" %}}
+ممکن است بخواهید یک مبدل رایگان [Text to GIF](https://products.aspose.app/slides/fa/text-to-gif) که توسط Aspose توسعه یافته است، بررسی کنید.
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**اگر فونت‌های استفاده‌شده در ارائه بر روی سیستم نصب نشده باشند چه شود؟**
+### اگر فونت‌های استفاده‌شده در ارائه بر روی سیستم نصب نشده باشند چه می‌شود؟
 
-فونت‌های گمشده را نصب کنید یا [configure fallback fonts](/slides/fa/androidjava/powerpoint-fonts/). Aspose.Slides جایگزین می‌کند، اما ظاهر ممکن است متفاوت باشد. برای برندینگ، همیشه اطمینان حاصل کنید که قلم‌های مورد نیاز به‌ طور صریح در دسترس باشند.
+فونت‌های گمشده را نصب کنید یا [configure fallback fonts](/slides/fa/androidjava/powerpoint-fonts/). Aspose.Slides جایگزین خواهد کرد، اما ظاهر ممکن است متفاوت باشد. برای حفظ هویت برند، همیشه اطمینان حاصل کنید که قلم‌های مورد نیاز به‌صورت صریح در دسترس باشند.
 
-**آیا می‌توانم یک واترمارک روی فریم‌های GIF اضافه کنم؟**
+### آیا می‌توانم یک واترمارک را روی فریم‌های GIF قرار دهم؟
 
-بله. می‌توانید یک شیء/لوگو نیمه‌شفاف را با استفاده از راهنمای [Add a semi-transparent object/logo](/slides/fa/androidjava/watermark/) به اسلاید مستر یا به اسلایدهای جداگانه قبل از خروجی اضافه کنید — واترمارک بر روی هر فریم ظاهر خواهد شد.
+بله. [Add a semi-transparent object/logo](/slides/fa/androidjava/watermark/) را به اسلاید اصلی یا به اسلایدهای فردی قبل از خروجی اضافه کنید — واترمارک در هر فریم ظاهر خواهد شد.

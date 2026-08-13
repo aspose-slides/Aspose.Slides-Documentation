@@ -8,10 +8,10 @@ keywords:
 - 글머리표
 - 글머리표 목록
 - 번호 매기기 목록
-- 기호 글머리표
+- 심볼 글머리표
 - 그림 글머리표
-- 맞춤형 글머리표
-- 다중 레벨 목록
+- 사용자 지정 글머리표
+- 다단계 목록
 - 글머리표 만들기
 - 글머리표 추가
 - 목록 추가
@@ -20,29 +20,48 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 글머리표, 그림, 다중 레벨 및 번호 매기기 목록을 만들고 서식 지정하는 방법을 알아보세요."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 글머리표, 그림, 다단계 및 번호 매기기 목록을 만들고 서식 지정하는 방법을 배웁니다."
 ---
 ## **개요**
 
 Aspose.Slides for C++를 사용하면 PowerPoint 및 OpenDocument 프레젠테이션에서 글머리표 및 번호 매기기 목록을 만들고 서식 지정할 수 있습니다. 목록 항목은 글머리표 설정이 해당 단락 서식을 통해 제어되는 단락입니다.
 
-Use the [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraph/get_paragraphformat/) method to access paragraph-level list settings. The main entry point is [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/get_bullet/), which returns an [IBulletFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/) object. With this object, you can set the bullet type, symbol, picture, color, size, numbering style, and starting number.
+단락 수준 목록 설정에 액세스하려면 [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraph/get_paragraphformat/) 메서드를 사용합니다. 주요 진입점은 [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/get_bullet/)이며, 이는 [IBulletFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/) 객체를 반환합니다. 이 객체를 사용하여 글머리표 유형, 기호, 그림, 색상, 크기, 번호 매기기 스타일 및 시작 번호를 설정할 수 있습니다.
 
-This article shows how to:
+이 문서에서는 다음 방법을 보여줍니다:
 
-- 사용자 정의 기호로 글머리표 목록 만들기
-- 이미지 글머리표 만들기
-- 단락 깊이를 설정하여 다중 레벨 목록 만들기
+- 사용자 지정 기호로 글머리표 목록 만들기
+- 그림 글머리표 만들기
+- 단락 깊이를 설정하여 다단계 목록 만들기
 - 번호 매기기 목록 만들기
 - 기존 프레젠테이션에서 목록 서식 검사 및 변경
 
 ## **글머리표 목록 만들기**
 
-To create a bulleted list, add [Paragraph](https://reference.aspose.com/slides/ko/cpp/aspose.slides/paragraph/) objects to an [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/) and set [IBulletFormat::set_Type](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_type/) to [BulletType::Symbol](https://reference.aspose.com/slides/ko/cpp/aspose.slides/bullettype/). You can then set [IBulletFormat::set_Char](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/get_color/), and [IBulletFormat::set_Height](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_height/) to control the bullet appearance.
+글머리표 목록을 만들려면 [Paragraph](https://reference.aspose.com/slides/ko/cpp/aspose.slides/paragraph/) 객체를 [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/)에 추가하고 [IBulletFormat::set_Type](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_type/)을 [BulletType::Symbol](https://reference.aspose.com/slides/ko/cpp/aspose.slides/bullettype/)으로 설정합니다. 그런 다음 [IBulletFormat::set_Char](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/get_color/), 및 [IBulletFormat::set_Height](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_height/)을 설정하여 글머리표 모양을 제어할 수 있습니다.
 
-The following C++ code demonstrates how to create a bulleted list in a slide:
+다음 C++ 코드는 슬라이드에서 글머리표 목록을 만드는 방법을 보여줍니다:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -77,17 +96,32 @@ presentation->Save(u"symbol_bullets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-The result:
+결과:
 
-![기호 글머리표](symbol_bullets.png)
+![심볼 글머리표](symbol_bullets.png)
 
 ## **번호 매기기 목록 만들기**
 
-Use numbered lists when the order of items matters. Set [IBulletFormat::set_Type](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_type/) to [BulletType::Numbered](https://reference.aspose.com/slides/ko/cpp/aspose.slides/bullettype/). You can also choose a numbering format with [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) or set [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) when the list should start from a value other than 1.
+항목 순서가 중요한 경우 번호 매기기 목록을 사용합니다. [IBulletFormat::set_Type](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_type/)을 [BulletType::Numbered](https://reference.aspose.com/slides/ko/cpp/aspose.slides/bullettype/)으로 설정합니다. 또한 [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/)으로 번호 매기기 형식을 선택하거나 목록을 1이 아닌 다른 값부터 시작하려면 [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/)을 설정할 수 있습니다.
 
-The following C++ code shows how to create a numbered list in a slide:
+다음 C++ 코드는 슬라이드에서 번호 매기기 목록을 만드는 방법을 보여줍니다:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -114,29 +148,48 @@ presentation->Save(u"numbered_bullets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-The result:
+결과:
 
 ![번호 매기기 글머리표](numbered_bullets.png)
 
 ## **그림 글머리표 만들기**
 
-Aspose.Slides allows you to replace a regular bullet symbol with an image. Picture bullets work best with simple images that remain readable at a small size, such as icons or small transparent PNG files.
+Aspose.Slides를 사용하면 일반 글머리표 기호를 이미지로 교체할 수 있습니다. 그림 글머리표는 작은 크기에서도 가독성을 유지할 수 있는 간단한 아이콘이나 투명 PNG 파일과 같은 이미지에 가장 적합합니다.
 
-{{% alert color="primary" %}}
-이상적으로, 일반 글머리표 기호를 이미지로 교체하려는 경우 투명한 배경을 가진 간단한 그래픽을 선택하는 것이 가장 좋습니다. 이러한 이미지는 사용자 정의 글머리표 기호로 적합합니다.
+{{% alert color="info" %}}
+가능하면 일반 글머리표 기호를 이미지로 교체하려는 경우 투명 배경이 있는 간단한 그래픽을 선택하는 것이 가장 좋습니다. 이러한 이미지는 사용자 지정 글머리표 기호로 잘 작동합니다.
 
-이미지는 매우 작은 크기로 축소됩니다. 따라서 리스트에서 글머리표로 사용할 때도 선명하고 시각적으로 효과적인 이미지를 선택할 것을 강력히 권장합니다.
+이미지는 매우 작은 크기로 축소되므로 목록에 사용될 때도 선명하고 시각적으로 효과적인 이미지를 선택하는 것이 좋습니다.
 {{% /alert %}}
 
-To create a picture bullet, add an image to [IPresentation::get_Images](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentation/get_images/) and assign the returned [IPPImage](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ippimage/) object to [IBulletFormat::get_Picture](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/get_picture/). Set [IBulletFormat::set_Type](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_type/) to [BulletType::Picture](https://reference.aspose.com/slides/ko/cpp/aspose.slides/bullettype/) before assigning the image.
+그림 글머리표를 만들려면 이미지를 [IPresentation::get_Images](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ipresentation/get_images/)에 추가하고 반환된 [IPPImage](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ippimage/) 객체를 [IBulletFormat::get_Picture](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/get_picture/)에 할당합니다. 이미지를 할당하기 전에 [IBulletFormat::set_Type](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibulletformat/set_type/)을 [BulletType::Picture](https://reference.aspose.com/slides/ko/cpp/aspose.slides/bullettype/)으로 설정합니다.
 
-예를 들어 "image.png" 파일이 있다고 가정해 보겠습니다:
+예를 들어 "image.png"가 있다고 가정해 보겠습니다:
 
-![글머리표용 그림](picture_for_bullets.png)
+![글머리표용 이미지](picture_for_bullets.png)
 
-The following C++ code shows how to create picture bullets in a slide:
+다음 C++ 코드는 슬라이드에서 그림 글머리표를 만드는 방법을 보여줍니다:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -173,17 +226,30 @@ presentation->Save(u"picture_bullets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-The result:
+결과:
 
 ![그림 글머리표](picture_bullets.png)
 
-## **다중 레벨 목록 만들기**
+## **다단계 목록 만들기**
 
-Use [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/set_depth/) to place list items on different levels. Level 0 is the top level, level 1 is nested below it, and so on.
+[IParagraphFormat::set_Depth](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/set_depth/)을 사용하여 목록 항목을 다른 수준에 배치합니다. 0 수준은 최상위 수준이며, 1 수준은 그 아래에 중첩됩니다.
 
-The following C++ code shows how to create a multilevel bulleted list:
+다음 C++ 코드는 다단계 글머리표 목록을 만드는 방법을 보여줍니다:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -215,17 +281,30 @@ presentation->Save(u"multilevel_bullets.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-The result:
+결과:
 
-![다중 레벨 목록](multilevel_list.png)
+![다단계 목록](multilevel_list.png)
 
 ## **기존 목록 변경**
 
-To change list formatting in an existing presentation, access the target paragraph and update its [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/get_bullet/) settings. The same properties used to create lists can be used to inspect or modify lists loaded from a PPT, PPTX, or ODP file.
+기존 프레젠테이션에서 목록 서식을 변경하려면 대상 단락에 접근하고 해당 [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/get_bullet/) 설정을 업데이트합니다. PPT, PPTX 또는 ODP 파일에서 로드한 목록에도 동일한 속성을 사용하여 검사하거나 수정할 수 있습니다.
 
-The following C++ code changes the first paragraph in a text frame to use a numbered list style:
+다음 C++ 코드는 텍스트 프레임의 첫 번째 단락을 번호 매기기 목록 스타일로 변경합니다:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -246,14 +325,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**글머리표 및 번호 매기기 목록을 PDF 또는 이미지로 내보낼 수 있나요?**
+### 글머리표와 번호 매기기 목록을 PDF 또는 이미지로 내보낼 수 있나요?
 
-Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
+예. Aspose.Slides는 대상 형식이 해당 텍스트 레이아웃 및 글머리표 기능을 지원하는 경우 목록 서식을 유지합니다.
 
-**기존 프레젠테이션에서 목록을 편집할 수 있나요?**
+### 기존 프레젠테이션에서 목록을 편집할 수 있나요?
 
-Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/get_bullet/) settings, and save the presentation.
+예. 프레젠테이션을 로드하고 대상 단락에 접근한 뒤 [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iparagraphformat/get_bullet/) 설정을 검사하거나 업데이트한 다음 프레젠테이션을 저장하면 됩니다.
 
-**목록에 비라틴 텍스트를 포함할 수 있나요?**
+### 목록에 라틴 문자가 아닌 텍스트를 포함할 수 있나요?
 
-Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.
+예. 목록 항목 텍스트는 Unicode 문자를 포함할 수 있으므로 다국어 프레젠테이션에서도 목록을 만들 수 있습니다. 프레젠테이션에 사용된 글꼴이 필요한 문자를 지원하는지 확인하십시오.

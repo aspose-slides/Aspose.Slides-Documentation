@@ -1,6 +1,6 @@
 ---
 title: دمج العروض التقديمية بكفاءة على Android
-linktitle: دمج العروض
+linktitle: دمج العروض التقديمية
 type: docs
 weight: 40
 url: /ar/androidjava/merge-presentation/
@@ -11,68 +11,54 @@ keywords:
 - دمج PPT
 - دمج PPTX
 - دمج ODP
-- تجميع PowerPoint
-- تجميع العروض التقديمية
-- تجميع الشرائح
-- تجميع PPT
-- تجميع PPTX
-- تجميع ODP
+- دمج PowerPoint
+- دمج العروض التقديمية
+- دمج الشرائح
+- دمج PPT
+- دمج PPTX
+- دمج ODP
 - Android
 - Java
 - Aspose.Slides
-description: "دمج عروض PowerPoint (PPT، PPTX) و OpenDocument (ODP) بسهولة باستخدام Aspose.Slides لنظام Android عبر Java، مما يبسط سير العمل الخاص بك."
+description: "دمج PowerPoint (PPT، PPTX) وعروض OpenDocument (ODP) بسهولة باستخدام Aspose.Slides لنظام Android عبر Java، مما يبسط سير عملك."
 ---
+## **نظرة عامة**
 
-{{% alert  title="نصيحة" color="primary" %}} 
+يعد دمج عروض PowerPoint وOpenDocument مهمة شائعة في العديد من تطبيقات Android، خاصةً عند إنشاء التقارير، وتجميع الشرائح من مصادر مختلفة، أو أتمتة سير عمل العروض التقديمية. توفر Aspose.Slides واجهة برمجة تطبيقات قوية وسهلة الاستخدام لدمج ملفات PPT أو PPTX أو ODP المتعددة في عرض تقديمي واحد دون الحاجة لتثبيت Microsoft PowerPoint أو LibreOffice أو OpenOffice.
 
-قد ترغب في تجربة **Aspose مجاني عبر الإنترنت** [تطبيق الدمج](https://products.aspose.app/slides/merger). يتيح للمستخدمين دمج عروض PowerPoint بنفس الصيغة (PPT إلى PPT، PPTX إلى PPTX، إلخ) ودمج العروض بصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ).
+في هذا الدليل، ستتعلم كيفية دمج عروض PowerPoint وOpenDocument باستخدام عدد قليل من أسطر الشيفرة فقط. سنوفر أمثلة جاهزة للاستخدام، وسنوضح كيفية الحفاظ على تنسيق الشرائح، وتخطيطاتها، وعناصر العرض التقديمي الأخرى خلال عملية الدمج.
 
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
+سواء كنت تبني تطبيقًا على مستوى المؤسسات أو أداة أتمتة بسيطة، تجعل Aspose.Slides دمج العروض التقديمية سريعًا، موثوقًا، وقابلًا للتوسع. تتيح لك Aspose.Slides دمج العروض بطرق مختلفة. يمكنك دمج العروض مع جميع أشكالها، أنماطها، نصوصها، تنسيقاتها، تعليقاتها، حراكها، وغير ذلك—دون القلق بشأن فقدان الجودة أو البيانات.
 
-{{% /alert %}} 
-
-
-## **دمج العروض التقديمية**
-
-عند دمج عرض تقديمي إلى آخر، فإنك فعليًا تجمع شرائحهم في عرض تقديمي واحد للحصول على ملف واحد. 
-
-{{% alert title="معلومات" color="info" %}}
-
-معظم برامج العروض التقديمية (PowerPoint أو OpenOffice) تفتقر إلى وظائف تسمح للمستخدمين بدمج العروض بطريقة كهذه. 
-
-[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/)، however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data.
-
-**انظر أيضًا**
-
-[استنساخ الشرائح](https://docs.aspose.com/slides/androidjava/clone-slides/).
-
+{{% alert color="info" %}}
+انظر أيضًا: [Clone Slides](https://docs.aspose.com/slides/ar/androidjava/clone-slides/)
 {{% /alert %}}
 
 ### **ما يمكن دمجه**
 
-مع Aspose.Slides، يمكنك دمج 
-
-* العروض الكاملة. جميع الشرائح من العروض تنتهي في عرض تقديمي واحد
-* شرائح محددة. الشرائح المختارة تنتهي في عرض تقديمي واحد
-* عروض بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) وبصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) إلى بعضها البعض. 
+* العروض التقديمية بالكامل. جميع الشرائح من العروض تُدمج في عرض تقديمي واحد
+* شرائح محددة. الشرائح المختارة تُدمج في عرض تقديمي واحد
+* العروض التقديمية بصيغة واحدة (PPT إلى PPT، PPTX إلى PPTX، إلخ) وبصيغ مختلفة (PPT إلى PPTX، PPTX إلى ODP، إلخ) إلى بعضها البعض. 
 
 ### **خيارات الدمج**
 
-يمكنك تطبيق خيارات تحدد ما إذا
+يمكنك تطبيق الخيارات التي تحدد ما إذا كان
+* كل شريحة في العرض الناتج تحتفظ بنمط فريد
+* نمط محدد يُستخدم لجميع الشرائح في العرض الناتج. 
 
-* كل شريحة في عرض الإخراج تحتفظ بنمط فريد
-* يُستخدم نمط محدد لجميع الشرائح في عرض الإخراج. 
+لدمج العروض التقديمية، توفر Aspose.Slides طرقًا [AddClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (من واجهة [ISlideCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISlideCollection)). هناك عدة تطبيقات لطرق `AddClone` التي تحدد معلمات عملية دمج العرض. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation#getSlides--)، لذلك يمكنك استدعاء طريقة `AddClone` من العرض الذي ترغب في دمج الشرائح إليه.
 
-لدمج العروض، توفر Aspose.Slides طرق [AddClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) (من الواجهة [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection) ). هناك عدة تطبيقات لطرق `AddClone` تحدد معلمات عملية دمج العروض. كل كائن Presentation يحتوي على مجموعة [Slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--)، لذا يمكنك استدعاء طريقة `AddClone` من العرض الذي تريد دمج الشرائح إليه.
+طريقة `AddClone` تُعيد كائنًا من نوع `ISlide`، وهو نسخة مستنسخة من الشريحة المصدرية. الشرائح في العرض الناتج هي ببساطة نسخة من الشرائح في المصدر. لذلك، يمكنك تعديل الشرائح الناتجة (على سبيل المثال، تطبيق الأنماط أو خيارات التنسيق أو التخطيطات) دون القلق من تأثر العروض المصدرية.
 
-طريقة `AddClone` تُعيد كائن `ISlide`، وهو نسخة من الشريحة المصدر. الشرائح في عرض الإخراج هي ببساطة نسخة من الشرائح في المصدر. لذلك يمكنك تعديل الشرائح الناتجة (على سبيل المثال، تطبيق أنماط أو خيارات تنسيق أو تخطيطات) دون القلق من تأثير ذلك على العروض المصدر.
+## **دمج العروض التقديمية** 
 
-## **دمج العروض** 
+توفر Aspose.Slides الطريقة [**AddClone(ISlide)**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) التي تتيح لك دمج الشرائح مع احتفاظها بتخطيطاتها وأنماطها (معلمات افتراضية).
 
-توفر Aspose.Slides الطريقة [**AddClone(ISlide)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) التي تسمح لك بدمج الشرائح مع الحفاظ على تخطيطاتها وأنماطها (معلمات افتراضية).
+يعرض لك هذا الشيفرة Java كيفية دمج العروض التقديمية:
 
-يظهر هذا الكود Java كيفية دمج العروض:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
@@ -90,20 +76,22 @@ try {
 }
 ```
 
+## **دمج العروض التقديمية مع نموذج شريحة رئيسي** 
 
-## **دمج العروض باستخدام القالب الرئيسي للشرائح**
+توفر Aspose.Slides الطريقة [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) التي تتيح لك دمج الشرائح مع تطبيق قالب نموذج شريحة رئيسي للعرض. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في العرض الناتج.
 
-توفر Aspose.Slides الطريقة [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) التي تسمح لك بدمج الشرائح مع تطبيق قالب رئيسي للشرائح. بهذه الطريقة، إذا لزم الأمر، يمكنك تغيير النمط للشرائح في عرض الإخراج.
+يوضح هذا الشيفرة في Java العملية الموصوفة:
 
-هذا الكود Java يوضح العملية الموضحة:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
     try {
         for(ISlide slide : pres2.getSlides())
         {
-            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
+            pres1.getSlides().addClone(slide, pres1.getMasters().get_Item(0), true);
         }
     } finally {
         if (pres2 != null) pres2.dispose();
@@ -114,27 +102,27 @@ try {
 }
 ```
 
-
 {{% alert title="ملاحظة" color="warning" %}} 
-
-يتم تحديد تخطيط الشريحة للقالب الرئيسي تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم تعيين معامل `allowCloneMissingLayout` من نوع boolean إلى true، يُستخدم تخطيط الشريحة المصدر. وإلا سيتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException).
-
+يتم تحديد تخطيط الشريحة للنموذج الرئيسي تلقائيًا. عندما لا يمكن تحديد تخطيط مناسب، إذا تم ضبط المعامل المنطقي `allowCloneMissingLayout` في طريقة `AddClone` على true، يُستخدم تخطيط الشريحة المصدرية. وإلا، سيتم إلقاء استثناء [PptxEditException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/PptxEditException).
 {{% /alert %}}
 
-إذا كنت تريد أن تكون للشرائح في عرض الإخراج تخطيط شريحة مختلف، استخدم طريقة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) بدلاً من ذلك عند الدمج.
+إذا كنت تريد أن تكون للشرائح في العرض الناتج تخطيط شريحة مختلف، استخدم طريقة [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) بدلاً من ذلك عند الدمج.
 
-## **دمج شرائح محددة من العروض**
+## **دمج شرائح محددة من العروض التقديمية** 
 
-دمج شرائح محددة من عروض متعددة مفيد لإنشاء مجموعة شرائح مخصصة. تتيح Aspose.Slides for Android via Java لك اختيار واستيراد الشرائح التي تحتاجها فقط. يحافظ API على تنسيق وتخطيط وتصميم الشرائح الأصلية.
+يعد دمج شرائح محددة من عدة عروض تقديمية مفيدًا لإنشاء مجموعات شرائح مخصصة. تمكّن Aspose.Slides لنظام Android عبر Java من اختيار واستيراد الشرائح التي تحتاجها فقط. تحافظ الواجهة البرمجية على تنسيق وتخطيط وتصميم الشرائح الأصلية.
 
-الكود Java التالي ينشئ عرض تقديمي جديد، يضيف شرائح عنوان من عرضين آخرين، ويحفظ النتيجة إلى ملف:
+يقوم الشيفرة Java التالية بإنشاء عرض تقديمي جديد، وإضافة شرائح عنوان من عرضين آخرين، وحفظ النتيجة في ملف:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 Presentation presentation1 = new Presentation("presentation1.pptx");
 Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
     presentation.getSlides().removeAt(0);
-    
+
     ISlide slide1 = getTitleSlide(presentation1);
 
     if (slide1 != null)
@@ -152,8 +140,9 @@ try {
     presentation.dispose();
 }
 ```
-
 ```java
+import com.aspose.slides.*;
+
 static ISlide getTitleSlide(IPresentation presentation) {
     for (ISlide slide : presentation.getSlides()) {
         if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
@@ -164,18 +153,20 @@ static ISlide getTitleSlide(IPresentation presentation) {
 }
 ```
 
+## **دمج العروض التقديمية مع تخطيط شريحة** 
 
-## **دمج العروض باستخدام تخطيط شريحة**
+يعرض لك هذا الشيفرة Java كيفية دمج الشرائح من العروض التقديمية مع تطبيق تخطيط الشريحة المفضل لديك للحصول على عرض تقديمي واحد ناتج:
 
-يظهر هذا الكود Java كيفية دمج الشرائح من العروض مع تطبيق تخطيط شريحة مفضل لديك للحصول على عرض إخراج واحد:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
     try {
         for(ISlide slide : pres2.getSlides())
         {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+            pres1.getSlides().addClone(slide, pres1.getLayoutSlides().get_Item(0));
         }
     } finally {
         if (pres2 != null) pres2.dispose();
@@ -186,19 +177,19 @@ try {
 }
 ```
 
-
-## **دمج العروض بأحجام شرائح مختلفة**
+## **دمج العروض التقديمية بأحجام شرائح مختلفة** 
 
 {{% alert title="ملاحظة" color="warning" %}} 
-
-لا يمكنك دمج عروض بأحجام شرائح مختلفة. 
-
+لا يمكنك دمج عروض تقديمية ذات أحجام شرائح مختلفة. 
 {{% /alert %}}
 
-لدمج عرضين بأحجام شرائح مختلفة، عليك تعديل حجم أحد العروض لتتطابق حجمه مع حجم العرض الآخر.
+لدمج عرضين تقديميين بأحجام شرائح مختلفة، عليك تغيير حجم أحد العروض ليطابق حجم العرض الآخر. 
 
-هذا الكود يوضح العملية الموضحة:
+يوضح هذا الشيفرة العينة العملية الموصوفة:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
@@ -218,11 +209,13 @@ try {
 }
 ```
 
+## **دمج شرائح إلى قسم في العرض التقديمي** 
 
-## **دمج الشرائح إلى قسم في العرض التقديمي**
+يعرض لك هذا الشيفرة Java كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
 
-هذا الكود Java يوضح كيفية دمج شريحة محددة إلى قسم في عرض تقديمي:
 ```java
+import com.aspose.slides.*;
+
 Presentation pres1 = new Presentation("pres1.pptx");
 try {
     Presentation pres2 = new Presentation("pres2.pptx");
@@ -240,25 +233,22 @@ try {
 }
 ```
 
+تُضاف الشريحة في نهاية القسم. 
 
-يتم إضافة الشريحة في نهاية القسم. 
-
-{{% alert title="نصيحة" color="primary" %}}
-
-توفر Aspose تطبيق ويب [مجاني لإنشاء كولاج](https://products.aspose.app/slides/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات الصور](https://products.aspose.app/slides/collage/photo-grid)، وما إلى ذلك. 
-
+{{% alert title="نصيحة" color="info" %}} 
+توفر Aspose تطبيق ويب مجاني للـ Collage [FREE Collage web app](https://products.aspose.app/slides/ar/collage). باستخدام هذه الخدمة عبر الإنترنت، يمكنك دمج [JPG إلى JPG](https://products.aspose.app/slides/ar/collage/jpg) أو PNG إلى PNG، وإنشاء [شبكات صور](https://products.aspose.app/slides/ar/collage/photo-grid)، وما إلى ذلك. 
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة** 
 
-**هل هناك أي حدود لعدد الشرائح عند دمج العروض؟**
+### هل هناك أي قيود على عدد الشرائح عند دمج العروض التقديمية؟
 
-لا توجد حدود صارمة. يمكن لـ Aspose.Slides التعامل مع ملفات كبيرة، لكن الأداء يعتمد على حجم الملف وموارد النظام. للعروض الكبيرة جدًا يُنصح باستخدام JVM 64‑bit وتخصيص ذاكرة heap كافية.
+لا توجد قيود صارمة. يمكن لـ Aspose.Slides معالجة ملفات كبيرة، لكن الأداء يعتمد على حجم الملف وموارد النظام. بالنسبة للعروض التقديمية الكبيرة جدًا، يُنصح باستخدام JVM 64-bit وتخصيص كمية كافية من ذاكرة الـ heap.
 
-**هل يمكنني دمج عروض تحتوي على فيديو أو صوت مدمج؟**
+### هل يمكنني دمج عروض تقديمية تحتوي على فيديو أو صوت مدمج؟
 
-نعم، يحافظ Aspose.Slides على المحتوى متعدد الوسائط المدمج في الشرائح، لكن قد يصبح حجم العرض النهائي كبيرًا بشكل كبير.
+نعم، تحافظ Aspose.Slides على المحتوى متعدد الوسائط المدمج في الشرائح، لكن قد يصبح العرض النهائي أكبر حجمًا بشكل كبير.
 
-**هل سيتم حفظ الخطوط عند دمج العروض؟**
+### هل سيتم الحفاظ على الخطوط عند دمج العروض التقديمية؟
 
-نعم. يتم حفظ الخطوط المستخدمة في العروض المصدر في الملف الناتج، بشرط أن تكون مثبتة على النظام أو [مضمن](/slides/ar/androidjava/embedded-font/).
+نعم. يتم الحفاظ على الخطوط المستخدمة في العروض المصدرية في الملف الناتج، بشرط أن تكون مثبتة على النظام أو [مضمنة](/slides/ar/androidjava/embedded-font/).

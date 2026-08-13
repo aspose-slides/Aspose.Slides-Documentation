@@ -8,7 +8,7 @@ keywords:
 - skapa diagram
 - bädda in Excel-diagram
 - OLE-objekt
-- migration
+- migrering
 - VSTO
 - Office-automatisering
 - PowerPoint
@@ -16,29 +16,28 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Migrera från Microsoft Office-automatisering till Aspose.Slides för .NET och bädda in Excel-diagram som OLE-objekt i PowerPoint (PPT, PPTX)-bilder i C#."
+description: "Migrera från Microsoft Office-automatisering till Aspose.Slides för .NET och bädda in Excel-diagram som OLE-objekt i PowerPoint (PPT, PPTX) bilder i C#."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Diagram är visuella representationer av dina data och används ofta i presentationsbilder. Den här artikeln visar dig koden för att skapa och bädda in ett Excel-diagram som ett OLE-objekt i en PowerPoint-bild programmässigt genom att använda [VSTO](/slides/sv/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) och [Aspose.Slides for .NET](/slides/sv/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Diagram är visuella representationer av dina data och används ofta i presentationsbilder. Den här artikeln visar koden för att skapa och bädda in ett Excel-diagram som ett OLE-objekt i PowerPoint-bilden programatiskt genom att använda [VSTO](/slides/sv/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) och [Aspose.Slides for .NET](/slides/sv/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Skapa och bädda in ett Excel-diagram**
-De två kodexemplen nedanför är långa och detaljerade eftersom uppgiften de beskriver är omfattande. Du skapar en Microsoft Excel-arbetsbok, skapar ett diagram och sedan skapar du Microsoft PowerPoint-presentationen som du ska bädda in diagrammet i. OLE-objekt innehåller länkar till det ursprungliga dokumentet så en användare som dubbelklickar på den inbäddade filen kommer att starta filen och dess program.
+De två kodexemplen nedanför är långa och detaljerade eftersom uppgiften de beskriver är omfattande. Du skapar en Microsoft Excel-arbetsbok, skapar ett diagram och sedan skapar du en Microsoft PowerPoint-presentation som du ska bädda in diagrammet i. OLE-objekt innehåller länkar till originaldokumentet så en användare som dubbelklickar på den inbäddade filen kommer att starta filen och dess program.
+## **VSTO‑exempel**
+Using VSTO, the following steps are performed:
 
-## **VSTO-exempel**
-Med VSTO utförs följande steg:
-
-1. Skapa en instans av Microsoft Excel ApplicationClass-objektet.
-1. Skapa en ny arbetsbok med ett blad i.
-1. Lägg till ett diagram på bladet.
+1. Skapa en instans av Microsoft Excel ApplicationClass‑objektet.
+1. Skapa en ny arbetsbok med ett kalkylblad i.
+1. Lägg till ett diagram i kalkylbladet.
 1. Spara arbetsboken.
-1. Öppna Excel‑arbetsboken som innehåller arbetsbladet med diagramdata.
-1. Hämta ChartObjects‑samlingen för bladet.
+1. Öppna Excel‑arbetsboken som innehåller kalkylbladet med diagramdata.
+1. Hämta samlingen ChartObjects för kalkylbladet.
 1. Hämta diagrammet som ska kopieras.
 1. Skapa en Microsoft PowerPoint-presentation.
 1. Lägg till en tom bild i presentationen.
-1. Kopiera diagrammet från Excel‑arbetsbladet till urklipp.
+1. Kopiera diagrammet från Excel‑kalkylbladet till Urklipp.
 1. Klistra in diagrammet i PowerPoint-presentationen.
 1. Placera diagrammet på bilden.
 1. Spara presentationen.
@@ -58,14 +57,14 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Deklarera en variabel för Excel ApplicationClass-instansen.
+    // Deklarera en variabel för Excel ApplicationClass‑instansen.
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
-    // Deklarera variabler för parametrarna till Workbooks.Open-metoden.
+    // Deklarera variabler för parametrarna till Workbooks.Open‑metoden.
     string paramWorkbookPath = Application.StartupPath + @"\ChartData.xlsx";
     object paramMissing = Type.Missing;
 
-    // Deklarera variabler för Chart.ChartWizard-metoden.
+    // Deklarera variabler för Chart.ChartWizard‑metoden.
     object paramChartFormat = 1;
     object paramCategoryLabels = 0;
     object paramSeriesLabels = 0;
@@ -76,7 +75,7 @@ static void CreateNewChartInExcel()
 
     try
     {
-        // Skapa en instans av Excel ApplicationClass-objektet.
+        // Skapa en instans av Excel ApplicationClass‑objektet.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
         // Skapa en ny arbetsbok med ett blad i.
@@ -86,7 +85,7 @@ static void CreateNewChartInExcel()
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // Infoga lite data för diagrammet i bladet.
+        // Infoga några data för diagrammet i bladet.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
         //     2    N. America  1.5     2       1.5     2.5
@@ -123,17 +122,17 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // Hämta intervallet som innehåller diagramdata.
+        // Hämta området som innehåller diagramdata.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
-        // Hämta ChartObjects-samlingen för bladet.
+        // Hämta ChartObjects‑samlingen för bladet.
         xlNS.ChartObjects chartObjects = (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
         // Lägg till ett diagram i samlingen.
         xlNS.ChartObject newChartObject = chartObjects.Add(0, 100, 600, 300);
         newChartObject.Name = "Sales Chart";
 
-        // Skapa ett nytt diagram av data.
+        // Skapa ett nytt diagram från data.
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
@@ -159,13 +158,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Deklarera variabler för att hålla referenser till PowerPoint-objekt.
+    // Deklarera variabler för att hålla referenser till PowerPoint‑objekt.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Deklarera variabler för att hålla referenser till Excel-objekt.
+    // Deklarera variabler för att hålla referenser till Excel‑objekt.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -184,17 +183,17 @@ static void UseCopyPaste()
         // Skapa en instans av Excel.
         excelApplication = new xlNS.ApplicationClass();
 
-        // Öppna Excel-arbetsboken som innehåller arbetsbladet med diagramdata.
+        // Öppna Excel‑arbetsboken som innehåller kalkylbladet med diagramdata.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // Hämta arbetsbladet som innehåller diagrammet.
+        // Hämta kalkylbladet som innehåller diagrammet.
         targetSheet =
             (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
-        // Hämta ChartObjects-samlingen för bladet.
+        // Hämta ChartObjects‑samlingen för bladet.
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
@@ -202,7 +201,7 @@ static void UseCopyPaste()
         existingChartObject =
             (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
-        // Skapa en PowerPoint-presentation.
+        // Skapa en PowerPoint‑presentation.
         pptPresentation =
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
@@ -211,10 +210,10 @@ static void UseCopyPaste()
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // Kopiera diagrammet från Excel-arbetsbladet till urklipp.
+        // Kopiera diagrammet från Excel‑kalkylbladet till Urklipp.
         existingChartObject.Copy();
 
-        // Klistra in diagrammet i PowerPoint-presentationen.
+        // Klistra in diagrammet i PowerPoint‑presentationen.
         shapeRange = pptSlide.Shapes.Paste();
 
         // Placera diagrammet på bilden.
@@ -230,37 +229,37 @@ static void UseCopyPaste()
     }
     finally
     {
-        // Frigör PowerPoint-bildobjektet.
+        // Frigör PowerPoint‑bild‑objektet.
         shapeRange = null;
         pptSlide = null;
 
-        // Stäng och frigör Presentation-objektet.
+        // Stäng och frigör Presentation‑objektet.
         if (pptPresentation != null)
         {
             pptPresentation.Close();
             pptPresentation = null;
         }
 
-        // Avsluta PowerPoint och frigör ApplicationClass-objektet.
+        // Avsluta PowerPoint och frigör ApplicationClass‑objektet.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
             powerpointApplication = null;
         }
 
-        // Frigör Excel-objekten.
+        // Frigör Excel‑objekten.
         targetSheet = null;
         chartObjects = null;
         existingChartObject = null;
 
-        // Stäng och frigör Excel-arbetsbok-objektet.
+        // Stäng och frigör Excel‑arbetsbok‑objektet.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
             excelWorkBook = null;
         }
 
-        // Avsluta Excel och frigör ApplicationClass-objektet.
+        // Avsluta Excel och frigör ApplicationClass‑objektet.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -278,51 +277,63 @@ static void UseCopyPaste()
 
 
 
-## **Aspose.Slides for .NET‑exempel**
-Med Aspose.Slides for .NET utförs följande steg:
+## **Aspose.Slides för .NET‑exempel**
+Using Aspose.Slides for .NET, the following steps are performed:
 
-1. Skapa en arbetsbok med Aspose.Cells for .NET.
+1. Skapa en arbetsbok med Aspose.Cells för .NET.
 1. Skapa ett Microsoft Excel-diagram.
-1. Ange OLE‑storleken för Excel-diagrammet.
+1. Ställ in OLE‑storleken för Excel-diagrammet.
 1. Hämta en bild av diagrammet.
-1. Bädda in Excel-diagrammet som ett OLE‑objekt i PPTX-presentationen med Aspose.Slides for .NET.
-1. Ersätt den förändrade objektbilden med bilden som erhölls i steg 3 för att hantera problemet med ändrat objekt.
-1. Skriv utdata‑presentationen till disk i PPTX‑format.
+1. Bädda in Excel-diagrammet som ett OLE‑objekt i PPTX‑presentationen med Aspose.Slides för .NET.
+1. Ersätt den bild som ändrats för objektet med bilden som erhölls i steg 3 för att hantera problemet med objektändring.
+1. Skriv utdata-presentationen till disk i PPTX-format.
+
+
 
 ```c#
-//Steg - 1: Skapa ett excel diagram med Aspose.Cells
+using System.Drawing;
+using Aspose.Slides;
+
+//Steg - 1: Skapa ett excel-diagram med Aspose.Cells
 //--------------------------------------------------
 //Skapa en arbetsbok
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Lägg till ett excel diagram
+//Lägg till ett excel-diagram
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Steg - 2: Ställ in OLE storleken för diagrammet med Aspose.Cells
+//Steg - 2: Ställ in OLE‑storleken för diagrammet med Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
 //Steg - 3: Hämta bilden av diagrammet med Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Spara arbetsboken till en ström
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Save the workbook to stream
 MemoryStream wbStream = wb.SaveToStream();
 //Steg - 4  OCH 5
 //-----------------------------------------------------------
-//Steg - 4: Bädda in diagrammet som ett OLE objekt i .ppt presentation med Aspose.Slides
+//Steg - 4: Bädda in diagrammet som ett OLE‑objekt i .ppt‑presentationen med Aspose.Slides
 //-----------------------------------------------------------
-//Steg - 5: Ersätt den ändrade objektbilden med bilden erhållen i steg 3 för att hantera Object Changed Issue
+//Steg - 5: Ersätt den bild som ändrats för objektet med bilden som erhölls i steg 3 för att hantera problemet med objektändring
 //-----------------------------------------------------------
 //Skapa en presentation
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
 //Lägg till arbetsboken på bilden
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Steg - 6: Skriv utdata presentation till disk
+//Steg - 6: Skriv utdata‑presentationen till disk
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -369,7 +380,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
  43,29,69,26,
  24,40,38,25
       };
-    //Lägg till ett nytt arbetsblad för att fylla celler med data
+    //Lägg till ett nytt kalkylblad för att fylla celler med data
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
@@ -381,7 +392,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //Lägg till ett diagramark
+    //Lägg till ett diagramblad
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";

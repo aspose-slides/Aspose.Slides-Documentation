@@ -12,17 +12,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Redimensione fácilmente formas en diapositivas PowerPoint y OpenDocument con Aspose.Slides para .NET—automatice los ajustes de diseño de diapositivas y aumente la productividad."
+description: "Redimensione fácilmente formas en diapositivas de PowerPoint y OpenDocument con Aspose.Slides para .NET—automatice los ajustes del diseño de diapositivas y mejore la productividad."
 ---
-
 ## **Visión general**
 
-Una de las preguntas más comunes de los clientes de Aspose.Slides para .NET es cómo cambiar el tamaño de las formas de modo que, cuando el tamaño de la diapositiva cambie, los datos no se recorten. Este breve artículo técnico muestra cómo hacerlo.
+Una de las preguntas más frecuentes de los clientes de Aspose.Slides para .NET es cómo redimensionar las formas de modo que, al cambiar el tamaño de la diapositiva, los datos no se recorten. Este breve artículo técnico muestra cómo hacerlo.
 
 ## **Redimensionar formas**
 
 Para evitar que las formas se desalineen cuando cambia el tamaño de la diapositiva, actualice la posición y las dimensiones de cada forma para que se ajusten al nuevo diseño de la diapositiva.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Cargar el archivo de presentación.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
@@ -40,7 +43,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // Redimensionar y reposicionar las formas en cada diapositiva.
+    // Redimensionar y recolocar las formas en cada diapositiva.
     foreach (ISlide slide in presentation.Slides)
     {
         foreach (IShape shape in slide.Shapes)
@@ -59,13 +62,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 Si una diapositiva contiene una tabla, el código anterior no funcionará correctamente. En ese caso, cada celda de la tabla debe redimensionarse.
 {{% /alert %}}
 
-Utilice el siguiente código en su lado para redimensionar diapositivas que contienen tablas. Para las tablas, establecer el ancho o la altura es un caso especial: debe ajustar las alturas de filas individuales y los anchos de columnas para cambiar el tamaño general de la tabla.
+Utilice el siguiente código para redimensionar diapositivas que contienen tablas. En el caso de las tablas, escale la altura de las filas y el ancho de las columnas de forma individual en lugar de la anchura y altura de la forma—aplicar ambos escalados duplicaría la escala de la tabla y la desplazaría fuera de la diapositiva.
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // Obtener el tamaño original de la diapositiva.
@@ -115,16 +121,9 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     {
         foreach (IShape shape in slide.Shapes)
         {
-            // Escalar el tamaño de la forma.
-            shape.Height *= heightRatio;
-            shape.Width *= widthRatio;
-
-            // Escalar la posición de la forma.
-            shape.Y *= heightRatio;
-            shape.X *= widthRatio;
-
             if (shape is ITable)
             {
+                // Escalar el tamaño de la tabla a través de sus filas y columnas.
                 ITable table = (ITable)shape;
                 foreach (IRow row in table.Rows)
                 {
@@ -135,6 +134,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                     column.Width *= widthRatio;
                 }
             }
+            else
+            {
+                // Escalar el tamaño de la forma.
+                shape.Height *= heightRatio;
+                shape.Width *= widthRatio;
+            }
+
+            // Escalar la posición de la forma.
+            shape.Y *= heightRatio;
+            shape.X *= widthRatio;
         }
     }
 
@@ -142,33 +151,32 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
+## **FAQ**
 
-## **Preguntas frecuentes**
+### ¿Por qué las formas se distorsionan o se recortan después de redimensionar una diapositiva?
 
-**¿Por qué las formas se distorsionan o se recortan después de cambiar el tamaño de una diapositiva?**
+Al redimensionar una diapositiva, las formas conservan su posición y tamaño originales a menos que se modifique explícitamente la escala. Esto puede provocar que el contenido se recorte o que las formas queden desalineadas.
 
-Al cambiar el tamaño de una diapositiva, las formas conservan su posición y tamaño originales a menos que la escala se modifique explícitamente. Esto puede provocar que el contenido se recorte o que las formas se desalineen.
+### ¿El código proporcionado funciona para todos los tipos de forma?
 
-**¿El código proporcionado funciona con todos los tipos de forma?**
+El ejemplo básico funciona para la mayoría de los tipos de forma (cuadros de texto, imágenes, gráficos, etc.). Sin embargo, para las tablas es necesario gestionar filas y columnas por separado, ya que la altura y el ancho de una tabla están determinados por las dimensiones de las celdas individuales.
 
-El ejemplo básico funciona con la mayoría de los tipos de forma (cuadros de texto, imágenes, gráficos, etc.). Sin embargo, para las tablas, debe manejar filas y columnas por separado, ya que la altura y el ancho de una tabla se determinan por las dimensiones de las celdas individuales.
+### ¿Cómo redimensiono tablas al redimensionar una diapositiva?
 
-**¿Cómo redimensiono las tablas al cambiar el tamaño de una diapositiva?**
+Debe iterar todas las filas y columnas de la tabla y redimensionar su altura y ancho proporcionalmente, como se muestra en el segundo ejemplo de código.
 
-Debe recorrer todas las filas y columnas de la tabla y redimensionar su altura y ancho proporcionalmente, como se muestra en el segundo ejemplo de código.
+### ¿Funcionará este redimensionado en diapositivas maestras y diapositivas de diseño?
 
-**¿Funcionará este redimensionamiento para diapositivas maestras y diapositivas de diseño?**
+Sí, pero también debe iterar sobre [Masters](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/masters/) y [LayoutSlides](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/layoutslides/) y aplicar la misma lógica de escalado a sus formas para garantizar la coherencia en toda la presentación.
 
-Sí, pero también debe recorrer [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) y [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) y aplicar la misma lógica de escalado a sus formas para garantizar la consistencia en toda la presentación.
+### ¿Puedo cambiar la orientación de una diapositiva (vertical/horizontal) junto con el redimensionado?
 
-**¿Puedo cambiar la orientación de una diapositiva (vertical/horizontal) junto con el redimensionamiento?**
+Sí. Puede establecer [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/es/net/aspose.slides/islidesize/orientation/) para modificar la orientación. Asegúrese de adaptar la lógica de escalado en consecuencia para preservar el diseño.
 
-Sí. Puede establecer [presentation.SlideSize.Orientation](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/) para cambiar la orientación. Asegúrese de ajustar la lógica de escalado en consecuencia para preservar el diseño.
+### ¿Existe un límite para el tamaño de diapositiva que puedo establecer?
 
-**¿Existe un límite para el tamaño de diapositiva que puedo establecer?**
+Aspose.Slides admite tamaños personalizados, pero tamaños muy grandes pueden afectar el rendimiento o la compatibilidad con algunas versiones de PowerPoint.
 
-Aspose.Slides admite tamaños personalizados, pero los tamaños muy grandes pueden afectar el rendimiento o la compatibilidad con algunas versiones de PowerPoint.
+### ¿Cómo evitar que las formas con relación de aspecto fija se distorsionen?
 
-**¿Cómo puedo evitar que las formas con relación de aspecto fija se distorsionen?**
-
-Puede comprobar la propiedad `AspectRatioLocked` de la forma antes de escalar. Si está bloqueada, ajuste el ancho o la altura proporcionalmente en lugar de escalarlos individualmente.
+Puede comprobar la propiedad `AspectRatioLocked` de la forma antes de escalar. Si está bloqueada, ajuste la anchura o la altura proporcionalmente en lugar de escalar cada una de forma independiente.

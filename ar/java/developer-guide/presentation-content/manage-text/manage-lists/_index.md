@@ -8,8 +8,8 @@ keywords:
 - رصاصة
 - قائمة نقطية
 - قائمة مرقمة
-- رصاصة برمز
-- رصاصة بصورة
+- رصاصة رمز
+- رصاصة صورة
 - رصاصة مخصصة
 - قائمة متعددة المستويات
 - إنشاء رصاصة
@@ -17,32 +17,35 @@ keywords:
 - إضافة قائمة
 - PowerPoint
 - OpenDocument
-- presentation
+- عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تعرف على كيفية إنشاء وتنسيق القوائم النقطية، والقوائم المصورة، والقوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides for Java."
+description: "تعرف على كيفية إنشاء وتنسيق القوائم النقطية، وصور الرصاصات، والقوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Java يتيح لك إنشاء وتنسيق القوائم النقطية والمرقمة في عروض PowerPoint و OpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات الرصاصة الخاصة بها من خلال تنسيق الفقرة.
+Aspose.Slides for Java يتيح لك إنشاء وتنسيق القوائم النقطية والمرقمة في عروض PowerPoint وOpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات الرصاصة الخاصة بها من خلال تنسيق الفقرة.
 
-استخدم طريقة [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/#getParagraphFormat--) للوصول إلى إعدادات القائمة على مستوى الفقرة. النقطة الرئيسية هي [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getBullet--)، التي تُعيد كائنًا من النوع [IBulletFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/). باستخدام هذا الكائن يمكنك ضبط نوع الرصاصة، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
+استخدم طريقة [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/#getParagraphFormat--) للوصول إلى إعدادات القائمة على مستوى الفقرة. النقطة الرئيسية هي [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getBullet--)، التي تُعيد كائنًا من النوع [IBulletFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/). باستخدام هذا الكائن، يمكنك تعيين نوع الرصاصة، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البدء.
 
-توضح هذه المقالة كيفية:
+هذا المقال يوضح كيفية:
 
 - إنشاء قائمة نقطية برمز مخصص
-- إنشاء رصاصة بصورة
+- إنشاء رصاصة صورة
 - إنشاء قائمة متعددة المستويات عن طريق ضبط عمق الفقرة
 - إنشاء قائمة مرقمة
 - فحص وتغيير تنسيق القائمة في عرض تقديمي موجود
 
 ## **إنشاء قائمة نقطية**
 
-لإنشاء قائمة نقطية، أضف كائنات [IParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/) إلى [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) واضبط [IBulletFormat.setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setType-byte-) إلى [BulletType.Symbol](https://reference.aspose.com/slides/ar/java/com.aspose.slides/bullettype/#Symbol). ثم يمكنك ضبط [IBulletFormat.setChar](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setChar-char-)، [IBulletFormat.getColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#getColor--)، و[IBulletFormat.setHeight](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setHeight-float-) للتحكم في مظهر الرصاصة.
+لإنشاء قائمة نقطية، أضف كائنات [IParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraph/) إلى [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) وقم بتعيين [IBulletFormat.setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setType-byte-) إلى [BulletType.Symbol](https://reference.aspose.com/slides/ar/java/com.aspose.slides/bullettype/#Symbol). ثم يمكنك تعيين [IBulletFormat.setChar](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setChar-char-)، [IBulletFormat.getColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#getColor--)، و[IBulletFormat.setHeight](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setHeight-float-) للتحكم في مظهر الرصاصة.
 
-يوضح الشيفرة Java التالية كيفية إنشاء قائمة نقطية في شريحة:
+الكود Java التالي يوضح كيفية إنشاء قائمة نقطية في شريحة:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -85,11 +88,13 @@ try {
 
 ## **إنشاء قائمة مرقمة**
 
-استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. اضبط [IBulletFormat.setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setType-byte-) إلى [BulletType.Numbered](https://reference.aspose.com/slides/ar/java/com.aspose.slides/bullettype/#Numbered). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) أو ضبط [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) عندما يجب أن يبدأ القائمة من قيمة غير 1.
+استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. قم بتعيين [IBulletFormat.setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setType-byte-) إلى [BulletType.Numbered](https://reference.aspose.com/slides/ar/java/com.aspose.slides/bullettype/#Numbered). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) أو تعيين [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) عندما يجب أن تبدأ القائمة من قيمة غير 1.
 
-تظهر الشيفرة Java التالية كيفية إنشاء قائمة مرقمة في شريحة:
+الكود Java التالي يوضح كيفية إنشاء قائمة مرقمة في شريحة:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -123,23 +128,25 @@ try {
 
 ![الرموز المرقمة](numbered_bullets.png)
 
-## **إنشاء رصاصة بصورة**
+## **إنشاء رصاصة صورة**
 
-Aspose.Slides يسمح لك باستبدال رمز الرصاصة العادي بصورة. تعمل الرصاصات المصورة بشكل أفضل مع الصور البسيطة التي تظل قابلة للقراءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
+تسمح لك Aspose.Slides باستبدال رمز الرصاصة العادي بصورة. تعمل الرصاصات المصورة بشكل أفضل مع الصور البسيطة التي تظل قابلة للقراءة بحجم صغير، مثل الأيقونات أو ملفات PNG الصغيرة ذات الخلفية الشفافة.
 
-{{% alert color="primary" %}}
-من الناحية المثالية، إذا كنت تخطط لاستبدال رمز الرصاصة العادي بصورة، فمن الأفضل اختيار رسم بسيط بخلفية شفافة. تعمل مثل هذه الصور جيدًا كرموز رصاص مخصصة.
-
-ضع في اعتبارك أن الصورة سيتم تقليصها إلى حجم صغير جدًا. لهذا السبب، نوصي بشدة باختيار صورة تظل واضحة وفعالة بصريًا عند استخدامها كرصاصة في قائمة.
+{{% alert color="info" %}}
+من الناحية المثالية، إذا كنت تخطط لاستبدال رمز الرصاصة العادي بصورة، فمن الأفضل اختيار رسم بسيط بخلفية شفافة. تعمل مثل هذه الصور بشكل جيد كرموز رصاص مخصصة.
 {{% /alert %}}
 
-لإنشاء رصاصة بصورة، أضف صورة إلى [Presentation.getImages](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getImages--) وعيّن كائن الصورة المرجع إلى [IBulletFormat.getPicture](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#getPicture--). اضبط [IBulletFormat.setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setType-byte-) إلى [BulletType.Picture](https://reference.aspose.com/slides/ar/java/com.aspose.slides/bullettype/#Picture) قبل تعيين الصورة.
+لإنشاء رصاصة صورة، أضف صورة إلى [Presentation.getImages](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getImages--) وعيّن كائن الصورة المُرجع إلى [IBulletFormat.getPicture](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#getPicture--). قم بتعيين [IBulletFormat.setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibulletformat/#setType-byte-) إلى [BulletType.Picture](https://reference.aspose.com/slides/ar/java/com.aspose.slides/bullettype/#Picture) قبل تعيين الصورة.
 
 لنفترض أن لدينا ملف "image.png":
 
 ![صورة للرصاصات](picture_for_bullets.png)
 
+الكود Java التالي يوضح كيفية إنشاء رصاصات صورة في شريحة:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -174,13 +181,17 @@ try {
 
 النتيجة:
 
-![الرصاصات المصورة](picture_bullets.png)
+![رصاصات الصورة](picture_bullets.png)
 
 ## **إنشاء قائمة متعددة المستويات**
 
-استخدم [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setDepth-short-) لتضع عناصر القائمة في مستويات مختلفة. المستوى 0 هو المستوى الأعلى، المستوى 1 متداخل تحته، وهكذا.
+استخدم [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#setDepth-short-) لتحديد عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى العلوي، المستوى 1 هو مستوى فرعي أسفله، وهكذا.
+
+الكود Java التالي يوضح كيفية إنشاء قائمة نقطية متعددة المستويات:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -219,13 +230,13 @@ try {
 
 ![القائمة متعددة المستويات](multilevel_list.png)
 
-## **تغيير قائمة موجودة**
+## **تعديل قائمة موجودة**
 
-لتغيير تنسيق القائمة في عرض تقديمي موجود، احصل على الفقرة المستهدفة وحدث إعدادات [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getBullet--). يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
-
-تغيّر الشيفرة Java التالية الفقرة الأولى في إطار نص لاستخدام نمط قائمة مرقمة:
+لتغيير تنسيق القائمة في عرض تقديمي موجود، قم بالوصول إلى الفقرة المستهدفة وتحديث إعدادات [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getBullet--) الخاصة بها. يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -244,16 +255,16 @@ try {
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يمكن تصدير القوائم النقطية والمرقمة إلى PDF أو صور؟**
+### هل يمكن تصدير القوائم النقطية والمرقمة إلى PDF أو صور؟
 
-نعم. تحتفظ Aspose.Slides بتنسيق القوائم عندما يدعم تنسيق الهدف تخطيط النص وميزات الرصاص المقابلة.
+نعم. تقوم Aspose.Slides بالحفاظ على تنسيق القائمة عندما يدعم تنسيق الهدف تخطيط النص وميزات الرصاصة المقابلة.
 
-**هل يمكنني تعديل القوائم في العروض التقديمية الموجودة؟**
+### هل يمكنني تعديل القوائم في العروض التقديمية الموجودة؟
 
-نعم. حمّل العرض التقديمي، احصل على الفقرة المستهدفة، افحص أو حدّث إعدادات [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getBullet--) الخاصة بها، ثم احفظ العرض التقديمي.
+نعم. قم بتحميل العرض التقديمي، والوصول إلى الفقرة المستهدفة، وفحص أو تحديث إعدادات [IParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iparagraphformat/#getBullet--) الخاصة بها، ثم احفظ العرض التقديمي.
 
-**هل يمكن للقوائم احتواء نص غير لاتيني؟**
+### هل يمكن أن تحتوي القوائم على نص غير لاتيني؟
 
-نعم. يمكن أن يحتوي نص عنصر القائمة على أحرف Unicode، وبالتالي يمكنك إنشاء قوائم في عروض تقديمية متعددة اللغات. تأكد من أن الخطوط المستخدمة في العرض تدعم الأحرف التي تحتاجها.
+نعم. يمكن أن يحتوي نص عنصر القائمة على أحرف Unicode، وبالتالي يمكنك إنشاء قوائم في عروض تقديمية متعددة اللغات. تأكد من أن الخطوط المستخدمة في العرض التقديمي تدعم الأحرف التي تحتاجها.

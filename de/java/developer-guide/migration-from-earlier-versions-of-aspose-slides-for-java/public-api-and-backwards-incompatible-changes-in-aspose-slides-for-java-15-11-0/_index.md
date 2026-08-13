@@ -1,18 +1,28 @@
 ---
-title: Öffentliche API und nicht abwärtskompatible Änderungen in Aspose.Slides für Java 15.11.0
+title: Öffentliche API und abwärtsinkompatible Änderungen in Aspose.Slides für Java 15.11.0
+linktitle: Aspose.Slides for Java 15.11.0
 type: docs
 weight: 190
 url: /de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/
+keywords:
+- Migration
+- Legacy-Code
+- Moderner Code
+- Legacy-Ansatz
+- Moderner Ansatz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Java
+- Aspose.Slides
+description: "Überblick über öffentliche API‑Updates und breaking changes in Aspose.Slides für Java, um Ihre PowerPoint‑PPT-, PPTX‑ und ODP‑Präsentationslösungen reibungslos zu migrieren."
 ---
-
-{{% alert color="primary" %}} 
-
-Diese Seite listet alle [hinzugefügten](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) oder [entfernten](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) Klassen, Methoden, Eigenschaften usw. sowie andere Änderungen auf, die mit der Aspose.Slides für Java 15.11.0 API eingeführt wurden.
-
+{{% alert color="info" %}} 
+Diese Seite listet alle [added](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) oder [removed](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-11-0/) Klassen, Methoden, Eigenschaften usw. sowie weitere Änderungen, die mit der Aspose.Slides for Java 15.11.0 API eingeführt wurden.
 {{% /alert %}} 
-## **Änderungen der Öffentlichen API**
-#### **Veraltete Methoden in der Klasse com.aspose.slides.DataLabelCollection wurden gelöscht**
-Veraltete Methoden in der Klasse com.aspose.slides.DataLabelCollection wurden gelöscht:
+## **Public API Changes**
+#### **Veraltete Methoden in der Klasse com.aspose.slides.DataLabelCollection wurden entfernt**
+Veraltete Methoden in der Klasse com.aspose.slides.DataLabelCollection wurden entfernt:
 
 DataLabelCollection.getNumberFormat()
 DataLabelCollection.setNumberFormat(String value)
@@ -41,19 +51,21 @@ DataLabelCollection.setShowSeriesName(boolean value)
 DataLabelCollection.getShowBubbleSize()
 DataLabelCollection.setShowBubbleSize(boolean value)
 
-
-#### **Neue Methoden getFirstSlideNumber() und setFirstSlideNumber() wurden zur Präsentationsklasse hinzugefügt**
-Neue Methoden getFirstSlideNumber() und setFirstSlideNumber() ermöglichen es, die Nummer der ersten Folie in einer Präsentation zu erhalten oder festzulegen.
-Wenn ein neuer Wert für die erste Foliennummer angegeben wird, werden alle Foliennummern neu berechnet.
+#### **Neue Methoden getFirstSlideNumber() und setFirstSlideNumber() wurden der Klasse Presentation hinzugefügt**
+Die neuen Methoden getFirstSlideNumber() und setFirstSlideNumber() ermöglichen das Abrufen bzw. Festlegen der Nummer der ersten Folie in einer Präsentation.  
+Wenn ein neuer Wert für die Nummer der ersten Folie angegeben wird, werden alle Foliennummern neu berechnet.
 
 ``` java
+import com.aspose.slides.*;
 
- Präsentation pres = new Präsentation(pfad);
+Presentation pres = new Presentation("presentation.pptx");
+try {
+    int firstSlideNumber = pres.getFirstSlideNumber();
 
-int firstSlideNumber = pres.getFirstSlideNumber();
+    pres.setFirstSlideNumber(10);
 
-pres.setFirstSlideNumber(10);
-
-pres.save(neuerPfad, SaveFormat.Pptx);
-
+    pres.save("presentation_out.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```

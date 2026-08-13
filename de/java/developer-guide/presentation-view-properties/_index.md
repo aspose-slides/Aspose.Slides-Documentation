@@ -9,10 +9,10 @@ keywords:
 - normalansicht
 - gliederungsinhalt
 - gliederungssymbole
-- vertikaler splitter einrasten
+- vertikaler trenner einrasten
 - einzelansicht
-- balkenzustand
-- dimensionsgröße
+- balkenstatus
+- dimensiongröße
 - automatische anpassung
 - standardzoom
 - PowerPoint
@@ -22,41 +22,41 @@ keywords:
 - Aspose.Slides
 description: "Entdecken Sie die Ansichtseigenschaften von Aspose.Slides für Java, um PPT-, PPTX- und ODP-Folien anzupassen - Layouts, Zoomstufen und Anzeigeeinstellungen zu ändern."
 ---
+## **Einleitung**
 
-{{% alert color="primary" %}} 
+Die Normalansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem seitlichen Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die sich auf die Positionierung der verschiedenen Inhaltsbereiche beziehen. Diese Informationen ermöglichen es der Anwendung, den Ansichtsstatus in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht im gleichen Zustand ist wie beim letzten Speichern der Präsentation.
 
-Die Normalansicht besteht aus drei Inhaltsbereichen: der Folie selbst, einem seitlichen Inhaltsbereich und einem unteren Inhaltsbereich. Eigenschaften, die die Positionierung der verschiedenen Inhaltsbereiche betreffen. Diese Informationen ermöglichen es der Anwendung, ihren Ansichtsstatus in die Datei zu speichern, sodass beim erneuten Öffnen die Ansicht denselben Zustand hat wie beim letzten Speichern der Präsentation.
+Die Methode [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/de/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) wurde hinzugefügt, um Zugriff auf die Normalansichtseigenschaften einer Präsentation zu ermöglichen.  
 
-Methode [IViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IViewProperties#getNormalViewProperties--) wurde hinzugefügt, um Zugriff auf die Normalansichts‑Eigenschaften der Präsentation zu ermöglichen. 
-
-[INormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewRestoredProperties) Schnittstellen und ihre Nachfolger, [SplitterBarStateType](https://reference.aspose.com/slides/java/com.aspose.slides/SplitterBarStateType) Enum wurden hinzugefügt.
-
-{{% /alert %}} 
+Die Schnittstellen [INormalViewProperties](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties), [INormalViewRestoredProperties](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewRestoredProperties) sowie deren Ableitungen und das Aufzählungstyp [SplitterBarStateType](https://reference.aspose.com/slides/de/java/com.aspose.slides/SplitterBarStateType) wurden hinzugefügt.
 
 ## **Über INormalViewProperties**
 
-Stellt Normalansichts‑Eigenschaften dar.
+Stellt die Normalansichtseigenschaften dar.
 
-Methoden [getShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) und [setShowOutlineIcons](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) geben an, ob die Anwendung Symbole anzeigen soll, wenn Outline‑Inhalte in einem der Inhaltsbereiche des Normalansichts‑Modus angezeigt werden.
+Die Methoden [getShowOutlineIcons](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getShowOutlineIcons--) und [setShowOutlineIcons](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#setShowOutlineIcons-boolean-) geben an, ob die Anwendung Symbole anzeigen soll, wenn Gliederungsinhalte in einem der Inhaltsbereiche des Normalansichtsmodus dargestellt werden.
 
-Methoden [getSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) und [setSnapVerticalSplitter](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) geben an, ob der vertikale Trenner in einen minimierten Zustand springen soll, wenn der Seitenbereich ausreichend klein ist.
+Die Methoden [getSnapVerticalSplitter](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getSnapVerticalSplitter--) und [setSnapVerticalSplitter](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#setSnapVerticalSplitter-boolean-) legen fest, ob der vertikale Trenner in einen minimierten Zustand einrasten soll, wenn der seitliche Bereich ausreichend klein ist.
 
-Eigenschaft [getPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) und [setPreferSingleView](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) gibt an, ob der Benutzer ein einzelnes Voll‑Fenster‑Inhaltsbereich bevorzugt statt der Standard‑Normalansicht mit drei Inhaltsbereichen. Ist dies aktiviert, kann die Anwendung einen der Inhaltsbereiche im gesamten Fenster anzeigen.
+Die Eigenschaft [getPreferSingleView](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getPreferSingleView--) und [setPreferSingleView](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#setPreferSingleView-boolean-) bestimmen, ob der Benutzer eine Vollfenster‑Einzel‑Inhaltsbereich‑Ansicht der Standard‑Normalansicht mit drei Inhaltsbereichen bevorzugt. Ist sie aktiviert, kann die Anwendung einen der Inhaltsbereiche im gesamten Fenster anzeigen.
 
-Methoden [getVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) geben den Zustand an, in dem die horizontale bzw. vertikale Trennleiste angezeigt werden soll. Eine horizontale Trennleiste trennt die Folie vom Inhaltsbereich unter der Folie, eine vertikale Trennleiste trennt die Folie vom seitlichen Inhaltsbereich. Mögliche Werte sind: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/java/com.aspose.slides/SplitterBarStateType#Maximized) und [SplitterBarStateType.Restored](https://reference.aspose.com/slides/java/com.aspose.slides/SplitterBarStateType#Restored).
+Die Methoden [getVerticalBarState](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) geben an, in welchem Zustand die horizontale bzw. vertikale Trennerleiste angezeigt werden soll. Eine horizontale Trennerleiste trennt die Folie vom Inhaltsbereich unterhalb der Folie, eine vertikale Trennerleiste trennt die Folie vom seitlichen Inhaltsbereich. Mögliche Werte sind: [SplitterBarStateType.Minimized](https://reference.aspose.com/slides/de/java/com.aspose.slides/SplitterBarStateType#Minimized), [SplitterBarStateType.Maximized](https://reference.aspose.com/slides/de/java/com.aspose.slides/SplitterBarStateType#Maximized) und [SplitterBarStateType.Restored](https://reference.aspose.com/slides/de/java/com.aspose.slides/SplitterBarStateType#Restored).
 
-Methoden [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) und [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) geben die Größe des oberen bzw. seitlichen Folienbereichs der Normalansicht an, wenn für [getVerticalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) der Wert [SplitterBarStateType.Restored](https://reference.aspose.com/slides/java/com.aspose.slides/SplitterBarStateType#Restored) verwendet wird.
+Die Methoden [getRestoredLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--) und [getRestoredTop](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getRestoredTop--) geben die Größe des oberen bzw. seitlichen Folienbereichs der Normalansicht an, wenn für [getVerticalBarState](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getVerticalBarState--) und [getHorizontalBarState](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getHorizontalBarState--) der Wert [SplitterBarStateType.Restored](https://reference.aspose.com/slides/de/java/com.aspose.slides/SplitterBarStateType#Restored) angewendet wird.
 
-## **Über das Wiederherstellen von INormalViewProperties** 
+## **Über das Wiederherstellen von INormalViewProperties**
 
-Gibt die Größe des Folienbereichs (Breite, wenn ein Kind von [getRestoredTop](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), Höhe, wenn ein Kind von [getRestoredLeft](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) der Normalansicht an, wenn der Bereich eine variable wiederhergestellte Größe hat (weder minimiert noch maximiert). 
+Gibt die Größe des Folienbereichs (Breite, wenn ein Kind von [getRestoredTop](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getRestoredTop--), Höhe, wenn ein Kind von [getRestoredLeft](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewProperties#getRestoredLeft--)) der Normalansicht an, wenn der Bereich eine variable wiederhergestellte Größe hat (weder minimiert noch maximiert).
 
-Methode [getDimensionSize](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) gibt die Größe des Folienbereichs an (Breite, wenn ein Kind von restoredTop, Höhe, wenn ein Kind von restoredLeft).
+Die Methode [getDimensionSize](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewRestoredProperties#getDimensionSize--) gibt die Größe des Folienbereichs (Breite, wenn Kind von restoredTop, Höhe, wenn Kind von restoredLeft) an.
 
-Methode [getAutoAdjust](https://reference.aspose.com/slides/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) gibt an, ob die Größe des seitlichen Inhaltsbereichs die neue Größe kompensieren soll, wenn das Fenster, das die Ansicht enthält, innerhalb der Anwendung verkleinert oder vergrößert wird.
+Die Methode [getAutoAdjust](https://reference.aspose.com/slides/de/java/com.aspose.slides/INormalViewRestoredProperties#getAutoAdjust--) gibt an, ob die Größe des seitlichen Inhaltsbereichs automatisch angepasst werden soll, wenn das Fenster, das die Ansicht enthält, in der Anwendung geändert wird.
 
-Ein Beispiel wird unten gezeigt, wie Sie auf [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) Eigenschaften einer Präsentation zugreifen können.
+Ein Beispiel unten zeigt, wie Sie auf die Eigenschaften [ViewProperties.getNormalViewProperties](https://reference.aspose.com/slides/de/java/com.aspose.slides/ViewProperties#getNormalViewProperties--) einer Präsentation zugreifen können.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(SplitterBarStateType.Restored);
@@ -73,27 +73,29 @@ try {
 }
 ```
 
+## **Standard-Zoomwert festlegen**
 
-## **Standard‑Zoomwert festlegen**
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Java unterstützt jetzt das Festlegen des Standard‑Zoomwerts für eine Präsentation, sodass beim Öffnen der Präsentation der Zoom bereits eingestellt ist. Dies kann durch das Festlegen der [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) einer Präsentation erfolgen. [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert gesetzt werden. In diesem Thema sehen wir anhand eines Beispiels, wie die [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) einer [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) in [Aspose.Slides](/slides/de/) gesetzt werden.
+Aspose.Slides für Java unterstützt jetzt das Festlegen des Standard‑Zoomwerts für eine Präsentation, sodass beim Öffnen der Präsentation der Zoom bereits eingestellt ist. Dies kann erreicht werden, indem die [ViewProperties](https://reference.aspose.com/slides/de/java/com.aspose.slides/ViewProperties) einer Präsentation gesetzt werden. [getSlideViewProperties](https://reference.aspose.com/slides/de/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/de/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert festgelegt werden. In diesem Thema zeigen wir anhand eines Beispiels, wie die [View Properties](https://reference.aspose.com/slides/de/java/com.aspose.slides/ViewProperties) einer [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation) in Aspose.Slides festgelegt werden.
 
 {{% /alert %}} 
 
-Um die Ansichtseigenschaften zu setzen, folgen Sie bitte den untenstehenden Schritten:
+Um die Ansichtseigenschaften festzulegen, folgen Sie bitte den untenstehenden Schritten:
 
-1. Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) erstellen.
-1. [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) festlegen.
-1. Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei schreiben.
-   Im nachstehenden Beispiel haben wir den Zoom‑Wert für die Folienansicht sowie die Notizansicht gesetzt.
+1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
+1. Setzen Sie die [View Properties](https://reference.aspose.com/slides/de/java/com.aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation).
+1. Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.  
+   Im nachstehenden Beispiel haben wir den Zoomwert sowohl für die Folienansicht als auch für die Notizansicht festgelegt.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Die Ansichtseigenschaften der Präsentation festlegen
+    // Festlegen der Ansichtseigenschaften der Präsentation
     presentation.getViewProperties().getSlideViewProperties().setScale(100); // Zoomwert in Prozent für die Folienansicht
-    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Zoomwert in Prozent für die Notizenansicht 
+    presentation.getViewProperties().getNotesViewProperties().setScale(100); // Zoomwert in Prozent für die Notizansicht 
 
     presentation.save("Zoom_out.pptx", SaveFormat.Pptx);
 } finally {
@@ -101,17 +103,16 @@ try {
 }
 ```
 
-
 ## **FAQ**
 
-**Kann ich verschiedene Ansichtseinstellungen für verschiedene Abschnitte einer Präsentation festlegen?**
+### Kann ich unterschiedliche Ansichtseinstellungen für verschiedene Abschnitte einer Präsentation festlegen?
 
-[View settings](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) werden auf Ebene der Präsentation definiert ([Normal View](https://reference.aspose.com/slides/java/com.aspose.slides/viewproperties/#getNormalViewProperties--)/[Slide View](https://reference.aspose.com/slides/java/com.aspose.slides/viewproperties/#getSlideViewProperties--)), nicht pro Abschnitt, sodass ein einziger Parametersatz beim Öffnen des Dokuments für das gesamte Dokument gilt.
+Ansichtseinstellungen werden auf Präsentationsebene definiert (Normalansicht/Folienansicht) und nicht pro Abschnitt, sodass ein einziger Parametersatz beim Öffnen auf das gesamte Dokument angewendet wird.
 
-**Kann ich verschiedene Ansichts‑Zustände für verschiedene Benutzer vordefinieren?**
+### Kann ich unterschiedliche Ansichts‑Zustände für verschiedene Benutzer vordefinieren?
 
-Nein. Die Einstellungen werden in der Datei gespeichert und sind für alle Benutzer gleich. Viewer‑Anwendungen können Benutzer‑Präferenzen berücksichtigen, aber die Datei selbst enthält nur einen Satz von Ansichtseigenschaften.
+Nein. Die Einstellungen werden in der Datei gespeichert und sind gemeinsam genutzt. Viewer‑Anwendungen können Benutzerpräferenzen berücksichtigen, aber die Datei selbst enthält einen einzigen Satz von Ansichtseigenschaften.
 
-**Kann ich eine Vorlage mit vordefinierten View‑Properties erstellen, sodass neue Präsentationen gleich geöffnet werden?**
+### Kann ich eine Vorlage mit vordefinierten Ansichtseigenschaften erstellen, sodass neue Präsentationen gleich geöffnet werden?
 
-Ja. Da [view properties](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getViewProperties--) auf Ebene der Präsentation gespeichert werden, können Sie sie in einer Vorlage einbetten und neue Dokumente daraus erstellen, die dieselbe anfängliche Ansichtskonfiguration besitzen.
+Ja. Da Ansichtseigenschaften auf Präsentationsebene gespeichert werden, können Sie sie in einer Vorlage einbetten und daraus neue Dokumente mit derselben anfänglichen Ansichtskonfiguration erstellen.

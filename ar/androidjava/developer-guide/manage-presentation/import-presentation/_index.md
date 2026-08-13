@@ -1,6 +1,6 @@
 ---
 title: استيراد العروض التقديمية من PDF أو HTML على Android
-linktitle: استيراد عرض تقديمي
+linktitle: استيراد العرض التقديمي
 type: docs
 weight: 60
 url: /ar/androidjava/import-presentation/
@@ -22,23 +22,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "استيراد مستندات PDF وHTML إلى عروض PowerPoint وOpenDocument في Java باستخدام Aspose.Slides لنظام Android لمعالجة الشرائح بسلاسة وذات أداء عالي."
+description: "استيراد مستندات PDF وHTML إلى العروض التقديمية PowerPoint وOpenDocument في Java باستخدام Aspose.Slides لأندرويد، وذلك لمعالجة شرائح سلسة وعالية الأداء."
 ---
+## **المقدمة**
 
-باستخدام [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/)، يمكنك استيراد العروض التقديمية من ملفات بصيغ أخرى. توفر Aspose.Slides الفئة [SlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/) للسماح لك باستيراد العروض من ملفات PDF، مستندات HTML، إلخ.
+Using [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/ar/androidjava/)، يمكنك استيراد العروض التقديمية من ملفات بصيغ أخرى. توفر Aspose.Slides فئة SlideCollection التي تتيح لك استيراد العروض التقديمية من ملفات PDF، مستندات HTML، وما إلى ذلك.
 
 ## **استيراد PowerPoint من PDF**
 
-في هذه الحالة، يمكنك تحويل PDF إلى عرض تقديمي PowerPoint.
+في هذه الحالة، يمكنك تحويل ملف PDF إلى عرض تقديمي PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/).
-2. استدعاء طريقة [addFromPdf()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) وتمرير ملف PDF.
-3. استخدام طريقة [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
+1. إنشاء كائن من فئة Presentation.
+2. استدعاء الدالة [addFromPdf()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) وتمرير ملف PDF.
+3. استخدام الدالة [save()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
 
-يوضح هذا الشيفرة Java عملية تحويل PDF إلى PowerPoint:
+يوضح هذا الكود بلغة Java عملية التحويل من PDF إلى PowerPoint:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -48,21 +52,25 @@ try {
 }
 ```
 
-
-{{% alert  title="Tip" color="primary" %}} 
-قد ترغب في تجربة تطبيق الويب **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) لأنه تنفيذ مباشر للعملية الموضحة هنا. 
+{{% alert title="Tip" color="info" %}} 
+قد ترغب في الاطلاع على تطبيق **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/ar/import/pdf-to-powerpoint) لأنه تنفيذ مباشر للعملية الموضحة هنا. 
 {{% /alert %}} 
 
 ## **استيراد PowerPoint من HTML**
 
 في هذه الحالة، يمكنك تحويل مستند HTML إلى عرض تقديمي PowerPoint.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/).
-2. استدعاء طريقة [addFromHtml()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) وتمرير ملف PDF.
-3. استخدام طريقة [save()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
+1. إنشاء كائن من فئة Presentation.
+2. استدعاء الدالة [addFromHtml()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) وتمرير تدفق يحتوي على مستند HTML.
+3. استخدام الدالة [save()](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) لحفظ الملف بصيغة PowerPoint.
 
-يوضح هذا الشيفرة Java عملية تحويل HTML إلى PowerPoint: 
+يوضح هذا الكود بلغة Java عملية التحويل من HTML إلى PowerPoint: 
+
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -79,9 +87,8 @@ try {
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+### هل تُحافظ الجداول عند استيراد PDF، وهل يمكن تحسين اكتشافها؟
 
-**هل يتم الحفاظ على الجداول عند استيراد PDF، وهل يمكن تحسين اكتشافها؟**
-
-يمكن اكتشاف الجداول أثناء الاستيراد؛ يحتوي [PdfImportOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/) على طريقة [setDetectTables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) التي تفعيل التعرف على الجداول. تعتمد الفعالية على بنية ملف PDF.
+يمكن اكتشاف الجداول أثناء الاستيراد؛ تتضمن فئة [PdfImportOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pdfimportoptions/) الدالة [setDetectTables](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) التي تمكّن من التعرف على الجداول. تعتمد الفعالية على بنية ملف PDF.

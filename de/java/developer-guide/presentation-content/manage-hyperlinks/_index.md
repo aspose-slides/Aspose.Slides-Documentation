@@ -11,37 +11,43 @@ keywords:
 - Hyperlink formatieren
 - Hyperlink entfernen
 - Hyperlink aktualisieren
-- Text-Hyperlink
-- Folien-Hyperlink
-- Form-Hyperlink
-- Bild-Hyperlink
-- Video-Hyperlink
-- Veränderbarer Hyperlink
+- Text‑Hyperlink
+- Folien‑Hyperlink
+- Form‑Hyperlink
+- Bild‑Hyperlink
+- Video‑Hyperlink
+- veränderbarer Hyperlink
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Mühelos Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Java verwalten – die Interaktivität und den Workflow in Minuten verbessern."
+description: "Verwalten Sie Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mühelos mit Aspose.Slides für Java – verbessern Sie Interaktivität und Arbeitsabläufe in wenigen Minuten."
 ---
+## **Einführung**
 
-Ein Hyperlink ist eine Referenz auf ein Objekt, Daten oder einen Ort in etwas. Dies sind gängige Hyperlinks in PowerPoint‑Präsentationen:
+Ein Hyperlink ist ein Verweis auf ein Objekt, Daten oder einen Ort in etwas. Dies sind häufige Hyperlinks in PowerPoint‑Präsentationen:
 
 * Links zu Websites innerhalb von Texten, Formen oder Medien
 * Links zu Folien
 
 Aspose.Slides für Java ermöglicht es Ihnen, zahlreiche Aufgaben im Zusammenhang mit Hyperlinks in Präsentationen auszuführen.
 
-{{% alert color="primary" %}} 
-Vielleicht möchten Sie Aspose Simple ausprobieren, [kostenlosen Online‑PowerPoint‑Editor.](https://products.aspose.app/slides/editor)
+{{% alert color="info" %}} 
+
+Vielleicht möchten Sie Aspose Simple, den [kostenlosen Online-PowerPoint-Editor](https://products.aspose.app/slides/de/editor) ansehen.
+
 {{% /alert %}} 
 
 ## **URL‑Hyperlinks hinzufügen**
 
 ### **URL‑Hyperlinks zu Text hinzufügen**
 
-Dieser Java‑Code zeigt, wie Sie einen Website‑Hyperlink zu einem Text hinzufügen:
+Dieser Java‑Code zeigt Ihnen, wie Sie einem Text einen Website‑Hyperlink hinzufügen:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
 	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -58,11 +64,13 @@ try {
 }
 ```
 
-
 ### **URL‑Hyperlinks zu Formen oder Rahmen hinzufügen**
 
-Dieses Beispielcode in Java zeigt, wie Sie einen Website‑Hyperlink zu einer Form hinzufügen:
+Dieser Beispielcode in Java zeigt Ihnen, wie Sie einem Shape einen Website‑Hyperlink hinzufügen:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -76,39 +84,45 @@ try {
 }
 ```
 
-
 ### **URL‑Hyperlinks zu Medien hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen von Hyperlinks zu Bild‑, Audio‑ und Videodateien. 
+Aspose.Slides ermöglicht das Hinzufügen von Hyperlinks zu Bild‑, Audio‑ und Videodateien.
 
-Dieser Beispielcode zeigt, wie Sie einen Hyperlink zu einem **Bild** hinzufügen:
+Dieser Beispielcode zeigt Ihnen, wie Sie einen Hyperlink zu einem **Bild** hinzufügen:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	// Fügt Bild zur Präsentation hinzu
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
     try {
-    picture = pres.getImages().addImage(picture);
+        picture = pres.getImages().addImage(image);
     } finally {
-          if (image != null) image.dispose();
+        if (image != null) image.dispose();
     }
-	// Erstellt Bildrahmen auf Folie 1 basierend auf dem zuvor hinzugefügten Bild
+	// Erstellt Bildrahmen auf Folie 1 basierend auf zuvor hinzugefügtem Bild
 	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 
 	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
+Dieser Beispielcode zeigt Ihnen, wie Sie einen Hyperlink zu einer **Audiodatei** hinzufügen:
 
-Dieser Beispielcode zeigt, wie Sie einen Hyperlink zu einer **Audiodatei** hinzufügen:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
@@ -124,9 +138,14 @@ try {
 }
 ```
 
+Dieser Beispielcode zeigt Ihnen, wie Sie einen Hyperlink zu einem **Video** hinzufügen:
 
-Dieser Beispielcode zeigt, wie Sie einen Hyperlink zu einem **Video** hinzufügen:
 ```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation();
 try {
 	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
@@ -142,17 +161,22 @@ try {
 }
 ```
 
+{{%  alert  title="Tip"  color="info"  %}} 
 
-{{%  alert  title="Tip"  color="primary"  %}} 
 Vielleicht möchten Sie *[OLE verwalten](/slides/de/java/manage-ole/)* sehen.
+
 {{% /alert %}}
 
-## **Hyperlinks zum Erstellen eines Inhaltsverzeichnisses verwenden**
+## **Hyperlinks verwenden, um ein Inhaltsverzeichnis zu erstellen**
 
-Da Hyperlinks es Ihnen ermöglichen, Referenzen zu Objekten oder Orten hinzuzufügen, können Sie sie zum Erstellen eines Inhaltsverzeichnisses verwenden. 
+Da Hyperlinks es Ihnen ermöglichen, Verweise auf Objekte oder Orte hinzuzufügen, können Sie sie verwenden, um ein Inhaltsverzeichnis zu erstellen.
 
-Dieser Beispielcode zeigt, wie Sie ein Inhaltsverzeichnis mit Hyperlinks erstellen:
+Dieser Beispielcode zeigt Ihnen, wie Sie ein Inhaltsverzeichnis mit Hyperlinks erstellen:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	ISlide firstSlide = pres.getSlides().get_Item(0);
@@ -181,15 +205,18 @@ try {
 }
 ```
 
-
 ## **Hyperlinks formatieren**
 
 ### **Farbe**
 
-Mit der Eigenschaft [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink#setColorSource-int-) im Interface [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink) können Sie die Farbe für Hyperlinks festlegen und außerdem Farbinformationen aus Hyperlinks abrufen. Die Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft für ältere PowerPoint‑Versionen nicht gelten.
+Mit der [ColorSource](https://reference.aspose.com/slides/de/java/com.aspose.slides/Hyperlink#setColorSource-int-) Eigenschaft im [IHyperlink](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlink) Interface können Sie die Farbe von Hyperlinks festlegen und auch Farbinformationen von Hyperlinks abrufen. Die Funktion wurde erstmals in PowerPoint 2019 eingeführt, sodass Änderungen an dieser Eigenschaft nicht für ältere PowerPoint‑Versionen gelten.
 
 Dieser Beispielcode demonstriert einen Vorgang, bei dem Hyperlinks mit unterschiedlichen Farben zur selben Folie hinzugefügt wurden:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -210,21 +237,23 @@ try {
 }
 ```
 
-
 ## **Hyperlinks aus Präsentationen entfernen**
 
 ### **Hyperlinks aus Text entfernen**
 
-Dieser Java‑Code zeigt, wie Sie den Hyperlink aus einem Text in einer Präsentationsfolie entfernen:
+Dieser Java‑Code zeigt Ihnen, wie Sie den Hyperlink aus einem Text in einer Präsentationsfolie entfernen:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
 	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
+		if (shape instanceof IAutoShape)
 		{
+			IAutoShape autoShape = (IAutoShape)shape;
 			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
 			{
 				for (IPortion portion : paragraph.getPortions())
@@ -241,12 +270,14 @@ try {
 }
 ```
 
-
 ### **Hyperlinks aus Formen oder Rahmen entfernen**
 
-Dieser Java‑Code zeigt, wie Sie den Hyperlink aus einer Form in einer Präsentationsfolie entfernen: 
+Dieser Java‑Code zeigt Ihnen, wie Sie den Hyperlink aus einem Shape in einer Präsentationsfolie entfernen:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	for (IShape shape : slide.getShapes())
@@ -259,19 +290,21 @@ try {
 }
 ```
 
-
 ## **Veränderbarer Hyperlink**
 
-Die Klasse [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyperlink) ist veränderbar. Mit dieser Klasse können Sie die Werte für folgende Eigenschaften ändern:
+Die Klasse [Hyperlink](https://reference.aspose.com/slides/de/java/com.aspose.slides/Hyperlink) ist veränderbar. Mit dieser Klasse können Sie die Werte folgender Eigenschaften ändern:
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
+- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlink#setTooltip-java.lang.String-)
+- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlink#setHistory-boolean-)
+- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlink#setHighlightClick-boolean-)
+- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
-Der Codeabschnitt zeigt, wie Sie einen Hyperlink zu einer Folie hinzufügen und dessen Tooltip später bearbeiten:
+Der Codeausschnitt zeigt Ihnen, wie Sie einer Folie einen Hyperlink hinzufügen und dessen Tooltip später bearbeiten:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
 	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -282,38 +315,40 @@ try {
 	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
 	portionFormat.setFontHeight(32);
 
+	// Ändert den Tooltip des bereits hinzugefügten Hyperlinks
+	portionFormat.getHyperlinkClick().setTooltip("Aspose: the File Format APIs");
+
 	pres.save("presentation-out.pptx", SaveFormat.Pptx);
 } finally {
 	if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **Unterstützte Eigenschaften in IHyperlinkQueries**
 
-Sie können [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) aus einer Präsentation, Folie oder einem Text abrufen, für den der Hyperlink definiert ist. 
+Sie können [IHyperlinkQueries](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlinkQueries) aus einer Präsentation, Folie oder einem Text abrufen, für den der Hyperlink definiert ist.
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/de/java/com.aspose.slides/IPresentation#getHyperlinkQueries--)
+- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/de/java/com.aspose.slides/IBaseSlide#getHyperlinkQueries--)
+- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/de/java/com.aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-Die Klasse [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries) unterstützt diese Methoden und Eigenschaften: 
+Die Klasse [IHyperlinkQueries](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlinkQueries) unterstützt diese Methoden und Eigenschaften:
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
+- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
+- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
+- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/de/java/com.aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 
 ## **FAQ**
 
-**Wie kann ich die interne Navigation nicht nur zu einer Folie, sondern zu einem „Abschnitt“ oder zur ersten Folie eines Abschnitts erstellen?**
+### Wie kann ich eine interne Navigation erstellen, die nicht nur zu einer Folie, sondern zu einem "Abschnitt" oder zur ersten Folie eines Abschnitts führt?
 
-Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation zielt technisch auf eine bestimmte Folie. Um zu einem Abschnitt zu navigieren, verlinken Sie in der Regel auf dessen erste Folie.
+Abschnitte in PowerPoint sind Gruppierungen von Folien; die Navigation zielt technisch auf eine bestimmte Folie. Um "zu einem Abschnitt zu navigieren", verlinken Sie typischerweise zu dessen erster Folie.
 
-**Kann ich einen Hyperlink an Masterfolienelementen anbringen, sodass er auf allen Folien funktioniert?**
+### Kann ich einen Hyperlink an Elemente der Masterfolie anhängen, sodass er auf allen Folien funktioniert?
 
-Ja. Masterfolien‑ und Layout‑Elemente unterstützen Hyperlinks. Derartige Links erscheinen auf den untergeordneten Folien und sind während der Bildschirmpräsentation anklickbar.
+Ja. Masterfolien‑ und Layout‑Elemente unterstützen Hyperlinks. Diese Links erscheinen auf den untergeordneten Folien und sind während der Bildschirmpräsentation anklickbar.
 
-**Werden Hyperlinks beim Exportieren nach PDF, HTML, Bildern oder Video erhalten bleiben?**
+### Werden Hyperlinks beim Exportieren zu PDF, HTML, Bildern oder Video beibehalten?
 
-In [PDF](/slides/de/java/convert-powerpoint-to-pdf/) und [HTML](/slides/de/java/convert-powerpoint-to-html/) ja – Links werden im Allgemeinen erhalten. Beim Exportieren in [Bilder](/slides/de/java/convert-powerpoint-to-png/) und [Video](/slides/de/java/convert-powerpoint-to-video/) ist die Anklickbarkeit jedoch nicht mehr vorhanden, da diese Formate (Raster‑Frames/Video) keine Hyperlinks unterstützen.
+In [PDF](/slides/de/java/convert-powerpoint-to-pdf/) und [HTML](/slides/de/java/convert-powerpoint-to-html/) ja – Links werden in der Regel erhalten. Beim Exportieren zu [Bildern](/slides/de/java/convert-powerpoint-to-png/) und [Video](/slides/de/java/convert-powerpoint-to-video/) wird die Klickbarkeit nicht übernommen, da diese Formate (Raster‑Frames/Video) keine Hyperlinks unterstützen.

@@ -1,6 +1,6 @@
 ---
-title: Amankan Presentasi dengan Sandi di Android
-linktitle: Proteksi Sandi
+title: Amankan Presentasi dengan Kata Sandi di Android
+linktitle: Perlindungan Kata Sandi
 type: docs
 weight: 20
 url: /id/androidjava/password-protected-presentation/
@@ -11,85 +11,87 @@ keywords:
 - buka kunci presentasi
 - lindungi PowerPoint
 - lindungi presentasi
-- atur sandi
-- tambahkan sandi
+- atur kata sandi
+- tambahkan kata sandi
 - enkripsi PowerPoint
 - enkripsi presentasi
 - dekripsi PowerPoint
 - dekripsi presentasi
-- proteksi tulis
+- perlindungan tulis
 - keamanan PowerPoint
 - keamanan presentasi
-- hapus sandi
-- hapus proteksi
+- hapus kata sandi
+- hapus perlindungan
 - hapus enkripsi
-- nonaktifkan sandi
-- nonaktifkan proteksi
-- hapus proteksi tulis
+- nonaktifkan kata sandi
+- nonaktifkan perlindungan
+- hapus perlindungan tulis
 - PowerPoint
 - OpenDocument
 - presentasi
 - Android
 - Java
 - Aspose.Slides
-description: "Dengan mudah mengunci dan membuka kunci presentasi PowerPoint serta OpenDocument yang dilindungi sandi menggunakan Aspose.Slides untuk Android melalui Java. Amankan presentasi Anda."
+description: "Dengan mudah kunci dan buka kunci presentasi PowerPoint serta OpenDocument yang dilindungi kata sandi menggunakan Aspose.Slides untuk Android via Java. Amankan presentasi Anda."
 ---
 ## **Pendahuluan**
 
-Ketika Anda melindungi presentasi dengan sandi, itu berarti Anda menetapkan sandi yang memberlakukan beberapa pembatasan pada presentasi. Untuk menghapus pembatasan tersebut, sandi harus dimasukkan. Presentasi yang dilindungi sandi dianggap sebagai presentasi terkunci.
+Saat Anda melindungi presentasi dengan kata sandi, artinya Anda menetapkan kata sandi yang memberlakukan pembatasan tertentu pada presentasi. Untuk menghapus pembatasan tersebut, kata sandi harus dimasukkan. Presentasi yang dilindungi kata sandi dianggap sebagai presentasi terkunci.
 
-Biasanya, Anda dapat menetapkan sandi untuk memberlakukan pembatasan ini pada presentasi:
+Biasanya, Anda dapat menetapkan kata sandi untuk memberlakukan pembatasan ini pada sebuah presentasi:
 
 - **Modifikasi**
 
-  Jika Anda ingin hanya pengguna tertentu yang dapat memodifikasi presentasi Anda, Anda dapat menetapkan pembatasan modifikasi. Pembatasan ini mencegah orang memodifikasi, mengubah, atau menyalin elemen dalam presentasi Anda (kecuali mereka memasukkan sandi).
+  Jika Anda ingin hanya pengguna tertentu yang dapat memodifikasi presentasi Anda, Anda dapat menetapkan pembatasan modifikasi. Pembatasan ini mencegah orang mengubah, mengedit, atau menyalin hal‑hal dalam presentasi Anda (kecuali mereka memberikan kata sandi).
 
-  Namun, dalam kasus ini, bahkan tanpa sandi, pengguna tetap dapat mengakses dokumen Anda dan membukanya. Dalam mode baca‑saja ini, pengguna dapat melihat isi atau elemen—tautan hiper, animasi, efek, dan lainnya—di dalam presentasi, tetapi mereka tidak dapat menyalin item atau menyimpan presentasi.
+  Namun, dalam kasus ini, meskipun tanpa kata sandi, pengguna tetap dapat mengakses dokumen Anda dan membukanya. Dalam mode hanya‑baca, pengguna dapat melihat isi atau elemen—tautan, animasi, efek, dan lain‑lain—di dalam presentasi, tetapi mereka tidak dapat menyalin item atau menyimpan presentasi.
 
 - **Pembukaan**
 
-  Jika Anda ingin hanya pengguna tertentu yang dapat membuka presentasi Anda, Anda dapat menetapkan pembatasan pembukaan. Pembatasan ini mencegah orang bahkan melihat isi presentasi Anda (kecuali mereka memasukkan sandi).
+  Jika Anda ingin hanya pengguna tertentu yang dapat membuka presentasi Anda, Anda dapat menetapkan pembatasan pembukaan. Pembatasan ini mencegah orang bahkan melihat isi presentasi Anda (kecuali mereka memberikan kata sandi).
 
-  Secara teknis, pembatasan pembukaan juga mencegah pengguna memodifikasi presentasi Anda: ketika orang tidak dapat membuka presentasi, mereka tidak dapat melakukan perubahan apa pun pada presentasi tersebut.  
+  Secara teknis, pembatasan pembukaan juga mencegah pengguna memodifikasi presentasi Anda: ketika orang tidak dapat membuka presentasi, mereka tidak dapat membuat perubahan apa pun pada presentasi tersebut.  
+  
+  **Catatan** bahwa ketika Anda melindungi presentasi dengan kata sandi untuk mencegah pembukaan, berkas presentasi menjadi terenkripsi.
 
-  **Catatan** bahwa ketika Anda melindungi presentasi dengan sandi untuk mencegah pembukaan, file presentasi menjadi terenkripsi.
+## **Perlindungan Kata Sandi untuk Presentasi di Aspose.Slides**
+**Format yang didukung**
 
-## **Proteksi Sandi untuk Presentasi di Aspose.Slides**
-**Format yang Didukung**
-
-Aspose.Slides mendukung proteksi sandi, enkripsi, dan operasi serupa untuk presentasi dalam format berikut:
+Aspose.Slides mendukung perlindungan kata sandi, enkripsi, dan operasi serupa untuk presentasi dalam format berikut:
 
 - PPTX dan PPT – Microsoft PowerPoint Presentation  
 - ODP – OpenDocument Presentation  
 - OTP – OpenDocument Presentation Template  
 
-**Operasi yang Didukung**
+**Operasi yang didukung**
 
-Aspose.Slides memungkinkan Anda menggunakan proteksi sandi pada presentasi untuk mencegah modifikasi dengan cara berikut:
+Aspose.Slides memungkinkan Anda menggunakan perlindungan kata sandi pada presentasi untuk mencegah modifikasi dengan cara berikut:
 
 - Mengenkripsi sebuah presentasi  
-- Menetapkan proteksi tulis pada sebuah presentasi  
+- Menetapkan perlindungan tulis pada sebuah presentasi  
 
-**Operasi Lain**
+**Operasi lainnya**
 
-Aspose.Slides memungkinkan Anda melakukan tugas lain yang melibatkan proteksi sandi dan enkripsi dengan cara berikut:
+Aspose.Slides memungkinkan Anda melakukan tugas lain yang melibatkan perlindungan kata sandi dan enkripsi dengan cara berikut:
 
 - Mendekripsi sebuah presentasi; membuka presentasi yang terenkripsi  
-- Menghapus enkripsi; menonaktifkan proteksi sandi  
-- Menghapus proteksi tulis dari sebuah presentasi  
+- Menghapus enkripsi; menonaktifkan perlindungan kata sandi  
+- Menghapus perlindungan tulis dari sebuah presentasi  
 - Mendapatkan properti sebuah presentasi yang terenkripsi  
 - Memeriksa apakah sebuah presentasi terenkripsi  
-- Memeriksa apakah sebuah presentasi dilindungi sandi.
+- Memeriksa apakah sebuah presentasi dilindungi kata sandi.
 
-## **Enkripsi Presentasi**
+## **Mengenkripsi Presentasi**
 
-Anda dapat mengenkripsi sebuah presentasi dengan menetapkan sandi. Kemudian, untuk memodifikasi presentasi yang terkunci, pengguna harus menyediakan sandi tersebut.
+Anda dapat mengenkripsi sebuah presentasi dengan menetapkan kata sandi. Kemudian, untuk memodifikasi presentasi yang terkunci, pengguna harus menyediakan kata sandi.
 
-Untuk mengenkripsi atau melindungi presentasi dengan sandi, Anda harus menggunakan metode `encrypt` (dari [IProtectionManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager)) untuk menetapkan sandi pada presentasi. Anda melewatkan sandi ke metode `encrypt` dan menggunakan metode `save` untuk menyimpan presentasi yang kini terenkripsi.
+Untuk mengenkripsi atau melindungi presentasi dengan kata sandi, Anda harus menggunakan metode encrypt (dari [IProtectionManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager)) untuk menetapkan kata sandi bagi presentasi. Anda meneruskan kata sandi ke metode encrypt dan menggunakan metode save untuk menyimpan presentasi yang kini terenkripsi.
 
-Contoh kode berikut memperlihatkan cara mengenkripsi sebuah presentasi:
+Contoh kode berikut menunjukkan cara mengenkripsi sebuah presentasi:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().encrypt("123123");
@@ -99,15 +101,17 @@ try {
 }
 ```
 
-## **Setel Proteksi Tulis pada Presentasi**
+## **Menetapkan Perlindungan Tulis pada Presentasi**
 
-Anda dapat menambahkan tanda “Jangan ubah” pada sebuah presentasi. Dengan cara ini, Anda memberi tahu pengguna bahwa Anda tidak menginginkan mereka mengubah presentasi.
+Anda dapat menambahkan tanda “Do not modify” pada sebuah presentasi. Dengan cara ini, Anda memberi tahu pengguna bahwa Anda tidak ingin mereka melakukan perubahan pada presentasi.
 
-**Catatan** bahwa proses proteksi tulis tidak mengenkripsi presentasi. Oleh karena itu, pengguna—jika mereka memang ingin—dapat memodifikasi presentasi, tetapi untuk menyimpan perubahan, mereka harus membuat presentasi dengan nama yang berbeda.
+**Catatan** bahwa proses perlindungan tulis tidak mengenkripsi presentasi. Oleh karena itu, pengguna—jika mereka memang ingin—dapat memodifikasi presentasi, tetapi untuk menyimpan perubahan, mereka harus membuat presentasi dengan nama yang berbeda.
 
-Untuk menetapkan proteksi tulis, Anda harus menggunakan metode [setWriteProtection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). Contoh kode berikut memperlihatkan cara menetapkan proteksi tulis pada sebuah presentasi:
+Untuk menetapkan perlindungan tulis, Anda harus menggunakan metode [setWriteProtection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-). Contoh kode berikut menunjukkan cara menetapkan perlindungan tulis pada sebuah presentasi:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().setWriteProtection("123123");
@@ -117,31 +121,34 @@ try {
 }
 ```
 
-## **Muat Presentasi yang Dienkripsi**
+## **Memuat Presentasi yang terenkripsi**
 
-Aspose.Slides memungkinkan Anda memuat file terenkripsi dengan memasukkan sandinya. Untuk mendekripsi sebuah presentasi, Anda harus memanggil metode [removeEncryption](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) tanpa parameter. Selanjutnya Anda harus memasukkan sandi yang benar untuk memuat presentasi tersebut.
+Aspose.Slides memungkinkan Anda memuat presentasi yang terenkripsi dengan meneruskan kata sandi yang benar melalui [LoadOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/).
 
-Contoh kode berikut memperlihatkan cara mendekripsi sebuah presentasi:
+Contoh kode berikut menunjukkan cara membuka presentasi yang terenkripsi:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setPassword("123123");
 Presentation presentation = new Presentation("pres.pptx", loadOptions);
 try {
-    // bekerja dengan presentasi yang didekripsi
+    // bekerja dengan presentasi yang telah didekripsi
 } finally {
     if (presentation != null) presentation.dispose();
 }
-}
 ```
 
-## **Hapus Enkripsi dari Presentasi**
+## **Menghapus Enkripsi dari Presentasi**
 
-Anda dapat menghapus enkripsi atau proteksi sandi pada sebuah presentasi. Dengan cara ini, pengguna dapat mengakses atau memodifikasi presentasi tanpa pembatasan.
+Anda dapat menghapus enkripsi atau perlindungan kata sandi pada sebuah presentasi. Dengan cara ini, pengguna dapat mengakses atau memodifikasi presentasi tanpa pembatasan.
 
-Untuk menghapus enkripsi atau proteksi sandi, Anda harus memanggil metode [removeEncryption](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--). Contoh kode berikut memperlihatkan cara menghapus enkripsi dari sebuah presentasi:
+Untuk menghapus enkripsi atau perlindungan kata sandi, Anda harus memanggil metode [removeEncryption](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) . Contoh kode berikut menunjukkan cara menghapus enkripsi dari sebuah presentasi:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setPassword("123123");
 Presentation presentation = new Presentation("pres.pptx", loadOptions);
@@ -153,13 +160,15 @@ try {
 }
 ```
 
-## **Hapus Proteksi Tulis dari Presentasi**
+## **Menghapus Perlindungan Tulis dari Presentasi**
 
-Anda dapat menggunakan Aspose.Slides untuk menghapus proteksi tulis yang digunakan pada file presentasi. Dengan cara ini, pengguna dapat memodifikasi sesuka hati—tanpa peringatan saat melakukan tugas tersebut.
+Anda dapat menggunakan Aspose.Slides untuk menghapus perlindungan tulis yang digunakan pada berkas presentasi. Dengan cara ini, pengguna dapat memodifikasi sesuka hati—dan tidak akan ada peringatan saat mereka melakukan tugas tersebut.
 
-Anda dapat menghapus proteksi tulis dari sebuah presentasi dengan menggunakan metode [removeWriteProtection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--). Contoh kode berikut memperlihatkan cara menghapus proteksi tulis dari sebuah presentasi:
+Anda dapat menghapus perlindungan tulis dari sebuah presentasi dengan menggunakan metode [removeWriteProtection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) . Contoh kode berikut menunjukkan cara menghapus perlindungan tulis dari sebuah presentasi:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     presentation.getProtectionManager().removeWriteProtection();
@@ -169,42 +178,85 @@ try {
 }
 ```
 
-## **Dapatkan Properti Presentasi yang Dienkripsi**
+## **Mendapatkan Properti Presentasi yang terenkripsi**
 
-Biasanya, pengguna kesulitan untuk mendapatkan properti dokumen dari presentasi yang dienkripsi atau dilindungi sandi. Aspose.Slides, bagaimanapun, menawarkan mekanisme yang memungkinkan Anda melindungi presentasi dengan sandi sambil tetap memberikan cara bagi pengguna untuk mengakses properti presentasi tersebut.
+Biasanya, pengguna mengalami kesulitan untuk mengambil properti dokumen dari sebuah presentasi yang terenkripsi atau dilindungi kata sandi. Namun, Aspose.Slides menyediakan mekanisme yang memungkinkan Anda melindungi presentasi dengan kata sandi sekaligus tetap memberi kemampuan bagi pengguna untuk mengakses propertinya.
 
-**Catatan** bahwa ketika Aspose.Slides mengenkripsi sebuah presentasi, properti dokumen presentasi secara default juga dilindungi sandi. Namun jika Anda perlu membuat properti presentasi dapat diakses (bahkan setelah presentasi dienkripsi), Aspose.Slides memungkinkan Anda melakukan hal tersebut.
+**Catatan:** Secara default, ketika Aspose.Slides mengenkripsi sebuah presentasi, properti dokumen presentasi tersebut juga dilindungi kata sandi. Jika Anda perlu membuat properti dokumen dapat diakses bahkan setelah enkripsi, Aspose.Slides memungkinkan Anda melakukan hal tersebut.
 
-Jika Anda ingin pengguna tetap dapat mengakses properti sebuah presentasi yang Anda enkripsi, Anda dapat mengatur properti [encryptDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) menjadi `true`. Contoh kode berikut memperlihatkan cara mengenkripsi sebuah presentasi sambil menyediakan cara bagi pengguna untuk mengakses properti dokumennya:
+Jika Anda ingin pengguna tetap dapat mengakses properti sebuah presentasi yang terenkripsi, kirimkan `false` ke [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-). Contoh kode berikut menunjukkan cara mengenkripsi sebuah presentasi sambil tetap memberi pengguna akses ke properti dokumennya:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
     presentation.getProtectionManager().encrypt("123123");
+    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Periksa Apakah Presentasi Dilindungi Sandi**
+## **Memuat Hanya Properti Dokumen dari Presentasi yang terenkripsi**
 
-Sebelum Anda memuat sebuah presentasi, Anda mungkin ingin memeriksa dan memastikan bahwa presentasi tersebut belum dilindungi dengan sandi. Dengan cara ini, Anda dapat menghindari kesalahan dan masalah serupa yang muncul ketika presentasi yang dilindungi sandi dimuat tanpa sandinya.
+Untuk memeriksa metadata sebuah presentasi yang terenkripsi tanpa memuat slide atau konten lainnya, buat objek [LoadOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/) dan kirimkan `true` ke [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iloadoptions/#setOnlyLoadDocumentProperties-boolean-). Dalam mode ini, Aspose.Slides mengabaikan kata sandi dan hanya memuat properti dokumen yang dapat diakses secara publik.
 
-Kode Java berikut memperlihatkan cara memeriksa sebuah presentasi untuk melihat apakah ia dilindungi sandi (tanpa memuat presentasi itu sendiri):
+Contoh kode berikut membaca properti dokumen bawaan dan kustom melalui [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--):
 
 ```java
+import com.aspose.slides.*;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
+
+    // Baca properti dokumen bawaan.
+    System.out.println("Title: " + documentProperties.getTitle());
+    System.out.println("Author: " + documentProperties.getAuthor());
+
+    // Baca properti dokumen kustom.
+    int customPropertyCount = documentProperties.getCountOfCustomProperties();
+
+    for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
+        String propertyName = documentProperties.getCustomPropertyName(propertyIndex);
+        Object propertyValue = documentProperties.get_Item(propertyName);
+
+        System.out.println(propertyName + ": " + propertyValue);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Alur kerja ini hanya berfungsi ketika properti dokumen dibiarkan tidak terenkripsi (publik) saat presentasi dienkripsi. Jika properti dokumen terenkripsi, mengirimkan `true` ke `loadOptions.setOnlyLoadDocumentProperties` menyebabkan pengecualian karena kata sandi diabaikan dalam mode ini. Untuk mengakses properti dokumen terenkripsi atau memuat presentasi secara lengkap, termasuk slide dan konten lainnya, berikan kata sandi yang benar melalui [ILoadOptions.setPassword](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-).
+
+## **Memeriksa Apakah Presentasi Dilindungi Kata Sandi**
+
+Sebelum Anda memuat sebuah presentasi, Anda mungkin ingin memeriksa dan memastikan bahwa presentasi tersebut tidak dilindungi dengan kata sandi. Dengan cara ini, Anda dapat menghindari kesalahan dan masalah serupa yang muncul ketika sebuah presentasi yang dilindungi kata sandi dimuat tanpa kata sandinya.
+
+Kode Java berikut menunjukkan cara memeriksa sebuah presentasi untuk melihat apakah ia dilindungi kata sandi (tanpa memuat presentasi itu sendiri):
+
+```java
+import com.aspose.slides.*;
+
 IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
 System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
 ```
 
-## **Periksa Apakah Presentasi Dienkripsi**
+## **Memeriksa Apakah Presentasi Terenkripsi**
 
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi dienkripsi. Untuk melakukan tugas ini, Anda dapat menggunakan properti [isEncrypted](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--), yang mengembalikan `true` jika presentasi dienkripsi atau `false` jika tidak dienkripsi.
+Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi terenkripsi. Untuk melakukan hal ini, Anda dapat menggunakan properti [isEncrypted](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) yang mengembalikan `true` jika presentasi terenkripsi atau `false` jika tidak terenkripsi.
 
-Contoh kode berikut memperlihatkan cara memeriksa apakah sebuah presentasi dienkripsi:
+Contoh kode berikut menunjukkan cara memeriksa apakah sebuah presentasi terenkripsi:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     boolean isEncrypted = presentation.getProtectionManager().isEncrypted();
@@ -213,13 +265,15 @@ try {
 }
 ```
 
-## **Periksa Apakah Presentasi Dilindungi Penulisan**
+## **Memeriksa Apakah Presentasi Dilindungi Tulisan**
 
-Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi dilindungi penulisan. Untuk melakukan tugas ini, Anda dapat menggunakan properti [isWriteProtected](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--), yang mengembalikan `true` jika presentasi dilindungi penulisan atau `false` jika tidak.
+Aspose.Slides memungkinkan Anda memeriksa apakah sebuah presentasi dilindungi tulisan. Untuk melakukan hal ini, Anda dapat menggunakan properti [isWriteProtected](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) yang mengembalikan `true` jika presentasi dilindungi tulisan atau `false` jika tidak.
 
-Contoh kode berikut memperlihatkan cara memeriksa apakah sebuah presentasi dilindungi penulisan:
+Contoh kode berikut menunjukkan cara memeriksa apakah sebuah presentasi dilindungi tulisan:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     boolean isEncrypted = presentation.getProtectionManager().isWriteProtected();
@@ -228,13 +282,15 @@ try {
 }
 ```
 
-## **Validasi atau Konfirmasi Bahwa Sandi Tertentu Telah Digunakan**
+## **Validasi atau Konfirmasi Bahwa Kata Sandi Tertentu Telah Digunakan**
 
-Anda mungkin ingin memeriksa dan memastikan bahwa sandi tertentu telah digunakan untuk melindungi dokumen presentasi. Aspose.Slides menyediakan cara bagi Anda untuk memvalidasi sebuah sandi.
+Anda mungkin ingin memeriksa dan memastikan bahwa kata sandi tertentu telah digunakan untuk melindungi dokumen presentasi. Aspose.Slides menyediakan cara untuk memvalidasi kata sandi.
 
-Contoh kode berikut memperlihatkan cara memvalidasi sebuah sandi:
+Contoh kode berikut menunjukkan cara memvalidasi sebuah kata sandi:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("pres.pptx");
 try {
     // periksa apakah "pass" cocok dengan
@@ -244,9 +300,9 @@ try {
 }
 ```
 
-Ia mengembalikan `true` jika presentasi telah dienkripsi dengan sandi yang ditentukan. Jika tidak, mengembalikan `false`.
+Metode ini mengembalikan `true` jika presentasi telah dilindungi tulisan dengan kata sandi yang ditentukan. Jika tidak, ia mengembalikan `false`.
 
-{{% alert color="primary" title="Lihat juga" %}} 
+{{% alert color="info" title="See also" %}} 
 - [Digital Signature in PowerPoint](/slides/id/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
@@ -256,10 +312,10 @@ Ia mengembalikan `true` jika presentasi telah dienkripsi dengan sandi yang diten
 
 Aspose.Slides mendukung metode enkripsi modern, termasuk algoritma berbasis AES, yang memastikan tingkat keamanan data yang tinggi untuk presentasi Anda.
 
-**Apa yang terjadi jika sandi yang salah dimasukkan saat mencoba membuka sebuah presentasi?**
+**Apa yang terjadi jika kata sandi yang salah dimasukkan saat mencoba membuka presentasi?**
 
-Sebuah pengecualian akan dilempar jika sandi yang salah digunakan, memberi peringatan bahwa akses ke presentasi ditolak. Ini membantu mencegah akses tidak sah dan melindungi konten presentasi.
+Sebuah pengecualian dilemparkan bila kata sandi yang salah digunakan, memberi peringatan bahwa akses ke presentasi ditolak. Hal ini membantu mencegah akses tidak sah dan melindungi konten presentasi.
 
-**Apakah ada dampak pada performa saat bekerja dengan presentasi yang dilindungi sandi?**
+**Apakah ada dampak kinerja saat bekerja dengan presentasi yang dilindungi kata sandi?**
 
-Proses enkripsi dan dekripsi dapat menambah sedikit overhead selama operasi membuka dan menyimpan. Dalam kebanyakan kasus, dampak performa ini minimal dan tidak secara signifikan memengaruhi waktu pemrosesan keseluruhan tugas presentasi Anda.
+Proses enkripsi dan dekripsi dapat menambah sedikit beban saat operasi membuka dan menyimpan. Dalam kebanyakan kasus, dampak kinerja tersebut minimal dan tidak secara signifikan mempengaruhi waktu pemrosesan tugas presentasi Anda.

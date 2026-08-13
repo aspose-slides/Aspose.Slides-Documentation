@@ -6,7 +6,7 @@ weight: 70
 url: /tr/androidjava/slide-size/
 keywords:
 - slayt boyutu
-- en-boy oranı
+- en boy oranı
 - standart
 - geniş ekran
 - 4:3
@@ -15,40 +15,42 @@ keywords:
 - slayt boyutunu değiştir
 - özel slayt boyutu
 - özel slayt boyutu
-- eşsiz slayt boyutu
-- tam boyutlu slayt
+- benzersiz slayt boyutu
+- tam boy slayt
 - ekran tipi
-- ölçekleme yok
+- yeniden ölçekleme yapma
 - uygunluğu sağla
-- büyüt
+- en büyük yap
 - PowerPoint
 - OpenDocument
 - sunum
 - Android
 - Java
 - Aspose.Slides
-descriptions: "Java ve Aspose.Slides for Android ile PPT, PPTX ve ODP dosyalarındaki slaytları hızla yeniden boyutlandırarak, kalite kaybı olmadan herhangi bir ekran için sunumları optimize edin."
+description: "Java ve Aspose.Slides for Android ile PPT, PPTX ve ODP dosyalarındaki slaytları hızlıca yeniden boyutlandırın, kalite kaybı olmadan herhangi bir ekran için sunumları optimize edin."
 ---
 ## **Giriş**
 
-Aspose.Slides, PowerPoint sunumlarında slayt boyutunu ve en‑boy oranını ayarlamak için kapsamlı araçlar sunar; bu, hem baskı hem de ekran görüntüsü için kritiktir. 
+Aspose.Slides, PowerPoint sunumlarındaki slayt boyutunu ve en boy oranını ayarlamak için kapsamlı araçlar sağlar; bu, hem baskı hem de ekran görüntüsü için kritiktir.
 
 Popüler Slayt Boyutları ve Oranları:
 
-- **Standart (4:3 En-Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
-- **Geniş Ekran (16:9 En-Boy Oranı)**: Modern projektörler ve ekranlar için tavsiye edilir.
+- **Standart (4:3 En Boy Oranı)**: Eski ekranlar ve cihazlar için idealdir.
+- **Geniş Ekran (16:9 En Boy Oranı)**: Modern projeksiyon cihazları ve ekranlar için önerilir.
 
-Sunumunuz boyunca tutarlılığı sağlayın; tek bir slayt boyutu ve en‑boy oranı tüm slaytlara uygulanır. En iyi sonuçlar için slayt ölçülerinizi sunum oluşturma sürecinin başında ayarlayın, böylece komplikasyonlardan kaçınılır.
+Sunumunuz boyunca tutarlılığı sağlamak için tek bir slayt boyutu ve en boy oranı tüm slaytlara uygulanır. En iyi sonuçlar için, karmaşayı önlemek amacıyla sunum oluşturma sürecinin başında slayt boyutlarınızı ayarlayın.
 
-{{% alert color="primary" %}} 
-Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en‑boy oranını kullanır.
+{{% alert color="info" %}} 
+Varsayılan olarak, Aspose.Slides ile oluşturulan sunumlar standart 4:3 en boy oranını kullanır.
 {{% /alert %}}
 
 ## **Sunumlarda Slayt Boyutunu Değiştirme**
 
-Bu örnek kod, Aspose.Slides kullanarak Java'da bir sunumun slayt boyutunu nasıl değiştireceğinizi gösterir:
+Bu örnek kod, Aspose.Slides kullanarak Java’da bir sunumda slayt boyutunu nasıl değiştireceğinizi gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
@@ -58,13 +60,15 @@ try {
 }
 ```
 
-## **Sunumlarda Özel Slayt Boyutları Belirleme**
+## **Sunumlarda Özel Slayt Boyutlarını Belirleme**
 
-Ortak slayt boyutları (4:3 ve 16:9) işiniz için uygun değilse, belirli ya da özgün bir slayt boyutu kullanmaya karar verebilirsiniz. Örneğin, sunumunuzdan tam boyutlu slaytları özel bir sayfa düzeninde yazdırmayı planlıyorsanız ya da sunumunuzu belirli ekran tiplerinde göstermeyi amaçlıyorsanız, özel bir boyut ayarı kullanmanız faydalı olacaktır. 
+Yaygın slayt boyutları (4:3 ve 16:9) işiniz için uygun değilse, belirli veya benzersiz bir slayt boyutu kullanmayı seçebilirsiniz. Örneğin, sunumunuzdaki slaytları özel bir sayfa düzeninde tam boyutta yazdırmayı planlıyorsanız veya sunumunuzu belirli ekran tiplerinde görüntülemeyi amaçlıyorsanız, sunumunuz için özel bir boyut ayarı kullanmak size fayda sağlayabilir.
 
-Bu örnek kod, Java üzerinden Aspose.Slides for Android kullanarak bir sunum için özel bir slayt boyutu nasıl belirtileceğini gösterir:
+Bu örnek kod, Aspose.Slides for Android’i Java aracılığıyla kullanarak Java’da bir sunum için özel bir slayt boyutu nasıl belirleyeceğinizi gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 kağıt boyutu
@@ -76,25 +80,27 @@ try {
 
 ## **Yeniden Boyutlandırmadan Sonra Slayt İçeriğini Yönetme**
 
-Bir sunumun slayt boyutunu değiştirdikten sonra, slaytların içeriği (örneğin resimler veya nesneler) bozulabilir. Varsayılan olarak nesneler otomatik olarak yeni slayt boyutuna sığacak şekilde yeniden boyutlandırılır. Ancak, bir sunumun slayt boyutunu değiştirirken, Aspose.Slides'in slaytlardaki içerikle nasıl ilgileneceğini belirleyen bir ayar belirtebilirsiniz.
+Bir sunumun slayt boyutunu değiştirdikten sonra, slaytların içerikleri (örneğin görüntüler veya nesneler) bozulabilir. Varsayılan olarak, nesneler yeni slayt boyutuna sığacak şekilde otomatik olarak yeniden boyutlandırılır. Ancak, bir sunumun slayt boyutunu değiştirirken, Aspose.Slides’in slaytlardaki içerikle nasıl başa çıkacağını belirleyen bir ayar belirtebilirsiniz.
 
-Ne yapmayı ya da ulaşmayı amaçladığınıza bağlı olarak, aşağıdaki ayarlardan herhangi birini kullanabilirsiniz:
+Ne yapmayı amaçladığınıza bağlı olarak aşağıdaki ayarlardan herhangi birini kullanabilirsiniz:
 
 - `DoNotScale`
 
-  Eğer slaytlardaki nesnelerin yeniden boyutlandırılmasını istemiyorsanız, bu ayarı kullanın.
+  Slaytlardaki nesnelerin yeniden boyutlandırılmasını **istemiyorsanız**, bu ayarı kullanın.
 
 - `EnsureFit`
 
-  Daha küçük bir slayt boyutuna ölçeklemek istiyorsanız ve Aspose.Slides'in slayt nesnelerini küçülterek hepsinin slaytlara sığmasını sağlamasını (böylece içeriği kaybetmezsiniz) istiyorsanız, bu ayarı kullanın. 
+  Daha küçük bir slayt boyutuna ölçeklemek ve bütün nesnelerin slaytlara sığmasını sağlamak (içeriğin kaybolmasını önlemek) istiyorsanız, bu ayarı kullanın.
 
 - `Maximize`
 
-  Daha büyük bir slayt boyutuna ölçeklemek istiyorsanız ve Aspose.Slides'in slayt nesnelerini yeni slayt boyutuna göre orantılı olacak şekilde büyütmesini istiyorsanız, bu ayarı kullanın. 
+  Daha büyük bir slayt boyutuna ölçeklemek ve nesnelerin yeni slayt boyutuna oranlayarak büyütülmesini istiyorsanız, bu ayarı kullanın.
 
 Bu örnek kod, bir sunumun slayt boyutunu değiştirirken `Maximize` ayarının nasıl kullanılacağını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.getSlideSize().setSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -105,18 +111,18 @@ try {
 
 ## **SSS**
 
-**İnç dışında birimlerle (örneğin puan veya milimetre) özel bir slayt boyutu ayarlayabilir miyim?**
+### Özel bir slayt boyutunu inç dışındaki birimlerle (örneğin, nokta veya milimetre) ayarlayabilir miyim?
 
-Evet. Aspose.Slides dahili olarak puan (point) kullanır; 1 puan 1/72 inçtir. Herhangi bir birimi (örneğin milimetre ya da santimetre) puana dönüştürüp, bu dönüştürülmüş değerleri slayt genişliği ve yüksekliği olarak tanımlayabilirsiniz.
+Evet. Aspose.Slides dahili olarak nokta birimini kullanır; 1 nokta bir inçin 1/72’sine eşittir. Herhangi bir birimi (milimetre veya santimetre gibi) noktalara dönüştürüp, dönüştürülmüş değerleri slayt genişliği ve yüksekliği olarak tanımlayabilirsiniz.
 
-**Çok büyük bir özel slayt boyutu, render sırasında performans ve bellek kullanımını etkiler mi?**
+### Çok büyük bir özel slayt boyutu, render sırasında performans ve bellek kullanımını etkiler mi?
 
-Evet. Daha büyük slayt boyutları (puan cinsinden) ve yüksek render ölçeği, bellek tüketimini artırır ve işleme sürelerini uzatır. Pratik bir slayt boyutu hedefleyin ve yalnızca istenen çıktı kalitesine ulaşmak için render ölçeğini gerektiği gibi ayarlayın.
+Evet. Daha büyük slayt boyutları (nokta cinsinden) ve yüksek render ölçeği, daha fazla bellek tüketimine ve daha uzun işleme sürelerine yol açar. Pratik bir slayt boyutu hedefleyin ve istenen çıktı kalitesini elde etmek için render ölçeğini yalnızca gerektiği kadar artırın.
 
-**Tek bir standart dışı slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?**
+### Tek bir standart dışı slayt boyutu tanımlayıp, farklı boyutlara sahip sunumlardan slaytları birleştirebilir miyim?
 
-Farklı slayt boyutlarına sahip oldukları sürece [sunumları birleştiremezsiniz](/slides/tr/androidjava/merge-presentation/) — önce bir sunumun boyutunu diğerine eşitleyin. Slayt boyutunu değiştirirken, mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutları eşitledikten sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
+Farklı slayt boyutlarına sahip oldukları sürece [merge presentations](/slides/tr/androidjava/merge-presentation/) yapılamaz — önce bir sunumu diğerine göre yeniden boyutlandırmanız gerekir. Slayt boyutunu değiştirirken, mevcut içeriğin nasıl ele alınacağını [SlideSizeScaleType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slidesizescaletype/) seçeneğiyle belirleyebilirsiniz. Boyutları eşitledikten sonra, biçimlendirmeyi koruyarak slaytları birleştirebilirsiniz.
 
-**Bir slayttaki tek tek şekiller veya belirli bölgeler için küçük resimler oluşturabilir miyim ve bunlar yeni slayt boyutuna uyumlu olur mu?**
+### Tek tek şekiller veya slaytın belirli bölgeleri için küçük resimler oluşturabilir miyim ve bu küçük resimler yeni slayt boyutunu göz önünde bulundurur mu?
 
-Evet. Aspose.Slides, [tam slaytlar](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) ve [seçili şekiller](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) için küçük resimler oluşturabilir. Oluşan görüntüler mevcut slayt boyutu ve en‑boy oranını yansıtır, bu da tutarlı çerçeveleme ve geometri sağlar.
+Evet. Aspose.Slides, [entire slides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/slide/#getImage-com.aspose.slides.IRenderingOptions-float-float-) için olduğu kadar [selected shapes](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/shape/#getImage-int-float-float-) için de küçük resimler oluşturabilir. Oluşturulan görüntüler mevcut slayt boyutu ve en boy oranını yansıtarak tutarlı çerçeveleme ve geometri sağlar.

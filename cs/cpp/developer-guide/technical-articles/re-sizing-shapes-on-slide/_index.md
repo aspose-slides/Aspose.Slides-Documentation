@@ -4,42 +4,57 @@ type: docs
 weight: 100
 url: /cs/cpp/re-sizing-shapes-on-slide/
 keywords:
-- změna velikosti tvaru
 - úprava velikosti tvaru
+- změna velikosti tvaru
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Snadno změňte velikost tvarů na snímcích PowerPoint a OpenDocument pomocí Aspose.Slides pro C++—automatizujte úpravy rozvržení snímků a zvyšte produktivitu."
+description: "Snadno změňte velikost tvarů na snímcích PowerPoint a OpenDocument pomocí Aspose.Slides pro C++—automatizujte úpravy rozložení snímků a zvýšte produktivitu."
 ---
 ## **Přehled**
 
-Jednou z nejčastějších otázek zákazníků Aspose.Slides pro C++ je, jak změnit velikost tvarů tak, aby při změně velikosti snímku nedošlo k oříznutí dat. Tento stručný technický článek ukazuje, jak to provést.
+Jedna z nejčastějších otázek zákazníků Aspose.Slides pro C++ je, jak změnit velikost tvarů tak, aby se data neodříznula při změně velikosti snímku. Tento krátký technický článek ukazuje, jak to provést.
 
 ## **Změna velikosti tvarů**
 
-Cílem je zabránit nesprávnému zarovnání tvarů při změně velikosti snímku; aktualizujte pozici a rozměry každého tvaru tak, aby odpovídaly novému rozvržení snímku.
+Aby se zabránilo nesouladu tvarů při změně velikosti snímku, aktualizujte pozici a rozměry každého tvaru tak, aby odpovídaly novému rozložení snímku.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // Načtěte soubor prezentace.
 auto presentation = MakeObject<Presentation>(u"sample.ppt");
 
-// Get the original slide size.
+// Získejte původní velikost snímku.
 float currentHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float currentWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
-// Change the slide size without scaling existing shapes.
+// Změňte velikost snímku bez škálování existujících tvarů.
 presentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::DoNotScale);
 
-// Get the new slide size.
+// Získejte novou velikost snímku.
 float newHeight = presentation->get_SlideSize()->get_Size().get_Height();
 float newWidth = presentation->get_SlideSize()->get_Size().get_Width();
 
 float heightRatio = newHeight / currentHeight;
 float widthRatio = newWidth / currentWidth;
 
-// Resize and reposition shapes on every slide.
+// Změňte velikost a přesuňte tvary na každém snímku.
 for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
@@ -58,13 +73,38 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}} 
-Pokud snímek obsahuje tabulku, výše uvedený kód nebude fungovat správně. V takovém případě je třeba upravit velikost každé buňky v tabulce.
+{{% alert color="info" %}} 
+Pokud snímek obsahuje tabulku, výše uvedený kód nebude fungovat správně. V takovém případě je nutné změnit velikost každé buňky v tabulce. 
 {{% /alert %}} 
 
-Použijte následující kód na své straně pro změnu velikosti snímků, které obsahují tabulky. Pro tabulky je nastavení šířky nebo výšky zvláštní případ: musíte upravit výšky jednotlivých řádků a šířky sloupců, aby se změnila celková velikost tabulky.
+Použijte následující kód na svém konci pro změnu velikosti snímků, které obsahují tabulky. U tabulek je nastavení šířky nebo výšky speciální případ: musíte upravit výšky jednotlivých řádků a šířky sloupců, aby se změnila celková velikost tabulky.
 
 ```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideCollection.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SlideSizeType.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/size_f.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // Získejte původní velikost snímku.
@@ -143,30 +183,30 @@ presentation->Dispose();
 
 ## **Často kladené otázky**
 
-**Proč jsou tvary po změně velikosti snímku deformovány nebo oříznuty?**
+### Proč jsou tvary po změně velikosti snímku deformované nebo oříznuté?
 
-Při změně velikosti snímku si tvary zachovávají původní pozici a velikost, pokud není měřítko výslovně změněno. To může způsobit oříznutí obsahu nebo nesprávné zarovnání tvarů.
+Při změně velikosti snímku tvary zachovají svou původní polohu a rozměry, pokud se měřítko explicitně nezmění. To může způsobit oříznutí obsahu nebo nesoulad tvarů.
 
-**Funguje poskytnutý kód pro všechny typy tvarů?**
+### Funguje poskytnutý kód pro všechny typy tvarů?
 
-Základní příklad funguje pro většinu typů tvarů (textová pole, obrázky, grafy atd.). U tabulek však musíte zpracovávat řádky a sloupce samostatně, protože výška a šířka tabulky jsou určeny rozměry jednotlivých buněk.
+Základní příklad funguje pro většinu typů tvarů (textová pole, obrázky, grafy atd.). U tabulek však musíte zpracovat řádky a sloupce zvlášť, protože výška a šířka tabulky jsou určeny rozměry jednotlivých buněk.
 
-**Jak změním velikost tabulek při změně velikosti snímku?**
+### Jak změnit velikost tabulek při změně velikosti snímku?
 
-Musíte projít všechny řádky a sloupce tabulky a změnit jejich výšku a šířku úměrně, jak je ukázáno ve druhém ukázkovém kódu.
+Je nutné projít všechny řádky a sloupce tabulky a změnit jejich výšku a šířku proporcionálně, jak je ukázáno ve druhém příkladu kódu.
 
-**Bude tato změna velikosti fungovat u hlavních snímků a rozvržových snímků?**
+### Bude tato změna velikosti fungovat pro hlavní snímky a snímky rozložení?
 
-Ano, ale měli byste také projít [Masters](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_masters/) a [Layout slides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_layoutslides/) a použít stejnou logiku škálování na jejich tvary, aby byla zajištěna konzistence napříč celou prezentací.
+Ano, ale měli byste také projít [Masters](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_masters/) a [Layout slides](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_layoutslides/) a použít stejnou logiku škálování na jejich tvary, aby byla zajištěna konzistence v celé prezentaci.
 
-**Mohu změnit orientaci snímku (na výšku/na šířku) spolu se změnou velikosti?**
+### Mohu změnit orientaci snímku (na výšku/na šířku) spolu se změnou velikosti?
 
-Ano. K změně orientace můžete použít [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidesize/set_orientation/). Ujistěte se, že podle toho nastavíte logiku škálování, aby byl zachován rozvrh.
+Ano. Můžete použít [presentation->get_SlideSize()->set_Orientation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidesize/set_orientation/) pro změnu orientace. Ujistěte se, že podle toho nastavíte logiku škálování, aby zachovala rozložení.
 
-**Existuje limit na velikost snímku, kterou mohu nastavit?**
+### Existuje limit na velikost snímku, kterou mohu nastavit?
 
 Aspose.Slides podporuje vlastní velikosti, ale velmi velké rozměry mohou ovlivnit výkon nebo kompatibilitu s některými verzemi PowerPointu.
 
-**Jak mohu zabránit deformaci tvarů se zamknutým poměrem stran?**
+### Jak mohu zabránit, aby tvary se zamknutým poměrem stran byly deformovány?
 
-Můžete před škálováním zkontrolovat metodu `get_AspectRatioLocked` tvaru. Pokud je poměr stran uzamčen, upravte šířku nebo výšku úměrně místo samostatného škálování.
+Můžete před škálováním zkontrolovat metodu `get_AspectRatioLocked` tvaru. Pokud je zamčena, upravte šířku nebo výšku proporcionálně místo samostatného škálování.

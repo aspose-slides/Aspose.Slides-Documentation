@@ -1,55 +1,57 @@
 ---
-title: Lägg till vattenmärken i presentationer på Android
-linktitle: Vattenmärke
+title: Lägg till vattenstämplar i presentationer på Android
+linktitle: Vattenstämpel
 type: docs
 weight: 40
 url: /sv/androidjava/watermark/
 keywords:
-- vattenmärke
-- textvattenmärke
-- bildvattenmärke
-- lägg till vattenmärke
-- ändra vattenmärke
-- ta bort vattenmärke
-- radera vattenmärke
-- lägg till vattenmärke i PPT
-- lägg till vattenmärke i PPTX
-- lägg till vattenmärke i ODP
-- ta bort vattenmärke från PPT
-- ta bort vattenmärke från PPTX
-- ta bort vattenmärke från ODP
-- radera vattenmärke från PPT
-- radera vattenmärke från PPTX
-- radera vattenmärke från ODP
+- vattenstämpel
+- textvattenstämpel
+- bildvattenstämpel
+- lägg till vattenstämpel
+- ändra vattenstämpel
+- ta bort vattenstämpel
+- radera vattenstämpel
+- lägg till vattenstämpel i PPT
+- lägg till vattenstämpel i PPTX
+- lägg till vattenstämpel i ODP
+- ta bort vattenstämpel från PPT
+- ta bort vattenstämpel från PPTX
+- ta bort vattenstämpel från ODP
+- radera vattenstämpel från PPT
+- radera vattenstämpel från PPTX
+- radera vattenstämpel från ODP
 - PowerPoint
 - OpenDocument
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Hantera text- och bildvattenmärken i PowerPoint- och OpenDocument-presentationer på Android i Java för att indikera ett utkast, konfidentiell information och mer."
+description: "Hantera text- och bildvattenstämplar i PowerPoint- och OpenDocument-presentationer på Android i Java för att ange ett utkast, konfidentiell information och mer."
 ---
 ## **Introduktion**
 
-**Ett vattenmärke** i en presentation är en text‑ eller bildstämpel som används på en bild eller på alla bilder i presentationen. Vanligtvis används ett vattenmärke för att indikera att presentationen är ett utkast (t.ex. ett “Draft”-vattenmärke), att den innehåller konfidentiell information (t.ex. ett “Confidential”-vattenmärke), för att specificera vilket företag den tillhör (t.ex. ett “Company Name”-vattenmärke), för att identifiera författaren till presentationen osv. Ett vattenmärke hjälper till att förhindra upphovsrättsintrång genom att ange att presentationen inte får kopieras. Vattenmärken används både i PowerPoint‑ och OpenOffice‑presentationer. I Aspose.Slides kan du lägga till ett vattenmärke i PowerPoint‑PPT, PPTX och OpenOffice‑ODP‑filformat.
+**En vattenstämpel** i en presentation är en text‑ eller bildstämpel som används på en bild eller på alla bildspelbilder. Vanligtvis används en vattenstämpel för att ange att presentationen är ett utkast (t.ex. en "Utkast"-vattenstämpel), att den innehåller konfidentiell information (t.ex. en "Konfidentiell"-vattenstämpel), för att specificera vilket företag den tillhör (t.ex. en "Företagsnamn"-vattenstämpel), för att identifiera presentationens författare osv. En vattenstämpel hjälper till att förhindra upphovsrättsbrott genom att visa att presentationen inte får kopieras. Vattenstämplar används i både PowerPoint‑ och OpenOffice‑presentationformat. I Aspose.Slides kan du lägga till en vattenstämpel i PowerPoint PPT, PPTX och OpenOffice ODP‑filformat.
 
-I [**Aspose.Slides**](https://products.aspose.com/slides/sv/android-java/) finns det olika sätt att skapa vattenmärken i PowerPoint‑ eller OpenOffice‑dokument och ändra deras design och beteende. Den gemensamma faktorn är att för att lägga till textvattenmärken bör du använda gränssnittet [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/), och för att lägga till bildvattenmärken, använda klassen [PictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pictureframe/) eller fylla en vattenmärkesform med en bild. `PictureFrame` implementerar gränssnittet [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) vilket gör att du kan använda alla flexibla inställningar för formobjektet. Eftersom `ITextFrame` inte är en form och dess inställningar är begränsade, omsluts den i ett [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/)‑objekt.
+I [**Aspose.Slides**](https://products.aspose.com/slides/sv/android-java/) finns olika sätt du kan skapa vattenstämplar i PowerPoint‑ eller OpenOffice‑dokument och ändra deras design och beteende. Det gemensamma är att för att lägga till textvattenstämplar bör du använda gränssnittet [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/), och för att lägga till bildvattenstämplar, använda klassen [PictureFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/pictureframe/) eller fylla en vattenstämpelform med en bild. `PictureFrame` implementerar gränssnittet [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/) och ger tillgång till alla flexibla inställningar för formobjektet. Eftersom `ITextFrame` inte är en form och dess inställningar är begränsade, omsluts den i ett [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/)‑objekt.
 
-Det finns två sätt att applicera ett vattenmärke: på en enskild bild eller på alla bilder i presentationen. Slide Master används för att applicera ett vattenmärke på alla bilder — vattenmärket läggs till i Slide Master, designas där helt och appliceras på alla bilder utan att påverka möjligheten att ändra vattenmärket på enskilda bilder.
+Det finns två sätt att tillämpa en vattenstämpel: på en enskild bild eller på alla bilder i presentationen. Bild‑masteren används för att applicera en vattenstämpel på alla bilder — vattenstämpeln läggs till i bild‑masteren, designas där fullt ut och appliceras på alla bilder utan att påverka möjligheten att ändra vattenstämpeln på enskilda bilder.
 
-Ett vattenmärke anses vanligtvis vara otillgängligt för redigering av andra användare. För att förhindra att vattenmärket (eller snarare dess överordnade form) redigeras erbjuder Aspose.Slides funktionalitet för låsning av former. En specifik form kan låsas på en vanlig bild eller på en Slide Master. När vattenmärkesformen låses på Slide Master låses den på alla bilder i presentationen.
+En vattenstämpel anses vanligtvis vara oåtkomlig för redigering av andra användare. För att förhindra att vattenstämpeln (eller snarare dess föräldrafom) redigeras, erbjuder Aspose.Slides funktionalitet för låsning av former. En specifik form kan låsas på en vanlig bild eller på en bild‑master. När vattenstämpelformen låses på bild‑masteren, låses den på alla presentationsbilder.
 
-Du kan sätta ett namn på vattenmärket så att du i framtiden, om du vill ta bort det, kan hitta det bland bildens former via namn.
+Du kan ange ett namn för vattenstämpeln så att du i framtiden, om du vill ta bort den, kan hitta den i bildens former efter namn.
 
-Du kan designa vattenmärket på vilket sätt som helst; det finns dock vanligtvis gemensamma egenskaper för vattenmärken, såsom centrering, rotation, framre position osv. Vi kommer att titta på hur dessa används i exemplen nedan.
+Du kan designa vattenstämpeln på vilket sätt du vill; vanliga funktioner i vattenstämplar är dock t.ex. centrering, rotation, placering i förgrunden osv. Vi kommer att titta på hur man använder dessa i exemplen nedan.
 
-## **Textvattenmärke**
+## **Textvattenstämpel**
 
-### **Lägg till ett textvattenmärke på en bild**
+### **Lägg till en textvattenstämpel på en bild**
 
-För att lägga till ett textvattenmärke i PPT, PPTX eller ODP kan du först lägga till en form på bilden och sedan lägga till en textram i den formen. Textramen representeras av gränssnittet [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/). Denna typ är intevderad från [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/), som har ett brett urval av egenskaper för att placera vattenmärket på ett flexibelt sätt. Därför omsluts [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/)-objektet i ett [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)-objekt. För att lägga till vattenmärketext till formen, använd metoden [addTextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) som visas nedan.
+För att lägga till en textvattenstämpel i PPT, PPTX eller ODP kan du först lägga till en form på bilden och sedan lägga till en textram i den formen. Textramen representeras av gränssnittet [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/). Denna typ är inte ärvd från [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/), som har ett brett urval av egenskaper för att positionera vattenstämpeln på ett flexibelt sätt. Därför omsluts [ITextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/itextframe/)‑objektet i ett [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)‑objekt. För att lägga till vattenstämpeltext i formen, använd metoden [addTextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) som visas nedan.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -61,15 +63,17 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="Se även" %}} 
-- [Hur man använder TextFrame-klassen](/slides/sv/androidjava/text-formatting/)
+{{% alert color="info" title="See also" %}} 
+- [Hur du använder TextFrame-klassen](/slides/sv/androidjava/text-formatting/)
 {{% /alert %}}
 
-### **Lägg till ett textvattenmärke i en presentation**
+### **Lägg till en textvattenstämpel i en presentation**
 
-Om du vill lägga till ett textvattenmärke i hela presentationen (dvs. alla bilder på en gång) lägger du till det i [MasterSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/masterslide/). Resten av logiken är densamma som när du lägger till ett vattenmärke på en enskild bild — skapa ett [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)-objekt och lägg sedan till vattenmärket i det med metoden [addTextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
+Om du vill lägga till en textvattenstämpel i hela presentationen (dvs. alla bilder på en gång) lägger du till den i [MasterSlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/masterslide/). Resten av logiken är densamma som när du lägger till en vattenstämpel på en enskild bild — skapa ett [IAutoShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/)‑objekt och lägg sedan till vattenstämpeln i det med metoden [addTextFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -81,152 +85,261 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="Se även" %}} 
-- [Hur man använder Slide Master](/slides/sv/androidjava/slide-master/)
+{{% alert color="info" title="See also" %}} 
+- [Hur du använder bild‑mastern](/slides/sv/androidjava/slide-master/)
 {{% /alert %}}
 
-### **Ställ in vattenmärkesformens transparens**
+### **Ställ in formens transparens för vattenstämpeln**
 
-Som standard är rektangelformen stylad med fyllnings‑ och linjefärger. Följande kodrader gör formen transparent.
+Som standard är rektangelformen formaterad med fyllnings‑ och linjefärger. Följande kodrader gör formen transparent.
 
 ```java
-watermarkShape.getFillFormat().setFillType(FillType.NoFill);
-watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.getFillFormat().setFillType(FillType.NoFill);
+    watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Ställ in teckensnitt för ett textvattenmärke**
+### **Ställ in teckensnittet för en textvattenstämpel**
 
-Du kan ändra teckensnittet för textvattenmärket enligt nedan.
+Du kan ändra teckensnittet för textvattenstämpeln som visas nedan.
 
 ```java
-IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
-textFormat.setLatinFont(new FontData("Arial"));
-textFormat.setFontHeight(50);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    textFormat.setLatinFont(new FontData("Arial"));
+    textFormat.setFontHeight(50);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Ställ in textfärgen för vattenmärket**
+### **Ställ in färg för vattenstämpelns text**
 
-För att sätta färgen på vattenmärketexten, använd följande kod:
+För att ange färgen på vattenstämpelns text, använd följande kod:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
-IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
-fillFormat.setFillType(FillType.Solid);
-fillFormat.getSolidFillColor().setColor(Color.argb(alpha, red, green, blue));
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+    fillFormat.setFillType(FillType.Solid);
+    fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Centrera ett textvattenmärke**
+### **Centrera en textvattenstämpel**
 
-Det är möjligt att centrera vattenmärket på en bild, och för att göra det kan du följa följande:
+Det är möjligt att centrera vattenstämpeln på en bild, och för att göra det kan du göra följande:
 
 ```java
-SizeF slideSize = presentation.getSlideSize().getSize();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-float watermarkWidth = 400;
-float watermarkHeight = 40;
-float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
-float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+String watermarkText = "CONFIDENTIAL";
 
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(
-        ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+    float watermarkWidth = 400;
+    float watermarkHeight = 40;
+    float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
+    float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(
+            ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+} finally {
+    presentation.dispose();
+}
 ```
 
-![Textvattenmärket](text_watermark.png)
+Bilden nedan visar slutresultatet.
 
-## **Bildvattenmärke**
+![Textvattenstämpeln](text_watermark.png)
 
-### **Lägg till ett bildvattenmärke i en presentation**
+## **Bildvattenstämpel**
 
-För att lägga till ett bildvattenmärke i en presentationsbild kan du göra följande:
+### **Lägg till en bildvattenstämpel i en presentation**
+
+För att lägga till en bildvattenstämpel på en presentationsbild kan du göra följande:
 
 ```java
-InputStream imageStream = new FileInputStream("watermark.png");
-IPPImage image = presentation.getImages().addImage(imageStream);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
-watermarkShape.getFillFormat().setFillType(FillType.Picture);
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    InputStream imageStream = new FileInputStream("watermark.png");
+    IPPImage image = presentation.getImages().addImage(imageStream);
+
+    watermarkShape.getFillFormat().setFillType(FillType.Picture);
+    watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Låsa ett vattenmärke för redigering**
+### **Lås en vattenstämpel från redigering**
 
-Om det är nödvändigt att förhindra att ett vattenmärke redigeras, använd metoden [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) på formen. Med den här egenskapen kan du skydda formen från att väljas, ändras i storlek, flyttas, grupperas med andra element, låsa dess text för redigering och mycket mer:
+Om det är nödvändigt att förhindra att en vattenstämpel redigeras, använd metoden [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) på formen. Med denna egenskap kan du skydda formen från att väljas, ändras storlek, flyttas, grupperas med andra element, låsa dess text från redigering och mycket mer:
 
 ```java
-// Lås vattenmärkesformen från att modifieras
-watermarkShape.getAutoShapeLock().setSelectLocked(true);
-watermarkShape.getAutoShapeLock().setSizeLocked(true);
-watermarkShape.getAutoShapeLock().setTextLocked(true);
-watermarkShape.getAutoShapeLock().setPositionLocked(true);
-watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    // Lås vattenstämpelformen från att modifieras
+    watermarkShape.getAutoShapeLock().setSelectLocked(true);
+    watermarkShape.getAutoShapeLock().setSizeLocked(true);
+    watermarkShape.getAutoShapeLock().setTextLocked(true);
+    watermarkShape.getAutoShapeLock().setPositionLocked(true);
+    watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Flytta ett vattenmärke framåt**
+### **Flytta en vattenstämpel till förgrunden**
 
-I Aspose.Slides kan Z‑ordningen för former ställas in via metoden [IShapeCollection.reorder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). För att göra detta måste du anropa metoden från presentationsbildlistan och skicka in formreferensen samt dess ordningsnummer i metoden. På så sätt är det möjligt att flytta en form framåt eller skicka den bakåt på bilden. Denna funktion är särskilt användbar om du behöver placera ett vattenmärke framför presentationen:
+I Aspose.Slides kan Z‑ordningen för former ställas in via metoden [IShapeCollection.reorder](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). För att göra detta måste du anropa metoden från presentationsbildlistan och skicka in formreferensen samt dess ordningsnummer. På så sätt går det att föra en form till förgrunden eller skicka den till bakgrunden på bilden. Denna funktion är särskilt användbar om du behöver placera en vattenstämpel framför presentationen:
 
 ```java
-int shapeCount = slide.getShapes().size();
-slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    int shapeCount = slide.getShapes().size();
+    slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Ställ in vatten märkesrotation**
+### **Ställ in rotation för vattenstämpeln**
 
-Här är ett kodexempel på hur du justerar rotationen på vattenmärket så att det placeras diagonalt över bilden:
+Här är ett kodexempel som visar hur du justerar rotationen för vattenstämpeln så att den placeras diagonalt över bilden:
 
 ```java
-double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-watermarkShape.setRotation((float)diagonalAngle);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
+
+    double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+
+    watermarkShape.setRotation((float)diagonalAngle);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Ange ett namn för ett vattenmärke**
+### **Ange ett namn för en vattenstämpel**
 
-Aspose.Slides låter dig ange namnet på en form. Genom att använda formens namn kan du i framtiden komma åt den för att ändra eller ta bort den. För att sätta namnet på vattenmärkesformen, tilldela det med metoden [IAutoShape.setName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-):
+Aspose.Slides låter dig ange ett namn för en form. Genom att använda formens namn kan du i framtiden komma åt den för att ändra eller ta bort den. För att ange namn på vattenstämpelformen, tilldela det med metoden [IAutoShape.setName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-):
 
 ```java
-watermarkShape.setName("watermark");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.setName("watermark");
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Ta bort ett vattenmärke**
+### **Ta bort en vattenstämpel**
 
-För att ta bort vattenmärkesformen, använd metoden [IAutoShape.getName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getName--) för att hitta den i bildens former. Passa sedan vattenmärkesformen till metoden [IShapeCollection.remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
+För att ta bort vattenstämpelformen, använd metoden [IAutoShape.getName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/#getName--) för att hitta den i bildens former. Sedan skickar du vattenstämpelformen till metoden [IShapeCollection.remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
 
 ```java
-IShape[] slideShapes = slide.getShapes().toArray();
-for (IShape shape : slideShapes) {
-    if ("watermark".equals(shape.getName()))
-    {
-        slide.getShapes().remove(watermarkShape);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("watermarked.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape[] slideShapes = slide.getShapes().toArray();
+    for (IShape shape : slideShapes) {
+        if ("watermark".equals(shape.getName()))
+        {
+            slide.getShapes().remove(shape);
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Vanliga frågor**
 
-**Vad är ett vattenmärke och varför bör jag använda det?**
+### Vad är en vattenstämpel och varför bör jag använda den?
 
-Ett vattenmärke är en text‑ eller bildöverlagring som appliceras på bilder och som hjälper till att skydda immateriella rättigheter, stärka varumärkesigenkänning eller förhindra obehörig användning av presentationer.
+En vattenstämpel är en text‑ eller bildöverlägg som appliceras på bilder och hjälper till att skydda immateriella rättigheter, stärka varumärkesigenkänning eller förhindra obehörig användning av presentationer.
 
-**Kan jag lägga till ett vattenmärke på alla bilder i en presentation?**
+### Kan jag lägga till en vattenstämpel på alla bilder i en presentation?
 
-Ja, Aspose.Slides låter dig programatiskt lägga till ett vattenmärke på varje bild i en presentation. Du kan iterera genom alla bilder och tillämpa vattenmärkesinställningarna individuellt.
+Ja, Aspose.Slides låter dig programatiskt lägga till en vattenstämpel på varje bild i en presentation. Du kan iterera igenom alla bilder och applicera vattenstämpelinställningarna individuellt.
 
-**Hur kan jag justera transparensen för vattenmärket?**
+### Hur kan jag justera transparensen för vattenstämpeln?
 
-Du kan justera transparensen för vattenmärket genom att ändra fyllningsinställningarna ([getFillFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#getFillFormat--)) för formen. Detta säkerställer att vattenmärket är subtilt och inte stör bildens innehåll.
+Du kan justera transparensen för vattenstämpeln genom att ändra fyllningsinställningarna ([getFillFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#getFillFormat--)) för formen. Detta gör att vattenstämpeln blir subtil och inte distraherar från bildens innehåll.
 
-**Vilka bildformat stöds för vattenmärken?**
+### Vilka bildformat stöds för vattenstämplar?
 
-Aspose.Slides stödjer olika bildformat som PNG, JPEG, GIF, BMP, SVG och fler.
+Aspose.Slides stöder olika bildformat såsom PNG, JPEG, GIF, BMP, SVG och flera fler.
 
-**Kan jag anpassa teckensnitt och stil för ett textvattenmärke?**
+### Kan jag anpassa teckensnitt och stil för en textvattenstämpel?
 
-Ja, du kan välja valfritt teckensnitt, storlek och stil för att matcha designen av din presentation och upprätthålla varumärkesens konsistens.
+Ja, du kan välja vilket teckensnitt, storlek och stil som helst för att matcha designen av din presentation och upprätthålla varumärkeskonsekvens.
 
-**Hur ändrar jag positionen eller orienteringen av ett vattenmärke?**
+### Hur ändrar jag position eller orientering för en vattenstämpel?
 
-Du kan justera positionen och orienteringen av vattenmärket programatiskt genom att ändra formens koordinater, storlek och rotations‑egenskaper.
+Du kan programatiskt justera position och orientering för vattenstämpeln genom att ändra formens koordinater, storlek och rotationsegenskaper.

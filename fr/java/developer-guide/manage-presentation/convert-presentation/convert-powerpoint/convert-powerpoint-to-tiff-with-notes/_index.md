@@ -1,6 +1,6 @@
 ---
-title: Convertir les présentations PowerPoint en TIFF avec des notes en Java
-linktitle: PowerPoint vers TIFF avec notes
+title: Convertir les présentations PowerPoint en TIFF avec notes en Java
+linktitle: PowerPoint en TIFF avec notes
 type: docs
 weight: 100
 url: /fr/java/convert-powerpoint-to-tiff-with-notes/
@@ -27,28 +27,29 @@ keywords:
 - TIFF avec notes
 - Java
 - Aspose.Slides
-description: "Convertissez les présentations PowerPoint en TIFF avec notes à l'aide d'Aspose.Slides pour Java. Apprenez à exporter les diapositives avec les notes du présentateur de manière efficace."
+description: "Convertir des présentations PowerPoint en TIFF avec notes à l'aide d'Aspose.Slides pour Java. Apprenez à exporter des diapositives avec notes du présentateur efficacement."
 ---
+## **Introduction**
 
-## **Aperçu**
-
-Aspose.Slides for Java fournit une solution simple pour convertir des présentations PowerPoint et OpenDocument (PPT, PPTX et ODP) avec notes au format TIFF. Ce format est largement utilisé pour le stockage d'images de haute qualité, l'impression et l'archivage de documents. Avec Aspose.Slides, vous pouvez non seulement exporter des présentations complètes avec les notes du présentateur, mais aussi générer des miniatures de diapositives en affichage Diapositive de notes. Le processus de conversion est simple et efficace, en utilisant la méthode `save` de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) pour transformer l'ensemble de la présentation en une série d'images TIFF tout en conservant les notes et la mise en page.
+Aspose.Slides for Java offre une solution simple pour convertir des présentations PowerPoint et OpenDocument (PPT, PPTX et ODP) contenant des notes au format TIFF. Ce format est largement utilisé pour le stockage d’images de haute qualité, l’impression et l’archivage de documents. Avec Aspose.Slides, vous pouvez non seulement exporter des présentations complètes avec des notes du présentateur, mais également générer des miniatures de diapositives dans la vue Notes Slide. Le processus de conversion est simple et efficace, en utilisant la méthode `save` de la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) pour transformer la présentation entière en une série d’images TIFF tout en conservant les notes et la mise en page.
 
 ## **Convertir une présentation en TIFF avec notes**
 
-Enregistrer une présentation PowerPoint ou OpenDocument au format TIFF avec notes à l'aide d'Aspose.Slides for Java implique les étapes suivantes :
+Enregistrer une présentation PowerPoint ou OpenDocument au format TIFF avec notes à l’aide d’Aspose.Slides for Java implique les étapes suivantes :
 
-1. Instancier la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) : charger un fichier PowerPoint ou OpenDocument.  
-1. Configurer les options de disposition de sortie : utilisez la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/) pour spécifier comment les notes et les commentaires doivent être affichés.  
-1. Enregistrer la présentation au format TIFF : passez les options configurées à la méthode [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) .
+1. Instancier la classe [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) : charger un fichier PowerPoint ou OpenDocument.  
+1. Configurer les options de mise en page de sortie : utiliser la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/notescommentslayoutingoptions/) pour spécifier comment les notes et les commentaires doivent être affichés.  
+1. Enregistrer la présentation au format TIFF : transmettre les options configurées à la méthode [save](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-).
 
-Supposons que nous ayons un fichier "speaker_notes.pptx" contenant la diapositive suivante :
+Supposons que nous ayons un fichier **speaker_notes.pptx** contenant la diapositive suivante :
 
 ![La diapositive de présentation avec notes du présentateur](slide_with_notes.png)
 
-Le fragment de code ci-dessous montre comment convertir la présentation en image TIFF en affichage Diapositive de notes en utilisant la méthode [setSlidesLayoutOptions](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) :
+L’extrait de code ci‑dessous montre comment convertir la présentation en image TIFF dans la vue Notes Slide en utilisant la méthode [setSlidesLayoutOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) :
 
 ```java
+import com.aspose.slides.*;
+
 // Instancier la classe Presentation qui représente un fichier de présentation.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
@@ -61,18 +62,31 @@ try {
     tiffOptions.setDpiY(300);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Enregistrer la présentation au format TIFF avec les notes du présentateur.
+    // Enregistrer la présentation en TIFF avec les notes du présentateur.
     presentation.save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 Le résultat :
 
 ![L'image TIFF avec notes du présentateur](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
-Découvrez le Convertisseur gratuit PowerPoint en affiche d'Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+Découvrez le [Convertisseur gratuit PowerPoint en affiche d’Aspose](https://products.aspose.app/slides/fr/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
+
+## **FAQ**
+
+### Puis‑je contrôler la position de la zone des notes dans le TIFF généré ?
+
+Oui. Utilisez les [paramètres de mise en page des notes](https://reference.aspose.com/slides/fr/java/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) pour choisir parmi les options `None`, `BottomTruncated` ou `BottomFull`, qui respectivement masquent les notes, les adaptent à une seule page ou les laissent se prolonger sur des pages supplémentaires.
+
+### Comment réduire la taille d’un fichier TIFF avec notes sans perte de qualité visible ?
+
+Choisissez une [compression efficace](https://reference.aspose.com/slides/fr/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) (par ex., `LZW` ou `RLE`), définissez une résolution DPI raisonnable et, si cela convient, utilisez un format de pixel inférieur : [pixel format](https://reference.aspose.com/slides/fr/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) (par ex., 8 bpp ou 1 bpp pour le monochrome). Réduire légèrement les [dimensions de l’image](https://reference.aspose.com/slides/fr/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) peut également aider sans nuire à la lisibilité.
+
+### La police des notes influence‑t‑elle le résultat si les polices d’origine sont absentes du système ?
+
+Oui. Les polices manquantes déclenchent la [substitution](/slides/fr/java/font-selection-sequence/), ce qui peut modifier les métriques et l’apparence du texte. Pour éviter cela, [fournissez les polices requises](/slides/fr/java/custom-font/) ou définissez une [police de repli](/slides/fr/java/fallback-font/) par défaut afin que les polices prévues soient utilisées.

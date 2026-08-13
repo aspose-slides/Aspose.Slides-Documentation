@@ -1,5 +1,5 @@
 ---
-title: API pública e alterações incompatíveis retroativas no Aspose.Slides for Java 14.6.0
+title: API Pública e Alterações Incompatíveis Retroativas no Aspose.Slides para Java 14.6.0
 linktitle: Aspose.Slides para Java 14.6.0
 type: docs
 weight: 50
@@ -15,26 +15,26 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Revise as atualizações da API pública e as mudanças incompatíveis no Aspose.Slides for Java para migrar suavemente suas soluções de apresentação PowerPoint PPT, PPTX e ODP."
+description: "Revise as atualizações da API pública e mudanças incompatíveis no Aspose.Slides para Java para migrar suavemente suas soluções de apresentações PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
-
-Esta página lista todas as [added](/slides/pt/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) classes, métodos, propriedades e assim por diante, quaisquer novas restrições e outras alterações introduzidas com a API Aspose.Slides for Java 14.6.0.
-
+{{% alert color="info" %}} 
+Esta página lista todas as classes, métodos, propriedades e etc. [adicionados](/slides/pt/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/), quaisquer novas restrições e outras alterações introduzidas com a API do Aspose.Slides for Java 14.6.0.
 {{% /alert %}} 
-## **Public API Changes**
-### **Added Classes, Methods, Interfaces and Enumerations**
-#### **Added ViewType Enumeration, IViewProperties Interface, ViewProperties Class and IPresentation.getViewProperties() Method**
-O método IPresentation.getViewProperty() fornece acesso a IViewProperties e permite alterar o tipo de visualização da apresentação e a visibilidade das notas quando a apresentação é aberta no Microsoft PowerPoint.
+## **Alterações da API Pública**
+### **Classes, Métodos, Interfaces e Enumerações Adicionados**
+#### **Enumeração ViewType, Interface IViewProperties, Classe ViewProperties e Método IPresentation.getViewProperties() Adicionados**
+O método IPresentation.getViewProperties() fornece acesso a IViewProperties e permite alterar o tipo de visualização da apresentação e a visibilidade das anotações quando a apresentação é aberta no Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
 p.getViewProperties().setLastView(ViewType.SlideMasterView);
 
 ```
-#### **Added the Aspose.Slides.IShapeCollection.addClone(...) and .insertClone(...) Methods**
+#### **Adicionados os Métodos Aspose.Slides.IShapeCollection.addClone(...) e .insertClone(...)**
 Os métodos
 
 - Aspose.Slides.IShapeCollection.addClone(IShape sourceShape),
@@ -44,9 +44,11 @@ Os métodos
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-adicionam/insere uma cópia de uma forma especificada na coleção. 
+adicionam/inserem uma cópia de uma forma especificada na coleção. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -71,10 +73,12 @@ destShapes.addClone(sourceShapes.get_Item(5), 300, 300, 50, 200);
 destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
-#### **Added the Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues Interface**
-Esta interface especifica os tipos de valores na lista de propriedades ChartDataPoint.ErrorBarsCustomValues.
+#### **Adicionada a Interface Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
+Esta interface especifica os tipos de valores na lista de propriedades ChartDataPoint.ErrorBarsCustomValues. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -121,10 +125,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Added the Aspose.Slides.Charts.IErrorBarsCustomValues Interface**
-Quando a propriedade IErrorBarsFormat.ValueType for igual a Custom, para especificar o valor use a propriedade ErrorBarCustomValues do ponto de dados específico na coleção DataPoints da série.
+#### **Adicionada a Interface Aspose.Slides.Charts.IErrorBarsCustomValues**
+Quando a propriedade IErrorBarsFormat.ValueType for igual a Custom, para especificar o valor use a propriedade ErrorBarCustomValues do ponto de dados específico na coleção DataPoints da série. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -171,11 +177,12 @@ for (int i = 0; i < points.size(); i++)
 pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
-#### **Added the Aspose.Slides.Charts.IErrorBarsFormat Interface**
-Esta interface representa as barras de erro de séries de gráfico.
-No caso de tipo de valor personalizado, use a propriedade ErrorBarCustomValues de um ponto de dados específico na coleção DataPoins da série.
+#### **Adicionada a Interface Aspose.Slides.Charts.IErrorBarsFormat**
+Esta interface representa as barras de erro de séries de gráficos. No caso de tipo de valor custom, para especificar o valor use a propriedade ErrorBarCustomValues de um ponto de dados específico na coleção DataPoins da série. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

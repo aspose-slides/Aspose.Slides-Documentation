@@ -4,26 +4,26 @@ type: docs
 weight: 40
 url: /nl/java/portable-document-format-pdf/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Het Portable Document Format (PDF) is een bestandsformaat dat is gecreëerd door Adobe Systems voor het uitwisselen van documenten tussen organisaties. Het doel van het formaat was om inhoud en lay-out gelijk te houden, ongeacht het platform waarop het werd bekeken. Aspose.Slides for Java laat je presentatiebestanden converteren naar PDF.
+Het [Portable Document Format](https://en.wikipedia.org/wiki/PDF) is een bestandsformaat dat door Adobe Systems is gecreëerd om documenten tussen organisaties uit te wisselen. Het doel van het formaat was om inhoud en lay-out hetzelfde te houden, ongeacht het platform waarop het werd bekeken. Aspose.Slides for Java laat je presentaties omzetten naar PDF.
 
 {{% /alert %}} 
 
 ## **PDF in Aspose.Slides for Java**
-Elke presentatie die kan worden geladen in Aspose.Slides for Java kan worden geconverteerd naar een PDF die voldoet aan [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) of [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA), afhankelijk van uw keuze. Aspose.Slides for Java exporteert presentaties naar PDF en in de meeste gevallen ziet de uitvoer‑PDF er exact uit als de originele presentatie.
+Elke presentatie die kan worden geladen in Aspose.Slides for Java kan worden omgezet naar een PDF die voldoet aan [PDF 1.5](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1a](https://en.wikipedia.org/wiki/PDF/A), [PDF/A-1b](https://en.wikipedia.org/wiki/PDF/A) of [PDF/UA](https://en.wikipedia.org/wiki/PDF/UA), afhankelijk van uw keuze. Aspose.Slides for Java exporteert presentaties naar PDF en in de meeste gevallen ziet de uitvoer‑PDF er precies uit als de oorspronkelijke presentatie.
 
 Aspose.Slides ondersteunt de volgende presentatiefuncties bij het converteren naar PDF:
 
 - Afbeeldingen, tekstvakken en andere vormen.
 - Tekst en opmaak.
-- Alinea's en opmaak.
+- Paragrafen en opmaak.
 - Hyperlinks.
 - Koppen en voetteksten.
 - Opsommingstekens.
 - Tabellen.
 
-U kunt presentaties rechtstreeks exporteren naar PDF met Aspose.Slides for Java: u hebt geen andere component nodig. Bovendien kunt u de export van presentatie naar PDF aanpassen met verschillende opties zoals uitgelegd in [Converteren naar PDF](/slides/nl/java/converting-a-presentation/).
+U kunt presentaties rechtstreeks exporteren naar PDF's met Aspose.Slides for Java: u heeft geen andere component nodig. Bovendien kunt u de export van presentatie naar PDF aanpassen met verschillende opties zoals uitgelegd in [Converting to PDF](/slides/nl/java/converting-a-presentation/).
 
 **De invoerpresentatie** 
 

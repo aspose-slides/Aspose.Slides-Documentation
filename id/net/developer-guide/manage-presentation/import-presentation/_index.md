@@ -22,13 +22,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Impor dokumen PDF dan HTML dengan mudah ke dalam presentasi PowerPoint dan OpenDocument di .NET menggunakan Aspose.Slides untuk pemrosesan slide yang mulus dan berkinerja tinggi."
+description: "Impor PDF dan dokumen HTML dengan mudah ke dalam presentasi PowerPoint dan OpenDocument di .NET menggunakan Aspose.Slides untuk pemrosesan slide yang mulus dan berkinerja tinggi."
 ---
 ## **Pendahuluan**
 
-Dengan Aspose.Slides, Anda dapat mengimpor presentasi dari file dalam format lain. Aspose.Slides menyediakan kelas [SlideCollection](https://reference.aspose.com/slides/id/net/aspose.slides/slidecollection/) yang memungkinkan Anda mengimpor presentasi dari dokumen PDF dan HTML.
+Dengan menggunakan Aspose.Slides, Anda dapat mengimpor presentasi dari file dalam format lain. Aspose.Slides menyediakan kelas [SlideCollection](https://reference.aspose.com/slides/id/net/aspose.slides/slidecollection/) yang memungkinkan Anda mengimpor presentasi dari dokumen PDF dan HTML.
 
-## **Import PowerPoint dari PDF**
+## **Impor PowerPoint dari PDF**
 
 Dalam kasus ini, Anda dapat mengonversi PDF menjadi presentasi PowerPoint.
 
@@ -38,7 +38,12 @@ Dalam kasus ini, Anda dapat mengonversi PDF menjadi presentasi PowerPoint.
 2. Panggil metode [AddFromPdf](https://reference.aspose.com/slides/id/net/aspose.slides.slidecollection/addfrompdf/methods/1) dan berikan file PDF. 
 3. Gunakan metode [Save](https://reference.aspose.com/slides/id/net/aspose.slides.presentation/save/methods/5) untuk menyimpan file dalam format PowerPoint.
 
+Kode C# ini menunjukkan operasi PDF ke PowerPoint:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     pres.Slides.AddFromPdf("InputPDF.pdf");
@@ -46,19 +51,24 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert  title="TIP" color="primary" %}} 
-Anda mungkin ingin melihat **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/id/import/pdf-to-powerpoint) aplikasi web karena ini adalah implementasi langsung dari proses yang dijelaskan di sini. 
+{{% alert  title="TIP" color="info" %}} 
+Anda mungkin ingin melihat aplikasi web **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/id/import/pdf-to-powerpoint) karena itu merupakan implementasi langsung dari proses yang dijelaskan di sini. 
 {{% /alert %}} 
 
-## **Import PowerPoint dari HTML**
+## **Impor PowerPoint dari HTML**
 
 Dalam kasus ini, Anda dapat mengonversi dokumen HTML menjadi presentasi PowerPoint.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) . 
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). 
 2. Panggil metode [AddFromHtml](https://reference.aspose.com/slides/id/net/aspose.slides/slidecollection/addfromhtml/#addfromhtml) dan berikan file HTML. 
 3. Gunakan metode [Save](https://apireference.aspose.com/slides/id/net/aspose.slides.presentation/save/methods/5) untuk menyimpan file sebagai dokumen PowerPoint.
 
+Kode C# ini menunjukkan operasi HTML ke PowerPoint: 
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     using (var htmlStream = File.OpenRead("page.html"))
@@ -72,16 +82,16 @@ using (var presentation = new Presentation())
 
 ## **FAQ**
 
-**Apakah tabel dipertahankan saat mengimpor PDF, dan dapatkah deteksinya ditingkatkan?**
+### Apakah tabel tetap terjaga saat mengimpor PDF, dan apakah deteksi tabel dapat ditingkatkan?
 
-Tabel dapat terdeteksi selama proses impor; [PdfImportOptions](https://reference.aspose.com/slides/id/net/aspose.slides.import/pdfimportoptions/) menyertakan parameter [DetectTables](https://reference.aspose.com/slides/id/net/aspose.slides.import/pdfimportoptions/detecttables/) yang memungkinkan pengenalan tabel. Efektivitasnya tergantung pada struktur PDF.
+Tabel dapat dideteksi selama proses impor; [PdfImportOptions](https://reference.aspose.com/slides/id/net/aspose.slides.import/pdfimportoptions/) mencakup parameter [DetectTables](https://reference.aspose.com/slides/id/net/aspose.slides.import/pdfimportoptions/detecttables/) yang mengaktifkan pengenalan tabel. Efektivitasnya bergantung pada struktur PDF.
 
 {{% alert title="Note" color="warning" %}} 
 Anda juga dapat menggunakan Aspose.Slides untuk mengonversi HTML ke format file populer lainnya: 
 
-* [HTML ke gambar](https://products.aspose.com/slides/id/net/conversion/html-to-image/)
-* [HTML ke JPG](https://products.aspose.com/slides/id/net/conversion/html-to-jpg/)
-* [HTML ke XML](https://products.aspose.com/slides/id/net/conversion/html-to-xml/)
-* [HTML ke TIFF](https://products.aspose.com/slides/id/net/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/id/net/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/id/net/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/id/net/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/id/net/conversion/html-to-tiff/)
 
 {{% /alert %}}

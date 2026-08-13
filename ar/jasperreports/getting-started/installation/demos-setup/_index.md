@@ -1,11 +1,10 @@
 ---
-title: إعداد العروض التوضيحية
+title: إعداد العروض التجريبية
 type: docs
 weight: 70
 url: /ar/jasperreports/demos-setup/
 ---
-
-جميع العروض التوضيحية المقدمة مع Aspose.Slides لـ JasperReports هي عروض توضيحية قياسية معدلة. من الأفضل نسخ جميع العروض التوضيحية إلى مجلد عروض JasperReports:
+جميع العروض التجريبية المقدمة مع Aspose.Slides لـ JasperReports هي عروض تجريبية قياسية تم تعديلها. من الأفضل نسخ جميع العروض التجريبية إلى مجلد تجارب JasperReports:
 ...\jasperreports-x.x.x\demo\samples\
 
 استخدم تسلسل الأوامر القياسية لبناء وتصدير التقارير:
@@ -15,10 +14,8 @@ url: /ar/jasperreports/demos-setup/
 - ant fill
 - ant ppt
 
-{{% alert color="primary" %}} 
-
-يرجى عدم نسيان تشغيل HSQLDB مع قاعدة البيانات الاختبارية لملء التقارير بالبيانات ونسخ aspose.slides.jasperreports.library-xx.x.jar من مجلد \lib\JasperReports X.X.X - X.X.X في aspose-slides-xx.x-jasperreports.zip إلى دليل &#60;InstallDir&#62;\lib.
-
+{{% alert color="info" %}} 
+يرجى عدم نسيان تشغيل HSQLDB مع قاعدة البيانات التجريبية لملء التقارير بالبيانات ونسخ aspose.slides.jasperreports.library-xx.x.jar من المجلد \lib\JasperReports X.X.X - X.X.X داخل ملف aspose-slides-xx.x-jasperreports.zip إلى المجلد &#60;InstallDir&#62;\lib.
 {{% /alert %}} 
 
-معظم العروض التوضيحية (باستثناء الرسوم البيانية) لديها بالفعل عروض تقديمية تم إنشاؤها، لذا يمكنك تخطي جميع خطوات "ant" والتحقق من النتائج على الفور.
+معظم العروض التجريبية (باستثناء المخططات) لديها عروض تقديمية مُولدة بالفعل، لذا يمكنك تخطي جميع خطوات “ant” والتحقق من النتائج فورًا.

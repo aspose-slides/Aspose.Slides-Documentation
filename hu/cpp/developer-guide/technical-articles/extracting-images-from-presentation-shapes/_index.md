@@ -1,32 +1,32 @@
----  
-title: Képek kinyerése a prezentáció alakzataiból C++-ban  
-linktitle: Kép az alakzatról  
-type: docs  
-weight: 90  
-url: /hu/cpp/extracting-images-from-presentation-shapes/  
-keywords:  
-- kép kinyerése  
-- kép lekérése  
-- PowerPoint  
-- OpenDocument  
-- prezentáció  
-- C++  
-- Aspose.Slides  
-description: "Képek kinyerése a PowerPoint és OpenDocument prezentációk alakzataiból az Aspose.Slides for C++ segítségével – gyors, kódbarát megoldás."  
+---
+title: "Képek kinyerése prezentáció alakzatokból C++‑ban"
+linktitle: "Kép az alakzatról"
+type: docs
+weight: 90
+url: /hu/cpp/extracting-images-from-presentation-shapes/
+keywords:
+- "kép kinyerése"
+- "kép lekérése"
+- PowerPoint
+- OpenDocument
+- prezentáció
+- C++
+- Aspose.Slides
+description: "Képek kinyerése PowerPoint és OpenDocument prezentációk alakzataiból az Aspose.Slides for C++ segítségével – gyors, kódbarát megoldás."
 ---
 ## **Áttekintés**
 
-A diákban lévő képek többféle alakzat típusban jelenhetnek meg: egyszerű képkeretként, alakzatokra alkalmazott kép kitöltésként, OLE objektum előnézeti képeként, videó vagy hangkeret miniatűrjeként, nagyítási képként, vagy táblázat, diagram és SmartArt alakzatokba ágyazott képként. Az Aspose.Slides ezeket a képeket a prezentáció képgyűjteményében tárolja, amely a [IImageCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimagecollection/) és [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) objektumokon keresztül érhető el.
+A prezentációban a képek többféle alakzat típusban jelenhetnek meg: mint egyszerű képkeretek, alakzatokra alkalmazott képkitöltések, OLE‑objektum előnézeti képek, videó‑ vagy hangkeret bélyegképek, nagyítási képek, vagy a táblázat, diagram és SmartArt alakzatokba ágyazott képek. Az Aspose.Slides ezeket a képeket a prezentáció képgyűjteményében tárolja, amely a [IImageCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iimagecollection/) és a [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) objektumokon keresztül érhető el.
 
-Ha csak minden beágyazott képernyő erőforrást szeretne exportálni, iteráljon a `presentation->get_Images()`-en. Ez a cikk egy másik feladatra összpontosít: az alakzatok bejárására, hogy megtalálja, hol használják a képeket a diákon, így a mentett fájlok megtartják a hasznos kontextust, például a dia számát, az alakzat pozícióját és a forrástípust (képkeret, kitöltő kép, média előnézet, OLE előnézet vagy nagyítási kép).
+Ha csak a prezentációba beágyazott minden képes erőforrást szeretné exportálni, akkor iteráljon a `presentation->get_Images()`‑en. Ez a cikk egy másik feladatra koncentrál: az alakzatok bejárására, hogy megtalálja, hol használják a képeket a diákon, így a mentett fájlok hasznos kontextust is megőrizhetnek, például a dia számát, az alakzat pozícióját és a forrástípust (képkeret, kitöltő kép, média előnézet, OLE előnézet vagy nagyítási kép).
 
-{{% alert title="Tipp" color="primary" %}}
-Használja a [IPPImage]::`get_BinaryData()`-t az eredeti kódolt képadat és fájltípus megőrzéséhez. Használja a [IPPImage]::`get_Image()`-t a [IImage]::`Save`-el, ha a kimenetet egy adott formátumra, például PNG-re szeretné normalizálni.
+{{% alert title="Tip" color="info" %}}
+Használja a [IPPImage]::`get_BinaryData()`‑t az eredeti kódolt képadatok és fájltípus megőrzéséhez. Használja a [IPPImage]::`get_Image()`‑t a [IImage]::`Save`‑kel, ha a kimenetet egy adott formátumra, például PNG‑re szeretné normalizálni.
 {{% /alert %}}
 
-## **Közös Segítő Metódusok**
+## **Megosztott segítő metódusok**
 
-Az alábbi segítő metódusok röviden tartják a példákat. A `SaveOriginalImage` az eredeti beágyazott bájtokat írja, a MIME típusból biztonságos kiterjesztést választ, és SHA-256 hash alapján kihagyja a duplikált kép binárisokat.
+Az alábbi segítő metódusok rövidítik a példákat. A `SaveOriginalImage` az eredeti beágyazott bájtokat írja, a MIME‑típus alapján biztonságos kiterjesztést választ, és a SHA‑256 hash alapján kihagyja a duplikált kép binárisokat.
 
 ```cpp
 #include <vector>
@@ -74,10 +74,12 @@ bool SaveOriginalImage(
 {
     auto imageData = image->get_BinaryData();
     String imageHash = GetSha256Hash(imageData);
-    if (!savedImageHashes->Add(imageHash))
+    if (savedImageHashes->Contains(imageHash))
     {
         return false;
     }
+
+    savedImageHashes->Add(imageHash);
 
     String extension = GetExtensionFromContentType(image->get_ContentType());
     String fileName = String::Format(u"{0}.{1}", fileNameBase, extension);
@@ -141,7 +143,6 @@ String GetSha256Hash(ArrayPtr<uint8_t> data)
         builder->Append(String::Format(u"{0:x2}", hashByte));
     }
 
-    sha256->Dispose();
     return builder->ToString();
 }
 
@@ -212,556 +213,741 @@ String MakeSafeFileNamePart(String value)
 
 ## **Képek kinyerése képkeretekből**
 
-Használja ezt a megközelítést az önálló objektumként beillesztett képekhez. Az [IPictureFrame] a képét a `get_PictureFormat()->get_Picture()->get_Image()`-ben tárolja, amely egy [IPPImage] objektumot ad vissza.
+Használja ezt a megközelítést a önálló objektumként beszúrt képekhez. Egy [IPictureFrame] a képét a `get_PictureFormat()->get_Picture()->get_Image()`‑ben tárolja, amely egy [IPPImage] objektumot ad vissza.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"extracted-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"extracted-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
-        if (pictureFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
-            SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
+            auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
+            if (pictureFrame != nullptr)
+            {
+                auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
+                SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
+            }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Képek kinyerése képkitöltésű alakzatokból**
 
-Az alakzatok képet használhatnak kitöltésként. Először ellenőrizze az alakzat kitöltési típusát: ha nem [FillType]::`Picture`, akkor nincs kinyerhető kép a kitöltésből. Az alábbi példa [IAutoShape] objektumokat kezel, és minden képet PNG-ként ment a [IPPImage]::`get_Image()` segítségével.
+Az alakzatok használhatnak képet kitöltésként. Először ellenőrizze az alakzat kitöltés típusát: ha nem [FillType]::`Picture`, nincs kép, amit ebből a kitöltésből ki lehetne nyerni. Az alábbi példa a [IAutoShape] objektumokat kezeli, és minden képet PNG‑ként ment a [IPPImage]::`get_Image()` segítségével.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"shape-fill-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"shape-fill-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
-
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto autoShape = System::AsCast<IAutoShape>(item.Shape);
-        if (autoShape != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = GetPictureFillImage(autoShape->get_FillFormat());
-            if (image != nullptr)
+            auto autoShape = System::AsCast<IAutoShape>(item.Shape);
+            if (autoShape != nullptr)
             {
-                SaveImageAsPng(image, outputDirectory, item.NamePart);
+                auto image = GetPictureFillImage(autoShape->get_FillFormat());
+                if (image != nullptr)
+                {
+                    SaveImageAsPng(image, outputDirectory, item.NamePart);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
-## **Előnézeti képek kinyerése OLE objektum keretből**
+## **Előnézeti képek kinyerése OLE‑objektumkeretekből**
 
-Az [IOleObjectFrame] helyettesítő képet tartalmazhat, amelyet a PowerPoint az objektum előnézeteként használ a dián. Ez a kép a `get_SubstitutePictureFormat()->get_Picture()->get_Image()`-en keresztül érhető el. Ennek a képen keresztül az előnézeti képet kapja, nem pedig a beágyazott OLE csomag tartalmát.
+Egy [IOleObjectFrame] tartalmazhat helyettesítő képet, amelyet a PowerPoint az objektum dián megjelenő előnézeteként használ. Ez a kép a `get_SubstitutePictureFormat()->get_Picture()->get_Image()`‑en keresztül érhető el. A kép kinyerése az előnézeti képet adja, nem az beágyazott OLE‑csomag tartalmát.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"ole-preview-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"ole-preview-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
-        if (oleObjectFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
+            if (oleObjectFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
-## **Előnézeti képek kinyerése videó keretekből**
+## **Előnézeti képek kinyerése videókeretekből**
 
-Az [IVideoFrame] szintén tárolhat előnézeti képet a `get_PictureFormat()->get_Picture()->get_Image()`-ben. Ez a poszter vagy miniatűr, ami a dián látható, nem egy a videófolyamból dekódolt keret.
+Egy [IVideoFrame] szintén tárolhat előnézeti képet a `get_PictureFormat()->get_Picture()->get_Image()`‑ben. Ez a dián megjelenő plakát vagy bélyegkép, nem egy a videófolyamból dekódolt keret.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"video-preview-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"video-preview-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
-        if (videoFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
+            if (videoFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Előnézeti képek kinyerése hangkeretekből**
 
-Az [IAudioFrame] tárolhat egy miniatűr képet a `get_PictureFormat()->get_Picture()->get_Image()`-ben. Ez az a kép, amely a hangobjektushoz a dián jelenik meg.
+Egy [IAudioFrame] tárolhat bélyegképet a `get_PictureFormat()->get_Picture()->get_Image()`‑ben. Ez a hangobjektus dián megjelenő kép.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"audio-preview-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"audio-preview-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
-        if (audioFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
+            if (audioFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
-## **Képek kinyerése zoom objektumokból**
+## **Képek kinyerése Zoom objektumokból**
 
-Az [IZoomFrame] és [ISectionZoomFrame] alakzatok egyedi képeket használhatnak. Olvassa a `get_ZoomImage()`-t a zoom keretből.
+A [IZoomFrame] és a [ISectionZoomFrame] alakzatok egyedi képeket használhatnak. Olvassa ki a `get_ZoomImage()`‑t a zoom keretből.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"zoom-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"zoom-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto zoomFrame = System::AsCast<IZoomFrame>(item.Shape);
-        if (zoomFrame != nullptr && zoomFrame->get_ZoomImage() != nullptr)
-        {
-            String fileNameBase = String::Format(u"{0}_zoom", item.NamePart);
-            SaveOriginalImage(zoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
-            continue;
-        }
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
 
-        auto sectionZoomFrame = System::AsCast<ISectionZoomFrame>(item.Shape);
-        if (sectionZoomFrame != nullptr && sectionZoomFrame->get_ZoomImage() != nullptr)
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            String fileNameBase = String::Format(u"{0}_section_zoom", item.NamePart);
-            SaveOriginalImage(sectionZoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
-            continue;
+            auto zoomFrame = System::AsCast<IZoomFrame>(item.Shape);
+            if (zoomFrame != nullptr && zoomFrame->get_ZoomImage() != nullptr)
+            {
+                String fileNameBase = String::Format(u"{0}_zoom", item.NamePart);
+                SaveOriginalImage(zoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
+                continue;
+            }
+
+            auto sectionZoomFrame = System::AsCast<ISectionZoomFrame>(item.Shape);
+            if (sectionZoomFrame != nullptr && sectionZoomFrame->get_ZoomImage() != nullptr)
+            {
+                String fileNameBase = String::Format(u"{0}_section_zoom", item.NamePart);
+                SaveOriginalImage(sectionZoomFrame->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
+                continue;
+            }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Képek kinyerése összegző zoom keretekből**
 
-Az [ISummaryZoomFrame] szintén egy alakzat. Szakaszelemei egyedi képeket használhatnak, amelyeket az egyes összegző zoom szakaszok `get_ZoomImage()` metódusa révén érhetünk el.
+Az [ISummaryZoomFrame] szintén egy alakzat. A szekcióelemei egyedi képeket használhatnak, amelyeket az egyes összegző zoom szekciók `get_ZoomImage()` metódusa tesz elérhetővé.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"summary-zoom-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"summary-zoom-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto summaryZoomFrame = System::AsCast<ISummaryZoomFrame>(item.Shape);
-        if (summaryZoomFrame != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, false, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto summaryZoomCollection = summaryZoomFrame->get_SummaryZoomCollection();
-            int sectionCount = summaryZoomCollection->get_Count();
-            for (int sectionIndex = 0; sectionIndex < sectionCount; sectionIndex++)
+            auto summaryZoomFrame = System::AsCast<ISummaryZoomFrame>(item.Shape);
+            if (summaryZoomFrame != nullptr)
             {
-                auto section = summaryZoomCollection->idx_get(sectionIndex);
-                if (section->get_ZoomImage() != nullptr)
+                auto summaryZoomCollection = summaryZoomFrame->get_SummaryZoomCollection();
+                int sectionCount = summaryZoomCollection->get_Count();
+                for (int sectionIndex = 0; sectionIndex < sectionCount; sectionIndex++)
                 {
-                    int displayIndex = sectionIndex + 1;
-                    String fileNameBase = String::Format(u"{0}_summary_zoom_{1}", item.NamePart, displayIndex);
-                    SaveOriginalImage(section->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
+                    auto section = summaryZoomCollection->idx_get(sectionIndex);
+                    if (section->get_ZoomImage() != nullptr)
+                    {
+                        int displayIndex = sectionIndex + 1;
+                        String fileNameBase = String::Format(u"{0}_summary_zoom_{1}", item.NamePart, displayIndex);
+                        SaveOriginalImage(section->get_ZoomImage(), outputDirectory, fileNameBase, savedImageHashes);
+                    }
                 }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Képek kinyerése táblázat alakzatokból**
 
-Az [ITable] egy alakzat. A táblázatban lévő képek általában képtöltésként vannak tárolva a táblázat celláiban.
+Az [ITable] egy alakzat. A táblázatban lévő képek általában a táblázatcellák képkitöltéseiként vannak tárolva.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"table-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"table-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto table = System::AsCast<ITable>(item.Shape);
-        if (table != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            int rowCount = table->get_Rows()->get_Count();
-            int columnCount = table->get_Columns()->get_Count();
-            for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
+            auto table = System::AsCast<ITable>(item.Shape);
+            if (table != nullptr)
             {
-                for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
+                int rowCount = table->get_Rows()->get_Count();
+                int columnCount = table->get_Columns()->get_Count();
+                for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                 {
-                    auto column = table->get_Column(columnIndex);
-                    auto cell = column->idx_get(rowIndex);
-                    auto image = GetPictureFillImage(cell->get_CellFormat()->get_FillFormat());
-                    if (image != nullptr)
+                    for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
                     {
-                        String fileNameBase = String::Format(
-                            u"{0}_cell_{1}_{2}", item.NamePart, rowIndex + 1, columnIndex + 1);
-                        SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        auto column = table->get_Column(columnIndex);
+                        auto cell = column->idx_get(rowIndex);
+                        auto image = GetPictureFillImage(cell->get_CellFormat()->get_FillFormat());
+                        if (image != nullptr)
+                        {
+                            String fileNameBase = String::Format(
+                                u"{0}_cell_{1}_{2}", item.NamePart, rowIndex + 1, columnIndex + 1);
+                            SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        }
                     }
                 }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Képek kinyerése diagram alakzatokból**
 
-Az [IChart] egy alakzat. Az alábbi példa a diagram területének képtöltéséből nyeri ki a képet.
+Az [IChart] egy alakzat. Az alábbi példa a diagram területének képkitöltéséből nyer ki egy képet.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"chart-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"chart-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto chart = System::AsCast<Aspose::Slides::Charts::IChart>(item.Shape);
-        if (chart != nullptr)
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto fillFormat = chart->get_FillFormat();
-            auto image = GetPictureFillImage(fillFormat);
-            if (image != nullptr)
+            auto chart = System::AsCast<Aspose::Slides::Charts::IChart>(item.Shape);
+            if (chart != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_chart_area", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto fillFormat = chart->get_FillFormat();
+                auto image = GetPictureFillImage(fillFormat);
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_chart_area", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
 ## **Képek kinyerése SmartArt alakzatokból**
 
-Az [ISmartArt] objektum egy alakzat. A SmartArt elrendezéstől függően a képek csomópont-bullet kitöltésekben vagy a csomópont alakzatok kitöltési formátumaiban lehetnek tárolva.
+Az [ISmartArt] objektum egy alakzat. A SmartArt elrendezéstől függően a képek a csomópontok felsoroláskitöltéseiben vagy a csomópont alakzatok kitöltési formátumaiban tárolódhatnak.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"smartart-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"smartart-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto smartArt = System::AsCast<Aspose::Slides::SmartArt::ISmartArt>(item.Shape);
-        if (smartArt != nullptr)
-        {
-            int nodeCount = smartArt->get_AllNodes()->get_Count();
-            for (int nodeIndex = 0; nodeIndex < nodeCount; nodeIndex++)
-            {
-                auto node = smartArt->get_NodeFromAll(nodeIndex);
-                auto bulletImage = GetPictureFillImage(node->get_BulletFillFormat());
-                if (bulletImage != nullptr)
-                {
-                    String fileNameBase = String::Format(
-                        u"{0}_smartart_node_{1}_bullet", item.NamePart, nodeIndex + 1);
-                    SaveOriginalImage(bulletImage, outputDirectory, fileNameBase, savedImageHashes);
-                }
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
 
-                int nodeShapeCount = node->get_Shapes()->get_Count();
-                for (int nodeShapeIndex = 0; nodeShapeIndex < nodeShapeCount; nodeShapeIndex++)
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
+        {
+            auto smartArt = System::AsCast<Aspose::Slides::SmartArt::ISmartArt>(item.Shape);
+            if (smartArt != nullptr)
+            {
+                int nodeCount = smartArt->get_AllNodes()->get_Count();
+                for (int nodeIndex = 0; nodeIndex < nodeCount; nodeIndex++)
                 {
-                    auto nodeShape = node->get_Shape(nodeShapeIndex);
-                    auto image = GetPictureFillImage(nodeShape->get_FillFormat());
-                    if (image != nullptr)
+                    auto node = smartArt->get_NodeFromAll(nodeIndex);
+                    auto bulletImage = GetPictureFillImage(node->get_BulletFillFormat());
+                    if (bulletImage != nullptr)
                     {
                         String fileNameBase = String::Format(
-                            u"{0}_smartart_node_{1}_shape_{2}",
-                            item.NamePart,
-                            nodeIndex + 1,
-                            nodeShapeIndex + 1);
-                        SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                            u"{0}_smartart_node_{1}_bullet", item.NamePart, nodeIndex + 1);
+                        SaveOriginalImage(bulletImage, outputDirectory, fileNameBase, savedImageHashes);
+                    }
+
+                    int nodeShapeCount = node->get_Shapes()->get_Count();
+                    for (int nodeShapeIndex = 0; nodeShapeIndex < nodeShapeCount; nodeShapeIndex++)
+                    {
+                        auto nodeShape = node->get_Shape(nodeShapeIndex);
+                        auto image = GetPictureFillImage(nodeShape->get_FillFormat());
+                        if (image != nullptr)
+                        {
+                            String fileNameBase = String::Format(
+                                u"{0}_smartart_node_{1}_shape_{2}",
+                                item.NamePart,
+                                nodeIndex + 1,
+                                nodeShapeIndex + 1);
+                            SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                        }
                     }
                 }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
-## **Képek belefoglalása csoportosított alakzatokba**
+## **Képek beillesztése csoportosított alakzatokba**
 
-A csoportosított alakzatok saját alakzatgyűjteménnyel rendelkeznek. A közös `EnumerateShapes` segítőnek van egy `includeGroupedShapes` opciója. Állítsa `true`-ra, ha a [IGroupShape] objektumok belsejében lévő alakzatokat szeretné vizsgálni. Az alábbi példa képeket nyer ki képkeretekből, képkitöltésű alakzatokból, OLE objektum előnézetekből, videó keret miniatűrökből és hangkeret miniatűrökből. A táblázat, diagram, SmartArt és összegző zoom képek belefoglalásához használja újra a korábbi szakaszokból származó speciális kinyerési logikát, miközben ugyanazt a rekurzív alakzat bejárást alkalmazza.
+A csoportosított alakzatok saját alakzategységgel rendelkeznek. A megosztott `EnumerateShapes` segédnek van egy `includeGroupedShapes` opciója. Állítsa `true`‑ra, ha a [IGroupShape] objektumok belsejében lévő alakzatokat szeretné vizsgálni. Az alábbi példa a képkeretekből, képkitöltésű alakzatokból, OLE‑objektum előnézetekből, videókeret bélyegképekből és hangkeret bélyegképekből nyeri ki a képeket. A táblázat, diagram, SmartArt és összegző zoom képek beillesztéséhez használja újra a korábbi szakaszokból származó specializált kinyerési logikát, miközben ugyanazt a rekurzív alakzat bejárást tartja.
 
 ```cpp
-String inputPath = u"sample.pptx";
-String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"all-shape-images");
-Directory::CreateDirectory_(outputDirectory);
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/collections/hashset.h>
+#include <system/environment.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
-auto savedImageHashes = MakeObject<HashSet<String>>();
-
-auto presentation = MakeObject<Presentation>(inputPath);
-int slideCount = presentation->get_Slides()->get_Count();
-for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+int main()
 {
-    auto slide = presentation->get_Slide(slideIndex);
-    String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
+    String inputPath = u"sample.pptx";
+    String outputDirectory = Path::Combine(Environment::get_CurrentDirectory(), u"all-shape-images");
+    Directory::CreateDirectory_(outputDirectory);
 
-    std::vector<ShapeInfo> shapeInfos;
-    EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+    auto savedImageHashes = MakeObject<HashSet<String>>();
 
-    for (const ShapeInfo& item : shapeInfos)
+    auto presentation = MakeObject<Presentation>(inputPath);
+    int slideCount = presentation->get_Slides()->get_Count();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
     {
-        auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
-        if (pictureFrame != nullptr)
-        {
-            auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
-            SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
-            continue;
-        }
+        auto slide = presentation->get_Slide(slideIndex);
+        String slidePrefix = String::Format(u"slide_{0}", slide->get_SlideNumber());
 
-        auto autoShape = System::AsCast<IAutoShape>(item.Shape);
-        if (autoShape != nullptr)
+        std::vector<ShapeInfo> shapeInfos;
+        EnumerateShapes(slide->get_Shapes(), slidePrefix, true, shapeInfos);
+
+        for (const ShapeInfo& item : shapeInfos)
         {
-            auto image = GetPictureFillImage(autoShape->get_FillFormat());
-            if (image != nullptr)
+            auto pictureFrame = System::AsCast<IPictureFrame>(item.Shape);
+            if (pictureFrame != nullptr)
             {
+                auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image();
                 SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
+                continue;
             }
 
-            continue;
-        }
-
-        auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
-        if (oleObjectFrame != nullptr)
-        {
-            auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto autoShape = System::AsCast<IAutoShape>(item.Shape);
+            if (autoShape != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = GetPictureFillImage(autoShape->get_FillFormat());
+                if (image != nullptr)
+                {
+                    SaveOriginalImage(image, outputDirectory, item.NamePart, savedImageHashes);
+                }
+
+                continue;
             }
 
-            continue;
-        }
-
-        auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
-        if (videoFrame != nullptr)
-        {
-            auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto oleObjectFrame = System::AsCast<IOleObjectFrame>(item.Shape);
+            if (oleObjectFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_ole_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+
+                continue;
             }
 
-            continue;
-        }
-
-        auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
-        if (audioFrame != nullptr)
-        {
-            auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
-            if (image != nullptr)
+            auto videoFrame = System::AsCast<IVideoFrame>(item.Shape);
+            if (videoFrame != nullptr)
             {
-                String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
-                SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                auto image = videoFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_video_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
+
+                continue;
+            }
+
+            auto audioFrame = System::AsCast<IAudioFrame>(item.Shape);
+            if (audioFrame != nullptr)
+            {
+                auto image = audioFrame->get_PictureFormat()->get_Picture()->get_Image();
+                if (image != nullptr)
+                {
+                    String fileNameBase = String::Format(u"{0}_audio_preview", item.NamePart);
+                    SaveOriginalImage(image, outputDirectory, fileNameBase, savedImageHashes);
+                }
             }
         }
     }
-}
 
-presentation->Dispose();
+    presentation->Dispose();
+
+    return 0;
+}
 ```
 
-## **Edge Case-ek és Gyakorlati Megjegyzések**
+## **Szélsőséges esetek és gyakorlati megjegyzések**
 
-- **Duplikált képek:** Több alakzat is hivatkozhat ugyanarra a képre vagy különálló képekre azonos bájtokkal. Hash-elje a [IPPImage]::`get_BinaryData()`-t a fájlok írása előtt, ha minden egyedi képhez egy kimeneti fájlt szeretne.
-- **Eredeti adat vs. konvertált kimenet:** A [IPPImage]::`get_BinaryData()` mentése megőrzi a beágyazott JPEG, PNG, GIF, SVG, EMF vagy WMF adatot. A [IPPImage]::`get_Image()` mentése a [IImage]::`Save`-en keresztül hasznos, ha egységes kimeneti formátumot szeretne.
-- **Nem támogatott kitöltési típusok:** Szilárd, színátmenetes, minta és nincs kitöltésű alakzatok nem tartalmaznak képtöltést. Ellenőrizze a [FillType]-t a `get_PictureFillFormat()` olvasása előtt.
-- **Csoportosított alakzatok:** A felső szintű dia alakzategyűjtemény nem laposítja a csoportokat. Rekurzívan vizsgálja a [IGroupShape]::`get_Shapes()`-t, ha a csoportos tartalom számít.
-- **OLE objektum előnézetek:** Az [IOleObjectFrame] egy előnézeti képet jeleníthet meg a `get_SubstitutePictureFormat()`-on keresztül, de ez a kép csak a dia előnézete. Nem a beágyazott fájl az OLE objektumban.
-- **Videó keret miniatűrök:** Az [IVideoFrame] egy előnézeti képet jeleníthet meg a `get_PictureFormat()`-on keresztül, de ez a kép csak a dián látható poszter. Nem a videófolyamból van kivonva.
-- **Hangkeret miniatűrök:** Az [IAudioFrame] egy ikont vagy miniatűrt jeleníthet meg a `get_PictureFormat()` segítségével; ez nem a beágyazott hangadat.
-- **Zoom képek:** Dián nagyítás, szakasz nagyítás és összegző nagyítás alakzatok egyedi [IPPImage] objektumokat használhatnak a `get_ZoomImage()`-en keresztül.
-- **Beágyazott alakzati modellek:** A táblázat, diagram és SmartArt objektumok implementálják az [IShape]-t, de képeik gyakran beágyazott táblacellában, diagram elemben vagy SmartArt csomópont formázási objektumban vannak tárolva.
-- **Vágott vagy átalakított képek:** A [IPPImage] elérése a tárolt képeres erőforrást adja. Nem jeleníti meg a vágást, átlátszóságot, átszínezést, forgatást vagy egyéb vizuális effektusokat, amelyeket az alakzat alkalmazott.
+- **Duplikált képek:** Több alakzat is hivatkozhat ugyanarra a képre, vagy különálló képekre, amelyek azonos bájtokat tartalmaznak. Írja hash‑el a [IPPImage]::`get_BinaryData()`‑t a fájlok írása előtt, ha egy kimeneti fájlt szeretne egyedi képenként.
+- **Eredeti adatok vs. konvertált kimenet:** A [IPPImage]::`get_BinaryData()` mentése megőrzi a beágyazott JPEG, PNG, GIF, SVG, EMF vagy WMF adatokat. A [IPPImage]::`get_Image()` mentése a [IImage]::`Save`‑el hasznos, ha egységes kimeneti formátumra van szükség.
+- **Nem támogatott kitöltéstípusok:** Szilárd, gradient, minta és nincs kitöltésű alakzatok nem tartalmaznak képkitöltést. Ellenőrizze a [FillType] értékét, mielőtt a `get_PictureFillFormat()`‑et olvasná.
+- **Csoportosított alakzatok:** A felső szintű dia alakzatgyűjtemény nem laposítja a csoportokat. Rekurzívan vizsgálja a [IGroupShape]::`get_Shapes()`‑t, ha a csoportos tartalom fontos.
+- **OLE‑objektum előnézetek:** Egy [IOleObjectFrame] előnézeti képet adhat a `get_SubstitutePictureFormat()`‑en keresztül, de ez csak a dia előnézete. Nem az OLE‑objektumban beágyazott fájl.
+- **Videókeret bélyegképek:** Egy [IVideoFrame] előnézeti képet adhat a `get_PictureFormat()`‑on keresztül, de ez csak a dián megjelenő poszter. Nem a videófolyamból származik.
+- **Hangkeret bélyegképek:** Egy [IAudioFrame] ikont vagy bélyegképet adhat a `get_PictureFormat()`‑on keresztül; ez nem a beágyazott hangadat.
+- **Zoom képek:** A slide zoom, szekció zoom és összegző zoom alakzatok egyedi [IPPImage] objektumokat használhatnak a `get_ZoomImage()`‑on keresztül.
+- **Beágyazott alakzatmodellek:** A táblázat, diagram és SmartArt objektumok implementálják az [IShape] interfészt, de a képek gyakran beágyazott táblázatcella, diagram elem vagy SmartArt csomópont formázási objektumokban vannak tárolva.
+- **Vágott vagy átalakított képek:** A [IPPImage] elérése a tárolt kép erőforrást adja. Nem rendereli a vágást, átlátszóságot, színátmenetet, forgatást vagy egyéb vizuális hatásokat, amelyeket az alakzat alkalmaz.
 
 ## **GYIK**
 
-**Kinyerhetem az eredeti képet vágás, hatás vagy alakzatformázás nélkül?**
+### Kinyerhetem‑e az eredeti képet vágás, hatások vagy alakzattranszformációk nélkül?
 
-Igen. Hozzáférhet a [IPPImage] objektumhoz, és a [IPPImage]::`get_BinaryData()`-t lemezre írja. Ez megőrzi a prezentációban tárolt eredeti kódolt képet, nem pedig azt, ahogyan a kép a dián megjelenik.
+Igen. Hozzáfér a [IPPImage] objektumhoz, és a lemezre írja a [IPPImage]::`get_BinaryData()`‑t. Ez megőrzi a prezentációban tárolt eredeti kódolt képet, nem pedig a dián megjelenített kép módját.
 
-**Exportálhatom minden kinyert képet PNG formátumban?**
+### Exportálhatom‑e az összes kinyert képet PNG‑ként?
 
-Igen. Használja a [IPPImage]::`get_Image()`-t egy [IImage] objektum lekéréséhez, majd hívja meg a [IImage]::`Save`-et a [ImageFormat]::`Png`-el. Ez konvertálja a kimenetet, és előfordulhat, hogy nem őrzi meg az eredeti fájltípust vagy vektor adatot.
+Igen. Használja a [IPPImage]::`get_Image()`‑t, hogy egy [IImage] objektumot kapjon, majd hívja meg a [IImage]::`Save`‑et a [ImageFormat]::`Png`‑el. Ez átalakítja a kimenetet, és előfordulhat, hogy nem őrzi meg az eredeti fájltípust vagy vektoradatot.
 
-**Hogyan kerülhetem el ugyanannak a képnek a többszöri mentését?**
+### Hogyan kerülhetem el, hogy ugyanazt a képet többször mentsem?
 
-Használjon hash-t a [IPPImage]::`get_BinaryData()`-ből, és tárolja a hash-eket egy halmazban. Ha egy új kép hash-e már létezik, hagyja ki, vagy rögzítsen egy másik hivatkozást a meglévő kimeneti fájlra.
+Használjon egy hash‑t a [IPPImage]::`get_BinaryData()`‑ből, és tartsa a hasheket egy halmazban. Ha egy új kép hash‑e már létezik, hagyja ki, vagy rögzítsen egy újabb hivatkozást a meglévő kimeneti fájlra.
 
-**Miért nem ad ki néhány alakzat képet?**
+### Miért nem ad ki kép egyes alakzatok?
 
-Képkeretek, képkitöltésű alakzatok, OLE objektum keretek, média keretek, zoom keretek, táblázatok, diagramok és SmartArt objektumok hivatkozhatnak képekre. Néhány alakzat típus beágyazott formázási objektumokon keresztül teszi elérhetővé a képeket, így egy egyszerű `get_PictureFormat()` vagy alakzat `get_FillFormat()` ellenőrzés nem mindig elegendő.
+Képkeretek, képkitöltésű alakzatok, OLE‑objektum keretek, média keretek, zoom keretek, táblázatok, diagramok és SmartArt objektumok hivatkozhatnak képekre. Egyes alakzat típusok a képeket beágyazott formázási objektumokon keresztül teszik elérhetővé, ezért egy egyszerű `get_PictureFormat()` vagy `get_FillFormat()` ellenőrzés gyakran nem elegendő.
 
-**Kinyerhetem a videó kerethez megjelenített miniatűr képet?**
+### Kinyerhetem‑e a videókerethez tartozó bélyegképet?
 
-Igen. Használja a [IVideoFrame]::`get_PictureFormat()`-t, és olvassa a `get_PictureFormat()->get_Picture()->get_Image()`-t. Ez a videó kerethez tárolt poszter képet nyeri ki, nem a videó fájlból generált keretet.
+Igen. Használja a [IVideoFrame]::`get_PictureFormat()`‑t, és olvassa a `get_PictureFormat()->get_Picture()->get_Image()`‑t. Ez a videókerethez tárolt poszterképet nyeri ki, nem egy a videófájlból generált keretet.
 
-**Hogyan határozhatom meg, mely alakzatok használják egy adott képet a prezentáció képgyűjteményéből?**
+### Hogyan határozhatom meg, mely alakzatok használják egy adott képet a prezentáció képgyűjteményéből?
 
-Az Aspose.Slides nem tárol visszalinkeket a [IPPImage] és alakzatok között. Építsen fel egy leképezést a bejárás során: amikor képhivatkozást talál, rögzítse a dia számát, az alakzat útvonalát és a kép hash-ét vagy a gyűjtemény elemet.
+Az Aspose.Slides nem tárol visszahivatkozásokat a [IPPImage] és az alakzatok között. A bejárás során építsen fel egy leképezést: minden kép hivatkozásnál rögzítse a dia számát, az alakzat útvonalát és a kép hash‑ét vagy a gyűjteményelemét.
 
-**Kinyerhetok beágyazott képeket OLE objektumokból, például csatolt dokumentumokból?**
+### Kinyerhetek‑e képeket, amelyek OLE‑objektumokba vannak beágyazva, például csatolt dokumentumok?
 
-A [IOleObjectFrame]::`get_SubstitutePictureFormat()`-ből ki tudja nyerni az OLE objektum dia előnézetét. Azonban ez az előnézet nem a beágyazott dokumentum. A beágyazott fájlon belüli képek kinyeréséhez először az OLE adatot kell kinyerni, majd a fájltípusnak megfelelő eszközökkel ellenőrizni.
+Kinyerheti az OLE‑objektum dia előnézetét a [IOleObjectFrame]::`get_SubstitutePictureFormat()` segítségével. Azonban ez az előnézet nem magát a beágyazott dokumentumot jelenti. A beágyazott fájlon belüli képek kinyeréséhez először nyissa ki az OLE‑adatot, majd vizsgálja meg a megfelelő fájltípusú eszközökkel.

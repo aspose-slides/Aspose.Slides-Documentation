@@ -12,27 +12,27 @@ keywords:
 - OpenDocument
 - Java
 - Aspose.Slides
-description: Aspose.Slides for Java 是一個 Microsoft PowerPoint® 管理 API，可讓 Java 應用程式在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。
+description: Aspose.Slides for Java 是一套 Microsoft PowerPoint® 管理 API，讓 Java 應用程式能在不使用 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。
 is_root: true
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Java 產品標誌](home_1.png)
 
 **歡迎使用 Aspose.Slides for Java！**
 
-Aspose.Slides for Java 是一個 Microsoft PowerPoint® 管理 API，可讓 Java 應用程式在未安裝 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。Aspose.Slides for Java 是首個也是唯一提供管理 PowerPoint® 文件功能的元件。Aspose.Slides for Java 提供許多關鍵功能，例如管理文字、圖形、表格與動畫，向投影片添加音訊與視訊，投影片預覽，將投影片匯出為 SVG、PDF 等格式。
+Aspose.Slides for Java 是一套 Microsoft PowerPoint® 管理 API，讓 Java 應用程式能在沒有 Microsoft PowerPoint® 的情況下讀寫 PowerPoint® 文件。Aspose.Slides for Java 是首個也是唯一提供管理 PowerPoint® 文件功能的元件。Aspose.Slides for Java 提供許多關鍵功能，例如管理文字、圖形、表格與動畫、在投影片中加入音訊與視訊、預覽投影片、將投影片匯出為 SVG、PDF 以及其他格式。
 
 {{% /alert %}}
 
 ## **Aspose.Slides for Java 資源**
 
-These are links to useful resources:
+這些是實用資源的連結：
 
 - [Aspose.Slides for Java 線上文件](/slides/zh-hant/java/)
 - [Aspose.Slides for Java 功能](/slides/zh-hant/java/features-overview/)
 - [Aspose.Slides for Java 限制](/slides/zh-hant/java/known-issues/)
-- [Aspose.Slides for Java 發行說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/)
+- [Aspose.Slides for Java 版本說明](https://releases.aspose.com/slides/zh-hant/java/release-notes/)
 - [Aspose.Slides for Java 產品頁面](https://products.aspose.com/slides/zh-hant/java/)
 - [下載 Aspose.Slides for Java](https://releases.aspose.com/slides/zh-hant/java/)
 - [Aspose.Slides for Java Maven 套件庫](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)

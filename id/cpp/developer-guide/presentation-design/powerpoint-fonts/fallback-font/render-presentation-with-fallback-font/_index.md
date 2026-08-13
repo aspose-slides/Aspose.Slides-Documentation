@@ -1,5 +1,5 @@
 ---
-title: Render Presentasi dengan Font Fallback di С++
+title: Render Presentasi dengan Font Fallback di C++
 linktitle: Render Presentasi
 type: docs
 weight: 30
@@ -12,9 +12,9 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentasi
-- С++
+- C++
 - Aspose.Slides
-description: "Render presentasi dengan font fallback di Aspose.Slides untuk С++ – pertahankan konsistensi teks di seluruh PPT, PPTX, dan ODP dengan contoh kode С++ langkah demi langkah."
+description: "Render presentasi dengan font fallback di Aspose.Slides untuk C++ - pertahankan konsistensi teks di seluruh PPT, PPTX, dan ODP dengan contoh kode C++ langkah demi langkah."
 ---
 ## **Gambaran Umum**
 
@@ -24,18 +24,27 @@ Setelah koleksi aturan font fallback ditetapkan ke `FontsManager` presentasi, at
 
 ## **Render Slide Menggunakan Aturan Font Fallback**
 
-Contoh berikut mencakup langkah-langkah ini:
-
 1. Kami [membuat koleksi aturan font fallback](/slides/id/cpp/create-fallback-fonts-collection/).
-1. [Remove()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/remove/) sebuah aturan font fallback dan [AddFallBackFonts()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) ke aturan lain.
-1. Serahkan koleksi aturan ke metode [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
-1. Dengan metode [Presentation::Save()](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) kita dapat menyimpan presentasi dalam format yang sama, atau menyimpannya dalam format lain. Setelah koleksi aturan font fallback ditetapkan ke FontsManager, aturan-aturan ini diterapkan selama operasi apa pun pada presentasi: menyimpan, merender, mengonversi, dll.
+2. Kami [Remove()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/remove/) sebuah aturan font fallback dan [AddFallBackFonts()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontfallbackrule/addfallbackfonts/) ke aturan lain.
+3. Lewatkan koleksi aturan ke metode [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/id/cpp/aspose.slides/fontsmanager/set_fontfallbackrulescollection/).
+4. Dengan metode [Presentation::Save()](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) kami dapat menyimpan presentasi dalam format yang sama, atau menyimpannya dalam format lain. Setelah koleksi aturan font fallback ditetapkan ke FontsManager, aturan-aturan ini diterapkan selama semua operasi pada presentasi: menyimpan, merender, mengonversi, dll.
 
 ``` cpp
+#include <DOM/Fonts/FontFallBackRule.h>
+#include <DOM/Fonts/FontFallBackRulesCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // Membuat instance baru dari koleksi aturan
 auto rulesList = MakeObject<FontFallBackRulesCollection>();
 
-// Create a number of rules
+// Membuat sejumlah aturan
 rulesList->Add(MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x400), static_cast<uint32_t>(0x4FF), u"Times New Roman"));
 //rulesList.Add(new FontFallBackRule(...));
 
@@ -45,7 +54,7 @@ for (const auto& fallBackRule : rulesList)
 	fallBackRule->Remove(u"Tahoma");
 
 	// Dan memperbarui aturan untuk rentang yang ditentukan
-	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) && 
+	if ((fallBackRule->get_RangeEndIndex() >= static_cast<uint32_t>(0x4000)) &&
 		(fallBackRule->get_RangeStartIndex() < static_cast<uint32_t>(0x5000)))
 	{
 		fallBackRule->AddFallBackFonts(u"Verdana");
@@ -62,14 +71,14 @@ auto pres = System::MakeObject<Presentation>(u"input.pptx");
 // Menetapkan daftar aturan yang telah dipersiapkan untuk digunakan
 pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
-// Merender thumbnail dengan menggunakan koleksi aturan yang diinisialisasi dan menyimpannya ke PNG
+// Merender thumbnail dengan menggunakan koleksi aturan yang diinisialisasi dan menyimpan ke PNG
 auto image = pres->get_Slide(0)->GetImage(1.f, 1.f);
-image->Save(u"Slide_0.png", ImageFormat::Png);
+image->Save(u"Slide_0.png", Aspose::Slides::ImageFormat::Png);
 image->Dispose();
 
 pres->Dispose();
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Baca lebih lanjut tentang cara [Mengonversi Slide PowerPoint ke PNG dalam C++](/slides/id/cpp/convert-powerpoint-to-png/).
 {{% /alert %}}

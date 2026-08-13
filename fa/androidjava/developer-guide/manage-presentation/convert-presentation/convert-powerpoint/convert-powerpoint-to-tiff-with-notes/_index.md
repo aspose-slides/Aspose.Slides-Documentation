@@ -25,43 +25,45 @@ keywords:
 - PPT با یادداشت‌ها
 - PPTX با یادداشت‌ها
 - TIFF با یادداشت‌ها
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "تبدیل ارائه‌های PowerPoint به TIFF با یادداشت‌ها با استفاده از Aspose.Slides برای Android از طریق Java. یاد بگیرید چگونه اسلایدها را با یادداشت‌های گوینده به‌صورت کارآمد صادر کنید."
+description: "تبدیل ارائه‌های PowerPoint به TIFF با یادداشت‌ها با استفاده از Aspose.Slides برای Android via Java. یاد بگیرید چگونه اسلایدها را با یادداشت‌های گوینده به‌صورت کارآمد صادر کنید."
 ---
 ## **مقدمه**
 
-Aspose.Slides for Android via Java راهکار ساده‌ای برای تبدیل ارائه‌های PowerPoint و OpenDocument (PPT، PPTX و ODP) همراه با یادداشت‌ها به فرمت TIFF فراهم می‌کند. این فرمت به‌طور گسترده‌ای برای ذخیره‌سازی تصویر با کیفیت بالا، چاپ و بایگانی اسناد استفاده می‌شود. با Aspose.Slides می‌توانید نه تنها کل ارائه‌ها را همراه با یادداشت‌های گوینده استخراج کنید، بلکه تصاویر بندانگشتی اسلایدها را در نمای Notes Slide نیز تولید کنید. فرآیند تبدیل ساده و کارآمد است و از متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) استفاده می‌کند تا کل ارائه را به‌صورت مجموعه‌ای از تصاویر TIFF تبدیل کند در حالی که یادداشت‌ها و طرح‌بندی حفظ می‌شوند.
+Aspose.Slides for Android via Java یک راه‌حل ساده برای تبدیل ارائه‌های PowerPoint و OpenDocument (PPT، PPTX و ODP) همراه با یادداشت‌ها به فرمت TIFF فراهم می‌کند. این فرمت به طور گسترده‌ای برای ذخیره‌سازی تصویر با کیفیت بالا، چاپ و آرشیو اسناد استفاده می‌شود. با Aspose.Slides می‌توانید نه تنها کل ارائه‌ها را با یادداشت‌های گوینده صادر کنید، بلکه می‌توانید تصاویر بندانگشتی اسلایدها را در نمای Notes Slide نیز تولید کنید. فرآیند تبدیل ساده و کارآمد است و از متد `save` کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) برای تبدیل کل ارائه به مجموعه‌ای از تصاویر TIFF استفاده می‌کند، در حالی که یادداشت‌ها و طرح‌بندی حفظ می‌شوند.
 
-## **تبدیل یک ارائه به TIFF همراه با یادداشت‌ها**
+## **تبدیل ارائه به TIFF با یادداشت‌ها**
 
-ذخیره یک ارائه PowerPoint یا OpenDocument به TIFF همراه با یادداشت‌ها با استفاده از Aspose.Slides for Android via Java شامل مراحل زیر است:
+ذخیره یک ارائه PowerPoint یا OpenDocument به TIFF با یادداشت‌ها با استفاده از Aspose.Slides for Android via Java شامل مراحل زیر است:
 
-1. نمونه‌سازی کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) : یک فایل PowerPoint یا OpenDocument را بارگذاری کنید.
-2. تنظیم گزینه‌های چیدمان خروجی: از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notescommentslayoutingoptions/) استفاده کنید تا مشخص کنید یادداشت‌ها و نظرات چگونه نمایش داده شوند.
-3. ذخیره ارائه به TIFF: گزینه‌های پیکربندی شده را به متد [save](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) پاس دهید.
+1. نمونه‌سازی کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/): بارگذاری یک فایل PowerPoint یا OpenDocument.  
+2. پیکربندی گزینه‌های طرح خروجی: از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notescommentslayoutingoptions/) استفاده کنید تا نحوه نمایش یادداشت‌ها و نظرات را تعیین کنید.  
+3. ذخیره ارائه به TIFF: گزینه‌های پیکربندی‌شده را به متد [save](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) پاس دهید.
 
-فرض کنید فایلی به نام "speaker_notes.pptx" داریم که اسلاید زیر را شامل می‌شود:
+فرض کنیم فایلی به نام "speaker_notes.pptx" داشته باشیم که اسلاید زیر را شامل می‌شود:
 
 ![اسلاید ارائه با یادداشت‌های گوینده](slide_with_notes.png)
 
-قطعه کد زیر نشان می‌دهد چگونه می‌توان ارائه را به تصویر TIFF در نمای Notes Slide تبدیل کرد با استفاده از متد [setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) :
+قطعه کد زیر نشان می‌دهد چگونه می‌توانید ارائه را به تصویر TIFF در نمای Notes Slide تبدیل کنید با استفاده از متد [setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-):
 
 ```java
-// یک شی از کلاس Presentation که نمایانگر فایل ارائه است را ایجاد کنید.
+import com.aspose.slides.*;
+
+// یک نمونه از کلاس Presentation ایجاد می‌کند که یک فایل ارائه را نمایندگی می‌کند.
 Presentation presentation = new Presentation("speaker_notes.pptx");
 try {
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-    notesOptions.setNotesPosition(NotesPositions.BottomFull); // نمایش یادداشت‌ها در زیر اسلاید.
+    notesOptions.setNotesPosition(NotesPositions.BottomFull); // یادداشت‌ها را زیر اسلاید نمایش می‌دهد.
 
-    // پیکربندی گزینه‌های TIFF با چیدمان یادداشت‌ها.
+    // گزینه‌های TIFF را با تنظیمات یادداشت‌ها پیکربندی می‌کند.
     TiffOptions tiffOptions = new TiffOptions();
     tiffOptions.setDpiX(300);
     tiffOptions.setDpiY(300);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // ذخیره ارائه به TIFF همراه با یادداشت‌های گوینده.
+    // ارائه را به‌صورت TIFF با یادداشت‌های گوینده ذخیره می‌کند.
     presentation.save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
@@ -72,20 +74,20 @@ try {
 
 ![تصویر TIFF با یادداشت‌های گوینده](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 به Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/fa/conversion/convert-ppt-to-poster-online) نگاهی بیندازید.
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**آیا می‌توانم موقعیت ناحیه یادداشت‌ها را در TIFF تولید شده کنترل کنم؟**
+### آیا می‌توانم موقعیت ناحیه یادداشت‌ها را در TIFF نهایی کنترل کنم؟
 
-بله. از [تنظیمات چیدمان یادداشت‌ها](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) استفاده کنید تا بین گزینه‌هایی مانند `None`، `BottomTruncated` یا `BottomFull` یکی را انتخاب کنید؛ که به ترتیب یادداشت‌ها را مخفی می‌کنند، در یک صفحه جای می‌دهند یا اجازه می‌دهند به صفحات اضافی جریان پیدا کنند.
+بله. از [تنظیمات طرح یادداشت‌ها](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) استفاده کنید تا بین گزینه‌هایی مانند `None`، `BottomTruncated` یا `BottomFull` انتخاب کنید؛ که به ترتیب یادداشت‌ها را مخفی می‌کند، در یک صفحه جا می‌دهد یا اجازه می‌دهد به صفحات اضافی ادامه یابد.
 
-**چگونه می‌توان اندازه فایل TIFF با یادداشت‌ها را بدون کاهش محسوس کیفیت کاهش داد؟**
+### چگونه می‌توان حجم فایل TIFF حاوی یادداشت‌ها را بدون افت محسوس کیفیت کاهش داد؟
 
-یک [فشرده‌سازی کارآمد](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (مثلاً `LZW` یا `RLE`) انتخاب کنید، DPI معقولی تنظیم کنید و در صورت امکان از [فرمت پیکسل](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) پایین‌تر (مانند 8 bpp یا 1 bpp برای تک‌رنگ) استفاده کنید. کمی کاهش [ابعاد تصویر](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) نیز می‌تواند بدون اثر قابل توجه بر خوانایی کمک کند.
+یک [فشرده‌سازی کارآمد](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) (مانند `LZW` یا `RLE`) انتخاب کنید، DPI معقولی تنظیم کنید و در صورت قابل قبول، از یک [قالب پیکسل](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) پایین‌تر (مثلاً 8 bpp یا 1 bpp برای تک‌رنگ) استفاده کنید. کمی کاهش [ابعاد تصویر](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) نیز می‌تواند بدون تأثیر قابل مشاهده بر خوانایی کمک کند.
 
-**آیا فونت موجود در یادداشت‌ها بر نتیجه تأثیر می‌گذارد اگر فونت‌های اصلی در سیستم موجود نباشند؟**
+### آیا فونت در یادداشت‌ها بر نتیجه تأثیر می‌گذارد اگر فونت‌های اصلی در سیستم موجود نباشند؟
 
-بله. نبود فونت‌ها منجر به [جایگزینی](/slides/fa/androidjava/font-selection-sequence/) می‌شود که می‌تواند متریک‌ها و ظاهر متن را تغییر دهد. برای جلوگیری از این موضوع، [فونت‌های مورد نیاز را فراهم کنید](/slides/fa/androidjava/custom-font/) یا یک [فونت پیش‌فرض جایگزین](/slides/fa/androidjava/fallback-font/) تنظیم کنید تا قلم‌های مورد نظر استفاده شوند.
+بله. عدم وجود فونت‌ها منجر به [جایگزینی](/slides/fa/androidjava/font-selection-sequence/) می‌شود که می‌تواند متریک‌ها و ظاهر متن را تغییر دهد. برای جلوگیری از این مسئله، [فونت‌های مورد نیاز را فراهم کنید](/slides/fa/androidjava/custom-font/) یا یک [فونت پیش‌فرض جایگزین](/slides/fa/androidjava/fallback-font/) تنظیم کنید تا قلم‌های مورد نظر استفاده شوند.

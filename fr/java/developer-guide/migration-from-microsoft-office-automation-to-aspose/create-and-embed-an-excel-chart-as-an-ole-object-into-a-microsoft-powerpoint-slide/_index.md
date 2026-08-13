@@ -1,17 +1,29 @@
 ---
-title: Créer et intégrer un graphique Excel en tant qu'objet OLE dans une diapositive Microsoft PowerPoint
+title: Créer et incorporer des graphiques Excel en tant qu'objets OLE à l'aide de VSTO et Aspose.Slides for Java
+linktitle: Créer et incorporer des graphiques Excel en tant qu'objets OLE
 type: docs
 weight: 60
 url: /fr/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+keywords:
+- créer un graphique
+- incorporer un graphique Excel
+- objet OLE
+- migration
+- VSTO
+- automatisation Office
+- PowerPoint
+- présentation
+- Java
+- Aspose.Slides
+description: "Migrer de l'automatisation Microsoft Office vers Aspose.Slides for Java et incorporer des graphiques Excel en tant qu'objets OLE dans les diapositives PowerPoint (PPT, PPTX) en Java."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
- Les graphiques sont des représentations visuelles de vos données et sont largement utilisés dans les diapositives de présentation. Cet article vous montrera le code pour créer et intégrer un graphique Excel en tant qu'objet OLE dans la diapositive PowerPoint de manière programmatique en utilisant [VSTO](/slides/fr/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) et [Aspose.Slides pour Java](/slides/fr/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+Les graphiques sont des représentations visuelles de vos données et sont largement utilisés dans les présentations. Cet article vous montrera le code pour créer et incorporer un graphique Excel en tant qu'objet OLE dans une diapositive PowerPoint de manière programmatique en utilisant [VSTO](/slides/fr/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) et [Aspose.Slides for Java](/slides/fr/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
-## **Création et intégration d'un graphique Excel**
-Les deux exemples de code ci-dessous sont longs et détaillés car la tâche qu'ils décrivent est complexe. Vous créez un classeur Microsoft Excel, créez un graphique, puis créez la présentation Microsoft PowerPoint dans laquelle vous intégrerez le graphique. Les objets OLE contiennent des liens vers le document d'origine, donc un utilisateur qui double-clique sur le fichier intégré lancera le fichier et son application.
+## **Création et incorporation d'un graphique Excel**
+Les deux exemples de code ci-dessous sont longs et détaillés car la tâche qu'ils décrivent est complexe. Vous créez un classeur Microsoft Excel, créez un graphique, puis créez la présentation Microsoft PowerPoint dans laquelle vous incorporerez le graphique. Les objets OLE contiennent des liens vers le document original, de sorte qu'un utilisateur qui double-clique sur le fichier incorporé lance le fichier et son application.
 ### **Exemple VSTO**
 En utilisant VSTO, les étapes suivantes sont effectuées :
 
@@ -24,10 +36,12 @@ En utilisant VSTO, les étapes suivantes sont effectuées :
 1. Obtenir le graphique à copier.
 1. Créer une présentation Microsoft PowerPoint.
 1. Ajouter une diapositive vierge à la présentation.
-1. Copier le graphique de la feuille de calcul Excel dans le presse-papiers.
+1. Copier le graphique de la feuille de calcul Excel vers le presse-papiers.
 1. Coller le graphique dans la présentation PowerPoint.
 1. Positionner le graphique sur la diapositive.
 1. Enregistrer la présentation.
+
+
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-CreateAndEmbedExcelChartAsOLEUsingVSTO.cs" >}}
 
@@ -36,19 +50,25 @@ En utilisant VSTO, les étapes suivantes sont effectuées :
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-CreateNewChartInExcel.cs" >}}
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-UseCopyPaste.cs" >}}
-### **Exemple Aspose.Slides pour Java**
+### **Exemple Aspose.Slides for Java**
 En utilisant Aspose.Slides pour .NET, les étapes suivantes sont effectuées :
 
 1. Créer un classeur en utilisant Aspose.Cells pour Java.
 1. Créer un graphique Microsoft Excel.
 1. Définir la taille OLE du graphique Excel.
 1. Obtenir une image du graphique.
-1. Intégrer le graphique Excel en tant qu'objet OLE dans la présentation PPTX en utilisant Aspose.Slides pour Java.
-1. Remplacer l'image de l'objet modifié par l'image obtenue à l'étape 3 pour résoudre le problème d'objet modifié.
+1. Incorporer le graphique Excel en tant qu'objet OLE dans une présentation PPTX en utilisant Aspose.Slides pour Java.
+1. Remplacer l'image d'objet modifié par l'image obtenue à l'étape 3 pour résoudre le problème d'objet modifié.
 1. Écrire la présentation de sortie sur le disque au format PPTX.
+
+
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-EmbedChartAsOLEObject-EmbedChartAsOLEObject.java" >}}
 
+
+
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-EmbedChartAsOLEObject-AddExcelChartInPresentation.java" >}}
+
+
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-EmbedChartAsOLEObject-AddExcelChartInWorkbook.java" >}}

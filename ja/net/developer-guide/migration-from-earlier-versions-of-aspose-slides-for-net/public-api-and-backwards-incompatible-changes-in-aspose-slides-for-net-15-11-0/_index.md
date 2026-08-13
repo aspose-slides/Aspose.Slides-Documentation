@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.11.0 のパブリック API と後方互換性がない変更
+title: Aspose.Slides for .NET 15.11.0 のパブリック API と後方互換性のない変更
 linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
@@ -8,26 +8,23 @@ keywords:
 - 移行
 - レガシーコード
 - モダンコード
-- 従来のアプローチ
-- 現代的アプローチ
+- レガシーアプローチ
+- モダンアプローチ
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できます。"
+description: "Aspose.Slides for .NET のパブリック API の更新と破壊的変更を確認し、PowerPoint の PPT、PPTX、ODP プレゼンテーション ソリューションをスムーズに移行できるようにします。"
 ---
-
-{{% alert color="primary" %}} 
-
-このページでは、[追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)または[削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)クラス、メソッド、プロパティなど、その他の変更を一覧表示します。
-
-{{% /alert %}} 
+{{% alert color="info" %}}
+このページでは、Aspose.Slides for .NET 15.11.0 APIで導入された、[追加](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)または[削除](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)されたクラス、メソッド、プロパティ等とその他の変更をすべて一覧表示します。
+{{% /alert %}}
 ## **パブリック API の変更**
 
-#### **DataLabelCollection クラスの旧式プロパティが削除されました**
-旧式プロパティは以下のとおり削除されました:
+#### **DataLabelCollection クラスの廃止されたプロパティが削除されました**
+DataLabelCollection クラスの廃止されたプロパティが削除されました：
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -48,17 +45,18 @@ Presentation に追加された新しいプロパティ FirstSlideNumber は、�
 新しい FirstSlideNumber の値が指定されると、すべてのスライド番号が再計算されます。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

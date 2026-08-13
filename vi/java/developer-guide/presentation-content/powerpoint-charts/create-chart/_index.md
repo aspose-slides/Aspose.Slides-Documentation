@@ -1,6 +1,6 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ Bài thuyết trình PowerPoint trong Java
-linktitle: Tạo hoặc Cập nhật Biểu đồ
+title: Tạo hoặc Cập Nhật Biểu Đồ Bản Thuyết Trình PowerPoint trong Java
+linktitle: Tạo hoặc Cập Nhật Biểu Đồ
 type: docs
 weight: 10
 url: /vi/java/create-chart/
@@ -10,94 +10,95 @@ keywords:
 - chỉnh sửa biểu đồ
 - thay đổi biểu đồ
 - cập nhật biểu đồ
-- biểu đồ phân tán
+- biểu đồ tỏa tình
 - biểu đồ tròn
 - biểu đồ đường
-- biểu đồ cây bản đồ
-- biểu đồ chứng khoán
+- biểu đồ cây
+- biểu đồ cổ phiếu
 - biểu đồ hộp và râu
 - biểu đồ phễu
-- biểu đồ Sunburst
+- biểu đồ năng lượng mặt trời
 - biểu đồ histogram
 - biểu đồ radar
 - biểu đồ đa danh mục
 - PowerPoint
-- bài thuyết trình
+- bản thuyết trình
 - Java
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong bài thuyết trình PowerPoint bằng Aspose.Slides cho Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế bằng Java."
+description: "Tạo và tùy chỉnh biểu đồ trong bản thuyết trình PowerPoint bằng Aspose.Slides cho Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế bằng Java."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn chi tiết về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách thêm biểu đồ vào slide bằng mã lập trình, cung cấp dữ liệu cho nó và áp dụng các tùy chọn định dạng khác nhau để phù hợp với yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và Chart cho tới cấu hình series, trục và legend. Bằng cách làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng của mình, giúp đơn giản hoá quy trình tạo các bản thuyết trình dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách thêm biểu đồ vào slide một cách lập trình, điền dữ liệu vào biểu đồ và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của bạn. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và Chart cho tới cấu hình series, trục và legend. Bằng cách làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng của mình, giúp đơn giản hóa quá trình tạo các bản thuyết trình dựa trên dữ liệu.
 
-## **Tạo biểu đồ**
-Biểu đồ giúp người dùng nhanh chóng trực quan hoá dữ liệu và rút ra những hiểu biết, điều mà có thể không ngay lập tức rõ ràng từ một bảng hoặc bảng tính.
+## **Tạo Biểu Đồ**
+Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra những hiểu biết mà có thể không ngay lập tức hiển thị trong bảng hoặc bảng tính. 
+
 
 **Tại sao nên tạo biểu đồ?**
 
 Sử dụng biểu đồ, bạn có thể
 
-* tổng hợp, thu gọn hoặc tóm tắt lượng dữ liệu lớn trên một slide trong bản trình bày
-* hiển thị các mẫu và xu hướng trong dữ liệu
-* suy ra hướng và đà của dữ liệu theo thời gian hoặc so với một đơn vị đo cụ thể
-* phát hiện các ngoại lệ, sai lệch, lỗi, dữ liệu vô nghĩa, v.v.
+* tổng hợp, rút gọn hoặc tóm tắt một lượng lớn dữ liệu trên một slide duy nhất trong bản thuyết trình
+* phát hiện các mẫu và xu hướng trong dữ liệu
+* suy ra hướng và động lực của dữ liệu theo thời gian hoặc theo một đơn vị đo lường cụ thể 
+* phát hiện ngoại lệ, sai lệch, lỗi, dữ liệu vô nghĩa, v.v. 
 * truyền đạt hoặc trình bày dữ liệu phức tạp
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng chèn, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng chèn, cung cấp các mẫu được sử dụng để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Để cho phép bạn tạo biểu đồ, Aspose.Slides cung cấp lớp [ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType). Các trường trong lớp này tương ứng với các loại biểu đồ khác nhau. 
 
 {{% /alert %}} 
 
-### **Tạo biểu đồ thông thường**
+### **Tạo Biểu Đồ Thông Thường**
 
 _Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint trong Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Bước:</em> Tạo biểu đồ Presentation trong Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation trong Java</strong></a>
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart in Java</strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart in Java</strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart in Java</strong></a>
 
 _Code Steps:_
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-2. Lấy tham chiếu đến slide thông qua chỉ mục của nó.
-3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ mong muốn.
+2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
+3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ bạn muốn.
 4. Thêm tiêu đề cho biểu đồ.
-5. Truy cập worksheet dữ liệu biểu đồ.
+5. Truy cập worksheet dữ liệu của biểu đồ.
 6. Xóa tất cả series và category mặc định.
 7. Thêm series và category mới.
-8. Thêm dữ liệu biểu đồ mới cho series.
-9. Thêm màu nền cho series.
-10. Thêm nhãn cho series.
-11. Ghi bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
+8. Thêm dữ liệu biểu đồ mới cho các series.
+9. Thêm màu nền cho các series.
+10. Thêm nhãn cho các series.
+11. Ghi bản thuyết trình đã sửa thành file PPTX.
 
 Mã Java này cho bạn thấy cách tạo một biểu đồ thông thường:
 
 ```java
-// Khởi tạo một lớp presentation đại diện cho tệp PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Khởi tạo một lớp trình chiếu đại diện cho tệp PPTX
 Presentation pres = new Presentation();
 try {
     // Truy cập slide đầu tiên
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Thêm một biểu đồ với dữ liệu mặc định
+    // Thêm một biểu đồ với dữ liệu mặc định của nó
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // Đặt tiêu đề cho biểu đồ
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
+    chart.setTitle(true);
     
-    // Đặt series đầu tiên hiển thị giá trị
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Đặt chỉ mục cho sheet dữ liệu biểu đồ
+    // Đặt chỉ mục cho trang dữ liệu biểu đồ
     int defaultWorksheetIndex = 0;
     
-    // Lấy WorkSheet dữ liệu biểu đồ
+    // Lấy worksheet dữ liệu của biểu đồ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
     // Xóa các series và category được tạo mặc định
@@ -140,7 +141,7 @@ try {
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
     //Tạo nhãn tùy chỉnh cho mỗi category cho series mới
-    // Đặt nhãn đầu tiên hiển thị tên Category
+    // Đặt nhãn đầu tiên để hiển thị tên Category
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -153,39 +154,41 @@ try {
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Lưu bản trình bày kèm biểu đồ
+    // Lưu bản trình chiếu cùng biểu đồ
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Tạo biểu đồ phân tán**
-Biểu đồ phân tán (còn được gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
+### **Tạo Biểu Đồ Tỏa Tình (Scatter)**
+Biểu đồ tỏa tình (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc minh họa mối tương quan giữa hai biến. 
 
-Bạn có thể muốn sử dụng biểu đồ phân tán khi 
+Bạn có thể muốn sử dụng biểu đồ tỏa tình khi 
 
 * bạn có dữ liệu số cặp đôi
-* bạn có 2 biến phù hợp với nhau
+* bạn có 2 biến liên quan chặt chẽ với nhau
 * bạn muốn xác định liệu 2 biến có liên quan hay không
 * bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Bước:</em> Tạo biểu đồ phân tán trong Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint phân tán trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation phân tán trong Java</strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart in Java</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart in Java</strong></a>
 
 1. Vui lòng làm theo các bước đã nêu ở mục [Creating Normal Charts](#creating-normal-charts)
-2. Đối với bước ba, Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ là một trong các lựa chọn sau
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Biểu diễn Scatter Chart._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Biểu diễn Scatter Chart nối bằng đường cong, có đánh dấu dữ liệu._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Biểu diễn Scatter Chart nối bằng đường cong, không có đánh dấu dữ liệu._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Biểu diễn Scatter Chart nối bằng đường thẳng, có đánh dấu dữ liệu._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Biểu diễn Scatter Chart nối bằng đường thẳng, không có đánh dấu dữ liệu._
+2. Đối với bước thứ ba, Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ là một trong các lựa chọn sau
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Biểu thị Scatter Chart có dấu._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Biểu thị Scatter Chart nối bằng đường cong, có dấu dữ liệu._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Biểu thị Scatter Chart nối bằng đường cong, không có dấu dữ liệu._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Biểu thị Scatter Chart nối bằng đường thẳng, có dấu dữ liệu._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Biểu thị Scatter Chart nối bằng đường thẳng, không có dấu dữ liệu._
 
-Mã Java này cho bạn thấy cách tạo biểu đồ phân tán với các loại đánh dấu khác nhau: 
+Mã Java này cho bạn thấy cách tạo các biểu đồ tỏa tình với các series dấu khác nhau: 
 
 ```java
-// Khởi tạo một lớp presentation đại diện cho tệp PPTX
+import com.aspose.slides.*;
+
+// Khởi tạo một lớp trình chiếu đại diện cho tệp PPTX
 Presentation pres = new Presentation();
 try {
     // Truy cập slide đầu tiên
@@ -200,7 +203,7 @@ try {
     // Lấy worksheet dữ liệu biểu đồ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Xóa các series demo
+    // Xóa series mẫu
     chart.getChartData().getSeries().clear();
     
     // Thêm series mới
@@ -219,7 +222,7 @@ try {
     // Thay đổi kiểu series
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Thay đổi marker của series biểu đồ
+    // Thay đổi dấu đánh dấu của series biểu đồ
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
@@ -238,7 +241,7 @@ try {
     // Thêm một điểm mới (5:1)
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Thay đổi marker của series biểu đồ
+    // Thay đổi dấu đánh dấu của series biểu đồ
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -248,31 +251,34 @@ try {
 }
 ```
 
-### **Tạo biểu đồ tròn**
+### **Tạo Biểu Đồ Tròn (Pie)**
 
-Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑toàn trong dữ liệu, đặc biệt khi dữ liệu chứa các nhãn phân loại cùng giá trị số. Tuy nhiên, nếu dữ liệu của bạn có nhiều phần hoặc nhãn, bạn nên cân nhắc sử dụng biểu đồ cột thay vì.
+Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑với‑toàn trong dữ liệu, đặc biệt khi dữ liệu chứa các nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Bước:</em> Tạo biểu đồ tròn trong Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint tròn trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation tròn trong Java</strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart in Java</strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-2. Lấy tham chiếu đến slide bằng chỉ mục của nó.
+2. Lấy tham chiếu của slide qua chỉ mục của nó.
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).Pie).
 4. Truy cập dữ liệu biểu đồ qua [IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChartDataWorkbook).
-5. Xóa series và category mặc định.
+5. Xóa các series và category mặc định.
 6. Thêm series và category mới.
-7. Thêm dữ liệu biểu đồ mới cho series.
+7. Thêm dữ liệu biểu đồ mới cho các series.
 8. Thêm các điểm mới cho biểu đồ và thêm màu tùy chỉnh cho các sector của biểu đồ tròn.
-9. Đặt nhãn cho series.
+9. Đặt nhãn cho các series.
 10. Đặt đường dẫn cho nhãn series.
-11. Đặt góc quay cho các slide biểu đồ tròn.
-12. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+11. Đặt góc xoay cho các slide biểu đồ tròn.
+12. Ghi bản thuyết trình đã sửa thành file PPTX
 
 Mã Java này cho bạn thấy cách tạo biểu đồ tròn:
 
 ```java
-// Khởi tạo một lớp presentation đại diện cho tệp PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Khởi tạo một lớp trình chiếu đại diện cho tệp PPTX
 Presentation pres = new Presentation();
 try {
     // Truy cập slide đầu tiên
@@ -287,16 +293,13 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Đặt series đầu tiên hiển thị giá trị
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Đặt chỉ mục cho sheet dữ liệu biểu đồ
+    // Đặt chỉ mục cho worksheet dữ liệu biểu đồ
     int defaultWorksheetIndex = 0;
     
-    // Lấy worksheet dữ liệu biểu đồ
+    // Lấy worksheet dữ liệu của biểu đồ
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Xóa series và category được tạo mặc định
+    // Xóa các series và category được tạo mặc định
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -308,13 +311,13 @@ try {
     // Thêm series mới
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // Điền dữ liệu cho series
+    //Điền dữ liệu cho series
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Không hoạt động trong phiên bản mới
-    // Thêm các điểm mới và đặt màu cho sector
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -322,7 +325,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // Đặt viền cho Sector
+    // Đặt đường viền cho Sector
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -333,7 +336,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // Đặt viền cho Sector
+    // Đặt đường viền cho Sector
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -344,14 +347,14 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // Đặt viền cho Sector
+    // Đặt đường viền cho Sector
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Tạo nhãn tùy chỉnh cho từng category cho series mới
+    // Tạo nhãn tùy chỉnh cho mỗi category cho series mới
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -369,32 +372,30 @@ try {
     // Hiển thị Leader Lines cho biểu đồ
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Đặt góc quay cho các sector của biểu đồ Pie
+    // Đặt góc xoay cho các sector của biểu đồ tròn
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // Lưu bản trình bày kèm biểu đồ
+    // Lưu bản trình chiếu cùng biểu đồ
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Tạo biểu đồ đường**
+### **Tạo Biểu Đồ Đường (Line)**
 
-Biểu đồ đường (còn gọi là line graph) thích hợp trong các tình huống bạn muốn thể hiện sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh nhiều dữ liệu cùng lúc, theo dõi sự thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series dữ liệu, v.v.
+Biểu đồ đường (còn gọi là line graph) thích hợp trong các tình huống bạn muốn minh họa sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh nhiều dữ liệu cùng lúc, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series dữ liệu, v.v.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation).
-1. Lấy tham chiếu đến slide qua chỉ mục.
+1. Lấy tham chiếu của slide qua chỉ mục.
 1. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là `ChartType.Line`).
-1. Truy cập IChartDataWorkbook.
-1. Xóa series và category mặc định.
-1. Thêm series và category mới.
-1. Thêm dữ liệu biểu đồ mới cho series.
-1. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+1. Ghi bản thuyết trình đã sửa thành file PPTX
 
 Mã Java này cho bạn thấy cách tạo biểu đồ đường:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -405,37 +406,48 @@ try {
 }
 ```
 
-Theo mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng nét gạch ngang, bạn có thể chỉ định kiểu gạch ngang mong muốn như sau:
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dấu gạch, bạn có thể chỉ định loại dash mong muốn như sau:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-### **Tạo biểu đồ cây bản đồ**
+### **Tạo Biểu Đồ Cây (Tree Map)**
 
-Biểu đồ cây bản đồ thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và (đồng thời) nhanh chóng thu hút sự chú ý tới các mục đóng góp lớn cho mỗi danh mục.
+Biểu đồ cây thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và (đồng thời) nhanh chóng thu hút sự chú ý đến các mục đóng góp lớn cho mỗi danh mục. 
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Bước:</em> Tạo biểu đồ Tree Map trong Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Tree Map trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Tree Map trong Java</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide qua chỉ mục.
+2. Lấy tham chiếu của slide qua chỉ mục.
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).TreeMap).
 4. Truy cập dữ liệu biểu đồ qua [IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChartDataWorkbook).
-5. Xóa series và category mặc định.
+5. Xóa các series và category mặc định.
 6. Thêm series và category mới.
-7. Thêm dữ liệu biểu đồ mới cho series.
-8. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+7. Thêm dữ liệu biểu đồ mới cho các series.
+8. Ghi bản thuyết trình đã sửa thành file PPTX
 
-Mã Java này cho bạn thấy cách tạo biểu đồ Tree Map:
+Mã Java này cho bạn thấy cách tạo biểu đồ cây:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -488,25 +500,27 @@ try {
 }
 ```
 
-### **Tạo biểu đồ chứng khoán**
+### **Tạo Biểu Đồ Cổ Phiếu (Stock)**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Bước:</em> Tạo biểu đồ Stock trong Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Stock trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Stock trong Java</strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart in Java</strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide bằng chỉ mục.
+2. Lấy tham chiếu của slide qua chỉ mục.
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).OpenHighLowClose).
 4. Truy cập dữ liệu biểu đồ qua [IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChartDataWorkbook).
-5. Xóa series và category mặc định.
+5. Xóa các series và category mặc định.
 6. Thêm series và category mới.
-7. Thêm dữ liệu cho series.
-8. Chỉ định định dạng HiLowLines.
-9. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+7. Thêm dữ liệu biểu đồ mới cho các series.
+8. Xác định định dạng HiLowLines.
+9. Ghi bản thuyết trình đã sửa thành file PPTX
 
-Mã Java mẫu dùng để tạo biểu đồ Stock:
+Mẫu mã Java dùng để tạo biểu đồ cổ phiếu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -560,24 +574,26 @@ try {
 }
 ```
 
-### **Tạo biểu đồ hộp và râu**
+### **Tạo Biểu Đồ Hộp và Râu (Box and Whisker)**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Bước:</em> Tạo biểu đồ Box and Whisker trong Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Box and Whisker trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Box and Whisker trong Java</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart in Java</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide qua chỉ mục.
+2. Lấy tham chiếu của slide qua chỉ mục.
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).BoxAndWhisker).
 4. Truy cập dữ liệu biểu đồ qua [IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChartDataWorkbook).
-5. Xóa series và category mặc định.
+5. Xóa các series và category mặc định.
 6. Thêm series và category mới.
-7. Thêm dữ liệu cho series.
-8. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+7. Thêm dữ liệu biểu đồ mới cho các series.
+8. Ghi bản thuyết trình đã sửa thành file PPTX
 
-Mã Java này cho bạn thấy cách tạo biểu đồ Box and Whisker:
+Mã Java này cho bạn thấy cách tạo biểu đồ hộp và râu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -615,21 +631,23 @@ try {
 }
 ```
 
-### **Tạo biểu đồ phễu**
+### **Tạo Biểu Đồ Phễu (Funnel)**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Bước:</em> Tạo biểu đồ Funnel trong Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Funnel trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Funnel trong Java</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart in Java</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart in Java</strong></a>
 
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide qua chỉ mục.
+2. Lấy tham chiếu của slide qua chỉ mục.
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).Funnel).
-4. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+4. Ghi bản thuyết trình đã sửa thành file PPTX
 
-Mã Java cho bạn thấy cách tạo biểu đồ Funnel:
+Mã Java cho thấy cách tạo biểu đồ phễu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -662,20 +680,22 @@ try {
 }
 ```
 
-### **Tạo biểu đồ Sunburst**
+### **Tạo Biểu Đồ Năng Lượng Mặt Trời (Sunburst)**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Bước:</em> Tạo biểu đồ Sunburst trong Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Sunburst trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Sunburst trong Java</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart in Java</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide qua chỉ mục.
+2. Lấy tham chiếu của slide qua chỉ mục.
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).sunburst).
-4. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+4. Ghi bản thuyết trình đã sửa thành file PPTX
 
-Mã Java này cho bạn thấy cách tạo biểu đồ Sunburst:
+Mã Java này cho bạn thấy cách tạo biểu đồ năng lượng mặt trời:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -726,23 +746,25 @@ try {
 }
 ```
 
-### **Tạo biểu đồ histogram**
+### **Tạo Biểu Đồ Histogram**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Bước:</em> Tạo biểu đồ Histogram trong Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Histogram trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Histogram trong Java</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart in Java</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide qua chỉ mục.
+2. Lấy tham chiếu của slide qua chỉ mục.
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).Histogram).
 4. Truy cập dữ liệu biểu đồ qua [IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChartDataWorkbook).
-5. Xóa series và category mặc định.
+5. Xóa các series và category mặc định.
 6. Thêm series và category mới.
-7. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+7. Ghi bản thuyết trình đã sửa thành file PPTX
 
 Mã Java này cho bạn thấy cách tạo biểu đồ histogram:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -760,7 +782,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -768,20 +790,22 @@ try {
 }
 ```
 
-### **Tạo biểu đồ radar**
+### **Tạo Biểu Đồ Radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Bước:</em> Tạo biểu đồ Radar trong Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Radar trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Radar trong Java</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart in Java</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide qua chỉ mục. 
-3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ mong muốn (`ChartType.Radar` trong trường hợp này).
-4. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX
+2. Lấy tham chiếu của slide qua chỉ mục. 
+3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ bạn muốn (`ChartType.Radar` trong trường hợp này).
+4. Ghi bản thuyết trình đã sửa thành file PPTX
 
-Mã Java này cho bạn thấy cách tạo biểu đồ Radar:
+Mã Java này cho bạn thấy cách tạo biểu đồ radar:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -791,24 +815,26 @@ try {
 }
 ```
 
-### **Tạo biểu đồ đa danh mục**
+### **Tạo Biểu Đồ Đa Danh Mục (Multi‑Category)**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Bước:</em> Tạo biểu đồ Multi Category trong Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Multi Category trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Multi Category trong Java</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart in Java</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart in Java</strong></a>
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) .
-2. Lấy tham chiếu đến slide qua chỉ mục. 
+2. Lấy tham chiếu của slide qua chỉ mục. 
 3. Thêm một biểu đồ với dữ liệu mặc định cùng loại mong muốn ([ChartType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ChartType).ClusteredColumn).
 4. Truy cập dữ liệu biểu đồ qua [IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IChartDataWorkbook).
-5. Xóa series và category mặc định.
+5. Xóa các series và category mặc định.
 6. Thêm series và category mới.
-7. Thêm dữ liệu biểu đồ mới cho series.
-8. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.
+7. Thêm dữ liệu biểu đồ mới cho các series.
+8. Ghi bản thuyết trình đã sửa thành file PPTX.
 
 Mã Java này cho bạn thấy cách tạo biểu đồ đa danh mục:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -848,24 +874,26 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // Lưu bản trình bày với biểu đồ
+    // Lưu bản trình chiếu có biểu đồ
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Tạo biểu đồ bản đồ**
+### **Tạo Biểu Đồ Bản Đồ (Map)**
 
-Biểu đồ bản đồ là hình ảnh trực quan của một khu vực chứa dữ liệu. Biểu đồ bản đồ thích hợp để so sánh dữ liệu hoặc giá trị qua các khu vực địa lý.
+Biểu đồ bản đồ là một hình ảnh trực quan của một khu vực chứa dữ liệu. Biểu đồ bản đồ thích hợp để so sánh dữ liệu hoặc giá trị trên các khu vực địa lý.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Bước:</em> Tạo biểu đồ Map trong Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Map trong Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Map trong Java</strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart in Java</strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart in Java</strong></a>
 
 Mã Java này cho bạn thấy cách tạo biểu đồ bản đồ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -875,15 +903,18 @@ try {
 }
 ```
 
-### **Tạo biểu đồ kết hợp**
+### **Tạo Biểu Đồ Kết Hợp (Combination)**
 
-Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
+Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị duy nhất. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác nhau giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
 
 ![The combination chart](combination_chart.png)
 
-Mã Java sau đây cho thấy cách tạo biểu đồ kết hợp như trên trong một bản PowerPoint:
+Mã Java sau đây cho thấy cách tạo biểu đồ kết hợp như trên trong một bản thuyết trình PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -918,7 +949,7 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Xóa series và category được tạo mặc định.
+    // Xóa các series và category được tạo mặc định.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -1028,32 +1059,35 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 }
 ```
 
-## **Cập nhật biểu đồ**
+## **Cập Nhật Biểu Đồ**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Bước:</em> Cập nhật biểu đồ PowerPoint trong Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Bước:</em> Cập nhật biểu đồ Presentation trong Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Bước:</em> Cập nhật biểu đồ PowerPoint Presentation trong Java</strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in Java</strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in Java</strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart in Java</strong></a>
 
-1. Khởi tạo một lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) đại diện cho bản trình bày chứa biểu đồ cần cập nhật. 
-2. Lấy tham chiếu đến slide bằng chỉ mục.
+1. Khởi tạo một lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) đại diện cho bản thuyết trình chứa biểu đồ cần cập nhật. 
+2. Lấy tham chiếu của một slide bằng cách sử dụng Index của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
-4. Truy cập worksheet dữ liệu biểu đồ.
-5. Sửa đổi dữ liệu series bằng cách thay đổi giá trị series.
-6. Thêm series mới và điền dữ liệu vào nó.
-7. Ghi bản trình bày đã chỉnh sửa thành tệp PPTX.
+4. Truy cập worksheet dữ liệu của biểu đồ.
+5. Sửa đổi dữ liệu series của biểu đồ bằng cách thay đổi giá trị series.
+6. Thêm một series mới và điền dữ liệu vào đó.
+7. Ghi bản thuyết trình đã sửa thành file PPTX.
 
-Mã Java này cho bạn thấy cách cập nhật biểu đồ:
+Mã Java này cho bạn thấy cách cập nhật một biểu đồ:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Mở bản trình chiếu chứa biểu đồ cần cập nhật
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     // Truy cập slide đầu tiên
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Lấy biểu đồ với dữ liệu mặc định
+    // Lấy biểu đồ từ slide
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Đặt chỉ mục cho sheet dữ liệu biểu đồ
+    // Đặt chỉ mục của sheet dữ liệu biểu đồ
     int defaultWorksheetIndex = 0;
 
     // Lấy worksheet dữ liệu biểu đồ
@@ -1067,7 +1101,7 @@ try {
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // Bây giờ cập nhật dữ liệu series
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Chỉnh sửa tên series
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Sửa tên series
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
@@ -1076,7 +1110,7 @@ try {
     series = chart.getChartData().getSeries().get_Item(1);
 
     // Bây giờ cập nhật dữ liệu series
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Chỉnh sửa tên series
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Sửa tên series
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1094,27 +1128,30 @@ try {
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Lưu bản trình bày kèm biểu đồ
+    // Lưu bản trình chiếu cùng biểu đồ
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Đặt phạm vi dữ liệu cho biểu đồ**
+## **Đặt Phạm Vi Dữ Liệu cho Biểu Đồ**
 
-Để đặt phạm vi dữ liệu cho biểu đồ, thực hiện các bước sau:
+Để đặt phạm vi dữ liệu cho một biểu đồ, thực hiện các bước sau:
 
-1. Khởi tạo một lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) đại diện cho bản trình bày chứa biểu đồ.
-2. Lấy tham chiếu đến slide qua chỉ mục.
+1. Khởi tạo một lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) đại diện cho bản thuyết trình chứa biểu đồ.
+2. Lấy tham chiếu của slide qua chỉ mục.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
 4. Truy cập dữ liệu biểu đồ và đặt phạm vi.
-5. Lưu bản trình bày đã chỉnh sửa thành tệp PPTX.
+5. Lưu bản thuyết trình đã sửa thành file PPTX.
 
-Mã Java này cho bạn thấy cách đặt phạm vi dữ liệu cho biểu đồ:
+Mã Java này cho bạn thấy cách đặt phạm vi dữ liệu cho một biểu đồ:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Mở bản trình chiếu chứa biểu đồ
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1127,12 +1164,14 @@ try {
 }
 ```
 
-## **Sử dụng dấu chấm mặc định trong biểu đồ**
-Khi bạn sử dụng dấu chấm mặc định trong biểu đồ, mỗi series sẽ tự động nhận một ký hiệu dấu chấm mặc định khác nhau.
+## **Sử Dụng Các Dấu Mặc Định trong Biểu Đồ**
+Khi bạn sử dụng dấu mặc định trong biểu đồ, mỗi series sẽ tự động nhận các ký hiệu dấu khác nhau.
 
-Mã Java này cho bạn thấy cách tự động đặt dấu chấm cho series:
+Mã Java này cho bạn thấy cách tự động đặt dấu cho một series biểu đồ:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1173,20 +1212,20 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Aspose.Slides hỗ trợ những loại biểu đồ nào?**
+### Các loại biểu đồ nào được Aspose.Slides hỗ trợ?
 
-Aspose.Slides hỗ trợ một loạt các [chart types](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/), bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều hơn nữa. Sự linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu.
+Aspose.Slides hỗ trợ một loạt các [chart types](https://reference.aspose.com/slides/vi/java/com.aspose.slides/charttype/), bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều hơn nữa. Tính linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
-**Làm thế nào để thêm biểu đồ mới vào slide?**
+### Làm thế nào để thêm một biểu đồ mới vào slide?
 
-Để thêm biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ mục, sau đó gọi phương thức thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
+Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ mục và sau đó gọi phương thức thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quá trình này tích hợp biểu đồ trực tiếp vào bản thuyết trình của bạn.
 
-**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
+### Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?
 
-Bạn có thể cập nhật dữ liệu biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdataworkbook/)), xóa bất kỳ series và category mặc định nào, và sau đó thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép làm mới biểu đồ để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([IChartDataWorkbook](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ichartdataworkbook/)), xóa bất kỳ series và category mặc định nào, rồi thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ để phản ánh dữ liệu mới nhất.
 
-**Có thể tùy chỉnh giao diện của biểu đồ không?**
+### Có thể tùy chỉnh giao diện của biểu đồ không?
 
-Có, Aspose.Slides cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các [formatting elements](/slides/vi/java/chart-entities/) khác để điều chỉnh giao diện biểu đồ cho phù hợp với yêu cầu thiết kế cụ thể của bạn.
+Có, Aspose.Slides cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các [formatting elements](/slides/vi/java/chart-entities/) khác để điều chỉnh giao diện biểu đồ theo yêu cầu thiết kế cụ thể của bạn.

@@ -21,7 +21,7 @@ keywords:
 - OpenDocument
 - C++
 - Aspose.Slides
-description: "輕鬆在 C++ 中使用 Aspose.Slides 將 PDF 和 HTML 文件匯入 PowerPoint 與 OpenDocument 簡報，實現無縫且高效的投影片處理。"
+description: "使用 Aspose.Slides，輕鬆在 C++ 中將 PDF 與 HTML 文件匯入 PowerPoint 和 OpenDocument 簡報，實現無縫且高效能的投影片處理。"
 ---
 ## **簡介**
 
@@ -33,34 +33,48 @@ description: "輕鬆在 C++ 中使用 Aspose.Slides 將 PDF 和 HTML 文件匯�
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. 建立 Presentation 類別的物件。  
-2. 呼叫 AddFromPdf() 方法並傳入 PDF 檔案。  
-3. 使用 Save() 方法將檔案儲存為 PowerPoint 格式。
+1. 實例化 Presentation 類別的物件。 
+2. 呼叫 [AddFromPdf()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.slide_collection#a966c00d26b741a6c56e424d2f0d689a5) 方法並傳入 PDF 檔案。 
+3. 使用 [Save()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法將檔案儲存為 PowerPoint 格式。
 
-以下 C++ 程式碼示範了 PDF 轉換為 PowerPoint 的操作：
+以下 C++ 程式碼示範 PDF 轉換為 PowerPoint 的操作：
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
     
 pres->get_Slides()->AddFromPdf(u"InputPDF.pdf");
 pres->Save(u"OutputPresentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert  title="提示" color="primary" %}} 
-您可能想要試用 **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/zh-hant/import/pdf-to-powerpoint) 網路應用程式，因為它是此處所描述流程的即時實作。 
+{{% alert  title="Tip" color="info" %}} 
+您可能想要檢視 **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/zh-hant/import/pdf-to-powerpoint) 網路應用程式，因為它即是此處所述流程的即時實作。 
 {{% /alert %}} 
 
 ## **從 HTML 匯入 PowerPoint**
 
 在此情況下，您可以將 HTML 文件轉換為 PowerPoint 簡報。
 
-1. 建立 Presentation 類別的執行個體。  
-2. 呼叫 AddFromHtml() 方法並傳入 HTML 檔案。  
-3. 使用 Save() 方法將檔案儲存為 PowerPoint 格式。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation/) 類別的實例。 
+2. 呼叫 [AddFromHtml()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.slide_collection#ad4337f6be235c230d5d422a6799ef965) 方法並傳入 HTML 檔案。 
+3. 使用 [Save()](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法將檔案儲存為 PowerPoint 格式。
 
-以下 C++ 程式碼示範了 HTML 轉換為 PowerPoint 的操作：
+以下 C++ 程式碼示範 HTML 轉換為 PowerPoint 的操作：
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto presentation = System::MakeObject<Presentation>();
 
 {
@@ -71,7 +85,7 @@ auto presentation = System::MakeObject<Presentation>();
 presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert title="注意" color="warning" %}} 
+{{% alert title="Note" color="warning" %}} 
 您也可以使用 Aspose.Slides 將 HTML 轉換為其他常見檔案格式： 
 
 * [HTML to image](https://products.aspose.com/slides/zh-hant/cpp/conversion/html-to-image/)
@@ -83,6 +97,6 @@ presentation->Save(u"MyPresentation.pptx", SaveFormat::Pptx);
 
 ## **常見問題**
 
-**匯入 PDF 時表格是否會被保留，且其偵測能否改進？**
+### 匯入 PDF 時表格是否會被保留下來，且其偵測能否改善？
 
-匯入過程中可以偵測表格；PdfImportOptions 包含 set_DetectTables 方法，可啟用表格辨識。其效能取決於 PDF 的結構。
+在匯入過程中可偵測表格；[PdfImportOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.import/pdfimportoptions/) 包含一個 [set_DetectTables](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.import/pdfimportoptions/set_detecttables/) 方法，可啟用表格辨識。其效果取決於 PDF 的結構。

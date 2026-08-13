@@ -1,37 +1,42 @@
 ---
-title: مدیریت کتاب‌کارهای نمودار در ارائه‌ها در .NET
-linktitle: کتاب‌کار نمودار
+title: مدیریت کارنامه‌های نمودار در ارائه‌ها در .NET
+linktitle: کارنامه نمودار
 type: docs
 weight: 70
 url: /fa/net/chart-workbook/
 keywords:
-- کتاب‌کار نمودار
+- کارنامه نمودار
 - داده‌های نمودار
-- سلول کتاب‌کار
+- سلول کارنامه
 - برچسب داده
-- کاربرگ
+- برگه کاری
 - منبع داده
-- کتاب‌کار خارجی
-- داده‌های خارجی
-- PowerPoint
+- کارنامه خارجی
+- داده خارجی
+- کش نمودار
+- بازیابی کارنامه
+- پاورپوینت
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides برای .NET را کشف کنید: به سادگی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
+description: "Aspose.Slides برای .NET را کشف کنید: به راحتی کارنامه‌های نمودار را در قالب‌های پاورپوینت و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
 ---
 ## **بررسی کلی**
 
-این مقاله نحوه کار با کارکت‌های نمودار در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب کار خوانده و نوشت، از سلول‌های کتاب کار به‌عنوان برچسب‌های داده نمودار استفاده کرد، به مجموعه‌های کاربرگ دسترسی یافت و نوع منبع داده برای مقادیر نمودار را مشخص کرد.
+این مقاله توضیح می‌دهد که چگونه با کارنامه‌های نمودار در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کارنامه بخوانید و بنویسید، از سلول‌های کارنامه به عنوان برچسب‌های داده نمودار استفاده کنید، به مجموعه‌های برگه‌های کاری دسترسی پیدا کنید و نوع منبع داده برای مقادیر نمودار را مشخص کنید.
 
-همچنین کار با کتاب‌های کار خارجی به‌عنوان منابع داده نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب کار خارجی را ایجاد و اختصاص داد، مسیر کتاب کار خارجی مرتبط با یک نمودار را دریافت کرد و داده‌های نمودار را زمانی که کتاب کار در دسترس است ویرایش کرد.
+همچنین کار با کارنامه‌های خارجی به عنوان منابع دادهٔ نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کارنامهٔ خارجی را ایجاد و تخصیص دهید، مسیر یک کارنامهٔ خارجی پیوند داده‌شده به یک نمودار را بازیابی کنید و داده‌های نمودار را زمانی که کارنامه در دسترس باشد ویرایش کنید.
 
-## **خواندن و نوشتن داده‌های نمودار از یک کتاب کار**
-
-Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdata/writeworkbookstream/) را ارائه می‌دهد که امکان خواندن و نوشتن کتاب کارهای داده‌های نمودار (شامل داده‌های نمودار ویرایش‌شده با Aspose.Cells) را فراهم می‌کند. **نکته** که داده‌های نمودار باید به همان شکل سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
+## **خواندن و نوشتن داده‌های نمودار از یک کارنامه**
+Aspose.Slides متدهای [ReadWorkbookStream](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdata/readworkbookstream/) و [WriteWorkbookStream](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdata/writeworkbookstream/) را فراهم می‌کند که به شما امکان می‌دهد داده‌های کارنامه نمودار (حاوی داده‌های نمودار ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **نکته** این است که داده‌های نمودار باید به همان روش سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
 
 این کد C# یک عملیات نمونه را نشان می‌دهد:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation("chart.pptx"))
 {
     Chart chart = (Chart) pres.Slides[0].Shapes[0];
@@ -47,21 +52,26 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-## **تنظیم یک سلول کتاب کار به عنوان برچسب داده نمودار**
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.
-1. یک نمودار حبابی با برخی داده‌ها اضافه کنید.
-1. به سری‌های نمودار دسترسی پیدا کنید.
-1. سلول کتاب کار را به‌عنوان برچسب داده تنظیم کنید.
+## **تنظیم یک سلول WorkBook به عنوان برچسب داده نمودار**
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.  
+1. مرجع اسلاید را از طریق ایندکس آن دریافت کنید.  
+1. یک نمودار حبابی با برخی داده‌ها اضافه کنید.  
+1. به سری‌های نمودار دسترسی پیدا کنید.  
+1. سلول کارنامه را به‌عنوان برچسب داده تنظیم کنید.  
 1. ارائه را ذخیره کنید.
 
-این کد C# به شما نشان می‌دهد چگونه یک سلول کتاب کار را به عنوان برچسب داده نمودار تنظیم کنید:
+این کد C# نشان می‌دهد چگونه یک سلول کارنامه را به‌عنوان برچسب دادهٔ نمودار تنظیم کنید:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است ایجاد می‌کند 
+// یک نمونه از کلاس Presentation که نمایندهٔ فایل ارائه است را ایجاد می‌کند
+
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -83,10 +93,13 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 }
 ```
 
-## **مدیریت کاربرگ‌ها**
+## **مدیریت برگه‌های کاری**
+این کد C# عملی را نشان می‌دهد که در آن ویژگی [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) برای دسترسی به مجموعهٔ برگه‌های کاری استفاده می‌شود:
 
-این کد C# یک عملیات را نشان می‌دهد که در آن ویژگی [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) برای دسترسی به مجموعه کاربرگ‌ها استفاده می‌شود:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
@@ -97,9 +110,13 @@ using (Presentation pres = new Presentation())
 ```
 
 ## **مشخص کردن نوع منبع داده**
+این کد C# نشان می‌دهد چگونه برای یک منبع داده نوعی را مشخص کنید:
 
-این کد C# نحوه مشخص کردن نوع برای منبع داده را نشان می‌دهد:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -115,10 +132,13 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **تشخیص قالب‌های پشتیبانی‌نشده کتاب کار توکار**
+## **شناسایی قالب‌های کارنامه تعبیه‌شدهٔ پشتیبانی‌نشده**
+Aspose.Slides از قالب کارنامهٔ باینری Excel (.xlsb) که می‌تواند در برخی نمودارها تعبیه شود، پشتیبانی نمی‌کند. می‌توانید از ویژگی `EmbeddedWorkbookType` در [IChartData](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdata/) همراه با شمارش‌گر [WorkbookType](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/workbooktype/) برای شناسایی قالب‌های پشتیبانی‌نشده استفاده کنید و آن نمودارها را نادیده بگیرید.
 
-Aspose.Slides از قالب کتاب کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها توکار باشد، پشتیبانی نمی‌کند. می‌توانید از ویژگی `EmbeddedWorkbookType` در [IChartData](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdata/) به همراه enumeration [WorkbookType](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/workbooktype/) برای تشخیص قالب‌های پشتیبانی‌نشده استفاده کنید و آن نمودارها را نادیده بگیرید.
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -132,26 +152,30 @@ using (var presentation = new Presentation("sample.pptx"))
         if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
             chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
         {
-            // دفتر کار توکار در قالب .xlsb است که پشتیبانی نمی‌شود.
+            // کارنامه تعبیه‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
             continue;
         }
 
-        // داده‌های دفتر کار نمودار را در اینجا بخوانید یا تغییر دهید.
+        // داده‌های کارنامهٔ نمودار را در اینجا بخوانید یا تغییر دهید.
     }
 }
 ```
 
-## **کتاب کار خارجی**
-
-{{% alert color="primary" %}} 
-در [Aspose.Slides 19.4](https://docs.aspose.com/slides/fa/net/aspose-slides-for-net-19-4-release-notes/)، ما پشتیبانی از کتاب‌های کار خارجی به‌عنوان منبع داده برای نمودارها را پیاده‌سازی کردیم.
+## **کارنامهٔ خارجی**
+{{% alert color="info" %}} 
+در [Aspose.Slides 19.4](https://docs.aspose.com/slides/fa/net/aspose-slides-for-net-19-4-release-notes/)، ما پشتیبانی از کارنامه‌های خارجی را به‌عنوان منبع داده برای نمودارها پیاده‌سازی کردیم.
 {{% /alert %}} 
 
-### **ایجاد یک کتاب کار خارجی**
-با استفاده از متدهای **`ReadWorkbookStream`** و **`SetExternalWorkbook`** می‌توانید یک کتاب کار خارجی را از ابتدا ایجاد کنید یا یک کتاب کار داخلی را به‌صورت خارجی تبدیل کنید.
+### **ایجاد یک کارنامهٔ خارجی**
+با استفاده از متدهای **`ReadWorkbookStream`** و **`SetExternalWorkbook`** می‌توانید یا یک کارنامهٔ خارجی را از ابتدا ایجاد کنید یا یک کارنامهٔ داخلی را به‌صورت خارجی تبدیل کنید.
 
-این کد C# فرآیند ایجاد کتاب کار خارجی را نشان می‌دهد:
+این کد C# فرآیند ایجاد کارنامهٔ خارجی را نشان می‌دهد:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     const string workbookPath = "externalWorkbook1.xlsx";
@@ -169,13 +193,18 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **تنظیم یک کتاب کار خارجی**
-با استفاده از متد **`SetExternalWorkbook`** می‌توانید یک کتاب کار خارجی را به عنوان منبع داده یک نمودار اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کتاب کار خارجی استفاده شود (اگر کتاب کار جابجا شده باشد).
+### **تنظیم یک کارنامهٔ خارجی**
+با استفاده از متد **`SetExternalWorkbook`** می‌توانید یک کارنامهٔ خارجی را به یک نمودار به‌عنوان منبع دادهٔ آن اختصاص دهید. این متد همچنین می‌تواند برای به‌روزرسانی مسیر کارنامهٔ خارجی (در صورت انتقال آن) استفاده شود.
 
-اگرچه نمی‌توانید داده‌های موجود در کتاب‌های کاری که در مکان‌ها یا منابع از راه دور ذخیره شده‌اند را ویرایش کنید، همچنان می‌توانید از این کتاب‌های کار به‌عنوان منبع داده خارجی استفاده کنید. اگر مسیر نسبی برای کتاب کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
+در حالی که نمی‌توانید داده‌های موجود در کارنامه‌های ذخیره‌شده در مکان‌های دوردست یا منابع را ویرایش کنید، همچنان می‌توانید از چنین کارنامه‌هایی به‌عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای یک کارنامهٔ خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
 
-این کد C# نشان می‌دهد چگونه یک کتاب کار خارجی را تنظیم کنید:
+این کد C# نشان می‌دهد چگونه یک کارنامهٔ خارجی تنظیم کنید:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // مسیر پوشه اسناد.
 using (Presentation pres = new Presentation())
 {
@@ -183,7 +212,7 @@ using (Presentation pres = new Presentation())
     IChartData chartData = chart.ChartData;
                     
     chartData.SetExternalWorkbook(Path.GetFullPath("externalWorkbook.xlsx"));
-              
+                  
 
     chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
     chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B2"));
@@ -197,12 +226,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-پارامتر `ChartData` (در زیر متد `SetExternalWorkbook`) برای مشخص کردن این که آیا کتاب کار اکسل بارگذاری شود یا نه استفاده می‌شود. 
+پارامتر `ChartData` (در زیر متد `SetExternalWorkbook`) برای تعیین این‌که آیا یک کارنامهٔ اکسل بارگذاری شود یا خیر، استفاده می‌شود. 
 
-* هنگامی که مقدار `ChartData` به `false` تنظیم شود، فقط مسیر کتاب کار به‌روز می‌شود—داده‌های نمودار از کتاب کار هدف بارگذاری یا به‌روزرسانی نمی‌شوند. می‌توانید از این تنظیم در شرایطی که کتاب کار هدف وجود نداشته یا در دسترس نباشد، استفاده کنید. 
-* هنگامی که مقدار `ChartData` به `true` تنظیم شود، داده‌های نمودار از کتاب کار هدف به‌روزرسانی می‌شوند.
+* وقتی مقدار `ChartData` به `false` تنظیم شود، فقط مسیر کارنامه به‌روز می‌شود—داده‌های نمودار بارگذاری یا به‌روز نمی‌شوند. می‌توانید این تنظیم را زمانی استفاده کنید که کارنامه هدف وجود نداشته باشد یا در دسترس نباشد.  
+* وقتی مقدار `ChartData` به `true` تنظیم شود، داده‌های نمودار از کارنامه هدف به‌روز می‌شوند.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -214,16 +247,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **دریافت مسیر کتاب کار منبع داده خارجی یک نمودار**
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق اندیس آن دریافت کنید.
-1. یک شی برای شکل نمودار ایجاد کنید.
-1. یک شی برای نوع منبع (`ChartDataSourceType`) که نمایانگر منبع داده نمودار است، ایجاد کنید.
-1. شرط مرتبط را بر اساس این‌که نوع منبع با نوع منبع داده کتاب کار خارجی یکسان باشد، مشخص کنید.
+### **دریافت مسیر کارنامهٔ منبع دادهٔ خارجی یک نمودار**
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.  
+1. مرجع اسلاید را از طریق ایندکس آن دریافت کنید.  
+1. شیء برای شکل نمودار ایجاد کنید.  
+1. شیء برای نوع منبع (`ChartDataSourceType`) که نمایانگر منبع دادهٔ نمودار است ایجاد کنید.  
+1. شرایط مرتبط را بر اساس اینکه نوع منبع همان نوع منبع دادهٔ کارنامهٔ خارجی باشد، مشخص کنید.
 
 این کد C# عملیات را نشان می‌دهد:
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[1];
@@ -240,11 +277,15 @@ using (Presentation pres = new Presentation("pres.pptx"))
 ```
 
 ### **ویرایش داده‌های نمودار**
+می‌توانید داده‌های کارنامه‌های خارجی را همان‌گونه که داده‌های کارنامه‌های داخلی را ویرایش می‌کنید، تغییر دهید. وقتی یک کارنامهٔ خارجی قابل بارگذاری نباشد، یک استثنا پرتاب می‌شود.
 
-می‌توانید داده‌های موجود در کتاب‌های کار خارجی را همانند تغییر محتویات کتاب‌های کار داخلی ویرایش کنید. هنگامی که یک کتاب کار خارجی قابل بارگذاری نباشد، یک استثنا صادر می‌شود.
+این کد C# پیاده‌سازی فرآیند توصیف‌شده را نشان می‌دهد:
 
-این کد C# پیاده‌سازی فرآیند توصیف‌شده است:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
@@ -256,28 +297,48 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
+### **بازآوری یک کارنامه از کش نمودار**
+اگر یک نمودار از کارنامهٔ خارجی استفاده کند که فقدان یا در دسترس نباشد، Aspose.Slides می‌تواند کارنامهٔ نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک [LoadOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/) ایجاد کنید، [SpreadsheetOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/loadoptions/spreadsheetoptions/) آن را پیکربندی کنید و [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) را قبل از باز کردن ارائه به `true` تنظیم کنید.
+
+مثال C# زیر ارائه‌ای را باز می‌کند که نمودار آن به یک کارنامهٔ خارجی ناموجود اشاره دارد و داده‌های بازیابی‌شده را از طریق [IChart.ChartData](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichart/chartdata/) و [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdata/chartdataworkbook/) دسترسی می‌دهد:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        RecoverWorkbookFromChartCache = true
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+var chart = (IChart)presentation.Slides[0].Shapes[0];
+var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
+
+// Read or modify the recovered workbook data here.
+```
+
+اگر کارنامهٔ خارجی در دسترس نباشد و بازآوری غیرفعال باشد، Aspose.Slides یک `InvalidOperationException` پرتاب می‌کند. بازآوری را فقط زمانی فعال کنید که استفاده از داده‌های کش‌شدهٔ نمودار یک گزینهٔ پذیرش‌پذیر باشد، زیرا کش ممکن است شامل تغییرات اعمال‌شده به کارنامهٔ خارجی پس از آخرین به‌روزرسانی ارائه نباشد.
+
 ## **سوالات متداول**
+**آیا می‌توانم تعیین کنم که آیا یک نمودار خاص به یک کارنامهٔ خارجی یا توکار پیوند دارد؟**  
+بله. یک نمودار دارای [نوع منبع داده](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/datasourcetype/) و [مسیر به یک کارنامهٔ خارجی](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/externalworkbookpath/) است؛ اگر منبع یک کارنامهٔ خارجی باشد، می‌توانید مسیر کامل را بخوانید تا اطمینان حاصل کنید که یک فایل خارجی استفاده می‌شود.
 
-**آیا می‌توانم تعیین کنم که یک نمودار خاص به یک کتاب کار خارجی یا توکار لینک شده است؟**
+**آیا مسیرهای نسبی به کارنامه‌های خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**  
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. این برای قابلیت حمل پروژه مفید است؛ اما توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
 
-بله. یک نمودار دارای یک [نوع منبع داده](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/datasourcetype/) و یک [مسیر به کتاب کار خارجی](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/externalworkbookpath/) است؛ اگر منبع یک کتاب کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا اطمینان حاصل کنید که از یک فایل خارجی استفاده می‌شود.
+**آیا می‌توانم از کارنامه‌هایی که در منابع/اشتراک‌های شبکه قرار دارند استفاده کنم؟**  
+بله، چنین کارنامه‌هایی می‌توانند به‌عنوان منبع دادهٔ خارجی استفاده شوند. اما ویرایش مستقیم کارنامه‌های راه دور از Aspose.Slides پشتیبانی نمی‌شود—آن‌ها فقط می‌توانند به‌عنوان منبع استفاده شوند.
 
-**آیا مسیرهای نسبی به کتاب‌های کار خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
+**آیا Aspose.Slides هنگام ذخیرهٔ ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**  
+خیر. ارائه یک [پیوند به فایل خارجی](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/externalworkbookpath/) ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیرهٔ ارائه تغییر نمی‌کند.
 
-بله. اگر مسیر نسبی را مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. این برای قابلیت حمل پروژه مناسب است؛ اما لازم است بدانید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
+**اگر فایل خارجی دارای رمز عبور باشد چه باید کنم؟**  
+Aspose.Slides هنگام پیوند گرفتن رمز عبور را قبول نمی‌کند. رویکرد معمول این است که پیش از استفاده حفاظت را حذف کنید یا یک نسخهٔ رمزگشایی‌شده (به‌عنوان مثال با استفاده از [Aspose.Cells](/cells/net/)) تهیه کنید و به آن نسخه پیوند دهید.
 
-**آیا می‌توانم از کتاب‌های کاری که در منابع/به‌اشتراک‌گذاری‌های شبکه‌ای قرار دارند استفاده کنم؟**
-
-بله، چنین کتاب‌های کاری می‌توانند به‌عنوان منبع داده خارجی استفاده شوند. اما ویرایش کتاب‌های کاری از راه دور به‌صورت مستقیم از Aspose.Slides پشتیبانی نمی‌شود—آنها فقط می‌توانند به‌عنوان منبع استفاده شوند.
-
-**آیا Aspose.Slides هنگام ذخیره ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**
-
-خیر. ارائه یک [لینک به فایل خارجی](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/externalworkbookpath/) را ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. خود فایل خارجی هنگام ذخیره ارائه تغییر نمی‌کند.
-
-**در صورتی که فایل خارجی با رمز محافظت شده باشد، چه کاری باید انجام دهم؟**
-
-Aspose.Slides هنگام لینک کردن از رمز عبور پشتیبانی نمی‌کند. یک رویکرد رایج این است که پیش از آن محافظت را حذف کنید یا یک نسخه رمزگشایی‌شده تهیه کنید (برای مثال با استفاده از [Aspose.Cells](/cells/net/)) و به آن نسخه لینک کنید.
-
-**آیا می‌توان چندین نمودار به یک کتاب کار خارجی ارجاع داد؟**
-
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در هر نمودار بازتاب خواهد یافت.
+**آیا چندین نمودار می‌توانند به یک کارنامهٔ خارجی اشاره کنند؟**  
+بله. هر نمودار پیوند خود را ذخیره می‌کند. اگر همه به یک فایل اشاره کنند، به‌روزرسانی آن فایل در هر نمودار در بارگذاری بعدی داده‌ها منعکس می‌شود.

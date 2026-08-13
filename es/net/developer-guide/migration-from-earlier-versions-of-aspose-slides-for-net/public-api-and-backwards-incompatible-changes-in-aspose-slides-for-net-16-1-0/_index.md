@@ -1,5 +1,5 @@
 ---
-title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para .NET 16.1.0
+title: Cambios en la API pública y cambios incompatibles retroactivos en Aspose.Slides para .NET 16.1.0
 linktitle: Aspose.Slides para .NET 16.1.0
 type: docs
 weight: 220
@@ -16,22 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Revise las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas sus soluciones de presentación PowerPoint PPT, PPTX y ODP."
+description: "Revisa las actualizaciones de la API pública y los cambios incompatibles en Aspose.Slides para .NET para migrar sin problemas tus soluciones de presentaciones PowerPoint PPT, PPTX y ODP."
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}}
+Esta página enumera todas las clases, métodos, propiedades y demás [añadidos](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 16.1.0.
 
-Esta página enumera todas las clases, métodos, propiedades y demás que se han [añadido](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) o [eliminado](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 16.1.0.
-
-{{% /alert %}}
+{{% /alert %}} 
 ## **Cambios en la API pública**
 
 
-#### **Se ha añadido la propiedad RotationAngle a las interfaces IChartTextBlockFormat e ITextFrameFormat**
+#### **Propiedad RotationAngle ha sido añadida a las interfaces IChartTextBlockFormat e ITextFrameFormat**
 La propiedad RotationAngle se ha añadido a las interfaces Aspose.Slides.Charts.IChartTextBlockFormat y Aspose.Slides.ITextFrameFormat.
-Especifica la rotación personalizada que se está aplicando al texto dentro del cuadro delimitador.
+Especifica la rotación personalizada que se aplica al texto dentro del recuadro delimitador.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 
  using (Presentation pres = new Presentation())
 
@@ -55,4 +58,4 @@ pres.Save("out.pptx", SaveFormat.Pptx);
 
 
 ``` 
-#### **OdpException se ha movido de Aspose.Slides.Odp al espacio de nombres Aspose.Slides**
+#### **OdpException trasladado de Aspose.Slides.Odp al espacio de nombres Aspose.Slides**

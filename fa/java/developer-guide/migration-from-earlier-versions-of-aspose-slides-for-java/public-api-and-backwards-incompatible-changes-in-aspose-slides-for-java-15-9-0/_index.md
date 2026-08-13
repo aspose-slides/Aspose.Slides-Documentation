@@ -1,13 +1,13 @@
 ---
-title: API عمومی و تغییرات ناسازگار با عقب‌گرد در Aspose.Slides برای Java 15.9.0
+title: API عمومی و تغییرات ناسازگار با نسخه‌های قبلی در Aspose.Slides برای Java 15.9.0
 linktitle: Aspose.Slides برای Java 15.9.0
 type: docs
 weight: 170
 url: /fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/
 keywords:
 - مهاجرت
-- کدهای قدیمی
-- کدهای مدرن
+- کد قدیمی
+- کد مدرن
 - رویکرد قدیمی
 - رویکرد مدرن
 - PowerPoint
@@ -15,11 +15,11 @@ keywords:
 - ارائه
 - Java
 - Aspose.Slides
-description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java را مرور کنید تا بتوانید به‌صورت روان ارائه‌های PowerPoint (PPT, PPTX) و ODP خود را مهاجرت دهید."
+description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای Java را بررسی کنید تا بتوانید راه‌حل‌های ارائه PowerPoint (PPT، PPTX) و ODP خود را به‌سادگی مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-این صفحه تمام [اضافه‌شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/) یا [حذف‌شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/) کلاس‌ها، متدها، خصوصیات و غیره، و سایر تغییرات معرفی‌شده با Aspose.Slides for Java 15.8.0 API را فهرست می‌کند.
+این صفحه تمام کلاس‌ها، متدها، ویژگی‌ها و موارد مشابه که [اضافه شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/) یا [حذف شده](/slides/fa/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-9-0/) هستند و سایر تغییراتی که با API Aspose.Slides for Java 15.8.0 معرفی شده‌اند را فهرست می‌کند.
 
 {{% /alert %}} 
 ## **تغییرات API عمومی**
@@ -29,20 +29,34 @@ description: "به‌روزرسانی‌های API عمومی و تغییرات 
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, int width, int height);
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, float scale);
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics);
-به اینترفیس com.aspose.slides.ISlide و کلاس com.aspose.slides.Slide اضافه شدند. این متدها امکان رندر کردن یک اسلاید به شی Graphics2D مشخص را فراهم می‌کنند.
+به اینترفیس com.aspose.slides.ISlide و کلاس com.aspose.slides.Slide اضافه شدند. این متدها امکان رندر اسلاید به شی Graphics2D مشخص را فراهم می‌کنند.
+
+متدهای `renderToGraphics` از آن پس از API عمومی حذف شده‌اند. در نسخه‌های فعلی، برای رندر اسلاید از [ISlide.getImage](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) استفاده می‌شود، همان‌طور که مثال زیر نشان می‌دهد:
 
 ``` java
-
- BufferedImage bufferedImage = new BufferedImage(960, 720, BufferedImage.TYPE_INT_ARGB);
-
-Graphics2D g2d = bufferedImage.createGraphics();
+import com.aspose.slides.*;
+import java.awt.Dimension;
 
 Presentation pres = new Presentation("SomePresentation.pptx");
 
-pres.getSlides().get_Item(0).renderToGraphics(false, g2d, bufferedImage.getWidth(), bufferedImage.getHeight());
+try {
 
-g2d.dispose();
+	IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
 
-ImageIO.write(bufferedImage, "png", fileName);
+	try {
+
+		slideImage.save("slide.png", ImageFormat.Png);
+
+	} finally {
+
+		slideImage.dispose();
+
+	}
+
+} finally {
+
+	if (pres != null) pres.dispose();
+
+}
 
 ```

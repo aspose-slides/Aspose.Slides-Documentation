@@ -17,17 +17,17 @@ description: "Extrahera bilder från former i PowerPoint- och OpenDocument-prese
 ---
 ## **Översikt**
 
-Bilder i en presentation kan förekomma i flera formtyper: som vanliga bildramar, som bildfyllningar som tillämpas på former, som förhandsgranskningsbilder för OLE‑objekt, som miniatyrbilder för video‑ eller ljudramar, som zoom‑bilder eller som bilder som är inbäddade i tabell-, diagram‑ och SmartArt‑former. Aspose.Slides lagrar dessa bilder i presentationens bildsamling, som exponeras via [ImageCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/imagecollection/) och [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑objekt.
+Bilder i en presentation kan visas i flera formtyper: som vanliga bildramar, som bildfyllningar som tillämpas på former, som förhandsgranskningsbilder för OLE-objekt, som miniatyrbilder för video‑ eller ljudramar, som zoom‑bilder eller som bilder som är inbäddade i tabell-, diagram- och SmartArt‑former. Aspose.Slides lagrar dessa bilder i presentationens bildsamling, som exponeras via [ImageCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/imagecollection/) och [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑objekt.
 
-Om du bara behöver exportera varje bildresurs som är inbäddad i en presentation, iterera genom `presentation.Images`. Denna artikel fokuserar på en annan uppgift: att gå igenom former för att hitta var bilder används på bilderna, så att de sparade filerna kan behålla användbar information såsom bildnummer, formens position och källtypen (bildram, fyllningsbild, medieförhandsgranskning, OLE‑förhandsgranskning eller zoom‑bild).
+Om du bara behöver exportera varje bildresurs som är inbäddad i en presentation, iterera genom `presentation.Images`. Den här artikeln fokuserar på en annan uppgift: att gå igenom former för att hitta var bilder används på bilder, så att de sparade filerna kan behålla användbar kontext såsom bildnumret, formens position och källtyp (bildram, fyllningsbild, medieförhandsgranskning, OLE‑förhandsgranskning eller zoom‑bild).
 
-{{% alert title="Tip" color="primary" %}}
-Använd [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) för att bevara den ursprungliga kodade bilddata och filtyp. Använd [IPPImage.Image](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) med [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) när du vill normalisera utdata till ett specifikt format som PNG.
+{{% alert title="Tip" color="info" %}}
+Använd [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) för att bevara de ursprungliga kodade bilddata och filtypen. Använd [IPPImage.Image](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) med [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) när du vill normalisera utskriften till ett specifikt format som PNG.
 {{% /alert %}}
 
 ## **Delade hjälpfunktioner**
 
-Hjälpfunktionerna nedan håller exemplen korta. `SaveOriginalImage` skriver de ursprungliga inbäddade byten, väljer en säker filändelse från MIME‑typen och hoppar över dubblett‑bildbinärer med SHA‑256‑hash.
+Hjälpfunktionerna nedan håller exemplen korta. `SaveOriginalImage` skriver de ursprungliga inbäddade byten, väljer en säker filändelse från MIME‑typen och hoppar över duplicerade bild‑binärfiler med en SHA‑256‑hash.
 
 ```c#
 using Aspose.Slides;
@@ -167,6 +167,8 @@ private static string MakeSafeFileNamePart(string value)
 Använd detta tillvägagångssätt för bilder som infogats som fristående objekt. En [IPictureFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ipictureframe/) lagrar sin bild i `PictureFormat.Picture.Image`, vilket returnerar ett [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑objekt.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -198,6 +200,8 @@ using (Presentation presentation = new Presentation(inputPath))
 Former kan använda en bild som fyllning. Kontrollera först formens fyllningstyp: om den inte är [FillType.Picture](https://reference.aspose.com/slides/sv/net/aspose.slides/filltype/), finns det ingen bild att extrahera från den fyllningen. Exemplet nedan hanterar [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/)‑objekt och sparar varje bild som PNG via [IPPImage.Image](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/).
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -225,11 +229,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extrahera förhandsgranskningsbilder från OLE‑objektramar**
+## **Extrahera förhandsgranskningsbilder från OLE‑objektramr**
 
-En [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/) kan ha en ersättningsbild som PowerPoint använder som objektets förhandsgranskning på en bild. Denna bild är tillgänglig via `SubstitutePictureFormat.Picture.Image`. Att extrahera denna bild ger dig förhandsgranskningsbilden, inte det inbäddade OLE‑paketets innehåll.
+En [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/) kan ha en ersättningsbild som PowerPoint använder som objektets förhandsgranskning på en bild. Denna bild är tillgänglig via `SubstitutePictureFormat.Picture.Image`. Att extrahera denna bild ger dig förhandsgranskningsbilden, inte innehållet i det inbäddade OLE‑paketet.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -260,11 +266,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extrahera förhandsgranskningsbilder från videoramlar**
+## **Extrahera förhandsgranskningsbilder från videoram**
 
-En [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) kan också lagra en förhandsgranskningsbild i `PictureFormat.Picture.Image`. Detta är den poster‑ eller miniatyrbild som visas på bilden, inte en bildruta avkodad från videoströmmen.
+En [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) kan också lagra en förhandsgranskningsbild i `PictureFormat.Picture.Image`. Detta är postern eller miniatyrbilden som visas på bilden, inte en ram avkodad från videoströmmen.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -300,6 +308,8 @@ using (Presentation presentation = new Presentation(inputPath))
 En [IAudioFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudioframe/) kan lagra en miniatyrbild i `PictureFormat.Picture.Image`. Detta är bilden som visas för ljudobjektet på bilden.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -335,6 +345,8 @@ using (Presentation presentation = new Presentation(inputPath))
 [IZoomFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/izoomframe/) och [ISectionZoomFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/isectionzoomframe/)‑former kan använda anpassade bilder. Läs `ZoomImage` från zoom‑ramen.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Extrahera bilder från sammanfattnings‑zoom‑ramar**
+## **Extrahera bilder från sammanfattnings‑zoomramar**
 
-En [ISummaryZoomFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/isummaryzoomframe/) är också en form. Dess avsnittselement kan använda anpassade bilder, som exponeras via varje sammanfattnings‑zoom‑avsnitts `ZoomImage`‑egenskap.
+En [ISummaryZoomFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/isummaryzoomframe/) är också en form. Dess sektionsobjekt kan använda anpassade bilder, som exponeras via varje sammanfattnings‑zoomsektionens `ZoomImage`‑egenskap.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -415,6 +429,8 @@ using (Presentation presentation = new Presentation(inputPath))
 En [ITable](https://reference.aspose.com/slides/sv/net/aspose.slides/itable/) är en form. Bilder i en tabell lagras vanligtvis som bildfyllningar i tabellceller.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -459,6 +475,8 @@ using (Presentation presentation = new Presentation(inputPath))
 En [IChart](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichart/) är en form. Exemplet nedan extraherar en bild från diagramområdets bildfyllning.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +510,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Extrahera bilder från SmartArt‑former**
 
-Ett [ISmartArt](https://reference.aspose.com/slides/sv/net/aspose.slides.smartart/ismartart/)‑objekt är en form. Beroende på SmartArt‑layouten kan bilder lagras i nodpunkt‑fyllningar eller i fyllningsformat för nodformer.
+Ett [ISmartArt](https://reference.aspose.com/slides/sv/net/aspose.slides.smartart/ismartart/)‑objekt är en form. Beroende på SmartArt‑layouten kan bilder lagras i nodpunkts‑fyllningar eller i fyllningsformaten för nodformer.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -542,11 +562,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Inkludera bilder inuti grupperade former**
+## **Inkludera bilder i grupperade former**
 
-Grupperade former innehåller sina egna formsamlingar. Den delade hjälpfunktionen `EnumerateShapes` har ett alternativ `includeGroupedShapes`. Sätt det till `true` när du vill inspektera former inuti [IGroupShape](https://reference.aspose.com/slides/sv/net/aspose.slides/igroupshape/)‑objekt. Exemplet nedan extraherar bilder från bildramar, bildfyllda former, OLE‑objekt‑förhandsgranskningar, videoramin‑miniatyrer och ljudram‑miniatyrer. För att även inkludera tabell‑, diagram‑, SmartArt‑ och sammanfattnings‑zoom‑bilder, återanvänd den specialiserade extraheringslogiken från de föregående avsnitten samtidigt som du behåller samma rekursiva formtraversering.
+Grupperade former innehåller sina egna formsamlingar. Den delade `EnumerateShapes`‑hjälpen har ett `includeGroupedShapes`‑alternativ. Sätt det till `true` när du vill inspektera former i [IGroupShape](https://reference.aspose.com/slides/sv/net/aspose.slides/igroupshape/)‑objekt. Exemplet nedan extraherar bilder från bildramar, bildfyllda former, OLE‑objektförhandsgranskningar, videoram‑miniatyrbilder och ljudram‑miniatyrbilder. För att även inkludera tabell‑, diagram‑, SmartArt‑ och sammanfattnings‑zoom‑bilder, återanvänd den specialiserade extraktionslogiken från tidigare avsnitt medan du behåller samma rekursiva formtraversering.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -621,43 +643,43 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Särskilda fall och praktiska noteringar**
 
-- **Dubblettbilder:** Flera former kan referera till samma bild eller separata bilder med identiska byte. Hasha [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) innan du skriver filer om du vill ha en utdatfil per unik bild.
-- **Ursprunglig data vs. konverterad utdata:** Att spara [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) bevarar den inbäddade JPEG‑, PNG‑, GIF‑, SVG‑, EMF‑ eller WMF‑data. Att spara [IPPImage.Image](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) via [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) är användbart när du vill ha ett enhetligt format för utdata.
-- **Ej stödda fyllning‑typer:** Solida, gradient‑, mönster‑ och ingen‑fyllning‑former innehåller ingen bildfyllning. Kontrollera [FillType](https://reference.aspose.com/slides/sv/net/aspose.slides/filltype/) innan du läser `PictureFillFormat`.
-- **Grupperade former:** Den översta bildens formsamling plattar inte till grupper. Inspektera rekursivt [IGroupShape.Shapes](https://reference.aspose.com/slides/sv/net/aspose.slides/igroupshape/) när grupperat innehåll är viktigt.
-- **OLE‑objekt‑förhandsgranskningar:** En [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/) kan exponera en förhandsgranskningsbild via `SubstitutePictureFormat`, men den bilden är endast bildens förhandsgranskning. Det är inte den inbäddade filen i OLE‑objektet.
-- **Videoramin‑miniaturer:** En [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) kan exponera en förhandsgranskningsbild via `PictureFormat`, men den bilden är endast den poster som visas på bilden. Den extraheras inte från videoströmmen.
-- **Ljudram‑miniaturer:** En [IAudioFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudioframe/) kan exponera en ikon eller miniatyr via `PictureFormat`; det är inte den inbäddade ljuddata.
-- **Zoom‑bilder:** Slide‑zoom‑, sektion‑zoom‑ och sammanfattnings‑zoom‑former kan använda anpassade [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑objekt via `ZoomImage`.
-- **Inbäddade formmodeller:** Tabell‑, diagram‑ och SmartArt‑objekt implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/), men deras bilder lagras ofta i inbäddade tabellceller, diagram‑element eller SmartArt‑nodformateringsobjekt.
-- **Beskurna eller transformerade bilder:** Att åtkomma [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) ger dig den lagrade bildresursen. Det renderar inte beskärning, transparens, omfärgning, rotation eller andra visuella effekter som tillämpas av formen.
+- **Duplicerade bilder:** Flera former kan referera till samma bild eller separata bilder med identiska byte. Hasha [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) innan du skriver filer om du vill ha en utdatafil per unik bild.
+- **Originaldata vs. konverterad utdata:** Att spara [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) bevarar den inbäddade JPEG‑, PNG‑, GIF‑, SVG‑, EMF‑ eller WMF‑data. Att spara [IPPImage.Image](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) via [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) är användbart när du vill ha ett enhetligt utdataformat.
+- **Ej stödda fyllningstyper:** Solida, gradient‑, mönster‑ och ingen‑fyllning‑former innehåller ingen bildfyllning. Kontrollera [FillType](https://reference.aspose.com/slides/sv/net/aspose.slides/filltype/) innan du läser `PictureFillFormat`.
+- **Grupperade former:** Den översta bildens formsamling plattar inte ut grupper. Inspektera rekursivt [IGroupShape.Shapes](https://reference.aspose.com/slides/sv/net/aspose.slides/igroupshape/) när grupperat innehåll är viktigt.
+- **OLE‑objektförhandsgranskningar:** En [IOleObjectFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/) kan exponera en förhandsgranskningsbild via `SubstitutePictureFormat`, men den bilden är bara bildens förhandsgranskning. Det är inte den inbäddade filen i OLE‑objektet.
+- **Videoram‑miniatyrbilder:** En [IVideoFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) kan exponera en förhandsgranskningsbild via `PictureFormat`, men den bilden är bara postern som visas på bilden. Den extraheras inte från videoströmmen.
+- **Ljudram‑miniatyrbilder:** En [IAudioFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudioframe/) kan exponera en ikon eller miniatyrbild via `PictureFormat`; det är inte den inbäddade ljuddata.
+- **Zoom‑bilder:** Bild‑zoom, sektion‑zoom och sammanfattnings‑zoom‑former kan använda anpassade [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑objekt via `ZoomImage`.
+- **Nästlade formmodeller:** Tabell‑, diagram‑ och SmartArt‑objekt implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/), men deras bilder lagras ofta i inbäddade tabellceller, diagram‑element eller SmartArt‑nodformatobjekt.
+- **Beskurna eller transformerade bilder:** Att komma åt [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) ger dig den lagrade bildresursen. Den renderar inte beskärning, transparens, omfärgning, rotation eller andra visuella effekter som formen har tillämpat.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kan jag extrahera den ursprungliga bilden utan beskärning, effekter eller formtransformeringar?**
+### Kan jag extrahera originalbilden utan beskärning, effekter eller formtransformationer?
 
-Ja. Åtkom [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑objektet och skriv [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) till disk. Detta bevarar den ursprungliga kodade bilden som lagras i presentationen, inte hur bilden renderas på bilden.
+Ja. Åtkomst till [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑objektet och skriv [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) till disk. Detta bevarar den ursprungliga kodade bilden som lagras i presentationen, inte hur bilden renderas på bilden.
 
-**Kan jag exportera varje extraherad bild som PNG?**
+### Kan jag exportera varje extraherad bild som PNG?
 
-Ja. Använd [IPPImage.Image](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) för att få ett [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/)‑objekt, och anropa sedan [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) med [ImageFormat.Png](https://reference.aspose.com/slides/sv/net/aspose.slides/imageformat/). Detta konverterar utdata och kanske inte bevarar den ursprungliga filtypen eller vektordata.
+Ja. Använd [IPPImage.Image](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) för att få ett [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/)‑objekt, och anropa sedan [IImage.Save](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) med [ImageFormat.Png](https://reference.aspose.com/slides/sv/net/aspose.slides/imageformat/). Detta konverterar utskriften och kanske inte bevarar den ursprungliga filtypen eller vektordata.
 
-**Hur undviker jag att spara samma bild mer än en gång?**
+### Hur undviker jag att spara samma bild mer än en gång?
 
 Använd en hash av [IPPImage.BinaryData](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) och behåll hasharna i en uppsättning. Om en ny bild har en hash som redan finns, hoppa över den eller registrera en annan referens till den befintliga utdatafilen.
 
-**Varför ger vissa former ingen bild?**
+### Varför genererar vissa former ingen bild?
 
-Bildramar, bildfyllda former, OLE‑objektramar, mediaramar, zoom‑ramar, tabeller, diagram och SmartArt‑objekt kan referera till bilder. Vissa formtyper exponerar bilder genom inbäddade formateringsobjekt, så en enkel kontroll av `PictureFormat` eller formens `FillFormat` räcker inte alltid.
+Bildramar, bildfyllda former, OLE‑objektram, mediaram, zoom‑ramar, tabeller, diagram och SmartArt‑objekt kan referera till bilder. Vissa formtyper exponerar bilder via inbäddade formateringsobjekt, så en enkel `PictureFormat`‑ eller `FillFormat`‑kontroll är inte alltid tillräcklig.
 
-**Kan jag extrahera miniatyrbilden som visas för en videoram?**
+### Kan jag extrahera miniatyrbilden som visas för en videoram?
 
-Ja. Använd [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) och läs `PictureFormat.Picture.Image`. Detta extraherar poster‑bilden som lagras med videoramen, inte en bildruta genererad från videofilen.
+Ja. Använd [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ivideoframe/) och läs `PictureFormat.Picture.Image`. Detta extraherar poster‑bilden som lagras med videoramen, inte en ram som genererats från videofilen.
 
-**Hur kan jag avgöra vilka former som använder en specifik bild från presentationens bildsamling?**
+### Hur kan jag avgöra vilka former som använder en specifik bild från presentationens bildsamling?
 
-Aspose.Slides lagrar inte omvända länkar från [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) till former. Bygg en mappning under traverseringen: när du hittar en bildreferens, registrera bildnumret, formens sökväg och bildhash eller samlingsobjekt.
+Aspose.Slides lagrar inte omvända länkar från [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) till former. Bygg en mappning under traverseringen: när du hittar en bildreferens, registrera bildnumret, formens sökväg och bildens hash eller samlingsobjekt.
 
-**Kan jag extrahera bilder som är inbäddade i OLE‑objekt, som bifogade dokument?**
+### Kan jag extrahera bilder som är inbäddade i OLE‑objekt, såsom bifogade dokument?
 
-Du kan extrahera OLE‑objektets bildförhandsgranskning från [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/). Men den förhandsgranskningen är inte det inbäddade dokumentet. För att extrahera bilder från den inbäddade filen, extrahera OLE‑data och undersök den med verktyg för den filtypen.
+Du kan extrahera OLE‑objektets bildförhandsgranskning från [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ioleobjectframe/). Den förhandsgranskningen är dock inte själva inbäddade dokumentet. För att extrahera bilder från den inbäddade filen, extrahera OLE‑data och inspektera den med verktyg för den filtypen.

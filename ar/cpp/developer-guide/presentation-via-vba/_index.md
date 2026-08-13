@@ -19,33 +19,51 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "اكتشف كيفية إنشاء ومعالجة عروض PowerPoint و OpenDocument عبر VBA باستخدام Aspose.Slides للغة C++ لتبسيط سير عملك."
+description: "اكتشف كيفية إنشاء ومعالجة عروض PowerPoint وOpenDocument عبر VBA باستخدام Aspose.Slides للـ C++ لتبسيط سير عملك."
 ---
+## **المقدمة**
 
-تحتوي مساحة الأسماء [Aspose.Slides.Vba](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.vba/) على فئات وواجهات للعمل مع الماكرو وكود VBA.
+المجال [Aspose.Slides.Vba](https://reference.aspose.com/slides/ar/cpp/namespace/aspose.slides.vba/) يحتوي على الفئات والواجهات للعمل مع الماكرو وبرمجة VBA.
 
 {{% alert title="Note" color="warning" %}} 
-عند تحويل عرض تقديمي يحتوي على ماكرو إلى تنسيق ملف مختلف (PDF، HTML، إلخ)، يتجاهل Aspose.Slides جميع الماكرو (لا يتم نقل الماكرو إلى الملف الناتج).
 
-عند إضافة ماكرو إلى عرض تقديمي أو إعادة حفظ عرض تقديمي يحتوي على ماكرو، يقوم Aspose.Slides ببساطة بكتابة البايتات الخاصة بالماكرو.
+عند تحويل عرض تقديمي يحتوي على ماكرو إلى تنسيق ملف مختلف (PDF، HTML، إلخ)، يتجاهل Aspose.Slides جميع الماكروهات (لا يتم نقل الماكروهات إلى الملف الناتج).
 
-Aspose.Slides **أبدًا** لا يشغِّل الماكرو في عرض تقديمي.
+عند إضافة ماكروهات إلى عرض تقديمي أو إعادة حفظ عرض تقديمي يحتوي على ماكروهات، يقوم Aspose.Slides ببساطة بكتابة البايتات الخاصة بالماكروهات.
+
+Aspose.Slides **أبدًا** لا ينفذ الماكروهات في عرض تقديمي.
+
 {{% /alert %}}
 
 ## **إضافة ماكرو VBA**
-يوفر Aspose.Slides الفئة [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project) لتتيح لك إنشاء مشاريع VBA (ومرجعيات المشروع) وتحرير الوحدات الحالية. يمكنك استخدام الواجهة [IVbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.i_vba_project/) لإدارة VBA المدمج في عرض تقديمي.
 
-1. إنشاء كائن جديد من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-1. استخدم مُنشئ [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) لإضافة مشروع VBA جديد.
-1. أضف وحدة إلى VbaProject.
-1. حدد شفرة المصدر للوحدة.
-1. أضف مراجع إلى <stdole>.
-1. أضف مراجع إلى **Microsoft Office**.
+توفر Aspose.Slides الفئة [VbaProject](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.vba.vba_project) التي تتيح لك إنشاء مشروعات VBA (ومراجع المشروع) وتعديل الوحدات الحالية. يمكنك استخدام الواجهة [IVbaProject](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.vba.i_vba_project/) لإدارة VBA المدمج في عرض تقديمي.
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation).
+1. استخدام مُنشئ [VbaProject](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) لإضافة مشروع VBA جديد.
+1. إضافة وحدة إلى VbaProject.
+1. تحديد شفرة المصدر للوحدة.
+1. إضافة مراجع إلى <stdole>.
+1. إضافة مراجع إلى **Microsoft Office**.
 1. ربط المراجع بمشروع VBA.
-1. احفظ العرض التقديمي.
+1. حفظ العرض التقديمي.
 
-يظهر لك هذا الكود C++ كيفية إضافة ماكرو VBA من الصفر إلى عرض تقديمي: 
+يعرض هذا الكود بلغة C++ كيفية إضافة ماكرو VBA من الصفر إلى عرض تقديمي: 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaReferenceCollection.h>
+#include <DOM/Vba/VbaProject.h>
+#include <DOM/Vba/VbaReferenceOleTypeLib.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 // مسار دليل المستندات.
 const String outPath = u"../out/AddVBAMacros_out.pptm";
 
@@ -76,46 +94,69 @@ presentation->get_VbaProject()->get_References()->Add(officeReference);
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-قد ترغب في الاطلاع على **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros)، وهو تطبيق ويب مجاني يُستخدم لإزالة الماكرو من مستندات PowerPoint وExcel وWord. 
+قد ترغب في تجربة **Aspose** [Macro Remover](https://products.aspose.app/slides/ar/remove-macros)، وهو تطبيق ويب مجاني يستخدم لإزالة الماكروهات من مستندات PowerPoint وExcel وWord. 
+
 {{% /alert %}} 
 
 ## **إزالة ماكرو VBA**
-باستخدام الخاصية [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) ضمن الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)، يمكنك إزالة ماكرو VBA.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
-1. الوصول إلى وحدة Macro وإزالتها.
-1. احفظ العرض التقديمي المعدل.
+باستخدام خاصية [VbaProject](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) ضمن الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation)، يمكنك إزالة ماكرو VBA.
 
-يُظهر لك هذا الكود C++ كيفية إزالة ماكرو VBA: 
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
+1. الوصول إلى وحدة الماكرو وإزالتها.
+1. حفظ العرض التقديمي المعدل.
+
+يعرض هذا الكود بلغة C++ كيفية إزالة ماكرو VBA: 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // مسار دليل المستندات.
 const String outPath = u"../out/RemoveVBAMacros_out.pptm";
 const String templatePath = u"../templates/vba.pptm";
 
-// يحمل العرض التقديمي الذي يحتوي على الماكرو
+// يحمّل العرض التقديمي الذي يحتوي على الماكرو
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
 
-// يصل إلى وحدة VBA ويزيلها
+// الوصول إلى وحدة Vba وإزالتها
 presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
 
-// يحفظ العرض التقديمي
+// حفظ العرض التقديمي
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
-
 ## **استخراج ماكرو VBA**
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
-2. التحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
-3. التجول عبر جميع الوحدات الموجودة في مشروع VBA لعرض الماكرو.
 
-يُظهر لك هذا الكود C++ كيفية استخراج ماكرو VBA من عرض تقديمي يحتوي على ماكرو: 
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation) وتحميل العرض التقديمي الذي يحتوي على الماكرو.
+2. التحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
+3. التكرار عبر جميع الوحدات الموجودة في مشروع VBA لعرض الماكروهات.
+
+يعرض هذا الكود بلغة C++ كيفية استخراج ماكرو VBA من عرض تقديمي يحتوي على ماكروهات: 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 	// مسار دليل المستندات.
 	const String templatePath = u"../templates/VBA.pptm";
 
-	// يحمل العرض التقديمي الذي يحتوي على الماكرو
+	// يحمّل العرض التقديمي الذي يحتوي على الماكرو
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
 
@@ -133,17 +174,25 @@ presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 	}
 ```
 
-
 ## **التحقق مما إذا كان مشروع VBA محميًا بكلمة مرور**
-باستخدام الخاصية [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/)، يمكنك تحديد ما إذا كانت خصائص المشروع محمية بكلمة مرور.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) وتحميل عرض تقديمي يحتوي على ماكرو.
-2. التحقق مما إذا كان العرض التقديمي يحتوي على [VBA project](https://reference.aspose.com/slides/cpp/aspose.slides.vba/vbaproject/).
+باستخدام خاصية [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/ar/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/) يمكنك تحديد ما إذا كانت خصائص المشروع محمية بكلمة مرور.
+
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) وتحميل عرض تقديمي يحتوي على ماكرو.
+2. التحقق مما إذا كان العرض التقديمي يحتوي على [VBA project](https://reference.aspose.com/slides/ar/cpp/aspose.slides.vba/vbaproject/).
 3. التحقق مما إذا كان مشروع VBA محميًا بكلمة مرور لعرض خصائصه.
+
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"VBA.pptm");
     
-if (presentation->get_VbaProject() != nullptr) // التحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
+if (presentation->get_VbaProject() != nullptr) // تحقق مما إذا كان العرض التقديمي يحتوي على مشروع VBA.
 {
     if (presentation->get_VbaProject()->get_IsPasswordProtected())
     {
@@ -154,14 +203,16 @@ if (presentation->get_VbaProject() != nullptr) // التحقق مما إذا ك�
 presentation->Dispose();
 ```
 
+## **الأسئلة الشائعة**
 
-## **FAQ**
+### ماذا يحدث للماكروهات إذا حفظت العرض التقديمي كـ PPTX؟
 
-**ماذا يحدث للماكرو إذا حفظت العرض التقديمي كـ PPTX؟**
-سيتم إزالة الماكرو لأن صيغة PPTX لا تدعم VBA. للحفاظ على الماكرو، اختر PPTM أو PPSM أو POTM.
+سيتم إزالة الماكروهات لأن تنسيق PPTX لا يدعم VBA. للحفاظ على الماكروهات، اختر PPTM أو PPSM أو POTM.
 
-**هل يمكن لـ Aspose.Slides تشغيل الماكرو داخل عرض تقديمي، على سبيل المثال لتحديث البيانات؟**
-لا. لا تقوم المكتبة بتشغيل كود VBA أبداً؛ التنفيذ ممكن فقط داخل PowerPoint مع إعدادات الأمان المناسبة.
+### هل يمكن لـ Aspose.Slides تشغيل الماكروهات داخل عرض تقديمي، على سبيل المثال لتحديث البيانات؟
 
-**هل يدعم العمل مع عناصر تحكم ActiveX المرتبطة بكود VBA؟**
-نعم، يمكنك الوصول إلى عناصر تحكم [ActiveX controls](/slides/ar/cpp/activex/) الموجودة، تعديل خصائصها، وإزالتها. هذا مفيد عندما يتفاعل الماكرو مع ActiveX.
+لا. المكتبة لا تنفذ شفرة VBA أبدًا؛ التنفيذ ممكن فقط داخل PowerPoint مع إعدادات الأمان المناسبة.
+
+### هل يدعم العمل مع عناصر تحكم ActiveX المرتبطة بشفرة VBA؟
+
+نعم، يمكنك الوصول إلى عناصر تحكم ActiveX الموجودة ([ActiveX controls](/slides/ar/cpp/activex/))، تعديل خصائصها، وإزالتها. هذا مفيد عندما تتفاعل الماكروهات مع ActiveX.

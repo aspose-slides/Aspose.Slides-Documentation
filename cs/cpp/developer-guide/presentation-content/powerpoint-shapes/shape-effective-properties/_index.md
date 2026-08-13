@@ -7,8 +7,8 @@ url: /cs/cpp/shape-effective-properties/
 keywords:
 - vlastnosti tvaru
 - vlastnosti kamery
-- světelný rig
-- zkosený tvar
+- světelná sestava
+- tvar se zkosením
 - textový rámec
 - textový styl
 - výška písma
@@ -17,21 +17,31 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Objevte, jak Aspose.Slides pro C++ vypočítává a aplikuje efektivní vlastnosti tvaru pro přesné vykreslování v PowerPointu."
+description: "Objevte, jak Aspose.Slides pro C++ počítá a aplikuje efektivní vlastnosti tvarů pro přesné vykreslení PowerPointu."
 ---
 ## **Přehled**
 
 Toto téma vysvětluje rozdíl mezi **lokálními** a **efektivními** vlastnostmi. Lokální hodnoty jsou hodnoty, které jsou nastaveny přímo na konkrétní úrovni formátování, například:
 
 1. Vlastnosti úseku na snímku.
-1. Textové styly prototypových tvarů na rozvržení nebo hlavním snímku, pokud má tvar textového rámce úseku.
+1. Prototypové styly textu tvaru na rozložení nebo hlavním snímku, pokud má textový rámec úseku vlastní tvar.
 1. Globální nastavení textu v prezentaci.
 
-Lokální hodnoty mohou být na libovolné úrovni definovány nebo vynechány. Když Aspose.Slides potřebuje konečné „tak, jak je vykresleno“ formátování, rozřeší řetězec dědičnosti a vrátí **efektivní** hodnoty. Můžete je získat zavoláním metody `GetEffective` na objekt lokálního formátu.
+Lokální hodnoty mohou být definovány nebo vynechané na libovolné úrovni. Když Aspose.Slides potřebuje finální „jako vykreslené“ formátování, projde řetězec dědičnosti a vrátí **efektivní** hodnoty. Ty získáte voláním metody `GetEffective` na objektu lokálního formátu.
 
 Následující příklad ukazuje, jak získat efektivní hodnoty. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) s textovým rámcem a alespoň jedním úsekem.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -46,17 +56,28 @@ auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
-Údaje o efektivním formátování představují aktuální vypočítané formátování po aplikaci dědičnosti. V aktuální implementaci mohou být některé objekty efektivních dat, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportionformateffectivedata/), uloženy vnitřně do mezipaměti. Zavolání `GetEffective` znovu po změně nadřazeného nebo zděděného formátování může obnovit data v mezipaměti a dříve získaný objekt už nemusí představovat předchozí stav. Pokud potřebujete zachovat efektivní hodnoty pro pozdější opětovné použití, zkopírujte požadované vlastnosti, jako je výška písma, barva výplně, styl písma nebo zarovnání, do vlastního datového objektu.
+{{% alert color="info" %}}
+Efektivní data formátování představují aktuální vypočtené formátování po aplikaci dědičnosti. V současné implementaci mohou být některé objekty efektivních dat, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iportionformateffectivedata/), uloženy v interní cache. Opětovné volání `GetEffective` po změně nadřazeného nebo zděděného formátování může vyprázdnit tuto cache a dříve získaný objekt už nemusí představovat předchozí stav. Pokud potřebujete zachovat efektivní hodnoty pro pozdější použití, zkopírujte požadované vlastnosti, jako je výška písma, barva výplně, styl písma nebo zarovnání, do vlastního datového objektu.
 {{% /alert %}}
 
 ## **Získání efektivních vlastností kamery**
 
-Aspose.Slides umožňuje získat efektivní vlastnosti kamery. Rozhraní [ICameraEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icameraeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti kamery. Instance [ICameraEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icameraeffectivedata/) je zpřístupněna prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformateffectivedata/), který poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/).
+Aspose.Slides umožňuje získat efektivní vlastnosti kamery. Rozhraní [ICameraEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icameraeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti kamery. Instance [ICameraEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icameraeffectivedata/) je vystavena přes [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/).
 
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti kamery. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti kamery. Předpokládá se, že první tvar na prvním snímku má 3D formátování.
 
 ```cpp
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -78,13 +99,24 @@ System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
 presentation->Dispose();
 ```
 
-## **Získání efektivních vlastností světelného zařízení**
+## **Získání efektivních vlastností světelné sestavy**
 
-Aspose.Slides umožňuje získat efektivní vlastnosti světelného zařízení. Rozhraní [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilightrigeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti světelného zařízení. Instance [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilightrigeffectivedata/) je zpřístupněna prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformateffectivedata/), který poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/).
+Aspose.Slides umožňuje získat efektivní vlastnosti světelné sestavy. Rozhraní [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilightrigeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti světelné sestavy. Instance [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ilightrigeffectivedata/) je vystavena přes [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/).
 
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti světelného zařízení. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti světelné sestavy. Předpokládá se, že první tvar na prvním snímku má 3D formátování.
 
 ```cpp
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -101,13 +133,24 @@ System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
 presentation->Dispose();
 ```
 
-## **Získání efektivních vlastností zkoseného tvaru**
+## **Získání efektivních vlastností zkosení tvaru**
 
-Aspose.Slides umožňuje získat efektivní vlastnosti zkosení tvaru. Rozhraní [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapebeveleffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti povrchových reliéfů tvaru. Instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapebeveleffectivedata/) je zpřístupněna prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformateffectivedata/), který poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/).
+Aspose.Slides umožňuje získat efektivní vlastnosti zkosení tvaru. Rozhraní [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapebeveleffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti reliéfu pro tvar. Instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapebeveleffectivedata/) je vystavena přes [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformateffectivedata/), které poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ithreedformat/).
 
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti horního zkosení tvaru. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti horního zkosení tvaru. Předpokládá se, že první tvar na prvním snímku má 3D formátování.
 
 ```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto shape = presentation->get_Slide(0)->get_Shape(0);
 
@@ -131,9 +174,20 @@ presentation->Dispose();
 
 Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového rámce. Rozhraní [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformateffectivedata/) obsahuje efektivní vlastnosti formátování textového rámce.
 
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti formátování textového rámce. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) s textovým rámcem.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti formátování textového rámce. Předpokládá se, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) s textovým rámcem.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextFrameFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -170,9 +224,22 @@ presentation->Dispose();
 
 Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového stylu. Rozhraní [ITextStyleEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextstyleeffectivedata/) obsahuje efektivní vlastnosti textového stylu.
 
-Následující ukázka kódu ukazuje, jak získat efektivní vlastnosti textového stylu. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) s textovým rámcem.
+Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti textového stylu. Předpokládá se, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) s textovým rámcem.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/ITextStyleEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -199,11 +266,30 @@ for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
 presentation->Dispose();
 ```
 
-## **Získání efektivní výšky písma**
+## **Získání efektivní hodnoty výšky písma**
 
-Pomocí Aspose.Slides můžete získat efektivní výšku písma. Následující kód ukazuje, jak se efektivní výška písma úseku mění po nastavení lokálních hodnot výšky písma na různých úrovních struktury prezentace.
+Pomocí Aspose.Slides můžete získat efektivní výšku písma. Následující kód demonstruje, jak se efektivní výška písma úseku mění po nastavení lokálních hodnot výšky písma na různých úrovních struktury prezentace.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -262,11 +348,27 @@ presentation->Dispose();
 
 ## **Získání efektivního formátu výplně pro tabulku**
 
-Pomocí Aspose.Slides můžete získat efektivní formátování výplně pro různé části tabulky. Rozhraní [IFillFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifillformateffectivedata/) obsahuje efektivní vlastnosti formátování výplně. Formátování buňky má vyšší prioritu než formátování řádku, formátování řádku má vyšší prioritu než formátování sloupce a formátování sloupce má vyšší prioritu než formátování celé tabulky.
+Pomocí Aspose.Slides můžete získat efektivní formátování výplně pro různé části tabulky. Rozhraní [IFillFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifillformateffectivedata/) obsahuje efektivní vlastnosti formátování výplně. Formátování buňky má vyšší prioritu než formátování řádku, řádkové formátování má vyšší prioritu než formátování sloupce a formátování sloupce má vyšší prioritu než formátování celé tabulky.
 
-Výsledkem jsou vlastnosti [ICellFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icellformateffectivedata/), které se používají k vykreslení buňky tabulky. Následující ukázka kódu ukazuje, jak získat efektivní formátování výplně pro různé části tabulky. Předpokládá, že první tvar na prvním snímku je [ITable](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itable/).
+Výsledkem je, že vlastnosti [ICellFormatEffectiveData](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icellformateffectivedata/) jsou použity při vykreslování buňky tabulky. Následující ukázkový kód ukazuje, jak získat efektivní formátování výplně pro různé části tabulky. Předpokládá se, že první tvar na prvním snímku je [ITable](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itable/).
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/ICellFormatEffectiveData.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IColumnFormatEffectiveData.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/IRowFormatEffectiveData.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <DOM/Table/ITableFormatEffectiveData.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
 auto slide = presentation->get_Slide(0);
@@ -282,34 +384,34 @@ presentation->Dispose();
 
 ## **Často kladené otázky**
 
-**Vrací `GetEffective` statický snímek?**
+### Vrací `GetEffective` snímek?
 
-Ne vždy. Efektivní data představují vypočítané formátování po aplikaci dědičnosti, ale některé objekty efektivních dat mohou být uloženy v interní mezipaměti. Následující volání `GetEffective` může formátování přepočítat a aktualizovat mezipaměť, takže dříve získaný objekt již nemusí představovat předchozí stav.
+Ne vždy. Efektivní data představují vypočtené formátování po aplikaci dědičnosti, ale některé objekty efektivních dat mohou být interně uloženy v cache. Následující volání `GetEffective` může znovu vypočítat formátování a obnovit cache, takže dříve získaný objekt by neměl být považován za trvalý snímek.
 
-**Kdy bych měl znovu načíst efektivní vlastnosti?**
+### Kdy mám znovu načíst efektivní vlastnosti?
 
-Volání `GetEffective` znovu po změně lokálního formátování, nadřazených stylů, formátování rozvržení, hlavního formátování nebo výchozích nastavení na úrovni prezentace. Další volání znovu vyhodnotí hierarchii formátování a vrátí aktuální efektivní výsledek.
+Zavolejte `GetEffective` znovu po změně lokálního formátování, nadřazených stylů, formátování rozložení, formátování hlavního snímku nebo výchozích nastavení na úrovni celé prezentace. Další volání znovu vyhodnotí hierarchii formátování a vrátí aktuální efektivní výsledek.
 
-**Ovlivňuje změna nebo odebrání rozvržení/hlavního snímku efektivní vlastnosti, které již byly získány?**
+### Ovlivní změna nebo odstranění rozložení/hlavního snímku efektivní vlastnosti, které již byly získány?
 
-Ano, ale změna se projeví při dalším volání `GetEffective`. Pokud se změní nebo odstraní zdroj nadřazeného formátování, dříve získaná efektivní data mohou být zastaralá. Po opětovném volání `GetEffective` Aspose.Slides přehodnotí formátovací strom a výsledné písma, barvy, velikosti nebo jiné hodnoty se mohou změnit.
+Ano, změna se projeví při dalším volání `GetEffective`. Pokud je změněn nebo odstraněn zdroj nadřazeného formátování, dříve získaná efektivní data mohou být zastaralá. Po opětovném volání `GetEffective` Aspose.Slides přehodnotí strom formátování a výsledná písma, barvy, velikosti či jiné hodnoty se mohou změnit.
 
-**Mohu měnit hodnoty pomocí objektů efektivních dat?**
+### Mohu měnit hodnoty prostřednictvím objektů efektivních dat?
 
-Ne. Objekty efektivních dat poskytují pouze vypočítané hodnoty. Změny provádějte v lokálních objektech formátování a poté opět získávejte efektivní hodnoty.
+Ne. Objektům efektivních dat jsou k dispozici pouze vypočtené hodnoty. Změny provádějte v lokálních objektech formátování a poté znovu získávejte efektivní hodnoty.
 
-**Co se stane, pokud není vlastnost nastavena na úrovni tvaru, ani v rozvržení/hlavním snímku, ani v globálním nastavení?**
+### Co se stane, pokud není vlastnost nastavena na úrovni tvaru, ani v rozložení/hlavním snímku, ani v globálním nastavení?
 
-Efektivní hodnota je určena výchozím mechanismem, který zahrnuje výchozí nastavení PowerPointu a Aspose.Slides. Tato rozpoznaná hodnota se stane součástí aktuálních efektivních dat.
+Efektivní hodnota je určena výchozím mechanismem, který zahrnuje výchozí hodnoty PowerPointu i Aspose.Slides. Tato vyřešená hodnota se stane součástí aktuálních efektivních dat.
 
-**Z efektivní hodnoty písma mohu zjistit, která úroveň poskytla velikost nebo typ písma?**
+### Z efektivní hodnoty písma, dokážu zjistit, na které úrovni byla velikost nebo typ písma určena?
 
-Ne přímo. Efektivní data vracejí finální hodnotu. Pro zjištění zdroje zkontrolujte lokální hodnoty v úseku, odstavci, textovém rámci a textových stylech na úrovni rozvržení, hlavního snímku a celé prezentace, abyste zjistili, kde se objeví první explicitní definice.
+Ne přímo. Efektivní data vracejí konečnou hodnotu. Pro zjištění zdroje zkontrolujte lokální hodnoty na úrovni úseku, odstavce, textového rámce a textových stylů na rozložení, hlavním snímku a úrovni prezentace, abyste našli první explicitní definici.
 
-**Proč se efektivní hodnoty někdy shodují s lokálními?**
+### Proč vypadají efektivní hodnoty někdy identicky jako lokální?
 
-Protože lokální hodnota se stala konečnou (nebyla potřeba vyšší úroveň dědičnosti). V takových případech se efektivní hodnota shoduje s lokální.
+Protože lokální hodnota se ukázala jako konečná (není potřeba žádná vyšší úroveň dědičnosti). V takových případech se efektivní hodnota shoduje s lokální.
 
-**Kdy bych měl používat efektivní vlastnosti a kdy pracovat jen s lokálními?**
+### Kdy mám používat efektivní vlastnosti a kdy jen lokální?
 
-Používejte efektivní data, když potřebujete výsledek „tak, jak je vykreslen“ po aplikaci veškeré dědičnosti, například pro sladění barev, odsazení nebo velikostí. Pokud chcete tyto hodnoty zachovat nezávisle na pozdějších změnách formátování, zkopírujte požadované vlastnosti do vlastního objektu. Pokud potřebujete změnit formátování na konkrétní úrovni, upravte lokální vlastnosti a poté, pokud je to nutné, znovu načtěte efektivní data k ověření výsledku.
+Používejte efektivní data, když potřebujete výsledek „jako vykreslený“ po všech aplikacích dědičnosti, například pro sladění barev, odsazení nebo velikostí. Pokud potřebujete tyto hodnoty zachovat nezávisle na pozdějších změnách formátování, zkopírujte požadované vlastnosti do vlastního objektu. Pokud chcete měnit formátování na konkrétní úrovni, upravte lokální vlastnosti a poté, pokud je to potřeba, znovu načtěte efektivní data k ověření výsledku.

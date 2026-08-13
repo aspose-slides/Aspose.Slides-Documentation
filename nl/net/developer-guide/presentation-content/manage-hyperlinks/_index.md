@@ -1,6 +1,6 @@
 ---
-title: Beheer presentatie-hyperlinks in .NET
-linktitle: Beheer hyperlink
+title: Hyperlinks in presentaties beheren in .NET
+linktitle: Hyperlink beheren
 type: docs
 weight: 20
 url: /nl/net/manage-hyperlinks/
@@ -11,11 +11,11 @@ keywords:
 - hyperlink opmaken
 - hyperlink verwijderen
 - hyperlink bijwerken
-- tekst-hyperlink
-- dia-hyperlink
-- vorm-hyperlink
-- afbeeldings-hyperlink
-- video-hyperlink
+- teksthyperlink
+- diahyperlink
+- vormhyperlink
+- afbeeldingshyperlink
+- videohyperlink
 - mutabele hyperlink
 - PowerPoint
 - OpenDocument
@@ -23,27 +23,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Beheer hyperlinks in PowerPoint-en OpenDocument-presentaties moeiteloos met Aspose.Slides voor .NET—verbeter interactiviteit en workflow in enkele minuten."
+description: "Beheer hyperlinks moeiteloos in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor .NET—verbeter interactie en workflow binnen enkele minuten."
 ---
-## **Inleiding**
+## **Introductie**
 
 Een hyperlink is een verwijzing naar een object, gegevens of een locatie in iets. Dit zijn veelvoorkomende hyperlinks in PowerPoint‑presentaties:
 
-* Links naar websites in tekst, vormen of media
+* Links naar websites in teksten, vormen of media
 * Links naar dia's
 
-Aspose.Slides voor .NET stelt u in staat om vele taken met betrekking tot hyperlinks in presentaties uit te voeren.
+Aspose.Slides voor .NET stelt u in staat om vele taken met betrekking tot hyperlinks in presentaties uit te voeren. 
 
-{{% alert color="primary" %}} 
-U wilt misschien Aspose Simple, [gratis online PowerPoint‑editor.](https://products.aspose.app/slides/nl/editor)
+{{% alert color="info" %}} 
+U wilt misschien Aspose Simple bekijken, [gratis online PowerPoint‑editor.](https://products.aspose.app/slides/nl/editor)
 {{% /alert %}} 
 
-## **URL-hyperlinks toevoegen**
+## **URL‑hyperlinks toevoegen**
 
-### **URL-hyperlinks toevoegen aan tekst**
+### **URL‑hyperlinks toevoegen aan tekst**
 
-Deze C#‑code laat zien hoe u een website‑hyperlink aan een tekst toevoegt:
+Deze C#‑code laat zien hoe u een website‑hyperlink aan een tekst kunt toevoegen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
@@ -56,10 +59,13 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **URL-hyperlinks toevoegen aan vormen of frames**
+### **URL‑hyperlinks toevoegen aan vormen of frames**
 
-Deze voorbeeldcode in C# laat zien hoe u een website‑hyperlink aan een vorm toevoegt:
+Deze voorbeeldcode in C# laat zien hoe u een website‑hyperlink aan een vorm kunt toevoegen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
@@ -71,17 +77,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **URL-hyperlinks toevoegen aan media**
+### **URL‑hyperlinks toevoegen aan media**
 
 Aspose.Slides stelt u in staat hyperlinks toe te voegen aan afbeeldingen, audio‑ en videobestanden. 
 
-Deze voorbeeldcode laat zien hoe u een hyperlink aan een **afbeelding** toevoegt:
+Deze voorbeeldcode laat zien hoe u een hyperlink aan een **afbeelding** kunt toevoegen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
-    // Voegt afbeelding toe aan presentatie
+    // Voegt afbeelding toe aan de presentatie
     IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    // Maakt een afbeeldingframe op dia 1 op basis van de eerder toegevoegde afbeelding
+    // Maakt afbeeldingsframe op dia 1 op basis van eerder toegevoegde afbeelding
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
 
     pictureFrame.HyperlinkClick = new Hyperlink("https://www.aspose.com/");
@@ -91,8 +100,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Deze voorbeeldcode laat zien hoe u een hyperlink aan een **audiobestand** toevoegt:
+Deze voorbeeldcode laat zien hoe u een hyperlink aan een **audio‑bestand** kunt toevoegen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("audio.mp3"));
@@ -105,8 +117,11 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Deze voorbeeldcode laat zien hoe u een hyperlink aan een **video** toevoegt:
+Deze voorbeeldcode laat zien hoe u een hyperlink aan een **video** kunt toevoegen:
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IVideo video = pres.Videos.AddVideo(File.ReadAllBytes("video.avi"));
@@ -119,16 +134,20 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
-U wilt misschien *[OLE beheren](https://docs.aspose.com/slides/nl/net/manage-ole/)*.
+{{%  alert  title="Tip"  color="info"  %}} 
+U wilt misschien *[OLE beheren](https://docs.aspose.com/slides/nl/net/manage-ole/)* zien.
 {{% /alert %}}
 
 ## **Hyperlinks gebruiken om een inhoudsopgave te maken**
 
-Aangezien hyperlinks u toestaan verwijzingen naar objecten of locaties toe te voegen, kunt u ze gebruiken om een inhoudsopgave te maken. 
+Aangezien hyperlinks u in staat stellen referenties naar objecten of locaties toe te voegen, kunt u ze gebruiken om een inhoudsopgave te maken. 
 
-Deze voorbeeldcode laat zien hoe u een inhoudsopgave met hyperlinks maakt:
+Deze voorbeeldcode laat zien hoe u een inhoudsopgave met hyperlinks kunt maken:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     var firstSlide = presentation.Slides[0];
@@ -159,10 +178,14 @@ using (var presentation = new Presentation())
 
 ### **Kleur**
 
-Met de eigenschap [ColorSource](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink/properties/colorsource) in de interface [IHyperlink](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink) kunt u de kleur voor hyperlinks instellen en ook kleurinformatie van hyperlinks ophalen. De functie werd voor het eerst geïntroduceerd in PowerPoint 2019, dus wijzigingen met betrekking tot deze eigenschap gelden niet voor oudere PowerPoint‑versies.
+Met de eigenschap [ColorSource](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink/properties/colorsource) in de interface [IHyperlink](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink) kunt u de kleur van hyperlinks instellen en ook de kleurinformatie van hyperlinks ophalen. Deze functie werd voor het eerst geïntroduceerd in PowerPoint 2019, dus wijzigingen met betrekking tot deze eigenschap gelden niet voor oudere PowerPoint‑versies.
 
-Deze voorbeeldcode toont een bewerking waarbij hyperlinks met verschillende kleuren aan dezelfde dia werden toegevoegd:
+Deze voorbeeldcode demonstreert een bewerking waarbij hyperlinks met verschillende kleuren aan dezelfde dia werden toegevoegd:
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
@@ -182,40 +205,43 @@ using (Presentation presentation = new Presentation())
 
 ### **Geluid**
 
-Aspose.Slides biedt de volgende eigenschappen om een hyperlink te benadrukken met een geluid:
+Aspose.Slides biedt deze eigenschappen om een hyperlink te benadrukken met een geluid:
 - [IHyperlink.Sound](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink/properties/sound) 
 - [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink/properties/stopsoundonclick)
 
 #### **Een hyperlinkgeluid toevoegen**
 
-Deze C#‑code laat zien hoe u een hyperlink instelt die een geluid afspeelt en stopt met een andere hyperlink:
+Deze C#‑code laat zien hoe u een hyperlink instelt die een geluid afspeelt en het stopt met een andere hyperlink:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
-	// Voegt nieuwe audio toe aan de audio-collectie van de presentatie
+	// Voegt nieuwe audio toe aan de audiocollectie van de presentatie
 	IAudio playSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
 
 	ISlide firstSlide = pres.Slides[0];
 
-	// Voegt een nieuwe vorm toe met een hyperlink naar de volgende dia
+	// Voegt een nieuwe vorm toe met de hyperlink naar de volgende dia
 	IShape firstShape = firstSlide.Shapes.AddAutoShape(ShapeType.SoundButton, 100, 100, 100, 50);
 	firstShape.HyperlinkClick = Hyperlink.NextSlide;
 
-	// Controleert de hyperlink op "Geen geluid"
+	// Controleert de hyperlink voor "Geen geluid"
 	if (!firstShape.HyperlinkClick.StopSoundOnClick && firstShape.HyperlinkClick.Sound == null)
 	{
 		// Stelt de hyperlink in die geluid afspeelt
 		firstShape.HyperlinkClick.Sound = playSound;
 	}
 
-	// Voegt een lege dia toe 
+	// Voegt een lege dia toe
 	ISlide secondSlide = pres.Slides.AddEmptySlide(firstSlide.LayoutSlide);
 
 	// Voegt een nieuwe vorm toe met de NoAction-hyperlink
 	IShape secondShape = secondSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 100, 50);
 	secondShape.HyperlinkClick = Hyperlink.NoAction;
 
-	// Stelt de hyperlink‑vlag "Stop eerder geluid" in
+	// Stelt de hyperlink "Stop vorige geluid"-vlag in
 	secondShape.HyperlinkClick.StopSoundOnClick = true;
 
 	pres.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
@@ -224,18 +250,20 @@ using (Presentation pres = new Presentation())
 
 #### **Een hyperlinkgeluid extraheren**
 
-Deze C#‑code laat zien hoe u het geluid dat in een hyperlink wordt gebruikt, kunt extraheren:
+Deze C#‑code laat zien hoe u het geluid dat in een hyperlink wordt gebruikt kunt extraheren:
 ```c#
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 {
 	ISlide firstSlide = pres.Slides[0];
 
-	// Verkrijgt de hyperlink van de eerste vorm
+	// Haalt de hyperlink van de eerste vorm op
 	IHyperlink link = firstSlide.Shapes[0].HyperlinkClick;
 
 	if (link.Sound != null)
 	{
-		// Extraheert het hyperlinkgeluid als byte-array
+		// Extraheert het hyperlinkgeluid in een byte-array
 		byte[] audioData = link.Sound.BinaryData;
 	}
 }
@@ -245,8 +273,11 @@ using (Presentation pres = new Presentation("hyperlink-sound.pptx"))
 
 ### **Hyperlinks uit tekst verwijderen**
 
-Deze C#‑code laat zien hoe u de hyperlink uit een tekst in een presentatiedia verwijdert:
+Deze C#‑code laat zien hoe u de hyperlink uit een tekst op een presentatiedia kunt verwijderen:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -271,8 +302,11 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Hyperlinks uit vormen of frames verwijderen**
 
-Deze C#‑code laat zien hoe u de hyperlink uit een vorm in een presentatiedia verwijdert: 
+Deze C#‑code laat zien hoe u de hyperlink uit een vorm op een presentatiedia kunt verwijderen: 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("demo.pptx")) 
 { 
    ISlide slide = pres.Slides[0]; 
@@ -293,8 +327,11 @@ De klasse [Hyperlink](https://reference.aspose.com/slides/nl/net/aspose.slides/h
 - [IHyperlink.History](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink/properties/history)
 - [IHyperlink.HighlightClick](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlink/properties/highlightclick)
 
-Het codefragment toont hoe u een hyperlink aan een dia toevoegt en later de tooltip bewerkt:
+De codefragment laat zien hoe u een hyperlink aan een dia kunt toevoegen en later de tooltip kunt bewerken:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {   
    IAutoShape shape1 = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);    
@@ -319,7 +356,7 @@ U kunt IHyperlinkQueries benaderen vanuit een presentatie, dia of tekst waarvoor
 - [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/properties/hyperlinkqueries)
 - [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/properties/hyperlinkqueries)
 
-De IHyperlinkQueries‑klasse ondersteunt de volgende methoden en eigenschappen: 
+De klasse IHyperlinkQueries ondersteunt deze methoden en eigenschappen: 
 
 - [IHyperlinkQueries.GetHyperlinkClicks();](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkclicks)
 - [IHyperlinkQueries.GetHyperlinkMouseOvers();](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlinkqueries/methods/gethyperlinkmouseovers)
@@ -328,14 +365,14 @@ De IHyperlinkQueries‑klasse ondersteunt de volgende methoden en eigenschappen:
 
 ## **FAQ**
 
-**Hoe kan ik interne navigatie creëren, niet alleen naar een dia, maar naar een "sectie" of de eerste dia van een sectie?**
+### Hoe kan ik interne navigatie maken, niet alleen naar een dia, maar naar een "sectie" of de eerste dia van een sectie?
 
-Secties in PowerPoint zijn groeperingen van dia's; navigatie richt zich technisch op een specifieke dia. Om "naar een sectie te navigeren" linkt u doorgaans naar de eerste dia van die sectie.
+Secties in PowerPoint zijn groeperingen van dia's; de navigatie richt zich technisch op een specifieke dia. Om "naar een sectie te navigeren" linkt u doorgaans naar de eerste dia van die sectie.
 
-**Kan ik een hyperlink aan elementen van de masterslide koppelen zodat deze op alle dia's werkt?**
+### Kan ik een hyperlink toevoegen aan elementen van de masterdia zodat deze op alle dia's werkt?
 
-Ja. Elementen van de masterslide en lay‑out ondersteunen hyperlinks. Dergelijke koppelingen verschijnen op onderliggende dia's en zijn klikbaar tijdens de diavoorstelling.
+Ja. Masterdia‑ en layoutelementen ondersteunen hyperlinks. Dergelijke links verschijnen op onderliggende dia's en zijn klikbaar tijdens de diavoorstelling.
 
-**Worden hyperlinks behouden bij export naar PDF, HTML, afbeeldingen of video?**
+### Worden hyperlinks behouden bij het exporteren naar PDF, HTML, afbeeldingen of video?
 
-In [PDF](/slides/nl/net/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/net/convert-powerpoint-to-html/) ja—koppelingen worden over het algemeen behouden. Bij export naar [afbeeldingen](/slides/nl/net/convert-powerpoint-to-png/) en [video](/slides/nl/net/convert-powerpoint-to-video/) blijft de klikbaarheid niet behouden vanwege de aard van die formaten (raster‑frames/video ondersteunen geen hyperlinks).
+In [PDF](/slides/nl/net/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/net/convert-powerpoint-to-html/) ja—links worden over het algemeen behouden. Bij het exporteren naar [afbeeldingen](/slides/nl/net/convert-powerpoint-to-png/) en [video](/slides/nl/net/convert-powerpoint-to-video/) blijft de klikbaarheid niet behouden vanwege de aard van die formaten (raster‑frames/video ondersteunen geen hyperlinks).

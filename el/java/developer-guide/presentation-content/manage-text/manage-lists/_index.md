@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Λιστών με Κουκκίδες και Αριθμούς σε Παρουσιάσεις σε Java
-linktitle: Διαχείριση Λιστών
+title: Διαχείριση λιστών με κουκκίδες και αριθμημένων λιστών σε παρουσιάσεις με Java
+linktitle: Διαχείριση λιστών
 type: docs
 weight: 60
 url: /el/java/manage-lists/
@@ -8,8 +8,8 @@ keywords:
 - κουκκίδα
 - λίστα με κουκκίδες
 - αριθμημένη λίστα
-- σύμβολο κουκκίδας
-- κουκκίδα εικόνας
+- συμβολική κουκκίδα
+- εικόνα-κουκκίδα
 - προσαρμοσμένη κουκκίδα
 - πολυεπίπεδη λίστα
 - δημιουργία κουκκίδας
@@ -20,29 +20,32 @@ keywords:
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: Μάθετε πώς να δημιουργείτε και να μορφοποιείτε λίστες με κουκκίδες, εικόνα, πολυεπίπεδες και αριθμημένες σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides for Java.
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε λιστες με κουκκίδες, εικόνα, πολυεπίπεδες και αριθμημένες λιστες σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Java σάς επιτρέπει να δημιουργείτε και να διαμορφώνετε λίστες με κουκκίδες και αριθμημένες λίστες σε παρουσιάσεις PowerPoint και OpenDocument. Ένα στοιχείο λίστας είναι μια παράγραφος της οποίας οι ρυθμίσεις της κουκκίδας ελέγχονται μέσω της μορφοποίησης της παραγράφου.
+Το Aspose.Slides for Java σάς επιτρέπει να δημιουργείτε και να μορφοποιείτε λιστες με κουκκίδες και αριθμημένες λιστες σε παρουσιάσεις PowerPoint και OpenDocument. Ένα στοιχείο λίστας είναι μια παράγραφος της οποίας οι ρυθμίσεις της κουκκίδας ελέγχονται μέσω της μορφοποίησης παραγράφου.
 
-Χρησιμοποιήστε τη μέθοδο [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/#getParagraphFormat--) για να έχετε πρόσβαση στις ρυθμίσεις λίστας σε επίπεδο παραγράφου. Το κύριο σημείο εισόδου είναι το [IParagraphFormat.getBullet](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getBullet--), το οποίο επιστρέφει ένα αντικείμενο [IBulletFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/). Με αυτό το αντικείμενο, μπορείτε να ορίσετε τον τύπο της κουκκίδας, το σύμβολο, την εικόνα, το χρώμα, το μέγεθος, το στυλ αρίθμησης και τον αρχικό αριθμό.
+Χρησιμοποιήστε τη μέθοδο [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/#getParagraphFormat--) για να αποκτήσετε πρόσβαση στις ρυθμίσεις λίστας επιπέδου παραγράφου. Το κύριο σημείο εισόδου είναι το [IParagraphFormat.getBullet](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getBullet--), το οποίο επιστρέφει ένα αντικείμενο [IBulletFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/). Με αυτό το αντικείμενο, μπορείτε να ορίσετε τον τύπο της κουκκίδας, το σύμβολο, την εικόνα, το χρώμα, το μέγεθος, το στυλ αρίθμησης και τον αρχικό αριθμό.
 
 Αυτό το άρθρο δείχνει πώς να:
 
-- Δημιουργήσετε λίστα με κουκκίδες χρησιμοποιώντας προσαρμοσμένο σύμβολο
-- Δημιουργήσετε εικόνα‑κουκκίδα
-- Δημιουργήσετε πολυεπίπεδο κατάλογο ορίζοντας το βάθος της παραγράφου
-- Δημιουργήσετε αριθμημένη λίστα
-- Ελέγξετε και αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση
+- δημιουργήσετε μια λιστα με κουκκίδες με προσαρμοσμένο σύμβολο
+- δημιουργήσετε μια εικόνα-κουκκίδα
+- δημιουργήσετε πολυεπίπεδη λιστα ορίζοντας το βάθος της παραγράφου
+- δημιουργήσετε αριθμημένη λιστα
+- ελέγξετε και αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση
 
 ## **Δημιουργία λίστας με κουκκίδες**
 
-Για να δημιουργήσετε λίστα με κουκκίδες, προσθέστε αντικείμενα [IParagraph](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/) σε ένα [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/) και ορίστε το [IBulletFormat.setType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setType-byte-) σε [BulletType.Symbol](https://reference.aspose.com/slides/el/java/com.aspose.slides/bullettype/#Symbol). Στη συνέχεια, μπορείτε να ορίσετε το [IBulletFormat.setChar](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setChar-char-), το [IBulletFormat.getColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#getColor--) και το [IBulletFormat.setHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setHeight-float-) για να ελέγξετε την εμφάνιση της κουκκίδας.
+Για να δημιουργήσετε μια λιστα με κουκκίδες, προσθέστε αντικείμενα [IParagraph](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraph/) σε ένα [ITextFrame](https://reference.aspose.com/slides/el/java/com.aspose.slides/itextframe/) και ορίστε [IBulletFormat.setType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setType-byte-) σε [BulletType.Symbol](https://reference.aspose.com/slides/el/java/com.aspose.slides/bullettype/#Symbol). Στη συνέχεια μπορείτε να ορίσετε [IBulletFormat.setChar](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#getColor--) και [IBulletFormat.setHeight](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setHeight-float-) για να ελέγξετε την εμφάνιση της κουκκίδας.
 
-Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε μια λίστα με κουκκίδες σε μια διαφάνεια:
+Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε μια λιστα με κουκκίδες σε μία διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -81,15 +84,17 @@ try {
 
 Το αποτέλεσμα:
 
-![The symbol bullets](symbol_bullets.png)
+![Τα σύμβολα των κουκκίδων](symbol_bullets.png)
 
 ## **Δημιουργία αριθμημένης λίστας**
 
-Χρησιμοποιήστε αριθμημένες λίστες όταν η σειρά των στοιχείων έχει σημασία. Ορίστε το [IBulletFormat.setType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setType-byte-) σε [BulletType.Numbered](https://reference.aspose.com/slides/el/java/com.aspose.slides/bullettype/#Numbered). Μπορείτε επίσης να επιλέξετε μορφή αρίθμησης με το [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) ή να ορίσετε το [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) όταν η λίστα πρέπει να ξεκινά από τιμή διαφορετική από το 1.
+Χρησιμοποιήστε αριθμημένες λιστες όταν η σειρά των στοιχείων έχει σημασία. Ορίστε [IBulletFormat.setType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setType-byte-) σε [BulletType.Numbered](https://reference.aspose.com/slides/el/java/com.aspose.slides/bullettype/#Numbered). Μπορείτε επίσης να επιλέξετε μορφή αρίθμησης με [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) ή να ορίσετε [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) όταν η λιστα πρέπει να ξεκινήσει από τιμή διαφορετική από 1.
 
-Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε μια αριθμημένη λίστα σε μια διαφάνεια:
+Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε μια αριθμημένη λιστα σε μία διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -121,27 +126,29 @@ try {
 
 Το αποτέλεσμα:
 
-![The numbered bullets](numbered_bullets.png)
+![Οι αριθμημένες κουκκίδες](numbered_bullets.png)
 
-## **Δημιουργία εικόνας‑κουκκίδας**
+## **Δημιουργία εικόνας-κουκκίδας**
 
-Το Aspose.Slides σας επιτρέπει να αντικαταστήσετε ένα κανονικό σύμβολο κουκκίδας με μια εικόνα. Οι εικόνες‑κουκκίδες λειτουργούν καλύτερα με απλές εικόνες που παραμένουν αναγνώσιμες σε μικρό μέγεθος, όπως εικονίδια ή μικρά διαυρά PNG αρχεία.
+Το Aspose.Slides επιτρέπει την αντικατάσταση ενός κανονικού συμβόλου κουκκίδας με εικόνα. Οι εικόνες-κουκκίδες λειτουργούν καλύτερα με απλές εικόνες που παραμένουν αναγνώσιμες σε μικρό μέγεθος, όπως εικονίδια ή μικρά διαφανή αρχεία PNG.
 
-{{% alert color="primary" %}}
-Ιδανικά, αν σκοπεύετε να αντικαταστήσετε το κανονικό σύμβολο κουκκίδας με μια εικόνα, είναι καλύτερο να επιλέξετε ένα απλό γραφικό με διαυρή φόντο. Τέτοιες εικόνες λειτουργούν καλά ως προσαρμοσμένα σύμβολα κουκκίδας.
+{{% alert color="info" %}}
+Ιδανικά, εάν σκοπεύετε να αντικαταστήσετε το κανονικό σύμβολο της κουκκίδας με εικόνα, είναι καλύτερο να επιλέξετε ένα απλό γραφικό με διαφανές φόντο. Τέτοιες εικόνες λειτουργούν καλά ως προσαρμοσμένα σύμβολα κουκκίδας.
 
-Να θυμάστε ότι η εικόνα θα κλιμακωθεί σε πολύ μικρό μέγεθος. Για αυτόν τον λόγο, συνιστούμε έντονα να επιλέξετε μια εικόνα που παραμένει καθαρή και οπτικά αποτελεσματική όταν χρησιμοποιείται ως κουκκίδα σε λίστα.
+Λάβετε υπόψη ότι η εικόνα θα κλιμακωθεί σε πολύ μικρό μέγεθος. Για το λόγο αυτό, συνιστούμε ανεπιφύλακτα την επιλογή μιας εικόνας που παραμένει καθαρή και οπτικά αποτελεσματική όταν χρησιμοποιείται ως κουκκίδα σε λιστα.
 {{% /alert %}}
 
-Για να δημιουργήσετε εικόνα‑κουκκίδα, προσθέστε μια εικόνα στο [Presentation.getImages](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getImages--) και αναθέστε το επιστραφέν αντικείμενο εικόνας στο [IBulletFormat.getPicture](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#getPicture--). Ορίστε το [IBulletFormat.setType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setType-byte-) σε [BulletType.Picture](https://reference.aspose.com/slides/el/java/com.aspose.slides/bullettype/#Picture) πριν την ανάθεση της εικόνας.
+Για να δημιουργήσετε μια εικόνα-κουκκίδα, προσθέστε μια εικόνα στο [Presentation.getImages](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/#getImages--) και αντιστοιχίστε το αντικείμενο εικόνας που επιστρέφεται στο [IBulletFormat.getPicture](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#getPicture--). Ορίστε [IBulletFormat.setType](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibulletformat/#setType-byte-) σε [BulletType.Picture](https://reference.aspose.com/slides/el/java/com.aspose.slides/bullettype/#Picture) πριν αναθέσετε την εικόνα.
 
-Ας υποθέσουμε ότι έχουμε ένα "image.png":
+Ας πούμε ότι έχουμε ένα «image.png»:
 
-![A picture for the bullets](picture_for_bullets.png)
+![Μια εικόνα για τις κουκκίδες](picture_for_bullets.png)
 
-Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε εικόνες‑κουκκίδες σε μια διαφάνεια:
+Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε εικόνες-κουκκίδες σε μία διαφάνεια:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -176,15 +183,17 @@ try {
 
 Το αποτέλεσμα:
 
-![The picture bullets](picture_bullets.png)
+![Οι εικόνες-κουκκίδες](picture_bullets.png)
 
-## **Δημιουργία πολυεπίπεδου καταλόγου**
+## **Δημιουργία πολυεπίπεδης λίστας**
 
-Χρησιμοποιήστε το [IParagraphFormat.setDepth](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setDepth-short-) για να τοποθετήσετε στοιχεία λίστας σε διαφορετικά επίπεδα. Το επίπεδο 0 είναι το ανώτατο επίπεδο, το επίπεδο 1 είναι εσωτερικό του και ούτω καθεξής.
+Χρησιμοποιήστε [IParagraphFormat.setDepth](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#setDepth-short-) για να τοποθετήσετε στοιχεία λίστας σε διαφορετικά επίπεδα. Το επίπεδο 0 είναι το άνω επίπεδο, το επίπεδο 1 είναι ένθετο κάτω από αυτό, κ.ο.κ.
 
-Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε μια πολυεπίπεδη λίστα με κουκκίδες:
+Ο παρακάτω κώδικας Java δείχνει πώς να δημιουργήσετε μια πολυεπίπεδη λιστα με κουκκίδες:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -221,15 +230,15 @@ try {
 
 Το αποτέλεσμα:
 
-![The multilevel list](multilevel_list.png)
+![Η πολυεπίπεδη λίστα](multilevel_list.png)
 
 ## **Αλλαγή υπάρχουσας λίστας**
 
-Για να αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο και ενημερώστε τις ρυθμίσεις του [IParagraphFormat.getBullet](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getBullet--) . Οι ίδιες ιδιότητες που χρησιμοποιήθηκαν για τη δημιουργία λιστών μπορούν να χρησιμοποιηθούν για την επιθεώρηση ή την τροποποίηση λιστών που έχουν φορτωθεί από αρχείο PPT, PPTX ή ODP.
-
-Ο παρακάτω κώδικας Java αλλάζει την πρώτη παράγραφο σε πλαίσιο κειμένου ώστε να χρησιμοποιεί στυλ αριθμημένης λίστας:
+Για να αλλάξετε τη μορφοποίηση λίστας σε υπάρχουσα παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο και ενημερώστε τις ρυθμίσεις [IParagraphFormat.getBullet](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getBullet--) της. Οι ίδιες ιδιότητες που χρησιμοποιούνται για τη δημιουργία λιστών μπορούν να χρησιμοποιηθούν για την εξέταση ή την τροποποίηση λιστών που έχουν φορτωθεί από αρχείο PPT, PPTX ή ODP.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -250,14 +259,14 @@ try {
 
 ## **Συχνές ερωτήσεις**
 
-**Μπορούν οι λίστες με κουκκίδες και οι αριθμημένες λίστες να εξαχθούν σε PDF ή εικόνες;**
+### Μπορούν οι λιστες με κουκκίδες και οι αριθμημένες λιστες να εξαχθούν σε PDF ή εικόνες;
 
 Ναι. Το Aspose.Slides διατηρεί τη μορφοποίηση της λίστας όταν η μορφή προορισμού υποστηρίζει την αντίστοιχη διάταξη κειμένου και τις δυνατότητες κουκκίδας.
 
-**Μπορώ να επεξεργαστώ λίστες σε υπάρχουσες παρουσιάσεις;**
+### Μπορώ να επεξεργαστώ λιστες σε υπάρχουσες παρουσιάσεις;
 
-Ναι. Φορτώστε την παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο, επιθεωρήστε ή ενημερώστε τις ρυθμίσεις του [IParagraphFormat.getBullet](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getBullet--), και αποθηκεύστε την παρουσίαση.
+Ναι. Φορτώστε την παρουσίαση, αποκτήστε πρόσβαση στην επιθυμητή παράγραφο, ελέγξτε ή ενημερώστε τις ρυθμίσεις [IParagraphFormat.getBullet](https://reference.aspose.com/slides/el/java/com.aspose.slides/iparagraphformat/#getBullet--) και αποθηκεύστε την παρουσίαση.
 
-**Μπορούν οι λίστες να περιέχουν μη λατινικό κείμενο;**
+### Μπορούν οι λιστες να περιέχουν μη λατινικό κείμενο;
 
-Ναι. Το κείμενο των στοιχείων λίστας μπορεί να περιέχει χαρακτήρες Unicode, έτσι ώστε να μπορείτε να δημιουργείτε λίστες σε πολυγλωσσικές παρουσιάσεις. Βεβαιωθείτε ότι οι γραμματοσειρές που χρησιμοποιούνται στην παρουσίαση υποστηρίζουν τους χαρακτήρες που χρειάζεστε.
+Ναί. Το κείμενο των στοιχείων λίστας μπορεί να περιέχει χαρακτήρες Unicode, ώστε να μπορείτε να δημιουργείτε λιστες σε πολυγλωσσικές παρουσιάσεις. Βεβαιωθείτε ότι οι γραμματοσειρές που χρησιμοποιούνται στην παρουσίαση υποστηρίζουν τους χαρακτήρες που χρειάζεστε.

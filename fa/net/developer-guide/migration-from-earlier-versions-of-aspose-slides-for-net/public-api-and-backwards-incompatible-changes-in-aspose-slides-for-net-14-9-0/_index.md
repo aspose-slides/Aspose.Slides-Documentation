@@ -1,104 +1,98 @@
 ---
-title: API عمومی و تغییرات ناسازگار به سمت عقب در Aspose.Slides برای .NET 14.9.0
+title: API عمومی و تغییرات ناسازگار با نسخه‌های قبلی در Aspose.Slides برای .NET 14.9.0
 linktitle: Aspose.Slides برای .NET 14.9.0
 type: docs
 weight: 110
 url: /fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/
 keywords:
 - مهاجرت
-- کدهای قدیمی
-- کدهای مدرن
+- کد قدیمی
+- کد مدرن
 - رویکرد قدیمی
 - رویکرد مدرن
-- پاورپوینت
-- اسناد باز
+- PowerPoint
+- OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "بازبینی به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET برای مهاجرت یکپارچهٔ راه‌حل‌های ارائهٔ PowerPoint PPT، PPTX و ODP."
+description: "به‌روزرسانی‌های API عمومی و تغییرات ناسازگار در Aspose.Slides برای .NET را بررسی کنید تا به‌صورت یکپارچه ارائه‌های PowerPoint (PPT، PPTX) و ODP خود را مهاجرت دهید."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-این صفحه تمام کلاس‌ها، متدها، خواص و غیرهٔ [اضافه‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) یا [حذف‌شده](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) را فهرست می‌کند و سایر تغییرات معرفی‌شده با API Aspose.Slides برای .NET 14.9.0.
+این صفحه تمام کلاس‌ها، متدها، خصوصیت‌ها و غیره که [added](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) یا [removed](/slides/fa/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) شده‌اند و سایر تغییرات معرفی‌شده با Aspose.Slides for .NET 14.9.0 API را فهرست می‌کند.
 
 {{% /alert %}} 
 ## **تغییرات API عمومی**
-#### **ارث‌بری از اینترفیس‌های ICollection و Generic IEnumerable به ISmartArtNodeCollection اضافه شد**
-کلاس Aspose.Slides.SmartArt.SmartArtNodeCollection (و اینترفیس مرتبط Aspose.Slides.SmartArt.ISmartArtNodeCollection) اینترفیس عمومی IEnumerable<ISmartArtNode> و اینترفیس ICollection را به ارث می‌برند.
+#### **ارث‌بری از رابط‌های ICollection و Generic IEnumerable به ISmartArtNodeCollection اضافه شد**
+کلاس Aspose.Slides.SmartArt.SmartArtNodeCollection (و رابط مرتبط Aspose.Slides.SmartArt.ISmartArtNodeCollection) رابط عمومی IEnumerable<ISmartArtNode> و رابط ICollection را ارث می‌برند.
 #### **مقدار Enum SmartArtLayoutType.Custom اضافه شد**
-نوع چیدمان سفارشی SmartArt نمایانگر یک نمودار با الگوی سفارشی است. نمودارهای سفارشی فقط می‌توانند از یک فایل ارائه بارگذاری شوند و نمی‌توانند با متد ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom) ایجاد شوند.
-#### **کلاس SmartArtShape و اینترفیس ISmartArtShape اضافه شد**
-کلاس Aspose.Slides.SmartArt.SmartArtShape (و اینترفیس Aspose.Slides.SmartArt.ISmartArtShape) دسترسی به اشکال فردی در یک نمودار SmartArt را فراهم می‌کند. می‌توان از SmartArtShape برای تغییر FillFormat، LineFormat، افزودن Hyperlink و سایر تسک‌ها استفاده کرد.
+نوع چیدمان سفارشی SmartArt نشان‌دهنده یک نمودار با الگوی سفارشی است. نمودارهای سفارشی فقط می‌توانند از یک فایل ارائه بارگذاری شوند و نمی‌توان آنها را با متد ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom) ایجاد کرد.
+#### **کلاس SmartArtShape و رابط ISmartArtShape اضافه شدند**
+کلاس Aspose.Slides.SmartArt.SmartArtShape (و رابط آن Aspose.Slides.SmartArt.ISmartArtShape) دسترسی به اشکال منفرد در یک نمودار SmartArt را فراهم می‌کند. می‌توان از SmartArtShape برای تغییر FillFormat، LineFormat، افزودن Hyperlinkها و سایر کارها استفاده کرد.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**نکته**: SmartArtShape از خواص IShape شامل RawFrame، Frame، Rotation، X، Y، Width و Height پشتیبانی نمی‌کند و هنگام دسترسی به آن‌ها یک System.NotSupportedException بر می‌گرداند.
+**توجه**: SmartArtShape از ویژگی‌های IShape شامل RawFrame، Frame، Rotation، X، Y، Width و Height پشتیبانی نمی‌کند و در هنگام تلاش برای دسترسی به آن‌ها یک System.NotSupportedException ایجاد می‌کند.
 
 مثال استفاده:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
   ISmartArtNode node = smart.AllNodes[0];
 
-  foreach (SmartArtShape shape in node.Shapes)
-
+  foreach (ISmartArtShape shape in node.Shapes)
   {
-
     shape.FillFormat.FillType = FillType.Solid;
 
     shape.FillFormat.SolidFillColor.Color = Color.Red;
-
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
-
+  pres.Save("out.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 
 {{% /alert %}} 
-#### **کلاس SmartArtShapeCollection، اینترفیس ISmartArtShapeCollection و ویژگی ISmartArtNode.Shapes اضافه شد**
-کلاس Aspose.Slides.SmartArt.SmartArtShapeCollection (و اینترفیس Aspose.Slides.SmartArt.ISmartArtShapeCollection) دسترسی به اشکال فردی در یک نمودار SmartArt را اضافه می‌کند. این مجموعه شامل اشکالی است که با SmartArtNode مرتبط هستند. ویژگی SmartArtNode.Shapes مجموعه‌ای از تمام اشکال مرتبط با گره را بازمی‌گرداند.
+#### **کلاس SmartArtShapeCollection، رابط ISmartArtShapeCollection و ویژگی ISmartArtNode.Shapes اضافه شدند**
+کلاس Aspose.Slides.SmartArt.SmartArtShapeCollection (و رابط آن Aspose.Slides.SmartArt.ISmartArtShapeCollection) دسترسی به اشکال منفرد در یک نمودار SmartArt را فراهم می‌کند. این مجموعه شامل اشکالی است که به SmartArtNode مرتبط هستند. ویژگی SmartArtNode.Shapes مجموعه‌ای از تمام اشکال مرتبط با گره را بر می‌گرداند.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**نکته**: بسته به مقدار SmartArtLayoutType، یک SmartArtShape می‌تواند بین چند گره به‌اشتراک گذاشته شود.
+**توجه**: بسته به SmartArtLayoutType یک SmartArtShape می‌تواند بین چندین گره به اشتراک گذاشته شود.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
   ISmartArtNode node = smart.AllNodes[0];
 
-  foreach (SmartArtShape shape in node.Shapes)
-
+  foreach (ISmartArtShape shape in node.Shapes)
   {
-
     shape.FillFormat.FillType = FillType.Solid;
 
     shape.FillFormat.SolidFillColor.Color = Color.Red;
-
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
-
+  pres.Save("out.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 
 {{% /alert %}} 
-#### **متدهای ذخیره‌سازی اسلایدها با حفظ شماره صفحات اضافه شد**
+#### **متدهای ذخیره‌سازی اسلایدها با حفظ شماره صفحات اضافه شدند**
 متدهای زیر اضافه شده‌اند:
 
 - void IPresentation.Save(string fname, int[] slides, SaveFormat format);
@@ -106,17 +100,21 @@ description: "بازبینی به‌روزرسانی‌های API عمومی و 
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-این متدها به توسعه‌دهندگان اجازه می‌دهند اسلایدهای مشخص شده‌ی ارائه را به فرمت‌های PDF، XPS، TIFF، HTML ذخیره کنند. آرایه ‘slides’ برای تعیین شماره صفحات استفاده می‌شود و از ۱ شروع می‌گردد.
+این متدها به توسعه‌دهندگان امکان می‌دهند اسلایدهای مشخصی از ارائه را به فرمت‌های PDF، XPS، TIFF، HTML ذخیره کنند. آرایه `slides` برای مشخص کردن شماره صفحات (از ۱ شروع) استفاده می‌شود.
 Save(string fname, int[] slides, SaveFormat format);
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- Presentation presentation = new Presentation(presentationFileName);
-int[] slides = new int[] { 2, 3, 5 }; //آرایه‌ای از موقعیت‌های اسلایدها
-presentation.Save(outFileName, slides, SaveFormat.Pdf);
+using (Presentation presentation = new Presentation("presentation.pptx"))
+{
+    int[] slides = new int[] { 2, 3, 5 }; //آرایه‌ای از موقعیت اسلایدها
 
+    presentation.Save("output.pdf", slides, SaveFormat.Pdf);
+}
 ``` 
-#### **متدهای جایگزینی تصویر به PPImage، IPPImage اضافه شد**
+#### **متدهای جایگزینی تصویر به PPImage، IPPImage اضافه شدند**
 متدهای جدید اضافه شده‌اند:
 
 - IPPImage.ReplaceImage(byte[] newImageData)
@@ -124,30 +122,33 @@ presentation.Save(outFileName, slides, SaveFormat.Pdf);
 - IPPImage.ReplaceImage(IPPImage newImage)
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- Presentation presentation = new Presentation(presentation.pptx);
-//روش اول
+using (Presentation presentation = new Presentation("presentation.pptx"))
+{
+    //روش اول
 
-byte[] data = File.ReadAllBytes(image0.jpeg);
+    byte[] data = File.ReadAllBytes("image0.jpeg");
 
-IPPImage oldImage = presentation.Images[0];
+    IPPImage oldImage = presentation.Images[0];
 
-oldImage.ReplaceImage(data);
+    oldImage.ReplaceImage(data);
 
-//روش دوم
+    //روش دوم
 
-Image newImage = Image.FromFile(image1.png);
+    IImage newImage = Images.FromFile("image1.png");
 
-oldImage = presentation.Images[1];
+    oldImage = presentation.Images[1];
 
-oldImage.ReplaceImage(newImage);
+    oldImage.ReplaceImage(newImage);
 
-//روش سوم
+    //روش سوم
 
-oldImage = presentation.Images[2];
+    oldImage = presentation.Images[2];
 
-oldImage.ReplaceImage(presentation.Images[3]);
+    oldImage.ReplaceImage(presentation.Images[3]);
 
-presentation.Save(presentation_out.pptx, SaveFormat.Pptx);
-
+    presentation.Save("presentation_out.pptx", SaveFormat.Pptx);
+}
 ```

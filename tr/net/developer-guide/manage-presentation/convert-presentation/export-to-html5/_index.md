@@ -1,11 +1,11 @@
 ---
 title: Sunumları .NET'te HTML5'e Dönüştür
-linktitle: Sunumu HTML5'e
+linktitle: HTML5'e Sunum
 type: docs
 weight: 40
 url: /tr/net/export-to-html5/
 keywords:
-- PowerPoint'tan HTML5'e
+- PowerPoint'ten HTML5'e
 - OpenDocument'ten HTML5'e
 - sunumdan HTML5'e
 - slayttan HTML5'e
@@ -21,30 +21,36 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile PowerPoint ve OpenDocument sunumlarını duyarlı HTML5'e dışa aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
+description: "PowerPoint ve OpenDocument sunumlarını Aspose.Slides for .NET ile duyarlı HTML5 olarak dışa aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarını HTML5'e dönüştürmeyi açıklar. Web uzantıları veya ek bağımlılıklar olmadan temel HTML5 dışa aktarmayı ve şekil animasyonları ile slayt geçişlerini kontrol etme seçeneklerini kapsar. Makale ayrıca standart PowerPoint‑to‑HTML dışa aktarım sürecini gösterir, slayt görünüm modunda HTML5 çıktısının nasıl oluşturulacağını açıklar ve dışa aktarılan belgede yorumları düzenleyerek nasıl ekleyeceğinizi gösterir.
+Bu makale, PowerPoint sunumlarını Aspose.Slides kullanarak HTML5'e dönüştürmeyi açıklar. Temel HTML5 dışa aktarmayı ve şekil animasyonları ile slayt geçişlerini kontrol etme seçeneklerini kapsar. Makale ayrıca standart PowerPoint‑to‑HTML dışa aktarma sürecini gösterir, slayt görünüm modunda HTML5 çıktısı oluşturma yöntemini açıklar ve dışa aktarılan belgede yorumları düzenlerini yapılandırarak eklemeyi gösterir.
 
 ## **PowerPoint'i HTML5'e Dışa Aktarma**
 
-Bu C# kodu, web uzantıları ve bağımlılıklar olmadan bir sunumu HTML5'e nasıl dışa aktaracağınızı gösterir:
+Bu C# kodu, bir sunumu HTML5'e dışa aktarmayı gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html5);
 }
 ```
 
-{{% alert color="primary" %}} 
-Bu durumda, temiz HTML elde edersiniz. 
+{{% alert color="info" %}} 
+HTML belgesine ek olarak, dışa aktarım başvurduğu destek dosyalarını yazar: `pres.css`, `master.css`, `animation.js`, `effects.js` ve `navigation.js`. Oluşturulan sayfa ayrıca jQuery ve Anime.js'i ortak CDN'lerden yükler; bunlar olmadan slayt gezinmesi ve animasyonlar çalışmaz. 
 {{% /alert %}}
 
 Şekil animasyonları ve slayt geçişleri için ayarları şu şekilde belirtebilirsiniz:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres5.html", SaveFormat.Html5, new Html5Options
@@ -57,16 +63,19 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **PowerPoint'i HTML'e Dışa Aktarma**
 
-Bu C# örneği, standart PowerPoint‑to‑HTML sürecini gösterir:
+Bu C# kodu, standart PowerPoint‑to‑HTML sürecini gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("pres.html", SaveFormat.Html);
 }
 ```
 
-Bu durumda, sunum içeriği aşağıdaki gibi bir SVG biçiminde işlenir:
+Bu durumda, sunum içeriği SVG aracılığıyla aşağıdaki biçimde render edilir:
 
 ```html
 <body>
@@ -79,16 +88,19 @@ Bu durumda, sunum içeriği aşağıdaki gibi bir SVG biçiminde işlenir:
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Bu yöntemi kullanarak PowerPoint'i HTML'e dışa aktardığınızda, SVG işleme nedeniyle belirli öğelere stil uygulama veya animasyon ekleme imkanı olmayacaktır. 
+Bu yöntemi PowerPoint'i HTML'e dışa aktarmak için kullandığınızda, SVG render'ı nedeniyle belirli öğelere stil uygulayamaz veya animasyon ekleyemezsiniz. 
 {{% /alert %}}
 
-## **PowerPoint'i HTML5 Slayt Görünümüyle Dışa Aktarma**
+## **PowerPoint'i HTML5 Slayt Görünümü Olarak Dışa Aktarma**
 
-**Aspose.Slides**, bir PowerPoint sunumunu slaytların slayt görünümü modunda sunulduğu bir HTML5 belgesine dönüştürmenize izin verir. Bu durumda, oluşturulan HTML5 dosyasını bir tarayıcıda açtığınızda sunumu bir web sayfasında slayt görünümü modunda görürsünüz. 
+**Aspose.Slides**, slaytların slayt görünüm modunda sunulduğu bir HTML5 belgesine PowerPoint sunumunu dönüştürmenizi sağlar. Bu durumda, ortaya çıkan HTML5 dosyasını bir tarayıcıda açtığınızda, sunumu bir web sayfasında slayt görünüm modunda görürsünüz. 
 
-Bu C# kodu, PowerPoint'i HTML5 Slayt Görünümü dışa aktarım sürecini gösterir:
+Bu C# kodu, PowerPoint'ten HTML5 Slayt Görünümü dışa aktarma sürecini gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
    pres.Save("HTML5-slide-view.html", SaveFormat.Html5, new Html5Options
@@ -99,21 +111,25 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **Yorumlarla Bir HTML5 Belgesi Olarak Sunumu Dönüştürme**
+## **Yorumlu Bir HTML5 Belgesine Sunum Dönüştürme**
 
-PowerPoint'teki yorumlar, kullanıcıların sunum slaytlarına not veya geri bildirim bırakmalarını sağlayan bir araçtır. Özellikle birden fazla kişinin belirli slayt öğelerine öneri veya not ekleyebildiği ortak projelerde faydalıdır; ana içeriği değiştirmeden. Her yorum, yazarın adını gösterir, böylece yorumu kimin bıraktığını takip etmek kolaydır.
+PowerPoint'teki yorumlar, kullanıcıların sunum slaytları üzerinde notlar veya geri bildirim bırakmalarını sağlayan bir araçtır. Özellikle ortak projelerde, birden fazla kişinin belirli slayt öğelerine öneri veya açıklama eklemesine olanak tanır ve ana içeriği değiştirmez. Her yorum, yazarın adını gösterir, böylece kimin yorumu bıraktığını kolayca izleyebilirsiniz.
 
-Örnek olarak, "sample.pptx" dosyasında aşağıdaki PowerPoint sunumunun bulunduğunu varsayalım.
+Örneğin, aşağıdaki PowerPoint sunumunun "sample.pptx" dosyasında kaydedildiğini varsayalım.
 
 ![Sunum slaytındaki iki yorum](two_comments_pptx.png)
 
-PowerPoint sunumunu bir HTML5 belgesine dönüştürdüğünüzde, çıktıda yorumların dahil edilip edilmemesini kolayca belirtebilirsiniz. Bunu yapmak için, yorumların görüntülenme parametrelerini `NotesCommentsLayouting` özelliği üzerinden [Html5Options](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/) sınıfında belirtmeniz gerekir.
+PowerPoint sunumunu HTML5 belgesine dönüştürdüğünüzde, çıktıda yorumların dahil edilip edilmeyeceğini kolayca belirtebilirsiniz. Bunu yapmak için, [Html5Options](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/) sınıfının `NotesCommentsLayouting` özelliğinde yorumların görüntüleme parametrelerini belirtmeniz gerekir.
 
-Aşağıdaki kod örneği, bir sunumu slaytların sağ tarafına yorumlar yerleştirilmiş bir HTML5 belgesine dönüştürür.
+Aşağıdaki kod örneği, slaytların sağ tarafına yorumlar gösterilerek bir sunumu HTML5 belgesine dönüştürür.
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var html5Options = new Html5Options
 {
-    NotesCommentsLayouting =
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
     {
         CommentsPosition = CommentsPositions.Right
     }
@@ -123,20 +139,20 @@ using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
-"output.html" belgesi aşağıdaki görselde gösterilmiştir.
+"output.html" belgesi aşağıdaki görüntüde gösterilmiştir.
 
-![Çıktı HTML5 belgesindeki yorumlar](two_comments_html5.png)
+![HTML5 çıktısındaki yorumlar](two_comments_html5.png)
 
 ## **SSS**
 
-**HTML5'te nesne animasyonları ve slayt geçişlerinin oynatılıp oynatılmayacağını kontrol edebilir miyim?**
+### HTML5'te nesne animasyonları ve slayt geçişlerinin oynatılıp oynatılmayacağını kontrol edebilir miyim?
 
-Evet, HTML5, [şekil animasyonlarını](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animateshapes/) ve [slayt geçişlerini](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animatetransitions/) etkinleştirme veya devre dışı bırakma seçenekleri sunar.
+Evet, HTML5, [shape animations](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animateshapes/) ve [slide transitions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/animatetransitions/) ayrı ayrı etkinleştirme veya devre dışı bırakma seçenekleri sunar.
 
-**Yorum çıktısı destekleniyor mu ve slayta göre nerede konumlandırılabilir?**
+### Yorumların çıktısı destekleniyor mu ve slayta göre nerede konumlandırılabilir?
 
-Evet, yorumlar HTML5'te eklenebilir ve notlar ve yorumlar için [düzen ayarları](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/notescommentslayouting/) aracılığıyla (örneğin slaytın sağına) konumlandırılabilir.
+Evet, yorumlar HTML5'te eklenebilir ve notlar ve yorumlar için [layout settings](https://reference.aspose.com/slides/tr/net/aspose.slides.export/html5options/notescommentslayouting/) aracılığıyla (örneğin, slaytın sağına) konumlandırılabilir.
 
-**Güvenlik veya CSP nedenleriyle JavaScript çağrısı yapan bağlantıları atlayabilir miyim?**
+### Güvenlik veya CSP nedenleriyle JavaScript çağıran bağlantıları atlayabilir miyim?
 
-Evet, kaydetme sırasında JavaScript çağrısı içeren köprüleri atlamanızı sağlayan bir [ayar](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) vardır. Bu, katı güvenlik politikalarına uyum sağlamanıza yardımcı olur.
+Evet, kaydetme sırasında JavaScript çağrısı içeren hiperlinkleri atlamanızı sağlayan bir [setting](https://reference.aspose.com/slides/tr/net/aspose.slides.export/saveoptions/skipjavascriptlinks/) vardır. Bu, katı güvenlik politikalarına uyum sağlamaya yardımcı olur.

@@ -1,151 +1,160 @@
 ---
-title: Public API และการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for .NET 14.9.0
+title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ .NET 14.9.0
 linktitle: Aspose.Slides สำหรับ .NET 14.9.0
 type: docs
 weight: 110
 url: /th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/
 keywords:
 - การย้ายข้อมูล
-- โค้ดเดิม
+- โค้ดเก่า
 - โค้ดสมัยใหม่
-- วิธีการแบบเดิม
-- วิธีการสมัยใหม่
+- แนวทางเดิม
+- แนวทางสมัยใหม่
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ทบทวนการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้แตกหักใน Aspose.Slides for .NET เพื่อการย้ายโซลูชันงานนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น"
+description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้เกิดความขัดแย้งใน Aspose.Slides สำหรับ .NET เพื่อการย้ายข้อมูล PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายชื่อคลาส, เมธอด, คุณสมบัติ ฯลฯ ทั้งหมดที่ [เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) หรือ [ลบ](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for .NET 14.9.0 API.
+หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่[เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/)หรือ[ลบ](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/)และการเปลี่ยนแปลงอื่น ๆ ที่นำเข้ามาใน Aspose.Slides for .NET 14.9.0 API.
 
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
-#### **การสืบทอดจาก ICollection และ Generic IEnumerable Interfaces ที่เพิ่มให้กับ ISmartArtNodeCollection**
-คลาส Aspose.Slides.SmartArt.SmartArtNodeCollection (และอินเทอร์เฟซที่เกี่ยวข้อง Aspose.Slides.SmartArt.ISmartArtNodeCollection) สืบทอดอินเทอร์เฟซทั่วไป IEnumerable<ISmartArtNode> และอินเทอร์เฟซ ICollection.
-#### **เพิ่มค่า Enum SmartArtLayoutType.Custom**
-ประเภทเลเอาต์ SmartArt แบบ Custom แทนแผนภาพที่มีเทมเพลตแบบกำหนดเอง แผนภาพ Custom สามารถโหลดได้เฉพาะจากไฟล์พรีเซนเทชันและไม่สามารถสร้างได้ผ่านเมธอด ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom).
-#### **เพิ่มคลาส SmartArtShape และอินเทอร์เฟซ ISmartArtShape**
-คลาส Aspose.Slides.SmartArt.SmartArtShape (และอินเทอร์เฟซ Aspose.Slides.SmartArt.ISmartArtShape) ให้การเข้าถึงรูปทรงบุคคลละในแผนภาพ SmartArt สามารถใช้ SmartArtShape เพื่อเปลี่ยน FillFormat, LineFormat, เพิ่ม Hyperlinks และงานอื่น ๆ
+#### **Inheritance from ICollection and Generic IEnumerable Interfaces Added to ISmartArtNodeCollection**
+การสืบทอดจาก ICollection และ Generic IEnumerable Interfaces ถูกเพิ่มเข้าไปใน ISmartArtNodeCollection
+The class Aspose.Slides.SmartArt.SmartArtNodeCollection (and the related interface Aspose.Slides.SmartArt.ISmartArtNodeCollection) inherit the generic interface IEnumerable<ISmartArtNode> and interface ICollection.
+#### **SmartArtLayoutType.Custom Enum Value Added**
+ค่า Enum SmartArtLayoutType.Custom ถูกเพิ่ม
+The Custom SmartArt layout type represents a diagram with a custom template. Custom diagrams can only be loaded from a presentation file and can't be created via the ShapeCollection.AddSmartArt(x, y, width, height, SmartArtLayoutType.Custom) method.
+#### **SmartArtShape Class and ISmartArtShape Interface Added**
+คลาส SmartArtShape และ Interface ISmartArtShape ถูกเพิ่ม
+The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.SmartArt.ISmartArtShape) give access to individual shapes in a SmartArt diagram. SmartArtShape can be used to change FillFormat, LineFormat, adding Hyperlinks and other tasks.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**หมายเหตุ**: SmartArtShape ไม่รองรับคุณสมบัติ IShape ได้แก่ RawFrame, Frame, Rotation, X, Y, Width, Height และจะทำให้เกิด System.NotSupportedException เมื่อพยายามเข้าถึง
+**หมายเหตุ**: SmartArtShape ไม่สนับสนุนคุณสมบัติของ IShape ได้แก่ RawFrame, Frame, Rotation, X, Y, Width, Height และจะโยน System.NotSupportedException เมื่อพยายามเข้าถึง
 
-ตัวอย่างการใช้งาน:
+Example of usage:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
   ISmartArtNode node = smart.AllNodes[0];
 
-  foreach (SmartArtShape shape in node.Shapes)
-
+  foreach (ISmartArtShape shape in node.Shapes)
   {
-
     shape.FillFormat.FillType = FillType.Solid;
 
     shape.FillFormat.SolidFillColor.Color = Color.Red;
-
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
-
+  pres.Save("out.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 
 {{% /alert %}} 
-#### **เพิ่มคลาส SmartArtShapeCollection, อินเทอร์เฟซ ISmartArtShapeCollection และคุณสมบัติ ISmartArtNode.Shapes**
-คลาส Aspose.Slides.SmartArt.SmartArtShapeCollection (และอินเทอร์เฟซ Aspose.Slides.SmartArt.ISmartArtShapeCollection) ให้การเข้าถึงรูปทรงบุคคลละในแผนภาพ SmartArt คอลเลกชันนี้บรรจุรูปทรงที่เชื่อมโยงกับ SmartArtNode คุณสมบัติ SmartArtNode.Shapes คืนค่าคอลเลกชันของรูปทรงทั้งหมดที่เชื่อมโยงกับโหนดนั้น
+#### **SmartArtShapeCollection Class, ISmartArtShapeCollection Interface and ISmartArtNode.Shapes Property Added**
+คลาส SmartArtShapeCollection, Interface ISmartArtShapeCollection และ Property ISmartArtNode.Shapes ถูกเพิ่ม
+The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) add access to individual shapes in a SmartArt diagram. The collection contains shapes associated with SmartArtNode. The SmartArtNode.Shapes property returns collections of all shapes associated with the node.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-**หมายเหตุ**: ขึ้นอยู่กับ SmartArtLayoutType รูปทรง SmartArtShape หนึ่งอาจถูกใช้ร่วมกันระหว่างหลายโหนด
+**หมายเหตุ**: ขึ้นอยู่กับ SmartArtLayoutType รูปแบบ SmartArtShape หนึ่งอาจถูกแชร์ระหว่างหลาย node.
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
   ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
 
   ISmartArtNode node = smart.AllNodes[0];
 
-  foreach (SmartArtShape shape in node.Shapes)
-
+  foreach (ISmartArtShape shape in node.Shapes)
   {
-
     shape.FillFormat.FillType = FillType.Solid;
 
     shape.FillFormat.SolidFillColor.Color = Color.Red;
-
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
-
+  pres.Save("out.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 
 {{% /alert %}} 
-#### **เพิ่มเมธอดสำหรับบันทึกสไลด์โดยคงหมายเลขหน้า**
-มีการเพิ่มเมธอดต่อไปนี้:
+#### **Methods for Saving Slides with Page Numbers Keeping Added**
+เมธอดสำหรับบันทึกสไลด์พร้อมหมายเลขหน้า ที่ถูกเพิ่ม
+The following methods have been added:
 
 - void IPresentation.Save(string fname, int[] slides, SaveFormat format);
 - void IPresentation.Save(string fname, int[] slides, SaveFormat format, ISaveOption options);
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format);
 - void IPresentation.Save(Stream stream, int[] slides, SaveFormat format, ISaveOption options);
 
-เมธอดเหล่านี้ช่วยให้นักพัฒนาสามารถบันทึกสไลด์ของพรีเซนเทชันที่ระบุเป็นไฟล์ PDF, XPS, TIFF, HTML ได้ อาร์เรย์ 'slides' ใช้ระบุหมายเลขหน้าโดยเริ่มจาก 1.
+These methods allow developers to save specified presentation slides to PDF, XPS, TIFF, HTML formats. The 'slides' array is used to specify page numbers, starting from 1.
 Save(string fname, int[] slides, SaveFormat format);
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- Presentation presentation = new Presentation(presentationFileName);
-int[] slides = new int[] { 2, 3, 5 }; //อาร์เรย์ของตำแหน่งสไลด์
-presentation.Save(outFileName, slides, SaveFormat.Pdf);
+using (Presentation presentation = new Presentation("presentation.pptx"))
+{
+    int[] slides = new int[] { 2, 3, 5 }; //อาร์เรย์ของตำแหน่งสไลด์
 
+    presentation.Save("output.pdf", slides, SaveFormat.Pdf);
+}
 ``` 
-#### **เพิ่มเมธอดสำหรับการแทนที่ภาพใน PPImage, IPPImage**
-มีเมธอดใหม่ที่เพิ่มเข้ามา:
+#### **Methods for Replacing Images Added to PPImage, IPPImage**
+เมธอดสำหรับแทนที่รูปภาพที่เพิ่มเข้ามาใน PPImage, IPPImage
+New methods added:
 
 - IPPImage.ReplaceImage(byte[] newImageData)
 - IPPImage.ReplaceImage(Image newImage)
 - IPPImage.ReplaceImage(IPPImage newImage)
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- Presentation presentation = new Presentation(presentation.pptx);
-//วิธีที่ 1
+using (Presentation presentation = new Presentation("presentation.pptx"))
+{
+    //วิธีแรก
 
-byte[] data = File.ReadAllBytes(image0.jpeg);
+    byte[] data = File.ReadAllBytes("image0.jpeg");
 
-IPPImage oldImage = presentation.Images[0];
+    IPPImage oldImage = presentation.Images[0];
 
-oldImage.ReplaceImage(data);
-//วิธีที่ 2
+    oldImage.ReplaceImage(data);
 
-Image newImage = Image.FromFile(image1.png);
+    //วิธีที่สอง
 
-oldImage = presentation.Images[1];
+    IImage newImage = Images.FromFile("image1.png");
 
-oldImage.ReplaceImage(newImage);
-//วิธีที่ 3
+    oldImage = presentation.Images[1];
 
-oldImage = presentation.Images[2];
+    oldImage.ReplaceImage(newImage);
 
-oldImage.ReplaceImage(presentation.Images[3]);
+    //วิธีที่สาม
 
-presentation.Save(presentation_out.pptx, SaveFormat.Pptx);
+    oldImage = presentation.Images[2];
 
+    oldImage.ReplaceImage(presentation.Images[3]);
+
+    presentation.Save("presentation_out.pptx", SaveFormat.Pptx);
+}
 ```

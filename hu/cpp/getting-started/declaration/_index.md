@@ -6,18 +6,18 @@ url: /hu/cpp/declaration/
 keywords:
 - deklaráció
 - komponensek
-- Full Trust jogosultság
+- Full Trust engedély
 - rendszerleíró beállítások
 - rendszerfájlok
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - C++
 - Aspose.Slides
-description: "Ismerje meg az Aspose.Slides for C++ megbízhatósági követelményeit, engedélyeit és üzemeltetési korlátozásait, hogy biztonságosan telepíthessen olyan alkalmazásokat, amelyek PPT, PPTX és ODP fájlokat dolgoznak fel a kiszolgálókon."
+description: "Ismerje meg az Aspose.Slides for C++ megbízhatósági követelményeit, engedélyeit és üzemeltetési korlátozásait, hogy biztonságosan telepíthessen PPT, PPTX és ODP fájlokat feldolgozó alkalmazásokat a szervereken."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Minden Aspose C++ komponens teljes megbízhatósági (Full Trust) jogosultságkészletet igényel. Ennek oka, hogy az Aspose C++ komponenseknek hozzá kell férniük a rendszerleíró adatbázis beállításaihoz, a virtuális könyvtáron kívüli rendszerfájlokhoz bizonyos műveletekhez, például betűtípusok feldolgozásához stb. Ráadásul az Aspose C++ komponensek a C++ alaprendszer osztályaira épülnek, amelyek szintén sok esetben teljes megbízhatósági jogosultságkészletet igényelnek.
+Minden Aspose C++ komponensnek Full Trust jogosultságkészletre van szüksége. Az ok, hogy az Aspose C++ komponenseknek hozzá kell férniük a rendszerleíró adatbázis beállításaihoz, a virtuális könyvtáron kívüli rendszerfájlokhoz bizonyos műveletekhez, például a betűtípusok feldolgozásához stb. Ezen felül az Aspose C++ komponensek a C++ alapvető rendszerosztályaira épülnek, amelyek szintén sok esetben Full Trust jogosultságkészletet igényelnek. 
 
 {{% /alert %}}

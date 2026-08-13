@@ -4,14 +4,13 @@ type: docs
 weight: 45
 url: /de/jasperreports/integration-with-jasperserver/
 ---
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-
-Um Aspose.Slides für JasperReports mit JasperServer zu integrieren, müssen mehrere zusätzliche Schritte unternommen und die JasperServer-Konfigurationsdateien aktualisiert werden. Dieser Artikel erklärt, wie das geht.
+Um Aspose.Slides für JasperReports in JasperServer zu integrieren, sind mehrere zusätzliche Schritte erforderlich und die JasperServer‑Konfigurationsdateien müssen aktualisiert werden. Dieser Artikel erklärt, wie das geht.
 
 {{% /alert %}} 
 
-1. Fügen Sie neue Exporteigenschaften zur **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** Konfigurationsdatei hinzu.
+1. Fügen Sie neue Exporter‑Eigenschaften zur **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\flows\viewReportBeans.xml** Konfigurationsdatei hinzu.
 
 ``` xml
 <bean id="reportPptExporter" class="com.aspose.slides.jasperreports.ASPptReportExporter" parent="baseReportExporter">
@@ -20,7 +19,7 @@ Um Aspose.Slides für JasperReports mit JasperServer zu integrieren, müssen meh
 </bean> 
 
 <bean id="pptExporterConfiguration" class="com.jaspersoft.jasperserver.war.action.ExporterConfigurationBean">
-    <property name="descriptionKey" value="PowerPoint-Präsentation über Aspose.Slides"/>
+    <property name="descriptionKey" value="PowerPoint Presentation via Aspose.Slides"/>
     <property name="iconSrc" value="/images/ppt.png"/>
     <property name="parameterDialogName" value=""/>
     <property name="exportParameters" ref="pptExportParameters"/>
@@ -28,13 +27,13 @@ Um Aspose.Slides für JasperReports mit JasperServer zu integrieren, müssen meh
 </bean>
 
 <util:map id="exporterConfigMap">
-    <!-- fügen Sie diesen Eintrag zu exporterConfigMap hinzu -->
+    <!-- Fügen Sie diesen Eintrag zu exporterConfigMap hinzu -->
     <entry key="ppt" value-ref="pptExporterConfiguration"/>
 </util:map>
 ```
 
 2. Kopieren Sie **aspose.slides.jasperreports.jar** nach **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\lib**.
-3. Um die Schriftarten-Zuordnungsfunktion zu verwenden, aktualisieren Sie **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** wie unten.
+3. Um die Schriftarten‑Mapping‑Funktion zu nutzen, aktualisieren Sie **%INTALL_DIR%\apache-tomcat\webapps\jasperserver\WEB-INF\applicationContext.xml** wie unten gezeigt.
 
 ``` xml
 <bean id="pptExportParameters" class="com.aspose.slides.jasperreports.ASExportParametersBean">

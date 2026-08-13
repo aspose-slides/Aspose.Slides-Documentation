@@ -1,41 +1,43 @@
 ---
-title: Tartalék betűkészlet-gyűjtemények konfigurálása Java-ban
-linktitle: Tartalék betűkészlet-gyűjtemény
+title: Visszaeső betűtípus-gyűjtemények konfigurálása Java-ban
+linktitle: Visszaeső betűtípus-gyűjtemény
 type: docs
 weight: 20
 url: /hu/java/create-fallback-fonts-collection/
 keywords:
-- tartalék betűkészlet
-- tartalék szabály
-- betűkészlet-gyűjtemény
-- betűkészlet konfigurálása
-- betűkészlet beállítása
+- visszaeső betűtípus
+- visszaeső szabály
+- betűtípus-gyűjtemény
+- betűtípus konfigurálása
+- betűtípus beállítása
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Java
 - Aspose.Slides
-description: "Állítson be egy tartalék betűkészlet-gyűjteményt az Aspose.Slides for Java-ban, hogy a szöveg konzisztens és éles maradjon a PowerPoint és OpenDocument prezentációkban."
+description: "Állítsa be a visszaeső betűtípus-gyűjteményt az Aspose.Slides for Java-ban, hogy a szöveg konzisztens és éles legyen a PowerPoint és OpenDocument bemutatókban."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy egy prezentációhoz tartalék betűkészlet-szabályok gyűjteményét konfigurálja. Minden tartalék szabályt a `FontFallBackRule` osztály képviseli, és hozzáadható egy `FontFallBackRulesCollection`-hez, amely megvalósítja az `IFontFallBackRulesCollection` interfészt.
+Az Aspose.Slides lehetővé teszi, hogy egy bemutatóhoz egy visszaeső betűtípus szabályok gyűjteményét konfigurálja. Minden visszaeső szabályt a `FontFallBackRule` osztály képvisel, és hozzáadható egy `FontFallBackRulesCollection` gyűjteményhez, amely megvalósítja az `IFontFallBackRulesCollection` interfészt.
 
-A gyűjtemény létrehozása után hozzárendelheti a prezentáció `FontsManager`-ének `FontFallBackRulesCollection` tulajdonságához. A `FontsManager` kezeli a betűkészleteket a prezentációban, és minden `Presentation` példány saját `FontsManager`-rel rendelkezik.
+A gyűjtemény létrehozása után hozzárendelhető a bemutató `FontsManager`‑ének `FontFallBackRulesCollection` tulajdonságához. A `FontsManager` a betűtípusokat kezeli a teljes bemutatóban, és minden `Presentation` példánynak saját `FontsManager`‑e van.
 
-Miután a `FontsManager` inicializálva van a tartalék betűkészlet-gyűjteménnyel, a megadott tartalék betűkészletek a prezentáció renderelése során kerülnek alkalmazásra.
+Miután a `FontsManager` inicializálva van a visszaeső betűtípus-gyűjteménnyel, a megadott visszaeső betűtípusok a bemutató renderelése során alkalmazásra kerülnek.
 
-## **Tartalék szabályok alkalmazása**
+## **Alkalmazzon visszaeső szabályokat**
 
-A [FontFallBackRule](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRule) osztály példányai szervezhetők a [FontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRulesCollection) gyűjteménybe, amely megvalósítja a [IFontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IFontFallBackRulesCollection) interfészt. A szabályok hozzáadása vagy eltávolítása a gyűjteményből lehetséges.
+A [FontFallBackRule](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRule) osztály példányai szervezhetők a [FontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRulesCollection) gyűjteménybe, amely megvalósítja a [IFontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IFontFallBackRulesCollection) interfészt. A szabályok hozzáadhatók vagy eltávolíthatók a gyűjteményből.
 
-Ezután ez a gyűjtemény hozzárendelhető a [FontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRulesCollection) metódushoz a [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager) osztályban. A FontsManager kezeli a betűkészleteket a prezentációban.
+Ezután a gyűjtemény hozzárendelhető a [FontFallBackRulesCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontFallBackRulesCollection) metódushoz a [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager) osztályban. A FontsManager kezeli a betűtípusokat a bemutatóban.
 
-Minden [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) rendelkezik egy [getFontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#getFontsManager--) metódussal, amelynek saját [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager) példánya van.
+Minden [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) rendelkezik egy [getFontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#getFontsManager--) metódussal, amely a saját [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/FontsManager) példányát adja.
 
-Az alábbi példa bemutatja, hogyan hozhat létre tartalék betűkészlet-szabályok gyűjteményét, és hogyan rendelheti hozzá egy adott prezentáció [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#getFontsManager--) osztályához:  
+Az alábbiakban bemutatunk egy példát arra, hogyan hozhat létre visszaeső betűtípus szabályok gyűjteményét, és hogyan rendelheti hozzá a [FontsManager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation#getFontsManager--) egy adott bemutatóhoz:  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IFontFallBackRulesCollection userRulesList = new FontFallBackRulesCollection();
@@ -49,26 +51,26 @@ try {
 }
 ```
 
-Miután a FontsManager inicializálva van a tartalék betűkészlet-gyűjteménnyel, a tartalék betűkészletek a prezentáció renderelése során kerülnek alkalmazásra.
+Miután a FontsManager inicializálva van a visszaeső betűtípus-gyűjteménnyel, a visszaeső betűtípusok a bemutató renderelése során alkalmazásra kerülnek.
 
-{{% alert color="primary" %}} 
-Olvassa el, hogyan [Prezentáció renderelése tartalék betűkészlettel](/slides/hu/java/render-presentation-with-fallback-font/).
+{{% alert color="info" %}} 
+Olvasson további információkat arról, hogyan [Render Presentation with Fallback Font](/slides/hu/java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 
 ## **GYIK**
 
-**Beágyazódnak-e a tartalék szabályaim a PPTX fájlba, és láthatók lesznek a PowerPointban mentés után?**
+### Beágyazódnak a visszaeső szabályok a PPTX fájlba, és láthatóak lesznek a PowerPointban a mentés után?
 
-Nem. A tartalék szabályok futásidejű renderelési beállítások; nem kerülnek sorosításra a PPTX-be, így nem jelennek meg a PowerPoint felületén.
+Nem. A visszaeső szabályok futásidejű renderelési beállítások; nem sorosíthatók be a PPTX‑be, és nem jelennek meg a PowerPoint felületén.
 
-**Alkalmazódik-e a tartalék betűkészlet a SmartArt, WordArt, diagramok és táblázatok szövegére?**
+### A visszaeső szabályok érvényesek-e a SmartArt, WordArt, diagramok és táblázatok szövegeire?
 
-Igen. Ugyanaz a glyph-helyettesítési mechanizmus használatos bármely ilyen objektumban lévő szöveghez.
+Igen. Ugyanazt a glif‑helyettesítési mechanizmust használják minden ilyen objektumban lévő szöveghez.
 
-**Közöl-e az Aspose bármilyen betűkészletet a könyvtárral?**
+### Az Aspose terjeszt-e bármilyen betűtípust a könyvtárral együtt?
 
-Nem. A betűkészleteket saját oldalán adja hozzá és használja, saját felelősségére.
+Nem. A betűtípusokat saját magának kell hozzáadnia és saját felelősségére használni.
 
-**Használható-e együtt a hiányzó betűkészletek helyettesítése vagy felcserélése a hiányzó glyphok tartalék megoldásával?**
+### A hiányzó betűtípusok helyettesítése/substitúciója és a hiányzó glifek visszaesése együtt használható-e?
 
-Igen. Ezek a betűkészlet-felbontás ugyanazon csővezetékének független szakaszai: először a motor feloldja a betűkészlet elérhetőségét ([replacement](/slides/hu/java/font-replacement/)/[substitution](/slides/hu/java/font-substitution/)), majd a tartalék betűkészlet pótolja a hiányzó glyphokat az elérhető betűkészletekben.
+Igen. Ezek egymástól független szakaszok ugyanabban a betűtípus‑feloldási folyamatban: először a motor megoldja a betűtípus‑elérhetőséget ([replacement](/slides/hu/java/font-replacement/)/[substitution](/slides/hu/java/font-substitution/)), majd a visszaeső szabályok pótolják a hiányzó glifeket a rendelkezésre álló betűtípusokban.

@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.11.0 的公共 API 以及向后不兼容的更改
+title: Aspose.Slides for .NET 15.11.0 中的公共 API 及向后不兼容的更改
 linktitle: Aspose.Slides for .NET 15.11.0
 type: docs
 weight: 210
@@ -16,18 +16,15 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "查看 Aspose.Slides for .NET 的公共 API 更新和破坏性更改，以便平稳迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
+description: "审阅 Aspose.Slides for .NET 的公共 API 更新和破坏性更改，以顺利迁移您的 PowerPoint PPT、PPTX 和 ODP 演示文稿解决方案。"
 ---
-
-{{% alert color="primary" %}} 
-
-此页面列出了所有[已添加](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)或[已移除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)的类、方法、属性等，以及 Aspose.Slides for .NET 15.11.0 API 引入的其他更改。
-
+{{% alert color="info" %}} 
+此页面列出了所有[新增](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)或[已移除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/)的类、方法、属性等，以及在 Aspose.Slides for .NET 15.11.0 API 中引入的其他更改。
 {{% /alert %}} 
 ## **公共 API 更改**
 
-#### **DataLabelCollection 类中的已废弃属性已被删除**
-已删除的已废弃属性包括：
+#### **已删除 DataLabelCollection 类中的过时属性**
+DataLabelCollection 类中的过时属性已被删除：
 Aspose.Slides.Charts.DataLabelCollection.Delete
 Aspose.Slides.Charts.DataLabelCollection.Format
 Aspose.Slides.Charts.DataLabelCollection.LinkedSource
@@ -42,23 +39,24 @@ Aspose.Slides.Charts.DataLabelCollection.ShowPercentage
 Aspose.Slides.Charts.DataLabelCollection.ShowSeriesName
 Aspose.Slides.Charts.DataLabelCollection.ShowValue
 
-#### **在 Presentation 类中添加了新属性 FirstSlideNumber**
-在 Presentation 中添加的新属性 FirstSlideNumber 可用于获取或设置演示文稿中第一张幻灯片的编号。
+#### **已在 Presentation 类中添加新属性 FirstSlideNumber**
+已在 Presentation 中添加的属性 FirstSlideNumber 可用于获取或设置演示文稿中第一张幻灯片的编号。
 
-当指定新的 FirstSlideNumber 值时，所有幻灯片编号将重新计算。
+当指定新的 FirstSlideNumber 值时，所有幻灯片的编号将重新计算。
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

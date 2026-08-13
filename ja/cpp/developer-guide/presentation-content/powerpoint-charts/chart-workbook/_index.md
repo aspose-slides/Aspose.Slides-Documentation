@@ -1,35 +1,50 @@
 ---
-title: "C++ を使用してプレゼンテーション内のチャート ワークブックを管理"
-linktitle: "チャート ワークブック"
+title: C++ を使用したプレゼンテーションでのチャートブックの管理
+linktitle: チャートブック
 type: docs
 weight: 70
 url: /ja/cpp/chart-workbook/
 keywords:
-- チャート ワークブック
-- チャート データ
-- ワークブック セル
-- データ ラベル
-- ワークシート
-- データ ソース
-- 外部ワークブック
-- 外部データ
-- PowerPoint
-- プレゼンテーション
-- C++
-- Aspose.Slides
-description: "Aspose.Slides for C++ を発見し、PowerPoint および OpenDocument 形式でチャート ワークブックを簡単に管理して、プレゼンテーション データを効率化しましょう。"
+  - チャートブック
+  - チャートデータ
+  - ワークブックセル
+  - データラベル
+  - ワークシート
+  - データソース
+  - 外部ブック
+  - 外部データ
+  - チャートキャッシュ
+  - ブックの復元
+  - PowerPoint
+  - プレゼンテーション
+  - C++
+  - Aspose.Slides
+description: "Aspose.Slides for C++ を発見: PowerPoint および OpenDocument 形式でチャートブックを簡単に管理し、プレゼンテーション データを効率化します。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides でチャート ワークブックを操作する方法を説明します。ワークブック ストリームを介してチャート データを読み書きする方法、ワークブック セルをチャート データ ラベルとして使用する方法、ワークシート コレクションにアクセスする方法、およびチャート 値のデータ ソース タイプを指定する方法を示します。
+この記事では、Aspose.Slides でチャートブックを操作する方法を説明します。ブックストリームを介してチャートデータを読み書きする方法、ブックのセルをチャートデータラベルとして使用する方法、ワークシートコレクションにアクセスする方法、チャート値のデータソースタイプを指定する方法を示します。
 
-また、外部ワークブックをチャート データ ソースとして使用する方法も取り上げます。サンプルでは、外部ワークブックの作成と割り当て、チャートにリンクされた外部ワークブックのパスの取得、ワークブックが利用可能な場合のチャート データの編集方法を示します。
+また、外部ブックをチャートデータソースとして使用する方法も取り上げます。例では、外部ブックを作成して割り当てる手順、チャートにリンクされた外部ブックのパスを取得する方法、ブックが利用可能なときにチャートデータを編集する方法を示しています。
 
-## **ワークブックからチャートデータの読み取りと書き込み**
+## **ブックからチャートデータを読み書きする**
 
-Aspose.Slides は、[ReadWorkbookStream](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) および [WriteWorkbookStream](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) メソッドを提供し、ワークブック (Aspose.Cells で編集されたチャート データを含む) の読み取りと書き込みを可能にします。**Note** チャート データは、元の構造と同様の構成である必要があります。
+Aspose.Slides は、[ReadWorkbookStream](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) と [WriteWorkbookStream](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) メソッドを提供し、チャートデータブック（Aspose.Cells で編集されたチャートデータを含む）を読み書きできます。**注**: チャートデータは同じ構成であるか、元の構造と類似した形で整理されている必要があります。
 
 ``` cpp
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/io/memory_stream.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
 auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
@@ -43,54 +58,84 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-この C++ コードは、チャート データ ワークブックを設定する操作を示しています：
+この C++ コードは、チャートデータブックを設定する操作を示しています。
 
 ``` cpp
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Charts::ChartType::Pie, 50.0f, 50.0f, 500.0f, 400.0f);
+auto pres = MakeObject<Presentation>(u"Test.pptx");
+
+auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 500.0f, 400.0f);
 chart->get_ChartData()->get_ChartDataWorkbook()->Clear(0);
 
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook;
-try
-{
-    workbook = Aspose::Cells::Factory::CreateIWorkbook(new String("a1.xlsx"));
-}
-catch (Aspose::Cells::Systems::Exception& ex)
-{
-    System::Console::Write(System::String::FromWCS(ex.GetMessageExp()->value()));
-}
+// Excel（または Aspose.Cells）で作成したブックを読み取り、チャートデータブックとして設定します。
+auto workbookData = File::ReadAllBytes(u"a1.xlsx");
+auto workbookStream = MakeObject<MemoryStream>(workbookData);
 
-intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-workbook->Save(cellsOutputStream, Aspose::Cells::SaveFormat_Xlsx);
-
-cellsOutputStream->SetPosition(0);
-System::SharedPtr<System::IO::MemoryStream> msout = ToSlidesMemoryStream(cellsOutputStream);
-
-chart->get_ChartData()->WriteWorkbookStream(msout);
+chart->get_ChartData()->WriteWorkbookStream(workbookStream);
 
 chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$B$9");
 auto series = chart->get_ChartData()->get_Series()->idx_get(0);
 series->get_ParentSeriesGroup()->set_IsColorVaried(true);
-pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
+pres->Save(u"response2.pptx", SaveFormat::Pptx);
 ```
 
-## **ワークブックセルをチャート データ ラベルとして設定**
+## **ブックのセルをチャートデータラベルとして設定する**
 
 1. [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. データを含むバブル チャートを追加します。  
-4. チャート シリーズにアクセスします。  
-5. ワークブック セルをデータ ラベルとして設定します。  
+2. インデックスを使用してスライドの参照を取得します。  
+3. データ付きのバブルチャートを追加します。  
+4. チャート系列にアクセスします。  
+5. ブックのセルをデータラベルとして設定します。  
 6. プレゼンテーションを保存します。
 
-この C++ コードは、ワークブック セルをチャート データ ラベルとして設定する方法を示しています：
+この C++ コードは、ブックのセルをチャートデータラベルとして設定する方法を示しています。
 
 ``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
+
+// プレゼンテーションファイルを表す Presentation クラスのインスタンスを生成します 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -112,9 +157,25 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **ワークシートの管理**
 
-この C++ コードは、[IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) メソッドを使用してワークシート コレクションにアクセスする操作を示しています：
+この C++ コードは、[IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) メソッドを使用してワークシートコレクションにアクセスする操作を示しています。
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataWorksheet.h>
+#include <DOM/Chart/IChartDataWorksheetCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
@@ -125,11 +186,29 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **データ ソース タイプの指定**
+## **データソースタイプの指定**
 
-この C++ コードは、データ ソースのタイプを指定する方法を示しています：
+この C++ コードは、データソースのタイプを指定する方法を示しています。
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/DataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IStringChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
@@ -144,15 +223,28 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **サポートされていない埋め込みワークブック形式の検出**
+## **サポートされていない埋め込みブック形式の検出**
 
-Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック (.xlsb) 形式をサポートしていません。[IChartData](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdata/) の `get_EmbeddedWorkbookType` メソッドと [WorkbookType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/workbooktype/) 列挙型を組み合わせて、サポートされていない形式を検出し、該当チャートをスキップできます。
+Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリブック（.xlsb）形式をサポートしていません。`get_EmbeddedWorkbookType` メソッドを [IChartData](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdata/) と共に使用し、[WorkbookType](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/workbooktype/) 列挙体でサポート外形式を検出し、該当チャートをスキップできます。
 
 ```cpp
+#include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/WorkbookType.h>
+#include <DOM/IChart.h>
+#include <DOM/ISlide.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : slide->get_Shapes())
+for (auto&& shape : System::IterateOver(slide->get_Shapes()))
 {
     if (!System::ObjectExt::Is<IChart>(shape))
     {
@@ -165,27 +257,44 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // 埋め込みワークブックは .xlsb 形式であり、サポートされていません。
+        // 埋め込みブックは .xlsb 形式ですが、サポートされていません。
         continue;
     }
 
-    // ここでチャート ワークブック データを読み取るか変更します。
+    // ここでチャートブックデータを読み取りまたは変更します。
 }
 ```
 
-## **外部ワークブック**
+## **外部ブック**
 
-{{% alert color="primary" %}} 
-[Aspose.Slides](https://releases.aspose.com/slides/ja/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 では、外部ワークブックをチャートのデータ ソースとしてサポートしました。 
+{{% alert color="info" %}} 
+[Aspose.Slides](https://releases.aspose.com/slides/ja/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 では、チャートのデータソースとして外部ブックをサポートしました。
 {{% /alert %}} 
 
-### **外部ワークブックの作成**
+### **外部ブックの作成**
 
-**`ReadWorkbookStream`** と **`SetExternalWorkbook`** メソッドを使用すると、最初から外部ワークブックを作成するか、内部ワークブックを外部化できます。
+**`ReadWorkbookStream`** と **`SetExternalWorkbook`** メソッドを使用して、ゼロから外部ブックを作成するか、内部ブックを外部ブックに変換できます。
 
-この C++ コードは、外部ワークブックの作成プロセスを示しています：
+この C++ コードは、外部ブック作成プロセスを示しています。
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/io/memory_stream.h>
+#include <system/io/path.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 const System::String workbookPath = u"externalWorkbook1.xlsx";
@@ -205,15 +314,34 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **外部ワークブックの設定**
+### **外部ブックの設定**
 
-**`IChartData::SetExternalWorkbook`** メソッドを使用して、外部ワークブックをチャートのデータ ソースとして割り当てることができます。このメソッドは、外部ワークブックのパスが変更された場合にも更新に利用できます。
+**`IChartData::SetExternalWorkbook`** メソッドを使用して、外部ブックをチャートのデータソースとして割り当てられます。このメソッドは、外部ブックのパスが移動した場合にパスを更新するためにも使用できます。
 
-リモート場所やリソースに格納されたワークブックのデータを直接編集することはできませんが、外部データ ソースとして使用することは可能です。外部ワークブックの相対パスが指定されている場合、フル パスに自動変換されます。
+リモートロケーションやリソースに保存されたブックのデータは編集できませんが、外部データソースとして利用できます。相対パスが指定されると、自動的にフルパスに変換されます。
 
-この C++ コードは、外部ワークブックを設定する方法を示しています：
+この C++ コードは、外部ブックを設定する方法を示しています。
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
@@ -235,12 +363,24 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-`SetExternalWorkbook` メソッドの `updateChartData` パラメーターは、Excel ワークブックを読み込むかどうかを指定します。
+`SetExternalWorkbook` メソッドの `updateChartData` パラメータは、Excel ブックをロードするかどうかを指定します。
 
-* `updateChartData` が `false` に設定されている場合、ワークブック パスだけが更新され、チャート データは対象ワークブックから読み込まれません。対象ワークブックが存在しない、または利用できない状況でこの設定を使用できます。  
-* `updateChartData` が `true` に設定されている場合、チャート データは対象ワークブックから更新されます。
+* `updateChartData` を `false` に設定すると、ブックのパスのみが更新され、チャートデータはターゲットブックからロードまたは更新されません。ターゲットブックが存在しない、または利用できない場合にこの設定を使用します。  
+* `updateChartData` を `true` に設定すると、チャートデータがターゲットブックから更新されます。
 
 ```c++
+#include <DOM/Chart/ChartData.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
@@ -252,17 +392,29 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **チャートの外部データソース ワークブック パスの取得**
+### **チャートの外部データソースブック パスを取得する**
 
 1. [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドへの参照を取得します。  
-3. チャート シェイプのオブジェクトを作成します。  
-4. チャートのデータ ソースを表す `ChartDataSourceType` オブジェクトを作成します。  
-5. 外部ワークブック データ ソース タイプと同じソース タイプであることに基づいて、適切な条件を指定します。
+2. インデックスでスライドの参照を取得します。  
+3. チャートシェイプのオブジェクトを作成します。  
+4. チャートのデータソースを表す `ChartDataSourceType` オブジェクトを作成します。  
+5. ソースタイプが外部ブックデータソースタイプと同じであることを条件として指定します。
 
-この C++ コードは、上記の操作を示しています：
+この C++ コードは、上記操作を示しています。
 
 ```c++
+#include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto slide = pres->get_Slides()->idx_get(1);
@@ -277,13 +429,33 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **チャート データの編集**
+### **チャートデータの編集**
 
-外部ワークブックのデータは、内部ワークブックの内容を変更するのと同様に編集できます。外部ワークブックの読み込みに失敗した場合は例外がスローされます。
+外部ブックのデータは、内部ブックと同様に編集できます。外部ブックをロードできない場合、例外がスローされます。
 
-この C++ コードは、説明されたプロセスの実装例です：
+この C++ コードは、説明したプロセスの実装例です。
 
 ```c++
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/ChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 const String templatePath = u"../templates/presentation.pptx";
 	const String outPath = u"../out/presentation-out.pptx";
 	
@@ -297,28 +469,55 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **チャートキャッシュからブックを復元する**
+
+チャートが欠落または利用不可の外部ブックを使用している場合、Aspose.Slides はプレゼンテーションにキャッシュされたデータからブックを再構築できます。`LoadOptions` を作成し、`set_SpreadsheetOptions` で設定し、プレゼンテーションを開く前に `ISpreadsheetOptions::set_RecoverWorkbookFromChartCache` を `true` に設定します。
+
+以下の C++ 例は、利用不可の外部ブックを参照するチャートを含むプレゼンテーションを開き、`IChart::get_ChartData` と `IChartData::get_ChartDataWorkbook` を介して復元されたデータにアクセスする方法を示しています。
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Read or modify the recovered workbook data here.
+
+presentation->Dispose();
+```
+
+外部ブックが利用できず、復元が無効になっている場合、Aspose.Slides は `System::InvalidOperationException` をスローします。キャッシュされたチャートデータの使用が許容できるフォールバックである場合にのみ復元を有効にしてください。キャッシュには、プレゼンテーションが最後に更新された後に外部ブックで行われた変更が含まれていない可能性があります。
+
 ## **FAQ**
 
-**特定のチャートが外部ワークブックまたは埋め込みワークブックにリンクされているかを判別できますか？**
+**特定のチャートが外部ブックにリンクされているか、埋め込みブックにリンクされているか判別できますか？**
 
-はい。チャートには [データ ソース タイプ](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) と [外部ワークブックへのパス](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) があり、外部ワークブックがソースの場合はフル パスを取得して外部ファイルが使用されていることを確認できます。
+はい。チャートは [data source type](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) と [external workbook のパス](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) を持ちます。ソースが外部ブックである場合、フルパスを読み取って外部ファイルが使用されていることを確認できます。
 
-**外部ワークブックへの相対パスはサポートされますか？ それらはどのように保存されますか？**
+**外部ブックへの相対パスはサポートされていますか？また、どのように保存されますか？**
 
-はい。相対パスを指定すると自動的に絶対パスに変換されます。これによりプロジェクトのポータビリティが向上しますが、プレゼンテーションは PPTX ファイル内に絶対パスを保存することに注意してください。
+はい。相対パスを指定すると、自動的に絶対パスに変換されます。これはプロジェクトのポータビリティに便利ですが、PPTX ファイルには絶対パスが保存される点に注意してください。
 
-**ネットワーク リソース/共有上のワークブックを使用できますか？**
+**ネットワーク共有やリソース上のブックを使用できますか？**
 
-はい、そのようなワークブックは外部データ ソースとして使用できます。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。ソースとしてのみ利用可能です。
+はい、外部データソースとして使用可能です。ただし、Aspose.Slides からリモートブックを直接編集することはサポートされていません。ソースとしてのみ使用できます。
 
-**プレゼンテーションを保存するときに、外部 XLSX が上書きされますか？**
+**プレゼンテーションを保存すると、外部 XLSX が上書きされますか？**
 
-いいえ。プレゼンテーションは外部ファイルへの [リンク](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) を保存し、データの読み取りに使用します。保存時に外部ファイル自体は変更されません。
+いいえ。プレゼンテーションは [外部ファイルへのリンク](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) を保存し、データ読み取りに使用します。保存時に外部ファイル自体は変更されません。
 
 **外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
 
-Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策として、事前に保護を解除するか、[Aspose.Cells](/cells/cpp/) などで復号化したコピーを作成してそのコピーにリンクします。
+Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策として、事前に保護を解除するか、[Aspose.Cells](/cells/cpp/) などで復号化したコピーを用意してそのコピーにリンクします。
 
-**複数のチャートが同じ外部ワークブックを参照できますか？**
+**複数のチャートが同じ外部ブックを参照できますか？**
 
-はい。各チャートはそれぞれ独自のリンクを保持します。同じファイルを指していれば、そのファイルを更新するだけで次回データがロードされたときにすべてのチャートに反映されます。
+はい。各チャートは独自のリンクを保持します。同一ファイルを指す場合、そのファイルを更新すれば次回データがロードされる際にすべてのチャートに反映されます。

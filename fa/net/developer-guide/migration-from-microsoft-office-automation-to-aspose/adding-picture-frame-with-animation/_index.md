@@ -12,29 +12,27 @@ keywords:
 - عکس با انیمیشن
 - مهاجرت
 - VSTO
-- اتوماسیون Office
+- خودکارسازی آفیس
 - PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "از اتوماسیون Microsoft Office به Aspose.Slides برای .NET مهاجرت کنید و قاب‌های تصویر را در اسلایدهای PowerPoint (PPT، PPTX) با کد تمیز C# انیمیشن دهید."
+description: "از خودکارسازی Microsoft Office به Aspose.Slides برای .NET مهاجرت کنید و قاب‌های تصویر را در اسلایدهای PowerPoint (PPT، PPTX) با کد تمیز C# انیمیت کنید."
 ---
-{{% alert color="primary" %}} 
-
-قاب‌های تصویر در Microsoft PowerPoint به شکل‌ها یا تصاویر اعمال می‌شوند تا تصاویر را در یک ارائه قاب‌بندی کنند. این مقاله نشان می‌دهد چگونه می‌توان یک قاب تصویر ایجاد کرد و به‌صورت برنامه‌نویسی انیمیشن برای آن اعمال کرد، ابتدا با استفاده از [VSTO 2008](/slides/fa/net/adding-picture-frame-with-animation/) و سپس با [Aspose.Slides for .NET](/slides/fa/net/adding-picture-frame-with-animation/). ابتدا نشان می‌دهیم چگونه با VSTO 2008 یک قاب و انیمیشن اعمال کنید. سپس نشان می‌دهیم چگونه همین مراحل را با Aspose.Slides for .NET انجام دهید.
-
+{{% alert color="info" %}} 
+قالب‌های تصویر در Microsoft PowerPoint بر روی اشکال یا تصاویر اعمال می‌شوند تا تصاویر را در یک ارائه قاب‌بندی کنند. این مقاله نشان می‌دهد چگونه یک قالب تصویر ایجاد کنید و به صورت برنامه‌نویسی انیمیشن بر روی آن اعمال کنید، ابتدا با استفاده از [VSTO 2008](/slides/fa/net/adding-picture-frame-with-animation/) و سپس با [Aspose.Slides for .NET](/slides/fa/net/adding-picture-frame-with-animation/). ابتدا نشان می‌دهیم چگونه با VSTO 2008 یک قاب و انیمیشن اعمال کنید. سپس نشان می‌دهیم چگونه همان مراحل را با Aspose.Slides for .NET انجام دهید.
 {{% /alert %}} 
-## **اضافه‌کردن قاب‌های تصویر با انیمیشن**
-نمونه‌های کد زیر یک ارائه با یک اسلاید ایجاد می‌کنند، یک تصویر با قاب تصویر اضافه می‌کنند و انیمیشن را به آن اعمال می‌کنند.
+## **افزودن قالب‌های تصویر با انیمیشن**
+نمونه‌های کد زیر یک ارائه با اسلایدی ایجاد می‌کنند، تصویری را با یک قالب تصویر اضافه می‌کنند و انیمیشن به آن اعمال می‌شود.
 ### **مثال VSTO 2008**
-با استفاده از VSTO 2008، مراحل زیر را دنبال کنید:
+با استفاده از VSTO 2008، مراحل زیر را انجام دهید:
 
 1. یک ارائه ایجاد کنید.
 1. یک اسلاید خالی اضافه کنید.
 1. یک شکل تصویر به اسلاید اضافه کنید.
-1. انیمیشن را به تصویر اعمال کنید.
-1. ارائه را روی دیسک ذخیره کنید.
+1. انیمیشن را بر روی تصویر اعمال کنید.
+1. ارائه را در دیسک ذخیره کنید.
 
 **ارائه خروجی، ایجاد شده با VSTO** 
 
@@ -43,23 +41,23 @@ description: "از اتوماسیون Microsoft Office به Aspose.Slides برا
 
 
 ```c#
-//ایجاد ارائه خالی
-PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
+ //ایجاد ارائه خالی
+ PowerPoint.Presentation pres = Globals.ThisAddIn.Application.Presentations.Add(Microsoft.Office.Core.MsoTriState.msoFalse);
 
-//Add a blank slide
-PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
+ //افزودن اسلاید خالی
+ PowerPoint.Slide sld = pres.Slides.Add(1, PowerPoint.PpSlideLayout.ppLayoutBlank);
 
-//Add Picture Frame
-PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
-Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
-Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
+ //افزودن قاب تصویر
+ PowerPoint.Shape PicFrame = sld.Shapes.AddPicture(@"D:\Aspose Data\Desert.jpg",
+ Microsoft.Office.Core.MsoTriState.msoTriStateMixed,
+ Microsoft.Office.Core.MsoTriState.msoTriStateMixed, 150, 100, 400, 300);
 
-//Applying animation on picture frame
-PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
+ //اعمال انیمیشن بر روی قاب تصویر
+ PicFrame.AnimationSettings.EntryEffect = Microsoft.Office.Interop.PowerPoint.PpEntryEffect.ppEffectBoxIn;
 
-//Saving Presentation
-pres.SaveAs("d:\\ VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
-Microsoft.Office.Core.MsoTriState.msoFalse);
+ //ذخیره‌سازی ارائه
+ pres.SaveAs("d:\\ VSTOAnim.ppt", PowerPoint.PpSaveAsFileType.ppSaveAsPresentation,
+ Microsoft.Office.Core.MsoTriState.msoFalse);
 ```
 
 
@@ -67,11 +65,11 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 با استفاده از Aspose.Slides for .NET، مراحل زیر را انجام دهید:
 
 1. یک ارائه ایجاد کنید.
-1. به اولین اسلاید دسترسی پیدا کنید.
-1. یک تصویر به مجموعه تصاویر اضافه کنید.
+1. به اسلاید اول دسترسی پیدا کنید.
+1. یک تصویر به مجموعه picture collection اضافه کنید.
 1. یک شکل تصویر به اسلاید اضافه کنید.
-1. انیمیشن را به تصویر اعمال کنید.
-1. ارائه را روی دیسک ذخیره کنید.
+1. انیمیشن را بر روی تصویر اعمال کنید.
+1. ارائه را در دیسک ذخیره کنید.
 
 **ارائه خروجی، ایجاد شده با Aspose.Slides** 
 
@@ -80,27 +78,31 @@ Microsoft.Office.Core.MsoTriState.msoFalse);
 
 
 ```c#
-// یک ارائه خالی ایجاد کنید
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+// ایجاد یک ارائه خالی
 using (Presentation pres = new Presentation())
 {
-    // به اولین اسلاید دسترسی پیدا کنید
+    // دسترسی به اولین اسلاید
     ISlide slide = pres.Slides[0];
 
-    // یک تصویر به مجموعه تصاویر ارائه اضافه کنید
+    // افزودن یک تصویر به مجموعه تصاویر ارائه
     IImage image = Images.FromFile("aspose.jpg");
     IPPImage ppImage = pres.Images.AddImage(image);
     image.Dispose();
 
-    // یک قاب تصویر اضافه کنید که ارتفاع و عرض آن با ارتفاع و عرض تصویر برابر باشد
+    // افزودن یک قاب تصویر که ارتفاع و عرض آن با ارتفاع و عرض تصویر مطابقت دارد
     IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // دنباله اصلی انیمیشن اسلاید را دریافت کنید
+    // دریافت توالی انیمیشن اصلی اسلاید
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-    // افکت انیمیشن Fly از سمت چپ را به قاب تصویر اضافه کنید
+    // افزودن اثر انیمیشن پرواز از سمت چپ به قاب تصویر
     IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-    // ارائه را ذخیره کنید
+    // ذخیره کردن ارائه
     pres.Save("AsposeAnim.ppt", SaveFormat.Ppt);
 }
 ```

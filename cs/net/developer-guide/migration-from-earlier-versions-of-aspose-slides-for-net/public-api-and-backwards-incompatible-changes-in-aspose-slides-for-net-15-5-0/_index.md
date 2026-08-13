@@ -16,25 +16,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Prohlédněte si aktualizace veřejného API a breaking changes v Aspose.Slides pro .NET, abyste hladce migrovali své řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: "Prohlédněte si aktualizace veřejného API a kritické změny v Aspose.Slides pro .NET a hladce migrujte svá řešení pro prezentace PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
-
-Tato stránka uvádí všechny [přidáno](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) nebo [odebráno](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) třídy, metody, vlastnosti a další, a další změny zavedené v API Aspose.Slides pro .NET 15.5.0.
-
+{{% alert color="info" %}} 
+Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) nebo [odstraněné](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v API Aspose.Slides pro .NET 15.5.0.
 {{% /alert %}} 
-## **Změny veřejného API**
-#### **Třída CommonSlideViewProperties a rozhraní ICommonSlideViewProperties byly přidány**
+## **Veřejné změny API**
+#### **CommonSlideViewProperties Class and ICommonSlideViewProperties Interface Have Been Added**
 Třída Aspose.Slides.CommonSlideViewProperties a rozhraní Aspose.Slides.ICommonSlideViewProperties představují společné vlastnosti zobrazení snímku (v současnosti možnosti měřítka zobrazení).
-#### **Vlastnost IAxis.LabelOffset byla přidána**
-Vlastnost IAxis.LabelOffset určuje vzdálenost popisků od osy. Používá se pro kategorické nebo časové osy.
-#### **Vlastnost IChartTextBlockFormat.AutofitType byla přidána**
+#### **IAxis.LabelOffset Property Has Been Added**
+Vlastnost IAxis.LabelOffset určuje vzdálenost popisků od osy. Používá se u kategoriální nebo datové osy.
+#### **IChartTextBlockFormat.AutofitType Property Has Been Added**
 Změna této vlastnosti může mít vliv pouze na následující části grafu: DataLabel a DataLabelFormat (plná podpora v PowerPoint 2013; v PowerPoint 2007 nemá žádný vliv na vykreslování).
-#### **Vlastnost IChartTextBlockFormat.WrapText byla přidána**
+#### **IChartTextBlockFormat.WrapText Property Has Been Added**
 Změna této vlastnosti může mít vliv pouze na následující části grafu: DataLabel a DataLabelFormat (plná podpora v PowerPoint 2007/2013).
-#### **K vlastnostem IChartTextBlockFormat byly přidány vlastnosti okrajů**
+#### **Margin Properties Have Been Added to IChartTextBlockFormat**
 Změna těchto vlastností může mít vliv pouze na následující části grafu: DataLabel a DataLabelFormat (plná podpora v PowerPoint 2013; v PowerPoint 2007 nemá žádný vliv na vykreslování).
-#### **Vlastnost ViewProperties.NotesViewProperties byla přidána**
-Byla přidána vlastnost Aspose.Slides.ViewProperties.NotesViewProperties. Udává společné vlastnosti zobrazení související s režimem zobrazení poznámek.
-#### **Vlastnost ViewProperties.SlideViewProperties byla přidána**
-Byla přidána vlastnost Aspose.Slides.ViewProperties.SlideViewProperties. Udává společné vlastnosti zobrazení související s režimem zobrazení snímku.
+#### **ViewProperties.NotesViewProperties Property Has Been Added**
+Byla přidána vlastnost Aspose.Slides.ViewProperties.NotesViewProperties. Určuje společné vlastnosti zobrazení související s režimem zobrazení poznámek.
+#### **ViewProperties.SlideViewProperties Property Has Been Added**
+Byla přidána vlastnost Aspose.Slides.ViewProperties.SlideViewProperties. Určuje společné vlastnosti zobrazení související s režimem zobrazení snímku.

@@ -6,10 +6,10 @@ weight: 80
 url: /ar/androidjava/slide-transition/
 keywords:
 - انتقال الشريحة
-- إضافة انتقال الشريحة
-- تطبيق انتقال الشريحة
+- إضافة انتقال شريحة
+- تطبيق انتقال شريحة
 - انتقال شريحة متقدم
-- تحول Morph
+- انتقال Morph
 - نوع الانتقال
 - تأثير الانتقال
 - PowerPoint
@@ -18,32 +18,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "اكتشف كيفية تخصيص انتقالات الشرائح في Aspose.Slides for Android via Java، مع إرشادات خطوة بخطوة لعروض PowerPoint و OpenDocument."
+description: "اكتشف كيفية تخصيص انتقالات الشرائح في Aspose.Slides for Android عبر Java، مع إرشادات خطوة بخطوة لعروض PowerPoint وOpenDocument التقديمية."
 ---
-
 ## **نظرة عامة**
-{{% alert color="primary" %}} 
 
-تسمح Aspose.Slides for Android via Java أيضًا للمطورين بإدارة أو تخصيص تأثيرات انتقال الشرائح. في هذا الموضوع، سنناقش التحكم في انتقالات الشرائح بسهولة كبيرة باستخدام Aspose.Slides for Android via Java.
+تشرح هذه المقالة كيفية إدارة انتقالات الشرائح في العروض التقديمية باستخدام Aspose.Slides. تُظهر كيفية تطبيق أنواع الانتقالات على الشرائح، وتكوين سلوك الانتقال مثل التقدم عند النقر أو بعد وقت محدد، واستخدام انتقال Morph وأنواعه، وتعيين خيارات تأثير الانتقال. توضح الأمثلة كيفية تحميل أو إنشاء عرض تقديمي، وتعديل إعدادات الانتقال للشرائح المحددة، وحفظ النتيجة كملف PPTX. كما تجيب المقالة على الأسئلة الشائعة حول سرعة الانتقال، أصوات الانتقال، تطبيق نفس الانتقال على عدة شرائح، والتحقق من الانتقال المُعين حاليًا على شريحة.
 
-{{% /alert %}} 
+## **إضافة انتقال للشرائح**
+لإنشاء تأثير انتقال شريحة بسيط، اتبع الخطوات التالية:
 
-لتسهيل الفهم، قمنا بتوضيح استخدام Aspose.Slides for Android via Java لإدارة انتقالات الشرائح البسيطة. يمكن للمطورين ليس فقط تطبيق تأثيرات انتقال شرائح مختلفة على الشرائح، بل أيضًا تخصيص سلوك هذه التأثيرات.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) .
+1. تطبيق نوع انتقال شريحة على الشريحة من أحد تأثيرات الانتقال التي يوفرها Aspose.Slides for Android عبر Java من خلال تعداد TransitionType
+1. كتابة ملف العرض التقديمي المعدل.
 
-## **إضافة انتقال شريحة**
-لإنشاء تأثير انتقال شريحة بسيط، اتبع الخطوات أدناه:
-
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-2. تطبيق نوع انتقال شريحة على الشريحة من أحد تأثيرات الانتقال التي تقدمها Aspose.Slides for Android via Java عبر تعداد TransitionType.
-3. كتابة ملف العرض المعدل.
 ```java
-// إنشاء كائن من فئة Presentation لتحميل ملف العرض المصدر
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
-    // تطبيق انتقال من النوع دائرة على الشريحة 1
+    // تطبيق انتقال نوع دائرة على الشريحة 1
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // تطبيق انتقال من النوع مشط على الشريحة 2
+    // تطبيق انتقال نوع مشط على الشريحة 2
     presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
     // حفظ العرض التقديمي إلى القرص
@@ -53,37 +50,39 @@ try {
 }
 ```
 
-
 ## **إضافة انتقال شريحة متقدم**
-في القسم السابق، قمنا بتطبيق تأثير انتقال بسيط على الشريحة. الآن، لجعل هذا التأثير البسيط أفضل ومتحكمًا بشكل أكبر، يرجى اتباع الخطوات أدناه:
+في القسم أعلاه، قمنا فقط بتطبيق تأثير انتقال بسيط على الشريحة. الآن، لجعل هذا التأثير البسيط أفضل وأكثر تحكمًا، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-2. تطبيق نوع انتقال شريحة على الشريحة من أحد تأثيرات الانتقال التي تقدمها Aspose.Slides for Android via Java.
-3. يمكنك أيضًا إعداد الانتقال للتقدم عند النقر، بعد فترة زمنية محددة أو كلاهما.
-4. إذا تم تمكين انتقال الشريحة للتقدم عند النقر، فإن الانتقال سيتقدم فقط عند نقر المستخدم بالماوس. علاوة على ذلك، إذا تم تعيين خاصية Advance After Time، سيتقدم الانتقال تلقائيًا بعد انقضاء الوقت المحدد.
-5. كتابة العرض المعدل كملف عرض.
+1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) .
+1. تطبيق نوع انتقال شريحة على الشريحة من أحد تأثيرات الانتقال التي يوفرها Aspose.Slides for Android عبر Java
+1. يمكنك أيضًا ضبط الانتقال ليتم التقدم عند النقر، بعد فترة زمنية محددة أو كلاهما.
+1. إذا تم تمكين انتقال الشريحة للتقدم عند النقر، سيتقدم الانتقال فقط عندما يقوم أحدهم بالنقر بالفأرة. علاوة على ذلك، إذا تم تعيين خاصية Advance After Time، سيتقدم الانتقال تلقائيًا بعد مرور الوقت المحدد.
+1. اكتب العرض التقديمي المعدل كملف عرض تقديمي.
+
 ```java
-// إنشاء فئة Presentation التي تمثل ملف عرض
+import com.aspose.slides.*;
+
+// إنشاء كائن من فئة Presentation يمثل ملف عرض تقديمي
 Presentation pres = new Presentation("BetterSlideTransitions.pptx");
 try {
-    // تطبيق انتقال من النوع دائرة على الشريحة 1
+    // تطبيق انتقال نوع دائرة على الشريحة 1
     pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
 
-    // تعيين مدة الانتقال إلى 3 ثوانٍ
+    // التقدم عند النقر أو تلقائيًا بعد 3 ثوانٍ
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
 
-    // تطبيق انتقال من النوع مشط على الشريحة 2
+    // تطبيق انتقال نوع مشط على الشريحة 2
     pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
     
-    // تعيين مدة الانتقال إلى 5 ثوانٍ
+    // التقدم عند النقر أو تلقائيًا بعد 5 ثوانٍ
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
 
-    // تطبيق انتقال من النوع تكبير على الشريحة 3
+    // تطبيق انتقال نوع تكبير على الشريحة 3
     pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
     
-    // تعيين مدة الانتقال إلى 7 ثوانٍ
+    // التقدم عند النقر أو تلقائيًا بعد 7 ثوانٍ
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
     pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
 
@@ -94,18 +93,20 @@ try {
 }
 ```
 
-
 ## **انتقال Morph**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-تدعم Aspose.Slides for Android via Java الآن [Morph Transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMorphTransition). إنها تمثل التحول Morph الجديد الذي تم تقديمه في PowerPoint 2019.
+الآن يدعم Aspose.Slides for Android عبر Java [انتقال Morph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IMorphTransition). يمثلون انتقال Morph الجديد الذي تم تقديمه في PowerPoint 2019.
 
 {{% /alert %}} 
 
-يتيح لك انتقال Morph تحريكًا سلسًا من شريحة إلى أخرى. تصف هذه المقالة مفهوم الانتقال وكيفية استخدام انتقال Morph. لاستخدام انتقال Morph بفعالية، ستحتاج إلى شريحتين تحتويان على كائن واحد على الأقل مشترك. أسهل طريقة هي تكرار الشريحة ثم نقل الكائن في الشريحة الثانية إلى مكان مختلف.
+يتيح لك انتقال Morph تحريك سلس من شريحة إلى أخرى. تصف هذه المقالة المفهوم وكيفية استخدام انتقال Morph. لاستخدام انتقال Morph بفعالية، تحتاج إلى وجود شريحتين على الأقل تشتركان في كائن واحد. أسهل طريقة هي تكرار الشريحة ثم نقل الكائن في الشريحة الثانية إلى مكان مختلف.
 
-يظهر مقطع الشيفرة التالي كيفية إضافة نسخة من الشريحة تحتوي على بعض النص إلى العرض وتعيين انتقال من نوع [morph type](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionType) إلى الشريحة الثانية.
+تُظهر الشفرة التالية كيفية إضافة نسخة من الشريحة مع بعض النص إلى العرض التقديمي وتعيين انتقال من [نوع morph](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/TransitionType) إلى الشريحة الثانية.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
@@ -128,17 +129,20 @@ finally {
 }
 ```
 
-
 ## **أنواع انتقال Morph**
-تم إضافة تعداد جديد [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionMorphType). يمثل أنواعًا مختلفة من انتقال شريحة Morph.
+تمت إضافة تعداد جديد [TransitionMorphType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/TransitionMorphType). يمثل أنواعًا مختلفة من انتقال شريحة Morph.
 
 تعداد TransitionMorphType يحتوي على ثلاثة أعضاء:
-- ByObject: سيتم تنفيذ انتقال Morph مع اعتبار الأشكال ككائنات غير قابلة للتقسيم.
-- ByWord: سيتم تنفيذ انتقال Morph بنقل النص كلمة بكلمة حيثما أمكن.
-- ByChar: سيتم تنفيذ انتقال Morph بنقل النص حرفًا بحرف حيثما أمكن.
 
-يظهر مقطع الشيفرة التالي كيفية تعيين انتقال Morph إلى شريحة وتغيير نوع morph:
+- ByObject: سيُجرى انتقال Morph مع اعتبار الأشكال ككائنات غير قابلة للتقسيم.
+- ByWord: سيُجرى انتقال Morph بنقل النص كلمةً كلمةً حيثما كان ذلك ممكنًا.
+- ByChar: سيُجرى انتقال Morph بنقل النص حرفًا حرفًا حيثما كان ذلك ممكنًا.
+
+تُظهر الشفرة التالية كيفية تعيين انتقال Morph إلى شريحة وتغيير نوع Morph:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
@@ -149,46 +153,47 @@ try {
 }
 ```
 
+## **ضبط تأثيرات الانتقال**
+يدعم Aspose.Slides for Android عبر Java ضبط تأثيرات الانتقال مثل من الأسود، من اليسار، من اليمين، إلخ. لتعيين تأثير الانتقال، يرجى اتباع الخطوات أدناه:
 
-## **تعيين تأثيرات الانتقال**
-تدعم Aspose.Slides for Android via Java تعيين تأثيرات الانتقال مثل من الأسود، من اليسار، من اليمين، إلخ. لتعيين تأثير الانتقال، يرجى اتباع الخطوات أدناه:
-
-- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
+- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation) .
 - الحصول على مرجع الشريحة.
-- تعيين تأثير الانتقال.
-- كتابة العرض كملف [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+- ضبط تأثير الانتقال.
+- كتابة العرض التقديمي كملف [PPTX ](https://docs.fileformat.com/presentation/pptx/) .
 
-في المثال أدناه، قمنا بتعيين تأثيرات الانتقال.
+في المثال أدناه، قمنا بضبط تأثيرات الانتقال.
+
 ```java
-// إنشاء مثيل من فئة Presentation
+import com.aspose.slides.*;
+
+// إنشاء نسخة من فئة Presentation
 Presentation presentation = new Presentation("AccessSlides.pptx");
 try {
     // تعيين التأثير
     presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
     ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
     
-    // حفظ العرض التقديمي إلى القرص
+    // كتابة العرض التقديمي إلى القرص
     presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **FAQ**
 
-## **الأسئلة المتكررة**
+### هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟
 
-**هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
+نعم. اضبط [السرعة] للانتقال باستخدام إعداد [TransitionSpeed] (مثلاً بطئ/متوسط/سريع).
 
-نعم. قم بتعيين [speed] للانتقال باستخدام إعداد [TransitionSpeed] (مثلاً بطيء/متوسط/سريع).
+### هل يمكنني إرفاق صوت بانتقال وجعله يتكرر؟
 
-**هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
+نعم. يمكنك تضمين صوت للانتقال والتحكم في سلوكه عبر إعدادات مثل وضع الصوت والتكرار (مثل [setSound](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), بالإضافة إلى بيانات وصفية مثل [setSoundIsBuiltIn](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) و [setSoundName](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
 
-نعم. يمكنك تضمين صوت للانتقال والتحكم في سلوكه عبر إعدادات مثل وضع الصوت وإعادة التكرار (مثل [setSound]...، [setSoundMode]...، [setSoundLoop]...، بالإضافة إلى البيانات الوصفية مثل [setSoundIsBuiltIn]... و[setSoundName]...).
+### ما هو أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟
 
-**ما هي أسرع طريقة لتطبيق نفس الانتقال على جميع الشرائح؟**
+قم بتكوين نوع الانتقال المطلوب في إعدادات انتقال كل شريحة؛ تُحفظ الانتقالات لكل شريحة على حدة، لذا تطبيق نفس النوع على جميع الشرائح سيعطي نتيجة متسقة.
 
-قم بتكوين نوع الانتقال المطلوب في إعدادات انتقال كل شريحة؛ فإن الانتقالات تُحفظ لكل شريحة، لذا تطبيق نفس النوع على جميع الشرائح يعطي نتيجة متسقة.
+### كيف يمكنني التحقق من الانتقال المحدد حاليًا على شريحة؟
 
-**كيف يمكنني التحقق من الانتقال الحالي المُعيّن على شريحة؟**
-
-افحص [إعدادات الانتقال] الخاصة بالشريحة واقرأ [نوع الانتقال]؛ تلك القيمة تُظهر لك بالضبط أي تأثير تم تطبيقه.
+افحص [إعدادات الانتقال] الخاصة بالشريحة واقرأ [نوع الانتقال]؛ هذه القيمة تخبرك بدقة ما هو التأثير المطبق.

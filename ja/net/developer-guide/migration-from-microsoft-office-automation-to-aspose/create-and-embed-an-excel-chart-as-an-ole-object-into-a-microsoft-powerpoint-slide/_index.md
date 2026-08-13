@@ -1,11 +1,11 @@
 ---
-title: VSTO と Aspose.Slides for .NET を使用して Excel チャートを OLE オブジェクトとして作成および埋め込む
-linktitle: Excel チャートを OLE オブジェクトとして作成および埋め込む
+title: VSTO と Aspose.Slides for .NET を使用して OLE オブジェクトとして Excel チャートを作成および埋め込む
+linktitle: OLE オブジェクトとして Excel チャートを作成および埋め込む
 type: docs
 weight: 70
 url: /ja/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 keywords:
-- チャート作成
+- チャートの作成
 - Excel チャートの埋め込み
 - OLE オブジェクト
 - 移行
@@ -16,30 +16,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Microsoft Office のオートメーションから Aspose.Slides for .NET へ移行し、C# で Excel チャートを OLE オブジェクトとして PowerPoint (PPT, PPTX) スライドに埋め込みます。"
+description: "Microsoft Office オートメーションから Aspose.Slides for .NET へ移行し、C# で Excel チャートを OLE オブジェクトとして PowerPoint (PPT、PPTX) スライドに埋め込みます。"
 ---
-
-{{% alert color="primary" %}} 
-チャートはデータの視覚的表現であり、プレゼンテーションスライドで広く使用されています。本記事では、[VSTO](/slides/ja/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) と [Aspose.Slides for .NET](/slides/ja/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) を使用して、Excel チャートを OLE オブジェクトとして PowerPoint スライドにプログラムで作成し埋め込むコードを紹介します。
+{{% alert color="info" %}} 
+チャートはデータの視覚的表現であり、プレゼンテーションのスライドで広く使用されています。この記事では、[VSTO](/slides/ja/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) および [Aspose.Slides for .NET](/slides/ja/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) を使用して、Excel チャートを OLE オブジェクトとして PowerPoint スライドにプログラムで作成および埋め込むコードを示します。
 {{% /alert %}} 
-## **Creating and Embedding an Excel Chart**
-以下の 2 つのコード例は、対象となるタスクが複雑なため長く詳細になっています。Microsoft Excel のブックを作成し、チャートを作成した後、そのチャートを埋め込む Microsoft PowerPoint プレゼンテーションを作成します。OLE オブジェクトは元のドキュメントへのリンクを保持しているため、埋め込みファイルをダブルクリックしたユーザーは、そのファイルとアプリケーションを起動できます。
-## **VSTO Example**
-VSTO を使用して、以下の手順が実行されます:
+## **Excel チャートの作成と埋め込み**
+以下の2つのコード例は、対象のタスクが複雑なため長く詳細になっています。Microsoft Excel のブックを作成し、チャートを作成した後、チャートを埋め込む Microsoft PowerPoint プレゼンテーションを作成します。OLE オブジェクトは元のドキュメントへのリンクを保持しているため、埋め込まれたファイルをダブルクリックしたユーザーはそのファイルとアプリケーションを起動します。
+## **VSTO の例**
+VSTO を使用して、以下の手順が実行されます：
 
 1. Microsoft Excel ApplicationClass オブジェクトのインスタンスを作成します。
-1. 1 枚のシートを持つ新しいブックを作成します。
+1. シートが1枚だけの新しいブックを作成します。
 1. シートにチャートを追加します。
 1. ブックを保存します。
-1. チャートデータを含むワークシートがある Excel ブックを開きます。
+1. チャート データが含まれるワークシートを持つ Excel ブックを開きます。
 1. シートの ChartObjects コレクションを取得します。
 1. コピーするチャートを取得します。
 1. Microsoft PowerPoint プレゼンテーションを作成します。
-1. プレゼンテーションに空白スライドを追加します。
+1. プレゼンテーションに空白のスライドを追加します。
 1. Excel ワークシートからチャートをクリップボードにコピーします。
 1. チャートを PowerPoint プレゼンテーションに貼り付けます。
-1. スライド上のチャート位置を調整します。
+1. スライド上にチャートの位置を設定します。
 1. プレゼンテーションを保存します。
+
 ```c#
 CreateNewChartInExcel();
 UseCopyPaste();
@@ -55,14 +55,14 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Excel ApplicationClass インスタンスの変数を宣言します。
+    // Excel ApplicationClass インスタンス用の変数を宣言します。
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
     // Workbooks.Open メソッドのパラメータ用変数を宣言します。
     string paramWorkbookPath = Application.StartupPath + @"\ChartData.xlsx";
     object paramMissing = Type.Missing;
 
-    // Chart.ChartWizard メソッドのパラメータ用変数を宣言します。
+    // Chart.ChartWizard メソッド用の変数を宣言します。
     object paramChartFormat = 1;
     object paramCategoryLabels = 0;
     object paramSeriesLabels = 0;
@@ -83,13 +83,13 @@ static void CreateNewChartInExcel()
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // シートにチャート用データを挿入します。
+        // シートにチャート用のデータを挿入します。
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
-        //     2    N. America  1.5     2       1.5     2.5
-        //     3    S. America  2       1.75    2       2
-        //     4    Europe      2.25    2       2.5     2
-        //     5    Asia        2.5     2.5     2       2.75
+        //     2    北米          1.5     2       1.5     2.5
+        //     3    南米          2       1.75    2       2
+        //     4    ヨーロッパ    2.25    2       2.5     2
+        //     5    アジア        2.5     2.5     2       2.75
 
         SetCellValue(targetSheet, "A2", "N. America");
         SetCellValue(targetSheet, "A3", "S. America");
@@ -120,7 +120,7 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // チャートデータが入っている範囲を取得します。
+        // チャートデータを保持する範囲を取得します。
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
         // シートの ChartObjects コレクションを取得します。
@@ -181,13 +181,13 @@ static void UseCopyPaste()
         // Excel のインスタンスを作成します。
         excelApplication = new xlNS.ApplicationClass();
 
-        // チャートデータを含むワークシートがある Excel ワークブックを開きます。
+        // チャート データが含まれるワークシートを持つ Excel ブックを開きます。
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // チャートが含まれるワークシートを取得します。
+        // チャートを含むワークシートを取得します。
         targetSheet =
             (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
@@ -204,11 +204,11 @@ static void UseCopyPaste()
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
 
-        // プレゼンテーションに空白スライドを追加します。
+        // プレゼンテーションに空白のスライドを追加します。
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
-        // Excel ワークシートからチャートをクリップボードにコピーします。
+        // Excel のワークシートからチャートをクリップボードにコピーします。
         existingChartObject.Copy();
 
         // チャートを PowerPoint プレゼンテーションに貼り付けます。
@@ -250,7 +250,7 @@ static void UseCopyPaste()
         chartObjects = null;
         existingChartObject = null;
 
-        // Excel Workbook オブジェクトを閉じて解放します。
+        // Excel の Workbook オブジェクトを閉じて解放します。
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
@@ -275,9 +275,8 @@ static void UseCopyPaste()
 
 
 
-
-## **Aspose.Slides for .NET Example**
-Aspose.Slides for .NET を使用して、以下の手順が実行されます:
+## **Aspose.Slides for .NET の例**
+Aspose.Slides for .NET を使用して、以下の手順が実行されます：
 
 1. Aspose.Cells for .NET を使用してブックを作成します。
 1. Microsoft Excel チャートを作成します。
@@ -285,41 +284,54 @@ Aspose.Slides for .NET を使用して、以下の手順が実行されます:
 1. チャートの画像を取得します。
 1. Aspose.Slides for .NET を使用して、Excel チャートを OLE オブジェクトとして PPTX プレゼンテーションに埋め込みます。
 1. オブジェクト変更の問題に対処するため、ステップ 3 で取得した画像でオブジェクト変更画像を置き換えます。
-1. 出力プレゼンテーションを PPTX 形式でディスクに書き出します。
+1. 出力プレゼンテーションを PPTX 形式でディスクに書き込みます。
+
+
+
 ```c#
-//ステップ - 1: Aspose.Cells を使用して Excel チャートを作成
+using System.Drawing;
+using Aspose.Slides;
+
+//Step - 1: Aspose.Cells を使用して Excel チャートを作成する
 //--------------------------------------------------
-//ワークブックを作成
+//ワークブックを作成する
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Add an excel chart
+//Excel チャートを追加する
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//ステップ - 2: Aspose.Cells を使用してチャートの OLE サイズを設定
+//Step - 2: Aspose.Cells を使用してチャートの OLE サイズを設定する
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//ステップ - 3: Aspose.Cells でチャートの画像を取得
+//Step - 3: Aspose.Cells でチャートの画像を取得する
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//ワークブックをストリームに保存
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//ワークブックをストリームに保存する
 MemoryStream wbStream = wb.SaveToStream();
-//ステップ - 4 と 5
+//Step - 4 と 5
 //-----------------------------------------------------------
-//ステップ - 4: Aspose.Slides を使用して .ppt プレゼンテーション内にチャートを OLE オブジェクトとして埋め込む
+//Step - 4: Aspose.Slides を使用して .ppt プレゼンテーション内にチャートを OLE オブジェクトとして埋め込む
 //-----------------------------------------------------------
-//ステップ - 5: ステップ 3 で取得した画像でオブジェクト変更の画像を置き換えて Object Changed の問題に対処
+//Step - 5: Object Changed の問題に対処するため、ステップ 3 で取得した画像でオブジェクト変更画像を置き換える
 //-----------------------------------------------------------
-//プレゼンテーションを作成
+//プレゼンテーションを作成する
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//スライドにワークブックを追加
+//スライドにワークブックを追加する
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//ステップ - 6: 出力プレゼンテーションをディスクに書き込む
+//Step - 6: 出力プレゼンテーションをディスクに保存する
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -360,36 +372,36 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
     //セルデータの配列
     int[] cellsValue = new int[]
       {
- 67,86,68,91,
- 44,64,89,48,
- 46,97,78,60,
- 43,29,69,26,
- 24,40,38,25
+  67,86,68,91,
+  44,64,89,48,
+  46,97,78,60,
+  43,29,69,26,
+  24,40,38,25
       };
-    //データでセルを埋める新しいワークシートを追加
+    //データでセルを埋めるために新しいワークシートを追加する
     int dataSheetIdx = wb.Worksheets.Add();
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //DataSheetにデータを入力
+    //DataSheet にデータを入力する
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //チャートシートを追加
+    //チャート シートを追加する
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //DataSheetのデータ系列を使用してChartSheetにチャートを追加
+    //DataSheet のデータ系列で ChartSheet にチャートを追加する
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //ChartSheetをアクティブシートに設定
+    //ChartSheet をアクティブ シートに設定する
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

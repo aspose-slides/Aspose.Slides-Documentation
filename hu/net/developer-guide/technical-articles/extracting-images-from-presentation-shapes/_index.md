@@ -1,6 +1,6 @@
 ---
-title: Képek kinyerése prezentáció alakzatokból .NET-ben
-linktitle: Kép az alakzatról
+title: Képek kinyerése a prezentáció alakzataiból .NET-ben
+linktitle: Kép az alakzatból
 type: docs
 weight: 90
 url: /hu/net/extracting-images-from-presentation-shapes/
@@ -13,21 +13,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Képek kinyerése alakzatokból PowerPoint és OpenDocument prezentációkból az Aspose.Slides for .NET segítségével – gyors, kódközpontú megoldás."
+description: "Képek kinyerése alakzatokból PowerPoint és OpenDocument prezentációkban az Aspose.Slides for .NET használatával - gyors, kódközpontú megoldás."
 ---
 ## **Áttekintés**
 
-A prezentációban lévő képek többféle alakzattípusban jelenhetnek meg: egyszerű képkeretként, alakzatokhoz alkalmazott képkitöltésként, OLE objektum előnézeti képeként, videó‑ vagy hangkeret bélyegképeként, zoom‑képként, vagy táblázat-, diagram‑ és SmartArt‑alakzatokba ágyazott képekként. Az Aspose.Slides ezeket a képeket a prezentáció képgyűjteményében tárolja, amely a [ImageCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imagecollection/) és [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumokon keresztül érhető el.
+A dián lévő képek többféle alakzattípusban jelenhetnek meg: egyszerű képkeretként, alakzatokra alkalmazott képkitöltésként, OLE‑objektum előnézeti képekként, videó- vagy hangkeret bélyegképeként, zoom képekként, vagy táblázat, diagram és SmartArt alakzatok belsejébe ágyazott képekként. Az Aspose.Slides ezeket a képeket a prezentáció képgat gyűjteményében tárolja, amelyet a [ImageCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/imagecollection/) és a [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumok tesznek elérhetővé.
 
-Ha csak a prezentációba ágyazott minden képernyőforrást szeretné exportálni, iteráljon a `presentation.Images` gyűjteményen. Ez a cikk egy másik feladatra összpontosít: a diákon található képek felhasználási helyeinek megtalálásához alakzatokat kell bejárni, hogy a mentett fájlok megtarthassák a hasznos kontextust, például a dia számát, az alakzat pozícióját és a forrástípust (képkeret, kitöltő kép, média előnézet, OLE előnézet vagy zoom‑kép).
+Ha csak minden beágyazott képernyőforrást szeretnél exportálni egy prezentációból, akkor iterálj a `presentation.Images`‑en. Ez a cikk egy másik feladatra összpontosít: alakzatok bejárására, hogy megtalálja, hol használják a képeket a diákon, így a mentett fájlok megtarthatják a hasznos kontextust, például a dia számát, az alakzat pozícióját és a forrástípust (képkeret, kitöltő kép, média előnézet, OLE előnézet vagy zoom kép).
 
-{{% alert title="Tip" color="primary" %}}
-Használja a [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) metódust az eredeti kódolt képadatok és fájltípus megőrzéséhez. A [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) és az [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) kombinációját akkor válassza, ha a kimenetet egy meghatározott formátumra (például PNG) szeretné normalizálni.
+{{% alert title="Tip" color="info" %}}
+Használd az [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) metódust az eredeti kódolt képadat és fájltípus megőrzéséhez. Használd az [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) metódust a [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/)‑vel, ha a kimenetet egy adott formátumra, például PNG‑re szeretnéd normalizálni.
 {{% /alert %}}
 
-## **Megosztott Segédfüggvények**
+## **Közös Segítő Metódusok**
 
-Az alábbi segédfüggvények rövidítik a példákat. A `SaveOriginalImage` az eredeti beágyazott bájtokat írja ki, a MIME‑típus alapján biztonságos kiterjesztést választ, és az SHA‑256 hash alapján kihagyja a duplicate kép binárisokat.
+Az alábbi segítő metódusok röviden tartják a példákat. A `SaveOriginalImage` az eredeti beágyazott bájtokat írja, a MIME típusból biztonságos kiterjesztést választ, és a SHA-256 hash alapján kihagyja a duplikált kép binárisokat.
 
 ```c#
 using Aspose.Slides;
@@ -162,11 +162,13 @@ private static string MakeSafeFileNamePart(string value)
 }
 ```
 
-## **Képek kinyerése képkeretekből**
+## **Képek kinyerése képkeretből**
 
-Ezt a megközelítést használja önálló objektumként beillesztett képekhez. Az [IPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/) a képét a `PictureFormat.Picture.Image` tulajdonságban tárolja, amely egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumot ad vissza.
+Ezt a megközelítést önálló objektumként beszúrt képekhez használd. Az [IPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/) a képét a `PictureFormat.Picture.Image` tulajdonában tárolja, amely egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumot ad vissza.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "extracted-images");
 Directory.CreateDirectory(outputDirectory);
@@ -193,11 +195,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Képek kinyerése kép‑kitöltésű alakzatokból**
+## **Képek kinyerése képpel kitöltött alakzatokból**
 
-Az alakzatok képet használhatnak kitöltésként. Először ellenőrizze az alakzat kitöltés típusát: ha nem [FillType.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) a típus, akkor nincs kép, amelyet ebből a kitöltésből ki lehetne nyerni. Az alábbi példa a [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) objektumokkal dolgozik, és minden képet PNG‑ként ment a [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) segítségével.
+Az alakzatok képet használhatnak kitöltésként. Először ellenőrizd az alakzat kitöltés típusát: ha nem [FillType.Picture](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/), akkor nincs kép, amit ebből a kitöltésből ki lehetne nyerni. Az alábbi példa kezeli a [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) objektumokat, és minden képet PNG formátumban ment az [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) segítségével.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "shape-fill-images");
 Directory.CreateDirectory(outputDirectory);
@@ -227,9 +231,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Előnézeti képek kinyerése OLE objektumkeretekből**
 
-Az [IOleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe/) rendelkezhet helyettesítő képpel, amelyet a PowerPoint az objektum előnézeteként jelenít meg a dián. Ez a kép a `SubstitutePictureFormat.Picture.Image` tulajdonságon keresztül érhető el. Ennek a képrészletnek a kinyerése az előnézeti képet adja, nem az OLE‑csomag beágyazott tartalmát.
+Egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe/) helyettesítő képet is tartalmazhat, amelyet a PowerPoint az objektum dián látható előnézeteként használ. Ez a kép a `SubstitutePictureFormat.Picture.Image` útján érhető el. Ennek a képnek a kinyerése az előnézeti képet adja, nem a beágyazott OLE csomag tartalmát.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "ole-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -262,9 +268,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Előnézeti képek kinyerése videókeretekből**
 
-Az [IVideoFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ivideoframe/) szintén tárolhat előnézeti képet a `PictureFormat.Picture.Image` tulajdonságban. Ez a poszter vagy bélyegkép, amely a dián látható, nem egy a videófolyamból dekódolt keret.
+Egy [IVideoFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ivideoframe/) szintén tárolhat előnézeti képet a `PictureFormat.Picture.Image` tulajdonában. Ez a poszter vagy bélyegkép, amely a dián látható, nem pedig a videó folyamából dekódolt képkocka.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "video-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -297,9 +305,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Előnézeti képek kinyerése hangkeretekből**
 
-Az [IAudioFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iaudioframe/) tárolhat bélyegképet a `PictureFormat.Picture.Image` tulajdonságban. Ez a kép a hangobjektus megjelenítése a dián.
+Egy [IAudioFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iaudioframe/) tárolhat bélyegképet a `PictureFormat.Picture.Image` tulajdonában. Ez a kép jelenik meg a hangobjektumhoz a dián.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "audio-preview-images");
 Directory.CreateDirectory(outputDirectory);
@@ -332,9 +342,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Képek kinyerése zoom objektumokból**
 
-Az [IZoomFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/izoomframe/) és az [ISectionZoomFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/isectionzoomframe/) alakzatok egyedi képeket használhatnak. Olvassa ki a `ZoomImage` tulajdonságot a zoomkeretből.
+Az [IZoomFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/izoomframe/) és [ISectionZoomFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/isectionzoomframe/) alakzatok egyéni képeket használhatnak. Olvasd ki a `ZoomImage`‑t a zoom keretből.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -370,11 +382,13 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Képek kinyerése összegző zoomkeretekből**
+## **Képek kinyerése összegző zoom keretekből**
 
-Az [ISummaryZoomFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/isummaryzoomframe/) is egy alakzat. Szekcióelemei egyedi képeket használhatnak, melyek az egyes összegző zoom szekciók `ZoomImage` tulajdonságán keresztül érhetők el.
+Az [ISummaryZoomFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/isummaryzoomframe/) szintén egy alakzat. Szakasz elemei egyéni képeket használhatnak, amelyeket minden összegző zoom szakasz `ZoomImage` tulajdonsága tesz elérhetővé.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "summary-zoom-images");
 Directory.CreateDirectory(outputDirectory);
@@ -412,9 +426,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Képek kinyerése táblázat alakzatokból**
 
-Az [ITable](https://reference.aspose.com/slides/hu/net/aspose.slides/itable/) egy alakzat. A táblázatban lévő képek általában képkitöltésként vannak tárolva a táblázat celláiban.
+Az [ITable](https://reference.aspose.com/slides/hu/net/aspose.slides/itable/) egy alakzat. A táblázatban lévő képek általában képpel kitöltött táblázatcellákban tárolódnak.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "table-images");
 Directory.CreateDirectory(outputDirectory);
@@ -456,9 +472,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Képek kinyerése diagram alakzatokból**
 
-Az [IChart](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichart/) egy alakzat. Az alábbi példa a diagram területének képkitöltéséből nyer ki egy képet.
+Az [IChart](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichart/) egy alakzat. Az alábbi példa egy képet nyer ki a diagram területének képpel kitöltéséből.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "chart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -492,9 +510,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Képek kinyerése SmartArt alakzatokból**
 
-Az [ISmartArt](https://reference.aspose.com/slides/hu/net/aspose.slides.smartart/ismartart/) objektum egy alakzat. A SmartArt elrendezésétől függően a képek a csomópontok felsorolás‑kitöltésében vagy a csomópont alakzatok kitöltési formátumaiban tárolódhatnak.
+Az [ISmartArt](https://reference.aspose.com/slides/hu/net/aspose.slides.smartart/ismartart/) objektum egy alakzat. A SmartArt elrendezésétől függően a képek a csomópontok felsorolás kitöltéseiben vagy a csomópont alakzatok kitöltési formátumaiban tárolódhatnak.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "smartart-images");
 Directory.CreateDirectory(outputDirectory);
@@ -544,9 +564,11 @@ using (Presentation presentation = new Presentation(inputPath))
 
 ## **Képek belefoglalása csoportosított alakzatokba**
 
-A csoportosított alakzatok saját alakzategyüttesekkel rendelkeznek. A megosztott `EnumerateShapes` segédfüggvénynek van egy `includeGroupedShapes` opciója. Állítsa `true`‑ra, ha a [IGroupShape](https://reference.aspose.com/slides/hu/net/aspose.slides/igroupshape/) objektumok belsejét is vizsgálni szeretné. Az alábbi példa képeket nyer ki képkeretekből, kép‑kitöltésű alakzatokból, OLE‑objektum előnézetekből, videókeret bélyegképekből és hangkeret bélyegképekből. A táblázat, diagram, SmartArt és összegző zoom képek bevonásához használja újra a korábbi szakaszokban bemutatott speciális kinyerési logikát, miközben ugyanazt a rekurzív alakzatbejárást alkalmazza.
+A csoportosított alakzatok saját alakzattárakat tartalmaznak. A közös `EnumerateShapes` segítőnek van egy `includeGroupedShapes` opciója. Állítsd `true`‑ra, ha az [IGroupShape](https://reference.aspose.com/slides/hu/net/aspose.slides/igroupshape/) objektumok belsejében lévő alakzatokat is szeretnéd ellenőrizni. Az alábbi példa képeket nyer ki képkeretekből, képpel kitöltött alakzatokból, OLE objektum előnézetekből, videókeret bélyegképekből és hangkeret bélyegképekből. Ha a táblázat, diagram, SmartArt és összegző zoom képeket is bele akarod foglalni, használd újra a korábbi szakaszokban bemutatott speciális kinyerési logikát, miközben ugyanazt a rekurzív alakzat bejárást alkalmazod.
 
 ```c#
+using Aspose.Slides;
+
 string inputPath = "sample.pptx";
 string outputDirectory = Path.Combine(Environment.CurrentDirectory, "all-shape-images");
 Directory.CreateDirectory(outputDirectory);
@@ -619,45 +641,45 @@ using (Presentation presentation = new Presentation(inputPath))
 }
 ```
 
-## **Szegélyes esetek és gyakorlati megjegyzések**
+## **Különleges esetek és gyakorlati megjegyzések**
 
-- **Duplikált képek:** Több alakzat hivatkozhat ugyanarra a képre, vagy különálló képek lehetnek azonos bájtokkal. A [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) hashelése a fájlok írása előtt biztosítja, hogy egy kimeneti fájl legyen minden egyedi képhez.
-- **Eredeti adat vs. konvertált kimenet:** A [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) mentése megőrzi a beágyazott JPEG, PNG, GIF, SVG, EMF vagy WMF adatot. A [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) és az [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) használata akkor hasznos, ha egységes kimeneti formátumra (például PNG) van szükség.
-- **Nem támogatott kitöltéstípusok:** Szilárd, fokozatos, mintás és üres kitöltésű alakzatok nem tartalmaznak képkitöltést. Ellenőrizze a [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét, mielőtt a `PictureFillFormat`‑ot olvasná.
-- **Csoportosított alakzatok:** A felső szintű dia‑alakzatgyűjtemény nem laposítja a csoportokat. Rekurzívan vizsgálja meg a [IGroupShape.Shapes](https://reference.aspose.com/slides/hu/net/aspose.slides/igroupshape/) elemeket, ha a csoportos tartalom fontos.
-- **OLE‑objektum előnézetek:** Egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe/) a `SubstitutePictureFormat`‑on keresztül előnézeti képet jeleníthet meg, de ez csak a dia előnézete, nem az OLE‑objektumban beágyazott fájl.
-- **Videókeret bélyegképek:** Egy [IVideoFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ivideoframe/) a `PictureFormat`‑on keresztül előnézeti képet ad, de ez csak a dián megjelenő poszter, nem a videófolyamból származó keret.
-- **Hangkeret bélyegképek:** Egy [IAudioFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iaudioframe/) az `PictureFormat`‑on keresztül ikont vagy bélyegképet jeleníthet meg; ez nem a beágyazott hangadat.
-- **Zoom‑képek:** Diázoom, szekció‑zoom és összegző‑zoom alakzatok egyedi [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumokat használhatnak a `ZoomImage`‑en keresztül.
-- **Egymásba ágyazott alakzatiemodellek:** A táblázat, diagram és SmartArt objektumok implementálják az [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) interfészt, de képeik gyakran beágyazott táblázatcellák, diagram‑elemek vagy SmartArt‑csomópont formázó objektumokban tárolódnak.
-- **Vágott vagy átalakított képek:** A [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) elérése a tárolt képforrásra ad vissza. Nem alkalmazza a vágást, átlátszóságot, újraszínezést, forgatást vagy egyéb vizuális effektusokat, amelyeket az alakzat alkalmaz.
+- **Duplikált képek:** Több alakzat is hivatkozhat ugyanarra a képre vagy különálló képekre, amelyek azonos bájtokkal rendelkeznek. Használd a [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) hash‑elését a fájlok írása előtt, ha egy kimeneti fájlt szeretnél az egyedi képre.
+- **Eredeti adat vs. konvertált kimenet:** A [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) mentése megőrzi a beágyazott JPEG, PNG, GIF, SVG, EMF vagy WMF adatot. Az [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) mentése a [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/)‑vel hasznos, ha egységes kimeneti formátumot, például PNG‑t szeretnél.
+- **Nem támogatott kitöltéstípusok:** Szilárd, fokozatos, mintás és nincs kitöltésű alakzatok nem tartalmaznak képpel kitöltést. Ellenőrizd a [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/)‑t, mielőtt a `PictureFillFormat`‑ot olvasnád.
+- **Csoportosított alakzatok:** A felső szintű diá alakzattár nem laposítja a csoportokat. Rekurzívan ellenőrizd a [IGroupShape.Shapes](https://reference.aspose.com/slides/hu/net/aspose.slides/igroupshape/)‑t, ha a csoportos tartalom fontos.
+- **OLE objektum előnézetek:** Egy [IOleObjectFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe/) előnézeti képet mutathat a `SubstitutePictureFormat` segítségével, de ez csak a dia előnézete. Nem a beágyazott fájl az OLE objektumban.
+- **Videókeret bélyegképek:** Egy [IVideoFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ivideoframe/) előnézeti képet mutathat a `PictureFormat`‑on keresztül, de ez csak a dián látható poszter. Nem a videó folyamából nyert képkocka.
+- **Hangkeret bélyegképek:** Egy [IAudioFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/iaudioframe/) ikon vagy bélyegkép jelenhet meg a `PictureFormat`‑on; ez nem a beágyazott hangadat.
+- **Zoom képek:** Dia zoom, szakasz zoom és összegző zoom alakzatok egyéni [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumokat használhatnak a `ZoomImage`‑en keresztül.
+- **Beágyazott alakzati modellek:** A táblázat, diagram és SmartArt objektumok implementálják az [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/)‑t, de képeik gyakran beágyazott táblázatcella, diagram elem vagy SmartArt csomópont formázási objektumokban tárolódnak.
+- **Vágott vagy átalakított képek:** Az [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) elérése a tárolt kép erőforrást adja. Nem ábrázolja a vágást, átlátszóságot, újraszínezést, forgatást vagy egyéb vizuális hatásokat, amelyeket az alakzat alkalmaz.
 
 ## **GYIK**
 
-**Kinyerhetem az eredeti képet vágás, hatások vagy alakzattranszformációk nélkül?**
+### Kivonhatom‑e az eredeti képet vágás, hatás vagy alakzattranszformáció nélkül?
 
-Igen. Hívja meg a [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumot, és írja a [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) adatokat lemezre. Ez megőrzi a prezentációban tárolt eredeti kódolt képet, nem pedig a dián megjelenített verziót.
+Igen. Hozzáférhetsz a [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumhoz, és a [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/)‑t lemezre írod. Ez megőrzi a prezentációban tárolt eredeti kódolt képet, nem pedig azt, ahogyan a kép a dián megjelenik.
 
-**Exportálhatom minden kinyert képet PNG‑ként?**
+### Exportálhatom‑e minden kinyert képet PNG‑ként?
 
-Igen. Használja a [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) metódust az [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektum megszerzéséhez, majd hívja meg az [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/)‑t a [ImageFormat.Png](https://reference.aspose.com/slides/hu/net/aspose.slides/imageformat/) paraméterrel. Ez a kimenetet PNG‑re konvertálja, és előfordulhat, hogy nem őrzi meg az eredeti fájltípust vagy vektoralapú adatot.
+Igen. Használd az [IPPImage.Image](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/)‑t egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektum lekéréséhez, majd hívd meg az [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/)‑t az [ImageFormat.Png](https://reference.aspose.com/slides/hu/net/aspose.slides/imageformat/)‑el. Ez átalakítja a kimenetet, és előfordulhat, hogy nem őrzi meg az eredeti fájltípust vagy vektor adatot.
 
-**Hogyan kerülhetem el, hogy ugyanazt a képet többször is mentsem?**
+### Hogyan kerülhetem el, hogy ugyanazt a képet több alkalommal mentsem?
 
-Használjon hash‑t a [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) alapján, és tárolja a hash‑eket egy halmazban. Ha egy új kép hash‑e már létezik, hagyja ki a mentést, vagy rögzítsen egy másik hivatkozást a már létező kimeneti fájlra.
+Használj hash‑t a [IPPImage.BinaryData](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/)‑ból, és tárold a hash‑eket egy halmazban. Ha egy új kép hash‑e már létezik, hagyd ki, vagy rögzíts egy további hivatkozást a már meglévő kimeneti fájlra.
 
-**Miért nem készül kép bizonyos alakzatokból?**
+### Miért nem ad ki néhány alakzat képet?
 
-Képkeretek, kép‑kitöltésű alakzatok, OLE‑objektumkeretek, média keretek, zoom‑keretek, táblázatok, diagramok és SmartArt objektumok hivatkozhatnak képekre. Néhány alakzat típus beágyazott formázóobjektumokon keresztül teszi elérhetővé a képet, ezért egy egyszerű `PictureFormat` vagy `FillFormat` ellenőrzés nem mindig elegendő.
+Képkeretek, képpel kitöltött alakzatok, OLE objektumkeretek, média keretek, zoom keretek, táblázatok, diagramok és SmartArt objektumok hivatkozhatnak képekre. Néhány alakzattípus beágyazott formázási objektumokon keresztül teszi elérhetővé a képeket, így egy egyszerű `PictureFormat` vagy alakzat `FillFormat` ellenőrzés gyakran nem elegendő.
 
-**Kinyerhetem a videókerethez tartozó bélyegképet?**
+### Kinyerhető‑e a videókerethez tartozó bélyegkép?
 
-Igen. Használja a [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ivideoframe/)‑et, és olvassa a `PictureFormat.Picture.Image` tulajdonságot. Ez a videókerethez társított posztert, azaz a bélyegképet nyeri ki, nem a videofájlból generált keretet.
+Igen. Használd a [IVideoFrame.PictureFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ivideoframe/)‑t, és olvasd a `PictureFormat.Picture.Image`‑t. Ez a videókerettel tárolt poszter képet nyeri ki, nem egy a videófájlból generált képkockát.
 
-**Hogyan tudom meghatározni, mely alakzatok használják a prezentáció képgyűjteményének egy adott képét?**
+### Hogyan határozhatom meg, hogy mely alakzatok használnak egy adott képet a prezentáció képgat gyűjteményéből?
 
-Az Aspose.Slides nem tárol visszacsatoló hivatkozásokat a [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) és az alakzatok között. A bejárás során építsen fel egy térképet: amikor egy képhivatkozást talál, rögzítse a dia számát, az alakzat útvonalát és a kép hash‑ét vagy gyűjteményindexét.
+Az Aspose.Slides nem tárol visszacsatoló hivatkozásokat a [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/)‑ből alakzatokra. Építs egy leképezést a bejárás során: amikor képhivatkozást találsz, rögzítsd a dia számát, az alakzat útvonalát, valamint a kép hash‑ét vagy a gyűjtemény elemét.
 
-**Kinyerhetem a beágyazott OLE‑objektumokban lévő képeket, például a csatolt dokumentumokban?**
+### Kinyerhető‑e a beágyazott OLE‑objektumokban lévő képek, például a csatolt dokumentumok?
 
-A [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe/) segítségével csak az OLE‑objektum dia‑előnézetét nyerheti ki. Ez az előnézet azonban nem a beágyazott dokumentum. A beágyazott fájlban lévő képek kinyeréséhez először ki kell nyerni az OLE‑adatot, majd a megfelelő eszközökkel elemezni az adott fájltípust.
+A [IOleObjectFrame.SubstitutePictureFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ioleobjectframe/) segítségével ki tudod nyerni az OLE objektum diával kapcsolatos előnézetét. Azonban ez az előnézet nem maga a beágyazott dokumentum. Ahhoz, hogy a beágyazott fájlon belüli képeket kinyerd, ki kell nyerned az OLE adatot, majd a fájltípusnak megfelelő eszközökkel vizsgálni.

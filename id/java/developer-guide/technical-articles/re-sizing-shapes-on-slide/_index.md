@@ -13,15 +13,17 @@ keywords:
 - Aspose.Slides
 description: "Dengan mudah mengubah ukuran bentuk pada slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java—otomatisasi penyesuaian tata letak slide dan tingkatkan produktivitas."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Salah satu pertanyaan paling umum dari pelanggan Aspose.Slides untuk Java adalah bagaimana mengubah ukuran bentuk sehingga, ketika ukuran slide berubah, data tidak terpotong. Artikel teknis singkat ini menunjukkan cara melakukannya.
+Salah satu pertanyaan paling umum dari pelanggan Aspose.Slides for Java adalah bagaimana mengubah ukuran bentuk sehingga, ketika ukuran slide berubah, data tidak terpotong. Artikel teknis singkat ini menunjukkan cara melakukannya.
 
 ## **Ubah Ukuran Bentuk**
 
-Untuk mencegah bentuk menjadi tidak selaras saat ukuran slide berubah, perbarui posisi dan dimensi tiap bentuk agar sesuai dengan tata letak slide yang baru.
+Untuk mencegah bentuk menjadi tidak sejajar ketika ukuran slide berubah, perbarui posisi dan dimensi setiap bentuk sehingga sesuai dengan tata letak slide yang baru.
 
 ```java
+import com.aspose.slides.*;
+
 // Muat file presentasi.
 Presentation presentation = new Presentation("sample.ppt");
 try {
@@ -60,13 +62,15 @@ finally {
 }
 ```
 
-{{% alert color="primary" %}} 
-Jika sebuah slide berisi tabel, kode di atas tidak akan berfungsi dengan benar. Dalam kasus tersebut, setiap sel dalam tabel harus diubah ukurannya. 
+{{% alert color="info" %}} 
+Tabel tidak memerlukan perlakuan khusus: mengatur lebar dan tinggi tabel akan mengubah skala kolom dan baris secara proporsional, jadi mengubah skala tinggi baris dan lebar kolom lagi akan menerapkan rasio dua kali.
 {{% /alert %}} 
 
-Gunakan kode berikut di sisi Anda untuk mengubah ukuran slide yang berisi tabel. Untuk tabel, mengatur lebar atau tinggi merupakan kasus khusus: Anda harus menyesuaikan tinggi baris dan lebar kolom secara individual untuk mengubah ukuran keseluruhan tabel.
+Kode di atas hanya mengubah bentuk pada slide. Slide master dan slide tata letak mempertahankan bentuk mereka sendiri, jadi skala mereka juga ketika Anda ingin seluruh presentasi mengikuti ukuran slide yang baru:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Dapatkan ukuran slide asli.
@@ -117,17 +121,6 @@ try {
             // Skala posisi bentuk.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -138,32 +131,32 @@ finally {
 }
 ```
 
-## **Pertanyaan yang Sering Diajukan**
+## **FAQ**
 
-**Mengapa bentuk terdistorsi atau terpotong setelah mengubah ukuran slide?**
+### Mengapa bentuk menjadi terdistorsi atau terpotong setelah mengubah ukuran slide?
 
-Saat mengubah ukuran slide, bentuk mempertahankan posisi dan ukuran aslinya kecuali skala diubah secara eksplisit. Hal ini dapat menyebabkan konten terpotong atau bentuk menjadi tidak selaras.
+Saat mengubah ukuran slide, bentuk mempertahankan posisi dan ukuran asalnya kecuali skala diubah secara eksplisit. Hal ini dapat menyebabkan konten terpotong atau bentuk menjadi tidak sejajar.
 
-**Apakah kode yang diberikan berfungsi untuk semua jenis bentuk?**
+### Apakah kode yang diberikan berfungsi untuk semua jenis bentuk?
 
-Contoh dasar berfungsi untuk kebanyakan jenis bentuk (kotak teks, gambar, diagram, dll.). Namun, untuk tabel, Anda harus menangani baris dan kolom secara terpisah, karena tinggi dan lebar tabel ditentukan oleh dimensi sel individual.
+Ya. Mengatur tinggi dan lebar bekerja untuk kotak teks, gambar, diagram, dan tabel sekaligus.
 
-**Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?**
+### Bagaimana cara mengubah ukuran tabel saat mengubah ukuran slide?
 
-Anda perlu melakukan iterasi melalui semua baris dan kolom tabel serta mengubah tinggi dan lebar mereka secara proporsional, seperti yang ditunjukkan pada contoh kode kedua.
+Skala bentuk tabel itu sendiri, persis seperti bentuk lainnya. Baris dan kolomnya mengikuti secara proporsional, jadi jangan skala mereka lagi setelahnya.
 
-**Apakah pengubahan ukuran ini berfungsi untuk master slide dan layout slide?**
+### Apakah pengubahan ukuran ini akan berfungsi untuk slide master dan slide tata letak?
 
-Ya, tetapi Anda juga harus melakukan iterasi melalui [Masters](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getMasters--) dan [Layout slides](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getLayoutSlides--) serta menerapkan logika skala yang sama pada bentuk mereka untuk memastikan konsistensi di seluruh presentasi.
+Ya, tetapi Anda juga harus mengulangi melalui [Master](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getMasters--) dan [Slide tata letak](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getLayoutSlides--) serta menerapkan logika skala yang sama pada bentuk mereka untuk memastikan konsistensi di seluruh presentasi.
 
-**Bisakah saya mengubah orientasi slide (potret/lanskap) bersama dengan pengubahan ukuran?**
+### Bisakah saya mengubah orientasi slide (potret/lanskap) bersama dengan pengubahan ukuran?
 
-Ya. Anda dapat menggunakan [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidesize/#setOrientation-int-) untuk mengubah orientasi. Pastikan Anda menyesuaikan logika skala agar tata letak tetap terjaga.
+Ya. Anda dapat menggunakan [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidesize/#setOrientation-int-) untuk mengubah orientasi. Pastikan Anda mengatur logika skala dengan tepat untuk mempertahankan tata letak.
 
-**Apakah ada batasan ukuran slide yang dapat saya tetapkan?**
+### Apakah ada batasan ukuran slide yang dapat saya atur?
 
 Aspose.Slides mendukung ukuran kustom, tetapi ukuran yang sangat besar dapat memengaruhi kinerja atau kompatibilitas dengan beberapa versi PowerPoint.
 
-**Bagaimana saya dapat mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?**
+### Bagaimana saya dapat mencegah bentuk dengan rasio aspek tetap menjadi terdistorsi?
 
-Anda dapat memeriksa metode `getAspectRatioLocked` pada bentuk sebelum melakukan skala. Jika terkunci, sesuaikan lebar atau tinggi secara proporsional daripada menskalakan keduanya secara terpisah.
+Anda dapat memeriksa metode `getAspectRatioLocked` pada bentuk sebelum melakukan skala. Jika dikunci, sesuaikan lebar atau tinggi secara proporsional daripada men-skalanya secara terpisah.

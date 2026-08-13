@@ -4,26 +4,27 @@ type: docs
 weight: 50
 url: /tr/jasperreports/licensing/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose.Slides for JasperReports, [download page](https://downloads.aspose.com/slides/tr/jasperreport) adresinden sınırsız süreli ücretsiz bir değerlendirme olarak mevcuttur. Ürünün değerlendirme ve lisanslı sürümleri aynı indirme dosyasını kullanır.
+Aspose.Slides for JasperReports, [download page](https://downloads.aspose.com/slides/tr/jasperreport) üzerinden sınırsız süreli ücretsiz değerlendirme olarak mevcuttur. Ürünün değerlendirme ve lisanslı sürümleri aynı indirme bağlantısından temin edilebilir.
 
-Değerlendirmeden memnun kaldığınızda, [bir lisans satın al](https://purchase.aspose.com/buy). Abonelik şartlarını anladığınızdan ve kabul ettiğinizden emin olun.
+Değerlendirmeden memnun kaldığınızda, [buy a license](https://purchase.aspose.com/buy). Abonelik şartlarını anladığınızdan ve kabul ettiğinizden emin olun.
 
-Sipariş ödemesinden sonra lisans, sipariş sayfasından indirilebilir. Lisans, istemci adı, satın alınan ürün ve lisans türü gibi bilgileri içeren düz metin, dijital imzalı bir XML dosyasıdır. Lisans dosyasının içeriğini hiçbir şekilde değiştirmeyin: değiştirmek lisansı geçersiz kılar.
+Sipariş ödendikten sonra lisans sipariş sayfasından indirilebilir. Lisans, istemci adı, satın alınan ürün ve lisans tipi gibi bilgileri içeren, düz metin, dijital imzalı bir XML dosyasıdır. Lisans dosyasının içeriğini hiçbir şekilde değiştirmeyin: bu, lisansı geçersiz kılar.
 
-Lisansı bilgisayarınıza indirip uygun klasöre kopyalayın (örneğin uygulama klasörünüz veya **JasperReports\lib**).
+Lisansı bilgisayarınıza indirin ve uygun klasöre kopyalayın (örneğin uygulama klasörünüz veya **JasperReports\lib**).
+{{% /alert %}}
 
-## **Değerlendirme Sürümü Sınırlaması**
-Lisans belirtilmemiş Aspose.Slides değerlendirme sürümü tam ürün işlevselliğini sağlar, ancak (sunumlarınızı kaydettiğinizde) aşağıdaki figürde gösterildiği gibi her slaydın ortasına bir değerlendirme filigranı ekler:
+## **Değerlendirme Sürümü Kısıtlaması**
+Değerlendirme sürümü Aspose.Slides (lisans belirtilmemiş) tam ürün işlevselliği sağlar, ancak sunumlarınızı kaydettiğinizde her slaytın ortasına aşağıdaki şekilde gösterilen bir değerlendirme filigranı ekler:
 
 ![todo:image_alt_text](evaluation_watermark.png) 
 
 ## **Lisans Uygulama**
-JasperReports ya da JasperServer üzerinde çalışmanıza bağlı olarak lisans uygulamanın birkaç farklı yolu vardır.
+Lisans uygulamanın birkaç yolu vardır; bu, JasperReports üzerinde mi yoksa JasperServer üzerinde mi çalıştığınıza bağlıdır.
 
 ### **JasperReports için Lisans Uygulama**
-Aspose.Slides for Java'ye benzer şekilde doğrudan setLicense yöntemi çağrısı kullanın.
+Aspose.Slides for Java'ye benzer şekilde doğrudan setLicense yöntemi çağrısını kullanın.
 
 ```java
 import com.aspose.slides.jasperreports.License;
@@ -31,20 +32,20 @@ import com.aspose.slides.jasperreports.License;
 ..... 
 
 try {
-    //Lisans dosyasını içeren bir akış nesnesi oluşturun
+    //Lisans dosyasını içeren bir akış nesnesi oluştur
     FileInputStream fstream=new FileInputStream("Aspose.Slides.JasperReports.Developer.lic");
 	
-    //License sınıfını örnekleyin
+    //License sınıfını örnekle
     License license = new License();
 	
-    //Lisansı akış nesnesi aracılığıyla ayarlayın
+    //Akış nesnesi üzerinden lisansı ayarla
     license.setLicense(fstream);
 } catch(Exception ex) {
     System.out.println(ex.toString());
 }
 ```
 
-Veya, kod içinde dışa aktarıcı parametresini ayarlayın.
+Ya da, kod içinde dışa aktarım parametresini ayarlayın.
 
 ```java
 ASPptExporter exporter = new ASPptExporter (); 
@@ -53,7 +54,7 @@ exporter.exportReport();
 ```
 
 ### **JasperServer'da Lisans Uygulama**
-applicationContext.xml içinde dışa aktarıcı parametresini ayarlayın.
+applicationContext.xml dosyasında dışa aktarım parametresini ayarlayın.
 
 ``` xml
 <bean id="asExportParametersBean" class="com.aspose.slides.jasperreports.ASExportParametersBean">

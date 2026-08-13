@@ -1,45 +1,43 @@
 ---
-title: Excel-diagramok létrehozása és beágyazása OLE-objektumként VSTO és Aspose.Slides for .NET használatával
-linktitle: Excel-diagramok létrehozása és beágyazása OLE-objektumként
+title: Excel-diagramok létrehozása és OLE objektumként való beágyazása VSTO és Aspose.Slides for .NET használatával
+linktitle: Excel-diagramok létrehozása és OLE objektumként beágyazása
 type: docs
 weight: 70
 url: /hu/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 keywords:
 - diagram létrehozása
 - Excel-diagram beágyazása
-- OLE-objektum
+- OLE objektum
 - migráció
 - VSTO
-- Office automatizálás
+- Office-automatizálás
 - PowerPoint
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Migráljon a Microsoft Office automatizálásról az Aspose.Slides for .NET-re, és ágyazza be az Excel-diagramokat OLE-objektumként a PowerPoint (PPT, PPTX) diákba C#-ban."
+description: "Migráljon a Microsoft Office automatizálásról az Aspose.Slides for .NET-re, és ágyazzon be Excel-diagramokat OLE objektumként a PowerPoint (PPT, PPTX) diákba C#-ban."
 ---
-{{% alert color="primary" %}} 
-
-A diagramok az adataid vizuális ábrázolásai, és széles körben használják őket a prezentációs diákban. Ez a cikk bemutatja a kódot, amely programozott módon létrehozza és beágyazza egy Excel-diagramot OLE‑objektumként a PowerPoint-diára a [VSTO](/slides/hu/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) és a [Aspose.Slides for .NET](/slides/hu/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) használatával.
-
+{{% alert color="info" %}} 
+Diagramok a adataid vizuális megjelenítései, és széles körben használják őket bemutató diáikon. Ez a cikk megmutatja a kódot, amellyel programozottan létrehozhatsz és beágyazhatsz egy Excel-diagramot OLE objektumként a PowerPoint-diára, a [VSTO](/slides/hu/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) és a [Aspose.Slides for .NET](/slides/hu/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) használatával.
 {{% /alert %}} 
 ## **Excel-diagram létrehozása és beágyazása**
-Az alábbi két kódpélda hosszú és részletes, mert a feladat, amelyet leírnak, összetett. Létrehoz egy Microsoft Excel munkafüzetet, egy diagramot, majd egy Microsoft PowerPoint prezentációt, amelybe beágyazza a diagramot. Az OLE‑objektumok hivatkozásokat tartalmaznak az eredeti dokumentumra, így a beágyazott fájlt duplán kattintva a felhasználó elindítja a fájlt és annak alkalmazását.
+Az alábbi két kódpélda hosszú és részletes, mivel a leírt feladat összetett. Létrehoz egy Microsoft Excel munkafüzetet, elkészít egy diagramot, majd létrehozza a Microsoft PowerPoint prezentációt, amelybe beágyazza a diagramot. Az OLE objektumok hivatkozásokat tartalmaznak az eredeti dokumentumra, így a beágyazott fájlt duplán kattintó felhasználó elindítja a fájlt és annak alkalmazását.
 ## **VSTO példa**
-A VSTO használatával a következő lépések hajtódnak végre:
+A VSTO használatával a következő lépések történnek:
 
 1. Hozzon létre egy példányt a Microsoft Excel ApplicationClass objektumból.
 1. Hozzon létre egy új munkafüzetet egy munkalappal.
 1. Adjon hozzá diagramot a munkalaphoz.
 1. Mentse a munkafüzetet.
-1. Nyissa meg azt az Excel-munkafüzetet, amely tartalmazza a diagramadatokkal rendelkező munkalapot.
+1. Nyissa meg azt az Excel-munkafüzetet, amelyik a diagram adataival rendelkező munkalapot tartalmazza.
 1. Szerezze meg a ChartObjects gyűjteményt a munkalaphoz.
-1. Szerezze meg a másolni kívánt diagramot.
+1. Szerezze meg a másolandó diagramot.
 1. Hozzon létre egy Microsoft PowerPoint prezentációt.
-1. Adjon hozzá egy üres diát a prezentációhoz.
-1. Másolja a diagramot az Excel-munkalapról a vágólapra.
-1. Illessze be a diagramot a PowerPoint-prezentációba.
-1. Pozicionálja a diagramot a dián.
+1. Adjon egy üres diát a prezentációhoz.
+1. Másolja a diagramot az Excel munkalapról a vágólapra.
+1. Illessze be a diagramot a PowerPoint prezentációba.
+1. Helyezze el a diagramot a dián.
 1. Mentse a prezentációt.
 
 ```c#
@@ -57,7 +55,7 @@ static void SetCellValue(xlNS.Worksheet targetSheet, string Cell, object Value)
 ```c#
 static void CreateNewChartInExcel()
 {
-    // Deklaráljon egy változót az Excel ApplicationClass példányához.
+    // Deklaráljon egy változót az Excel ApplicationClass példányhoz.
     Microsoft.Office.Interop.Excel.ApplicationClass excelApplication = null;
 
     // Deklaráljon változókat a Workbooks.Open metódus paramétereihez.
@@ -78,20 +76,20 @@ static void CreateNewChartInExcel()
         // Hozzon létre egy példányt az Excel ApplicationClass objektumból.
         excelApplication = new Microsoft.Office.Interop.Excel.ApplicationClass();
 
-        // Hozzon létre egy új munkafüzetet 1 munkalappal.
+        // Hozzon létre egy új munkafüzetet egy munkalappal.
         xlNS.Workbook newWorkbook = excelApplication.Workbooks.Add(xlNS.XlWBATemplate.xlWBATWorksheet);
 
         // Módosítsa a munkalap nevét.
         xlNS.Worksheet targetSheet = (xlNS.Worksheet)(newWorkbook.Worksheets[1]);
         targetSheet.Name = "Quarterly Sales";
 
-        // Szúrjon be adatokat a diagramhoz a munkalapra.
+        // Illessen be némi adatot a diagramhoz a munkalapra.
         //              A       B       C       D       E
         //     1                Q1      Q2      Q3      Q4
-        //     2    Észak-Amerika  1.5     2       1.5     2.5
-        //     3    Dél-Amerika  2       1.75    2       2
-        //     4    Európa      2.25    2       2.5     2
-        //     5    Ázsia        2.5     2.5     2       2.75
+        //     2    N. America  1.5     2       1.5     2.5
+        //     3    S. America  2       1.75    2       2
+        //     4    Europe      2.25    2       2.5     2
+        //     5    Asia        2.5     2.5     2       2.75
 
         SetCellValue(targetSheet, "A2", "N. America");
         SetCellValue(targetSheet, "A3", "S. America");
@@ -122,7 +120,7 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // Szerezze meg a diagram adatokat tartalmazó tartományt.
+        // Szerezze meg a diagram adatait tartalmazó tartományt.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
         // Szerezze meg a ChartObjects gyűjteményt a munkalaphoz.
@@ -136,7 +134,7 @@ static void CreateNewChartInExcel()
         newChartObject.Chart.ChartWizard(dataRange, xlNS.XlChartType.xl3DColumn, paramChartFormat, xlNS.XlRowCol.xlRows,
             paramCategoryLabels, paramSeriesLabels, paramHasLegend, paramTitle, paramCategoryTitle, paramValueTitle, paramMissing);
 
-        // Mentse el a munkafüzetet.
+        // Mentse a munkafüzetet.
         newWorkbook.SaveAs(paramWorkbookPath, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, xlNS.XlSaveAsAccessMode.xlNoChange, paramMissing, paramMissing, paramMissing, paramMissing, paramMissing);
     }
@@ -158,13 +156,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Deklaráljon változókat, amelyek a PowerPoint objektumokra mutató hivatkozásokat tárolják.
+    // Deklaráljon változókat a PowerPoint objektumokra mutató hivatkozások tárolásához.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Deklaráljon változókat, amelyek az Excel objektumokra mutató hivatkozásokat tárolják.
+    // Deklaráljon változókat az Excel objektumokra mutató hivatkozások tárolásához.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -183,21 +181,21 @@ static void UseCopyPaste()
         // Hozzon létre egy Excel példányt.
         excelApplication = new xlNS.ApplicationClass();
 
-        // Nyissa meg az Excel munkafüzetet, amely a diagram adatokat tartalmazó munkalapot tartalmazza.
+        // Nyissa meg a diagram adatokat tartalmazó munkalappal rendelkező Excel munkafüzetet.
         excelWorkBook = excelApplication.Workbooks.Open(paramWorkbookPath,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing, paramMissing,
             paramMissing, paramMissing, paramMissing, paramMissing);
 
-        // Szerezze meg a diagramot tartalmazó munkalapot.
+        // Szerezze meg azt a munkalapot, amely a diagramot tartalmazza.
         targetSheet =
             (xlNS.Worksheet)(excelWorkBook.Worksheets["Quarterly Sales"]);
 
-        // Szerezze meg a munkalap ChartObjects gyűjteményét.
+        // Szerezze meg a ChartObjects gyűjteményt a munkalaphoz.
         chartObjects =
             (xlNS.ChartObjects)(targetSheet.ChartObjects(paramMissing));
 
-        // Szerezze meg a másolni kívánt diagramot.
+        // Szerezze meg a másolandó diagramot.
         existingChartObject =
             (xlNS.ChartObject)(chartObjects.Item("Sales Chart"));
 
@@ -216,11 +214,11 @@ static void UseCopyPaste()
         // Illessze be a diagramot a PowerPoint prezentációba.
         shapeRange = pptSlide.Shapes.Paste();
 
-        // Pozicionálja a diagramot a dián.
+        // Pozícionálja a diagramot a dián.
         shapeRange.Left = 60;
         shapeRange.Top = 100;
 
-        // Mentse el a prezentációt.
+        // Mentse a prezentációt.
         pptPresentation.SaveAs(paramPresentationPath, pptNS.PpSaveAsFileType.ppSaveAsOpenXMLPresentation, Microsoft.Office.Core.MsoTriState.msoTrue);
     }
     catch (Exception ex)
@@ -240,7 +238,7 @@ static void UseCopyPaste()
             pptPresentation = null;
         }
 
-        // Zárja be a PowerPoint-ot és szabadítsa fel az ApplicationClass objektumot.
+        // Lépjen ki a PowerPointból és szabadítsa fel az ApplicationClass objektumot.
         if (powerpointApplication != null)
         {
             powerpointApplication.Quit();
@@ -259,7 +257,7 @@ static void UseCopyPaste()
             excelWorkBook = null;
         }
 
-        // Zárja be az Excelt és szabadítsa fel az ApplicationClass objektumot.
+        // Lépjen ki az Excelből és szabadítsa fel az ApplicationClass objektumot.
         if (excelApplication != null)
         {
             excelApplication.Quit();
@@ -278,52 +276,62 @@ static void UseCopyPaste()
 
 
 ## **Aspose.Slides for .NET példa**
-Az Aspose.Slides for .NET használatával a következő lépések hajtódnak végre:
+Az Aspose.Slides for .NET használatával a következő lépések történnek:
 
 1. Hozzon létre egy munkafüzetet az Aspose.Cells for .NET használatával.
 1. Hozzon létre egy Microsoft Excel diagramot.
 1. Állítsa be az Excel-diagram OLE méretét.
 1. Szerezzen képet a diagramról.
-1. Ágyazza be az Excel-diagramot OLE‑objektumként egy PPTX prezentációba az Aspose.Slides for .NET használatával.
-1. Cserélje le a megváltozott objektum képét a 3. lépésben kapott képre, hogy megoldja az objektum megváltozott problémáját.
-1. Írja a kimeneti prezentációt lemezre PPTX formátumban.
+1. Ágyazza be az Excel-diagramot OLE objektumként egy PPTX prezentációba az Aspose.Slides for .NET használatával.
+1. Cserélje le a módosult objektum képét a 3. lépésben kapott képre, hogy megoldja az objektum módosulási problémát.
+1. Írja ki a kimeneti prezentációt a lemezre PPTX formátumban.
 
 
 
 ```c#
-//1. lépés: Excel-diagram létrehozása az Aspose.Cells használatával
+using System.Drawing;
+using Aspose.Slides;
+
+//Lépés - 1: Excel diagram létrehozása az Aspose.Cells segítségével
 //--------------------------------------------------
 //Munkafüzet létrehozása
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Excel-diagram hozzáadása
+//Excel diagram hozzáadása
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//2. lépés: A diagram OLE-méretének beállítása az Aspose.Cells használatával
+//Lépés - 2: A diagram OLE méretének beállítása. Aspose.Cells használatával
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//3. lépés: A diagram képének lekérése az Aspose.Cells segítségével
+//Lépés - 3: A diagram képének lekérése Aspose.Cells segítségével
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Munkafüzet mentése folyamathoz
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Munkafüzet mentése adatfolyamba
 MemoryStream wbStream = wb.SaveToStream();
-//4. és 5. lépés
+//Lépés - 4 és 5
 //-----------------------------------------------------------
-//4. lépés: A diagram beágyazása OLE-objektumként .ppt prezentációba az Aspose.Slides használatával
+//Lépés - 4: A diagram beágyazása OLE objektumként .ppt prezentációba az Aspose.Slides használatával
 //-----------------------------------------------------------
-//5. lépés: Az objektumváltás problémájának megoldásához cserélje ki a módosított objektum képét a 3. lépésben kapott képre
+//Lépés - 5: Az objektum módosult képének cseréje a 3. lépésben kapott képre az Objektum Módosult probléma megoldásához
 //-----------------------------------------------------------
 //Prezentáció létrehozása
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
-//Munkafüzet hozzáadása a diára
+//A munkafüzet hozzáadása a diára
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//6. lépés: A kimeneti prezentáció írása lemezre
+//Lépés - 6: A kimeneti prezentáció írása lemezre
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -375,25 +383,25 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
     Aspose.Cells.Worksheet dataSheet = wb.Worksheets[dataSheetIdx];
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
-    //Adatok feltöltése a DataSheet munkalapra
+    //DataSheet feltöltése adatokkal
     for (int i = 0; i < cellsName.Length; i++)
     {
         string cellName = cellsName[i];
         int cellValue = cellsValue[i];
         dataSheet.Cells[cellName].PutValue(cellValue);
     }
-    //Diagrammunkalap hozzáadása
+    //Diagramm munkalap hozzáadása
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //Diagram hozzáadása a ChartSheet munkalapra a DataSheet sorozataival
+    //Diagram hozzáadása a ChartSheethez, adatcsoportok a DataSheet-ből
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
     chart.NSeries.Add(sheetName + "!A2:E2", false);
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
-    //ChartSheet beállítása aktív munkalapként
+    //A ChartSheet beállítása aktív munkalappá
     wb.Worksheets.ActiveSheetIndex = chartSheetIdx;
     return chartSheetIdx;
 }

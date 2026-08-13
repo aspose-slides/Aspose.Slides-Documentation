@@ -1,54 +1,56 @@
 ---
-title: Javaでプレゼンテーションにウォーターマークを追加する
-linktitle: ウォーターマーク
+title: Java でプレゼンテーションに透かしを追加
+linktitle: 透かし
 type: docs
 weight: 40
 url: /ja/java/watermark/
 keywords:
-- ウォーターマーク
-- テキストウォーターマーク
-- 画像ウォーターマーク
-- ウォーターマークの追加
-- ウォーターマークの変更
-- ウォーターマークの除去
-- ウォーターマークの削除
-- PPTへのウォーターマーク追加
-- PPTXへのウォーターマーク追加
-- ODPへのウォーターマーク追加
-- PPTからのウォーターマーク除去
-- PPTXからのウォーターマーク除去
-- ODPからのウォーターマーク除去
-- PPTからのウォーターマーク削除
-- PPTXからのウォーターマーク削除
-- ODPからのウォーターマーク削除
+- 透かし
+- テキスト透かし
+- 画像透かし
+- 透かしの追加
+- 透かしの変更
+- 透かしの削除
+- 透かしの削除
+- PPT への透かし追加
+- PPTX への透かし追加
+- ODP への透かし追加
+- PPT からの透かし削除
+- PPTX からの透かし削除
+- ODP からの透かし削除
+- PPT からの透かし削除
+- PPTX からの透かし削除
+- ODP からの透かし削除
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "JavaでPowerPointおよびOpenDocumentのプレゼンテーションにテキストや画像のウォーターマークを管理し、ドラフト、機密情報、著作権などを示すことができます。"
+description: "Java で PowerPoint と OpenDocument のプレゼンテーションにテキストおよび画像の透かしを管理し、ドラフト、機密情報、著作権などを示します。"
 ---
+## **概要**
 
-## **ウォーターマークについて**
+**透かし** は、スライドまたはプレゼンテーション全体のスライドに使用されるテキストまたは画像のスタンプです。通常、透かしはプレゼンテーションが草案であること（例: 「Draft」透かし）や機密情報が含まれていること（例: 「Confidential」透かし）を示したり、どの会社に属しているか（例: 「Company Name」透かし）を明示したり、プレゼンテーションの作者を特定したりするために使用されます。透かしは、プレゼンテーションをコピーすべきでないことを示すことで著作権侵害を防止するのに役立ちます。透かしは PowerPoint と OpenOffice の両方のプレゼンテーション形式で使用されます。Aspose.Slides では、PowerPoint PPT、PPTX、OpenOffice ODP のファイル形式に透かしを追加できます。
 
-**ウォーターマーク**は、スライドやプレゼンテーション全体のスライドに使用されるテキストまたは画像のスタンプです。通常、ウォーターマークはドラフトであることを示す（例: 「Draft」ウォーターマーク）や、機密情報が含まれていることを示す（例: 「Confidential」ウォーターマーク）、所属会社を指定する（例: 「Company Name」ウォーターマーク）、プレゼンテーションの作成者を識別するなどに使用されます。ウォーターマークは、コピーすべきでないことを示すことで著作権侵害を防止するのに役立ちます。ウォーターマークは PowerPoint と OpenOffice のプレゼンテーション形式の両方で使用されます。Aspose.Slides では、PowerPoint PPT、PPTX、OpenOffice ODP ファイル形式にウォーターマークを追加できます。
+[**Aspose.Slides**](https://products.aspose.com/slides/ja/java/) では、PowerPoint や OpenOffice ドキュメントに透かしを作成し、そのデザインや動作を変更するさまざまな方法が用意されています。共通点として、テキスト透かしを追加する場合は [ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) インターフェイスを使用し、画像透かしを追加する場合は [PictureFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/pictureframe/) クラスまたは透かしシェイプに画像を貼り付けます。`PictureFrame` は [IShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) インターフェイスを実装しているため、シェイプ オブジェクトの柔軟な設定をすべて使用できます。`ITextFrame` はシェイプではなく設定が限定的なため、[IShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) オブジェクトにラップされます。
 
-[**Aspose.Slides**](https://products.aspose.com/slides/java/) では、PowerPoint または OpenOffice ドキュメントにウォーターマークを作成し、デザインや動作を変更するさまざまな方法があります。共通点として、テキストウォーターマークを追加する場合は[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)インターフェイスを使用し、画像ウォーターマークを追加する場合は[PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/)クラスを使用するか、ウォーターマーク形状に画像をフィルとして設定します。`PictureFrame`は[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)インターフェイスを実装しており、形状オブジェクトの柔軟な設定をすべて利用できます。`ITextFrame`は形状ではなく設定が限定的なため、[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)オブジェクトにラップされます。
+透かしの適用方法は 2 つあります。単一のスライドに適用するか、プレゼンテーション全体のスライドに適用するかです。スライド マスタを使用すると、透かしをすべてのスライドに適用できます。透かしはスライド マスタに追加され、そこでデザインが完了した後、個々のスライドの透かし編集権限に影響を与えることなくすべてのスライドに適用されます。
 
-ウォーターマークの適用方法は 2 つあります：単一スライドに適用するか、プレゼンテーション全体のスライドに適用するかです。スライドマスターは、すべてのスライドにウォーターマークを適用するために使用されます。ウォーターマークはスライドマスターに追加され、そこで完全にデザインされ、個々のスライドでの編集権限に影響を与えることなくすべてのスライドに適用されます。
+透かしは通常、他のユーザーが編集できないものと見なされます。透かし（正確には透かしの親シェイプ）の編集を防止するために、Aspose.Slides はシェイプ ロック機能を提供します。特定のシェイプは通常のスライドまたはスライド マスタ上でロックできます。スライド マスタ上で透かしシェイプがロックされている場合、すべてのプレゼンテーション スライドでロックされます。
 
-ウォーターマークは通常、他のユーザーが編集できないと見なされます。ウォーターマーク（正確にはウォーターマークの親形状）の編集を防止するために、Aspose.Slides は形状ロック機能を提供します。特定の形状は通常のスライドまたはスライドマスター上でロックできます。スライドマスター上でウォーターマーク形状がロックされている場合、すべてのプレゼンテーションスライドでロックされます。
+透かしに名前を設定すれば、将来削除したい場合にスライドのシェイプ一覧から名前で見つけることができます。
 
-将来的に削除したい場合に備えて、ウォーターマークに名前を設定すると、スライドの形状コレクションから名前で見つけることができます。
+透かしは任意の方法でデザインできますが、一般的にはセンター揃え、回転、前面表示などの共通要素があります。以下のサンプルでこれらの使い方を確認します。
 
-ウォーターマークは任意の方法でデザインできますが、一般的には中央揃え、回転、最前面表示などの共通機能があります。以下の例でそれらの使い方を検討します。
+## **テキスト透かし**
 
-## **テキストウォーターマーク**
+### **スライドにテキスト透かしを追加**
 
-### **スライドにテキストウォーターマークを追加する**
+PPT、PPTX、ODP にテキスト透かしを追加するには、まずスライドにシェイプを追加し、次にそのシェイプにテキスト フレームを追加します。テキスト フレームは [ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) インターフェイスで表されます。この型は [IShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) から継承されておらず、透かしの位置を柔軟に設定するための豊富なプロパティがありません。そのため、[ITextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/itextframe/) オブジェクトは [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) オブジェクトにラップされます。シェイプに透かしテキストを追加するには、以下のように [addTextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) メソッドを使用します。
 
-PPT、PPTX、または ODP でテキストウォーターマークを追加するには、まずスライドに形状を追加し、その形状にテキストフレームを追加します。テキストフレームは[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)インターフェイスで表されます。このタイプは[IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/)から継承されておらず、柔軟な位置決めプロパティが豊富です。したがって、[ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/)オブジェクトは[IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)オブジェクトにラップされます。形状にウォーターマークテキストを追加するには、以下のように[addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-)メソッドを使用します。
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -60,15 +62,17 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-
-{{% alert color="primary" title="参照" %}} 
+{{% alert color="info" title="関連記事" %}} 
 - [TextFrame クラスの使用方法](/slides/ja/java/text-formatting/)
 {{% /alert %}}
 
-### **プレゼンテーションにテキストウォーターマークを追加する**
+### **プレゼンテーション全体にテキスト透かしを追加**
 
-プレゼンテーション全体（すべてのスライド）にテキストウォーターマークを追加したい場合は、[MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/)に追加します。残りのロジックは単一スライドに追加する場合と同じです—[IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)オブジェクトを作成し、[addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-)メソッドでウォーターマークを追加します。
+テキスト透かしをプレゼンテーション全体（すべてのスライド）に追加したい場合は、[MasterSlide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/masterslide/) に追加します。単一スライドに透かしを追加するロジックと同様に、[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) オブジェクトを作成し、[addTextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) メソッドで透かしを追加します。
+
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -80,46 +84,81 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-
-{{% alert color="primary" title="参照" %}} 
-- [スライドマスターの使用方法](/slides/ja/java/slide-master/)
+{{% alert color="info" title="関連記事" %}} 
+- [スライドマスタの使用方法](/slides/ja/java/slide-master/)
 {{% /alert %}}
 
-### **ウォーターマーク形状の透明度を設定する**
+### **透かしシェイプの透明度を設定**
 
-デフォルトでは、矩形形状は塗りつぶしと線の色が設定されています。次のコード行で形状を透明にします。
+デフォルトでは、長方形シェイプは塗りつぶしと線の色が設定されています。以下のコードでシェイプを透明にします。
+
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.getFillFormat().setFillType(FillType.NoFill);
 watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+presentation.dispose();
 ```
 
+### **テキスト透かしのフォントを設定**
 
-### **テキストウォーターマークのフォントを設定する**
+以下の例のように、テキスト透かしのフォントを変更できます。
 
-以下のようにテキストウォーターマークのフォントを変更できます。
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
 IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
 textFormat.setLatinFont(new FontData("Arial"));
 textFormat.setFontHeight(50);
+
+presentation.dispose();
 ```
 
+### **透かしテキストの色を設定**
 
-### **ウォーターマークテキストの色を設定する**
+透かしテキストの色を設定するには、次のコードを使用します。
 
-ウォーターマークテキストの色を設定するには、次のコードを使用します。
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 fillFormat.setFillType(FillType.Solid);
 fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+
+presentation.dispose();
 ```
 
+### **テキスト透かしを中央揃え**
 
-### **テキストウォーターマークを中央揃えにする**
+透かしをスライドの中央に配置することが可能です。以下の手順で実現します。
 
-スライド上でウォーターマークを中央に配置することが可能です。以下のように行います。
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+String watermarkText = "CONFIDENTIAL";
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
 Dimension2D slideSize = presentation.getSlideSize().getSize();
 
 float watermarkWidth = 400;
@@ -131,104 +170,158 @@ IAutoShape watermarkShape = slide.getShapes().addAutoShape(
         ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
 
 ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
-```
 
+presentation.dispose();
+```
 
 以下の画像は最終結果を示しています。
 
-![The text watermark](text_watermark.png)
+![テキスト透かし](text_watermark.png)
 
-## **画像ウォーターマーク**
+## **画像透かし**
 
-### **プレゼンテーションに画像ウォーターマークを追加する**
+### **プレゼンテーションに画像透かしを追加**
 
-プレゼンテーションのスライドに画像ウォーターマークを追加するには、次の手順を実行します。
+プレゼンテーションのスライドに画像透かしを追加するには、次の手順を実行します。
+
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 InputStream imageStream = new FileInputStream("watermark.png");
 IPPImage image = presentation.getImages().addImage(imageStream);
 
 watermarkShape.getFillFormat().setFillType(FillType.Picture);
 watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+
+presentation.dispose();
 ```
 
+### **透かしの編集をロック**
 
-### **ウォーターマークの編集をロックする**
+透かしの編集を防止したい場合は、シェイプに対して [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/#getAutoShapeLock--) メソッドを使用します。このプロパティにより、シェイプの選択、サイズ変更、再配置、他の要素とのグループ化、テキスト編集のロックなどが可能になります。
 
-ウォーターマークの編集を防止する必要がある場合は、形状上で[IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getAutoShapeLock--)メソッドを使用します。このプロパティにより、形状の選択、サイズ変更、再配置、他の要素とのグループ化、テキスト編集のロックなどが可能になります。
 ```java
-// ウォーターマーク形状の変更をロックする
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+// 透かしシェイプの変更をロック
 watermarkShape.getAutoShapeLock().setSelectLocked(true);
 watermarkShape.getAutoShapeLock().setSizeLocked(true);
 watermarkShape.getAutoShapeLock().setTextLocked(true);
 watermarkShape.getAutoShapeLock().setPositionLocked(true);
 watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+
+presentation.dispose();
 ```
 
+### **透かしを最前面に移動**
 
-### **ウォーターマークを最前面に持ってくる**
+Aspose.Slides では、シェイプの Z 順序を [IShapeCollection.reorder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) メソッドで設定できます。このメソッドをプレゼンテーションのスライドリストから呼び出し、シェイプ参照と順序番号を渡すことで、シェイプを最前面または背面に移動できます。透かしをプレゼンテーションの前面に配置したい場合に特に有用です。
 
-Aspose.Slidesでは、形状の Z オーダーは[IShapeCollection.reorder](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-)メソッドで設定できます。このメソッドをプレゼンテーションのスライドリストから呼び出し、形状参照と順序番号を渡すことで、形状を最前面または背面に移動できます。この機能は、ウォーターマークをプレゼンテーションの前面に配置する必要がある場合に特に有用です。
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 int shapeCount = slide.getShapes().size();
 slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+
+presentation.dispose();
 ```
 
+### **透かしの回転を設定**
 
-### **ウォーターマークの回転を設定する**
+透かしをスライド全体に対して斜めに配置するための回転調整コード例です。
 
-以下は、ウォーターマークをスライド全体に対して対角線上に配置するための回転を調整するコード例です。
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+Dimension2D slideSize = presentation.getSlideSize().getSize();
+
 double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
 watermarkShape.setRotation((float)diagonalAngle);
+
+presentation.dispose();
 ```
 
+### **透かしに名前を設定**
 
-### **ウォーターマークに名前を設定する**
+Aspose.Slides ではシェイプに名前を付けることができます。シェイプ名を使用すれば、将来その透かしを変更または削除する際に簡単にアクセスできます。透かしシェイプの名前を設定するには、[IAutoShape.setName](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#setName-java.lang.String-) メソッドを使用します。
 
-Aspose.Slidesでは、形状に名前を設定できます。形状名を使用すると、将来その形状にアクセスして変更または削除できます。ウォーターマーク形状の名前を設定するには、[IAutoShape.setName](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setName-java.lang.String-)メソッドに割り当てます。
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
 watermarkShape.setName("watermark");
+
+presentation.dispose();
 ```
 
+### **透かしを削除**
 
-### **ウォーターマークを削除する**
+透かしシェイプを削除するには、まず [IAutoShape.getName](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/#getName--) メソッドでスライドのシェイプから名前を検索し、次にそのシェイプを [IShapeCollection.remove](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) メソッドに渡します。
 
-ウォーターマーク形状を削除するには、[IAutoShape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getName--)メソッドでスライドの形状から検索し、[IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-)メソッドに渡します。
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+
+ISlide slide = presentation.getSlides().get_Item(0);
+
 IShape[] slideShapes = slide.getShapes().toArray();
 for (IShape shape : slideShapes) {
     if ("watermark".equals(shape.getName()))
     {
-        slide.getShapes().remove(watermarkShape);
+        slide.getShapes().remove(shape);
     }
 }
+
+presentation.dispose();
 ```
 
+## **よくある質問**
 
-## **FAQ**
+### **透かしとは何か、なぜ使用すべきか**
 
-**ウォーターマークとは何か、なぜ使用すべきか？**
+透かしはスライドに適用されるテキストまたは画像のオーバーレイで、知的財産の保護、ブランド認知の向上、プレゼンテーションの不正使用防止に役立ちます。
 
-ウォーターマークとは、スライドに適用されるテキストまたは画像のオーバーレイで、知的財産を保護したり、ブランド認知度を高めたり、プレゼンテーションの不正使用を防止したりするために使用されます。
+### **プレゼンテーションのすべてのスライドに透かしを追加できますか？**
 
-**プレゼンテーションのすべてのスライドにウォーターマークを追加できますか？**
+はい、Aspose.Slides を使用すると、プログラムでプレゼンテーションの全スライドに透かしを追加できます。すべてのスライドを反復処理し、個別に透かし設定を適用します。
 
-はい、Aspose.Slides を使用すると、プログラムでプレゼンテーションのすべてのスライドにウォーターマークを追加できます。スライドをすべてループして、個別にウォーターマーク設定を適用します。
+### **透かしの透明度はどのように調整できますか？**
 
-**ウォーターマークの透明度を調整するにはどうすればよいですか？**
+シェイプの塗りつぶし設定（[getFillFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/shape/#getFillFormat--)）を変更することで、透かしの透明度を調整できます。これにより、透かしが控えめになり、スライドの内容の妨げになりません。
 
-形状の塗りつぶし設定([getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getFillFormat--))を変更することで、ウォーターマークの透明度を調整できます。これにより、ウォーターマークが控えめになり、スライドの内容の妨げになりません。
-
-**ウォーターマークでサポートされる画像形式は何ですか？**
+### **透かしに使用できる画像形式は何ですか？**
 
 Aspose.Slides は PNG、JPEG、GIF、BMP、SVG などのさまざまな画像形式をサポートしています。
 
-**テキストウォーターマークのフォントやスタイルをカスタマイズできますか？**
+### **テキスト透かしのフォントやスタイルはカスタマイズできますか？**
 
 はい、プレゼンテーションのデザインやブランドの一貫性に合わせて、任意のフォント、サイズ、スタイルを選択できます。
 
-**ウォーターマークの位置や向きを変更するにはどうすればよいですか？**
+### **透かしの位置や向きを変更するにはどうすればよいですか？**
 
-形状の座標、サイズ、回転プロパティを変更することで、プログラムからウォーターマークの位置や向きを調整できます。
+シェイプの座標、サイズ、回転プロパティをプログラムで変更することで、透かしの位置や向きを調整できます。

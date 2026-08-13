@@ -15,19 +15,21 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
+description: "Tinjau pembaruan API publik dan perubahan yang merusak di Aspose.Slides untuk Java untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) , setiap pembatasan baru, dan perubahan lain yang diperkenalkan dengan API Aspose.Slides for Java 14.6.0.
+Halaman ini mencantumkan semua kelas, metode, properti, dan sebagainya yang [ditambahkan](/slides/id/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/), serta pembatasan baru dan perubahan lain yang diperkenalkan dengan API Aspose.Slides for Java 14.6.0.
 
 {{% /alert %}} 
 ## **Perubahan API Publik**
 ### **Kelas, Metode, Antarmuka, dan Enumerasi yang Ditambahkan**
-#### **Enumerasi ViewType yang Ditambahkan, Antarmuka IViewProperties, Kelas ViewProperties, dan Metode IPresentation.getViewProperties()**
-Metode IPresentation.getViewProperty() menyediakan akses ke IViewProperties dan memungkinkan Anda mengubah tipe tampilan presentasi serta visibilitas catatan ketika presentasi dibuka di Microsoft PowerPoint.
+#### **Menambahkan Enumerasi ViewType, Antarmuka IViewProperties, Kelas ViewProperties, dan Metode IPresentation.getViewProperties()**
+Metode IPresentation.getViewProperties() memberikan akses ke IViewProperties dan memungkinkan Anda mengubah tipe tampilan presentasi serta visibilitas catatan saat presentasi dibuka di Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
@@ -44,9 +46,11 @@ Metode
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-menambahkan/menyisipkan salinan bentuk yang ditentukan ke dalam koleksi. 
+menambahkan/menyisipkan salinan bentuk tertentu ke dalam koleksi. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -72,9 +76,11 @@ destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 
 ```
 #### **Menambahkan Antarmuka Aspose.Slides.Charts.IDataSourceTypeForErrorBarsCustomValues**
-Antarmuka ini menentukan tipe nilai dalam daftar properti ChartDataPoint.ErrorBarsCustomValues. 
+Antarmuka ini menentukan tipe nilai dalam daftar properti ChartDataPoint.ErrorBarsCustomValues.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -122,9 +128,11 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **Menambahkan Antarmuka Aspose.Slides.Charts.IErrorBarsCustomValues**
-Ketika properti IErrorBarsFormat.ValueType bernilai Custom, untuk menentukan nilai gunakan properti ErrorBarCustomValues dari titik data spesifik dalam koleksi DataPoints pada seri. 
+Ketika properti IErrorBarsFormat.ValueType bernilai Custom, untuk menentukan nilai gunakan properti ErrorBarCustomValues pada titik data tertentu dalam koleksi DataPoints milik seri.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -172,10 +180,12 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **Menambahkan Antarmuka Aspose.Slides.Charts.IErrorBarsFormat**
-Antarmuka ini mewakili error bar pada seri diagram. 
-Jika tipe nilai adalah custom, untuk menentukan nilai gunakan properti ErrorBarCustomValues dari titik data spesifik dalam koleksi DataPoints pada seri. 
+Antarmuka ini mewakili error bar pada seri diagram.
+Jika menggunakan tipe nilai khusus, untuk menentukan nilai gunakan properti ErrorBarCustomValues pada titik data tertentu dalam koleksi DataPoins milik seri.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

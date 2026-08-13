@@ -1,12 +1,12 @@
 ---
-title: إدارة القوائم النقطية والمرقمة في العروض التقديمية بلغة C++
+title: إدارة القوائم المنقطة والمرقمة في العروض التقديمية بلغة C++
 linktitle: إدارة القوائم
 type: docs
 weight: 70
 url: /ar/cpp/manage-lists/
 keywords:
 - نقطة
-- قائمة نقطية
+- قائمة منقطة
 - قائمة مرقمة
 - نقطة رمزية
 - نقطة صورة
@@ -20,29 +20,48 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعرف على كيفية إنشاء وتنسيق القوائم النقطية، والقوائم المصورة، والقوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++."
+description: "تعلم كيفية إنشاء وتنسيق القوائم المنقطة، وصور النقاط، والقوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة C++."
 ---
 ## **نظرة عامة**
 
-تتيح لك Aspose.Slides للغة C++ إنشاء وتنسيق القوائم ذات الرصاص والقوائم المرقمة في عروض PowerPoint وOpenDocument. عنصر القائمة هو فقرة تُتحكم إعدادات الرصاص الخاصة بها عبر تنسيق الفقرة الخاص بها.
+تتيح لك Aspose.Slides للـ C++ إنشاء وتنسيق القوائم ذات النقاط والترقيم في عروض PowerPoint وOpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات النقطة الخاصة به عبر تنسيق الفقرة.
 
-استخدم الطريقة [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraph/get_paragraphformat/) للوصول إلى إعدادات القائمة على مستوى الفقرة. نقطة الدخول الرئيسية هي [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_bullet/)، والتي تُعيد كائنًا من نوع [IBulletFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/). باستخدام هذا الكائن، يمكنك تعيين نوع الرصاص، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
+استخدم طريقة [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraph/get_paragraphformat/) للوصول إلى إعدادات القائمة على مستوى الفقرة. نقطة الدخول الرئيسية هي [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_bullet/)، والتي تُرجِع كائنًا من نوع [IBulletFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/). باستخدام هذا الكائن، يمكنك تعيين نوع النقطة، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
 
-توضع هذه المقالة لتوضيح كيفية:
+تظهر هذه المقالة كيفية:
 
-- إنشاء قائمة ذات رصاص برمز مخصص
-- إنشاء رصاص بصورة
+- إنشاء قائمة منقطة برمز مخصص
+- إنشاء نقطة على شكل صورة
 - إنشاء قائمة متعددة المستويات عن طريق تعيين عمق الفقرة
 - إنشاء قائمة مرقمة
 - فحص وتغيير تنسيق القائمة في عرض تقديمي موجود
 
-## **إنشاء قائمة ذات رصاص**
+## **إنشاء قائمة منقطة**
 
-لإنشاء قائمة ذات رصاص، أضف كائنات [Paragraph](https://reference.aspose.com/slides/ar/cpp/aspose.slides/paragraph/) إلى [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) وعيّن [IBulletFormat::set_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_type/) إلى [BulletType::Symbol](https://reference.aspose.com/slides/ar/cpp/aspose.slides/bullettype/). بعد ذلك يمكنك تعيين [IBulletFormat::set_Char](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_char/)، [IBulletFormat::get_Color](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/get_color/)، و[IBulletFormat::set_Height](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_height/) للتحكم في مظهر الرصاص.
+لإنشاء قائمة منقطة، أضف كائنات [Paragraph](https://reference.aspose.com/slides/ar/cpp/aspose.slides/paragraph/) إلى [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) وقم بتعيين [IBulletFormat::set_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_type/) إلى [BulletType::Symbol](https://reference.aspose.com/slides/ar/cpp/aspose.slides/bullettype/). بعد ذلك يمكنك تعيين [IBulletFormat::set_Char](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_char/)، [IBulletFormat::get_Color](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/get_color/)، و[IBulletFormat::set_Height](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_height/) للتحكم في مظهر النقطة.
 
-الرمز التالي بلغة C++ يوضح كيفية إنشاء قائمة ذات رصاص في شريحة:
+الكود التالي بلغة C++ يوضح كيفية إنشاء قائمة منقطة في شريحة:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -83,11 +102,26 @@ presentation->Dispose();
 
 ## **إنشاء قائمة مرقمة**
 
-استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. عيّن [IBulletFormat::set_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_type/) إلى [BulletType::Numbered](https://reference.aspose.com/slides/ar/cpp/aspose.slides/bullettype/). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) أو تعيين [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) عندما يجب أن تبدأ القائمة بقيمة غير 1.
+استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. قم بتعيين [IBulletFormat::set_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_type/) إلى [BulletType::Numbered](https://reference.aspose.com/slides/ar/cpp/aspose.slides/bullettype/). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) أو تعيين [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) عندما يجب أن يبدأ القائمة من قيمة غير 1.
 
-الرمز التالي بلغة C++ يوضح كيفية إنشاء قائمة مرقمة في شريحة:
+الكود التالي بلغة C++ يوضح كيفية إنشاء قائمة مرقمة في شريحة:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -116,27 +150,44 @@ presentation->Dispose();
 
 النتيجة:
 
-![الرموز المرقمة](numbered_bullets.png)
+![النقاط المرقمة](numbered_bullets.png)
 
-## **إنشاء رصاص صورة**
+## **إنشاء نقطة صورة**
 
-تسمح لك Aspose.Slides باستبدال رمز الرصاص العادي بصورة. تعمل رصاصات الصورة بشكل أفضل مع الصور البسيطة التي تبقى قابلة للقراءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
+تتيح لك Aspose.Slides استبدال رمز النقطة العادية بصورة. تعمل نقاط الصورة بشكل أفضل مع صور بسيطة تظل مقروءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
 
-{{% alert color="primary" %}}
-من الناحية المثالية، إذا كنت تخطط لاستبدال رمز الرصاص العادي بصورة، فمن الأفضل اختيار رسم بسيط بخلفية شفافة. تعمل هذه الصور جيدًا كرموز رصاص مخصصة.
-
-تذكر أن الصورة سيتم تصغيرها إلى حجم صغير جدًا. لهذا السبب نوصي بشدة باختيار صورة تظل واضحة وفعالة بصريًا عند استخدامها كرصاص في قائمة.
+{{% alert color="info" %}}
+من الناحية المثالية، إذا كنت تخطط لاستبدال رمز النقطة العادية بصورة، فمن الأفضل اختيار رسم بسيط بخلفية شفافة. هذه الصور تعمل جيدًا كرموز نقاط مخصصة.
 {{% /alert %}}
 
-لإنشاء رصاص صورة، أضف صورة إلى [IPresentation::get_Images](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_images/) وعيّن الكائن [IPPImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ippimage/) المرتجع إلى [IBulletFormat::get_Picture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/get_picture/). عيّن [IBulletFormat::set_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_type/) إلى [BulletType::Picture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/bullettype/) قبل تعيين الصورة.
+لإنشاء نقطة صورة، أضف صورة إلى [IPresentation::get_Images](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/get_images/) وعيّن الكائن [IPPImage](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ippimage/) المعاد إلى [IBulletFormat::get_Picture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/get_picture/). قم بتعيين [IBulletFormat::set_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibulletformat/set_type/) إلى [BulletType::Picture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/bullettype/) قبل تعيين الصورة.
 
 لنفترض أن لدينا ملف "image.png":
 
-![صورة للرصاص](picture_for_bullets.png)
+![صورة للنقاط](picture_for_bullets.png)
 
-الرمز التالي بلغة C++ يوضح كيفية إنشاء رصاصات صورة في شريحة:
+الكود التالي بلغة C++ يوضح كيفية إنشاء نقاط صورة في شريحة:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -175,15 +226,28 @@ presentation->Dispose();
 
 النتيجة:
 
-![رصاصات الصورة](picture_bullets.png)
+![نقاط الصورة](picture_bullets.png)
 
 ## **إنشاء قائمة متعددة المستويات**
 
-استخدم [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_depth/) لتحديد عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى الأعلى، المستوى 1 هو متداخَل تحته، وهكذا.
+استخدم [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/set_depth/) لتحديد عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى الأعلى، المستوى 1 هو المستوى الفرعي تحته، وهكذا.
 
-الرمز التالي بلغة C++ يوضح كيفية إنشاء قائمة ذات رصاص متعددة المستويات:
+الكود التالي بلغة C++ يوضح كيفية إنشاء قائمة منقطة متعددة المستويات:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -221,11 +285,24 @@ presentation->Dispose();
 
 ## **تغيير قائمة موجودة**
 
-لتغيير تنسيق القائمة في عرض تقديمي موجود، احصل على الفقرة المستهدفة وقم بتحديث إعدادات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_bullet/) الخاصة بها. يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لتفقد أو تعديل القوائم المحملة من ملف PPT أو PPTX أو ODP.
+لتغيير تنسيق القائمة في عرض تقديمي موجود، قم بالوصول إلى الفقرة المستهدفة وتحديث إعدادات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_bullet/) الخاصة بها. يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
 
-الرمز التالي بلغة C++ يغيّر الفقرة الأولى في إطار نص لاستخدام نمط القائمة المرقمة:
+الكود التالي بلغة C++ يغيّر الفقرة الأولى في إطار نص لاستخدام نمط قائمة مرقمة:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -246,14 +323,14 @@ presentation->Dispose();
 
 ## **الأسئلة الشائعة**
 
-**هل يمكن تصدير القوائم ذات الرصاص والمرقمة إلى PDF أو صور؟**
+### هل يمكن تصدير القوائم المنقطة والمرقمة إلى PDF أو صور؟
 
-نعم. تقوم Aspose.Slides بالحفاظ على تنسيق القائمة عندما يدعم التنسيق المستهدف تخطيط النص والميزات الخاصة بالرصاص ذات الصلة.
+نعم. تحافظ Aspose.Slides على تنسيق القوائم عندما يدعم تنسيق الهدف تخطيط النص والخصائص المرتبطة بالنقاط.
 
-**هل يمكنني تحرير القوائم في العروض التقديمية الموجودة؟**
+### هل يمكنني تعديل القوائم في عروض تقديمية موجودة؟
 
-نعم. حمّل العرض التقديمي، احصل على الفقرة المستهدفة، تفقد أو حدّث إعدادات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_bullet/)، ثم احفظ العرض التقديمي.
+نعم. قم بتحميل العرض التقديمي، وصول إلى الفقرة المستهدفة، افحص أو حدّث إعدادات [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iparagraphformat/get_bullet/)، ثم احفظ العرض التقديمي.
 
-**هل يمكن أن تحتوي القوائم على نص غير لاتيني؟**
+### هل يمكن للقوائم أن تحتوي على نص غير لاتيني؟
 
-نعم. يمكن أن يحتوي نص عنصر القائمة على أحرف Unicode، لذا يمكنك إنشاء قوائم في عروض تقديمية متعددة اللغات. تأكد من أن الخطوط المستخدمة في العرض التقديمي تدعم الأحرف التي تحتاجها.
+نعم. يمكن أن يحتوي نص عنصر القائمة على أحرف يونيكود، وبالتالي يمكنك إنشاء قوائم في عروض متعددة اللغات. تأكد من أن الخطوط المستخدمة في العرض تدعم الأحرف التي تحتاجها.

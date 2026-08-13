@@ -1,5 +1,5 @@
 ---
-title: API Publik dan Perubahan Tidak Kompatibel ke Belakang di Aspose.Slides untuk .NET 15.4.0
+title: Perubahan API Publik dan Tidak Kompatibel Mundur di Aspose.Slides untuk .NET 15.4.0
 linktitle: Aspose.Slides untuk .NET 15.4.0
 type: docs
 weight: 150
@@ -16,24 +16,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk .NET guna memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda secara mulus."
+description: "Tinjau pembaruan API publik dan perubahan yang merusak di Aspose.Slides untuk .NET guna memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Halaman ini mencantumkan semua kelas, metode, properti, dan lain-lain yang [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) atau [dihapus](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) serta perubahan lain yang diperkenalkan dengan API Aspose.Slides untuk .NET 15.4.0.
+Halaman ini mencantumkan semua [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) atau [dihapus](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) kelas, metode, properti, dan sebagainya, serta perubahan lain yang diperkenalkan dengan API Aspose.Slides untuk .NET 15.4.0.
 
 {{% /alert %}} 
 ## **Perubahan API Publik**
 #### **Enum OrganizationChartLayoutType Telah Ditambahkan**
-Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType mewakili jenis format node anak dalam diagram organisasi.
-#### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts Telah Ditambahkan**
-Metode Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts mengatur pergeseran default non-zero untuk Indent paragraf dan MarginLeft yang efektif ketika bullet diaktifkan (seperti yang dilakukan PowerPoint bila mengaktifkan bullet/penomoran paragraf). Jika bullet dinonaktifkan maka hanya mereset Indent paragraf dan MarginLeft (seperti yang dilakukan PowerPoint bila menonaktifkan bullet/penomoran paragraf).
+Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType mewakili jenis pemformatan node anak dalam diagram organisasi.
+#### **Metode IBulletFormat.ApplyDefaultParagraphIndentsShifts Telah Ditambahkan**
+Metode Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts mengatur pergeseran default yang tidak nol untuk Indent paragraf dan MarginLeft yang efektif saat bullet diaktifkan (seperti yang dilakukan PowerPoint bila mengaktifkan bullet/penomoran paragraf). Jika bullet dinonaktifkan, maka hanya mengatur ulang Indent paragraf dan MarginLeft (seperti yang dilakukan PowerPoint bila menonaktifkan bullet/penomoran paragraf).
 
 Lihat contoh [di sini](/slides/id/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
-#### **Method IConnector.Reroute Telah Ditambahkan**
-Metode Aspose.Slides.IConnector.Reroute mengarahkan kembali konektor sehingga mengambil jalur terpendek antara bentuk-bentuk yang dihubungkannya. Untuk melakukan ini, metode Reroute() dapat mengubah StartShapeConnectionSiteIndex dan EndShapeConnectionSiteIndex.
+#### **Metode IConnector.Reroute Telah Ditambahkan**
+Metode Aspose.Slides.IConnector.Reroute mengarahkan ulang konektor sehingga mengambil jalur terpendek yang mungkin antara bentuk yang dihubungkannya. Untuk melakukan ini, metode Reroute() dapat mengubah StartShapeConnectionSiteIndex dan EndShapeConnectionSiteIndex.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -56,12 +59,14 @@ Metode Aspose.Slides.IConnector.Reroute mengarahkan kembali konektor sehingga me
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Method IPresentation.GetSlideById Telah Ditambahkan**
+#### **Metode IPresentation.GetSlideById Telah Ditambahkan**
 Metode Aspose.Slides.IPresentation.GetSlideById(System.UInt32) mengembalikan Slide, MasterSlide, atau LayoutSlide berdasarkan Id slide.
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides;
+
 
  using (Presentation presentation = new Presentation())
 
@@ -74,12 +79,14 @@ Metode Aspose.Slides.IPresentation.GetSlideById(System.UInt32) mengembalikan Sli
     Debug.Assert(presentation.Slides[0] == slide);
 
 }
-
 ``` 
-#### **Property IShape.ConnectionSiteCount Telah Ditambahkan**
+#### **Properti IShape.ConnectionSiteCount Telah Ditambahkan**
 Properti Aspose.Slides.IShape.ConnectionSiteCount mengembalikan jumlah situs koneksi pada bentuk.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -110,12 +117,15 @@ Properti Aspose.Slides.IShape.ConnectionSiteCount mengembalikan jumlah situs kon
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Property ISmartArt.IsReversed Telah Ditambahkan**
-Properti Aspose.Slides.SmartArt.ISmartArt.IsReversed memungkinkan mendapatkan atau mengatur keadaan diagram SmartArt terkait (kiri-ke-kanan) LTR atau (kanan-ke-kiri) RTL, jika diagram mendukung pembalikan.
+#### **Properti ISmartArt.IsReversed Telah Ditambahkan**
+Properti Aspose.Slides.SmartArt.ISmartArt.IsReversed memungkinkan mendapatkan atau mengatur status diagram SmartArt terkait (kiri-ke-kanan) LTR atau (kanan-ke-kiri) RTL, jika diagram mendukung pembalikan.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -125,15 +135,18 @@ Properti Aspose.Slides.SmartArt.ISmartArt.IsReversed memungkinkan mendapatkan at
 
   smart.IsReversed = true;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Property ISmartArt.Nodes Telah Ditambahkan**
+#### **Properti ISmartArt.Nodes Telah Ditambahkan**
 Properti Aspose.Slides.SmartArt.ISmartArt.Nodes mengembalikan koleksi node akar dalam objek SmartArt.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -145,14 +158,18 @@ Properti Aspose.Slides.SmartArt.ISmartArt.Nodes mengembalikan koleksi node akar 
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 ``` 
-#### **Property ISmartArtNode.IsHidden Telah Ditambahkan**
+#### **Properti ISmartArtNode.IsHidden Telah Ditambahkan**
 Properti Aspose.Slides.SmartArt.ISmartArtNode.IsHidden mengembalikan true jika node ini adalah node tersembunyi dalam model data.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -172,14 +189,18 @@ Properti Aspose.Slides.SmartArt.ISmartArtNode.IsHidden mengembalikan true jika n
 
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
 ``` 
-#### **Property ISmartArtNode.OrganizationChartLayout Telah Ditambahkan**
+#### **Properti ISmartArtNode.OrganizationChartLayout Telah Ditambahkan**
 Properti Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout memungkinkan mendapatkan atau mengatur jenis diagram organisasi yang terkait dengan node saat ini.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -189,15 +210,18 @@ Properti Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout memungkink
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Metode Set untuk Properti ISmartArt.Layout Telah Ditambahkan**
-Metode set untuk properti Aspose.Slides.SmartArt.ISmartArt.Layout telah ditambahkan. Ini memungkinkan mengubah jenis layout diagram yang ada.
+Metode set untuk properti Aspose.Slides.SmartArt.ISmartArt.Layout telah ditambahkan. Ini memungkinkan mengubah jenis tata letak diagram yang ada.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -207,10 +231,9 @@ Metode set untuk properti Aspose.Slides.SmartArt.ISmartArt.Layout telah ditambah
 
   smart.Layout = SmartArtLayoutType.BasicProcess;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Perubahan API Minor**
 **Berikut Daftar Perubahan API Minor:**
@@ -220,4 +243,4 @@ Metode set untuk properti Aspose.Slides.SmartArt.ISmartArt.Layout telah ditambah
 |Property ThreeDFormatEffectiveData.BevelColorMode |dihapus, properti tidak terpakai |
 |Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |ditambahkan |
 |Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |dihapus |
-|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |dihapus karena usang |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |dihapus sebagai usang |

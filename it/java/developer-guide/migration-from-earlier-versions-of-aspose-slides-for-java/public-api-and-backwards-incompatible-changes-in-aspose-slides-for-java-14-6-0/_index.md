@@ -15,19 +15,19 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Rivedi gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per Java per migrare senza problemi le tue soluzioni di presentazione PowerPoint PPT, PPTX e ODP."
+description: "Rivedi gli aggiornamenti dell'API pubblica e le modifiche incompatibili in Aspose.Slides per Java per migrare agevolmente le tue soluzioni di presentazione PowerPoint (PPT, PPTX) e ODP."
 ---
-{{% alert color="primary" %}} 
-
-Questa pagina elenca tutte le classi, i metodi, le proprietà e così via aggiunti, nonché eventuali nuove restrizioni e altre modifiche introdotte con l'API di Aspose.Slides per Java 14.6.0.
-
+{{% alert color="info" %}} 
+Questa pagina elenca tutte le classi, i metodi, le proprietà e così via [aggiunte](/slides/it/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/), eventuali nuove restrizioni e altre modifiche introdotte con l'API Aspose.Slides per Java 14.6.0.
 {{% /alert %}} 
 ## **Modifiche all'API pubblica**
 ### **Classi, Metodi, Interfacce ed Enumerazioni aggiunti**
-#### **Enumerazione ViewType, interfaccia IViewProperties, classe ViewProperties e metodo IPresentation.getViewProperties() aggiunti**
-Il metodo IPresentation.getViewProperty() fornisce l'accesso a IViewProperties e consente di modificare il tipo di visualizzazione della presentazione e la visibilità delle note quando una presentazione viene aperta in Microsoft PowerPoint.
+#### **Aggiunta l'enumerazione ViewType, l'interfaccia IViewProperties, la classe ViewProperties e il metodo IPresentation.getViewProperties()**
+Il metodo IPresentation.getViewProperties() fornisce l'accesso a IViewProperties e consente di modificare il tipo di visualizzazione della presentazione e la visibilità delle note quando una presentazione viene aperta in Microsoft PowerPoint.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation p = new Presentation();
 
@@ -44,9 +44,11 @@ I metodi
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y), and
 - Aspose.Slides.IShapeCollection.insertClone(int index, IShape sourceShape, float x, float y, float width, float height)
 
-aggiunge/inserisce una copia di una forma specificata nella raccolta. 
+aggiunge/inserisce una copia della forma specificata nella collezione. 
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation srcPres = new Presentation("data/Source Frame.pptx");
 
@@ -75,6 +77,8 @@ destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
 Questa interfaccia specifica i tipi di valori nell'elenco delle proprietà ChartDataPoint.ErrorBarsCustomValues.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -122,9 +126,11 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **Aggiunta l'interfaccia Aspose.Slides.Charts.IErrorBarsCustomValues**
-Quando la proprietà IErrorBarsFormat.ValueType è impostata su Custom, per specificare il valore utilizzare la proprietà ErrorBarCustomValues del punto dati specifico nella raccolta DataPoints della serie.
+Quando la proprietà IErrorBarsFormat.ValueType è impostata su Custom, per specificare il valore utilizzare la proprietà ErrorBarCustomValues del punto dati specifico nella collezione DataPoints della serie.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -172,10 +178,12 @@ pres.save("data/ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
 
 ```
 #### **Aggiunta l'interfaccia Aspose.Slides.Charts.IErrorBarsFormat**
-Questa interfaccia rappresenta le barre di errore delle serie di grafici.
-Nel caso di tipo di valore personalizzato, per specificare il valore utilizzare la proprietà ErrorBarCustomValues di un punto dati specifico nella raccolta DataPoins della serie.
+Questa interfaccia rappresenta le barre di errore delle serie di grafico.
+Nel caso di tipo di valore personalizzato, per specificare il valore utilizzare la proprietà ErrorBarCustomValues di un punto dati specifico nella collezione DataPoins della serie.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

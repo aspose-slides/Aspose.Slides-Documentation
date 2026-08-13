@@ -13,111 +13,44 @@ keywords:
 - 散点图
 - 饼图
 - 折线图
-- 树形图
-- 股票图
+- 树图
+- 股票图表
 - 箱线图
 - 漏斗图
-- 旭日图
+- 旭辉图
 - 直方图
 - 雷达图
-- 多分类图
+- 多类别图表
 - PowerPoint
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 在 PowerPoint 演示文稿中创建和自定义图表。通过实用的 Java 示例代码添加、格式化和编辑图表。"
+description: "使用 Aspose.Slides for Android 在 PowerPoint 演示文稿中创建和自定义图表。通过实用的 Java 代码示例添加、设置格式和编辑图表。"
 ---
+## **概览**
 
-## **概述**
-
-本文介绍如何在 Java 中**创建 PowerPoint 演示文稿图表**。您也可以**在 Java 中更新图表**。它涵盖以下主题。
-
-_图表_: **普通**
-- [Java 创建 PowerPoint 图表](#java-create-powerpoint-chart)
-- [Java 创建演示文稿图表](#java-create-presentation-chart)
-- [Java 创建 PowerPoint 演示文稿图表](#java-create-powerpoint-presentation-chart)
-
-_图表_: **散点**
-- [Java 创建散点图](#java-create-scattered-chart)
-- [Java 创建 PowerPoint 散点图](#java-create-powerpoint-scattered-chart)
-- [Java 创建 PowerPoint 演示文稿散点图](#java-create-powerpoint-presentation-scattered-chart)
-
-_图表_: **饼图**
-- [Java 创建饼图](#java-create-pie-chart)
-- [Java 创建 PowerPoint 饼图](#java-create-powerpoint-pie-chart)
-- [Java 创建 PowerPoint 演示文稿饼图](#java-create-powerpoint-presentation-pie-chart)
-
-_图表_: **树形图**
-- [Java 创建树形图](#java-create-tree-map-chart)
-- [Java 创建 PowerPoint 树形图](#java-create-powerpoint-tree-map-chart)
-- [Java 创建 PowerPoint 演示文稿树形图](#java-create-powerpoint-presentation-tree-map-chart)
-
-_图表_: **股票**
-- [Java 创建股票图表](#java-create-stock-chart)
-- [Java 创建 PowerPoint 股票图表](#java-create-powerpoint-stock-chart)
-- [Java 创建 PowerPoint 演示文稿股票图表](#java-create-powerpoint-presentation-stock-chart)
-
-_图表_: **箱线图**
-- [Java 创建箱线图](#java-create-box-and-whisker-chart)
-- [Java 创建 PowerPoint 箱线图](#java-create-powerpoint-box-and-whisker-chart)
-- [Java 创建 PowerPoint 演示文稿箱线图](#java-create-powerpoint-presentation-box-and-whisker-chart)
-
-_图表_: **漏斗图**
-- [Java 创建漏斗图](#java-create-funnel-chart)
-- [Java 创建 PowerPoint 漏斗图](#java-create-powerpoint-funnel-chart)
-- [Java 创建 PowerPoint 演示文稿漏斗图](#java-create-powerpoint-presentation-funnel-chart)
-
-_图表_: **旭日图**
-- [Java 创建旭日图](#java-create-sunburst-chart)
-- [Java 创建 PowerPoint 旭日图](#java-create-powerpoint-sunburst-chart)
-- [Java 创建 PowerPoint 演示文稿旭日图](#java-create-powerpoint-presentation-sunburst-chart)
-
-_图表_: **直方图**
-- [Java 创建直方图](#java-create-histogram-chart)
-- [Java 创建 PowerPoint 直方图](#java-create-powerpoint-histogram-chart)
-- [Java 创建 PowerPoint 演示文稿直方图](#java-create-powerpoint-presentation-histogram-chart)
-
-_图表_: **雷达图**
-- [Java 创建雷达图](#java-create-radar-chart)
-- [Java 创建 PowerPoint 雷达图](#java-create-powerpoint-radar-chart)
-- [Java 创建 PowerPoint 演示文稿雷达图](#java-create-powerpoint-presentation-radar-chart)
-
-_图表_: **多分类图**
-- [Java 创建多分类图](#java-create-multi-category-chart)
-- [Java 创建 PowerPoint 多分类图](#java-create-powerpoint-multi-category-chart)
-- [Java 创建 PowerPoint 演示文稿多分类图](#java-create-powerpoint-presentation-multi-category-chart)
-
-_图表_: **地图**
-- [Java 创建地图图表](#java-create-map-chart)
-- [Java 创建 PowerPoint 地图图表](#java-create-powerpoint-map-chart)
-- [Java 创建 PowerPoint 演示文稿地图图表](#java-create-powerpoint-presentation-map-chart)
-
-_操作_: **更新图表**
-- [Java 更新 PowerPoint 图表](#java-update-powerpoint-chart)
-- [Java 更新演示文稿图表](#java-update-presentation-chart)
-- [Java 更新 PowerPoint 演示文稿图表](#java-update-powerpoint-presentation-chart)
-
+本文提供了使用 Aspose.Slides 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据，以及应用各种格式选项以符合特定的设计需求。全文通过详细的代码示例展示每一步，从初始化演示文稿和图表对象到配置系列、坐标轴和图例。遵循本指南，您将能够在应用程序中集成动态图表生成，简化数据驱动演示文稿的创建过程。
 
 ## **创建图表**
-图表帮助人们快速可视化数据并获取洞察，这些信息可能在表格或电子表格中不易直接看出。 
+图表帮助人们快速可视化数据并获得洞察，这些信息往往在表格或电子表格中不易直接看出。 
 
 
 **为什么创建图表？**
 
 使用图表，您可以
 
-* 在演示文稿的单个幻灯片上聚合、压缩或汇总大量数据
+* 在单个幻灯片上汇总、压缩或概括大量数据
 * 揭示数据中的模式和趋势
 * 推断数据随时间或相对于特定计量单位的方向和动量
-* 发现异常值、偏差、错误、无意义的数据等 
-* 交流或呈现复杂数据
+* 发现异常值、偏差、错误、无意义的数据等
+* 传达或展示复杂数据
 
-在 PowerPoint 中，您可以通过插入功能创建图表，该功能提供用于设计多种图表的模板。使用 Aspose.Slides，您可以创建常规图表（基于流行图表类型）和自定义图表。 
+在 PowerPoint 中，您可以通过插入功能创建图表，该功能提供用于设计多种图表类型的模板。使用 Aspose.Slides，您可以创建常规图表（基于流行图表类型）和自定义图表。 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-为了让您创建图表，Aspose.Slides 提供了 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType) 类。该类下的字段对应不同的图表类型。
+为了让您能够创建图表，Aspose.Slides 提供了 [ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType) 类。此类下的字段对应不同的图表类型。
 
 {{% /alert %}} 
 
@@ -128,39 +61,40 @@ _步骤：创建图表_
 - <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>步骤：</em> 在 Java 中创建演示文稿图表</strong></a>
 - <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿图表</strong></a>
 
-**代码步骤：**
+_代码步骤：_
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。
 2. 通过索引获取幻灯片的引用。
-3. 添加带有一些数据的图表，并指定您偏好的图表类型。 
+3. 添加一个带有数据的图表并指定您偏好的图表类型。 
 4. 为图表添加标题。 
 5. 访问图表数据工作表。
-6. 清除所有默认的系列和类别。
-7. 添加新的系列和类别。
-8. 为图表系列添加一些新数据。
-9. 为图表系列添加填充颜色。
+6. 清除所有默认的系列和分类。
+7. 添加新的系列和分类。
+8. 为图表系列添加新的数据。 
+9. 为图表系列设置填充颜色。 
 10. 为图表系列添加标签。 
-11. 将修改后的演示文稿写入为 PPTX 文件。
+11. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 代码演示如何创建普通图表：
+以下 Java 代码演示了如何创建普通图表：
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // 实例化表示 PPTX 文件的演示文稿类
 Presentation pres = new Presentation();
 try {
     // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // 添加带有默认数据的图表
+    // 添加带默认数据的图表
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // 设置图表标题
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    
-    // 设置第一系列显示数值
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setTitle(true);
     
     // 设置图表数据工作表的索引
     int defaultWorksheetIndex = 0;
@@ -168,7 +102,7 @@ try {
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 删除默认生成的系列和类别
+    // 删除默认生成的系列和分类
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -178,12 +112,12 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
-    // 添加新类别
+    // 添加新分类
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // 获取第一图表系列
+    // 取第一条图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // 现在填充系列数据
@@ -195,7 +129,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // 获取第二图表系列
+    // 取第二条图表系列
     series = chart.getChartData().getSeries().get_Item(1);
     
     // 填充系列数据
@@ -207,53 +141,54 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // 为新系列的每个类别创建自定义标签
-    // 设置第一个标签显示类别名称
+    // 为新系列的每个分类创建自定义标签
+    // 设置第一个标签显示分类名称
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // 为第三个标签显示数值
+    // 显示第三个标签的数值
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // 保存带有图表的演示文稿
+    // 保存带图表的演示文稿
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ### **创建散点图表**
+散点图（亦称散点图或 x‑y 图）常用于检查模式或展示两个变量之间的相关性。 
 
-散点图（也称为散点图或 x-y 图）常用于检查模式或展示两个变量之间的相关性。 
+在以下情形下您可能需要使用散点图：
 
-您可能在以下情况下使用散点图
+* 拥有配对的数值数据
+* 具有相互关联的两个变量
+* 想要确定两个变量是否有关联
+* 存在一个自变量对应多个因变量取值
 
-* 您拥有配对的数值数据
-* 您有两组配对良好的变量
-* 您想确定这两个变量是否相关
-* 您有一个自变量对应因变量的多个取值
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>步骤：</em> 在 Java 中创建散点图表</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 散点图表</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿散点图表</strong></a>
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>步骤：</em> 在 Java 中创建散点图</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 散点图</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿散点图</strong></a>
+1. 请按照上文 **创建普通图表** 中的步骤操作  
+2. 第三步，添加图表并将图表类型指定为以下之一  
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _表示带标记的散点图。_  
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示通过曲线连接且带数据标记的散点图。_  
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _表示通过曲线连接且不带数据标记的散点图。_  
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示通过直线连接且带数据标记的散点图。_  
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _表示通过直线连接且不带数据标记的散点图。_
 
-1. 请遵循上面[创建普通图表](#creating-normal-charts)中提到的步骤。
-2. 对于第三步，添加带有一些数据的图表，并将图表类型指定为以下之一
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _表示散点图（带标记）。_
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _表示通过平滑线和标记连接的散点图。_
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _表示通过平滑线连接的散点图，不带标记。_
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _表示通过直线和标记连接的散点图。_
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _表示通过直线连接的散点图，不带标记。_
+以下 Java 代码演示了如何使用不同标记系列创建散点图表：
 
-下面的 Java 代码演示如何使用不同的标记系列创建散点图：
 ```java
+import com.aspose.slides.*;
+
 // 实例化表示 PPTX 文件的演示文稿类
 Presentation pres = new Presentation();
 try {
@@ -269,14 +204,14 @@ try {
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 删除演示系列
+    // 删除示例系列
     chart.getChartData().getSeries().clear();
     
     // 添加新系列
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // 获取第一个图表系列
+    // 获取第一条图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // 向系列添加新点 (1:3)
@@ -292,7 +227,7 @@ try {
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // 获取第二个图表系列
+    // 获取第二条图表系列
     series = chart.getChartData().getSeries().get_Item(1);
     
     // 在此处添加新点 (5:2)
@@ -317,37 +252,40 @@ try {
 }
 ```
 
+### **创建饼图**
 
-### **创建饼图表**
-
-饼图最适合显示数据的部分与整体的关系，特别是当数据包含带数值的分类标签时。不过，如果您的数据包含很多部分或标签，可能需要考虑使用条形图。
+饼图最适合用于显示数据的部分与整体之间的关系，尤其是当数据包含带数值的类别标签时。不过，如果您的数据包含太多部分或标签，建议改用条形图。
 
 <a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>步骤：</em> 在 Java 中创建饼图</strong></a> |
 <a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 饼图</strong></a> |
 <a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿饼图</strong></a>
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加带有默认数据的图表，并指定所需类型（本例为 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Pie）。
-4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook)。
-5. 清除默认的系列和类别。
-6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
-8. 为饼图的扇区添加新点并设置自定义颜色。
-9. 为系列设置标签。
-10. 为系列标签设置引导线。
-11. 为饼图幻灯片设置旋转角度。
-12. 将修改后的演示文稿写入为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（本例中为 [ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).Pie）。  
+4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IChartDataWorkbook)。  
+5. 清除默认的系列和分类。  
+6. 添加新的系列和分类。  
+7. 为图表系列添加新的数据。  
+8. 为饼图的各扇区添加新点并设置自定义颜色。  
+9. 为系列设置标签。  
+10. 为系列标签设置引导线。  
+11. 设置饼图的旋转角度。  
+12. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 代码演示如何创建饼图：
+以下 Java 代码演示了如何创建饼图：
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // 实例化表示 PPTX 文件的演示文稿类
 Presentation pres = new Presentation();
 try {
     // 访问第一张幻灯片
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // 添加带有默认数据的图表
+    // 添加带默认数据的图表
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
     // 设置图表标题
@@ -356,20 +294,17 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // 设置第一系列显示数值
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
     // 设置图表数据工作表的索引
     int defaultWorksheetIndex = 0;
     
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // 删除默认生成的系列和类别
+    // 删除默认生成的系列和分类
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
-    // 添加新类别
+    // 添加新分类
     chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
@@ -377,12 +312,12 @@ try {
     // 添加新系列
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    //填充系列数据
+    // 填充系列数据
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // 在新版本中无效
+    // 在新版本中无法工作
     // 添加新点并设置扇区颜色
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
@@ -420,7 +355,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // 为新系列的每个类别创建自定义标签
+    // 为新系列的每个分类创建自定义标签
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -435,35 +370,33 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // 显示图表的引导线
+    // 显示图表的引线
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
     // 设置饼图扇区的旋转角度
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // 保存包含图表的演示文稿
+    // 保存带有图表的演示文稿
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+### **创建折线图**
 
-### **创建折线图表**
+折线图（亦称折线图）最适合用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据、追踪随时间的变化趋势、突出数据系列中的异常等。
 
-折线图（也称为折线图）最适用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据，跟踪随时间的变化和趋势，突出数据系列中的异常等。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+1. 通过索引获取幻灯片的引用。  
+1. 添加一个带默认数据的图表，并指定所需类型（本例中为 `ChartType.Line`）。  
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-1. 通过索引获取幻灯片的引用。
-1. 添加带有默认数据的图表，并指定所需类型（本例为 `ChartType.Line`）。
-1. 访问图表数据 IChartDataWorkbook。
-1. 清除默认的系列和类别。
-1. 添加新的系列和类别。
-1. 为图表系列添加新的图表数据。
-1. 将修改后的演示文稿写入为 PPTX 文件。
+以下 Java 代码演示了如何创建折线图：
 
-下面的 Java 代码演示如何创建折线图：
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -474,37 +407,46 @@ try {
 }
 ```
 
+默认情况下，折线图的点通过直线连续相连。若希望点之间使用虚线相连，可按如下方式指定首选的虚线类型：
 
-默认情况下，折线图的点通过直线连续相连。如果希望点之间使用虚线相连，可以这样指定首选的虚线类型：
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
+### **创建树图（Tree Map）**
 
-### **创建树形图表**
+树图最适合用于销售数据，能够展示数据类别的相对大小，并快速引起对每个类别中贡献大的项目的关注。 
 
-树形图最适用于在展示数据类别相对大小的同时，快速突出对每个类别贡献较大的项目。
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>步骤：</em> 在 Java 中创建树图</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 树图</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿树图</strong></a>
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>步骤：</em> 在 Java 中创建树形图</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 树形图</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿树形图</strong></a>
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（本例中为 [ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).TreeMap）。  
+4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IChartDataWorkbook)。  
+5. 清除默认的系列和分类。  
+6. 添加新的系列和分类。  
+7. 为图表系列添加新的数据。  
+8. 将修改后的演示文稿写入 PPTX 文件。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加带有默认数据的图表，并指定所需类型（本例为 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).TreeMap）。
-4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook)。
-5. 清除默认的系列和类别。
-6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
-8. 将修改后的演示文稿写入为 PPTX 文件。
+以下 Java 代码演示了如何创建树图：
 
-下面的 Java 代码演示如何创建树形图：
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -557,25 +499,27 @@ try {
 }
 ```
 
-
 ### **创建股票图表**
 
 <a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>步骤：</em> 在 Java 中创建股票图表</strong></a> |
 <a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 股票图表</strong></a> |
 <a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿股票图表</strong></a>
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加带有默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).OpenHighLowClose）。
-4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook)。
-5. 清除默认的系列和类别。
-6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
-8. 指定 HiLowLines 格式。
-9. 将修改后的演示文稿写入为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).OpenHighLowClose）。  
+4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IChartDataWorkbook)。  
+5. 清除默认的系列和分类。  
+6. 添加新的系列和分类。  
+7. 为图表系列添加新的数据。  
+8. 指定高低线格式。  
+9. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 示例代码用于创建股票图表：
+以下 Java 示例代码用于创建股票图表：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -629,24 +573,26 @@ try {
 }
 ```
 
-
-### **创建箱线图表**
+### **创建箱线图（Box and Whisker）**
 
 <a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>步骤：</em> 在 Java 中创建箱线图</strong></a> |
 <a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 箱线图</strong></a> |
 <a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿箱线图</strong></a>
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加带有默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).BoxAndWhisker）。
-4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook)。
-5. 清除默认的系列和类别。
-6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
-8. 将修改后的演示文稿写入为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).BoxAndWhisker）。  
+4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IChartDataWorkbook)。  
+5. 清除默认的系列和分类。  
+6. 添加新的系列和分类。  
+7. 为图表系列添加新的数据。  
+8. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 代码演示如何创建箱线图：
+以下 Java 代码演示了如何创建箱线图：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -684,21 +630,23 @@ try {
 }
 ```
 
-
-### **创建漏斗图表**
+### **创建漏斗图**
 
 <a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>步骤：</em> 在 Java 中创建漏斗图</strong></a> |
 <a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 漏斗图</strong></a> |
 <a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿漏斗图</strong></a>
 
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加带有默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Funnel）。
-4. 将修改后的演示文稿写入为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).Funnel）。  
+4. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 代码演示如何创建漏斗图：
+以下 Java 代码演示了如何创建漏斗图：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -731,20 +679,22 @@ try {
 }
 ```
 
+### **创建旭辉图（Sunburst）**
 
-### **创建旭日图表**
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>步骤：</em> 在 Java 中创建旭辉图</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 旭辉图</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿旭辉图</strong></a>
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>步骤：</em> 在 Java 中创建旭日图</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 旭日图</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿旭日图</strong></a>
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（本例中为 [ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).sunburst）。  
+4. 将修改后的演示文稿写入 PPTX 文件。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加带有默认数据的图表，并指定所需类型（本例为 [ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).sunburst）。
-4. 将修改后的演示文稿写入为 PPTX 文件。
+以下 Java 代码演示了如何创建旭辉图：
 
-下面的 Java 代码演示如何创建旭日图：
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -795,23 +745,25 @@ try {
 }
 ```
 
-
-### **创建直方图表**
+### **创建直方图**
 
 <a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>步骤：</em> 在 Java 中创建直方图</strong></a> |
 <a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 直方图</strong></a> |
 <a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿直方图</strong></a>
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。
-3. 添加带有默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).Histogram）。
-4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook)。
-5. 清除默认的系列和类别。
-6. 添加新的系列和类别。
-7. 将修改后的演示文稿写入为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).Histogram）。  
+4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IChartDataWorkbook)。  
+5. 清除默认的系列和分类。  
+6. 添加新的系列和分类。  
+7. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 代码演示如何创建直方图：
+以下 Java 代码演示了如何创建直方图：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -829,7 +781,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -837,20 +789,22 @@ try {
 }
 ```
 
-
-### **创建雷达图表**
+### **创建雷达图**
 
 <a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>步骤：</em> 在 Java 中创建雷达图</strong></a> |
 <a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 雷达图</strong></a> |
 <a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿雷达图</strong></a>
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。 
-3. 添加带有一些数据的图表，并指定您偏好的图表类型（本例为 `ChartType.Radar`）。
-4. 将修改后的演示文稿写入为 PPTX 文件。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带数据的图表，并将图表类型指定为 `ChartType.Radar`。  
+4. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 代码演示如何创建雷达图：
+以下 Java 代码演示了如何创建雷达图：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -860,24 +814,26 @@ try {
 }
 ```
 
+### **创建多类别图表**
 
-### **创建多分类图表**
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>步骤：</em> 在 Java 中创建多类别图表</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 多类别图表</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿多类别图表</strong></a>
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>步骤：</em> 在 Java 中创建多分类图</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 多分类图</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿多分类图</strong></a>
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类的实例。  
+2. 通过索引获取幻灯片的引用。  
+3. 添加一个带默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ChartType).ClusteredColumn）。  
+4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IChartDataWorkbook)。  
+5. 清除默认的系列和分类。  
+6. 添加新的系列和分类。  
+7. 为图表系列添加新的数据。  
+8. 将修改后的演示文稿写入 PPTX 文件。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类的实例。
-2. 通过索引获取幻灯片的引用。 
-3. 添加带有默认数据的图表，并指定所需类型（[ChartType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ChartType).ClusteredColumn）。
-4. 访问图表数据 [IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChartDataWorkbook)。
-5. 清除默认的系列和类别。
-6. 添加新的系列和类别。
-7. 为图表系列添加新的图表数据。
-8. 将修改后的演示文稿写入为 PPTX 文件。
+以下 Java 代码演示了如何创建多类别图表：
 
-下面的 Java 代码演示如何创建多分类图：
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -924,17 +880,19 @@ try {
 }
 ```
 
-
 ### **创建地图图表**
 
-地图图表是一种展示带有数据的区域可视化方式。地图图表最适合用于比较不同地理区域的数据或数值。
+地图图表是对包含数据的区域进行可视化的方式。地图图表最适合用于比较不同地理区域的数值或数据。
 
 <a name="java-create-map-chart" id="java-create-map-chart"><strong><em>步骤：</em> 在 Java 中创建地图图表</strong></a> |
 <a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 地图图表</strong></a> |
 <a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>步骤：</em> 在 Java 中创建 PowerPoint 演示文稿地图图表</strong></a>
 
-下面的 Java 代码演示如何创建地图图表：
+以下 Java 代码演示了如何创建地图图表：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -944,15 +902,18 @@ try {
 }
 ```
 
-
 ### **创建组合图表**
 
-组合图（或组合图表）在单个图形中结合两种或多种图表类型。此图表可帮助您突出、比较或检视两个或多个数据集之间的差异，从而识别它们之间的关系。
+组合图表（或称 combo 图表）在同一图形中组合两种或更多图表类型。该图表可帮助您突出、比较或检查多个数据集之间的差异，从而识别它们之间的关系。
 
-![The combination chart](combination_chart.png)
+![组合图表](combination_chart.png)
 
-以下 Java 代码演示如何在 PowerPoint 演示文稿中创建上图所示的组合图表：
+以下 Java 代码展示了如何在 PowerPoint 演示文稿中创建上述组合图表：
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -983,24 +944,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // 设置图例。
+    // 设置图表图例。
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // 删除默认生成的系列和类别。
+    // 删除默认生成的系列和分类。
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // 添加新类别。
+    // 添加新分类。
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // 添加第一系列。
+    // 添加第一条系列。
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -1047,14 +1008,14 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // 设置水平轴。
+    // 设置水平坐标轴。
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // 设置垂直轴。
+    // 设置垂直坐标轴。
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
@@ -1068,7 +1029,7 @@ static void setPrimaryAxesFormat(IChart chart) {
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // 设置次要水平轴。
+    // 设置第二水平坐标轴。
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -1076,13 +1037,13 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // 设置次要垂直轴。
+    // 设置第二垂直坐标轴。
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    secondaryVerticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().setFillType(FillType.NoFill);
-    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(secondaryVerticalAxis, "Y Axis 2");
 }
@@ -1097,29 +1058,32 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 }
 ```
 
-
 ## **更新图表**
 
 <a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>步骤：</em> 在 Java 中更新 PowerPoint 图表</strong></a> |
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>步骤：</em> 在 Java 中更新演示文稿图表</strong></a> |
 <a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>步骤：</em> 在 Java 中更新 PowerPoint 演示文稿图表</strong></a>
 
-1. 实例化一个表示包含待更新图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类。
-2. 通过索引获取幻灯片的引用。
-3. 遍历所有形状以找到目标图表。
-4. 访问图表数据工作表。
-5. 通过更改系列值修改图表系列数据。
-6. 添加新系列并填充其数据。
-7. 将修改后的演示文稿写入为 PPTX 文件。
+1. 实例化一个代表包含需要更新图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类。  
+2. 通过索引获取幻灯片的引用。  
+3. 遍历所有形状以找到目标图表。  
+4. 访问图表数据工作表。  
+5. 通过更改系列值来修改图表数据系列。  
+6. 添加新系列并填充数据。  
+7. 将修改后的演示文稿写入 PPTX 文件。
 
-下面的 Java 代码演示如何更新图表：
+以下 Java 代码演示了如何更新图表：
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// 打开包含要更新图表的演示文稿
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     // 访问第一张幻灯片
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // 获取默认数据的图表
+    // 从幻灯片获取图表
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
     // 设置图表数据工作表的索引
@@ -1128,24 +1092,24 @@ try {
     // 获取图表数据工作表
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // 更改图表类别名称
+    // 更改图表分类名称
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // 获取第一图表系列
+    // 获取第一条图表系列
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // 现在更新系列数据
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 修改系列名称
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // 修改系列名称
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // 获取第二个图表系列
+    // 获取第二条图表系列
     series = chart.getChartData().getSeries().get_Item(1);
 
     // 现在更新系列数据
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 修改系列名称
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // 修改系列名称
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1153,7 +1117,7 @@ try {
     // 现在，添加新系列
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // 获取第三个图表系列
+    // 获取第3条图表系列
     series = chart.getChartData().getSeries().get_Item(2);
 
     // 现在填充系列数据
@@ -1170,20 +1134,23 @@ try {
 }
 ```
 
-
 ## **为图表设置数据范围**
 
-要为图表设置数据范围，请执行以下操作：
+设置图表的数据范围，请执行以下操作：
 
-1. 实例化一个表示包含图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类。
-2. 通过索引获取幻灯片的引用。
-3. 遍历所有形状以找到目标图表。
-4. 访问图表数据并设置范围。
+1. 实例化一个代表包含图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation) 类。  
+2. 通过索引获取幻灯片的引用。  
+3. 遍历所有形状以找到目标图表。  
+4. 访问图表数据并设置范围。  
 5. 将修改后的演示文稿保存为 PPTX 文件。
 
-下面的 Java 代码演示如何为图表设置数据范围：
+以下 Java 代码演示了如何为图表设置数据范围：
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// 打开包含图表的演示文稿
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1196,12 +1163,14 @@ try {
 }
 ```
 
-
 ## **在图表中使用默认标记**
 在图表中使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
 
-下面的 Java 代码演示如何自动为图表系列设置标记：
+以下 Java 代码演示了如何自动为图表系列设置标记：
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1224,10 +1193,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    //获取第二个图表系列
+    // 获取第二条图表系列
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    //现在填充系列数据
+    // 现在填充系列数据
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1242,21 +1211,20 @@ try {
 }
 ```
 
-
 ## **常见问题**
 
-**Aspose.Slides 支持哪些图表类型？**
+### Aspose.Slides 支持哪些图表类型？
 
-Aspose.Slides 支持广泛的[图表类型](https://reference.aspose.com/slides/androidjava/com.aspose.slides/charttype/)，包括条形图、折线图、饼图、面积图、散点图、直方图、雷达图等。此灵活性让您可以根据数据可视化需求选择最合适的图表类型。
+Aspose.Slides 支持广泛的 [chart types](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/charttype/)，包括条形图、折线图、饼图、面积图、散点图、直方图、雷达图等。此灵活性让您可以根据数据可视化需求选择最合适的图表类型。
 
-**如何向幻灯片添加新图表？**
+### 如何向幻灯片添加新图表？
 
-要添加图表，首先创建 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例，使用索引检索所需幻灯片，然后调用方法添加图表，指定图表类型和初始数据。此过程可将图表直接集成到您的演示文稿中。
+要添加图表，首先创建一个 [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类的实例，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程会将图表直接嵌入到演示文稿中。
 
-**如何更新图表中显示的数据？**
+### 如何更新图表中显示的数据？
 
-您可以通过访问其数据工作簿（[IChartDataWorkbook](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdataworkbook/)），清除默认系列和类别，然后添加自定义数据，从而刷新图表以反映最新数据。
+您可以通过访问其数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ichartdataworkbook/))，清除默认的系列和分类，然后添加自定义数据，从而刷新图表以显示最新数据。
 
-**是否可以自定义图表的外观？**
+### 是否可以自定义图表的外观？
 
-是的，Aspose.Slides 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他[格式化元素](/slides/zh/androidjava/chart-entities/)，以满足特定的设计需求。
+可以，Aspose.Slides 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他 [formatting elements](/slides/zh/androidjava/chart-entities/)，以满足特定的设计需求。

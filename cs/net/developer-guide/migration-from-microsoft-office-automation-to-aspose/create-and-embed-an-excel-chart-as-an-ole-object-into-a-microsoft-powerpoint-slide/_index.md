@@ -1,12 +1,12 @@
 ---
-title: Vytvoření a vložení grafů Excelu jako OLE objektů pomocí VSTO a Aspose.Slides pro .NET
-linktitle: Vytvoření a vložení grafů Excelu jako OLE objektů
+title: Vytvoření a vložení grafů Excel jako OLE objekty pomocí VSTO a Aspose.Slides pro .NET
+linktitle: Vytvoření a vložení grafů Excel jako OLE objekty
 type: docs
 weight: 70
 url: /cs/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 keywords:
 - vytvořit graf
-- vložit graf Excelu
+- vložit graf Excel
 - OLE objekt
 - migrace
 - VSTO
@@ -16,25 +16,25 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Přesuňte se z automatizace Microsoft Office na Aspose.Slides pro .NET a vložte grafy Excelu jako OLE objekty do snímků PowerPoint (PPT, PPTX) v C#."
+description: "Přesuňte se z automatizace Microsoft Office na Aspose.Slides pro .NET a vložte grafy Excel jako OLE objekty do snímků PowerPoint (PPT, PPTX) v C#."
 ---
-{{% alert color="primary" %}} 
-Grafy jsou vizuálními reprezentacemi vašich dat a jsou široce používány v prezentačních snímcích. Tento článek vám ukáže kód pro vytvoření a vložení grafu Excelu jako OLE objektu do snímku PowerPointu programově pomocí [VSTO](/slides/cs/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) a [Aspose.Slides for .NET](/slides/cs/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+{{% alert color="info" %}} 
+Grafy jsou vizuálními reprezentacemi vašich dat a jsou široce používány v prezentačních snímcích. Tento článek vám ukáže kód pro vytvoření a vložení grafu Excel jako OLE objektu do snímku PowerPoint programově pomocí [VSTO](/slides/cs/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) a [Aspose.Slides for .NET](/slides/cs/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 {{% /alert %}} 
-## **Vytvoření a vložení grafu Excelu**
-Dva níže uvedené příklady kódu jsou dlouhé a podrobné, protože úloha, kterou popisují, je složitá. Vytvoříte sešit Microsoft Excel, vytvoříte graf a poté vytvoříte prezentaci Microsoft PowerPoint, do které graf vložíte. OLE objekty obsahují odkazy na originální dokument, takže uživatel, který dvakrát klikne na vložený soubor, spustí soubor a jeho aplikaci.
+## **Vytvoření a vložení grafu Excel**
+Níže uvedené dva příklady kódu jsou dlouhé a podrobné, protože popisovaná úloha je složitá. Vytvoříte sešit Microsoft Excel, vytvoříte graf a poté vytvoříte prezentaci Microsoft PowerPoint, do které graf vložíte. OLE objekty obsahují odkazy na původní dokument, takže uživatel, který dvakrát klikne na vložený soubor, spustí soubor a jeho aplikaci.
 ## **Příklad VSTO**
-Pomocí VSTO jsou provedeny následující kroky:
+Pomocí VSTO se provádějí následující kroky:
 
 1. Vytvořte instanci objektu Microsoft Excel ApplicationClass.
 1. Vytvořte nový sešit s jedním listem.
-1. Přidejte graf do listu.
+1. Přidejte graf na list.
 1. Uložte sešit.
-1. Otevřete sešit Excelu obsahující list s daty grafu.
+1. Otevřete sešit Excel, který obsahuje list s daty grafu.
 1. Získejte kolekci ChartObjects pro list.
-1. Získejte graf, který se má kopírovat.
+1. Získejte graf, který chcete kopírovat.
 1. Vytvořte prezentaci Microsoft PowerPoint.
-1. Přidejte prázdný snímek do prezentace.
+1. Přidejte do prezentace prázdný snímek.
 1. Zkopírujte graf z listu Excelu do schránky.
 1. Vložte graf do prezentace PowerPoint.
 1. Umístěte graf na snímek.
@@ -120,7 +120,7 @@ static void CreateNewChartInExcel()
         SetCellValue(targetSheet, "E4", 2);
         SetCellValue(targetSheet, "E5", 2.75);
 
-        // Získejte oblast obsahující data grafu.
+        // Získejte rozsah obsahující data pro graf.
         xlNS.Range dataRange = targetSheet.get_Range("A1", "E5");
 
         // Získejte kolekci ChartObjects pro list.
@@ -146,7 +146,7 @@ static void CreateNewChartInExcel()
     {
         if (excelApplication != null)
         {
-            // Uzavřete Excel.
+            // Zavřete Excel.
             excelApplication.Quit();
         }
     }
@@ -156,13 +156,13 @@ static void CreateNewChartInExcel()
 ```c#
 static void UseCopyPaste()
 {
-    // Deklarujte proměnné pro uchování referencí na objekty PowerPoint.
+    // Deklarujte proměnné pro uchování odkazů na objekty PowerPoint.
     pptNS.ApplicationClass powerpointApplication = null;
     pptNS.Presentation pptPresentation = null;
     pptNS.Slide pptSlide = null;
     pptNS.ShapeRange shapeRange = null;
 
-    // Deklarujte proměnné pro uchování referencí na objekty Excel.
+    // Deklarujte proměnné pro uchování odkazů na objekty Excel.
     xlNS.ApplicationClass excelApplication = null;
     xlNS.Workbook excelWorkBook = null;
     xlNS.Worksheet targetSheet = null;
@@ -175,10 +175,10 @@ static void UseCopyPaste()
 
     try
     {
-        // Vytvořte instanci PowerPointu.
+        // Vytvořte instanci PowerPoint.
         powerpointApplication = new pptNS.ApplicationClass();
 
-        // Vytvořte instanci Excelu.
+        // Vytvořte instanci Excel.
         excelApplication = new xlNS.ApplicationClass();
 
         // Otevřete sešit Excelu obsahující list s daty grafu.
@@ -204,7 +204,7 @@ static void UseCopyPaste()
             powerpointApplication.Presentations.Add(
             Microsoft.Office.Core.MsoTriState.msoTrue);
 
-        // Přidejte prázdný snímek do prezentace.
+        // Přidejte do prezentace prázdný snímek.
         pptSlide =
             pptPresentation.Slides.Add(1, pptNS.PpSlideLayout.ppLayoutBlank);
 
@@ -231,7 +231,7 @@ static void UseCopyPaste()
         shapeRange = null;
         pptSlide = null;
 
-        // Uzavřete a uvolněte objekt Presentation.
+        // Zavřete a uvolněte objekt prezentace.
         if (pptPresentation != null)
         {
             pptPresentation.Close();
@@ -250,7 +250,7 @@ static void UseCopyPaste()
         chartObjects = null;
         existingChartObject = null;
 
-        // Uzavřete a uvolněte objekt Workbook Excelu.
+        // Zavřete a uvolněte objekt sešitu Excel.
         if (excelWorkBook != null)
         {
             excelWorkBook.Close(false, paramMissing, paramMissing);
@@ -272,51 +272,63 @@ static void UseCopyPaste()
 }
 ```
 
+
+
+
 ## **Příklad Aspose.Slides pro .NET**
-Pomocí Aspose.Slides pro .NET jsou provedeny následující kroky:
+Pomocí Aspose.Slides pro .NET se provádějí následující kroky:
 
 1. Vytvořte sešit pomocí Aspose.Cells pro .NET.
 1. Vytvořte graf Microsoft Excel.
 1. Nastavte velikost OLE grafu Excel.
 1. Získejte obrázek grafu.
-1. Vložte graf Excelu jako OLE objekt do prezentace PPTX pomocí Aspose.Slides pro .NET.
-1. Nahraďte obrázek změněného objektu obrázkem získaným ve kroku 3, aby se vyřešil problém se změněným objektem.
+1. Vložte graf Excel jako OLE objekt do PPTX prezentace pomocí Aspose.Slides pro .NET.
+1. Nahraďte obrázek změněného objektu obrázkem získaným ve třetím kroku, aby se vyřešil problém se změnou objektu.
 1. Zapište výstupní prezentaci na disk ve formátu PPTX.
 
 ```c#
-//Krok - 1: Vytvořte graf v Excelu pomocí Aspose.Cells
+using System.Drawing;
+using Aspose.Slides;
+
+//Krok - 1: Vytvořit graf Excel pomocí Aspose.Cells
 //--------------------------------------------------
 //Vytvořte sešit
-Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Přidejte graf Excelu
+//Přidejte graf Excel
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Krok - 2: Nastavte velikost OLE grafu. pomocí Aspose.Cells
+//Krok - 2: Nastavit velikost OLE grafu pomocí Aspose.Cells
 //-----------------------------------------------------------
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//Krok - 3: Získejte obrázek grafu pomocí Aspose.Cells
+//Krok - 3: Získat obrázek grafu pomocí Aspose.Cells
 //-----------------------------------------------------------
-Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Uložte sešit do proudu
+MemoryStream chartImageStream = new MemoryStream();
+wb.Worksheets[chartSheetIndex].Charts[0].ToImage(chartImageStream, Aspose.Cells.Drawing.ImageType.Png);
+chartImageStream.Position = 0;
+Bitmap imgChart = new Bitmap(chartImageStream);
+//Uložit sešit do proudu
 MemoryStream wbStream = wb.SaveToStream();
 //Krok - 4 a 5
 //-----------------------------------------------------------
-//Krok - 4: Vložte graf jako OLE objekt do prezentace .ppt pomocí Aspose.Slides
+//Krok - 4: Vložit graf jako OLE objekt do prezentace .ppt pomocí Aspose.Slides
 //-----------------------------------------------------------
-//Krok - 5: Nahraďte obrázek změněného objektu obrázkem získaným ve kroku 3, aby se vyřešil problém se změněným objektem
+//Krok - 5: Nahradit obrázek změněného objektu obrázkem získaným ve kroku 3 k vyřešení problému se změnou objektu
 //-----------------------------------------------------------
 //Vytvořte prezentaci
 Presentation pres = new Presentation();
 ISlide sld = pres.Slides[0];
 //Přidejte sešit na snímek
 AddExcelChartInPresentation(pres, sld, wbStream, imgChart);
-//Krok - 6: Zapište výstupní prezentaci na disk
+//Krok - 6: Zapsat výstupní prezentaci na disk
 //-----------------------------------------------------------
 pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.DOM.Ole;
+
 static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
     float oleWidth = presentation.SlideSize.Size.Width;
@@ -379,7 +391,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook wb, int chartRows, int 
     int chartSheetIdx = wb.Worksheets.Add(Aspose.Cells.SheetType.Chart);
     Aspose.Cells.Worksheet chartSheet = wb.Worksheets[chartSheetIdx];
     chartSheet.Name = "ChartSheet";
-    //Přidejte graf do ChartSheet s datovými sériemi z DataSheet
+    //Přidejte graf do ChartSheet s datovými řadami z DataSheet
     int chartIdx = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIdx];
     chart.NSeries.Add(sheetName + "!A1:E1", false);

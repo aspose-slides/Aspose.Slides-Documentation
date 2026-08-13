@@ -1,14 +1,14 @@
 ---
-title: Openbare API- en achterwaarts incompatibele wijzigingen in Aspose.Slides voor .NET 14.10.0
+title: Openbare API en achterwaarts incompatibele wijzigingen in Aspose.Slides voor .NET 14.10.0
 linktitle: Aspose.Slides voor .NET 14.10.0
 type: docs
 weight: 120
 url: /nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
 - migratie
-- legacy-code
+- legacy code
 - moderne code
-- legacy-aanpak
+- legacy aanpak
 - moderne aanpak
 - PowerPoint
 - OpenDocument
@@ -16,32 +16,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Bekijk de updates van de openbare API en brekende wijzigingen in Aspose.Slides voor .NET om uw PowerPoint PPT-, PPTX- en ODP-presentatieoplossingen soepel te migreren."
+description: "Bekijk de publieke API‑updates en brekende wijzigingen in Aspose.Slides voor .NET om uw PowerPoint PPT, PPTX en ODP presentatie‑oplossingen soepel te migreren."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Deze pagina geeft een overzicht van alle [toegevoegd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) of [verwijderd](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) klassen, methoden, eigenschappen enzovoort, en andere wijzigingen die geïntroduceerd zijn met de Aspose.Slides for .NET 14.10.0 API.
+Deze pagina geeft een overzicht van alle [toegevoegde](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) of [verwijderde](/slides/nl/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) klassen, methoden, eigenschappen enzovoort, en andere wijzigingen die geïntroduceerd zijn met de Aspose.Slides voor .NET 14.10.0 API.
 
 {{% /alert %}} 
-## **Public API-wijzigingen**
-#### **Aspose.Slides.FieldType.Footer-veldtype is toegevoegd**
+## **Openbare API-wijzigingen**
+#### **Aspose.Slides.FieldType.Footer veldtype is toegevoegd**
+Het Footer-veldtype is toegevoegd om de mogelijkheid te bieden velden van dit type te maken en voor een geldige presentatie-serialisatie.
 #### **Enum‑element ShapeElementFillSource.Own is verwijderd**
-#### **Methoden om grafiekdatapunten en -categorieën te verwijderen zijn toegevoegd**
-De volgende methoden, waarmee een grafiekdatapunt uit een collectie van grafiekdatapunten kan worden verwijderd, zijn toegevoegd:
+Het enum‑element ShapeElementFillSource.Own is verwijderd omdat het een duplicaat was. Gebruik ShapeElementFillSource.Shape in plaats van ShapeElementFillSource.Own.
+#### **Methoden om gegevenspunten en categorieën van diagrammen te verwijderen zijn toegevoegd**
+De volgende methoden, die het mogelijk maken een gegevenspunt uit een diagramgegevenspuntverzameling te verwijderen, zijn toegevoegd:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-De volgende methode, waarmee een grafiekkategorie uit de bijbehorende collectie kan worden verwijderd, is toegevoegd:
+De volgende methode, die het mogelijk maakt een diagramcategorie uit de bijbehorende verzameling te verwijderen, is toegevoegd:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
     chart.ChartData.Categories[0].Remove(); //verwijderen met ChartCategory.Remove()
@@ -49,22 +52,17 @@ IChartCategory.Remove()
     chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //verwijderen met ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
         ser.DataPoints[0].Remove();//verwijderen met ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
-#### **Verouderde Aspose.Slides.ParagraphFormat‑eigenschappen zijn verwijderd**
-De eigenschappen BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith en NumberedBulletStyle zijn verwijderd. Ze waren al lange tijd gemarkeerd als verouderd.
+#### **Obsolete Aspose.Slides.ParagraphFormat‑eigenschappen zijn verwijderd**
+De eigenschappen BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith en NumberedBulletStyle zijn verwijderd. Ze waren al lang geleden gemarkeerd als verouderd.
 #### **Onbruikbare en verouderde constructors zijn verwijderd**
 De volgende constructors zijn verwijderd:
 

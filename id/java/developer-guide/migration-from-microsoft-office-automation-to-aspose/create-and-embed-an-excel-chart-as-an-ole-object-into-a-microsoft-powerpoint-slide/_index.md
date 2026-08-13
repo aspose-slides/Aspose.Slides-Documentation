@@ -1,42 +1,44 @@
 ---
-title: Buat dan Sematkan Grafik Excel sebagai OLE Objects Menggunakan VSTO dan Aspose.Slides untuk Java
-linktitle: Buat dan Sematkan Grafik Excel sebagai OLE Objects
+title: Membuat dan Menyematkan Chart Excel sebagai Objek OLE Menggunakan VSTO dan Aspose.Slides untuk Java
+linktitle: Membuat dan Menyematkan Chart Excel sebagai Objek OLE
 type: docs
 weight: 60
 url: /id/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 keywords:
-- buat grafik
-- sematkan grafik Excel
+- buat chart
+- sematkan chart Excel
 - objek OLE
 - migrasi
 - VSTO
-- otomatisasi Office
+- otomasi Office
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Migrasi dari otomatisasi Microsoft Office ke Aspose.Slides untuk Java dan sematkan grafik Excel sebagai objek OLE ke dalam slide PowerPoint (PPT, PPTX) dalam Java."
+description: "Migrasikan dari otomasi Microsoft Office ke Aspose.Slides untuk Java dan sematkan chart Excel sebagai objek OLE ke dalam slide PowerPoint (PPT, PPTX) menggunakan Java."
 ---
-{{% alert color="primary" %}} 
-Chart adalah representasi visual dari data Anda dan banyak digunakan dalam slide presentasi. Artikel ini akan menunjukkan kode untuk membuat dan menyematkan Grafik Excel sebagai OLE Object di slide PowerPoint secara programatis dengan menggunakan [VSTO](/slides/id/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) dan [Aspose.Slides for Java](/slides/id/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+{{% alert color="info" %}} 
+
+ Chart adalah representasi visual dari data Anda dan banyak digunakan dalam slide presentasi. Artikel ini akan menunjukkan kode untuk membuat dan menyematkan Chart Excel sebagai OLE Object dalam Slide PowerPoint secara programatik dengan menggunakan [VSTO](/slides/id/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) dan [Aspose.Slides for Java](/slides/id/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+
 {{% /alert %}} 
-## **Membuat dan Menyematkan Grafik Excel**
-Dua contoh kode di bawah ini panjang dan terperinci karena tugas yang mereka jelaskan cukup kompleks. Anda membuat workbook Microsoft Excel, membuat grafik, dan kemudian membuat presentasi Microsoft PowerPoint yang akan Anda sematkan grafiknya. OLE object berisi tautan ke dokumen asli sehingga pengguna yang mengklik ganda file yang disematkan akan meluncurkan file tersebut dan aplikasi terkait.
+## **Membuat dan Menyematkan Chart Excel**
+Dua contoh kode di bawah ini panjang dan terperinci karena tugas yang mereka jelaskan cukup kompleks. Anda membuat workbook Microsoft Excel, membuat chart, lalu membuat presentasi Microsoft PowerPoint yang akan Anda sematkan chart tersebut. OLE object berisi tautan ke dokumen asli sehingga pengguna yang mengklik dua kali file yang disematkan akan meluncurkan file dan aplikasinya.
 ### **Contoh VSTO**
-Dengan VSTO, langkah-langkah berikut dilakukan:
+Menggunakan VSTO, langkah-langkah berikut dilakukan:
 
 1. Buat instance objek Microsoft Excel ApplicationClass.
 1. Buat workbook baru dengan satu lembar di dalamnya.
-1. Tambahkan grafik ke lembar.
+1. Tambahkan chart ke lembar.
 1. Simpan workbook.
-1. Buka workbook Excel yang berisi worksheet dengan data grafik.
+1. Buka workbook Excel yang berisi worksheet dengan data chart.
 1. Dapatkan koleksi ChartObjects untuk lembar.
-1. Ambil grafik yang akan disalin.
+1. Dapatkan chart yang akan disalin.
 1. Buat presentasi Microsoft PowerPoint.
 1. Tambahkan slide kosong ke presentasi.
-1. Salin grafik dari worksheet Excel ke clipboard.
-1. Tempel grafik ke dalam presentasi PowerPoint.
-1. Posisikan grafik pada slide.
+1. Salin chart dari worksheet Excel ke clipboard.
+1. Tempel chart ke dalam presentasi PowerPoint.
+1. Posisikan chart pada slide.
 1. Simpan presentasi.
 
 
@@ -48,16 +50,16 @@ Dengan VSTO, langkah-langkah berikut dilakukan:
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-CreateNewChartInExcel.cs" >}}
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-UseCopyPaste.cs" >}}
-### **Contoh Aspose.Slides for Java**
-Dengan Aspose.Slides untuk .NET, langkah-langkah berikut dilakukan:
+### **Contoh Aspose.Slides untuk Java**
+Menggunakan Aspose.Slides untuk .NET, langkah-langkah berikut dilakukan:
 
 1. Buat workbook menggunakan Aspose.Cells untuk Java.
-1. Buat grafik Microsoft Excel.
-1. Atur ukuran OLE dari Grafik Excel.
-1. Dapatkan gambar grafik.
-1. Sematkan grafik Excel sebagai OLE Object di dalam presentasi PPTX menggunakan Aspose.Slides untuk Java.
-1. Ganti gambar objek yang berubah dengan gambar yang diperoleh pada langkah 3 untuk mengatasi masalah objek yang berubah.
-1. Tuliskan presentasi output ke disk dalam format PPTX.
+1. Buat chart Microsoft Excel.
+1. Atur ukuran OLE dari Chart Excel.
+1. Dapatkan gambar chart.
+1. Sematkan chart Excel sebagai OLE Object di dalam presentasi PPTX menggunakan Aspose.Slides untuk Java.
+1. Ganti gambar objek yang berubah dengan gambar yang diperoleh pada langkah 3 untuk menangani masalah perubahan objek.
+1. Tulis presentasi output ke disk dalam format PPTX.
 
 
 

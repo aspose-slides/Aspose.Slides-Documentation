@@ -5,29 +5,29 @@ type: docs
 weight: 50
 url: /pl/net/creating-a-table-on-powerpoint-slide/
 keywords:
-- tworzenie tabeli
-- migracja
-- VSTO
-- automatyzacja Office
-- PowerPoint
-- prezentacja
-- .NET
-- C#
-- Aspose.Slides
-description: "Migruj z automatyzacji Microsoft Office do Aspose.Slides dla .NET i twórz tabele w slajdach PowerPoint (PPT, PPTX) w C# z elastycznym formatowaniem."
+  - tworzenie tabeli
+  - migracja
+  - VSTO
+  - automatyzacja Office
+  - PowerPoint
+  - prezentacja
+  - .NET
+  - C#
+  - Aspose.Slides
+description: "Migracja z automatyzacji Microsoft Office do Aspose.Slides dla .NET oraz tworzenie tabel w slajdach PowerPoint (PPT, PPTX) w C# z elastycznym formatowaniem."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tabele są powszechnie używane do wyświetlania danych na slajdach prezentacji. Ten artykuł pokazuje, jak programowo utworzyć tabelę 15 x 15 o rozmiarze czcionki 10, najpierw przy użyciu [VSTO 2008](/slides/pl/net/creating-a-table-on-powerpoint-slide/) i potem [Aspose.Slides for .NET](/slides/pl/net/creating-a-table-on-powerpoint-slide/).
+Tabele są powszechnie używane do wyświetlania danych na slajdach prezentacji. Ten artykuł pokazuje, jak programowo utworzyć tabelę 15 × 15 o rozmiarze czcionki 10, najpierw przy użyciu [VSTO 2008](/slides/pl/net/creating-a-table-on-powerpoint-slide/) i potem [Aspose.Slides for .NET](/slides/pl/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Tworzenie tabel**
 #### **Przykład VSTO 2008**
-Poniższe kroki dodają tabelę do slajdu Microsoft PowerPoint przy użyciu VSTO:
+Kolejne kroki dodają tabelę do slajdu Microsoft PowerPoint przy użyciu VSTO:
 
 1. Utwórz prezentację.
 1. Dodaj pusty slajd do prezentacji.
-1. Dodaj tabelę 15 x 15 do slajdu.
+1. Dodaj tabelę 15 × 15 do slajdu.
 1. Dodaj tekst do każdej komórki tabeli o rozmiarze czcionki 10.
 1. Zapisz prezentację na dysku.
 
@@ -50,13 +50,13 @@ foreach (PowerPoint.Row row in tbl.Rows)
     i = i + 1;
     j = -1;
 
-    //Iteruj po wszystkich komórkach wiersza
+    //Iteruj po wszystkich komórkach w wierszu
     foreach (PowerPoint.Cell cell in row.Cells)
     {
         j = j + 1;
         //Pobierz ramkę tekstową każdej komórki
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
-        //Dodaj tekst
+        //Dodaj trochę tekstu
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
         //Ustaw rozmiar czcionki tekstu na 10
         tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
@@ -72,14 +72,17 @@ pres.SaveAs("d:\\tblVSTO.ppt",
 
 
 ### **Przykład Aspose.Slides for .NET**
-Poniższe kroki dodają tabelę do slajdu Microsoft PowerPoint przy użyciu Aspose.Slides:
+Kolejne kroki dodają tabelę do slajdu Microsoft PowerPoint przy użyciu Aspose.Slides:
 
 1. Utwórz prezentację.
-1. Dodaj tabelę 15 x 15 do pierwszego slajdu.
+1. Dodaj tabelę 15 × 15 do pierwszego slajdu.
 1. Dodaj tekst do każdej komórki tabeli o rozmiarze czcionki 10.
 1. Zapisz prezentację na dysku.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 Presentation pres = new Presentation();
 
 //Uzyskaj dostęp do pierwszego slajdu
@@ -92,7 +95,7 @@ double[] dblRows = { 50, 30, 30, 30, 30 };
 //Dodaj tabelę
 Aspose.Slides.ITable tbl = sld.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-//Ustaw format obramowania dla każdej komórki
+//Ustaw format krawędzi dla każdej komórki
 foreach (IRow row in tbl.Rows)
 {
 	foreach (ICell cell in row)
@@ -100,7 +103,7 @@ foreach (IRow row in tbl.Rows)
 
 		//Pobierz ramkę tekstową każdej komórki
 		ITextFrame tf = cell.TextFrame;
-		//Dodaj tekst
+		//Dodaj trochę tekstu
 		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
 		//Ustaw rozmiar czcionki na 10
 		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
@@ -109,5 +112,5 @@ foreach (IRow row in tbl.Rows)
 }
 
 //Zapisz prezentację na dysku
-pres.Save("C:\\data\\tblSLD.ppt", SaveFormat.Ppt);
+pres.Save("tblSLD.ppt", SaveFormat.Ppt);
 ```

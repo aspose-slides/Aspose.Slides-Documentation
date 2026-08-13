@@ -15,8 +15,8 @@ keywords:
 - změnit velikost snímku
 - vlastní velikost snímku
 - speciální velikost snímku
-- unikátní velikost snímku
-- plnoformátový snímek
+- jedinečná velikost snímku
+- snímek v plné velikosti
 - typ obrazovky
 - neškálovat
 - zajistit přizpůsobení
@@ -27,28 +27,31 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-descriptions: "Zjistěte, jak rychle změnit velikost snímků v souborech PPT, PPTX a ODP pomocí .NET a Aspose.Slides, optimalizujte prezentace pro jakoukoli obrazovku bez ztráty kvality."
+description: "Naučte se rychle měnit velikost snímků v souborech PPT, PPTX a ODP pomocí .NET a Aspose.Slides, optimalizovat prezentace pro jakoukoli obrazovku bez ztráty kvality."
 ---
 ## **Úvod**
 
-Aspose.Slides for .NET poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je důležité jak pro tisk, tak pro zobrazení na obrazovce. 
+Aspose.Slides pro .NET poskytuje komplexní nástroje pro úpravu velikosti snímku a poměru stran v prezentacích PowerPoint, což je klíčové jak pro tisk, tak pro zobrazení na obrazovce.
 
-Oblíbené velikosti snímků a poměry:
+Populární velikosti snímků a poměry:
 
 - **Standard (poměr stran 4:3)**: Ideální pro starší obrazovky a zařízení.
-- **Širokoúhlý (poměr stran 16:9)**: Doporučeno pro moderní projektory a displeje.
+- **Widescreen (poměr stran 16:9)**: Doporučeno pro moderní projektory a displeje.
 
-Zajistěte konzistenci v celé prezentaci, protože jediná velikost snímku a poměr stran se aplikuje na všechny snímky. Pro optimální výsledky nastavte rozměry snímku na začátku procesu tvorby prezentace, abyste se vyhnuli komplikacím.
+Zajistěte konzistenci v celé prezentaci, protože jedna velikost snímku a poměr stran se vztahují na všechny snímky. Pro optimální výsledek nastavte rozměry snímku na začátku procesu tvorby prezentace, abyste se vyhnuli komplikacím.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Ve výchozím nastavení používají prezentace vytvořené pomocí Aspose.Slides standardní poměr stran 4:3.
 {{% /alert %}}
 
 ## **Jak změnit velikost snímku v prezentaci**
 
-Tento příklad ukazuje, jak změnit velikost snímku v prezentaci pomocí Aspose.Slides v jazyce C#:
+Tento příklad ukazuje, jak změnit velikost snímku v prezentaci pomocí Aspose.Slides v C#:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 {
     pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
@@ -58,27 +61,32 @@ using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 
 ## **Určení vlastních velikostí snímků**
 
-Přizpůsobení velikosti snímku vašim konkrétním potřebám, například pro jedinečné rozvržení papíru nebo specifikace obrazovky, může být užitečné. Zde je návod, jak nastavit vlastní velikost snímku pomocí Aspose.Slides pro .NET:
+Přizpůsobení velikosti snímku vašim konkrétním potřebám, například pro unikátní rozvržení papíru nebo specifikace obrazovky, může být užitečné. Zde je návod, jak nastavit vlastní velikost snímku pomocí Aspose.Slides pro .NET:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
-    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // formát papíru A4
+    pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // Velikost papíru A4
     pres.Save("presentation-a4.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Řízení obsahu snímku po změně velikosti**
+## **Zpracování obsahu snímku po změně velikosti**
 
-Po změně velikosti se může obsah snímku deformovat. Můžete řídit, jak Aspose.Slides tuto změnu spravuje:
+Po změně velikosti se může obsah snímku deformovat. Můžete řídit, jak Aspose.Slides tuto změnu velikosti zvládá:
 
-- **`DoNotScale`**: Udržet objekty v původní velikosti, aby se nepřevzorkovály.
-- **`EnsureFit`**: Zmenšit objekty, aby se vešly na menší snímky, čímž se zabrání ztrátě obsahu.
-- **`Maximize`**: Zvětšit objekty tak, aby vyhovovaly větším snímkům pro estetickou konzistenci.
+- **`DoNotScale`**: Ponechat objekty v původních rozměrech, aby se zabránilo škálování.
+- **`EnsureFit`**: Zmenšit objekty tak, aby se vešly na menší snímky, čímž se zabrání ztrátě obsahu.
+- **`Maximize`**: Zvětšit objekty tak, aby odpovídaly větším snímkům pro estetickou jednotnost.
 
 Příklad použití nastavení `Maximize` pro úpravu velikosti snímku:
 
 ```csharp
+using Aspose.Slides;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
    pres.SlideSize.SetSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
@@ -87,18 +95,18 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 
 ## **Často kladené otázky**
 
-**Mohu nastavit vlastní velikost snímku pomocí jednotek jiných než palce (například body nebo milimetry)?**
+### Mohu nastavit vlastní velikost snímku pomocí jednotek jiných než palce (například body nebo milimetry)?
 
-Ano. Aspose.Slides interně používá body, kde 1 bod odpovídá 1/72 palce. Můžete převést libovolnou jednotku (například milimetry nebo centimetry) na body a použít převodní hodnoty k definování šířky a výšky snímku.
+Ano. Aspose.Slides interně používá body, kde 1 bod = 1/72 palce. Můžete převést libovolnou jednotku (například milimetry nebo centimetry) na body a použít převedené hodnoty k definování šířky a výšky snímku.
 
-**Ovlivní velmi velká vlastní velikost snímku výkon a spotřebu paměti během renderování?**
+### Ovlivní velmi velká vlastní velikost snímku výkon a využití paměti během renderování?
 
-Ano. Větší rozměry snímku (v bodech) v kombinaci s vyšším měřítkem renderování vedou k vyšší spotřebě paměti a delším dobám zpracování. Zvolte praktickou velikost snímku a upravujte měřítko renderování jen podle potřeby, abyste dosáhli požadované kvality výstupu.
+Ano. Větší rozměry snímku (v bodech) v kombinaci s vyšším měřítkem renderování vedou ke zvýšené spotřebě paměti a delším dobám zpracování. Snažte se o praktickou velikost snímku a upravujte měřítko renderování jen podle potřeby, aby byla dosažena požadovaná kvalita výstupu.
 
-**Mohu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací, které mají odlišné velikosti?**
+### Mohu definovat jednu nestandardní velikost snímku a poté sloučit snímky z prezentací, které mají různé velikosti?
 
-Nelze [sloučit prezentace](/slides/cs/net/merge-presentation/) pokud mají různé velikosti snímků — nejprve změňte velikost jedné prezentace, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak se zachází s existujícím obsahem pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/net/aspose.slides/slidesizescaletype/). Po zarovnání velikostí můžete sloučit snímky při zachování formátování.
+Nemůžete [sloučit prezentace](/slides/cs/net/merge-presentation/), pokud mají různé velikosti snímků – nejprve změňte velikost jedné prezentace tak, aby odpovídala druhé. Při změně velikosti snímku můžete zvolit, jak se zachází s existujícím obsahem, pomocí možnosti [SlideSizeScaleType](https://reference.aspose.com/slides/cs/net/aspose.slides/slidesizescaletype/). Po sladění velikostí můžete snímky sloučit a zachovat formátování.
 
-**Mohu generovat miniatury pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?**
+### Mohu generovat miniatury pro jednotlivé tvary nebo konkrétní oblasti snímku a budou respektovat novou velikost snímku?
 
-Ano. Aspose.Slides dokáže generovat miniatury pro [celé snímky](https://reference.aspose.com/slides/cs/net/aspose.slides/slide/getimage/) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/getimage/). Výsledné obrázky odrážejí aktuální velikost a poměr stran snímku, což zajišťuje konzistentní rámování a geometrii.
+Ano. Aspose.Slides může vykreslit miniatury pro [celé snímky](https://reference.aspose.com/slides/cs/net/aspose.slides/slide/getimage/) i pro [vybrané tvary](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/getimage/). Výsledné obrázky odrážejí aktuální velikost snímku a poměr stran, což zajišťuje konzistentní ohraničení a geometrie.

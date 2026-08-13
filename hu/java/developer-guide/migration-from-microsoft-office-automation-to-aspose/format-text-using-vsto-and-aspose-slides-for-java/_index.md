@@ -13,29 +13,29 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Migráljon a Microsoft Office automatizálásról az Aspose.Slides for Java-ra, és formázza a szöveget a PowerPoint (PPT, PPTX) prezentációkban pontos vezérléssel."
+description: "Migráljon a Microsoft Office automatizálásról az Aspose.Slides for Java-ra, és pontos vezérléssel formázza a szöveget PowerPoint (PPT, PPTX) prezentációkban."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Néha szükséges programozott módon formázni a szöveget a diákon. Ez a cikk bemutatja, hogyan olvassunk be egy mintaprezentációt, amelynek első diáján van szöveg, a [VSTO](/slides/hu/java/format-text-using-vsto-and-aspose-slides-for-java/) és az [Aspose.Slides for Java](/slides/hu/java/format-text-using-vsto-and-aspose-slides-for-java/) segítségével. A kód a dián lévő harmadik szövegdoboz szövegét úgy formázza, hogy az az utolsó szövegdoboz szövegéhez hasonló legyen.
+Néha programozottan kell a diák szövegét formázni. Ez a cikk bemutatja, hogyan olvassunk be egy mintaprezentációt, amelynek első diáján szöveg van, a [VSTO](/slides/hu/java/format-text-using-vsto-and-aspose-slides-for-java/) vagy az [Aspose.Slides for Java](/slides/hu/java/format-text-using-vsto-and-aspose-slides-for-java/) használatával. A kód a dián található harmadik szövegdoboz szövegét úgy formázza, hogy az megegyezzen az utolsó szövegdoboz szövegével.
 
 {{% /alert %}} 
 ## **Szöveg formázása**
 A VSTO és az Aspose.Slides módszerek a következő lépéseket követik:
 
 1. Nyissa meg a forrásprezentációt.
-1. Nyissa meg az első diát.
-1. Nyissa meg a harmadik szövegdobozt.
-1. Módosítsa a harmadik szövegdoboz szövegének formázását.
-1. Mentse a prezentációt a lemezre.
+1. Hozza elérhetővé az első diát.
+1. Hozza elérhetővé a harmadik szövegdobozt.
+1. Módosítsa a szöveg formázását a harmadik szövegdobozban.
+1. Mentse el a prezentációt a lemezen.
 
-Az alábbi képernyőképek a mintadiát mutatják a VSTO és az Aspose.Slides for Java kód végrehajtása előtti és utáni állapotban.
+Az alábbi képernyőképek a mintadiát mutatják a VSTO és az Aspose.Slides for Java kód futtatása előtt és után.
 
 **A bemeneti prezentáció** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_1.png)
 ### **VSTO kódpélda**
-Az alábbi kód bemutatja, hogyan formázható újra a szöveg egy dián a VSTO használatával.
+Az alábbi kód bemutatja, hogyan formázhatjuk újra a szöveget egy dián a VSTO segítségével.
 
 **A VSTO-val újraformázott szöveg** 
 
@@ -45,7 +45,7 @@ Az alábbi kód bemutatja, hogyan formázható újra a szöveg egy dián a VSTO 
 
 
 ### **Aspose.Slides for Java példa**
-A szöveg formázásához az Aspose.Slides használatával először adja meg a betűtípust, mielőtt formázná a szöveget.
+A szöveg Aspose.Slides-szel történő formázásához adja hozzá a betűtípust a szöveg formázása előtt.
 
 **Az Aspose.Slides által létrehozott kimeneti prezentáció** 
 

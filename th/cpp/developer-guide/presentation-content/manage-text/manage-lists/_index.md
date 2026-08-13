@@ -1,48 +1,67 @@
 ---
-title: จัดการรายการแบบมีหัวข้อและลำดับเลขในงานนำเสนอด้วย C++
+title: จัดการรายการสัญลักษณ์หัวข้อย่อยและรายการลำดับเลขในงานนำเสนอด้วย C++
 linktitle: จัดการรายการ
 type: docs
 weight: 70
 url: /th/cpp/manage-lists/
 keywords:
-- หัวข้อ
-- รายการแบบมีหัวข้อ
+- สัญลักษณ์หัวข้อย่อย
+- รายการหัวข้อย่อย
 - รายการลำดับเลข
-- หัวข้อสัญลักษณ์
-- หัวข้อรูปภาพ
-- หัวข้อกำหนดเอง
+- สัญลักษณ์หัวข้อย่อย
+- หัวข้อย่อยรูปภาพ
+- สัญลักษณ์หัวข้อย่อยกำหนดเอง
 - รายการหลายระดับ
-- สร้างหัวข้อ
-- เพิ่มหัวข้อ
+- สร้างหัวข้อย่อย
+- เพิ่มหัวข้อย่อย
 - เพิ่มรายการ
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและจัดรูปแบบรายการแบบมีหัวข้อ, รูปภาพ, หลายระดับ, และลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ C++."
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบรายการหัวข้อย่อย, รายการรูปภาพ, รายการหลายระดับ และรายการลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ C++."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for C++ ช่วยให้คุณสร้างและจัดรูปแบบรายการแบบมีหัวข้อและรายการลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument รายการหนึ่งเป็นย่อหน้าที่การตั้งค่าหัวข้อถูกควบคุมผ่านรูปแบบย่อหน้า
+Aspose.Slides for C++ ให้คุณสร้างและจัดรูปแบบรายการแบบสัญลักษณ์หัวข้อย่อยและรายการลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument รายการหนึ่งรายการคือย่อหน้าที่การตั้งค่าสัญลักษณ์หัวข้อย่อยถูกควบคุมผ่านรูปแบบย่อหน้า
 
-ใช้เมธอด [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraph/get_paragraphformat/) เพื่อเข้าถึงการตั้งค่ารายการระดับย่อหน้า จุดเริ่มต้นหลักคือ [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_bullet/), ซึ่งจะส่งกลับอ็อบเจ็กต์ [IBulletFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/) ด้วยอ็อบเจ็กต์นี้ คุณสามารถตั้งค่าชนิดหัวข้อ สัญลักษณ์ รูปภาพ สี ขนาด รูปแบบการนับเลข และหมายเลขเริ่มต้น
+ใช้เมธอด [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraph/get_paragraphformat/) เพื่อเข้าถึงการตั้งค่ารายการระดับย่อหน้า จุดเริ่มต้นหลักคือ [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_bullet/), ซึ่งจะคืนค่าออบเจกต์ [IBulletFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/) ด้วยออบเจกต์นี้คุณสามารถตั้งค่าประเภทสัญลักษณ์, สัญลักษณ์, รูปภาพ, สี, ขนาด, รูปแบบการลำดับเลขและหมายเลขเริ่มต้นได้
 
-บทความนี้จะแสดงวิธี:
+บทความนี้แสดงวิธี:
 
-- สร้างรายการแบบมีหัวข้อด้วยสัญลักษณ์ที่กำหนดเอง
-- สร้างหัวข้อแบบรูปภาพ
+- สร้างรายการสัญลักษณ์หัวข้อย่อยด้วยสัญลักษณ์กำหนดเอง
+- สร้างหัวข้อย่อยรูปภาพ
 - สร้างรายการหลายระดับโดยตั้งค่าความลึกของย่อหน้า
 - สร้างรายการลำดับเลข
-- ตรวจสอบและเปลี่ยนแปลงการจัดรูปแบบรายการในงานนำเสนอที่มีอยู่
+- ตรวจสอบและเปลี่ยนแปลงรูปแบบรายการในงานนำเสนอที่มีอยู่
 
-## **สร้างรายการแบบมีหัวข้อ**
+## **สร้างรายการสัญลักษณ์หัวข้อย่อย**
 
-เพื่อสร้างรายการแบบมีหัวข้อ ให้เพิ่มอ็อบเจ็กต์ [Paragraph](https://reference.aspose.com/slides/th/cpp/aspose.slides/paragraph/) ไปยัง [ITextFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframe/) และตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_type/) เป็น [BulletType::Symbol](https://reference.aspose.com/slides/th/cpp/aspose.slides/bullettype/). จากนั้นคุณสามารถตั้งค่า [IBulletFormat::set_Char](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/get_color/), และ [IBulletFormat::set_Height](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_height/) เพื่อควบคุมรูปลักษณ์ของหัวข้อ
+เพื่อสร้างรายการสัญลักษณ์หัวข้อย่อยให้เพิ่มออบเจกต์ [Paragraph](https://reference.aspose.com/slides/th/cpp/aspose.slides/paragraph/) ไปยัง [ITextFrame](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframe/) และตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_type/) เป็น [BulletType::Symbol](https://reference.aspose.com/slides/th/cpp/aspose.slides/bullettype/). จากนั้นคุณสามารถตั้งค่า [IBulletFormat::set_Char](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/get_color/) และ [IBulletFormat::set_Height](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_height/) เพื่อควบคุมลักษณะของสัญลักษณ์หัวข้อย่อยได้
 
-โค้ด C++ ต่อไปนี้แสดงวิธีสร้างรายการแบบมีหัวข้อในสไลด์:
+โค้ด C++ ด้านล่างแสดงวิธีสร้างรายการสัญลักษณ์หัวข้อย่อยในสไลด์:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -79,15 +98,30 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![หัวข้อสัญลักษณ์](symbol_bullets.png)
+![สัญลักษณ์หัวข้อย่อย](symbol_bullets.png)
 
 ## **สร้างรายการลำดับเลข**
 
-ใช้รายการลำดับเลขเมื่อลำดับของรายการมีความสำคัญ ตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_type/) เป็น [BulletType::Numbered](https://reference.aspose.com/slides/th/cpp/aspose.slides/bullettype/). คุณยังสามารถเลือกรูปแบบการนับเลขด้วย [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) หรือกำหนดค่าเริ่มต้นด้วย [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) เมื่อรายการควรเริ่มจากค่าที่ไม่ใช่ 1
+ใช้รายการลำดับเลขเมื่อลำดับของรายการมีความสำคัญ ตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_type/) เป็น [BulletType::Numbered](https://reference.aspose.com/slides/th/cpp/aspose.slides/bullettype/). คุณยังสามารถเลือกรูปแบบการลำดับเลขด้วย [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) หรือกำหนดค่าเริ่มต้นด้วย [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) เมื่อรายการควรเริ่มจากค่าที่ไม่ใช่ 1
 
-โค้ด C++ ต่อไปนี้แสดงวิธีสร้างรายการลำดับเลขในสไลด์:
+โค้ด C++ ด้านล่างแสดงวิธีสร้างรายการลำดับเลขในสไลด์:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -116,25 +150,46 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![หัวข้อหมายเลข](numbered_bullets.png)
+![หัวข้อแบบลำดับเลข](numbered_bullets.png)
 
-## **สร้างหัวข้อรูปภาพ**
+## **สร้างหัวข้อแบบรูปภาพ**
 
-Aspose.Slides ให้คุณเปลี่ยนสัญลักษณ์หัวข้อทั่วไปเป็นภาพ หัวข้อรูปภาพทำงานได้ดีที่สุดกับภาพที่เรียบง่ายและยังคงอ่านได้เมื่อลดขนาดลง เช่น ไอคอนหรือไฟล์ PNG โปร่งใสขนาดเล็ก
+Aspose.Slides ทำให้คุณสามารถแทนที่สัญลักษณ์หัวข้อย่อทั่วไปด้วยภาพได้ หัวข้อรูปภาพทำงานได้ดีที่สุดกับภาพที่เรียบง่ายและยังคงอ่านได้เมื่อลดขนาดลง เช่น ไอคอนหรือไฟล์ PNG ที่มีพื้นหลังใส
 
-{{% alert color="primary" %}}
-โดยทั่วไป หากคุณวางแผนจะเปลี่ยนสัญลักษณ์หัวข้อทั่วไปเป็นภาพ ควรเลือกกราฟิกที่เรียบง่ายและมีพื้นหลังโปร่งใส ภาพเช่นนี้ทำงานได้ดีเป็นสัญลักษณ์หัวข้อแบบกำหนดเอง
+{{% alert color="info" %}}
+โดยแนวคิด, หากคุณต้องการแทนที่สัญลักษณ์หัวข้อย่อด้วยภาพ ควรเลือกกราฟิกที่เรียบง่ายและมีพื้นหลังโปร่งใส ภาพลักษณ์เช่นนี้ทำงานได้ดีเป็นสัญลักษณ์หัวข้อย่อแบบกำหนดเอง
 {{% /alert %}}
 
-เพื่อสร้างหัวข้อรูปภาพ ให้เพิ่มภาพไปยัง [IPresentation::get_Images](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipresentation/get_images/) และกำหนดอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/ippimage/) ที่คืนค่าให้กับ [IBulletFormat::get_Picture](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/get_picture/). ตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_type/) เป็น [BulletType::Picture](https://reference.aspose.com/slides/th/cpp/aspose.slides/bullettype/) ก่อนกำหนดภาพ
+ควรจำไว้ว่า ภาพจะถูกย่อให้เล็กลงมาก ดังนั้นเราแนะนำให้เลือกภาพที่ยังคงชัดเจนและมีประสิทธิภาพทางสายตามเมื่อนำไปใช้เป็นหัวข้อย่อในรายการ
 
-สมมติว่ามีไฟล์ "image.png":
+เพื่อสร้างหัวข้อรูปภาพให้เพิ่มภาพไปยัง [IPresentation::get_Images](https://reference.aspose.com/slides/th/cpp/aspose.slides/ipresentation/get_images/) และกำหนดออบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/cpp/aspose.slides/ippimage/) ที่ได้ให้กับ [IBulletFormat::get_Picture](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/get_picture/). ตั้งค่า [IBulletFormat::set_Type](https://reference.aspose.com/slides/th/cpp/aspose.slides/ibulletformat/set_type/) เป็น [BulletType::Picture](https://reference.aspose.com/slides/th/cpp/aspose.slides/bullettype/) ก่อนกำหนดภาพ
 
-![รูปภาพสำหรับหัวข้อ](picture_for_bullets.png)
+สมมติว่ามีไฟล์ \"image.png\":
 
-โค้ด C++ ต่อไปนี้แสดงวิธีสร้างหัวข้อรูปภาพในสไลด์:
+![ภาพสำหรับหัวข้อย่อย](picture_for_bullets.png)
+
+โค้ด C++ ด้านล่างแสดงวิธีสร้างหัวข้อรูปภาพในสไลด์:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -173,15 +228,28 @@ presentation->Dispose();
 
 ผลลัพธ์:
 
-![หัวข้อรูปภาพ](picture_bullets.png)
+![หัวข้อย่อยรูปภาพ](picture_bullets.png)
 
 ## **สร้างรายการหลายระดับ**
 
-ใช้ [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_depth/) เพื่อวางรายการในระดับที่ต่างกัน ระดับ 0 คือระดับบนสุด ระดับ 1 อยู่ด้านล่างของมัน และต่อไป
+ใช้ [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/set_depth/) เพื่อวางรายการบนระดับที่ต่างกัน ระดับ 0 คือระดับบนสุด, ระดับ 1 อยู่ใต้ระดับนั้น, และต่อไป
 
-โค้ด C++ ต่อไปนี้แสดงวิธีสร้างรายการแบบมีหัวข้อหลายระดับ:
+โค้ด C++ ด้านล่างแสดงวิธีสร้างรายการสัญลักษณ์หัวข้อย่อยหลายระดับ:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -219,11 +287,24 @@ presentation->Dispose();
 
 ## **เปลี่ยนรายการที่มีอยู่**
 
-เพื่อเปลี่ยนการจัดรูปแบบรายการในงานนำเสนอที่มีอยู่ ให้เข้าถึงย่อหน้าที่ต้องการและอัปเดตการตั้งค่า [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_bullet/) คุณสามารถใช้คุณสมบัติเช่นเดียวกับที่ใช้สร้างรายการเพื่อตรวจสอบหรือแก้ไขรายการที่โหลดจากไฟล์ PPT, PPTX หรือ ODP
+เพื่อเปลี่ยนรูปแบบรายการในงานนำเสนอที่มีอยู่ ให้เข้าถึงย่อหน้าที่ต้องการและอัพเดตการตั้งค่า [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_bullet/) ของมัน คุณสามารถใช้คุณสมบัติเดียวกับที่ใช้สร้างรายการเพื่อสอบหรือแก้ไขรายการที่โหลดจากไฟล์ PPT, PPTX หรือ ODP
 
-โค้ด C++ ต่อไปนี้เปลี่ยนย่อหน้าแรกในกรอบข้อความให้ใช้สไตล์รายการลำดับเลข:
+โค้ด C++ ด้านล่างเปลี่ยนย่อหน้าแรกในกรอบข้อความให้ใช้สไตล์รายการลำดับเลข:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -244,14 +325,14 @@ presentation->Dispose();
 
 ## **คำถามที่พบบ่อย**
 
-**สามารถส่งออกรายการแบบมีหัวข้อและลำดับเลขเป็น PDF หรือรูปภาพได้หรือไม่?**
+### สามารถส่งออกรายการสัญลักษณ์หัวข้อย่อยและรายการลำดับเลขเป็น PDF หรือภาพได้หรือไม่?
 
-ได้ Aspose.Slides รักษาการจัดรูปแบบรายการเมื่อรูปแบบปลายทางรองรับการจัดวางข้อความและคุณลักษณะหัวข้อที่สอดคล้องกัน
+ใช่ Aspose.Slides รักษารูปแบบรายการเมื่อรูปแบบเป้าหมายสนับสนุนการจัดวางข้อความและคุณลักษณะหัวข้อย่อยที่สอดคล้องกัน
 
-**ฉันสามารถแก้ไขรายการในงานนำเสนอที่มีอยู่ได้หรือไม่?**
+### ฉันสามารถแก้ไขรายการในงานนำเสนอที่มีอยู่ได้หรือไม่?
 
-ได้ โหลดงานนำเสนอ เข้าถึงย่อหน้าที่ต้องการ ตรวจสอบหรืออัปเดตการตั้งค่า [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_bullet/) แล้วบันทึกงานนำเสนอ
+ได้ โหลดงานนำเสนอ, เข้าถึงย่อหน้าที่ต้องการ, ตรวจสอบหรืออัพเดตการตั้งค่า [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/get_bullet/) แล้วบันทึกงานนำเสนอ
 
-**รายการสามารถมีข้อความที่ไม่ใช่ละตินได้หรือไม่?**
+### รายการสามารถมีข้อความที่ไม่ใช่ละตินได้หรือไม่?
 
-ได้ ข้อความของรายการสามารถมีอักขระ Unicode ทำให้คุณสร้างรายการในงานนำเสนอหลายภาษาได้ ตรวจสอบให้แน่ใจว่าแบบอักษรที่ใช้ในงานนำเสนอรองรับอักขระที่คุณต้องการ
+ได้ ข้อความรายการสามารถมีอักขระ Unicode ได้ ดังนั้นคุณสามารถสร้างรายการในงานนำเสนอหลายภาษาได้ ตรวจสอบให้แน่ใจว่าแบบอักษรที่ใช้ในงานนำเสนอสนับสนุนอักขระที่คุณต้องการ

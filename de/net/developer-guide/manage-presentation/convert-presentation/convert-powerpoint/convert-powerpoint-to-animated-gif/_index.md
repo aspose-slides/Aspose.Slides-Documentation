@@ -20,61 +20,67 @@ keywords:
 - PPTX als GIF speichern
 - PPT als GIF exportieren
 - PPTX als GIF exportieren
-- Standard-Einstellungen
-- Benutzerdefinierte Einstellungen
+- Standardeinstellungen
+- benutzerdefinierte Einstellungen
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint-Präsentationen (PPT, PPTX) einfach mit Aspose.Slides für .NET in animierte GIFs konvertieren. Schnell, hochwertige Ergebnisse."
+description: "Konvertieren Sie PowerPoint-Präsentationen (PPT, PPTX) mühelos in animierte GIFs mit Aspose.Slides für .NET. Schnell, hochwertige Ergebnisse."
 ---
+## **Übersicht**
 
-## **Präsentationen in animiertes GIF mit Standardeinstellungen konvertieren**
+Aspose.Slides ermöglicht das Konvertieren von PowerPoint‑Präsentationen in animierte GIF‑Dateien mit nur wenigen Codezeilen. Das ist nützlich, wenn Sie Folieninhalte in einem leichten, breit unterstützten animierten Format teilen möchten, das in Webseiten, Messenger‑Apps oder Dokumentationen eingebettet werden kann. Dieser Artikel erklärt, wie Sie eine Präsentation mit den Standardeinstellungen in GIF exportieren und wie Sie die Ausgabe anpassen können, indem Sie Optionen wie Bildgröße, Folienverzögerung und Übergangs‑Frame‑Rate über [GifOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/gifoptions/) konfigurieren.
 
-Dieses Beispiel in C# zeigt, wie Sie eine Präsentation mit den Standard‑Einstellungen in ein animiertes GIF konvertieren:
+## **Präsentationen mit Standardeinstellungen in animiertes GIF konvertieren**
+
+Dieser Beispielcode in C# zeigt, wie Sie eine Präsentation mit den Standard‑Einstellungen in ein animiertes GIF konvertieren:
+
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif);
 }
 ```
 
-
 Das animierte GIF wird mit den Standard‑Parametern erstellt. 
 
-{{%  alert  title="TIP"  color="primary"  %}} 
-
-Wenn Sie die Parameter für das GIF anpassen möchten, können Sie die Klasse [GifOptions](https://reference.aspose.com/slides/net/aspose.slides.export/gifoptions) verwenden. Siehe den Beispielcode unten. 
-
+{{%  alert  title="TIP"  color="info"  %}} 
+Wenn Sie die Parameter für das GIF lieber anpassen möchten, können Sie die Klasse [GifOptions](https://reference.aspose.com/slides/de/net/aspose.slides.export/gifoptions) verwenden. Siehe den Beispielcode unten. 
 {{% /alert %}} 
 
-## **Präsentationen in animiertes GIF mit benutzerdefinierten Einstellungen konvertieren**
+## **Präsentationen mit benutzerdefinierten Einstellungen in animiertes GIF konvertieren**
 
-Dieses Beispiel zeigt, wie Sie eine Präsentation in C# mit benutzerdefinierten Einstellungen in ein animiertes GIF konvertieren:
+Dieser Beispielcode zeigt, wie Sie eine Präsentation mit benutzerdefinierten Einstellungen in C# in ein animiertes GIF konvertieren:
+
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif, new GifOptions
     {
-        FrameSize = new Size(960, 720), // die Größe des resultierenden GIFs  
+        FrameSize = new Size(960, 720), // die Größe des resultierenden GIFs
         DefaultDelay = 2000, // wie lange jede Folie angezeigt wird, bis sie zur nächsten wechselt
-        TransitionFps = 35 // FPS erhöhen für bessere Übergangsanimation
+        TransitionFps = 35 // FPS erhöhen für bessere Übergangsanimation-Qualität
     });
 }
 ```
 
-
 {{% alert title="Info" color="info" %}}
-
-Vielleicht möchten Sie den KOSTENLOSEN [Text to GIF](https://products.aspose.app/slides/text-to-gif) Konverter von Aspose ausprobieren. 
-
+Vielleicht möchten Sie den KOSTENLOSEN [Text to GIF](https://products.aspose.app/slides/de/text-to-gif) Konverter von Aspose ausprobieren. 
 {{% /alert %}}
 
 ## **FAQ**
 
-**Was ist, wenn die in der Präsentation verwendeten Schriftarten nicht auf dem System installiert sind?**
+### Was ist, wenn die in der Präsentation verwendeten Schriftarten nicht auf dem System installiert sind?
 
-Installieren Sie die fehlenden Schriftarten oder [konfigurieren Sie Ersatz‑Schriftarten](/slides/de/net/powerpoint-fonts/). Aspose.Slides ersetzt sie, aber das Aussehen kann abweichen. Für Branding stellen Sie stets sicher, dass die benötigten Schriftarten ausdrücklich verfügbar sind.
+Installieren Sie die fehlenden Schriftarten oder [konfigurieren Sie Ersatzschriftarten](/slides/de/net/powerpoint-fonts/). Aspose.Slides wird ersetzen, jedoch kann das Aussehen abweichen. Für das Branding stellen Sie stets sicher, dass die erforderlichen Schriftarten ausdrücklich verfügbar sind.
 
-**Kann ich ein Wasserzeichen auf den GIF‑Frames überlagern?**
+### Kann ich ein Wasserzeichen über die GIF‑Frames legen?
 
-Ja. [Fügen Sie ein halbtransparentes Objekt/Logo](/slides/de/net/watermark/) zur Master‑Folie oder zu einzelnen Folien vor dem Export hinzu — das Wasserzeichen erscheint in jedem Frame.
+Ja. [Fügen Sie ein halbtransparentes Objekt/Logo](/slides/de/net/watermark/) zur Master‑Folie oder zu einzelnen Folien vor dem Export hinzu – das Wasserzeichen erscheint auf jedem Frame.

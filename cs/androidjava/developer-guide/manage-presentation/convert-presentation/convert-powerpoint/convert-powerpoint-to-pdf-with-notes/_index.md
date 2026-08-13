@@ -5,11 +5,11 @@ type: docs
 weight: 50
 url: /cs/androidjava/convert-powerpoint-to-pdf-with-notes/
 keywords:
-- převod PowerPointu
-- převod prezentace
-- převod snímku
-- převod PPT
-- převod PPTX
+- převést PowerPoint
+- převést prezentaci
+- převést snímek
+- převést PPT
+- převést PPTX
 - PowerPoint do PDF
 - prezentace do PDF
 - snímek do PDF
@@ -25,36 +25,38 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Převod formátů PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro Android v jazyce Java. Zachování rozvržení a poznámek přednášejícího pro profesionální prezentace."
+description: "Převod formátů PPT a PPTX do PDF s poznámkami pomocí Aspose.Slides pro Android prostřednictvím Javy. Zachovejte rozvržení a poznámky přednášejícího pro profesionální prezentace."
 ---
 ## **Přehled**
 
-V tomto článku se naučíte, jak pomocí Aspose.Slides převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího. Tento průvodce pokryje potřebné kroky a poskytne ukázky kódu, které vám pomohou úkol efektivně splnit. Na konci tohoto článku budete schopni:
+V tomto článku se dozvíte, jak pomocí Aspose.Slides převést prezentace PowerPoint do formátu PDF s poznámkami přednášejícího. Tento průvodce popíše potřebné kroky a poskytne ukázkové kódy, které vám pomohou tuto úlohu provést efektivně. Na konci článku budete schopni:
 
-- Implementovat proces konverze, který převede snímky PowerPointu do PDF dokumentů a zachová poznámky přednášejícího.
-- Přizpůsobit výstupní PDF tak, aby byly poznámky přednášejícího zahrnuty a formátovány podle vašich požadavků.
+- Implementovat proces konverze, který převádí snímky PowerPointu do PDF dokumentů a zachovává poznámky přednášejícího.
+- Přizpůsobit výstupní PDF tak, aby obsahovalo poznámky přednášejícího a bylo formátováno podle vašich požadavků.
 
 ## **Převod PowerPointu do PDF s poznámkami**
 
-`save` metoda ve třídě [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) může být použita k převodu prezentace PPT nebo PPTX do PDF s poznámkami přednášejícího. S Aspose.Slides jednoduše načtete prezentaci, nastavíte možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notescommentslayoutingoptions/), aby zahrnovala poznámky přednášejícího, a poté soubor uložíte jako PDF. Následující úryvek kódu ukazuje, jak převést ukázkovou prezentaci do PDF v zobrazení Poznámky ke snímku.
+Metoda `save` ve třídě [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) lze použít k převodu prezentace PPT nebo PPTX do PDF s poznámkami přednášejícího. S Aspose.Slides jednoduše načtete prezentaci, nastavíte možnosti rozvržení pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notescommentslayoutingoptions/), aby byly zahrnuty poznámky přednášejícího, a poté soubor uložíte jako PDF. Následující úryvek kódu ukazuje, jak převést ukázkovou prezentaci do PDF v zobrazení poznámek ke snímkům.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
 	// Nastavte možnosti PDF pro vykreslení poznámek přednášejícího.
 	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Vykreslit poznámky přednášejícího pod snímkem.
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Vykreslete poznámky přednášejícího pod snímkem.
 
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-	// Uložit prezentaci do PDF s poznámkami přednášejícího.
+	// Uložte prezentaci do PDF s poznámkami přednášejícího.
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-Možná budete chtít vyzkoušet Aspose [Online převodník PowerPoint do PDF](https://products.aspose.app/slides/cs/conversion). 
+{{% alert color="info" %}} 
+Možná budete chtít vyzkoušet Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/cs/conversion). 
 {{% /alert %}}

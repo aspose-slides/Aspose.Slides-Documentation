@@ -22,25 +22,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Εισαγωγή εγγράφων PDF και HTML σε παρουσιάσεις PowerPoint και OpenDocument σε Java με το Aspose.Slides για Android για απρόσκοπτη, υψηλών επιδόσεων επεξεργασία διαφανειών."
+description: "Εισαγωγή εγγράφων PDF και HTML σε παρουσιάσεις PowerPoint και OpenDocument σε Java με το Aspose.Slides for Android για αδιάλειπτη, υψηλής απόδοσης επεξεργασία διαφανειών."
 ---
 ## **Εισαγωγή**
 
-Χρησιμοποιώντας [**Aspose.Slides για Android μέσω Java**](https://products.aspose.com/slides/el/androidjava/), μπορείτε να εισάγετε παρουσιάσεις από αρχεία σε άλλες μορφές. Το Aspose.Slides παρέχει την κλάση [SlideCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidecollection/) για να μπορείτε να εισάγετε παρουσιάσεις από PDF, έγγραφα HTML κ.ά.
+Χρησιμοποιώντας [**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/el/androidjava/), μπορείτε να εισαγάγετε παρουσιάσεις από αρχεία σε άλλες μορφές. Το Aspose.Slides παρέχει την κλάση [SlideCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidecollection/) ώστε να μπορείτε να εισαγάγετε παρουσιάσεις από PDF, έγγραφα HTML κ.λπ.
 
 ## **Εισαγωγή PowerPoint από PDF**
 
-Σε αυτήν την περίπτωση, μπορείτε να μετατρέψετε ένα PDF σε παρουσίαση PowerPoint.
+Σε αυτή την περίπτωση, μπορείτε να μετατρέψετε ένα PDF σε παρουσίαση PowerPoint.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/).
+1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/).
 2. Καλέστε τη μέθοδο [addFromPdf()](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/SlideCollection#addFromPdf-java.lang.String-) και περάστε το αρχείο PDF.
-3. Χρησιμοποιήστε τη μέθοδο [save()](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) για να αποθηκεύσετε το αρχείο σε μορφή PowerPoint.
+3. Χρησιμοποιήστε τη μέθοδο [save()](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) για να αποθηκεύσετε το αρχείο στη μορφή PowerPoint.
 
 Αυτός ο κώδικας Java δείχνει τη λειτουργία μετατροπής PDF σε PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().addFromPdf("InputPDF.pdf");
@@ -50,23 +52,25 @@ try {
 }
 ```
 
-{{% alert  title="Συμβουλή" color="primary" %}} 
-
-Μπορεί να θέλετε να δοκιμάσετε την δωρεάν εφαρμογή ιστού **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/el/import/pdf-to-powerpoint) επειδή είναι μια ζωντανή υλοποίηση της διαδικασίας που περιγράφεται εδώ. 
-
+{{% alert  title="Tip" color="info" %}} 
+Ίσως θελήσετε να δοκιμάσετε την δωρεάν εφαρμογή ιστού **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/el/import/pdf-to-powerpoint) επειδή αποτελεί ζωντανή υλοποίηση της διαδικασίας που περιγράφεται εδώ. 
 {{% /alert %}} 
 
 ## **Εισαγωγή PowerPoint από HTML**
 
-Σε αυτήν την περίπτωση, μπορείτε να μετατρέψετε ένα έγγραφο HTML σε παρουσίαση PowerPoint.
+Σε αυτή την περίπτωση, μπορείτε να μετατρέψετε ένα έγγραφο HTML σε παρουσίαση PowerPoint.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/).
-2. Καλέστε τη μέθοδο [addFromHtml()](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) και περάστε το PDF αρχείο.
-3. Χρησιμοποιήστε τη μέθοδο [save()](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) για να αποθηκεύσετε το αρχείο σε μορφή PowerPoint.
+1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/).
+2. Καλέστε τη μέθοδο [addFromHtml()](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) και περάστε μια ροή με το έγγραφο HTML.
+3. Χρησιμοποιήστε τη μέθοδο [save()](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) για να αποθηκεύσετε το αρχείο στη μορφή PowerPoint.
 
 Αυτός ο κώδικας Java δείχνει τη λειτουργία μετατροπής HTML σε PowerPoint: 
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 Presentation presentation = new Presentation();
 try {
     FileInputStream htmlStream = new FileInputStream("page.html");
@@ -83,8 +87,8 @@ try {
 }
 ```
 
-## **Συχνές ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Διατηρούνται οι πίνακες κατά την εισαγωγή PDF και μπορεί να βελτιωθεί η ανίχνευσή τους;**
+### Διατηρούνται οι πίνακες κατά την εισαγωγή PDF, και μπορεί να βελτιωθεί η ανίχνευσή τους;
 
-Οι πίνακες μπορούν να ανιχνευθούν κατά την εισαγωγή· το [PdfImportOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pdfimportoptions/) περιλαμβάνει τη μέθοδο [setDetectTables](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) που ενεργοποιεί την αναγνώριση πινάκων. Η αποτελεσματικότητα εξαρτάται από τη δομή του PDF.
+Οι πίνακες μπορούν να εντοπιστούν κατά την εισαγωγή· το [PdfImportOptions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pdfimportoptions/) περιλαμβάνει μια μέθοδο [setDetectTables](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/pdfimportoptions/#setDetectTables-boolean-) που ενεργοποιεί την αναγνώριση πινάκων. Η αποτελεσματικότητα εξαρτάται από τη δομή του PDF.

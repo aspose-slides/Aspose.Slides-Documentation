@@ -1,31 +1,36 @@
 ---
-title: การเปลี่ยนแปลง Public API และการไม่เข้ากันย้อนหลังใน Aspose.Slides for Java 16.1.0
-linktitle: Aspose.Slides for Java 16.1.0
+title: Public API และการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ Java 16.1.0
+linktitle: Aspose.Slides สำหรับ Java 16.1.0
 type: docs
 weight: 200
 url: /th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
 keywords:
 - การย้าย
-- โค้ดเดิม
+- โค้ดเก่า
 - โค้ดสมัยใหม่
-- วิธีการเดิม
+- วิธีการเก่า
 - วิธีการสมัยใหม่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำลายการทำงานใน Aspose.Slides for Java เพื่อช่วยให้คุณย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP อย่างราบรื่น."
+description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้แตกหักใน Aspose.Slides สำหรับ Java เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น"
 ---
-{{% alert color="primary" %}} 
-หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, คุณสมบัติ ฯลฯ ที่ถูก [เพิ่ม](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) หรือ [ลบ](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) และการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for Java 16.1.0 API.
+{{% alert color="info" %}} 
+
+หน้านี้แสดงรายการคลาส, เมธอด, สมบัติ และอื่น ๆ ที่ถูก [added](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) หรือ [removed](/slides/th/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) รวมถึงการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for Java 16.1.0 API
+
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
 
-#### **เมธอด getRotationAngle() และ setRotationAngle() ถูกเพิ่มเข้ามาในอินเทอร์เฟซ IChartTextBlockFormat และ ITextFrameFormat**
-เมธอด getRotationAngle() และ setRotationAngle() ถูกเพิ่มเข้ามาในอินเทอร์เฟซ com.aspose.slides.IChartTextBlockFormat และ com.aspose.slides.ITextFrameFormat. พวกมันให้การเข้าถึงการหมุนแบบกำหนดเองที่ถูกนำไปใช้กับข้อความภายในกล่องขอบเขต.
+
+#### **ได้เพิ่มเมธอด getRotationAngle() และ setRotationAngle() ไปยังอินเทอร์เฟซ IChartTextBlockFormat และ ITextFrameFormat**  
+ได้เพิ่มเมธอด getRotationAngle() และ setRotationAngle() ไปยังอินเทอร์เฟซ com.aspose.slides.IChartTextBlockFormat และ com.aspose.slides.ITextFrameFormat. พวกมันให้การเข้าถึงการหมุนที่กำหนดเองซึ่งถูกนำไปใช้กับข้อความภายในกล่องขอบเขต
 
 ``` java
+import com.aspose.slides.*;
+
 
 
 

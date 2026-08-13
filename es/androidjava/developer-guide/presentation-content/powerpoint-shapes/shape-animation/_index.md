@@ -1,5 +1,5 @@
 ---
-title: Aplicar animaciones de formas en presentaciones en Android
+title: Aplicar animaciones de forma en presentaciones en Android
 linktitle: Animación de forma
 type: docs
 weight: 60
@@ -23,49 +23,53 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Descubre cómo crear y personalizar animaciones de formas en presentaciones de PowerPoint con Aspose.Slides para Android mediante Java. ¡Destaca!"
+description: "Descubra cómo crear y personalizar animaciones de forma en presentaciones de PowerPoint con Aspose.Slides para Android mediante Java. ¡Destáquese!"
 ---
+## **Introducción**
 
-Las animaciones son efectos visuales que pueden aplicarse a textos, imágenes, formas o [gráficos](https://docs.aspose.com/slides/androidjava/animated-charts/). Dan vida a las presentaciones o a sus componentes.
+Las animaciones son efectos visuales que se pueden aplicar a textos, imágenes, formas o [gráficos](https://docs.aspose.com/slides/es/androidjava/animated-charts/). Dan vida a las presentaciones o a sus componentes.
 
 ## **¿Por qué usar animaciones en presentaciones?**
 
-Usando animaciones, puedes
+Al usar animaciones, puedes  
 
-* controlar el flujo de información
-* destacar puntos importantes
-* aumentar el interés o la participación de tu audiencia
-* hacer que el contenido sea más fácil de leer, asimilar o procesar
-* llamar la atención de tus lectores o espectadores a las partes importantes de una presentación
+* controlar el flujo de información  
+* resaltar puntos importantes  
+* aumentar el interés o la participación de la audiencia  
+* hacer que el contenido sea más fácil de leer, asimilar o procesar  
+* atraer la atención de los lectores o espectadores a las partes importantes de una presentación  
 
-PowerPoint ofrece muchas opciones y herramientas para animaciones y efectos de animación en las categorías **entrada**, **salida**, **énfasis** y **trayectorias de movimiento**. 
+PowerPoint ofrece muchas opciones y herramientas para animaciones y efectos de animación en las categorías de **entrada**, **salida**, **énfasis** y **trayectorias de movimiento**. 
 
 ## **Animaciones en Aspose.Slides**
 
-* Aspose.Slides proporciona las clases y tipos que necesitas para trabajar con animaciones en el espacio de nombres `Aspose.Slides.Animation`,
-* Aspose.Slides ofrece más de **150 efectos de animación** bajo la enumeración [EffectType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttype). Estos efectos son esencialmente los mismos (o equivalentes) que se usan en PowerPoint.
+* Aspose.Slides proporciona las clases y tipos que necesita para trabajar con animaciones en el espacio de nombres `Aspose.Slides.Animation`,  
+* Aspose.Slides ofrece más de **150 efectos de animación** bajo la enumeración [EffectType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/effecttype). Estos efectos son esencialmente los mismos (o equivalentes) que se usan en PowerPoint.  
 
 ## **Aplicar animación a un TextBox**
 
-Aspose.Slides para Android mediante Java te permite aplicar animación al texto de una forma.
+Aspose.Slides para Android mediante Java le permite aplicar animación al texto dentro de una forma.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtén una referencia a una diapositiva mediante su índice.
-3. Añade un `rectangle` [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape).
-4. Añade texto a [IAutoShape.TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
-5. Obtén la secuencia principal de efectos.
-6. Añade un efecto de animación a [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape).
-7. Establece la propiedad `TextAnimation.BuildType` al valor de la enumeración `BuildType`.
-8. Guarda la presentación en disco como un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Añada una [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape) de tipo `rectangle`.  
+4. Añada texto al [IAutoShape.TextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).  
+5. Obtenga la secuencia principal de efectos.  
+6. Añada un efecto de animación a [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape).  
+7. Establezca la propiedad `TextAnimation.BuildType` al valor de la enumeración `BuildType`.  
+8. Guarde la presentación en disco como un archivo PPTX.  
 
-Este código Java muestra cómo aplicar el efecto `Fade` a AutoShape y establecer la animación del texto al valor *By 1st Level Paragraphs*:
+Este código Java le muestra cómo aplicar el efecto `Fade` a AutoShape y establecer la animación del texto al valor *By 1st Level Paragraphs*:
+
 ```java
+import com.aspose.slides.*;
+
 // Instancia una clase de presentación que representa un archivo de presentación.
 Presentation pres = new Presentation();
 try {
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Añade un nuevo AutoShape con texto
+    // Añade una nueva AutoShape con texto
     IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -80,29 +84,33 @@ try {
     // Anima el texto de la forma por párrafos de primer nivel
     effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
 
-    // Guarda el archivo PPTX en disco
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
+    // Guarda el archivo PPTX en el disco
+    pres.save("AnimText_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+{{%  alert color="info"  %}} 
 
-{{%  alert color="primary"  %}} 
-Además de aplicar animaciones al texto, también puedes aplicar animaciones a un único [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph). Consulta [**Animated Text**](/slides/es/androidjava/animated-text/).
+Además de aplicar animaciones al texto, también puede aplicar animaciones a un único [Paragraph](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iparagraph). Vea [**Animated Text**](/slides/es/androidjava/animated-text/).
+
 {{% /alert %}} 
 
 ## **Aplicar animación a un PictureFrame**
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtén una referencia a una diapositiva mediante su índice.
-3. Añade o obtén un [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe) en la diapositiva.
-4. Obtén la secuencia principal de efectos.
-5. Añade un efecto de animación a [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe).
-6. Guarda la presentación en disco como un archivo PPTX.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Añada o obtenga un [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe) en la diapositiva.  
+4. Obtenga la secuencia principal de efectos.  
+5. Añada un efecto de animación a [PictureFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pictureframe).  
+6. Guarde la presentación en disco como un archivo PPTX.  
 
-Este código Java muestra cómo aplicar el efecto `Fly` a un picture frame:
+Este código Java le muestra cómo aplicar el efecto `Fly` a un marco de imagen:
+
 ```java
+import com.aspose.slides.*;
+
 // Instancia una clase de presentación que representa un archivo de presentación.
 Presentation pres = new Presentation();
 try {
@@ -124,28 +132,30 @@ try {
     // Añade el efecto de animación Fly desde la izquierda al marco de imagen
     IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-    // Guarda el archivo PPTX en disco
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
+    // Guarda el archivo PPTX en el disco
+    pres.save("AnimImage_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **Aplicar animación a una forma**
 
-## **Aplicar animación a una Shape**
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/Presentation).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Añada una [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape) de tipo `rectangle`.  
+4. Añada una [IAutoShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iautoshape) `Bevel` (cuando este objeto se hace clic, se reproduce la animación).  
+5. Cree una secuencia de efectos en la forma `Bevel`.  
+6. Cree una `UserPath` personalizada.  
+7. Añada comandos para mover a la `UserPath`.  
+8. Guarde la presentación en disco como un archivo PPTX.  
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-2. Obtén una referencia a una diapositiva mediante su índice.
-3. Añade un `rectangle` [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape).
-4. Añade un `Bevel` [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape) (cuando se hace clic en este objeto, se reproduce la animación).
-5. Crea una secuencia de efectos en la forma bevel.
-6. Crea un `UserPath` personalizado.
-7. Añade comandos para mover al `UserPath`.
-8. Guarda la presentación en disco como un archivo PPTX.
+Este código Java le muestra cómo aplicar el efecto `PathFootball` (ruta fútbol) a una forma:
 
-Este código Java muestra cómo aplicar el efecto `PathFootball` (path football) a una forma:
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 // Instancia una clase Presentation que representa un archivo PPTX.
 Presentation pres = new Presentation();
 try {
@@ -168,7 +178,7 @@ try {
      // Crea una ruta de usuario personalizada. Nuestro objeto se moverá solo después de que se haga clic en el botón.
     IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
 
-     // Añade comandos de movimiento ya que la ruta creada está vacía.
+     // Añade comandos para mover ya que la ruta creada está vacía.
     IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
 
     Point2D.Float[] pts = new Point2D.Float[1];
@@ -178,22 +188,24 @@ try {
     motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
     motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
 
-     // Escribe el archivo PPTX en disco
+     // Guarda el archivo PPTX en el disco
     pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **Obtener los efectos de animación aplicados a una forma**
 
-## **Obtener los efectos de animación aplicados a una Shape**
+Los siguientes ejemplos le muestran cómo usar el método `getEffectsByShape` de la interfaz [ISequence](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/isequence/) para obtener todos los efectos de animación aplicados a una forma.
 
-Los siguientes ejemplos muestran cómo usar el método `getEffectsByShape` de la interfaz [ISequence](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/) para obtener todos los efectos de animación aplicados a una forma.
+**Ejemplo 1: Obtener los efectos de animación aplicados a una forma en una diapositiva normal**
 
-**Ejemplo 1: Obtener efectos de animación aplicados a una forma en una diapositiva normal**
+Anteriormente, aprendió cómo añadir efectos de animación a las formas en presentaciones de PowerPoint. El siguiente fragmento de código muestra cómo obtener los efectos aplicados a la primera forma de la primera diapositiva normal en la presentación `AnimExample_out.pptx`.
 
-Previamente, aprendiste cómo añadir efectos de animación a formas en presentaciones de PowerPoint. El siguiente fragmento de código muestra cómo obtener los efectos aplicados a la primera forma de la primera diapositiva normal de la presentación `AnimExample_out.pptx`.
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("AnimExample_out.pptx");
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -214,25 +226,27 @@ try {
 }
 ```
 
-
 **Ejemplo 2: Obtener todos los efectos de animación, incluidos los heredados de los marcadores de posición**
 
 Si una forma en una diapositiva normal tiene marcadores de posición que están en la diapositiva de diseño y/o maestra, y se han añadido efectos de animación a esos marcadores, entonces todos los efectos de la forma se reproducirán durante la presentación, incluidos los heredados de los marcadores.
 
-Supongamos que tenemos un archivo de presentación PowerPoint `sample.pptx` con una diapositiva que contiene solo una forma de pie de página con el texto "Made with Aspose.Slides" y al que se le ha aplicado el efecto **Random Bars**.
+Supongamos que tenemos un archivo de presentación PowerPoint `sample.pptx` con una sola diapositiva que contiene únicamente una forma de pie de página con el texto "Made with Aspose.Slides" y al que se le ha aplicado el efecto **Random Bars**.
 
 ![Efecto de animación de forma de diapositiva](slide-shape-animation.png)
 
-Supongamos también que el efecto **Split** se ha aplicado al marcador de posición del pie de página en la diapositiva de **diseño**.
+Supongamos también que al marcador de posición de pie de página en la diapositiva **layout** se le ha aplicado el efecto **Split**.
 
 ![Efecto de animación de forma de diseño](layout-shape-animation.png)
 
-Y, finalmente, el efecto **Fly In** se ha aplicado al marcador de posición del pie de página en la diapositiva **maestra**.
+Y finalmente, al marcador de posición de pie de página en la diapositiva **master** se le ha aplicado el efecto **Fly In**.
 
 ![Efecto de animación de forma maestra](master-shape-animation.png)
 
-El siguiente fragmento de código muestra cómo usar el método `getBasePlaceholder` de la interfaz [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) para acceder a los marcadores de posición de la forma y obtener los efectos de animación aplicados a la forma de pie de página, incluidos los heredados de los marcadores ubicados en las diapositivas de diseño y maestra.
+El siguiente fragmento de código muestra cómo usar el método `getBasePlaceholder` de la interfaz [IShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/) para acceder a los marcadores de posición de la forma y obtener los efectos de animación aplicados a la forma de pie de página, incluidos los heredados de los marcadores situados en las diapositivas de diseño y maestra.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 ISlide slide = presentation.getSlides().get_Item(0);
@@ -250,14 +264,20 @@ IShape masterShape = layoutShape.getBasePlaceholder();
 IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
 
 System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
+for (IEffect[] effects : new IEffect[][] { masterShapeEffects, layoutShapeEffects, shapeEffects }) {
+    for (IEffect effect : effects) {
+        String typeName = EffectType.getName(EffectType.class, effect.getType());
+        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+
+        System.out.println(typeName + " " + subtypeName);
+    }
+}
 
 presentation.dispose();
 ```
-
 ```java
+import com.aspose.slides.*;
+
 static void printEffects(IEffect[] effects)
 {
     for (IEffect effect : effects)
@@ -270,8 +290,7 @@ static void printEffects(IEffect[] effects)
 }
 ```
 
-
-Output:
+Salida:
 ```text
 Main sequence of shape effects:
 Fly Bottom
@@ -279,29 +298,29 @@ Split VerticalIn
 RandomBars Horizontal
 ```
 
+## **Cambiar las propiedades de tiempo del efecto de animación**
 
-## **Cambiar las propiedades de temporización del efecto de animación**
-
-Aspose.Slides para Android mediante Java permite cambiar las propiedades de Timing de un efecto de animación.
+Aspose.Slides para Android mediante Java le permite cambiar las propiedades de tiempo de un efecto de animación.
 
 Este es el panel de temporización de animación en Microsoft PowerPoint:
 
-![Panel de temporización de animación](shape-animation.png)
+![example1_image](shape-animation.png)
 
-Estas son las correspondencias entre el Timing de PowerPoint y las propiedades [Effect.Timing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTiming--):
+Estas son las correspondencias entre PowerPoint Timing y las propiedades [Effect.Timing](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IEffect#getTiming--):
 
-- La lista desplegable **Start** de temporización de PowerPoint coincide con la propiedad [Effect.Timing.TriggerType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getTriggerType--).
-- La **Duration** de temporización de PowerPoint coincide con la propiedad [Effect.Timing.Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getDuration--). La duración de una animación (en segundos) es el tiempo total que tarda la animación en completar un ciclo.
-- El **Delay** de temporización de PowerPoint coincide con la propiedad [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--).
+- La lista desplegable **Start** de PowerPoint Timing coincide con la propiedad [Effect.Timing.TriggerType](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITiming#getTriggerType--).  
+- PowerPoint Timing **Duration** coincide con la propiedad [Effect.Timing.Duration](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITiming#getDuration--). La duración de una animación (en segundos) es el tiempo total que tarda la animación en completar un ciclo.  
+- PowerPoint Timing **Delay** coincide con la propiedad [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--).  
 
-Así es como cambias las propiedades de temporización del efecto:
+Así es como se cambian las propiedades de temporización del efecto:
 
-1. [Aplicar](#apply-animation-to-shape) o obtén el efecto de animación.
-2. Establece nuevos valores para las propiedades [Effect.Timing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTiming--) que necesites.
-3. Guarda el archivo PPTX modificado.
+1. Aplique ([Apply](#apply-animation-to-shape)) o obtenga el efecto de animación.  
+2. Establezca nuevos valores para las propiedades [Effect.Timing](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/IEffect#getTiming--) que necesite.  
+3. Guarde el archivo PPTX modificado.  
 
-Este código Java demuestra la operación:
 ```java
+import com.aspose.slides.*;
+
 // Instancia una clase de presentación que representa un archivo de presentación.
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
@@ -311,7 +330,7 @@ try {
     // Obtiene el primer efecto de la secuencia principal.
     IEffect effect = sequence.get_Item(0);
 
-    // Cambia el TriggerType del efecto para iniciar al hacer clic
+    // Cambia el TriggerType del efecto para que comience al hacer clic
     effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
 
     // Cambia la duración del efecto
@@ -320,25 +339,29 @@ try {
     // Cambia el TriggerDelayTime del efecto
     effect.getTiming().setTriggerDelayTime(0.5f);
 
-    // Guarda el archivo PPTX en disco
+    // Guarda el archivo PPTX en el disco
     pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **Sonido del efecto de animación**
 
-Aspose.Slides proporciona estas propiedades para trabajar con sonidos en los efectos de animación: 
+Aspose.Slides proporciona estas propiedades para permitirle trabajar con sonidos en efectos de animación: 
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
+- [setSound(IAudio value)](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
+- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)  
 
-### **Añadir un sonido a un efecto de animación**
+### **Añadir un sonido al efecto de animación**
 
-Este código Java muestra cómo añadir un sonido a un efecto de animación y detenerlo cuando comienza el siguiente efecto:
+Este código Java le muestra cómo añadir un sonido al efecto de animación y detenerlo cuando comienza el siguiente efecto:
+
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 Presentation pres = new Presentation("AnimExample_out.pptx");
 try {
     // Añade audio a la colección de audio de la presentación
@@ -352,7 +375,7 @@ try {
     // Obtiene el primer efecto de la secuencia principal
     IEffect firstEffect = sequence.get_Item(0);
 
-    // Comprueba si el efecto tiene "No Sound"
+    // Comprueba si el efecto está sin sonido
     if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
     {
         // Añade sonido al primer efecto
@@ -362,26 +385,28 @@ try {
     // Obtiene la primera secuencia interactiva de la diapositiva.
     ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
 
-    // Establece la bandera "Stop previous sound" del efecto
+    // Establece la bandera "Detener sonido anterior" del efecto
     interactiveSequence.get_Item(0).setStopPreviousSound(true);
 
-    // Escribe el archivo PPTX en disco
+    // Escribe el archivo PPTX en el disco
     pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+### **Extraer un sonido del efecto de animación**
 
-### **Extraer el sonido de un efecto de animación**
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/).  
+2. Obtenga una referencia a una diapositiva mediante su índice.  
+3. Obtenga la secuencia principal de efectos.  
+4. Extraiga el [setSound(IAudio value)](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) incrustado en cada efecto de animación.  
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-2. Obtén una referencia a una diapositiva mediante su índice. 
-3. Obtén la secuencia principal de efectos. 
-4. Extrae el [setSound(IAudio value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) incrustado en cada efecto de animación.
+Este código Java le muestra cómo extraer el sonido incrustado en un efecto de animación:
 
-Este código Java muestra cómo extraer el sonido incrustado en un efecto de animación:
 ```java
+import com.aspose.slides.*;
+
 // Instancia una clase de presentación que representa un archivo de presentación.
 Presentation presentation = new Presentation("EffectSound.pptx");
 try {
@@ -403,26 +428,30 @@ try {
 }
 ```
 
-
 ## **Después de la animación**
 
-Aspose.Slides para Android mediante Java permite cambiar la propiedad After animation de un efecto de animación.
+Aspose.Slides para Android mediante Java le permite cambiar la propiedad After animation de un efecto de animación.
 
-Este es el panel de efecto de animación y el menú extendido en Microsoft PowerPoint:
+Este es el panel de efecto de animación y el menú expandido en Microsoft PowerPoint:
 
-![Panel de efecto de animación](shape-after-animation.png)
+![example1_image](shape-after-animation.png)
 
 La lista desplegable **After animation** del efecto de PowerPoint coincide con estas propiedades: 
 
-- Propiedad [setAfterAnimationType(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) que describe el tipo de After animation :
-  * PowerPoint **More Colors** coincide con el tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#Color);
-  * PowerPoint **Don't Dim** coincide con el tipo [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) (tipo de animación posterior predeterminado);
-  * PowerPoint **Hide After Animation** coincide con el tipo [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation);
-  * PowerPoint **Hide on Next Mouse Click** coincide con el tipo [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick);
-- Propiedad [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) que define un formato de color After animation. Esta propiedad funciona junto con el tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/afteranimationtype/#Color). Si cambias el tipo a otro, el color After animation se borrará.
+- Propiedad [setAfterAnimationType(int value)] que describe el tipo After animation:  
+  * PowerPoint **More Colors** coincide con el tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/afteranimationtype/#Color);  
+  * PowerPoint **Don't Dim** coincide con el tipo [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) (tipo predeterminado de after animation);  
+  * PowerPoint **Hide After Animation** coincide con el tipo [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation);  
+  * PowerPoint **Hide on Next Mouse Click** coincide con el tipo [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick);  
 
-Este código Java muestra cómo cambiar un efecto de animación posterior:
+- Propiedad [setAfterAnimationColor(IColorFormat value)] que define un formato de color para after animation. Esta propiedad funciona junto con el tipo [AfterAnimationType.Color](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/afteranimationtype/#Color). Si cambia el tipo a otro, el color after animation se borrará.  
+
+Este código Java le muestra cómo cambiar un efecto after animation:
+
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instancia una clase de presentación que representa un archivo de presentación
 Presentation pres = new Presentation("AnimImage_out.pptx");
 try {
@@ -437,35 +466,36 @@ try {
     // Establece el color de atenuación de la animación posterior
     firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
 
-    // Escribe el archivo PPTX en disco
+    // Guarda el archivo PPTX en el disco
     pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
 ## **Animar texto**
 
-Aspose.Slides proporciona estas propiedades para trabajar con el bloque *Animate text* de un efecto de animación:
+Aspose.Slides proporciona estas propiedades para permitirle trabajar con el bloque *Animate text* de un efecto de animación:
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) que describe el tipo de animación de texto del efecto. El texto de la forma puede animarse:
-  * Todo a la vez ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce) tipo)
-  * Por palabra ([AnimateTextType.ByWord](https://reference.aspose.com/slides/androidjava/com.aspose.slides/animatetexttype/#ByWord) tipo)
-  * Por letra ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/animatetexttype/#ByLetter) tipo)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) establece un retraso entre las partes del texto animado (palabras o letras). Un valor positivo especifica el porcentaje de la duración del efecto. Un valor negativo especifica el retraso en segundos.
+- Propiedad [setAnimateTextType(int value)] que describe el tipo de animación de texto del efecto. El texto de la forma puede animarse:  
+  - Todo a la vez ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce))  
+  - Por palabra ([AnimateTextType.ByWord](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/animatetexttype/#ByWord))  
+  - Por letra ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/animatetexttype/#ByLetter))  
 
-Así es como puedes cambiar las propiedades *Animate text* del efecto:
+- Propiedad [setDelayBetweenTextParts(float value)] que establece un retraso entre las partes del texto animado (palabras o letras). Un valor positivo especifica el porcentaje de la duración del efecto. Un valor negativo especifica el retraso en segundos.  
 
-1. [Aplicar](#apply-animation-to-shape) o obtén el efecto de animación.
-2. Establece la propiedad [setBuildType(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) a [BuildType.AsOneObject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/buildtype/#AsOneObject) para desactivar el modo de animación *By Paragraphs*.
-3. Establece nuevos valores para las propiedades [setAnimateTextType(int value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) y [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-).
-4. Guarda el archivo PPTX modificado.
+Así es como puede cambiar las propiedades *Animate text* del efecto:
 
-Este código Java demuestra la operación:
+1. Aplique ([Apply](#apply-animation-to-shape)) o obtenga el efecto de animación.  
+2. Establezca la propiedad [setBuildType(int value)] al valor [BuildType.AsOneObject](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/buildtype/#AsOneObject) para desactivar el modo de animación *By Paragraphs*.  
+3. Establezca nuevos valores para las propiedades [setAnimateTextType(int value)] y [setDelayBetweenTextParts(float value)].  
+4. Guarde el archivo PPTX modificado.  
+
 ```java
+import com.aspose.slides.*;
+
 // Instancia una clase de presentación que representa un archivo de presentación.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
+Presentation pres = new Presentation("AnimText_out.pptx");
 try {
     ISlide firstSlide = pres.getSlides().get_Item(0);
 
@@ -478,27 +508,26 @@ try {
     // Cambia el tipo de animación de texto del efecto a "By word"
     firstEffect.setAnimateTextType(AnimateTextType.ByWord);
 
-    // Establece el retardo entre palabras al 20% de la duración del efecto
+    // Establece el retraso entre palabras al 20% de la duración del efecto
     firstEffect.setDelayBetweenTextParts(20f);
 
-    // Escribe el archivo PPTX en disco
+    // Guarda el archivo PPTX en el disco
     pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **Preguntas frecuentes**
 
-## **FAQ**
+### ¿Cómo puedo garantizar que las animaciones se conserven al publicar la presentación en la web?
 
-**¿Cómo puedo asegurar que las animaciones se conserven al publicar la presentación en la web?**
+[Exportar a HTML5](/slides/es/androidjava/export-to-html5/) y habilite las [opciones](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/html5options/) responsables de animaciones de [shape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) y [transition](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-). El HTML plano no reproduce animaciones de diapositivas, mientras que HTML5 sí lo hace.
 
-[Exportar a HTML5](/slides/es/androidjava/export-to-html5/) y habilita las [opciones](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/) responsables de las animaciones de [shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) y de [transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-). El HTML simple no reproduce animaciones de diapositiva, mientras que HTML5 sí.
+### ¿Cómo afecta al animación el cambio del orden Z (orden de capas) de las formas?
 
-**¿Cómo afecta al cambiar el orden Z (orden de capas) de las formas a la animación?**
+La animación y el orden de dibujo son independientes: un efecto controla el momento y el tipo de aparición/desaparición, mientras que el [z-order](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/shape/#getZOrderPosition--) determina qué cubre a qué. El resultado visible se define por su combinación. (Este es el comportamiento general de PowerPoint; el modelo de efectos y formas de Aspose.Slides sigue la misma lógica.)
 
-El orden Z y el orden de dibujo son independientes: un efecto controla la temporización y el tipo de aparición/desaparición, mientras que el orden Z determina qué cubre a qué. El resultado visible está definido por su combinación. (Este es el comportamiento general de PowerPoint; el modelo de efectos y formas de Aspose.Slides sigue la misma lógica.)
+### ¿Existen limitaciones al convertir animaciones a vídeo para ciertos efectos?
 
-**¿Existen limitaciones al convertir animaciones a vídeo para ciertos efectos?**
-
-En general, [las animaciones son compatibles](/slides/es/androidjava/convert-powerpoint-to-video/), pero casos raros o efectos específicos pueden renderizarse de forma diferente. Se recomienda probar con los efectos que utilizas y con la versión de la biblioteca.
+En general, [las animaciones están soportadas](/slides/es/androidjava/convert-powerpoint-to-video/), pero casos raros o efectos específicos pueden renderizarse de forma diferente. Se recomienda probar con los efectos que utilice y con la versión de la biblioteca.

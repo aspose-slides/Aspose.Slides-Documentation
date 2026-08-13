@@ -1,53 +1,62 @@
 ---
-title: تحويل PowerPoint إلى PDF مع الملاحظات
+title: تحويل عروض PowerPoint إلى PDF مع الملاحظات على Android
+linktitle: PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
 url: /ar/androidjava/convert-powerpoint-to-pdf-with-notes/
-keywords: "تحويل powerpoint إلى pdf مع الملاحظات في java"
-description: "تحويل PowerPoint إلى PDF مع الملاحظات في Java"
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى PDF
+- العرض التقديمي إلى PDF
+- الشريحة إلى PDF
+- PPT إلى PDF
+- PPTX إلى PDF
+- حفظ العرض التقديمي كـ PDF
+- حفظ PPT كـ PDF
+- حفظ PPTX كـ PDF
+- تصدير PPT إلى PDF
+- تصدير PPTX إلى PDF
+- ملاحظات المتحدث
+- PDF مع ملاحظات
+- Android
+- Java
+- Aspose.Slides
+description: "تحويل صيغ PPT و PPTX إلى PDF مع ملاحظات باستخدام Aspose.Slides لأندرويد عبر جافا. الحفاظ على التخطيطات وملاحظات المتحدث للعروض التقديمية الاحترافية."
 ---
+## **نظرة عامة**
 
-## **تحويل PowerPoint إلى PDF بحجم شريحة مخصص**
-يوضح المثال التالي كيفية تحويل عرض تقديمي إلى وثيقة PDF تحتوي على الملاحظات بحجم شريحة مخصص. حيث تساوي كل بوصة 72.
+في هذه المقالة، ستتعلم كيفية تحويل عروض PowerPoint إلى صيغة PDF مع ملاحظات المتحدث باستخدام Aspose.Slides. سيتناول هذا الدليل الخطوات الضرورية ويوفر أمثلة على الشيفرة لمساعدتك على إنجاز هذه المهمة بفعالية. بنهاية هذه المقالة، سيمكنك:
+
+- تنفيذ عملية التحويل لتحويل شرائح PowerPoint إلى مستندات PDF مع الحفاظ على ملاحظات المتحدث.
+- تخصيص ملف PDF الناتج لضمان تضمين ملاحظات المتحدث وتنسيقها وفق متطلباتك.
+
+## **تحويل PowerPoint إلى PDF مع الملاحظات**
+
+يمكن استخدام طريقة `save` في فئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) لتحويل عرض PPT أو PPTX إلى PDF مع ملاحظات المتحدث. باستخدام Aspose.Slides، تقوم بتحميل العرض، وتكوين خيارات التخطيط باستخدام فئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/notescommentslayoutingoptions/) لتضمين ملاحظات المتحدث، ثم حفظ الملف كـ PDF. يوضح المقتطف البرمجي التالي كيفية تحويل عرض توضيحي نموذجي إلى PDF في طريقة عرض ملاحظات الشرائح.
 
 ```java
-// إنشاء كائن Presentation يمثل ملف العرض التقديمي
-Presentation presIn = new Presentation("SelectedSlides.pptx");
-Presentation presOut = new Presentation();
-try {
-    ISlide slide = presIn.getSlides().get_Item(0);
-    presOut.getSlides().insertClone(0, slide);
-    
-    // إعداد نوع وحجم الشريحة
-    presOut.getSlideSize().setSize(612F, 792F,SlideSizeScaleType.EnsureFit);
-        
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
+import com.aspose.slides.*;
 
-    presOut.save("PDF-SelectedSlide.pdf", SaveFormat.Pdf, pdfOptions);
+Presentation presentation = new Presentation("sample.pptx");
+try {
+	// تهيئة خيارات PDF لعرض ملاحظات المتحدث.
+	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // عرض ملاحظات المتحدث أسفل الشريحة.
+
+	PdfOptions pdfOptions = new PdfOptions();
+	pdfOptions.setSlidesLayoutOptions(notesOptions);
+
+	// حفظ العرض التقديمي كـ PDF مع ملاحظات المتحدث.
+	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (presIn != null) presIn.dispose();
-    if (presOut != null) presOut.dispose();
+	if (presentation != null) presentation.dispose();
 }
 ```
 
-## **تحويل PowerPoint إلى PDF في عرض شريحة الملاحظات**
-يمكن استخدام طريقة [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) التي تقدمها فئة [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) لتحويل العرض التقديمي بالكامل في عرض شريحة الملاحظات إلى PDF. تحديثات الشيفرة أدناه تُعدل العرض التقديمي النموذجي إلى PDF في عرض شريحة الملاحظات.
-
-```java
-Presentation pres = new Presentation("presentation.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-
-    pres.save(resourcesOutputPath+"PDF-Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{% alert color="primary" %}} 
-
-قد ترغب في الاطلاع على محول Aspose [PowerPoint إلى PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) أو [PPT إلى PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
-{{% /alert %}} 
+{{% alert color="info" %}} 
+قد ترغب في تجربة أداة Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/ar/conversion). 
+{{% /alert %}}

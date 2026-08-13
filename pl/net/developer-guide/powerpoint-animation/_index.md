@@ -6,17 +6,17 @@ weight: 150
 url: /pl/net/powerpoint-animation/
 keywords:
 - dodaj animację
-- aktualizuj animację
+- zaktualizuj animację
 - zmień animację
 - usuń animację
 - zarządzaj animacją
 - kontroluj animację
 - efekt animacji
 - animacja PowerPoint
-- oś czasu animacji
+- linia czasu animacji
 - animacja interaktywna
 - animacja niestandardowa
-- animacja kształtów
+- animacja kształtu
 - animowany wykres
 - animowany tekst
 - animowany kształt
@@ -27,28 +27,28 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Poznaj możliwości Aspose.Slides dla .NET w obsłudze animacji PowerPoint. Ten ogólny przegląd podkreśla kluczowe funkcje i oferuje wskazówki, jak ulepszyć swoje prezentacje."
+description: "Poznaj możliwości Aspose.Slides dla .NET w obsłudze animacji PowerPoint. Ten ogólny przegląd podkreśla kluczowe funkcje i oferuje wskazówki, jak ulepszyć Twoje prezentacje."
 ---
 ## **Wprowadzenie**
 
-Ponieważ prezentacje mają na celu przedstawienie czegoś, ich wygląd wizualny oraz zachowanie interaktywne są zawsze brane pod uwagę podczas tworzenia.
+Ponieważ prezentacje służą do przedstawiania czegoś, ich wygląd wizualny i interaktywne zachowanie są zawsze brane pod uwagę podczas tworzenia.
 
-**Animacja PowerPoint** odgrywa ważną rolę w czynieniu prezentacji przyciągającej uwagę i angażującej odbiorców. Aspose.Slides for .NET udostępnia szeroką gamę opcji dodawania animacji do prezentacji PowerPoint:
+**Animacja PowerPoint** odgrywa ważną rolę w uczynieniu prezentacji atrakcyjną i angażującą dla odbiorców. Aspose.Slides for .NET oferuje szeroką gamę opcji dodawania animacji do prezentacji PowerPoint:
 
-- Stosuj różne rodzaje efektów animacji PowerPoint do kształtów, wykresów, tabel, obiektów OLE i innych elementów prezentacji.
-- Używaj wielu efektów animacji PowerPoint na jednym kształcie.
-- Wykorzystuj oś czasu animacji do kontrolowania efektów animacji.
-- Twórz niestandardowe animacje.
+- Zastosowanie różnych typów efektów animacji PowerPoint do kształtów, wykresów, tabel, obiektów OLE i innych elementów prezentacji.
+- Użycie wielu efektów animacji PowerPoint na jednym kształcie.
+- Wykorzystanie linii czasu animacji do kontrolowania efektów animacji.
+- Tworzenie animacji niestandardowych.
 
-W Aspose.Slides for .NET można zastosować różne efekty animacji do kształtów. Ponieważ każdy element na slajdzie, w tym tekst, obrazy, obiekty OLE i tabele, jest uważany za kształt, efekty animacji mogą być zastosowane do dowolnego elementu na slajdzie.
+W Aspose.Slides for .NET można stosować różne efekty animacji do kształtów. Ponieważ każdy element na slajdzie, w tym tekst, obrazy, obiekty OLE i tabele, jest traktowany jako kształt, efekty animacji mogą być stosowane do dowolnego elementu na slajdzie.
 
-[Aspose.Slides.Animation](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/) namespace zapewnia klasy do pracy z animacjami PowerPoint.
+[Aspose.Slides.Animation](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/) namespace udostępnia klasy do pracy z animacjami PowerPoint.
 
 ## **Efekty animacji**
 
-Aspose.Slides obsługuje **ponad 150 efektów animacji**, w tym podstawowe efekty takie jak Bounce, PathFootball i Zoom, a także konkretne efekty takie jak OLEObjectShow i OLEObjectOpen. Pełną listę efektów animacji znajdziesz w wyliczeniu [EffectType](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/effecttype).
+Aspose.Slides obsługuje **ponad 150 efektów animacji**, w tym podstawowe efekty, takie jak Bounce, PathFootball i Zoom, oraz specyficzne efekty, takie jak OLEObjectShow i OLEObjectOpen. Pełną listę efektów animacji znajdziesz w wyliczeniu [EffectType](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/effecttype).
 
-Dodatkowo, te efekty animacji mogą być używane w połączeniu z następującymi:
+Dodatkowo te efekty animacji mogą być używane w połączeniu z następującymi:
 
 - [ColorEffect](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/coloreffect)
 - [CommandEffect](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/commandeffect)
@@ -59,58 +59,58 @@ Dodatkowo, te efekty animacji mogą być używane w połączeniu z następujący
 - [ScaleEffect](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/scaleeffect)
 - [SetEffect](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/seteffect)
 
-## **Niestandardowa animacja**
+## **Animacja niestandardowa**
 
 Możliwe jest tworzenie własnych **animacji niestandardowych** w Aspose.Slides. Można to osiągnąć, łącząc kilka zachowań w nową animację niestandardową.
 
-[Behaviour](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/behavior) jest elementem budulcowym każdego efektu animacji PowerPoint. Wszystkie efekty animacji to w zasadzie zestaw zachowań składających się w jedną strategię. Możesz połączyć zachowania w animację niestandardową raz i ponownie używać jej w innych prezentacjach. Jeśli dodasz nowe zachowanie do standardowego efektu animacji PowerPoint, stanie się ono kolejną animacją niestandardową. Na przykład, możesz dodać zachowanie powtarzania do animacji, aby powtórzyła się kilka razy.
+[Behaviour](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/behavior) jest elementem budulcowym dowolnego efektu animacji PowerPoint. Wszystkie efekty animacji to w zasadzie zestaw zachowań składających się w jedną strategię. Możesz połączyć zachowania w animację niestandardową raz i ponownie używać jej w innych prezentacjach. Jeśli dodasz nowe zachowanie do standardowego efektu animacji PowerPoint, stanie się ono kolejną animacją niestandardową. Na przykład możesz dodać zachowanie powtarzania do animacji, aby powtarzała się kilka razy.
 
-[Animation Point](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/point) jest punktem, w którym należy zastosować zachowanie.
+[Animation Point](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/point) to punkt, w którym powinno zostać zastosowane zachowanie.
 
 ## **Oś czasu animacji**
 
-[Sequence](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/sequence) jest kolekcją efektów animacji zastosowanych do określonego kształtu.
+[Sequence](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/sequence) to kolekcja efektów animacji zastosowanych do konkretnego kształtu.
 
-[Timeline](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/animationtimeline) jest zestawem sekwencji używanych w konkretnym slajdzie. Jest to silnik animacji wprowadzony w PowerPoint 2002. W wcześniejszych wersjach PowerPoint dodawanie efektów animacji do prezentacji było trudne i można było to osiągnąć jedynie przy użyciu różnych obejść. Oś czasu zastępuje starą klasę AnimationSettings i zapewnia przejrzystszy model obiektowy dla animacji PowerPoint. Slajd może mieć tylko jedną oś czasu animacji.
+[Timeline](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/animationtimeline) to zestaw sekwencji używanych w określonym slajdzie. Jest to silnik animacji wprowadzony w PowerPoint 2002. We wcześniejszych wersjach PowerPoint dodawanie efektów animacji do prezentacji było trudne i wymagało różnych obejść. Oś czasu zastępuje starą klasę AnimationSettings i zapewnia przejrzystszy model obiektowy animacji PowerPoint. Slajd może mieć tylko jedną oś czasu animacji.
 
 ## **Animacja interaktywna**
 
-[Trigger](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/effecttriggertype) pozwala zdefiniować akcje użytkownika (np. kliknięcie przycisku), które uruchomią określoną animację. Wyzwalacze zostały wprowadzone w najnowszej wersji PowerPoint.
+[Trigger](https://reference.aspose.com/slides/pl/net/aspose.slides.animation/effecttriggertype) pozwala zdefiniować akcje użytkownika (np. kliknięcie przycisku), które uruchomią określoną animację. Triggery zostały wprowadzone w najnowszej wersji PowerPoint.
 
 ## **Animacja kształtów**
 
 Aspose.Slides umożliwia stosowanie animacji do kształtów, które mogą obejmować tekst, prostokąty, linie, ramki, obiekty OLE i inne.
 
-{{% alert color="primary" %}} 
-Czytaj więcej [**O animacji kształtów**](/slides/pl/net/shape-animation/).
+{{% alert color="info" %}} 
+Read more [**About Shape Animation**](/slides/pl/net/shape-animation/).
 {{% /alert %}}
 
 ## **Animowane wykresy**
 
-Aby utworzyć animowane wykresy, należy używać tych samych klas co dla kształtów. Jednak animacje PowerPoint mogą być stosowane wyłącznie do kategorii wykresu lub serii wykresu. Można również zastosować efekty animacji do elementu kategorii lub elementu serii.
+Aby tworzyć animowane wykresy, należy używać tych samych klas co dla kształtów. Jednak animacje PowerPoint można stosować tylko do kategorii wykresu lub serii wykresu. Efekty animacji można także zastosować do elementu kategorii lub elementu serii.
 
-{{% alert color="primary" %}} 
-Czytaj więcej [**O animowanych wykresach**](/slides/pl/net/animated-charts/).
+{{% alert color="info" %}} 
+Read more [**About Animated Charts**](/slides/pl/net/animated-charts/).
 {{% /alert %}}
 
 ## **Animowany tekst**
 
-Oprócz animowanego tekstu, można również zastosować animację do akapitu.
+Oprócz animowanego tekstu możliwe jest także zastosowanie animacji do akapitu.
 
-{{% alert color="primary" %}} 
-Czytaj więcej [**O animowanym tekście**](/slides/pl/net/animated-text/).
+{{% alert color="info" %}} 
+Read more [**About Animated Text**](/slides/pl/net/animated-text/).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy animacje zostaną zachowane przy eksporcie do PDF?**
+### Czy animacje zostaną zachowane przy eksporcie do PDF?
 
-Nie. PDF jest formatem statycznym, więc animacje i [przejścia slajdów](/slides/pl/net/slide-transition/) nie są odtwarzane. Jeśli potrzebujesz ruchu, wyeksportuj do [HTML5](/slides/pl/net/export-to-html5/), [animowanego GIF](/slides/pl/net/convert-powerpoint-to-animated-gif/) lub [wideo](/slides/pl/net/convert-powerpoint-to-video/) zamiast tego.
+Nie. PDF jest formatem statycznym, więc animacje i [przejścia slajdów](/slides/pl/net/slide-transition/) nie są odtwarzane. Jeśli potrzebujesz ruchu, wyeksportuj do [HTML5](/slides/pl/net/export-to-html5/), [animowanego GIF-a](/slides/pl/net/convert-powerpoint-to-animated-gif/) lub [wideo](/slides/pl/net/convert-powerpoint-to-video/) zamiast tego.
 
-**Czy mogę przekształcić animowaną prezentację w wideo i kontrolować liczbę klatek na sekundę oraz rozmiar klatki?**
+### Czy mogę przekształcić animowaną prezentację w wideo i kontrolować liczbę klatek na sekundę oraz rozmiar klatki?
 
-Tak. Możesz [wykonać renderowanie prezentacji jako klatki](/slides/pl/net/convert-powerpoint-to-video/) i zakodować je w wideo (np. przy użyciu ffmpeg), wybierając liczbę klatek na sekundę i rozdzielczość. Animacje i przejścia slajdów są odtwarzane podczas renderowania.
+Tak. Możesz [renderować prezentację jako klatki](/slides/pl/net/convert-powerpoint-to-video/) i zakodować je w wideo (np. za pomocą ffmpeg), wybierając FPS i rozdzielczość. Animacje i przejścia slajdów są odtwarzane podczas renderowania.
 
-**Czy animacje pozostaną nienaruszone przy pracy z ODP (a nie tylko PPTX)?**
+### Czy animacje pozostaną nienaruszone przy pracy z ODP (nie tylko PPTX)?
 
-PPT, PPTX i ODP są obsługiwane do [odczytu](/slides/pl/net/open-presentation/) i [zapisu](/slides/pl/net/save-presentation/), ale różnice formatów oznaczają, że niektóre efekty mogą wyglądać lub zachowywać się nieco inaczej. Zweryfikuj krytyczne przypadki przy użyciu rzeczywistych próbek.
+PPT, PPTX i ODP są obsługiwane przy [odczycie](/slides/pl/net/open-presentation/) i [zapisie](/slides/pl/net/save-presentation/), ale różnice formatów oznaczają, że niektóre efekty mogą wyglądać lub zachowywać się nieco inaczej. Zweryfikuj krytyczne przypadki na rzeczywistych próbkach.

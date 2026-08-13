@@ -1,52 +1,52 @@
 ---
-title: จัดรูปแบบข้อความโดยใช้ VSTO และ Aspose.Slides สำหรับ Java
+title: จัดรูปแบบข้อความด้วย VSTO และ Aspose.Slides สำหรับ Java
 linktitle: จัดรูปแบบข้อความ
 type: docs
 weight: 30
 url: /th/java/format-text-using-vsto-and-aspose-slides-for-java/
 keywords:
 - จัดรูปแบบข้อความ
-- การย้าย
+- การย้ายข้อมูล
 - VSTO
-- การอัตโนมัติของ Office
+- การทำงานอัตโนมัติของ Office
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Java
 - Aspose.Slides
-description: "ย้ายจากการอัตโนมัติของ Microsoft Office ไปยัง Aspose.Slides สำหรับ Java และจัดรูปแบบข้อความในงานนำเสนอ PowerPoint (PPT, PPTX) ด้วยการควบคุมที่แม่นยำ."
+description: "ย้ายจากการทำงานอัตโนมัติของ Microsoft Office ไปยัง Aspose.Slides สำหรับ Java และจัดรูปแบบข้อความในงานนำเสนอ PowerPoint (PPT, PPTX) ด้วยการควบคุมที่แม่นยำ."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-บางครั้งคุณอาจต้องจัดรูปแบบข้อความบนสไลด์โดยอัตโนมัติ บันทความนี้แสดงวิธีการอ่านงานนำเสนอตัวอย่างที่มีข้อความบนสไลด์แรกโดยใช้ [VSTO](/slides/th/java/format-text-using-vsto-and-aspose-slides-for-java/) หรือ [Aspose.Slides for Java](/slides/th/java/format-text-using-vsto-and-aspose-slides-for-java/) โค้ดจะจัดรูปแบบข้อความใน TextBox ที่สามของสไลด์ให้ดูเหมือนกับข้อความใน TextBox สุดท้าย
+บางครั้งคุณอาจต้องจัดรูปแบบข้อความบนสไลด์โดยอัตโนมัติ บทความนี้แสดงวิธีอ่านตัวอย่างการนำเสนอที่มีข้อความบนสไลด์แรกโดยใช้ [VSTO](/slides/th/java/format-text-using-vsto-and-aspose-slides-for-java/) หรือ [Aspose.Slides for Java](/slides/th/java/format-text-using-vsto-and-aspose-slides-for-java/). โค้ดจะจัดรูปแบบข้อความในกล่องข้อความที่สามบนสไลด์ให้เหมือนกับข้อความในกล่องข้อความสุดท้าย
 
-{{% /alert %}}
-## **การจัดรูปแบบข้อความ**
-ทั้งวิธีการของ VSTO และ Aspose.Slides มีขั้นตอนดังต่อไปนี้:
+{{% /alert %}} 
+## **Formatting Text**
+ทั้งวิธีของ VSTO และ Aspose.Slides จะทำตามขั้นตอนต่อไปนี้:
 
-1. เปิดงานนำเสนอต้นฉบับ
+1. เปิดไฟล์การนำเสนอต้นฉบับ
 1. เข้าถึงสไลด์แรก
-1. เข้าถึง TextBox ที่สาม
-1. เปลี่ยนการจัดรูปแบบของข้อความใน TextBox ที่สาม
-1. บันทึกงานนำเสนอลงดิสก์
+1. เข้าถึงกล่องข้อความที่สาม
+1. เปลี่ยนรูปแบบของข้อความในกล่องข้อความที่สาม
+1. บันทึกการนำเสนอลงดิสก์
 
-ภาพหน้าจอต่อไปนี้แสดงสไลด์ตัวอย่างก่อนและหลังการเรียกใช้โค้ดของ VSTO และ Aspose.Slides for Java
+ภาพหน้าจอด้านล่างแสดงสไลด์ตัวอย่างก่อนและหลังการทำงานของโค้ด VSTO และ Aspose.Slides for Java
 
-**งานนำเสนออินพุต**
+**การนำเสนอที่เป็นอินพุต** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_1.png)
-### **ตัวอย่างโค้ด VSTO**
-โค้ดด้านล่างแสดงวิธีการจัดรูปแบบข้อความบนสไลด์โดยใช้ VSTO
+### **VSTO Code Example**
+โค้ดด้านล่างแสดงวิธีการจัดรูปแบบข้อความใหม่บนสไลด์ด้วย VSTO
 
-**ข้อความที่จัดรูปแบบใหม่ด้วย VSTO**
+**ข้อความที่จัดรูปแบบใหม่ด้วย VSTO** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_2.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-FormatTextUsingVSTO-FormatTextUsingVSTO.cs" >}}
 
-### **ตัวอย่าง Aspose.Slides for Java**
-เพื่อจัดรูปแบบข้อความด้วย Aspose.Slides ให้เพิ่มแบบอักษรก่อนการจัดรูปแบบข้อความ
+### **Aspose.Slides for Java Example**
+เพื่อจัดรูปแบบข้อความด้วย Aspose.Slides ให้เพิ่มฟอนต์ก่อนการจัดรูปแบบข้อความ
 
-**งานนำเสนอผลลัพธ์ที่สร้างด้วย Aspose.Slides**
+**การนำเสนอผลลัพธ์ที่สร้างด้วย Aspose.Slides** 
 
 ![todo:image_alt_text](format-text-using-vsto-and-aspose-slides-for-java_3.png)
 

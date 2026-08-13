@@ -1,5 +1,5 @@
 ---
-title: Převod PowerPoint prezentací do TIFF v Java
+title: Převést prezentace PowerPoint do TIFF v Javě
 titlelink: PowerPoint do TIFF
 type: docs
 weight: 90
@@ -22,21 +22,23 @@ keywords:
 - exportovat PPTX do TIFF
 - Java
 - Aspose.Slides
-description: "Zjistěte, jak snadno převést PowerPoint (PPT, PPTX) prezentace na vysoce kvalitní TIFF obrázky pomocí Aspose.Slides pro Java, s příklady kódu."
+description: "Naučte se snadno převádět prezentace PowerPoint (PPT, PPTX) do vysoce kvalitních TIFF obrázků pomocí Aspose.Slides pro Javu, včetně ukázek kódu."
 ---
 ## **Úvod**
 
-TIFF (**Tagged Image File Format**) je široce používaný, bezztrátový rastrový formát obrázků, známý pro svou vynikající kvalitu a podrobné zachování grafiky. Designéři, fotografové i desktopeři často volí TIFF k zachování vrstev, barevné přesnosti a původních nastavení ve svých obrázcích.
+TIFF (**Tagged Image File Format**) je široce používaný bezztrátový rastrový formát obrázků, známý pro svou vynikající kvalitu a detailní zachování grafiky. Designéři, fotografové a desktopoví vydavatelé často volí TIFF k zachování vrstev, přesnosti barev a původních nastavení v jejich obrázcích.
 
-Pomocí Aspose.Slides můžete snadno převést své PowerPoint slajdy (PPT, PPTX) a slajdy OpenDocument (ODP) přímo na vysoce kvalitní TIFF obrázky, čímž zajistíte, že vaše prezentace zachová maximální vizuální věrnost. 
+Pomocí Aspose.Slides můžete snadno převést své snímky PowerPointu (PPT, PPTX) a snímky OpenDocument (ODP) přímo do vysoce kvalitních TIFF obrázků, čímž zajistíte, že vaše prezentace zachovají maximální vizuální věrnost.
 
-## **Převod prezentace do TIFF**
+## **Převést prezentaci do TIFF**
 
-Pomocí metody [save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) poskytované třídou [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) můžete rychle převést celou PowerPoint prezentaci do TIFF. Výsledné TIFF obrázky odpovídají výchozí velikosti slajdu.
+Pomocí metody [save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) poskytované třídou [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) můžete rychle převést celou prezentaci PowerPointu do TIFF. Výsledné TIFF obrázky odpovídají výchozí velikosti snímku.
 
-Tento kód ukazuje, jak převést PowerPoint prezentaci do TIFF:
+Tento kód ukazuje, jak převést prezentaci PowerPoint do TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace (PPT, PPTX, ODP atd.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -47,17 +49,19 @@ try {
 }
 ```
 
-## **Převod prezentace do černobílého TIFF**
+## **Převést prezentaci do černobílého TIFF**
 
-Metoda [setBwConversionMode](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) ve třídě [TiffOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/) vám umožňuje určit algoritmus používaný při převodu barevného slajdu nebo obrázku do černobílého TIFF. Všimněte si, že toto nastavení platí pouze v případě, že je metoda [setCompressionType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) nastavena na `CCITT4` nebo `CCITT3`.
+Metoda [setBwConversionMode](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) ve třídě [TiffOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/) umožňuje určit algoritmus používaný při převodu barevného snímku nebo obrázku do černobílého TIFF. Všimněte si, že toto nastavení platí pouze tehdy, když je metoda [setCompressionType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) nastavena na `CCITT4` nebo `CCITT3`.
 
-Předpokládejme, že máme soubor "sample.pptx" s následujícím slajdem:
+Řekněme, že máme soubor "sample.pptx" s následujícím snímkem:
 
 ![Snímek prezentace](slide_black_and_white.png)
 
-Tento kód ukazuje, jak převést barevný slajd do černobílého TIFF:
+Tento kód ukazuje, jak převést barevný snímek do černobílého TIFF:
 
 ```java
+import com.aspose.slides.*;
+
 TiffOptions tiffOptions = new TiffOptions();
 tiffOptions.setCompressionType(TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(BlackWhiteConversionMode.Dithering);
@@ -74,13 +78,16 @@ Výsledek:
 
 ![Černobílý TIFF](TIFF_black_and_white.png)
 
-## **Převod prezentace do TIFF s vlastním rozměrem**
+## **Převést prezentaci do TIFF s vlastní velikostí**
 
-Pokud potřebujete TIFF obrázek s konkrétními rozměry, můžete nastavit požadované hodnoty pomocí metod dostupných ve třídě [TiffOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/). Například metoda [setImageSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) vám umožňuje definovat velikost výsledného obrázku.
+Pokud potřebujete TIFF obrázek s konkrétními rozměry, můžete nastavit požadované hodnoty pomocí metod dostupných ve třídě [TiffOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/). Například metoda [setImageSize](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) umožňuje definovat velikost výsledného obrázku.
 
-Tento kód ukazuje, jak převést PowerPoint prezentaci na TIFF obrázky s vlastním rozměrem:
+Tento kód ukazuje, jak převést prezentaci PowerPoint do TIFF obrázků s vlastní velikostí:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Dimension;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace (PPT, PPTX, ODP atd.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -107,24 +114,26 @@ try {
     // Nastavte velikost obrázku.
     tiffOptions.setImageSize(new Dimension(1728, 1078));
 
-    INotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Uložte prezentaci jako TIFF se zadanou velikostí.
+    // Uložte prezentaci jako TIFF se specifikovanou velikostí.
     presentation.save("tiff-ImageSize.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Převod prezentace do TIFF s vlastním formátem pixelů obrázku**
+## **Převést prezentaci do TIFF s vlastním formátem pixelů**
 
-Pomocí metody [setPixelFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) ze třídy [TiffOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/) můžete zadat požadovaný formát pixelů pro výsledný TIFF obrázek.
+Pomocí metody [setPixelFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) ze třídy [TiffOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/tiffoptions/) můžete určit preferovaný formát pixelů pro výsledný TIFF obrázek.
 
-Tento kód ukazuje, jak převést PowerPoint prezentaci na TIFF obrázek s vlastním formátem pixelů:
+Tento kód ukazuje, jak převést prezentaci PowerPoint do TIFF obrázku s vlastním formátem pixelů:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace (PPT, PPTX, ODP atd.).
 Presentation presentation = new Presentation("presentation.pptx");
 try {
@@ -132,35 +141,35 @@ try {
 
     tiffOptions.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
     /*
-    ImagePixelFormat obsahuje následující hodnoty (dle dokumentace):
-        Format1bppIndexed - 1 bit na pixel, indexováno.
-        Format4bppIndexed - 4 bity na pixel, indexováno.
-        Format8bppIndexed - 8 bitů na pixel, indexováno.
+    ImagePixelFormat obsahuje následující hodnoty (jak je uvedeno v dokumentaci):
+        Format1bppIndexed - 1 bit na pixel, indexovaný.
+        Format4bppIndexed - 4 bity na pixel, indexovaný.
+        Format8bppIndexed - 8 bitů na pixel, indexovaný.
         Format24bppRgb    - 24 bitů na pixel, RGB.
         Format32bppArgb   - 32 bitů na pixel, ARGB.
     */
     
-    // Uložte prezentaci jako TIFF se zadanou velikostí obrázku.
+    // Uložte prezentaci jako TIFF se specifikovaným formátem pixelů.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Tip" color="primary" %}}
-Vyzkoušejte bezplatný konvertor PowerPoint na plakát od Aspose [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/cs/conversion/convert-ppt-to-poster-online).
+{{% alert title="Tip" color="info" %}}
+Podívejte se na [ZDARMA převaděč PowerPoint na plakát](https://products.aspose.app/slides/cs/conversion/convert-ppt-to-poster-online) od Aspose.
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Mohu převést jednotlivý slajd místo celé PowerPoint prezentace do TIFF?**
+### Mohu převést jednotlivý snímek místo celé prezentace PowerPoint do TIFF?
 
-Ano. Aspose.Slides vám umožňuje převést jednotlivé slajdy z PowerPoint a OpenDocument prezentací do TIFF obrázků samostatně.
+Ano. Aspose.Slides vám umožňuje převádět jednotlivé snímky z prezentací PowerPoint a OpenDocument do TIFF obrázků samostatně.
 
-**Existuje nějaký limit počtu slajdů při převodu prezentace do TIFF?**
+### Existuje nějaký limit počtu snímků při převodu prezentace do TIFF?
 
-Ne, Aspose.Slides neuvádí žádná omezení počtu slajdů. Můžete převést prezentace libovolné velikosti do formátu TIFF.
+Ne, Aspose.Slides nekladne žádná omezení na počet snímků. Můžete převádět prezentace jakékoli velikosti do formátu TIFF.
 
-**Zachovají se při převodu slajdů do TIFF animace a přechodové efekty PowerPointu?**
+### Zachovají se při převodu snímků do TIFF animace a přechodové efekty PowerPointu?
 
-Ne, TIFF je formát statických obrázků. Animace a přechodové efekty tedy nejsou zachovány; exportovány jsou pouze statické snímky slajdů.
+Ne, TIFF je statický formát obrázku. Proto nejsou animace a přechodové efekty zachovány; exportovány jsou pouze statické snímky snímků.

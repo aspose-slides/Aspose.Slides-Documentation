@@ -1,5 +1,5 @@
 ---
-title: Új prezentációk létrehozása VSTO és Aspose.Slides for Java használatával
+title: VSTO és Aspose.Slides for Java használata új prezentációk létrehozásához
 linktitle: Új prezentáció létrehozása
 type: docs
 weight: 10
@@ -14,23 +14,23 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Migráljon a Microsoft Office automatizálásból az Aspose.Slides for Java-ra, és hozzon létre új PowerPoint (PPT, PPTX) prezentációkat Java-ban tiszta, megbízható kóddal."
+description: "Migráljon a Microsoft Office automatizálásról az Aspose.Slides for Java-ra, és hozzon létre új PowerPoint (PPT, PPTX) prezentációkat Java-ban tiszta, megbízható kóddal."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Az VSTO-t azért fejlesztették ki, hogy a fejlesztők olyan alkalmazásokat építhessenek, melyek a Microsoft Office-on belül futtathatók. Az VSTO COM-alapú, de egy .NET objektumba van becsomagolva, így .NET alkalmazásokban is használható. Az VSTO‑nek szüksége van a .NET keretrendszer támogatására, valamint a Microsoft Office CLR‑alapú futtatókörnyezetére. Bár használható Microsoft Office kiegészítők készítésére, szinte lehetetlen szerveroldali komponensként alkalmazni. Emellett súlyos telepítési problémákkal is rendelkezik.
+A VSTO-t úgy fejlesztették ki, hogy a fejlesztők olyan alkalmazásokat készíthessenek, amelyek a Microsoft Office-ban futtathatók. A VSTO COM-alapú, de egy .NET objektumba van beágyazva, így .NET alkalmazásokban is használható. A VSTO-hoz .NET keretrendszer támogatásra, valamint a Microsoft Office CLR-alapú futtatókörnyezetre van szükség. Bár használható Microsoft Office kiegészítők készítésére, szinte lehetetlen szerveroldali komponensként alkalmazni. Emellett komoly telepítési problémákkal is küzd.
 
-Aspose.Slides for Java egy olyan komponens, amely a Microsoft PowerPoint prezentációk manipulálására használható, akárcsak az VSTO, de több előnnyel rendelkezik:
+Az Aspose.Slides for Java egy olyan komponens, amely a Microsoft PowerPoint prezentációk manipulálására használható, akárcsak a VSTO, de több előnnyel is rendelkezik:
 
-- Az Aspose.Slides csak kezelt kódot tartalmaz, és nem igényli a Microsoft Office futtatókörnyezet telepítését.
+- Az Aspose.Slides csak kezelt kódot tartalmaz, és nem igényel Microsoft Office futtatókörnyezet telepítését.
 - Használható kliensoldali vagy szerveroldali komponensként.
-- A telepítés egyszerű, mivel az Aspose.Slides egyetlen jar fájlban van.
+- A telepítés egyszerű, mivel az Aspose.Slides egyetlen JAR fájlban található.
 
 {{% /alert %}} 
 ## **Prezentáció létrehozása**
-Alább két kódrészlet látható, amely bemutatja, hogyan használhatók az VSTO és az Aspose.Slides for Java a ugyanarra a célra. Az első példa a [VSTO](/slides/hu/java/create-a-new-presentation/); a [második példa](/slides/hu/java/create-a-new-presentation/) az Aspose.Slides‑et használja.
+Alább két kódrészlet látható, amely bemutatja, hogyan lehet a VSTO-t és az Aspose.Slides for Java-t ugyanarra a célra felhasználni. Az első példát [VSTO](/slides/hu/java/create-a-new-presentation/); a [a második példát](/slides/hu/java/create-a-new-presentation/) az Aspose.Slides használja.
 ### **VSTO példa**
-**Az VSTO kimenete** 
+**A VSTO kimenet** 
 
 ![todo:image_alt_text](create-a-new-presentation_1.png)
 

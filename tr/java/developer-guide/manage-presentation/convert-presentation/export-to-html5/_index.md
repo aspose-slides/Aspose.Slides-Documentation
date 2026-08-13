@@ -1,16 +1,16 @@
 ---
 title: Java'da Sunumları HTML5'e Dönüştür
-linktitle: Sunumu HTML5'e
+linktitle: Sunumdan HTML5'e
 type: docs
 weight: 40
 url: /tr/java/export-to-html5/
 keywords:
-- PowerPoint'ten HTML5'e
+- PowerPoint'tan HTML5'e
 - OpenDocument'ten HTML5'e
 - sunumdan HTML5'e
 - slayttan HTML5'e
 - PPT'den HTML5'e
-- PPTX'den HTML5'e
+- PPTX'ten HTML5'e
 - ODP'den HTML5'e
 - PPT'yi HTML5 olarak kaydet
 - PPTX'i HTML5 olarak kaydet
@@ -20,17 +20,19 @@ keywords:
 - ODP'yi HTML5'e dışa aktar
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument sunumlarını duyarlı HTML5'e dışa aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
+description: "PowerPoint ve OpenDocument sunumlarını Java için Aspose.Slides ile duyarlı HTML5'e dışa aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarını HTML5'e nasıl dönüştüreceğinizi açıklar. Web uzantıları veya ek bağımlılıklar olmadan temel HTML5 dışa aktarmayı ve şekil animasyonları ile slayt geçişlerini kontrol etme seçeneklerini kapsar. Makale ayrıca standart PowerPoint‑to‑HTML dışa aktarma sürecini gösterir, slayt görünüm modunda HTML5 çıktısı nasıl oluşturulacağını açıklar ve dışa aktarılan belgede yorumları düzenlerini yapılandırarak nasıl ekleyeceğinizi gösterir.
+Bu makale, PowerPoint sunumlarını Aspose.Slides kullanarak HTML5'e dönüştürmeyi açıklar. Web uzantıları veya ek bağımlılıklar olmadan temel HTML5 dışa aktarmayı, ayrıca şekil animasyonları ve slayt geçişlerini kontrol etme seçeneklerini kapsar. Makale ayrıca standart PowerPoint‑to‑HTML dışa aktarma sürecini gösterir, slayt görünümü modunda HTML5 çıktısı oluşturmayı açıklar ve dışa aktarılan belgede yorumları yerleşimlerini yapılandırarak nasıl ekleyeceğinizi gösterir.
 
 ## **PowerPoint'i HTML5'e Dışa Aktar**
 
-Bu Java kodu, bir sunumu web uzantıları ve bağımlılıklar olmadan HTML5'e nasıl dışa aktaracağınızı gösterir:
+Bu Java kodu bir sunumu web uzantıları ve bağımlılıklar olmadan HTML5'e nasıl dışa aktaracağınızı gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -39,13 +41,15 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-Bu durumda temiz HTML elde edersiniz. 
+{{% alert color="info" %}} 
+Bu durumda, temiz HTML elde edersiniz. 
 {{% /alert %}}
 
-Şekil animasyonları ve slayt geçişleri için ayarları bu şekilde belirlemek isteyebilirsiniz:
+Bu şekilde şekil animasyonları ve slayt geçişleri için ayarları belirtebilirsiniz:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -58,11 +62,13 @@ try {
 }
 ```
 
-## **PowerPoint'i HTML'e Dışa Aktar**
+## **PowerPoint'i HTML'ye Dışa Aktar**
 
-Bu Java, standart PowerPoint‑to‑HTML sürecini gösterir:
+Bu Java kodu standart PowerPoint‑to‑HTML sürecini gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -71,7 +77,7 @@ try {
 }
 ```
 
-Bu durumda, sunum içeriği aşağıdaki gibi bir biçimde SVG aracılığıyla render edilir:
+Bu durumda, sunum içeriği aşağıdaki gibi bir SVG biçiminde işlenir:
 
 ```html
 <body>
@@ -83,17 +89,19 @@ Bu durumda, sunum içeriği aşağıdaki gibi bir biçimde SVG aracılığıyla 
 </body>
 ```
 
-{{% alert title="Not" color="warning" %}} 
-Bu yöntemi kullanarak PowerPoint'i HTML'e dışa aktardığınızda, SVG render'ı nedeniyle stil uygulayamaz veya belirli öğeleri animasyonla hareket ettiremezsiniz. 
+{{% alert title="Note" color="warning" %}} 
+Bu yöntemi PowerPoint'i HTML'ye dışa aktarmak için kullandığınızda, SVG renderlaması nedeniyle belirli öğelere stil uygulayamaz veya animasyon ekleyemezsiniz. 
 {{% /alert %}}
 
-## **PowerPoint'i HTML5 Slayt Görünümüne Dışa Aktar**
+## **PowerPoint'i HTML5 Slayt Görünümüyle Dışa Aktar**
 
-**Aspose.Slides**, slaytların slayt görünüm modunda sunulduğu bir HTML5 belgesine PowerPoint sunumunu dönüştürmenizi sağlar. Bu durumda, oluşturulan HTML5 dosyasını bir tarayıcıda açtığınızda, sunumu web sayfasında slayt görünüm modunda görürsünüz.
+**Aspose.Slides**, slaytların slayt görünümü modunda sunulduğu bir HTML5 belgesine PowerPoint sunumunu dönüştürmenizi sağlar. Bu durumda, oluşturulan HTML5 dosyasını bir tarayıcıda açtığınızda, sunumu bir web sayfasında slayt görünümü modunda görürsünüz. 
 
-Bu Java kodu, PowerPoint'ten HTML5 Slayt Görünümü dışa aktarım sürecini gösterir:
+Bu Java kodu PowerPoint'i HTML5 Slayt Görünümü dışa aktarma sürecini gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -106,40 +114,45 @@ try {
 }
 ```
 
-## **Sunumları Yorumlarla HTML5 Belgelere Dönüştür**
+## **Sunumları Yorumlu HTML5 Belgelerine Dönüştürme**
 
-PowerPoint'teki yorumlar, kullanıcıların sunum slaytlarına notlar veya geri bildirim bırakmasına olanak tanıyan bir araçtır. Özellikle birden fazla kişinin ana içeriği değiştirmeden belirli slayt öğelerine öneri veya not ekleyebildiği işbirlikli projelerde faydalıdır. Her yorum, yazarın adını gösterir, böylece yorumu kimin bıraktığını takip etmek kolaylaşır.
+PowerPoint'teki yorumlar, kullanıcıların sunum slaytlarında not veya geri bildirim bırakmasını sağlayan bir araçtır. Özellikle birden çok kişinin ana içeriği değiştirmeden belirli slayt öğelerine öneri veya açıklama ekleyebildiği işbirlikli projelerde faydalıdır. Her yorum, yazarın adını gösterir, böylece kimin eklediği kolayca izlenebilir.
 
-Diyelim ki aşağıdaki PowerPoint sunumu "sample.pptx" dosyasında kaydedilmiş.
+Örneğin, "sample.pptx" dosyasında aşağıdaki PowerPoint sunumunun bulunduğunu varsayalım.
 
 ![Sunum slaytındaki iki yorum](two_comments_pptx.png)
 
-PowerPoint sunumunu HTML5 belgesine dönüştürdüğünüzde, yorumların çıktı belgesine dahil edilip edilmeyeceğini kolayca belirtebilirsiniz. Bunu yapmak için, yorumların görüntüleme parametrelerini [Html5Options](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/) sınıfının `getNotesCommentsLayouting` metodunda belirtmeniz gerekir.
+PowerPoint sunumunu HTML5 belgesine dönüştürdüğünüzde, çıktıda yorumların dahil edilip edilmeyeceğini kolayca belirtebilirsiniz. Bunu yapmak için yorumların görüntüleme parametrelerini `setSlidesLayoutOptions` metoduna [Html5Options](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/) sınıfı üzerinden geçirin.
 
-Aşağıdaki kod örneği, sunumu slaytların sağ tarafında yorumlar gösterilecek şekilde bir HTML5 belgesine dönüştürür.
+Aşağıdaki kod örneği, yorumların slaytların sağına yerleştirildiği bir HTML5 belgesi oluşturur.
 ```java
+import com.aspose.slides.*;
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-"output.html" belgesi aşağıdaki görselde gösterilmiştir.
+"output.html" belgesi aşağıdaki görüntüde gösterilmiştir.
 
 ![Çıktı HTML5 belgesindeki yorumlar](two_comments_html5.png)
 
 ## **SSS**
 
-**HTML5'te nesne animasyonları ve slayt geçişlerinin oynatılıp oynatılmayacağını kontrol edebilir miyim?**
+### HTML5'te nesne animasyonları ve slayt geçişlerinin oynatılıp oynatılmayacağını kontrol edebilir miyim?
 
-Evet, HTML5, [shape animations](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) ve [slide transitions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) etkinleştirmek veya devre dışı bırakmak için ayrı seçenekler sunar.
+Evet, HTML5, [şekil animasyonlarını](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) ve [slayt geçişlerini](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) etkinleştirmek veya devre dışı bırakmak için ayrı seçenekler sunar.
 
-**Yorum çıktısı destekleniyor mu ve slayta göre nerede konumlandırılabilir?**
+### Yorumların çıktısı destekleniyor mu ve slayta göre nerede konumlandırılabilir?
 
-Evet, yorumlar HTML5'te eklenebilir ve notlar ve yorumlar için [layout settings](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) aracılığıyla (örneğin slaytın sağ tarafına) konumlandırılabilir.
+Evet, yorumlar HTML5'te eklenebilir ve notlar ve yorumlar için [yerleşim ayarları](https://reference.aspose.com/slides/tr/java/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) aracılığıyla (örneğin slaytın sağına) konumlandırılabilir.
 
-**Güvenlik veya CSP nedenleriyle JavaScript çağrısı yapan bağlantıları atlayabilir miyim?**
+### Güvenlik veya CSP nedenleriyle JavaScript çağrısı yapan bağlantıları atlayabilir miyim?
 
-Evet, kaydetme sırasında JavaScript çağrısı içeren hiperlinkleri atlamanızı sağlayan bir [setting](https://reference.aspose.com/slides/tr/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) vardır. Bu, katı güvenlik politikalarına uymaya yardımcı olur.
+Evet, kaydetme sırasında JavaScript çağrısı içeren hiperlinkleri atlamanızı sağlayan bir [ayar](https://reference.aspose.com/slides/tr/java/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-) vardır. Bu, katı güvenlik politikalarına uyum sağlamaya yardımcı olur.

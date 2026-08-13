@@ -1,15 +1,15 @@
 ---
-title: Převést PPT a PPTX na JPG v C++
+title: Převod PPT a PPTX na JPG v C++
 linktitle: PowerPoint na JPG
 type: docs
 weight: 60
 url: /cs/cpp/convert-powerpoint-to-jpg/
 keywords:
-- převést PowerPoint
-- převést prezentaci
-- převést snímek
-- převést PPT
-- převést PPTX
+- převod PowerPoint
+- převod prezentace
+- převod snímku
+- převod PPT
+- převod PPTX
 - PowerPoint na JPG
 - prezentace na JPG
 - snímek na JPG
@@ -24,28 +24,38 @@ keywords:
 - exportovat PPTX do JPG
 - C++
 - Aspose.Slides
-description: "Převést snímky PowerPoint (PPT, PPTX) na vysoce kvalitní JPG obrázky v C++ pomocí Aspose.Slides s rychlými a spolehlivými ukázkami kódu."
+description: "Převod snímků PowerPoint (PPT, PPTX) na vysoce kvalitní JPG obrázky v C++ pomocí Aspose.Slides s rychlými a spolehlivými ukázkami kódu."
 ---
 ## **Úvod**
 
-Převod prezentací PowerPoint a OpenDocument na JPG obrázky usnadňuje sdílení snímků, optimalizaci výkonu a vkládání obsahu do webových stránek nebo aplikací. Aspose.Slides for C++ vám umožňuje převést soubory PPTX, PPT a ODP na vysoce kvalitní JPEG obrázky. Tento průvodce vysvětluje různé metody převodu.
+Převod prezentací PowerPoint a OpenDocument do JPG obrázků pomáhá při sdílení snímků, optimalizaci výkonu a vkládání obsahu do webových stránek nebo aplikací. Aspose.Slides for C++ vám umožňuje převést soubory PPTX, PPT a ODP na vysoce kvalitní JPEG obrázky. Tento průvodce vysvětluje různé metody převodu.
 
-S těmito funkcemi je snadné implementovat vlastní prohlížeč prezentací a vytvořit miniaturu pro každý snímek. To může být užitečné, pokud chcete chránit snímky před kopírováním nebo ukázat prezentaci v režimu pouze ke čtení. Aspose.Slides umožňuje převést celou prezentaci nebo konkrétní snímek do obrazových formátů.
+S těmito funkcemi je snadné implementovat vlastní prohlížeč prezentací a vytvořit miniaturu pro každý snímek. To může být užitečné, pokud chcete chránit snímky prezentace před kopírováním nebo ukázat prezentaci v režimu jen pro čtení. Aspose.Slides vám umožňuje převést celou prezentaci nebo konkrétní snímek do obrazových formátů.
 
-## **Převést snímky prezentace na JPG obrázky**
-
-Zde jsou kroky pro převod souboru PPT, PPTX nebo ODP na JPG:
+## **Převod snímků prezentace na JPG obrázky**
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).
-2. Získejte objekt snímku typu [ISlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/) z kolekce snímků prezentace.
-3. Vytvořte obrázek snímku pomocí metody [ISlide.GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/).
-4. Zavolejte metodu [IImage.Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/save/) na objektu obrázku. Předávejte název výstupního souboru a formát obrázku jako argumenty.
+1. Získejte objekt snímku typu [ISlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/) ze sbírky snímků prezentace.
+1. Vytvořte obrázek snímku pomocí metody [ISlide.GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/).
+1. Zavolejte metodu [IImage.Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/save/) na objektu obrázku. Jako argumenty předávejte název výstupního souboru a formát obrázku.
 
-{{% alert color="primary" %}} 
-**Poznámka:** Převod PPT, PPTX nebo ODP na JPG se liší od převodu do jiných formátů v Aspose.Slides for C++ API. Pro jiné formáty obvykle používáte metodu [IPresentation.Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/save/). Pro převod na JPG však musíte použít metodu [IImage.Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/save/).
+{{% alert color="info" %}} 
+
+**Poznámka:** PPT, PPTX nebo ODP na JPG konverze se liší od konverze do jiných formátů v API Aspose.Slides for C++. Pro jiné formáty obvykle používáte metodu [IPresentation.Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/save/). Pro konverzi do JPG však musíte použít metodu [IImage.Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/save/).
+
 {{% /alert %}} 
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 float scaleX = 1.0f;
 float scaleY = scaleX;
 
@@ -53,10 +63,10 @@ auto presentation = MakeObject<Presentation>(u"PowerPoint-Presentation.ppt");
 
 for (auto&& slide : presentation->get_Slides())
 {
-    // Vytvořit obrázek snímku v zadaném měřítku.
+    // Vytvořte obrázek snímku v určeném měřítku.
     auto image = slide->GetImage(scaleX, scaleY);
 
-    // Uložit obrázek na disk ve formátu JPEG.
+    // Uložte obrázek na disk ve formátu JPEG.
     auto fileName = String::Format(u"Slide_{0}.jpg", slide->get_SlideNumber());
     image->Save(fileName, ImageFormat::Jpeg);
 
@@ -66,21 +76,32 @@ for (auto&& slide : presentation->get_Slides())
 presentation->Dispose();
 ```
 
-## **Převést snímky na JPG s vlastním rozměrem**
+## **Převod snímků na JPG s přizpůsobenými rozměry**
 
-Chcete‑li změnit rozměry výsledných JPG obrázků, můžete nastavit velikost obrázku předáním parametru do metody [ISlide.GetImage(Size)](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/#islidegetimagesystemdrawingsize-method). To vám umožní generovat obrázky s konkrétními šířkami a výškami, aby výstup splňoval požadavky na rozlišení a poměr stran. Tato flexibilita je zvláště užitečná při generování obrázků pro webové aplikace, zprávy nebo dokumentaci, kde jsou vyžadovány přesné rozměry obrázku.
+Chcete‑li změnit rozměry výsledných JPG obrázků, můžete nastavit velikost obrázku předáním parametru do metody [ISlide.GetImage(Size)](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/#islidegetimagesystemdrawingsize-method). To vám umožní generovat obrázky s konkrétními hodnotami šířky a výšky, což zajišťuje, že výstup splňuje vaše požadavky na rozlišení a poměr stran. Tato flexibilita je zvláště užitečná při vytváření obrázků pro webové aplikace, zprávy nebo dokumentaci, kde jsou vyžadovány přesné rozměry obrázku.
 
 ```cpp
-Size imageSize(1200, 800);
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace System;
+
+System::Drawing::Size imageSize(1200, 800);
 
 auto presentation = MakeObject<Presentation>(u"PowerPoint-Presentation.pptx");
 
 for (auto&& slide : presentation->get_Slides())
 {
-    // Vytvořit obrázek snímku v zadané velikosti.
+    // Vytvořte obrázek snímku ve specifikované velikosti.
     auto image = slide->GetImage(imageSize);
 
-    // Uložit obrázek na disk ve formátu JPEG.
+    // Uložte obrázek na disk ve formátu JPEG.
     auto fileName = System::String::Format(u"Slide_{0}.jpg", slide->get_SlideNumber());
     image->Save(fileName, ImageFormat::Jpeg);
 
@@ -92,15 +113,29 @@ presentation->Dispose();
 
 ## **Vykreslit komentáře při ukládání snímků jako obrázky**
 
-Aspose.Slides for C++ poskytuje funkci, která umožňuje vykreslit komentáře na snímcích prezentace při jejich převodu do JPG obrázků. Tato funkce je zvláště užitečná pro zachování anotací, zpětné vazby nebo diskusí přidaných spolupracovníky v PowerPoint prezentacích. Povolením této možnosti zajistíte, že komentáře budou viditelné v generovaných obrázcích, což usnadňuje revizi a sdílení zpětné vazby bez nutnosti otevírat původní soubor prezentace.
+Aspose.Slides for C++ poskytuje funkci, která umožňuje vykreslit komentáře na snímcích prezentace při jejich převodu do JPG obrázků. Tato funkčnost je zvláště užitečná pro zachování anotací, zpětné vazby nebo diskusí přidaných spolupracovníky v prezentacích PowerPoint. Povolením této možnosti zajistíte, že komentáře budou viditelné v generovaných obrázcích, což usnadní jejich revizi a sdílení zpětné vazby, aniž by bylo nutné otevřít původní soubor prezentace.
 
-Představme si, že máme soubor prezentace „sample.pptx“ se snímkem, který obsahuje komentáře:
+Řekněme, že máme soubor prezentace „sample.pptx“ se snímkem, který obsahuje komentáře:
 
-![The slide with comments](slide_with_comments.png)
+![Snímek s komentáři](slide_with_comments.png)
 
-Následující C++ kód převádí snímek na JPG obrázek při zachování komentářů:
+Následující C++ kód převádí snímek na JPG obrázek a zachovává komentáře:
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 float scaleX = 2.0f;
 float scaleY = scaleX;
 
@@ -111,13 +146,13 @@ auto presentation = MakeObject<Presentation>(u"sample.pptx");
     commentOptions->set_CommentsAreaWidth(200);
     commentOptions->set_CommentsAreaColor(Color::get_DarkOrange());
 
-    // Nastavit možnosti pro komentáře snímku.
+    // Nastavte možnosti pro komentáře snímku.
     auto options = MakeObject<RenderingOptions>();
     options->set_SlidesLayoutOptions(commentOptions);
 
     // Převést první snímek na obrázek.
     auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-        
+
     image->Save(u"Slide_1.jpg", ImageFormat::Jpeg);
     image->Dispose();
 }
@@ -127,7 +162,7 @@ presentation->Dispose();
 
 Výsledek:
 
-![The JPG image with comments](image_with_comments.png)
+![JPG obrázek s komentáři](image_with_comments.png)
 
 ## **Viz také**
 
@@ -138,28 +173,32 @@ Podívejte se na další možnosti převodu PPT, PPTX nebo ODP na obrázky, nap�
 - [Převést PowerPoint na TIFF](/slides/cs/cpp/convert-powerpoint-to-tiff/)
 - [Převést PowerPoint na SVG](/slides/cs/cpp/render-a-slide-as-an-svg-image/)
 
-{{% alert color="primary" %}} 
-Chcete‑li vidět, jak Aspose.Slides převádí PowerPoint na JPG obrázky, vyzkoušejte tyto bezplatné online převodníky: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/cs/conversion/pptx-to-jpg) a [PPT to JPG](https://products.aspose.app/slides/cs/conversion/ppt-to-jpg). 
+{{% alert color="info" %}} 
+
+Chcete‑li vidět, jak Aspose.Slides převádí PowerPoint na JPG obrázky, vyzkoušejte tyto bezplatné online konvertory: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/cs/conversion/pptx-to-jpg) a [PPT to JPG](https://products.aspose.app/slides/cs/conversion/ppt-to-jpg). 
+
 {{% /alert %}}
 
-![Free Online PPTX to JPG Converter](ppt-to-jpg.png)
+![Bezplatný online konvertor PPTX na JPG](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
-Aspose poskytuje [ZDARMA Collage webovou aplikaci](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete sloučit [JPG to JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG obrázky, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně. 
+{{% alert title="Tip" color="info" %}}
 
-Pomocí stejných principů popsaných v tomto článku můžete převádět obrázky z jednoho formátu do druhého. Další informace najdete na těchto stránkách: převést [image to JPG](https://products.aspose.com/slides/cs/cpp/conversion/image-to-jpg/); převést [JPG to image](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-image/); převést [JPG to PNG](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-png/); převést [PNG to JPG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-jpg/); převést [PNG to SVG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-svg/); převést [SVG to PNG](https://products.aspose.com/slides/cs/cpp/conversion/svg-to-png/).
+Aspose poskytuje [GRATUÁLNÍ webovou aplikaci Collage](https://products.aspose.app/slides/cs/collage). Pomocí této online služby můžete spojit obrázky [JPG na JPG](https://products.aspose.app/slides/cs/collage/jpg) nebo PNG na PNG, vytvořit [foto mřížky](https://products.aspose.app/slides/cs/collage/photo-grid) a podobně.
+
+Použitím stejných principů popsaných v tomto článku můžete převádět obrázky z jednoho formátu do druhého. Další informace najdete na těchto stránkách: převod [obrázek na JPG](https://products.aspose.com/slides/cs/cpp/conversion/image-to-jpg/); převod [JPG na obrázek](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-image/); převod [JPG na PNG](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-png/), převod [PNG na JPG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-jpg/); převod [PNG na SVG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-svg/), převod [SVG na PNG](https://products.aspose.com/slides/cs/cpp/conversion/svg-to-png/).
+
 {{% /alert %}}
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Podporuje tato metoda hromadný převod?**
+### Podporuje tato metoda hromadný převod?
 
 Ano, Aspose.Slides umožňuje hromadný převod více snímků na JPG v jedné operaci.
 
-**Podporuje převod SmartArt, grafy a další složité objekty?**
+### Podporuje převod SmartArt, grafy a další složité objekty?
 
-Ano, Aspose.Slides vykresluje celý obsah, včetně SmartArt, grafů, tabulek, tvarů a dalších. Přesnost vykreslování se však může mírně lišit od PowerPointu, zejména při použití vlastních nebo chybějících písem.
+Ano, Aspose.Slides vykresluje veškerý obsah, včetně SmartArt, grafů, tabulek, tvarů a dalších. Přesnost vykreslení se však může mírně lišit od PowerPointu, zejména při použití vlastních nebo chybějících písem.
 
-**Existují nějaká omezení počtu snímků, které lze zpracovat?**
+### Existují omezení počtu snímků, které lze zpracovat?
 
-Aspose.Slides nepřikládá žádná přísná omezení na počet snímků, které můžete zpracovat. Nicméně při práci s velkými prezentacemi nebo obrázky vysokého rozlišení můžete narazit na chybu nedostatku paměti.
+Aspose.Slides sám neklade žádná striktní omezení na počet snímků, které můžete zpracovat. Nicméně můžete narazit na chybu nedostatku paměti při práci s velkými prezentacemi nebo obrázky s vysokým rozlišením.

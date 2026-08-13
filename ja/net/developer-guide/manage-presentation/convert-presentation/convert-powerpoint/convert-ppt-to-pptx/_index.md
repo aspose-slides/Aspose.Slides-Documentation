@@ -1,34 +1,33 @@
 ---
-title: .NET で PPT を PPTX に変換
-linktitle: PPT から PPTX へ
+title: ".NET で PPT を PPTX に変換"
+linktitle: "PPT から PPTX"
 type: docs
 weight: 20
 url: /ja/net/convert-ppt-to-pptx/
 keywords:
-- PowerPoint を変換
-- プレゼンテーションを変換
-- スライドを変換
-- PPT を変換
-- PPT から PPTX へ
-- PPT を PPTX として保存
-- PPT を PPTX にエクスポート
-- PowerPoint
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides を使用して .NET でレガシー PPT プレゼンテーションを最新の PPTX に高速変換 — 明確なチュートリアル、無料の C# コードサンプル、Microsoft Office への依存なし。"
+- "PowerPoint を変換"
+- "プレゼンテーションを変換"
+- "スライドを変換"
+- "PPT を変換"
+- "PPT から PPTX"
+- "PPT を PPTX として保存"
+- "PPT を PPTX にエクスポート"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides を使用して、レガシー PPT プレゼンテーションを .NET で高速に最新の PPTX に変換します — 分かりやすいチュートリアル、無料の C# コードサンプル、Microsoft Office に依存しません。"
 ---
-
 ## **概要**
 
-この記事では、C# を使用したオンライン PPT から PPTX への変換アプリを利用して、PPT 形式の PowerPoint プレゼンテーションを PPTX 形式に変換する方法を説明します。以下のトピックを取り上げます。
+この記事では、C# とオンラインの PPT から PPTX への変換アプリを使用して、PPT 形式の PowerPoint プレゼンテーションを PPTX 形式に変換する方法を説明します。以下のトピックがカバーされています。
 
-- [Convert PPT to PPTX in C#](#convert-ppt-to-pptx)
+- [.NET で PPT を PPTX に変換](#convert-ppt-to-pptx)
 
 ## **.NET で PPT を PPTX に変換**
 
-C# のサンプルコードで PPT を PPTX に変換する方法については、以下のセクション「[Convert PPT to PPTX](#convert-ppt-to-pptx)」をご参照ください。PPT ファイルを読み込み、PPTX 形式で保存します。保存形式を変更すれば、PDF、XPS、ODP、HTML などの他形式にも変換できます（関連記事をご覧ください）。
+C# のサンプルコードで PPT を PPTX に変換する方法については、以下のセクション、すなわち [Convert PPT to PPTX](#convert-ppt-to-pptx) を参照してください。このコードは PPT ファイルを読み込み、PPTX 形式で保存するだけです。保存形式を変更すれば、PDF、XPS、ODP、HTML など、他の多数の形式にも PPT ファイルを保存できます。これらの記事で説明しています。
 
 - [.NET で PPT を PDF に変換](/slides/ja/net/convert-powerpoint-to-pdf/)
 - [.NET で PPT を XPS に変換](/slides/ja/net/convert-powerpoint-to-xps/)
@@ -36,32 +35,38 @@ C# のサンプルコードで PPT を PPTX に変換する方法については
 - [.NET で PPT を ODP に変換](/slides/ja/net/save-presentation/)
 - [.NET で PPT を PNG に変換](/slides/ja/net/convert-powerpoint-to-png/)
 
-## **PPT を PPTX に変換するについて**
-Aspose.Slides API を使用して古い PPT 形式を PPTX に変換します。数千件の PPT プレゼンテーションを PPTX 形式に変換する必要がある場合、プログラムで実行するのが最適なソリューションです。Aspose.Slides API なら数行のコードで実現できます。API は PPT プレゼンテーションを PPTX に完全互換で変換でき、次の操作が可能です。
+## **PPT から PPTX への変換について**
 
-- マスター、レイアウト、スライドの複雑な構造を変換
-- チャートを含むプレゼンテーションを変換
-- グループ シェイプ、オート シェイプ（長方形や楕円など）、カスタムジオメトリ シェイプを変換
-- オート シェイプのテクスチャや画像の塗りつぶしスタイルを持つプレゼンテーションを変換
-- プレースホルダー、テキスト フレーム、テキスト ホルダーを含むプレゼンテーションを変換
+Aspose.Slides API を使用して古い PPT 形式を PPTX に変換します。数千もの PPT プレゼンテーションを PPTX 形式に変換する必要がある場合、最適な解決策はプログラムで実行することです。Aspose.Slides API を使えば、数行のコードで実現できます。API は PPT プレゼンテーションを PPTX に変換する完全な互換性をサポートしており、次のことが可能です。
 
-{{% alert color="primary" %}} 
+- マスター、レイアウト、スライドの複雑な構造を変換する。
+- チャートを含むプレゼンテーションを変換する。
+- グループ シェイプ、オート シェイプ（矩形や楕円など）、カスタムジオメトリを持つシェイプを含むプレゼンテーションを変換する。
+- テクスチャや画像の塗りつぶしスタイルを持つオートシェイプを含むプレゼンテーションを変換する。
+- プレースホルダー、テキストフレーム、テキストホルダーを含むプレゼンテーションを変換する。
 
-**Aspose.Slides PPT to PPTX 変換** アプリをご確認ください:
+{{% alert color="info" %}} 
 
-[](https://products.aspose.app/slides/conversion/ppt-to-pptx)
+以下の [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) アプリをご覧ください：
 
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/conversion/ppt-to-pptx)
+[](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx)
 
-このアプリは **Aspose.Slides API** に基づいて構築されているため、基本的な PPT から PPTX への変換機能の実例を直接確認できます。Aspose.Slides Conversion はウェブ アプリで、PPT 形式のプレゼンテーション ファイルをドロップすると PPTX に変換された状態でダウンロードできます。
+[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx)
 
-他のライブ **Aspose.Slides Conversion** 例もご覧ください。
+このアプリは **Aspose.Slides API** を基に構築されており、基本的な PPT から PPTX への変換機能の実例を見ることができます。Aspose.Slides Conversion は Web アプリで、PPT 形式のプレゼンテーションファイルをドロップすると、PPTX に変換されたものをダウンロードできます。
+
+他のライブ [**Aspose.Slides Conversion**](https://products.aspose.app/slides/ja/conversion/) の例もご覧ください。
+
 {{% /alert %}} 
 
-
 ## **PPT を PPTX に変換**
-PPT を PPTX に変換するには、[**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスの [**Save**](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) メソッドにファイル名と保存形式を渡すだけです。以下の C# コード サンプルは、デフォルト オプションで PPT から PPTX への変換を実行します。
+
+PPT を PPTX に変換するには、ファイル名と保存形式を [**Save**](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/methods/save/index) メソッドに、[**Presentation**](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスに渡すだけです。以下の C# コードサンプルは、デフォルトオプションで PPT から PPTX にプレゼンテーションを変換します。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // PPTX ファイルを表す Presentation オブジェクトをインスタンス化します
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 
@@ -69,35 +74,34 @@ Presentation pres = new Presentation("PPTtoPPTX.ppt");
 pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
-
-[PPT と PPTX](/slides/ja/net/ppt-vs-pptx/) プレゼンテーション形式の違いや、[Aspose.Slides が PPT から PPTX への変換をサポートしている方法](/slides/ja/net/convert-ppt-to-pptx/) について詳しく読むことができます。
+[**PPT vs PPTX**](/slides/ja/net/ppt-vs-pptx/) プレゼンテーション形式の詳細と、[**Aspose.Slides supports PPT to PPTX conversion**](/slides/ja/net/convert-ppt-to-pptx/) の方法についてさらにお読みください。
 
 ## **よくある質問**
 
-**PPT と PPTX の形式の違いは何ですか？**
+### PPT と PPTX の形式の違いは何ですか？
 
-PPT は Microsoft PowerPoint が使用する古いバイナリ ファイル形式で、PPTX は Microsoft Office 2007 以降で導入された XML ベースの新しい形式です。PPTX ファイルはパフォーマンスが向上し、ファイルサイズが小さく、データ復旧が容易です。
+PPT は Microsoft PowerPoint が使用する古いバイナリ ファイル形式で、PPTX は Microsoft Office 2007 で導入された新しい XML ベースの形式です。PPTX ファイルはパフォーマンスが向上し、ファイルサイズが小さくなり、データ復旧機能が改善されています。
 
-**.NET で PPT を PPTX に変換できますか？**
+### .NET で PPT を PPTX に変換できますか？
 
 はい、Aspose.Slides for .NET ライブラリを使用すれば、数行のコードで PPT ファイルを読み込み、PPTX 形式で保存できます。
 
-**複数の PPT ファイルをバッチ変換して PPTX にできますか？**
+### Aspose.Slides は複数の PPT ファイルを PPTX にバッチ変換する機能をサポートしていますか？
 
-はい、Aspose.Slides をループ処理で使用すれば、複数の PPT ファイルをプログラム的に PPTX に変換でき、バッチ変換シナリオに適しています。
+はい、Aspose.Slides をループで使用して、複数の PPT ファイルをプログラムで PPTX に変換でき、バッチ変換シナリオに適しています。
 
-**変換後にコンテンツや書式は保持されますか？**
+### 変換後にコンテンツや書式は保持されますか？
 
-Aspose.Slides は高い忠実度でプレゼンテーションを変換します。スライド レイアウト、アニメーション、シェイプ、チャート、その他のデザイン要素は PPT から PPTX への変換時に保持されます。
+Aspose.Slides はプレゼンテーションの高い忠実度を維持します。スライドレイアウト、アニメーション、シェイプ、チャート、その他のデザイン要素は PPT から PPTX への変換中に保持されます。
 
-**PPT ファイルから PDF や HTML など他の形式に変換できますか？**
+### PPT ファイルから PDF や HTML など他の形式に変換できますか？
 
-はい、Aspose.Slides は PPT ファイルを PDF、XPS、HTML、ODP、PNG、JPEG など複数の形式に変換できます。
+はい、Aspose.Slides は PPT ファイルを PDF、XPS、HTML、ODP、PNG や JPEG などの画像形式を含む複数の形式に変換することをサポートしています。
 
-**Microsoft PowerPoint がインストールされていなくても PPT を PPTX に変換できますか？**
+### Microsoft PowerPoint をインストールせずに PPT を PPTX に変換できますか？
 
-はい、Aspose.Slides for .NET はスタンドアロン API であり、Microsoft PowerPoint やサードパーティ ソフトウェアは不要です。
+はい、Aspose.Slides for .NET はスタンドアロンの API であり、変換を実行するために Microsoft PowerPoint やサードパーティ製ソフトウェアは必要ありません。
 
-**オンラインで PPT を PPTX に変換できるツールはありますか？**
+### PPT を PPTX に変換するオンラインツールはありますか？
 
-はい、無料の [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/conversion/ppt-to-pptx) Web アプリを使用すれば、コードを書かずにブラウザー上で直接変換できます。
+はい、コードを書くことなくブラウザー上で直接変換できる無料の [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) Web アプリケーションを利用できます。

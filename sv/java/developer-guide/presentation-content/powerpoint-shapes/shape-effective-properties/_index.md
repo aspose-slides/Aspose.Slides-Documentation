@@ -1,5 +1,5 @@
 ---
-title: Hämta effektiva formegenskaper från presentationer i Java
+title: Hämta effektiva formategenskaper för former från presentationer i Java
 linktitle: Effektiva egenskaper
 type: docs
 weight: 50
@@ -8,8 +8,8 @@ keywords:
 - formegenskaper
 - kameraegenskaper
 - ljusrigg
-- profilform
-- textruta
+- kägelform
+- textram
 - textstil
 - teckenhöjd
 - fyllningsformat
@@ -21,17 +21,19 @@ description: "Upptäck hur Aspose.Slides för Java beräknar och tillämpar effe
 ---
 ## **Översikt**
 
-Detta ämne förklarar skillnaden mellan **lokala** och **effektiva** egenskaper. Lokala värden är värden som sätts direkt på en specifik formateringsnivå, såsom:
+Detta ämne förklarar skillnaden mellan **lokala** och **effektiva** egenskaper. Lokala värden är värden som sätts direkt på en specifik formateringsnivå, till exempel:
 
-1. Portions‑egenskaper på en bild.
-1. Prototypformens textstilar på en layout‑ eller huvudbild, när portionsens textrutform har en.
+1. Delsegenskaper på en bild.
+1. Prototypformens textstilar på en layout‑ eller mästarbild, när delens textramhänseende har ett sådant.
 1. Globala textinställningar i en presentation.
 
-Lokala värden kan definieras eller utelämnas på vilken nivå som helst. När Aspose.Slides behöver den slutgiltiga “som renderad” formateringen, löser den arvkedjan och returnerar **effektiva** värden. Du kan hämta dem genom att anropa `getEffective`‑metoden på det lokala formatobjektet.
+Lokala värden kan definieras eller utelämnas på någon nivå. När Aspose.Slides behöver den slutgiltiga “så som den renderas”-formateringen löser den arvskedjan och returnerar **effektiva** värden. Du kan hämta dem genom att anropa `getEffective`‑metoden på det lokala formatobjektet.
 
-Följande exempel visar hur man får effektiva värden. Det förutsätter att den första formen på den första bilden är en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IAutoShape) med en textruta och minst en portion.
+Följande exempel visar hur man får effektiva värden. Det förutsätter att den första formen på den första bilden är en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IAutoShape) med en textram och minst en del.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,15 +51,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Effektiv formatteringsdata representerar den aktuella beräknade formateringen efter att arv har tillämpats. I den nuvarande implementationen kan vissa effektiva dataobjekt, såsom [IPortionFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPortionFormatEffectiveData), cachas internt. Att anropa `getEffective` igen efter att ha ändrat föräldra‑ eller ärvd formatering kan uppdatera den cachade datan, och ett tidigare hämtat objekt kanske inte längre representerar det tidigare tillståndet. Om du behöver bevara effektiva värden för senare återanvändning, kopiera de nödvändiga egenskaperna, såsom teckenhöjd, fyllningsfärg, teckensnittsstil eller justering, till ditt eget dataobjekt.
+{{% alert color="info" %}}
+Effektiv formateringsdata representerar den aktuella beräknade formateringen efter att arv har tillämpats. I den nuvarande implementeringen kan vissa effektiva dataobjekt, såsom [IPortionFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IPortionFormatEffectiveData), cachas internt. Att anropa `getEffective` igen efter att föräldra‑ eller ärvd formatering har ändrats kan uppdatera den cachade datan, och ett tidigare erhållet objekt kanske inte längre representerar det tidigare tillståndet. Om du behöver bevara effektiva värden för senare återanvändning, kopiera de nödvändiga egenskaperna, såsom teckenhöjd, fyllningsfärg, teckenstil eller justering, till ditt eget dataobjekt.
 {{% /alert %}}
 
 ## **Hämta effektiva egenskaper för en kamera**
 
-Aspose.Slides låter dig hämta effektiva egenskaper för en kamera. Gränssnittet [ICameraEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICameraEffectiveData) representerar ett oföränderligt objekt som innehåller effektiva kameraegenskaper. En [ICameraEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICameraEffectiveData)-instans exponeras via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormatEffectiveData), som tillhandahåller effektiva värden för [IThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormat).
+Aspose.Slides låter dig hämta effektiva egenskaper för en kamera. Gränssnittet [ICameraEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICameraEffectiveData) representerar ett oförändrat objekt som innehåller effektiva kameraparametrar. En [ICameraEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICameraEffectiveData)-instans exponeras via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormatEffectiveData), som tillhandahåller effektiva värden för [IThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormat).
+
+Följande kodexempel visar hur man får effektiva egenskaper för kameran. Det förutsätter att den första formen på den första bilden har 3D‑formatering.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -80,9 +86,13 @@ try {
 
 ## **Hämta effektiva egenskaper för en ljusrigg**
 
-Aspose.Slides låter dig hämta effektiva egenskaper för en ljusrigg. Gränssnittet [ILightRigEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ILightRigEffectiveData) representerar ett oföränderligt objekt som innehåller effektiva ljusriggegenskaper. En [ILightRigEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ILightRigEffectiveData)-instans exponeras via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormatEffectiveData), som tillhandahåller effektiva värden för [IThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormat).
+Aspose.Slides låter dig hämta effektiva egenskaper för en ljusrigg. Gränssnittet [ILightRigEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ILightRigEffectiveData) representerar ett oförändrat objekt som innehåller effektiva ljusriggegenskaper. En [ILightRigEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ILightRigEffectiveData)-instans exponeras via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormatEffectiveData), som tillhandahåller effektiva värden för [IThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormat).
+
+Följande kodexempel visar hur man får effektiva egenskaper för ljusriggen. Det förutsätter att den första formen på den första bilden har 3D‑formatering.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -101,11 +111,15 @@ try {
 }
 ```
 
-## **Hämta effektiva egenskaper för en profilform**
+## **Hämta effektiva egenskaper för en kägelform**
 
-Aspose.Slides låter dig hämta effektiva egenskaper för en formprofil. Gränssnittet [IShapeBevelEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeBevelEffectiveData) representerar ett oföränderligt objekt som innehåller effektiva yttreläges‑egenskaper för en form. En [IShapeBevelEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeBevelEffectiveData)-instans exponeras via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormatEffectiveData), som tillhandahåller effektiva värden för [IThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormat).
+Aspose.Slides låter dig hämta effektiva egenskaper för en formkägel. Gränssnittet [IShapeBevelEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeBevelEffectiveData) representerar ett oförändrat objekt som innehåller effektiva ytgående egenskaper för en form. En [IShapeBevelEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeBevelEffectiveData)-instans exponeras via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormatEffectiveData), som tillhandahåller effektiva värden för [IThreeDFormat](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IThreeDFormat).
+
+Följande kodexempel visar hur man får effektiva egenskaper för den övre kägelen på en form. Det förutsätter att den första formen på den första bilden har 3D‑formatering.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -126,11 +140,15 @@ try {
 }
 ```
 
-## **Hämta effektiva egenskaper för en textruta**
+## **Hämta effektiva egenskaper för en textram**
 
-Med Aspose.Slides kan du hämta effektiva egenskaper för en textruta. Gränssnittet [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITextFrameFormatEffectiveData) innehåller effektiva formateringsegenskaper för textrutor.
+Med Aspose.Slides kan du hämta effektiva egenskaper för en textram. Gränssnittet [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITextFrameFormatEffectiveData) innehåller effektiva formateringsegenskaper för textramar.
+
+Följande kodexempel visar hur man får effektiva formateringsegenskaper för textram. Det förutsätter att den första formen på den första bilden är en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IAutoShape) med en textram.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -163,7 +181,11 @@ try {
 
 Med Aspose.Slides kan du hämta effektiva egenskaper för en textstil. Gränssnittet [ITextStyleEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITextStyleEffectiveData) innehåller effektiva textstilegenskaper.
 
+Följande kodexempel visar hur man får effektiva egenskaper för textstil. Det förutsätter att den första formen på den första bilden är en [IAutoShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IAutoShape) med en textram.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -191,11 +213,13 @@ try {
 }
 ```
 
-## **Hämta det effektiva värdet för teckenhöjd**
+## **Hämta den effektiva teckenhöjdsvärdet**
 
-Med Aspose.Slides kan du hämta den effektiva teckenhöjden. Följande kod demonstrerar hur en portions effektiva teckenhöjd förändras efter att lokala teckenhöjdsvärden har satts på olika nivåer i presentationsstrukturen.
+Med Aspose.Slides kan du hämta den effektiva teckenhöjden. Följande kod demonstrerar hur en svars effektiva teckenhöjd förändras efter att lokala teckenhöjdsvärden har satts på olika nivåer i presentationsstrukturen.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -268,11 +292,13 @@ try {
 
 ## **Hämta den effektiva fyllningsformatet för en tabell**
 
-Med Aspose.Slides kan du hämta effektiv fyllningsformatering för olika tabell delar. Gränssnittet [IFillFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IFillFormatEffectiveData) innehåller effektiva fyllningsformateringsegenskaper. Cellformatering har högre prioritet än radformatering, radformatering har högre prioritet än kolumnformatering, och kolumnformatering har högre prioritet än hela‑tabellformatering.
+Med Aspose.Slides kan du hämta effektiv fyllningsformatering för olika tabelldelar. Gränssnittet [IFillFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IFillFormatEffectiveData) innehåller effektiva fyllningsformateringsegenskaper. Cellformatering har högre prioritet än radformatering, radformatering har högre prioritet än kolumnformatering, och kolumnformatering har högre prioritet än formatering för hela tabellen.
 
-Som ett resultat används egenskaper från [ICellFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICellFormatEffectiveData) för att rita tabellcellen. Följande kodexempel visar hur man får effektiv fyllningsformatering för olika tabell delar. Det förutsätter att den första formen på den första bilden är en [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable).
+Som resultat används [ICellFormatEffectiveData](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ICellFormatEffectiveData)-egenskaper för att rita tabellcellen. Följande kodexempel visar hur man får effektiv fyllningsformatering för olika tabelldelar. Det förutsätter att den första formen på den första bilden är en [ITable](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ITable).
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -294,34 +320,34 @@ try {
 
 ## **FAQ**
 
-**Returnerar `getEffective` ett ögonblicksbild?**
+### Returnerar `getEffective` ett ögonblicksbild?
 
-Inte alltid. Effektiva data representerar den beräknade formateringen efter att arv har tillämpats, men vissa effektiva dataobjekt kan cachas internt. Ett efterföljande anrop av `getEffective` kan omberäkna formateringen och uppdatera den cachade datan, så ett tidigare erhållet objekt bör inte betraktas som en beständig ögonblicksbild.
+Inte alltid. Effektiv data representerar den beräknade formateringen efter att arv har tillämpats, men vissa effektiva dataobjekt kan cachas internt. Ett efterföljande anrop av `getEffective` kan omberäkna formateringen och uppdatera den cachade datan, så ett tidigare erhållet objekt bör inte betraktas som en beständig ögonblicksbild.
 
-**När bör jag läsa effektiva egenskaper igen?**
+### När bör jag läsa effektiva egenskaper igen?
 
-Anropa `getEffective` igen efter att ha ändrat lokal formatering, föräldra‑stilar, layout‑formatering, huvud‑formatering eller presentations‑standardvärden. Nästa anrop utvärderar formatkedjan på nytt och returnerar det aktuella effektiva resultatet.
+Anropa `getEffective` igen efter att du ändrat lokal formatering, föräldra‑stilar, layout‑formatering, mästar‑formatering eller presentations‑standardvärden. Nästa anrop utvärderar formateringshierarkin på nytt och returnerar det aktuella effektiva resultatet.
 
-**Påverkar ändring eller borttagning av en layout‑/huvudbild de effektiva egenskaper som redan hämtats?**
+### Påverkar ändring eller borttagning av en layout/mästarbild effektiva egenskaper som redan har hämtats?
 
-Ja, men förändringen syns först vid nästa `getEffective`‑anrop. Om en föräldrakälla ändras eller tas bort kan tidigare erhållna effektiva data vara föråldrade. När `getEffective` anropas igen utvärderar Aspose.Slides formatträdet på nytt och de resulterande teckensnitten, färgerna, storlekarna eller andra värden kan förändras.
+Ja, men förändringen syns först vid nästa `getEffective`‑anrop. Om en föräldrakälla för formatering ändras eller tas bort kan tidigare erhållen effektiv data bli föråldrad. När `getEffective` anropas igen utvärderar Aspose.Slides formaträdet på nytt och de resulterande tecknen, färgerna, storlekarna eller andra värden kan förändras.
 
-**Kan jag modifiera värden genom effektiva dataobjekt?**
+### Kan jag modifiera värden via effektiva dataobjekt?
 
-Nej. Effektiva dataobjekt exponerar beräknade värden. Gör ändringar i de lokala formatobjekten och hämta sedan de effektiva värdena på nytt.
+Nej. Effektiva dataobjekt exponerar beräknade värden. Gör ändringar i de lokala formateringsobjekten och hämta sedan de effektiva värdena igen.
 
-**Vad händer om en egenskap inte är satt på formnivå, varken i layout‑/huvudbild eller i globala inställningar?**
+### Vad händer om en egenskap inte är satt på formnivå, varken i layout/mästar eller i globala inställningar?
 
 Det effektiva värdet bestäms av standardmekanismen, som inkluderar PowerPoint‑ och Aspose.Slides‑standardvärden. Det lösta värdet blir en del av den aktuella effektiva datan.
 
-**Kan jag från ett effektivt teckenvärde avgöra vilken nivå som tillhandahöll storleken eller teckensnittet?**
+### Kan jag utifrån ett effektivt teckenvärde se vilken nivå som tillhandahöll storleken eller teckensnittet?
 
-Inte direkt. Effektiva data returnerar det slutgiltiga värdet. För att finna källan, kontrollera lokala värden på portion, paragraf, textruta och textstilar på layout‑, huvud‑ och presentationsnivå för att se var den första explicita definitionen finns.
+Inte direkt. Effektiv data returnerar det slutgiltiga värdet. För att hitta källan, kontrollera lokala värden på del, stycke, textram och textstilar på layout‑, mästar‑ och presentationsnivå för att se var den första explicita definitionen förekommer.
 
-**Varför ser effektiva värden ibland identiska ut som de lokala?**
+### Varför ser effektiva värden ibland identiska ut som de lokala?
 
-För att det lokala värdet blev det slutgiltiga (ingen högre nivå behövde ärvas). I sådana fall matchar det effektiva värdet det lokala.
+För att det lokala värdet blev det slutgiltiga (ingen högre‑nivåers arv behövdes). I sådana fall matchar det effektiva värdet det lokala.
 
-**När bör jag använda effektiva egenskaper och när bör jag bara arbeta med lokala?**
+### När bör jag använda effektiva egenskaper, och när bör jag bara arbeta med lokala?
 
-Använd effektiva data när du behöver resultatet “så som det renderas” efter att all arv har tillämpats, t.ex. för att matcha färger, indrag eller storlekar. Om du vill bevara dessa värden oavsett framtida formatändringar, kopiera de nödvändiga egenskaperna till ditt eget objekt. Om du vill ändra formatering på en specifik nivå, modifiera lokala egenskaper och läs sedan, om det behövs, de effektiva data igen för att verifiera resultatet.
+Använd effektiv data när du behöver resultatet “så som det renderas” efter att allt arv har tillämpats, exempelvis för att synkronisera färger, indrag eller storlekar. Om du vill bevara dessa värden oavsett senare formateringsändringar, kopiera de nödvändiga egenskaperna till ditt eget objekt. Om du behöver ändra formatering på en specifik nivå, modifiera lokala egenskaper och läs sedan, om så behövs, den effektiva datan igen för att verifiera resultatet.

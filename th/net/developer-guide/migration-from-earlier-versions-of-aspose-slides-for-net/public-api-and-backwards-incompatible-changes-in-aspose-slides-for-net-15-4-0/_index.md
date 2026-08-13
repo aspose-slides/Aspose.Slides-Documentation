@@ -1,14 +1,14 @@
 ---
-title: Public API และการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides for .NET 15.4.0
-linktitle: Aspose.Slides for .NET 15.4.0
+title: API สาธารณะและการเปลี่ยนแปลงที่ไม่เข้ากันย้อนหลังใน Aspose.Slides สำหรับ .NET 15.4.0
+linktitle: Aspose.Slides สำหรับ .NET 15.4.0
 type: docs
 weight: 150
 url: /th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 keywords:
 - การย้ายข้อมูล
-- โค้ดเดิม
+- โค้ดเก่า
 - โค้ดสมัยใหม่
-- วิธีการเดิม
+- วิธีการเก่า
 - วิธีการสมัยใหม่
 - PowerPoint
 - OpenDocument
@@ -16,23 +16,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "ตรวจสอบการอัปเดต Public API และการเปลี่ยนแปลงที่ทำให้เกิดความไม่เข้ากันใน Aspose.Slides for .NET เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
+description: "ตรวจสอบการอัปเดต API สาธารณะและการเปลี่ยนแปลงที่ทำให้ความเข้ากันไม่ได้ใน Aspose.Slides สำหรับ .NET เพื่อย้ายโซลูชันการนำเสนอ PowerPoint PPT, PPTX และ ODP ของคุณอย่างราบรื่น."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-หน้านี้แสดงรายการทั้งหมดของคลาส, วิธีการ, คุณสมบัติ และอื่น ๆ ที่[added](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) หรือ[removed](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) พร้อมกับการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for .NET 15.4.0 API.
+หน้านี้แสดงรายการทั้งหมดของคลาส, เมธอด, โปรพอร์ตี้ ฯลฯ ที่ถูก [เพิ่ม](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) หรือ [ลบ](/slides/th/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) รวมถึงการเปลี่ยนแปลงอื่น ๆ ที่แนะนำใน Aspose.Slides for .NET 15.4.0 API.
 
 {{% /alert %}} 
 ## **การเปลี่ยนแปลง Public API**
 #### **Enum OrganizationChartLayoutType ถูกเพิ่ม**
-enum Aspose.Slides.SmartArt.OrganizationChartLayoutType แสดงประเภทการจัดรูปแบบของโหนดลูกในแผนภูมิองค์กร.
+Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType แสดงประเภทการจัดรูปแบบของโหนดลูกในแผนผังองค์กร.
 #### **Method IBulletFormat.ApplyDefaultParagraphIndentsShifts ถูกเพิ่ม**
-Method Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts ตั้งค่าการเลื่อนค่าเริ่มต้นที่ไม่เป็นศูนย์สำหรับ Indent ย่อหน้าและ MarginLeft ที่มีผลเมื่อเปิดใช้งานหัวข้อย่อย (เช่น PowerPoint ทำเมื่อเปิดใช้งานหัวข้อย่อย/การนับเลขในย่อหน้า) หากปิดใช้งานหัวข้อย่อยจะรีเซ็ต Indent และ MarginLeft ของย่อหน้า (เช่น PowerPoint ทำเมื่อปิดการใช้งานหัวข้อย่อย/การนับเลขในย่อหน้า).  
-ดูตัวอย่าง[ที่นี่](/slides/th/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+เมธอด Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts กำหนดการเลื่อนค่าเริ่มต้นที่ไม่เป็นศูนย์สำหรับ Indent ของย่อหน้าและ MarginLeft เมื่อเปิดใช้งาน bullet (เช่น PowerPoint ทำเมื่อเปิดการจัด bullet/numbering ของย่อหน้า) หาก bullet ถูกปิดใช้งานจะทำการรีเซ็ตค่า Indent ของย่อหน้าและ MarginLeft เท่านั้น (เช่น PowerPoint ทำเมื่อปิดการจัด bullet/numbering ของย่อหน้า).
+ดูตัวอย่าง [ที่นี่](/slides/th/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **Method IConnector.Reroute ถูกเพิ่ม**
-Method Aspose.Slides.IConnector.Reroute ทำการกำหนดเส้นเชื่อมใหม่เพื่อให้เส้นเชื่อมใช้เส้นทางที่สั้นที่สุดระหว่างรูปร่างที่เชื่อมต่อกัน เพื่อทำเช่นนี้เมธอด Reroute() อาจเปลี่ยนค่า StartShapeConnectionSiteIndex และ EndShapeConnectionSiteIndex.
+เมธอด Aspose.Slides.IConnector.Reroute จะทำการปรับเส้นเชื่อมใหม่เพื่อให้เส้นเชื่อมใช้เส้นทางที่สั้นที่สุดระหว่างรูปร่างที่เชื่อมต่อกัน ในการทำเช่นนี้ เมธอด Reroute() อาจเปลี่ยนค่า StartShapeConnectionSiteIndex และ EndShapeConnectionSiteIndex.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -55,12 +58,14 @@ Method Aspose.Slides.IConnector.Reroute ทำการกำหนดเส้�
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Method IPresentation.GetSlideById ถูกเพิ่ม**
-Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) ส่งคืน Slide, MasterSlide หรือ LayoutSlide ตาม slide Id.
+เมธอด Aspose.Slides.IPresentation.GetSlideById(System.UInt32) จะคืนค่า Slide, MasterSlide หรือ LayoutSlide ตาม Id ของสไลด์.
 
 ``` csharp
+using System.Diagnostics;
+using Aspose.Slides;
+
 
  using (Presentation presentation = new Presentation())
 
@@ -73,12 +78,14 @@ Method Aspose.Slides.IPresentation.GetSlideById(System.UInt32) ส่งคื�
     Debug.Assert(presentation.Slides[0] == slide);
 
 }
-
 ``` 
 #### **Property IShape.ConnectionSiteCount ถูกเพิ่ม**
-Property Aspose.Slides.IShape.ConnectionSiteCount ส่งคืนจำนวนจุดเชื่อมต่อบนรูปร่าง.
+พรอพเตอร์ี Aspose.Slides.IShape.ConnectionSiteCount คืนค่าจำนวนจุดเชื่อมต่อบนรูปร่าง.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
  using(Presentation input = new Presentation())
 
@@ -109,12 +116,15 @@ Property Aspose.Slides.IShape.ConnectionSiteCount ส่งคืนจำนว
   input.Save("output.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Property ISmartArt.IsReversed ถูกเพิ่ม**
-Property Aspose.Slides.SmartArt.ISmartArt.IsReversed ให้การเรียกหรือกำหนดสถานะของแผนภาพ SmartArt ว่าเป็น (จากซ้ายไปขวา) LTR หรือ (จากขวาไปซ้าย) RTL หากแผนภาพรองรับการกลับด้าน.
+พรอพเตอร์ี Aspose.Slides.SmartArt.ISmartArt.IsReversed ให้สามารถรับหรือกำหนดสถานะของแผนภาพ SmartArt ว่าเป็น (ซ้ายไปขวา) LTR หรือ (ขวาไปซ้าย) RTL หากแผนภาพรองรับการกลับทิศ.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -124,15 +134,18 @@ Property Aspose.Slides.SmartArt.ISmartArt.IsReversed ให้การเรี
 
   smart.IsReversed = true;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Property ISmartArt.Nodes ถูกเพิ่ม**
-Property Aspose.Slides.SmartArt.ISmartArt.Nodes ส่งคืนคอลเลกชันของโหนดรากในออบเจ็กต์ SmartArt.
+พรอพเตอร์ี Aspose.Slides.SmartArt.ISmartArt.Nodes คืนค่าคอลเลกชันของโหนดรากในอ็อบเจกต์ SmartArt.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -144,15 +157,18 @@ Property Aspose.Slides.SmartArt.ISmartArt.Nodes ส่งคืนคอลเ�
 
   node.TextFrame.Text = "Second root node";
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Property ISmartArtNode.IsHidden ถูกเพิ่ม**
-Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden ส่งคืนค่า true หากโหนดนี้เป็นโหนดที่ซ่อนอยู่ในโมเดลข้อมูล.
+พรอพเตอร์ี Aspose.Slides.SmartArt.ISmartArtNode.IsHidden คืนค่า true หากโหนดนี้เป็นโหนดที่ซ่อนอยู่ในโมเดลข้อมูล.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -168,19 +184,22 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.IsHidden ส่งคืนค่�
 
   {
 
-    //ทำการดำเนินการหรือแจ้งเตือน
+    //ทำบางอย่างหรือแจ้งเตือน
 
   }
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **Property ISmartArtNode.OrganizationChartLayout ถูกเพิ่ม**
-Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout ให้การเรียกหรือกำหนดประเภทแผนภูมิองค์กรที่สัมพันธ์กับโหนดปัจจุบัน.
+พรอพเตอร์ี Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout ให้สามารถรับหรือกำหนดประเภทแผนผังองค์กรที่เชื่อมโยงกับโหนดปัจจุบัน.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -190,15 +209,18 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout ให้�
 
   smart.Nodes[0].OrganizationChartLayout = OrganizationChartLayoutType.LeftHanging;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
-#### **Set Method for Property ISmartArt.Layout ถูกเพิ่ม**
-เมธอด set สำหรับ property Aspose.Slides.SmartArt.ISmartArt.Layout ถูกเพิ่ม. มันอนุญาตให้เปลี่ยนประเภท layout ของแผนภาพที่มีอยู่.
+#### **เมธอด Set สำหรับ Property ISmartArt.Layout ถูกเพิ่ม**
+เมธอด set สำหรับพรอพเตอร์ี Aspose.Slides.SmartArt.ISmartArt.Layout ได้ถูกเพิ่มเข้ามา ซึ่งทำให้สามารถเปลี่ยนประเภทเลย์เอาต์ของแผนภาพที่มีอยู่ได้
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SmartArt;
+
 
  using (Presentation pres = new Presentation())
 
@@ -208,17 +230,16 @@ Property Aspose.Slides.SmartArt.ISmartArtNode.OrganizationChartLayout ให้�
 
   smart.Layout = SmartArtLayoutType.BasicProcess;
 
-  pres.Save("out.pptx", Export.SaveFormat.Pptx);
+  pres.Save("out.pptx", SaveFormat.Pptx);
 
 }
-
 ``` 
 #### **การเปลี่ยนแปลง Minor API**
-**นี่คือรายการการเปลี่ยนแปลง Minor API:**
+**นี่คือรายการของการเปลี่ยนแปลง Minor API:**
 
-|Enum Aspose.Slides.BevelColorMode |ถูกลบ, ไม่ได้ใช้ enum |
+|Enum Aspose.Slides.BevelColorMode |ลบ, enum ที่ไม่ได้ใช้ |
 | :- | :- |
-|Property ThreeDFormatEffectiveData.BevelColorMode |ถูกลบ, ไม่ได้ใช้ property |
+|Property ThreeDFormatEffectiveData.BevelColorMode |ลบ, property ที่ไม่ได้ใช้ |
 |Property Aspose.Slides.Charts.ChartSeriesGroup.Chart <br>Property Aspose.Slides.Charts.IChartSeriesGroup.AsIChartComponent |เพิ่ม |
-|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |ถูกลบ |
-|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |ลบ เนื่องจากเลิกใช้ |
+|Property Aspose.Slides.IParagraphFormatEffectiveData.AsISlideComponent <br>Inheritance of IParagraphFormatEffectiveData from ISlideComponent <br>Property Aspose.Slides.IThreeDFormat.AsISlideComponent <br>Inheritance of IThreeDFormat from ISlideComponent |ลบ |
+|Property Aspose.Slides.ParagraphFormatEffectiveData.BulletChar <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletFont <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletHeight <br>Property Aspose.Slides.ParagraphFormatEffectiveData.BulletType <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStartWith <br>Property Aspose.Slides.ParagraphFormatEffectiveData.NumberedBulletStyle |ลบเนื่องจากเป็น obsolete |

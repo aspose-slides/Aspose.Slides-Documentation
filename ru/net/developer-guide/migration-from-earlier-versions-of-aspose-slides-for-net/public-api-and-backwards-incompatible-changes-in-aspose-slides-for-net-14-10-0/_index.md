@@ -1,14 +1,14 @@
 ---
-title: Публичный API и обратно несовместимые изменения в Aspose.Slides для .NET 14.10.0
+title: Публичный API и обратимые несовместимые изменения в Aspose.Slides для .NET 14.10.0
 linktitle: Aspose.Slides для .NET 14.10.0
 type: docs
 weight: 120
 url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
 - миграция
-- наследуемый код
+- наследованный код
 - современный код
-- наследуемый подход
+- наследованный подход
 - современный подход
 - PowerPoint
 - OpenDocument
@@ -16,21 +16,18 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides для .NET для плавной миграции ваших решений по работе с презентациями PowerPoint PPT, PPTX и ODP."
+description: "Обзор обновлений публичного API и разрушающих изменений в Aspose.Slides для .NET, позволяющий плавно перенести ваши решения для презентаций PowerPoint PPT, PPTX и ODP."
 ---
-
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Эта страница перечисляет все [added](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) или [removed](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) классы, методы, свойства и т.д., а также другие изменения, введённые в Aspose.Slides for .NET 14.10.0 API.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
 #### **Тип поля Aspose.Slides.FieldType.Footer добавлен**
-Тип поля Footer был добавлен для реализации возможности создания полей этого типа и для корректной сериализации презентации.
 #### **Элемент перечисления ShapeElementFillSource.Own удалён**
-Элемент перечисления ShapeElementFillSource.Own был удалён как дублирующий. Вместо ShapeElementFillSource.Own используйте ShapeElementFillSource.Shape.
-#### **Добавлены методы удаления точек данных и категорий диаграммы**
-Были добавлены следующие методы, позволяющие удалять точку данных диаграммы из коллекции точек данных:
+#### **Добавлены методы для удаления точек данных диаграммы и категорий**
+Были добавлены следующие методы, позволяющие удалять точку данных диаграммы из коллекции точек данных диаграммы:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
@@ -40,35 +37,31 @@ IChartDataPoint.Report()
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
-    chart.ChartData.Categories[0].Remove(); //remove with ChartCategory.Remove()
+    chart.ChartData.Categories[0].Remove(); //удалить с помощью ChartCategory.Remove()
 
-    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //remove with ChartCategoryCollection.Remove()
+    chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //удалить с помощью ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
-        ser.DataPoints[0].Remove();//remove with ChartDataPoint.Remove()
+        ser.DataPoints[0].Remove();//удалить с помощью ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
-#### **Устаревшие свойства Aspose.Slides.ParagraphFormat удалены**
-Свойства BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle были удалены. Они были помечены как устаревшие давно.
-#### **Бесполезные и устаревшие конструкторы удалены**
+#### **Устаревшие свойства Aspose.Slides.ParagraphFormat были удалены**
+Свойства BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle были удалены. Они давно помечены как устаревшие.
+#### **Бесполезные и устаревшие конструкторы были удалены**
 Были удалены следующие конструкторы:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)

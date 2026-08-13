@@ -1,10 +1,10 @@
 ---
-title: Miért ne az automatizálás
+title: Miért Nem Automatizáció
 type: docs
 weight: 50
 url: /hu/java/why-not-automation/
 keywords:
-- automatizálás
+- automatizáció
 - Microsoft Office
 - összehasonlítás
 - biztonság
@@ -13,14 +13,14 @@ keywords:
 - funkciók
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Java
 - Aspose.Slides
-description: "Fedezze fel, miért kockázatos a Office automatizálás szerverek és szolgáltatások számára, és lássa, hogyan nyújt az Aspose.Slides biztonságosabb, gyorsabb prezentációfeldolgozást a PowerPoint és az OpenDocument esetében."
+description: "Fedezze fel, miért kockázatos az Office automatizáció szerverek és szolgáltatások esetén, és hogy az Aspose.Slides hogyan biztosít biztonságosabb, gyorsabb prezentációfeldolgozást a PowerPoint és az OpenDocument számára."
 ---
 ## **Bevezetés**
 
-Számos oka van annak, hogy az Aspose komponensek jobb alternatívát jelentenek az automatizálásnak. A legfontosabb okok a következők:
+Számos oka van annak, hogy az Aspose komponensek jobb alternatívát jelentenek az automatizáláshoz. A legfontosabb okok a következők:
 
 - Biztonság
 - Stabilitás
@@ -28,62 +28,60 @@ Számos oka van annak, hogy az Aspose komponensek jobb alternatívát jelentenek
 - Ár
 - Funkciók
 
-Az alábbiakban részletesebb magyarázatot talál minden kulcsponthoz.
+Az alábbiakban részletesebb magyarázatot talál az egyes kulcspontokról.
 
 ## **Fontos kérdések**
 
-Két kérdést hallunk gyakran az Aspose-nál:
+Két kérdés hallatszik gyakran az Aspose-nál:
 
-- A termékeiknek szükséges a Microsoft Office telepítése a futtatáshoz?
+- A termékeikhez szükséges a Microsoft Office telepítése a futtatáshoz?
 
-A rövid, egyszerű válasz: **NEM**.
+A rövid, egyszerű válasz **NEM**.
 
-Az Aspose komponensek teljesen függetlenek, és nem állnak kapcsolatban, nincsenek engedélyezve, támogatva vagy egyéb módon jóváhagyva a Microsoft Corporation által.
+Az Aspose komponensek teljesen függetlenek, és nem állnak kapcsolatban, nem hitelesítették, nem szponzorálta vagy más módon jóváhagyta a Microsoft Corporation.
 
-- Miért használjunk Aspose termékeket a Microsoft Office Automatizálás helyett?
+- Miért használjunk Aspose termékeket a Microsoft Office automatizálása helyett?
 
-Először is számos [előnyt élvezhet, ha az Aspose.Slides‑t használ](/slides/hu/java/product-overview/).
+Először is számos [előnyt élvez, ha az Aspose.Slides‑ot használja](/slides/hu/java/product-overview/).
 
-Másodszor a Microsoft magától erősen **javasolja**, hogy kerüljük az Office Automatizálás használatát szoftveres megoldásokban.
+Másodszor a Microsoft maga erősen **javasolja a mellőzését** az Office Automation használatának szoftveres megoldásokból.
 
 ## **Biztonság**
 
-Az alábbi közvetlen idézet egy Microsoft‑cikkből:
+Az alábbi közvetlen idézet egy Microsoft cikkből: 
 
-*"Office Applications were never intended for use server-side, and therefore do not take into consideration the security problems that are faced by distributed components. Office does not authenticate incoming requests, and does not protect you from unintentionally running macros, or starting another server that might run macros, from your server-side code. Do not open files that are uploaded to the server from an anonymous Web! Based on the security settings that were last set, the server can run macros under an Administrator or System context with full privileges and compromise your network! In addition, Office uses many client-side components (such as Simple MAPI, WinInet, MSDAIPP) that can cache client authentication information in order to speed up processing. If Office is being automated server-side, one instance may service more than one client, and because authentication information has been cached for that session, it is possible that one client can use the cached credentials of another client, and thereby gain non-granted access permissions by impersonating other users."*
+*"Office alkalmazásokat sosem szánták szerveroldali használatra, ezért nem veszik figyelembe a disztribúciós komponenseket érintő biztonsági problémákat. Az Office nem hitelesíti a bejövő kéréseket, és nem védi meg a felhasználót attól, hogy véletlenül makrókat futtasson, vagy egy másik szervert indítson el, amely makrókat futtathat az Ön szerveroldali kódjából. Ne nyisson meg olyan fájlokat, amelyeket névtelen webről töltöttek fel a szerverre! A legutóbb beállított biztonsági beállítások alapján a szerver makrókat futtathat Administrator vagy System kontextusban teljes jogosultságokkal, ezzel veszélyeztetve a hálózatot! Ezen felül az Office számos kliensoldali összetevőt (például Simple MAPI, WinInet, MSDAIPP) használ, amelyek a kliens hitelesítési információit gyorsítás céljából cache‑lik. Ha az Office‑ot szerveroldalon automatizálják, egy példány több ügyfélt is kiszolgálhat, és mivel a hitelesítési információk a munkamenethez cache‑lve vannak, lehetséges, hogy egy ügyfél a másik ügyfél hitelesítő adatait használja, ezzel jogosulatlan hozzáférési jogosultságokat szerezve más felhasználók megszemélyesítésével."* 
 
-
-Az Aspose termékek nagyon biztonságosak. Az Aspose komponensek nem jelentenek potenciális kockázatot a létfontosságú rendszererőforrások számára. Továbbá, amikor egy dokumentumot egy Aspose komponens nyit meg, a makrók nem indulnak el automatikusan. Az Aspose komponenseket úgy tervezték, hogy a fejlesztők könnyedén létrehozhassanak, manipulálhassanak és menthessenek Office‑fájlokat. A Microsoft Office csomaggal kapcsolatos kockázatok egyike sem része az Aspose komponenseknek.
-
+Az Aspose termékek nagy biztonságot nyújtanak. Az Aspose komponensek nem jelentenek potenciális kockázatot a létfontosságú rendszer erőforrásokra. Ráadásul, amikor egy dokumentumot egy Aspose komponens nyit meg, a makrók nem futnak automatikusan. Az Aspose komponensek célja, hogy a fejlesztők Office fájlokat hozzanak létre, módosítsanak és mentenek. A Microsoft Office csomaggal kapcsolatos kockázatok nem vonatkoznak az Aspose komponensekre. 
 ## **Stabilitás**
-Az alábbi közvetlen idézet egy Microsoft‑cikkből:
-
-*"Office 2000, Office XP and Office 2003 use Microsoft Windows Installer (MSI) technology to make installation and self-repair easier for an end user. MSI introduces the concept of "install on first use", which allows features to be dynamically installed or configured at runtime (for the system, or more often for a particular user). In a server-side environment this both slows down performance and increases the likelihood that a dialog box may appear that asks for the user to approve the install or provide an appropriate install disk. Although it is designed to increase the resiliency of Office as an end-user product, Office's implementation of MSI capabilities is counterproductive in a server-side environment. Furthermore, the stability of Office in general cannot be assured when run server-side because it has not been designed or tested for this type of use. Using Office as a service component on a network server may reduce the stability of that machine and as a consequence your network as a whole. If you plan to automate Office server-side, attempt to isolate the program to a dedicated computer that cannot affect critical functions, and that can be restarted as needed."*
+Az alábbi közvetlen idézet egy Microsoft cikkből: 
 
 
-Az Aspose komponenseket alapos tesztelésnek vetették alá, és rendkívül stabilak. Az Aspose komponenseket olyan [cégek] (https://about.aspose.com/customers) használják, mint: **IBM**, **Hilton**, **Reader's Digest**, **Bank of America** és még sok más.
+*"Office 2000, Office XP és Office 2003 a Microsoft Windows Installer (MSI) technológiát használja a telepítés és az önjavítás egyszerűsítésére a végfelhasználó számára. Az MSI bevezeti a „telepítés első használatkor” koncepciót, amely lehetővé teszi a funkciók dinamikus telepítését vagy konfigurálását futásidőben (a rendszer vagy gyakrabban egy adott felhasználó számára). Egy szerveroldali környezetben ez lelassítja a teljesítményt és megnöveli annak valószínűségét, hogy megjelenik egy párbeszédablak, amely a felhasználótól engedélyt kér a telepítéshez vagy megfelelő telepítőlemezt kér. Bár az MSI képességek célja az Office végfelhasználói termékként való rugalmasságának növelése, az Office MSI megvalósítása hátrányos egy szerveroldali környezetben. Továbbá az Office általános stabilitása nem garantálható szerveroldali futtatás esetén, mivel nem tervezték vagy tesztelték erre a felhasználásra. Az Office hálózati szerveren szolgáltatáskomponensként való használata csökkentheti a gép stabilitását, és ezáltal az egész hálózatra is hatással lehet. Ha az Office‑ot szerveroldalon automatizálni kívánja, próbálja meg izolálni a programot egy dedikált számítógépre, amely nem befolyásolhat kritikus funkciókat, és szükség esetén újraindítható."* 
 
+
+Az Aspose komponenseket alaposan tesztelték, és rendkívül stabilak. Az Aspose komponenseket [Vállalatok](https://about.aspose.com/customers) használják, például: **IBM** , **Hilton** , **Reader's Digest** , **Bank of America** és még sok más. 
 ## **Skálázhatóság/Sebesség**
-Az alábbi közvetlen idézet egy Microsoft‑cikkből:
-
-*"Server-side components need to be highly reentrant, multi-threaded COM components with minimum overhead and high throughput for multiple clients. Office Applications are in almost all respects the exact opposite. They are non-reentrant, STA-based Automation servers that are designed to provide diverse but resource-intensive functionality for a single client. They offer little scalability as a server-side solution, and have fixed limits to important elements, such as memory, which cannot be changed through configuration. More importantly, they use global resources (such as memory mapped files, global add-ins or templates, and shared Automation servers), which can limit the number of instances that can run concurrently and lead to race conditions if they are configured in a multi-client environment. Developers who plan to run more than one instance of any Office Application at the same time need to consider* ***Pooling*** *or* ***Serializing Access*** *to the Office Application for avoiding potential* ***Deadlocks*** *or* ***Data Corruption*** *.* 
+Az alábbi közvetlen idézet egy Microsoft cikkből: 
 
 
-Az Aspose komponensek igen skálázhatóak és villámgyorsak. Az Office‑alkalmazásokat nem tervezték arra, hogy egyszerre több száz vagy ezer felhasználó használja őket. Az Aspose komponensek e célra lettek kifejlesztve. Komponenseink hibátlanul működnek akár egyetlen szerveren, amely egy alkalmazást támogat, akár egy terheléskiegyenlített webes űrlapon, amely egy vállalati szintű alkalmazást szolgál ki.
+*"Szerveroldali komponenseknek nagy reentranciával, többszálú COM komponensekkel kell rendelkezniük minimális terheléssel és nagy áteresztőképességgel több ügyfél számára. Az Office alkalmazások szinte minden tekintetben az ellenkezőjét jelentik. Nem reentránsak, STA‑alapú automatizálási szerverek, amelyeket úgy terveztek, hogy változatos, de erőforrás‑igényes funkciókat nyújtsanak egyetlen ügyfélnek. Kevés skálázhatóságot kínálnak szerveroldali megoldásként, és rögzített korlátokkal rendelkeznek fontos elemekre, például memóriára, amelyeket a konfiguráció nem módosíthat. Fontosabb, hogy globális erőforrásokat (például memória‑térképezett fájlok, globális kiegészítők vagy sablonok, valamint megosztott automatizálási szerverek) használnak, ami korlátozhatja az egyidejűleg futtatható példányok számát, és versenyhelyzetekhez vezethet, ha több ügyfél környezetben vannak beállítva. Azok a fejlesztők, akik egyszerre több példányt szeretnének futtatni bármely Office alkalmazásból, fontolják meg a **Pool‑olást** vagy a **Sorosítást** a Office alkalmazáshoz a lehetséges **Holtpontok** vagy **Adatsérülés** elkerülése érdekében.* 
 
+
+Az Aspose komponensek rendkívül skálázhatóak és villámgyorsak. Az Office alkalmazásokat nem tervezték 100‑as vagy 1000‑es felhasználók egyidejű használatára. Azonban az Aspose komponenseket kifejezetten erre a célra tervezték. Komponenseink hibátlanul működnek akár egyetlen szerveren, egyetlen alkalmazást támogatva, akár egy terheléselosztott webes űrlapon, amely vállalati szintű alkalmazást hajt végre. 
 ## **Ár**
-Amikor egy alkalmazás a Microsoft Office Automatizálást használja, a Microsoft Office egy példányát minden olyan gépre meg kell vásárolni, amelyen az alkalmazás fut. Sok esetben az alkalmazásnak csak a fájl létrehozására vagy módosítására van szüksége, de a felhasználónak nem kell Microsoft Office‑nal rendelkeznie. Az Aspose nagyon [költséghatékony](https://purchase.aspose.com/) és jogdíjmentes újraelosztási licencet kínál, amely korlátlan számú felhasználó számára teszi lehetővé a telepítést licencelési aggályok nélkül.
+Amikor egy alkalmazás a Microsoft Office automatizálást használja, minden gépre, amelyen az alkalmazás fut, meg kell vásárolni egy Microsoft Office példányt. Sok esetben egy alkalmazásnak csak egy Office fájlt kell létrehoznia vagy módosítania, de a felhasználónak nem szükséges Microsoft Office‑t telepítenie. Az Aspose nagyon [Költséghatékony](https://purchase.aspose.com/) és jogdíjmentes terjesztési licencet kínál, amely lehetővé teszi a korlátlan felhasználószámú telepítést anélkül, hogy licencelési aggályok merülnének fel. 
 
-Webalapú alkalmazások fejlesztésekor fontos tudni, hogy a Microsoft Office Automatizálás komponensei nincsenek szerveroldali megoldásokra árazva vagy licencelve; ezért nincs megfelelő licencelési megoldás webalkalmazások telepítéséhez, amelyek Microsoft Office komponenseket használnak. Az Aspose szintén nagyon költséghatékony megoldást kínál szerveroldali alkalmazásokhoz.
 
+Web‑alapú alkalmazások készítésekor fontos tudni, hogy a Microsoft Office Automation komponensek nem árazottak és nem licenceltek szerveroldali megoldásokra; ezért nincs megfelelő licencmegoldás webes alkalmazásokhoz, amelyek Microsoft Office komponenseket használnak. Az Aspose szintén egy nagyon Költséghatékony megoldást kínál szerver‑alapú alkalmazásokhoz is. 
 ## **Funkciók**
-Az Aspose komponensek mindent biztosítanak az Office‑fájlok kezeléséhez, sőt sokkal többet. Az a filozófia vezérli őket, hogy a fejlesztők a legkevesebb munkával érhessenek el a legnagyobb eredményeket. Az Office Automatizálással ellentétben az Aspose komponensek számos erőteljes és időt takarító funkciót nyújtanak. Például az [Aspose.Cells](https://products.aspose.com/cells/java/) lehetővé teszi a fejlesztők számára, hogy egy **DataTable**‑ből vagy **DataView**‑ból közvetlenül importáljanak adatokat egy Excel‑fájlba. Az [Aspose.Words](https://products.aspose.com/words/java/) hasonló funkciót kínál, amely lehetővé teszi a fejlesztőknek, hogy egy Word‑dokumentumot (Mail Merge) töltsenek fel. Az [Every Component](https://products.aspose.com/total/java/) az Aspose családban saját egyedi és erőteljes funkciókat kínál.
+Az Aspose komponensek mindent biztosítanak az Office fájlok kezeléséhez, sőt még többet. Az a filozófia vezérli őket, hogy a fejlesztők a legkevesebb munkával érjék el a legjobb eredményeket. Az Office Automation ellentétben az Aspose komponensek számos hatékony és időt takarít meg funkciót kínálnak. Például a [Aspose.Cells](https://products.aspose.com/cells/java/) lehetővé teszi a fejlesztők számára, hogy adatokat importáljanak egy **DataTable**‑ből vagy **DataView**‑ból közvetlenül egy Excel fájlba. Az [Aspose.Words](https://products.aspose.com/words/java/) hasonló funkciót kínál, amellyel a fejlesztők egy Word (Mail Merge) dokumentumot tölthetnek fel. Minden komponens a [Aspose családban](https://products.aspose.com/total/java/) saját, egyedi és erőteljes funkciókészlettel rendelkezik. 
 
-Az Aspose komponens (vagy például az [Aspose.Total](https://products.aspose.com/total/java/) komponenscsomag) megvásárlásának legjobb része, hogy hozzáférhet a fejlesztői csapatainkhoz. Fejlesztői csapataink tisztában vannak azzal, hogy ha egy funkcióra a cége szüksége van, akkor valószínűleg más cégeknek is szükségük lesz rá. Bár nem minden funkciókérés valósítható meg, csapataink nagyon nyitottak és rugalmasak a támogatás nyújtásában. Ez a szemlélet segítette, hogy az Aspose komponensek olyan erőteljesek legyenek, mint amilyenek. Ha további Office Automatizálás objektumokra vonatkozó funkciókra van szüksége, azok hozzáadásának esélye rendkívül alacsony.
 
-## **Következtetés**
-{{% alert color="primary" %}} 
+A legjobb dolog egy Aspose komponens (vagy az olyan komponenscsomagok, mint a [Aspose.Total](https://products.aspose.com/total/java/)) megvásárlásakor, hogy hozzáférhetünk fejlesztői csapatainkhoz. Fejlesztői csapataink felismerik, hogy ha egy funkcióra a vállalkozásuknak szüksége van, nagy valószínűséggel más vállalkozásoknak is szükségük lesz rá. Bár nem minden funkciókérés valósítható meg, csapataink nagyon nyitottak és rugalmasak a segítségnyújtás során. Ez a gondolkodásmód tette az Aspose komponenseket olyan erőssé, mint amilyenek. Ha további funkciókra van szüksége az Office Automation objektumokból, annak hozzáadása rendkívül alacsony eséllyel valósul meg. 
+## **Összegzés**
+{{% alert color="info" %}} 
 
-Bár ez a cikk számos kulcsfontosságú okot tárgyal, amiért az Aspose komponensek jobb választásnak bizonyulnak az Office Automatizálás helyett, még ennél is több van. A cikk csak a legfontosabb pontokat érinti. Minden különálló Aspose komponens kockázatmentes, kötelezettség nélküli [Értékelő Verziót](https://downloads.aspose.com/slides/hu/java) kínál. Javasoljuk, hogy használja ki ezt az értékelést, hogy jobban lássa, mit tehet az Aspose az Ön alkalmazásaival. 
+Míg ez a cikk számos kulcspontot lefed, amelyek alapján az Aspose komponensek jobb választásnak bizonyulnak az Office Automation helyett, még sok-sok más ok is van. Ez a cikk elsősorban a legfontosabb pontokra fókuszál. Minden egyes Aspose komponens kockázatmentes, kötelezettség nélküli [Értékelő Verziót](https://downloads.aspose.com/slides/hu/java) kínál. Javasoljuk, hogy használja ki az Értékelő változatot, hogy jobban lássa, mit tehet az Aspose az Ön alkalmazásaival. 
 
 {{% /alert %}}

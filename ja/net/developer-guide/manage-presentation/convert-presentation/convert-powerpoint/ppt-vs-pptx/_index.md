@@ -1,5 +1,5 @@
 ---
-title: "違いを理解する: PPT と PPTX"
+title: "違いの理解: PPT と PPTX"
 linktitle: "PPT と PPTX"
 type: docs
 weight: 10
@@ -7,33 +7,40 @@ url: /ja/net/ppt-vs-pptx/
 keywords:
 - "PPT と PPTX"
 - "PPT または PPTX"
-- "レガシーフォーマット"
-- "モダンフォーマット"
+- "従来のフォーマット"
+- "現代のフォーマット"
 - "バイナリ形式"
-- "モダン標準"
+- "現代標準"
 - "PowerPoint"
 - "プレゼンテーション"
 - ".NET"
 - "C#"
 - "Aspose.Slides"
-description: "PowerPoint の PPT と PPTX を Aspose.Slides for .NET で比較し、フォーマットの違い、利点、互換性、変換のヒントを探ります。"
+description: "Aspose.Slides for .NET を使用して PowerPoint の PPT と PPTX を比較し、フォーマットの違い、利点、互換性、変換のポイントを解説します。"
 ---
+## **概要**
 
-## **PPT の概要: レガシーフォーマット**
-[**PPT**](https://docs.fileformat.com/presentation/ppt/) は PowerPoint 97-2003 が使用するバイナリファイル形式です。バイナリ形式であるため、内容を表示するには専門的なツールが必要です。拡張性に制限があるものの、PPT フォーマットは特定の用途で依然として広く使用されています。
+この記事では、PPT と PPTX フォーマットの違いについて説明します。PPT は PowerPoint 97–2003 で使用されていた従来のバイナリ形式であると記載され、PPTX は柔軟性が高く、プレゼンテーション機能の拡張に適した最新の Office Open XML ベースの形式として提示されています。この記事では、互換性の考慮事項を含むこれらのフォーマット間の変換の重要なポイントも概説し、Aspose.Slides を使用して変換を実行する方法を示しています。一般的に、可能な限り PPTX の使用が推奨されます。
+
+## **PPT の理解: 従来フォーマット**
+[**PPT**](https://docs.fileformat.com/presentation/ppt/) は PowerPoint 97-2003 で使用されるバイナリ ファイル形式です。バイナリ形式であるため、その内容を表示するには専門ツールが必要です。拡張性に制限があるものの、PPT フォーマットは特定の用途で依然として広く使用されています。
 
 ## **PPTX の探求: 現代標準**
-[**PPTX**](https://docs.fileformat.com/presentation/pptx/) は Office Open XML 標準 (ISO 29500:2008-2016, ECMA-376) を基盤としています。この XML ベースの形式は柔軟性が高く、PowerPoint 2007 以降と互換性があります。PPTX のモジュラリティにより、新しいチャートやシェイプタイプなどの機能追加が容易になり、主要なフォーマット変更なしで下位互換性が保たれます。
+[**PPTX**](https://docs.fileformat.com/presentation/pptx/) は Office Open XML 標準 (ISO 29500:2008-2016, ECMA-376) の上に構築されています。この XML ベースの形式は柔軟性が高く、PowerPoint 2007 以降と互換性があります。PPTX のモジュール化により、新しいチャートやシェイプのタイプなどの機能を簡単に追加でき、主要なフォーマット変更なしで下位互換性が確保されます。
 
 ## **PPT と PPTX の比較: 主な違いと変換のポイント**
-PPTX はレガシーな PPT フォーマットに比べて機能が強化されていますが、これらのフォーマット間の変換はしばしば必要です。互換性の問題により、PPT から PPTX への移行は独自の課題を伴います。PowerPoint は PPT ファイル内に特定のコンポーネント (MetroBlob) を作成し、PPTX 固有のデータを保存することがあります。これらは古いバージョンの PowerPoint では表示できませんが、新しいバージョンで開くか PPTX に変換すると復元できます。
+PPTX は従来の PPT フォーマットに比べて機能が強化されていますが、これらのフォーマット間の変換はしばしば必要です。PPT から PPTX への移行は、互換性の問題により固有の課題が生じます。PowerPoint は PPT ファイル内に特定のコンポーネント (MetroBlob) を作成し、PPTX 固有のデータを保存することがありますが、古いバージョンの PowerPoint では表示できず、新しいバージョンで開くか PPTX に変換すると復元できます。
 
-Aspose.Slides は PPT と PPTX の両方の形式での作業を簡素化し、シームレスな変換機能を提供します。PPT から PPTX への完全な変換はサポートされていますが、PPTX から PPT への変換は制限があります。可能な限り PPTX を使用することが、機能性と互換性の最適化につながります。
+Aspose.Slides は PPT と PPTX の両フォーマットの操作を効率化し、シームレスな変換機能を提供します。PPT から PPTX への完全な変換はサポートされていますが、PPTX から PPT への変換には制限があります。機能と互換性を最適化するため、可能な限り PPTX の使用が推奨されます。
 
-{{% alert color="primary" %}} 
-高品質な変換をご利用いただくには、[**Aspose.Slides Conversion tool**](https://products.aspose.app/slides/conversion/)をご使用ください。
+{{% alert color="info" %}} 
+高品質な変換を [**Aspose.Slides Conversion tool**](https://products.aspose.app/slides/ja/conversion/) で体験してください。
 {{% /alert %}}
+
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // PPTX ファイルを表す Presentation オブジェクトをインスタンス化する
 Presentation pres = new Presentation("PPTtoPPTX.ppt");
 
@@ -41,25 +48,24 @@ Presentation pres = new Presentation("PPTtoPPTX.ppt");
 pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
-
-{{% alert color="primary" %}} 
-詳しくはこちら: [**How to Convert Presentations from PPT to PPTX**](/slides/ja/net/convert-ppt-to-pptx/)
+{{% alert color="info" %}} 
+詳細はこちら: [**PPT から PPTX へのプレゼンテーション変換方法**](/slides/ja/net/convert-ppt-to-pptx/)
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**古いプレゼンテーションをエラーなく開ける場合、PPT のままで保持する意味はありますか？**
+### エラーなしで開くことができる場合、古い PPT プレゼンテーションを保持する意味はありますか？
 
-プレゼンテーションが確実に開き、コラボレーションや新機能が不要であれば、PPT のまま保持しても問題ありません。ただし、将来的な互換性と拡張性を考えると、[convert to PPTX](/slides/ja/net/convert-ppt-to-pptx/) を推奨します。フォーマットはオープンな OOXML 標準に基づいており、最新ツールでのサポートが容易です。
+プレゼンテーションが確実に開き、共同編集や新機能が不要な場合は PPT のまま保存しても構いません。しかし、将来的な互換性と拡張性を考慮すると、[**PPTX に変換**](/slides/ja/net/convert-ppt-to-pptx/) した方が良いです：この形式はオープンな OOXML 標準に基づいており、最新ツールでのサポートが容易です。
 
-**どのファイルを優先的に PPTX に変換すべきか、どのように判断すればよいですか？**
+### どのファイルを優先的に PPTX に変換すべきか、どのように判断できますか？
 
-まず、次の条件に該当するプレゼンテーションを優先的に変換してください: 複数のユーザーが編集している; 複雑な[charts](/slides/ja/net/create-chart/)/[shapes](/slides/ja/net/shape-manipulations/) を含む; 外部コミュニケーションで使用される; または[opened](/slides/ja/net/open-presentation/) 時に警告が表示される。
+次のようなプレゼンテーションを優先的に変換してください：複数のユーザーが編集しているもの、複雑な [**チャート**](/slides/ja/net/create-chart/)/[**シェイプ**](/slides/ja/net/shape-manipulations/) を含むもの、外部向けのコミュニケーションで使用されるもの、または [**開く**](/slides/ja/net/open-presentation/) 時に警告が出るもの。
 
-**PPT から PPTX への変換、またはその逆で、パスワード保護は維持されますか？**
+### PPT から PPTX、再び PPT へ変換した場合、パスワード保護は保持されますか？
 
-パスワードは、正しい変換と使用するツールが暗号化をサポートしている場合にのみ引き継がれます。より確実なのは、[remove protection](/slides/ja/net/password-protected-presentation/) してから[convert](/slides/ja/net/convert-ppt-to-pptx/)し、セキュリティポリシーに従って再度保護を適用することです。
+パスワードは、使用するツールが正しく変換と暗号化をサポートしている場合にのみ引き継がれます。より確実なのは、まず [**保護を解除**](/slides/ja/net/password-protected-presentation/)し、[**変換**](/slides/ja/net/convert-ppt-to-pptx/) を行い、最後にセキュリティ ポリシーに従って保護を再適用することです。
 
-**PPTX を PPT に戻す際に、いくつかの効果が消えたり簡略化されたりするのはなぜですか？**
+### PPTX を PPT に戻す際に、なぜ一部のエフェクトが消えたり簡略化されたりするのでしょうか？
 
-これは PPT が新しいオブジェクトやプロパティをサポートしていないためです。PowerPoint やツールは、これらの情報を特別なブロックに「トレース」して保存できますが、古いバージョンの PowerPoint では表示できません。
+これは、PPT が一部の新しいオブジェクトやプロパティをサポートしていないためです。PowerPoint やツールは、この情報の「痕跡」を特別なブロックに保存して後で復元できるようにしますが、古いバージョンの PowerPoint ではそれらを表示できません。

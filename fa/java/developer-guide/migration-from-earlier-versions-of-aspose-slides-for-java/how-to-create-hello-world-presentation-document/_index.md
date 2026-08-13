@@ -1,5 +1,5 @@
 ---
-title: چگونه ارائه‌های Hello World را در Java ایجاد کنیم
+title: نحوه ایجاد ارائه Hello World در جاوا
 linktitle: ارائه Hello World
 type: docs
 weight: 10
@@ -11,21 +11,21 @@ keywords:
 - کدهای مدرن
 - رویکرد قدیمی
 - رویکرد مدرن
-- پاورپوینت
-- سندباز
+- PowerPoint
+- OpenDocument
 - ارائه
-- Java
+- جاوا
 - Aspose.Slides
-- description: "یک ارائه Hello World به فرمت PowerPoint PPT, PPTX و ODP را در Java با Aspose.Slides با استفاده از APIهای قدیمی و مدرن در یک راهنمای ساده ایجاد کنید."
+description: "یک راهنمای ساده برای ایجاد یک ارائه Hello World در فرمت‌های PowerPoint PPT، PPTX و ODP با استفاده از Aspose.Slides در جاوا، با بهره‌گیری از هر دو API قدیمی و مدرن."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}}
 
-یک نسخهٔ جدید از [API Aspose.Slides برای Java](/slides/fa/java/) منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از ابتدا و ویرایش اسناد موجود را دارد.
+یک API جدید [Aspose.Slides for Java API](/slides/fa/java/) منتشر شده است و اکنون این محصول واحد قابلیت تولید اسناد PowerPoint از صفر و ویرایش اسناد موجود را پشتیبانی می‌کند.
 
-{{% /alert %}} 
+{{% /alert %}}
 ## **پشتیبانی از کدهای قدیمی**
-برای استفاده از کدهای قدیمی که با نسخه‌های قبل از 13.x Aspose.Slides برای Java توسعه یافته‌اند، باید برخی تغییرات جزئی در کد خود اعمال کنید؛ سپس کد همانند قبل کار خواهد کرد. تمام کلاس‌هایی که در نسخه‌های قبلی Aspose.Slides برای Java تحت فضای نام‌های Aspose.Slide و Aspose.Slides.Pptx وجود داشتند، اکنون در یک فضای نام واحد Aspose.Slides ترکیب شده‌اند. لطفاً به قطعه کد سادهٔ زیر برای ایجاد یک سند ارائه Hello World در API قدیمی Aspose.Slides نگاه کنید و مراحل انتقال به API ترکیبی جدید را دنبال کنید.
-## **رویکرد قدیمی Aspose.Slides برای Java**
+برای استفاده از کدهای قدیمی که با نسخه‌های Aspose.Slides for Java قبلی 13.x توسعه یافته‌اند، لازم است تغییرات جزئی در کد خود اعمال کنید تا کد همچنان مانند قبل کار کند. تمام کلاس‌هایی که در Aspose.Slides for Java قدیمی تحت فضاهای نام Aspose.Slide و Aspose.Slides.Pptx وجود داشتند، اکنون در یک فضای نام واحد Aspose.Slides ترکیب شده‌اند. لطفاً به تکه کد ساده زیر برای ایجاد یک سند ارائه Hello World در API قدیمی Aspose.Slides نگاهی بیندازید و مراحل مهاجرت به API ترکیب‌شده جدید را دنبال کنید.
+## **روش قدیمی Aspose.Slides for Java**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-HelloWorldPresentation-HelloWorldPresentation.java" >}}
-## **رویکرد جدید Aspose.Slides برای Java نسخه 14.x.x**
+## **روش جدید Aspose.Slides for Java 14.x.x**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Creation-CreateAPresentation-CreateAPresentation.java" >}}

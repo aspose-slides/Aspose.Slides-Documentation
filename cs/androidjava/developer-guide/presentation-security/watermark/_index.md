@@ -1,5 +1,5 @@
 ---
-title: Přidání vodoznaků do prezentací v Androidu
+title: Přidání vodoznaků do prezentací na Androidu
 linktitle: Vodoznak
 type: docs
 weight: 40
@@ -7,7 +7,7 @@ url: /cs/androidjava/watermark/
 keywords:
 - vodoznak
 - textový vodoznak
-- obrázkový vodoznak
+- obrazový vodoznak
 - přidat vodoznak
 - změnit vodoznak
 - odstranit vodoznak
@@ -16,7 +16,9 @@ keywords:
 - přidat vodoznak do PPTX
 - přidat vodoznak do ODP
 - odstranit vodoznak z PPT
-- odstranit vodoznak z PPTX
+- odstran
+
+  it vodoznak z PPTX
 - odstranit vodoznak z ODP
 - smazat vodoznak z PPT
 - smazat vodoznak z PPTX
@@ -27,29 +29,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Spravujte textové a obrázkové vodoznaky v prezentacích PowerPoint a OpenDocument na Androidu v jazyce Java, abyste označili koncept, důvěrné informace a další."
+description: "Spravujte textové a obrazové vodoznaky v prezentacích PowerPoint a OpenDocument na Androidu v Javě, abyste označili koncept, důvěrné informace a další."
 ---
 ## **Úvod**
 
-**Vodoznak** v prezentaci je textová nebo obrázková známka použitá na snímku nebo na všech snímcích prezentace. Obvykle se vodoznak používá k označení, že prezentace je koncept (např. vodoznak "Draft"), že obsahuje důvěrné informace (např. vodoznak "Confidential"), k určení, které společnosti patří (např. vodoznak "Company Name"), k identifikaci autora prezentace atd. Vodoznak pomáhá předcházet porušení autorských práv tím, že naznačuje, že prezentaci nelze kopírovat. Vodoznaky se používají jak v PowerPoint, tak v OpenOffice formátech prezentací. V Aspose.Slides můžete přidat vodoznak do formátů souborů PowerPoint PPT, PPTX a OpenOffice ODP.
+**Vodoznak** v prezentaci je textová nebo obrazová známka používaná na snímku nebo na všech snímcích prezentace. Obvykle se vodoznak používá k označení, že prezentace je koncept (např. vodoznak „Draft“), že obsahuje důvěrné informace (např. vodoznak „Confidential“), k určení, ke které společnosti patří (např. vodoznak „Company Name“), k identifikaci autora prezentace atd. Vodoznak pomáhá předcházet porušování autorských práv tím, že naznačuje, že prezentaci nelze kopírovat. Vodoznaky se používají jak v PowerPoint, tak v OpenOffice formátech prezentací. V Aspose.Slides můžete přidat vodoznak do souborových formátů PowerPoint PPT, PPTX a OpenOffice ODP.
 
-Ve [**Aspose.Slides**](https://products.aspose.com/slides/cs/android-java/) existuje několik způsobů, jak můžete vytvářet vodoznaky v dokumentech PowerPoint nebo OpenOffice a upravovat jejich design a chování. Společným aspektem je, že pro přidání textových vodoznaků byste měli použít rozhraní [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/), a pro přidání obrázkových vodoznaků použít třídu [PictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pictureframe/) nebo vyplnit tvar vodoznaku obrázkem. `PictureFrame` implementuje rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), což vám umožňuje využít všech flexibilních nastavení objektu tvaru. Protože `ITextFrame` není tvar a jeho nastavení jsou omezená, je zabalen do objektu [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/).
+V [**Aspose.Slides**](https://products.aspose.com/slides/cs/android-java/) existuje několik způsobů, jak můžete vytvářet vodoznaky v dokumentech PowerPoint nebo OpenOffice a upravovat jejich návrh a chování. Obecným řešením je, že pro přidání textových vodoznaků byste měli použít rozhraní [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/), a pro přidání obrazových vodoznaků použít třídu [PictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pictureframe/) nebo vyplnit tvar vodoznaku obrázkem. `PictureFrame` implementuje rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), což vám umožní použít všechna flexibilní nastavení objektu tvaru. Protože `ITextFrame` není tvar a jeho nastavení jsou omezená, je zabalen do objektu [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/).
 
-Existují dva způsoby, jak lze vodoznak aplikovat: na jeden snímek nebo na všechny snímky prezentace. K aplikaci vodoznaku na všechny snímky se používá Slide Master – vodoznak se přidá do Slide Master, kompletně zde navrhne a aplikuje se na všechny snímky, aniž by to ovlivnilo možnost upravovat vodoznak na jednotlivých snímcích.
+Existují dva způsoby, jak lze vodoznak použít: na jediný snímek nebo na všechny snímky prezentace. Pro použití vodoznaku na všech snímcích se používá Slide Master — vodoznak se přidá do Slide Master, je tam plně navržen a aplikován na všechny snímky, aniž by to ovlivnilo možnost úpravy vodoznaku na jednotlivých snímcích.
 
-Vodoznak se obvykle považuje za needitovatelný pro ostatní uživatele. Aby se zabránilo úpravám vodoznaku (nebo spíše jeho nadřazeného tvaru), poskytuje Aspose.Slides funkci zamykání tvarů. Konkrétní tvar může být zamčen na běžném snímku nebo na Slide Master. Když je tvar vodoznaku zamčen na Slide Master, bude zamčen na všech snímcích prezentace.
+Vodoznak se obvykle považuje za nevhodný k úpravám ostatními uživateli. Aby bylo zabráněno úpravám vodoznaku (nebo spíše jeho nadřazeného tvaru), Aspose.Slides poskytuje funkci zamykání tvarů. Konkrétní tvar může být zamčený na běžném snímku nebo na Slide Master. Když je tvar vodoznaku zamčený na Slide Master, bude zamčený na všech snímcích prezentace.
 
-Můžete nastavit název pro vodoznak, aby jej v budoucnu, pokud ho budete chtít smazat, bylo možné najít mezi tvary snímku podle názvu.
+Můžete nastavit název vodoznaku, aby jej v budoucnu, pokud ho budete chtít smazat, bylo možné najít mezi tvary snímku podle názvu.
 
-Vodoznak můžete navrhnout jakýmkoli způsobem; typicky však vodoznaky mají společné vlastnosti, jako zarovnání na střed, otočení, umístění vpředu atd. V níže uvedených příkladech si ukážeme, jak tyto prvky použít.
+Vodoznak můžete navrhnout libovolně; obvykle však vodoznaky mají společné rysy, jako je zarovnání na střed, rotace, umístění dopředu atd. Tyto možnosti ukážeme v následujících příkladech.
 
 ## **Textový vodoznak**
 
 ### **Přidat textový vodoznak na snímek**
 
-Chcete‑li přidat textový vodoznak v PPT, PPTX nebo ODP, můžete nejprve přidat tvar na snímek a poté k tomuto tvaru přidat textový rámec. Textový rámec je reprezentován rozhraním [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/). Tento typ nedědí z rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), které poskytuje širokou sadu vlastností pro flexibilní umístění vodoznaku. Proto je objekt [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) zabalen do objektu [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/). K přidání textu vodoznaku do tvaru použijte metodu [addTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) tak, jak je uvedeno níže.
+Pro přidání textového vodoznaku v PPT, PPTX nebo ODP nejprve přidejte tvar na snímek a potom do tohoto tvaru přidejte textový rámec. Textový rámec je reprezentován rozhraním [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/). Tento typ není odvozen od [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), který má širokou sadu vlastností pro flexibilní umístění vodoznaku. Proto je objekt [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) zabalen do objektu [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/). Pro přidání textu vodoznaku do tvaru použijte metodu [addTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) jak je ukázáno níže.
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -61,15 +65,17 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="Viz také" %}} 
-- [Jak používat třídu TextFrame](/slides/cs/androidjava/text-formatting/)
+{{% alert color="info" title="Viz také" %}} 
+- [Jak použít třídu TextFrame](/slides/cs/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **Přidat textový vodoznak do prezentace**
 
-Pokud chcete přidat textový vodoznak do celé prezentace (tj. na všechny snímky najednou), přidejte jej do [MasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterslide/). Zbytek logiky je stejný jako při přidávání vodoznaku na jednotlivý snímek — vytvořte objekt [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a poté k němu přidejte vodoznak pomocí metody [addTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
+Pokud chcete přidat textový vodoznak do celé prezentace (tj. na všechny snímky najednou), přidejte jej do [MasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterslide/). Zbytek logiky je stejný jako při přidávání vodoznaku na jediný snímek — vytvořte objekt [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a potom přidejte vodoznak pomocí metody [addTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
 
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -81,8 +87,8 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="Viz také" %}} 
-- [Jak používat Slide Master](/slides/cs/androidjava/slide-master/)
+{{% alert color="info" title="Viz také" %}} 
+- [Jak použít Slide Master](/slides/cs/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **Nastavit průhlednost tvaru vodoznaku**
@@ -90,143 +96,252 @@ presentation.dispose();
 Ve výchozím nastavení je obdélníkový tvar stylizován barvami výplně a čáry. Následující řádky kódu učiní tvar průhledným.
 
 ```java
-watermarkShape.getFillFormat().setFillType(FillType.NoFill);
-watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.getFillFormat().setFillType(FillType.NoFill);
+    watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Nastavit písmo pro textový vodoznak**
 
-Můžete změnit písmo textového vodoznaku, jak je uvedeno níže.
+Písmo textového vodoznaku můžete změnit podle následujícího příkladu.
 
 ```java
-IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
-textFormat.setLatinFont(new FontData("Arial"));
-textFormat.setFontHeight(50);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    textFormat.setLatinFont(new FontData("Arial"));
+    textFormat.setFontHeight(50);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Nastavit barvu textu vodoznaku**
 
-Chcete‑li nastavit barvu textu vodoznaku, použijte tento kód:
+Pro nastavení barvy textu vodoznaku použijte tento kód:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
-IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
-fillFormat.setFillType(FillType.Solid);
-fillFormat.getSolidFillColor().setColor(Color.argb(alpha, red, green, blue));
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+    fillFormat.setFillType(FillType.Solid);
+    fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Vycentrovat textový vodoznak**
+### **Vystředit textový vodoznak**
 
-Je možné vycentrovat vodoznak na snímku a k tomu můžete provést následující:
+Je možné vystředit vodoznak na snímku, a proto můžete provést následující:
 
 ```java
-SizeF slideSize = presentation.getSlideSize().getSize();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-float watermarkWidth = 400;
-float watermarkHeight = 40;
-float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
-float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+String watermarkText = "CONFIDENTIAL";
 
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(
-        ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+    float watermarkWidth = 400;
+    float watermarkHeight = 40;
+    float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
+    float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(
+            ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+} finally {
+    presentation.dispose();
+}
 ```
+
+Obrázek níže ukazuje konečný výsledek.
 
 ![Textový vodoznak](text_watermark.png)
 
-## **Obrázkový vodoznak**
+## **Obrazový vodoznak**
 
-### **Přidat obrázkový vodoznak do prezentace**
+### **Přidat obrazový vodoznak do prezentace**
 
-Chcete‑li přidat obrázkový vodoznak na snímek prezentace, můžete postupovat následovně:
+Pro přidání obrazového vodoznaku na snímek prezentace můžete postupovat následovně:
 
 ```java
-InputStream imageStream = new FileInputStream("watermark.png");
-IPPImage image = presentation.getImages().addImage(imageStream);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
-watermarkShape.getFillFormat().setFillType(FillType.Picture);
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    InputStream imageStream = new FileInputStream("watermark.png");
+    IPPImage image = presentation.getImages().addImage(imageStream);
+
+    watermarkShape.getFillFormat().setFillType(FillType.Picture);
+    watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Zamknout vodoznak před úpravou**
+### **Zamknout vodoznak proti úpravám**
 
-Pokud je nutné zabránit úpravě vodoznaku, použijte metodu [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) na tvaru. Touto vlastností můžete chránit tvar před výběrem, změnou velikosti, přesunutím, seskupením s dalšími prvky, zamknout jeho text před úpravou a mnoho dalšího:
+Pokud je potřeba zabránit úpravám vodoznaku, použijte metodu [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) na tvaru. Touto vlastností můžete chránit tvar před výběrem, změnou velikosti, přesunutím, seskupením s dalšími prvky, zamčením jeho textu proti úpravám a dalšími možnostmi:
 
 ```java
-// Uzamknout tvar vodoznaku před úpravou
-watermarkShape.getAutoShapeLock().setSelectLocked(true);
-watermarkShape.getAutoShapeLock().setSizeLocked(true);
-watermarkShape.getAutoShapeLock().setTextLocked(true);
-watermarkShape.getAutoShapeLock().setPositionLocked(true);
-watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    // Zamknout tvar vodoznaku proti úpravám
+    watermarkShape.getAutoShapeLock().setSelectLocked(true);
+    watermarkShape.getAutoShapeLock().setSizeLocked(true);
+    watermarkShape.getAutoShapeLock().setTextLocked(true);
+    watermarkShape.getAutoShapeLock().setPositionLocked(true);
+    watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Přenést vodoznak dopředu**
 
-V Aspose.Slides lze Z‑pořadí tvarů nastavit pomocí metody [IShapeCollection.reorder](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). K tomu je třeba zavolat tuto metodu ze seznamu snímků prezentace a předat odkaz na tvar a jeho pořadové číslo. Tím je možné přenést tvar dopředu nebo jej poslat dozadu na snímku. Tato funkce je zvláště užitečná, pokud potřebujete umístit vodoznak před prezentaci:
+V Aspose.Slides lze pořadí Z tvarů nastavit metodou [IShapeCollection.reorder](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-). K tomu je třeba zavolat tuto metodu z kolekce snímků prezentace a předat odkaz na tvar a jeho pořadové číslo. Tím je možné přenést tvar dopředu nebo jej poslat dozadu na snímku. Tato funkce je zvláště užitečná, pokud potřebujete umístit vodoznak před obsah prezentace:
 
 ```java
-int shapeCount = slide.getShapes().size();
-slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    int shapeCount = slide.getShapes().size();
+    slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Nastavit otočení vodoznaku**
+### **Nastavit rotaci vodoznaku**
 
-Zde je ukázka kódu, jak upravit otočení vodoznaku tak, aby byl umístěn diagonálně přes snímek:
+Níže je příklad kódu, jak upravit rotaci vodoznaku tak, aby byl umístěn diagonálně napříč snímkem:
 
 ```java
-double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-watermarkShape.setRotation((float)diagonalAngle);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
+
+    double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+
+    watermarkShape.setRotation((float)diagonalAngle);
+} finally {
+    presentation.dispose();
+}
 ```
 
-### **Nastavit název pro vodoznak**
+### **Nastavit název vodoznaku**
 
-Aspose.Slides umožňuje nastavit název tvaru. Pomocí názvu tvaru jej můžete v budoucnu přistupovat k úpravě nebo smazání. Pro nastavení názvu tvaru vodoznaku přiřaďte jej metodě [IAutoShape.setName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-):
+Aspose.Slides umožňuje nastavit název tvaru. Pomocí názvu tvaru jej můžete v budoucnu najít a upravit nebo odstranit. Pro nastavení názvu tvaru vodoznaku použijte metodu [IAutoShape.setName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-):
 
 ```java
-watermarkShape.setName("watermark");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.setName("watermark");
+} finally {
+    presentation.dispose();
+}
 ```
 
 ### **Odstranit vodoznak**
 
-Pro odstranění tvaru vodoznaku použijte metodu [IAutoShape.getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getName--) k jeho nalezení mezi tvary snímku. Poté předáte tvar vodoznaku metodě [IShapeCollection.remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
+Pro odstranění tvaru vodoznaku použijte metodu [IAutoShape.getName](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getName--) k jeho vyhledání v kolekci tvarů snímku. Poté předáte tento tvar metodě [IShapeCollection.remove](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-):
 
 ```java
-IShape[] slideShapes = slide.getShapes().toArray();
-for (IShape shape : slideShapes) {
-    if ("watermark".equals(shape.getName()))
-    {
-        slide.getShapes().remove(watermarkShape);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("watermarked.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape[] slideShapes = slide.getShapes().toArray();
+    for (IShape shape : slideShapes) {
+        if ("watermark".equals(shape.getName()))
+        {
+            slide.getShapes().remove(shape);
+        }
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Často kladené otázky**
 
-**Co je to vodoznak a proč jej použít?**
+### Co je vodoznak a proč ho používat?
 
-Vodoznak je textová nebo obrázková překrytí aplikovaná na snímky, která pomáhá chránit duševní vlastnictví, zvyšovat rozpoznatelnost značky nebo zabraňovat neautorizovanému použití prezentací.
+Vodoznak je textová nebo obrazová vrstva aplikovaná na snímky, která pomáhá chránit duševní vlastnictví, posilovat povědomí o značce nebo zabraňuje neoprávněnému užívání prezentací.
 
-**Mohu přidat vodoznak ke všem snímkům v prezentaci?**
+### Mohu přidat vodoznak na všechny snímky v prezentaci?
 
-Ano, Aspose.Slides umožňuje programově přidat vodoznak na každý snímek v prezentaci. Můžete iterovat přes všechny snímky a jednotlivě použít nastavení vodoznaku.
+Ano, Aspose.Slides umožňuje programově přidat vodoznak na každý snímek v prezentaci. Můžete projít všechny snímky a aplikovat nastavení vodoznaku jednotlivě.
 
-**Jak mohu upravit průhlednost vodoznaku?**
+### Jak mohu upravit průhlednost vodoznaku?
 
-Průhlednost vodoznaku můžete upravit změnou nastavení výplně ([getFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getFillFormat--)) tvaru. Tím zajistíte, že vodoznak bude decentní a neodvádí pozornost od obsahu snímku.
+Průhlednost vodoznaku můžete upravit změnou nastavení výplně ([getFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getFillFormat--)) tvaru. Tím zajistíte, že vodoznak bude decentní a nebude rušit obsah snímku.
 
-**Jaké formáty obrázků jsou podporovány pro vodoznaky?**
+### Jaké formáty obrázků jsou podporovány pro vodoznaky?
 
-Aspose.Slides podporuje různé formáty obrázků, jako PNG, JPEG, GIF, BMP, SVG a další.
+Aspose.Slides podporuje různé formáty obrázků, jako jsou PNG, JPEG, GIF, BMP, SVG a další.
 
-**Mohu přizpůsobit písmo a styl textového vodoznaku?**
+### Mohu přizpůsobit písmo a styl textového vodoznaku?
 
-Ano, můžete zvolit libovolné písmo, velikost a styl, který odpovídá designu vaší prezentace a zachovává konzistenci značky.
+Ano, můžete zvolit libovolné písmo, velikost a styl tak, aby odpovídaly designu vaší prezentace a zachovaly konzistenci značky.
 
-**Jak změním umístění nebo orientaci vodoznaku?**
+### Jak změním umístění nebo orientaci vodoznaku?
 
-Pozici a orientaci vodoznaku můžete programově upravit změnou souřadnic, velikosti a vlastností otočení tvaru.
+Umístění a orientaci vodoznaku můžete programově upravit změnou souřadnic, velikosti a vlastností rotace tvaru.

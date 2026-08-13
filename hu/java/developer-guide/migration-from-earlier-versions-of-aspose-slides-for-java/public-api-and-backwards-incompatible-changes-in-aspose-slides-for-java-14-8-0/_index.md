@@ -1,34 +1,38 @@
 ---
-title: Általános API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 14.8.0-ban
-linktitle: Aspose.Slides for Java 14.8.0
+title: "Publikus API és visszafelé nem kompatibilis változások az Aspose.Slides for Java 14.8.0-ban"
+linktitle: "Aspose.Slides for Java 14.8.0"
 type: docs
 weight: 70
 url: /hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/
 keywords:
 - migráció
-- régi kód
+- örökölt kód
 - modern kód
-- régi megközelítés
+- örökölt megközelítés
 - modern megközelítés
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tekintse át az Aspose.Slides for Java nyilvános API frissítéseit és a törésponti változásokat, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át az Aspose.Slides for Java publikus API frissítéseit és törő változásait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) osztályt, metódust, tulajdonságot stb., valamint az új korlátozásokat és egyéb [változásokat](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) az Aspose.Slides for Java 14.8.0 API-val.
+{{% alert color="info" %}} 
+
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) osztályt, metódust, tulajdonságot és így tovább, valamint az új korlátozásokat és egyéb [változásokat](/slides/hu/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-8-0/) a Aspose.Slides for Java 14.8.0 API-val kapcsolatban.
+
 {{% /alert %}} 
 ## **Publikus API változások**
-### **Hozzáadva az Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() és a setOverlap(byte) metódusok**
-Az Aspose.Slides.Charts.IChartSeries.getOverlap() megadja, hogy a sávok és oszlopok mennyire fedjék egymást 2D diagramokon (‑100 és 100 közötti tartományban).  
-Ez a metódus nem csak egy adott sorozatra vonatkozik, hanem a szülő sorozatcsoport összes sorozatára – ez a megfelelő csoporttulajdonság leképezése.
+### **Hozzáadva az Aspose.Slides.Charts.IChartSeries.getOverlap(), IChartSeriesGroup.getOverlap() és setOverlap(byte) metódusok**
+Az Aspose.Slides.Charts.IChartSeries.getOverlap() meghatározza, hogy a sávok és oszlopok mennyire fedjék egymást a 2D diagramokon (‑100 és 100 közötti tartományban).  
+Ez a metódus nem csak egy adott sorozatra vonatkozik, hanem a szülő sorozatcsoport összes sorozatára – ez a megfelelő csoporttulajdonság projekciója.
 
 - Használja az IChartSeries.getParentSeriesGroup() metódust a szülő sorozatcsoport eléréséhez.
 - Használja az IChartSeriesGroup.getOverlap() és a setOverlap(byte) metódusokat az érték kezeléséhez.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -38,25 +42,29 @@ IChartSeriesCollection series = chart.getChartData().getSeries();
 
 if (series.get_Item(0).getOverlap() == 0) {
 
-  series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
+  series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
 
 }
 
 ```
 ### **Hozzáadva a ShapeThumbnailBounds.Appearance enum érték**
-Ez a forma bélyegképek létrehozási mód lehetővé teszi a fejlesztők számára, hogy a forma megjelenésének határain belül generáljanak bélyegképet. Figyelembe veszi az összes formaeffektet. A létrehozott forma bélyegkép a dia határai által lesz korlátozva.
+Ez a formakép előállítási módszer lehetővé teszi a fejlesztők számára, hogy a forma megjelenésének határain belül hozzanak létre egy formaképet. Figyelembe veszi az összes formaeffektet. Az előállított formakép méretét a dia határai korlátozzák.
 
 ``` java
+import com.aspose.slides.*;
 
- Presentation pres = new Presentation();
 
-BufferedImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+ Presentation pres = new Presentation("Presentation.pptx");
+
+IImage st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
 ```
 ### **Hozzáadva a VbaProject osztály és az IVbaProject interfész, módosítva a Presentation.getVbaProject() és a setVbaProject(VbaProject) metódusok**
-Új funkcióval a fejlesztők VBA projektek létrehozását és szerkesztését végezhetik egy prezentációban.
+Egy új funkció lehetővé teszi a fejlesztők számára, hogy VBA projekteket hozzanak létre és szerkesszenek egy prezentációban.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 
@@ -72,7 +80,7 @@ IVbaModule module = pres.getVbaProject().getModules().addEmptyModule("Module");
 
 module.setSourceCode("Sub Test(oShape As Shape)\r\n    MsgBox \"Test\"\r\nEnd Sub");
 
-// Hivatkozás létrehozása a <stdole>-ra
+// Hivatkozás létrehozása a <stdole> típusra
 
 VbaReferenceOleTypeLib stdoleReference =
 
@@ -94,6 +102,5 @@ pres.getVbaProject().getReferences().add(stdoleReference);
 
 pres.getVbaProject().getReferences().add(officeReference);
 
-pres.save("data\\test.pptm", SaveFormat.Pptm);
-
+pres.save("test.pptm", SaveFormat.Pptm);
 ```

@@ -18,10 +18,8 @@ keywords:
 - Aspose.Slides
 description: "Tinjau pembaruan API publik dan perubahan yang memecah di Aspose.Slides untuk .NET untuk memigrasikan solusi presentasi PowerPoint PPT, PPTX, dan ODP Anda dengan lancar."
 ---
-{{% alert color="primary" %}} 
-
-Halaman ini mencantumkan semua [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) atau [dihapus](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) kelas, metode, properti, dan sebagainya, serta perubahan lain yang diperkenalkan dengan API Aspose.Slides untuk .NET 15.11.0.
-
+{{% alert color="info" %}} 
+Halaman ini mencantumkan semua kelas, metode, properti, dan lain-lain yang [ditambahkan](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) atau [dihapus](/slides/id/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-11-0/) serta perubahan lain yang diperkenalkan dengan API Aspose.Slides untuk .NET 15.11.0.
 {{% /alert %}} 
 ## **Perubahan API Publik**
 
@@ -47,17 +45,18 @@ Properti baru FirstSlideNumber yang ditambahkan ke Presentation memungkinkan unt
 Ketika nilai FirstSlideNumber baru ditentukan, semua nomor slide akan dihitung ulang.
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
- using(var pres = new Presenation(path))
+string path = "sample.pptx";
+string newPath = "output.pptx";
 
+using (var pres = new Presentation(path))
 {
+    int firstSlideNumber = pres.FirstSlideNumber;
 
-  int firstSlideNumber = pres.FirstSlideNumber;
+    pres.FirstSlideNumber = 10;
 
-  pres.FirstSlideNumber = 10;
-
-  pres.Save(newPath, SaveFormat.Pptx);
-
+    pres.Save(newPath, SaveFormat.Pptx);
 }
-
 ```

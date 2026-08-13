@@ -4,12 +4,14 @@ type: docs
 weight: 20
 url: /tr/java/presentationml-pptx-xml/
 ---
-{{% alert color="primary" %}} 
-PresentationML, sunum belgeleri için XML tabanlı formatlar ailesinin adıdır. Office OpenXML (OOXML), Microsoft Office 2007 uygulamalarında tanıtılan XML tabanlı formattır. Office OpenXML, çeşitli özel XML tabanlı işaretleme dilleri için bir kapsayıcı formattır. PresentationML, Microsoft Office PowerPoint 2007 tarafından belgeleri depolamak için kullanılan işaretleme dilidir.
+{{% alert color="info" %}} 
+
+PresentationML, sunum belgeleri için XML tabanlı formatlardan oluşan bir aileye verilen bir isimdir. Office OpenXML (OOXML), Microsoft Office 2007 uygulamalarında tanıtılan XML tabanlı formattır. Office OpenXML, birkaç özel XML tabanlı işaretleme dili için bir konteyner formattır. PresentationML, Microsoft Office PowerPoint 2007 tarafından belgeleri depolamak için kullanılan işaretleme dilidir.
+
 {{% /alert %}} 
 
 ## **Aspose.Slides for Java'da PresentationML**
-OOXML PresentationML belgeleri, [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/) spesifikasyonuna uyan, PPTX dosyaları olarak gelir; sıkıştırılmış XML paketleridir. Aspose.Slides for Java, PresentationML belgelerini oluşturma, okuma, değiştirme ve yazma konusunda kapsamlı destek sunar. Ayrıca, Aspose.Slides for Java, PresentationML belgelerini PDF gibi yaygın kullanılan bir belge formatına dışa aktarabilir. Bu, Aspose.Slides for Java'nun sunum belgelerini kapsamlı bir şekilde ele alması ve PresentationML'in temel olarak belgelerin iç sunumunu sıkıştırılmış bir XML paketi olarak tutması amacıyla tasarlanmış olmasından mümkündür.
+OOXML PresentationML belgeleri, [OOXML ECMA-376](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/) spesifikasyonuna uyan, sıkıştırılmış XML paketleri olan PPTX dosyaları olarak gelir. Aspose.Slides for Java, PresentationML belgelerini oluşturma, okuma, değiştirme ve yazma konusunda kapsamlı bir destek sunar. Ayrıca, Aspose.Slides for Java, PresentationML belgelerini PDF gibi yaygın kullanılan bir belge formatına dışa aktarabilir. Bu, Aspose.Slides for Java'un sunum belgelerini kapsamlı bir şekilde ele alması amacıyla tasarlanmış olmasından ve PresentationML'in temelde belgelerin iç sunumunu sıkıştırılmış bir XML paketi olarak tutmasından kaynaklanmaktadır.
 
 **Aspose.Slides for Java tarafından oluşturulan ve Microsoft PowerPoint'te açılan bir PPTX belgesi** 
 
@@ -21,19 +23,18 @@ OOXML PresentationML belgeleri, [OOXML ECMA-376](https://www.ecma-international.
 ![todo:image_alt_text](presentationml-pptx-xml_2.jpg)
 
 
-## **PresentationML Açık, Neden Aspose.Slides for Java Kullanmalı?**
-PresentationML XML tabanlı olduğundan, Aspose.Slides for Java gibi üçüncü parti sınıf kitaplıklarına güvenmeden XML sınıflarını kullanarak PresentationML belgelerini işlemek ve oluşturmak için uygulamalar geliştirmek oldukça mümkündür. Ancak, PresentationML belgeleriyle çalışırken XML sınıflarına göre Aspose.Slides for Java kullanmanın çeşitli avantajları vardır.
+## **PresentationML Açık, Neden Aspose.Slides for Java Kullanmalısınız?**
+PresentationML XML tabanlı olduğundan, Aspose.Slides for Java gibi üçüncü taraf bir sınıf kütüphanesine güvenmeden XML sınıflarını kullanarak PresentationML belgelerini işlemek ve oluşturmak için uygulamalar geliştirmek mümkündür. Ancak, PresentationML belgeleriyle çalışırken XML sınıflarına göre Aspose.Slides for Java kullanmanın birkaç avantajı vardır.
 
-OOXML spesifikasyonu birkaç bin sayfa uzunluğunda olduğundan, PresentationML belgelerini doğru şekilde işlemek için formatı anlamak adına çok zaman ve çaba harcamanız gerekir. Öte yandan, Aspose.Slides for Java ile sınıfları, metodları ve özellikleri kullanarak, XML sınıflarıyla yapıldığında karmaşık görünen işlemleri kolayca gerçekleştirebilirsiniz.
+OOXML spesifikasyonu birkaç bin sayfa uzunluğunda olduğundan, PresentationML belgelerini düzgün bir şekilde işlemek için formatı anlamak adına çok zaman ve çaba harcamanız gerekir. Öte yandan, Aspose.Slides for Java ile sınıfları, metodlarını ve özelliklerini kullanarak, XML sınıflarıyla yapılması karmaşık görünen işlemleri gerçekleştirebilirsiniz.
 
-Aspose.Slides'in sunduğu bazı özellikler, PresentationML belgeleriyle XML sınıfları aracılığıyla çalışırken hiç mevcut değildir:
-
-- PDF formatına PPT belgelerini dışa aktar.
-- Java Çerçevesi tarafından desteklenen herhangi bir görüntü formatına slaytı render et.
+Aspose.Slides'in sunduğu bazı özellikler, PresentationML belgeleriyle XML sınıfları üzerinden çalışırken bile mevcut değildir:
+- PPT belgelerini PDF formatına dışa aktar.
+- Bir slaytı Java Çerçevesi tarafından desteklenen herhangi bir görüntü formatına render et.
 - Klonlama özelliğini kullanarak kaynak sunumlardan masterları otomatik olarak kopyala.
 - Şekillere koruma uygula.
 
-Aşağıda, tek bir slayt içeren ve içinde “Hello World” metnini barındıran bir metin kutusu bulunan bir PresentationML belgesi örneği yer almaktadır. XML sınıflarıyla metni okumak için, aşağıdaki parçadan bu basit metni ayrıştırabilen bir program yazmanız gerekir. Aspose.Slides bunu sizin için yapar.
+Aşağıda, tek bir slayt içeren ve içinde “Hello World” metni bulunan bir metin kutusu bulunan bir PresentationML belgesi örneği yer almaktadır. XML sınıflarını kullanarak metni okumak için aşağıdaki parçadan bu basit metni ayrıştırabilen bir program yazmanız gerekir. Aspose.Slides bunu sizin için yapar.
 
 **XML**
 

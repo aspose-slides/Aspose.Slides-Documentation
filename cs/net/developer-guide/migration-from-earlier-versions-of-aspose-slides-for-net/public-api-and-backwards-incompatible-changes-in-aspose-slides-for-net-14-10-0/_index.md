@@ -6,9 +6,9 @@ weight: 120
 url: /cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/
 keywords:
 - migrace
-- starý kód
+- zastaralý kód
 - moderní kód
-- starý přístup
+- zastaralý přístup
 - moderní přístup
 - PowerPoint
 - OpenDocument
@@ -16,34 +16,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Prohlédněte si aktualizace veřejného API a zásadní změny v Aspose.Slides pro .NET, abyste hladce migrovali své řešení prezentací PowerPoint PPT, PPTX a ODP."
+description: "Prohlédněte si aktualizace veřejného API a nekompatibilní změny v Aspose.Slides pro .NET a hladce migrujte své řešení prezentací PowerPoint PPT, PPTX a ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) nebo [odstraněné](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) třídy, metody, vlastnosti a tak dále a další změny zavedené v API Aspose.Slides pro .NET 14.10.0.
+Tato stránka uvádí všechny [přidané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) nebo [odebrané](/slides/cs/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-10-0/) třídy, metody, vlastnosti a podobně a další změny zavedené v API Aspose.Slides pro .NET 14.10.0.
 
 {{% /alert %}} 
-## **Změny veřejného API**
+## **Veřejné API změny**
 #### **Typ pole Aspose.Slides.FieldType.Footer byl přidán**
 Typ pole Footer byl přidán pro umožnění vytváření polí tohoto typu a pro platnou serializaci prezentace.
 #### **Enum prvek ShapeElementFillSource.Own byl smazán**
-Prvek výčtu ShapeElementFillSource.Own byl smazán jako duplikát. Použijte ShapeElementFillSource.Shape místo ShapeElementFillSource.Own.
-#### **Metody pro odstraňování datových bodů grafu a kategorií byly přidány**
-Cílové metody, které umožňují odstranit datový bod grafu ze sbírky datových bodů grafu, byly přidány:
+Enum prvek ShapeElementFillSource.Own byl smazán jako duplicitní. Použijte ShapeElementFillSource.Shape místo ShapeElementFillSource.Own.
+#### **Metody pro odstraňování datových bodů a kategorií grafu byly přidány**
+Byly přidány následující metody, které umožňují odstranit datový bod grafu ze sbírky datových bodů grafu:
 
 IChartDataPointCollection.Remove(IChartDataPoint)
 IChartDataPoint.Report()
 
-Následující metoda, která umožňuje odstranit kategorii grafu ze zodpovídající sbírky, byla přidána:
+Byla přidána následující metoda, která umožňuje odstranit kategorii grafu ze zahrnující sbírky:
 
 IChartCategory.Remove()
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
- using (Presentation pres = new Presentation())
-
+using (Presentation pres = new Presentation())
 {
-
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
 
     chart.ChartData.Categories[0].Remove(); //odstranit pomocí ChartCategory.Remove()
@@ -51,24 +52,19 @@ IChartCategory.Remove()
     chart.ChartData.Categories.Remove(chart.ChartData.Categories[0]); //odstranit pomocí ChartCategoryCollection.Remove()
 
     foreach (var ser in chart.ChartData.Series)
-
     {
-
         ser.DataPoints[0].Remove();//odstranit pomocí ChartDataPoint.Remove()
 
         ser.DataPoints.Remove(ser.DataPoints[0]);//ChartDataPointCollection.Remove()
-
     }
 
-    pres.Save(outPath, SaveFormat.Pptx);
-
+    pres.Save("chart.pptx", SaveFormat.Pptx);
 }
-
 ``` 
 #### **Zastaralé vlastnosti Aspose.Slides.ParagraphFormat byly odebrány**
-Vlastnosti BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith a NumberedBulletStyle byly odebrány. Byly označeny jako zastaralé již před dlouhou dobou.
-#### **Zbytečné a zastaralé konstruktory byly odebrány**
-Následující konstruktory byly odebrány:
+Vlastnosti BulletChar, BulletColor, BulletColorFormat, BulletFont, BulletHeight, BulletType, IsBulletHardColor, IsBulletHardFont, NumberedBulletStartWith, NumberedBulletStyle byly odebrány. Byly označeny jako zastaralé již dlouho.
+#### **Neužitečné a zastaralé konstruktory byly odebrány**
+Byly odebrány následující konstruktory:
 
 - Aspose.Slides.Effects.AlphaBiLevel(System.Single)
 - Aspose.Slides.Effects.AlphaModulateFixed(System.Single)

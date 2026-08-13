@@ -1,5 +1,5 @@
 ---
-title: Aspose.Slides for .NET 15.1.0'de Genel API ve Geriye Yönelik Uyumsuz Değişiklikler
+title: "Aspose.Slides for .NET 15.1.0'deki Genel API ve Geriye Uyumsuz Değişiklikler"
 linktitle: Aspose.Slides for .NET 15.1.0
 type: docs
 weight: 130
@@ -16,31 +16,37 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'te genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
+description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-{{% alert color="primary" %}} 
-Bu sayfa, Aspose.Slides for .NET 15.1.0 API'siyle tanıtılan [eklenen](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) veya [kaldırılan](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) sınıfları, metodları, özellikleri vb. ve diğer değişiklikleri listeler.
+{{% alert color="info" %}} 
+
+This page lists all [added](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) or [removed](/slides/tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-1-0/) classes, methods, properties and so on, and other changes introduced with the Aspose.Slides for .NET 15.1.0 API.
+
 {{% /alert %}} 
-## **Genel API Değişiklikleri**
+## **Public API Değişiklikleri**
 #### **Yazı Tipi Değiştirme İşlevselliği Eklendi**
-Sunum boyunca yazı tipini küresel olarak ve render için geçici olarak değiştirme imkanı eklendi.
+Sunum boyunca yazı tipini küresel olarak ve geçici olarak render sırasında değiştirme imkanı eklendi.
 
-Presentation sınıfına yeni "FontsManager" özelliği eklendi. FontsManager sınıfı aşağıdaki üyeleri içerir:
+Presentation sınıfının yeni "FontsManager" özelliği tanıtıldı. FontsManager sınıfının aşağıdaki üyeleri bulunmaktadır:
 
-**IFontSubstRuleCollection FontSubstRuleList** Özelliği
+**IFontSubstRuleCollection FontSubstRuleList** Property
 
 Bu koleksiyon, render sırasında yazı tiplerini değiştirmek için kullanılan IFontSubstRule örneklerini içerir. IFontSubstRule, IFontData arayüzünü uygulayan SourceFont ve DestFont özelliklerine ve değişim koşulunu seçmeye izin veren ReplaceFontCondition özelliğine sahiptir ("WhenInaccessible" veya "Always").
 
-**IFontData[] GetFonts()** Metodu
+**IFontData[] GetFonts()** Method
 
 Mevcut sunumda kullanılan tüm yazı tiplerini almak için kullanılır.
 
-**ReplaceFont** Metodları
+**ReplaceFont** Methods
 
-Sunum içinde yazı tipini kalıcı olarak değiştirmek için kullanılır. 
+Sunum içinde yazı tipini kalıcı olarak değiştirmek için kullanılır.  
 
-Aşağıdaki örnek, sunum içinde yazı tipinin nasıl değiştirileceğini gösterir:
+The following example shows how to replace font in the presentation:
+
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 
              Presentation pres = new Presentation("PresContainsArialFont.pptx");
 
@@ -54,8 +60,12 @@ Aşağıdaki örnek, sunum içinde yazı tipinin nasıl değiştirileceğini gö
 
 
 ``` 
-Bir başka örnek, erişilemediğinde render için yazı tipi değişimini gösterir:
+
+Another example, demonstrates font substitution for rendering when inaccessible:
+
 ``` csharp
+using Aspose.Slides;
+
 
              Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
 
@@ -73,8 +83,8 @@ Bir başka örnek, erişilemediğinde render için yazı tipi değişimini göst
 
             pres.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-            // Erişilemediğinde SomeRareFont yerine Arial yazı tipi kullanılacaktır
+            // Arial yazı tipi, SomeRareFont erişilemez olduğunda kullanılacak
 
-            pres.Slides[0].GetThumbnail();
+            pres.Slides[0].GetImage();
 
 ```

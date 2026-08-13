@@ -4,15 +4,15 @@ type: docs
 weight: 20
 url: /hu/jasperreports/resources/
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Ez a táblázat felsorolja az Aspose.Slides for Java fontos technikai erőforrásait. 
+Ez a táblázat felsorolja a fontos Aspose.Slides for Java technikai erőforrásokat. 
 
 {{% /alert %}} 
 
 |**Erőforrás**|**Leírás**|
 | :- | :- |
-|[Aspose.Slides for Java honlap](https://products.aspose.com/slides/hu/jasperreports/)|A termék honlapja.|
-|[Aspose.Slides blog](https://blog.aspose.com/category/slides/hu/)|Nézze meg gyakran az új kiadásokról és az Aspose.Slides hasznos tippekről szóló információkért.|
-|[Aspose.Slides for Java letöltés](https://downloads.aspose.com/slides/hu/jasperreport)|Töltse le innen az Aspose.Slides legújabb verzióját. Gyakran adunk ki új verziókat.|
-|[Aspose.Slides támogatási fórum](https://forum.aspose.com/c/slides/hu/11)|Kérdéseit és problémáit itt teheti közzé a gyors megoldás érdekében.|
+|[Aspose.Slides for Java kezdőoldala](https://products.aspose.com/slides/hu/jasperreports/)|A termék főoldala.|
+|[Aspose.Slides blogja](https://blog.aspose.com/category/slides/hu/)|Gyakran ellenőrizze, hogy új kiadásokról és hasznos tippekről kapjon információt az Aspose.Slides-ról.|
+|[Aspose.Slides for Java letöltése](https://downloads.aspose.com/slides/hu/jasperreport)|Töltse le innen az Aspose.Slides legújabb verzióját. Gyakran adunk ki új verziókat.|
+|[Aspose.Slides támogatói fórum](https://forum.aspose.com/c/slides/hu/11)|Küldje el kérdéseit és problémáit ide a gyors megoldás érdekében.|

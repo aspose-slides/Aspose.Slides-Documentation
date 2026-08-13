@@ -19,57 +19,60 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ücretsiz ve hızlı Aspose.Slides for .NET ürün desteği alın: forumlar, belgeler, güncellemeler, kod yardımıyla PowerPoint ve OpenDocument iş akışlarındaki sorunları çözün."
+description: "Ücretsiz ve hızlı Aspose.Slides for .NET ürün desteği alın: forumlar, dokümanlar, güncellemeler, kod yardımıyla PowerPoint ve OpenDocument iş akışlarındaki sorunları düzeltin."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides için nasıl destek alınacağını ve sorunların nasıl etkili bir şekilde raporlanacağını açıklar. Ana destek kanalını tanımlar, bir sorun gönderirken öneriler sunar ve ürün sayfası, blog, indirme, destek forumu, belgeler ve API Referansı gibi faydalı teknik kaynaklara işaret eder. Makale ayrıca ücretli destek, sorun yükseltme ve eski kütüphane sürümleri için destek gibi yaygın soruları yanıtlar.
+Bu makale, Aspose.Slides desteğinin nasıl alınacağını ve sorunların nasıl etkili bir şekilde raporlanacağını açıklar. Ana destek kanalını tanımlar, bir sorunu bildirirken öneriler sunar ve ürün sayfası, blog, indirme, destek forumu, dokümantasyon ve API Referansı gibi faydalı teknik kaynaklara yönlendirir. Makale ayrıca ücretli destek, sorun yükseltme ve eski kütüphane sürümleriyle ilgili yaygın soruları yanıtlar.
 
 ## **Teknik Destek**
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Aspose, tüm ürünleri için sınırsız ücretsiz teknik destek sağlar. Destek, tüm kullanıcılar (değerlendirme paketlerine sahip kullanıcılar dahil) için mevcuttur.
+Aspose, tüm ürünleri için sınırsız ücretsiz teknik destek sağlar. Destek, değerlendirme paketleri dahil tüm kullanıcılara açıktır.
 
 {{% /alert %}} 
 
-Aspose.Slides for .NET ile yardıma ihtiyacınız olduğunda, aşağıdakileri göz önünde bulundurun:
+Aspose.Slides for .NET ile ilgili yardıma ihtiyacınız olduğunda aşağıdakileri göz önünde bulundurun:
 
-- Destek için ana yol, [Aspose.Forums](https://forum.aspose.com/c/slides/tr/11) adresidir. Sorunuzu Aspose.Slides forumunda gönderin—birkaç saat içinde yanıtlanacaktır. Aspose.Slides destek ekibi, forumda gönderilen soruları doğrudan yanıtlar.
-- Lütfen Aspose'un telefonla teknik destek sağlamadığını unutmayın. Telefon desteği yalnızca satış ve satın alma soruları için mevcuttur.
-- Forumlarda yanıt beklerken, lütfen sabırlı olun ve saat dilimi farklarını göz önünde bulundurun.
+- Destek için ana kanal [Aspose.Forums](https://forum.aspose.com/c/slides/tr/11) adresidir. Sorunuzu Aspose.Slides forumunda yayınlayın—kaç saat içinde yanıt alacaksınız. Aspose.Slides destek ekibi, forumda yayınlanan soruları doğrudan yanıtlar.
+- Aspose'un telefonla teknik destek sunmadığını unutmayın. Telefon desteği yalnızca satış ve satın alma soruları için mevcuttur.
+- Forumlarda yanıt beklerken sabırlı olun ve saat dilimi farklarını göz önünde bulundurun.
 
-Aspose.Slides for .NET'de bir sorunla karşılaştığınızda, bunu en verimli şekilde çözmek için aşağıdaki yönergeleri izleyin:
+Aspose.Slides for .NET ile bir sorun yaşadığınızda, sorunu en verimli şekilde çözmek için şu yönergeleri izleyin:
 
-- Sorunu raporlamadan önce en son Aspose.Slides for .NET sürümünü kullandığınızı kontrol edin ve doğrulayın. Belki de karşılaştığınız sorun bir güncellemede zaten çözülmüştür.  
+- Sorunu bildirmeden önce en son Aspose.Slides for .NET sürümünü kullandığınızdan emin olun. Belki de yaşadığınız sorun bir güncellemede zaten çözülmüştür. 
 
-  En son sürümle ilgili bilgi almak için Aspose.Slides indirme sayfasına bakın.
-- Bir sorunu raporlamadan önce, forumlarımıza, bu belgelere ve API Referansına göz atmak isteyebilirsiniz. Belki de sorunuzun cevabı zaten sağlanmıştır.
-- Bir sorunu rapor ederken, lütfen orijinal belgeyi ve (mümkünse) sorunla ilgili kod parçacığını ekleyin. Birden fazla dosya eklemeniz gerekiyorsa, bunları bir ZIP paketine koyun.  
+  En son sürüm bilgisi için [Aspose.Slides indirme](https://www.nuget.org/packages/Aspose.Slides.NET/) sayfasına bakın.
 
-  Belge ve dosyalarınızı Aspose.Forums'ta güvenle ekleyebilirsiniz çünkü **yalnızca** siz ve Aspose geliştiricileri ekli dosyalara erişebilir.
-- Belirli bir sorun için tek bir konu oluşturun ve kullanın. Başka bir sorunla karşılaşırsanız, raporlamak için yeni bir konu açmanız gerekir.
+- Sorunu bildirmeden önce forumlarımıza, bu dokümantasyona ve API Referansına göz atabilirsiniz. Sorunuzun cevabı zaten sağlanmış olabilir. 
+
+- Sorunu bildirirken lütfen orijinal belgeyi ve (mümkünse) problemi ortaya çıkaran kod parçasını ekleyin. Birden fazla dosya eklemeniz gerekiyorsa, bunları ZIP paketi içinde gönderin. 
+
+  Belgelerinizi Aspose.Forums’da güvenle ekleyebilirsiniz; **sadece** siz ve Aspose geliştiricileri ekli dosyalara erişebilir.
+
+- Belirli bir sorun için tek bir konu (thread) oluşturun ve kullanın. Başka bir sorun yaşarsanız, onu bildirmek için yeni bir konu açmanız gerekir. 
 
 ## **Kaynaklar**
-Bu tablo, Aspose.Slides for .NET için yararlı teknik kaynakları listeler.
+Bu tablo, Aspose.Slides for .NET için faydalı teknik kaynakları listeler.
 
 |**Kaynak**|**Açıklama**|
 | :- | :- |
-|[Aspose.Slides for .NET home page](https://products.aspose.com/slides/tr/net/)|Ürün ana sayfası.|
-|[Aspose.Slides blog](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve Aspose.Slides ile ilgili faydalı ipuçları hakkında bilgi almak için bu bölümü düzenli olarak kontrol edin.|
-|[Aspose.Slides for .NET download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Bu sayfadan Aspose.Slides'in en son sürümünü indirin. Sık sık yeni sürümler yayımlıyoruz.|
-|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı burada gönderin, hızlı bir çözüm alın.|
-|[Aspose.Slides for .NET product documentation](/slides/tr/net/)|Bu belgeyi ve Aspose.Slides API Referansını içeren tam çevrimiçi dokümantasyon.|
+|[Aspose.Slides for .NET ana sayfa](https://products.aspose.com/slides/tr/net/)|Ürün ana sayfası.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve Aspose.Slides hakkında faydalı ipuçları için bu bölümü düzenli olarak kontrol edin.|
+|[Aspose.Slides for .NET indirme](https://www.nuget.org/packages/Aspose.Slides.NET/)|Bu sayfadan Aspose.Slides’in en son sürümünü indirin. Sık sık yeni sürümler yayınlarız.|
+|[Aspose.Slides destek forumu](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı burada yayınlayarak hızlı çözüm alabilirsiniz.|
+|[Aspose.Slides for .NET ürün dokümantasyonu](/slides/tr/net/)|Bu belgeyi ve Aspose.Slides API Referansını içeren tam çevrimiçi dokümantasyon.|
 
 ## **SSS**
 
-**Mevcut ücretli destek seviyeleri nelerdir ve nasıl farklılık gösterir?**
+### Mevcut ücretli destek seviyeleri nelerdir ve nasıl farklılık gösterir?
 
-[Developer, Business, and Enterprise](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Bunlar, dahil edilen olay sayısı, yanıt önceliği ve mevcut iletişim kanalları bakımından farklılık gösterir.
+[Developer, Business, ve Enterprise](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Farklılıklar, dahil edilen olay sayısı, yanıt önceliği ve mevcut iletişim kanalları üzerinden belirlenir.
 
-**Bir hatayı doğrudan mühendislik ekibine yükseltebilir miyim?**
+### Bir hatayı doğrudan mühendislik ekibine yükseltebilir miyim?
 
-Evet. [Paid support](https://helpdesk.aspose.com/) bir sorun daha derin bir araştırma gerektirdiğinde geliştiricilere yükseltme olanağı tanır.
+Evet. [Ücretli destek](https://helpdesk.aspose.com/) bir sorun daha derin bir araştırma gerektirdiğinde geliştiricilere yükseltme imkanı sağlar.
 
-**Eski kütüphane sürümleri destekleniyor mu ve bunlar için düzeltmeler yayımlıyor musunuz?**
+### Eski kütüphane sürümleri destekleniyor mu ve onlar için düzeltmeler yayınlıyor musunuz?
 
 Eski sürümleri kullanabilirsiniz, ancak düzeltmeler yalnızca mevcut sürüm için sağlanır; eski sürümler için yama yayınlanmaz.

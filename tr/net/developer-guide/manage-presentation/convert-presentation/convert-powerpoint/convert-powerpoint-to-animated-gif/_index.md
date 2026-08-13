@@ -1,21 +1,21 @@
 ---
-title: PowerPoint Sunumlarını .NET'te Hareketli GIF'lere Dönüştürme
-linktitle: PowerPoint'ten GIF
+title: PowerPoint Sunumlarını .NET'te Animasyonlu GIF'lere Dönüştürme
+linktitle: PowerPoint'tan GIF
 type: docs
 weight: 65
 url: /tr/net/convert-powerpoint-to-animated-gif/
 keywords:
-- hareketli GIF
+- animasyonlu GIF
 - PowerPoint dönüştürme
-- sunumu dönüştür
-- slaytı dönüştür
-- PPT dönüştür
-- PPTX dönüştür
-- PowerPoint'ten GIF'e
-- sunumu GIF'e
-- slaytı GIF'e
-- PPT'den GIF'e
-- PPTX'den GIF'e
+- sunum dönüştürme
+- slayt dönüştürme
+- PPT dönüştürme
+- PPTX dönüştürme
+- PowerPoint'tan GIF
+- sunumdan GIF
+- slayttan GIF
+- PPT'den GIF
+- PPTX'den GIF
 - PPT'yi GIF olarak kaydet
 - PPTX'i GIF olarak kaydet
 - PPT'yi GIF olarak dışa aktar
@@ -25,55 +25,62 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET ile PowerPoint sunumlarını (PPT, PPTX) kolayca hareketli GIF'lere dönüştürün. Hızlı, yüksek kaliteli sonuçlar."
+description: "Aspose.Slides for .NET ile PowerPoint sunumlarını (PPT, PPTX) animasyonlu GIF'lere kolayca dönüştürün. Hızlı, yüksek kaliteli sonuçlar."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, birkaç satır kodla PowerPoint sunumlarını hareketli GIF dosyalarına dönüştürmenizi sağlar. Bu, slayt içeriğini hafif, yaygın olarak desteklenen bir hareketli formatta paylaşmanız gerektiğinde ve bu formatın web sayfalarına, mesajlaşma uygulamalarına veya belgelere gömülebilmesi durumunda kullanışlıdır. Bu makale, bir sunumu GIF olarak varsayılan ayarlarla dışa aktarmanın yanı sıra, kare boyutu, slayt gecikmesi ve geçiş çerçeve hızı gibi seçenekleri [GifOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/gifoptions/) kullanarak yapılandırarak çıktıyı nasıl özelleştireceğinizi açıklar.
+Aspose.Slides, PowerPoint sunumlarını sadece birkaç kod satırıyla animasyonlu GIF dosyalarına dönüştürmenizi sağlar. Bu, slayt içeriğini hafif, geniş kitle tarafından desteklenen bir animasyon biçiminde paylaşmanız gerektiğinde, web sayfalarına, mesajlaşma uygulamalarına veya belgelerinize gömülebilir. Bu makale, bir sunumu varsayılan ayarlarla GIF olarak dışa aktarmayı ve çerçeve boyutu, slayt gecikmesi ve geçiş çerçeve hızı gibi seçenekleri [GifOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/gifoptions/) ile yapılandırarak çıktıyı özelleştirmeyi açıklar.
 
-## **Sunumları Varsayılan Ayarlarla Hareketli GIF'e Dönüştürme**
+## **Sunumları Varsayılan Ayarlarla Animasyonlu GIF'e Dönüştürme**
 
-C# örnek kodu, bir sunumu standart ayarlarla hareketli GIF'e nasıl dönüştüreceğinizi gösterir:
+C# içinde bu örnek kod, bir sunumu standart ayarlarla animasyonlu GIF'e nasıl dönüştüreceğinizi gösterir:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif);
 }
 ```
 
-Hareketli GIF, varsayılan parametrelerle oluşturulacaktır.
+Animasyonlu GIF, varsayılan parametrelerle oluşturulacaktır. 
 
-{{%  alert  title="TIP"  color="primary"  %}} 
-GIF parametrelerini özelleştirmek isterseniz, [GifOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/gifoptions) sınıfını kullanabilirsiniz. Aşağıdaki örnek koda bakın. 
+{{% alert title="İPUCU" color="info" %}} 
+GIF için parametreleri özelleştirmek isterseniz, [GifOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/gifoptions) sınıfını kullanabilirsiniz. Aşağıdaki örnek kodu inceleyin. 
 {{% /alert %}} 
 
-## **Sunumları Özel Ayarlarla Hareketli GIF'e Dönüştürme**
+## **Sunumları Özel Ayarlarla Animasyonlu GIF'e Dönüştürme**
 
-C#'ta özel ayarlarla bir sunumu hareketli GIF'e nasıl dönüştüreceğinizi gösteren örnek kod:
+Bu örnek kod, bir sunumu C# içinde özel ayarlarla animasyonlu GIF'e nasıl dönüştüreceğinizi gösterir:
 
 ``` csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     pres.Save("pres.gif", SaveFormat.Gif, new GifOptions
     {
-        FrameSize = new Size(960, 720), // oluşturulan GIF'in boyutu
-        DefaultDelay = 2000, // her slaytın bir sonraki slayta geçene kadar gösterileceği süre
-        TransitionFps = 35 // geçiş animasyonu kalitesini artırmak için FPS'i artırın
+        FrameSize = new Size(960, 720), // oluşan GIF'in boyutu  
+        DefaultDelay = 2000, // her slaytın bir sonraki slayta geçmeden önce ne kadar süre gösterileceği
+        TransitionFps = 35 // daha iyi geçiş animasyonu kalitesi için FPS'yi artırın
     });
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose tarafından geliştirilen ÜCRETSİZ bir [Text to GIF](https://products.aspose.app/slides/tr/text-to-gif) dönüştürücüsüne göz atmak isteyebilirsiniz. 
+{{% alert title="Bilgi" color="info" %}} 
+Ücretsiz bir [Text to GIF](https://products.aspose.app/slides/tr/text-to-gif) dönüştürücüye göz atmak isteyebilirsiniz; bu araç Aspose tarafından geliştirilmiştir. 
 {{% /alert %}}
 
 ## **SSS**
 
-**Sunumda kullanılan yazı tipleri sistemde yüklü değilse ne olur?**
+### Sunumda kullanılan yazı tipleri sistemde yüklü değilse ne olur?
 
-Eksik yazı tiplerini yükleyin ya da [fallback yazı tiplerini yapılandırın](/slides/tr/net/powerpoint-fonts/). Aspose.Slides yerine koyma yapacaktır, ancak görünüm farklılık gösterebilir. Markalaşma için, gerekli tipografilerin kesinlikle mevcut olduğundan emin olun.
+Eksik yazı tiplerini yükleyin veya [yedek yazı tiplerini yapılandır](/slides/tr/net/powerpoint-fonts/). Aspose.Slides yerine koyma yapar, ancak görünüm farklılık gösterebilir. Marka tutarlılığı için gereken tipografilerin kesinlikle mevcut olduğundan emin olun.
 
-**GIF karelerine bir filigran ekleyebilir miyim?**
+### GIF çerçevelerine filigran ekleyebilir miyim?
 
-Evet. Dışa aktarmadan önce ana slayta ya da bireysel slaytlara [yarı saydam bir nesne/logo ekleyin](/slides/tr/net/watermark/) — filigran her karede görünecektir.
+Evet. [Yarı saydam bir nesne/logo ekle](/slides/tr/net/watermark/) ana slayta ya da dışa aktarım öncesinde bireysel slaytlara ekleyin — filigran her çerçevede görünecektir.

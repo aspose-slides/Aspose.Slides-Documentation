@@ -1,6 +1,6 @@
 ---
-title: API Pública e Alterações Incompatíveis Retroativas no Aspose.Slides para Java 15.8.0
-linktitle: Aspose.Slides para Java 15.8.0
+title: API Pública e Alterações Incompatíveis Retroativas no Aspose.Slides for Java 15.8.0
+linktitle: Aspose.Slides for Java 15.8.0
 type: docs
 weight: 160
 url: /pt/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
@@ -15,18 +15,20 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Revise as atualizações da API pública e as mudanças incompatíveis no Aspose.Slides para Java para migrar suavemente suas soluções de apresentações PowerPoint PPT, PPTX e ODP."
+description: "Revise as atualizações da API pública e as alterações que quebram compatibilidade no Aspose.Slides for Java para migrar suavemente suas soluções de apresentação PowerPoint PPT, PPTX e ODP."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Esta página lista todas as classes, métodos, propriedades e afins [added](/slides/pt/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) ou [removed](/slides/pt/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) e outras alterações introduzidas com a API do Aspose.Slides for Java 15.8.0.
+Esta página lista todas as classes, métodos, propriedades e afins [adicionados](/slides/pt/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/) ou [removidos](/slides/pt/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/), e outras alterações introduzidas na API do Aspose.Slides for Java 15.8.0.
 
 {{% /alert %}} 
 ## **Alterações da API Pública**
-#### **Métodos getDoughnutHoleSize(), setDoughnutHoleSize(byte) foram adicionados a IChartSeries e ChartSeries**
-Especifica o tamanho do buraco em um gráfico de anel.
+#### **Métodos getDoughnutHoleSize(), setDoughnutHoleSize(byte) foram adicionados ao IChartSeries e ChartSeries**
+Especifica o tamanho do furo em um gráfico de rosca.
 
 ``` java
+import com.aspose.slides.*;
+
 
  Presentation pres = new Presentation();
 

@@ -9,37 +9,39 @@ keywords:
 - کنترل ActiveX
 - مدیریت ActiveX
 - افزودن ActiveX
-- اصلاح ActiveX
+- تغییر ActiveX
 - پخش‌کننده رسانه
 - PowerPoint
 - ارائه
 - Java
 - Aspose.Slides
-description: "یاد بگیرید چگونه Aspose.Slides for Java از ActiveX برای خودکارسازی و بهبود ارائه‌های PowerPoint استفاده می‌کند و به توسعه‌دهندگان کنترل قدرتمندی بر اسلایدها می‌دهد."
+description: "یاد بگیرید چگونه Aspose.Slides برای Java از ActiveX برای خودکارسازی و بهبود ارائه‌های PowerPoint استفاده می‌کند و به توسعه‌دهندگان کنترل قدرتمندی بر روی اسلایدها می‌دهد."
 ---
 ## **مقدمه**
 
-کنترل‌های ActiveX در ارائه‌ها استفاده می‌شوند. Aspose.Slides for Java به شما امکان افزودن و مدیریت کنترل‌های ActiveX را می‌دهد، اما نسبت به اشکال معمولی ارائه مدیریت آن‌ها کمی دشوارتر است. ما پشتیبانی از افزودن کنترل Active Media Player را در Aspose.Slides پیاده‌سازی کردیم. توجه داشته باشید که کنترل‌های ActiveX اشکال نیستند؛ آن‌ها بخشی از [IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/) ارائه نیستند. در عوض بخشی از [IControlCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrolcollection/) جداگانه هستند. در این مطلب، نحوه کار با آن‌ها را نشان خواهیم داد.
+کنترل‌های ActiveX در ارائه‌ها استفاده می‌شوند. Aspose.Slides for Java به شما امکان اضافه‌کردن و مدیریت این کنترل‌ها را می‌دهد، اما نسبت به اشکال معمولی ارائه کمی سخت‌تر هستند. ما پشتیبانی از افزودن کنترل Active Media Player را در Aspose.Slides پیاده‌سازی کرده‌ایم. توجه داشته باشید که کنترل‌های ActiveX اشکال نیستند؛ آن‌ها بخشی از [IShapeCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/) ارائه نیستند. در عوض بخشی از [IControlCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrolcollection/) جداگانه هستند. در این موضوع نحوه کار با آن‌ها را به شما نشان می‌دهیم.
 
-## **افزودن کنترل ActiveX Media Player به اسلاید**
-برای افزودن کنترل Media Player ActiveX، این کارها را انجام دهید:
+## **افزودن یک کنترل ActiveX Media Player به اسلاید**
+برای افزودن کنترل Media Player ActiveX، مراحل زیر را انجام دهید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و یک ارائه خالی تولید کنید.
-2. اسلاید هدف را در [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) دسترسی پیدا کنید.
-3. کنترل Media Player ActiveX را با استفاده از متد [addControl](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) که توسط [IControlCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrolcollection/) ارائه می‌شود، اضافه کنید.
-4. به کنترل Media Player ActiveX دسترسی پیدا کنید و مسیر ویدیو را با استفاده از ویژگی‌های آن تنظیم کنید.
-5. ارائه را به عنوان فایل PPTX ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و یک ارائه خالی تولید کنید.  
+2. اسلاید هدف را در [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) بازیابی کنید.  
+3. کنترل Media Player ActiveX را با استفاده از متد [addControl](https://reference.aspose.com/slides/fa/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) که توسط [IControlCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrolcollection/) ارائه می‌شود، اضافه کنید.  
+4. به کنترل Media Player ActiveX دسترسی پیدا کنید و مسیر ویدئو را با استفاده از ویژگی‌های آن تنظیم کنید.  
+5. ارائه را به صورت فایل PPTX ذخیره کنید.
 
-این کد نمونه، بر اساس مراحل بالا، نحوه افزودن کنترل Media Player ActiveX به یک اسلاید را نشان می‌دهد:
+این کد نمونه، بر پایهٔ مراحل بالا، نشان می‌دهد که چگونه یک کنترل Media Player ActiveX به یک اسلاید افزوده شود:
 
 ```java
-// ایجاد نمونهٔ خالی ارائه
+import com.aspose.slides.*;
+
+// ایجاد نمونه ارائهٔ خالی
 Presentation pres = new Presentation();
 try {
-    // افزودن کنترل ActiveX Media Player
+    // افزودن کنترل Media Player ActiveX
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // دسترسی به کنترل ActiveX Media Player و تنظیم مسیر ویدیو
+    // دسترسی به کنترل Media Player ActiveX و تنظیم مسیر ویدئو
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // ذخیرهٔ ارائه
@@ -49,32 +51,38 @@ try {
 }
 ```
 
-## **ویرایش یک کنترل ActiveX**
-{{% alert color="primary" %}} 
-
-Aspose.Slides for Java 7.1.0 و نسخه‌های جدیدتر دارای مؤلفه‌هایی برای مدیریت کنترل‌های ActiveX هستند. می‌توانید به کنترل ActiveX که قبلاً به ارائه‌تان اضافه شده دسترسی پیدا کنید و از طریق ویژگی‌های آن آن را ویرایش یا حذف کنید.
-
+## **تغییر یک کنترل ActiveX**
+{{% alert color="info" %}} 
+Aspose.Slides for Java 7.1.0 و نسخه‌های جدیدتر دارای اجزایی برای مدیریت کنترل‌های ActiveX هستند. می‌توانید به کنترل ActiveX که قبلاً به ارائه‌تان اضافه شده دسترسی یافته و آن را از طریق ویژگی‌هایش تغییر یا حذف کنید. 
 {{% /alert %}} 
 
-برای مدیریت یک کنترل ساده ActiveX مانند جعبه متن و دکمه فرمان ساده در یک اسلاید، این کارها را انجام دهید:
+برای مدیریت یک کنترل ساده ActiveX مانند یک TextBox و یک CommandButton ساده بر روی اسلاید، این کارها را انجام دهید:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه حاوی کنترل‌های ActiveX را بارگذاری کنید.
-2. یک ارجاع به اسلاید را بر اساس شاخص آن دریافت کنید.
-3. کنترل‌های ActiveX در اسلاید را با دسترسی به [IControlCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrolcollection/) دریافت کنید.
-4. کنترل ActiveX TextBox1 را با استفاده از شیء [IControl](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrol/) دسترسی پیدا کنید.
-5. ویژگی‌های کنترل ActiveX TextBox1 که شامل متن، فونت، ارتفاع فونت و موقعیت فریم است را تغییر دهید.
-6. به کنترل دسترسی دوم به نام CommandButton1 دسترسی پیدا کنید.
-7. متن دکمه، فونت و موقعیت آن را تغییر دهید.
-8. موقعیت فریم‌های کنترل‌های ActiveX را جابه‌جا کنید.
-9. ارائه اصلاح‌شده را به یک فایل PPTX بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation) ایجاد کنید و ارائه‌ای که حاوی کنترل‌های ActiveX است بارگذاری کنید.  
+2. با استفاده از ایندکس، مرجع اسلاید را به دست آورید.  
+3. با دسترسی به [IControlCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrolcollection/)، به کنترل‌های ActiveX موجود در اسلاید دسترسی پیدا کنید.  
+4. کنترل TextBox1 ActiveX را با استفاده از شیء [IControl](https://reference.aspose.com/slides/fa/java/com.aspose.slides/icontrol/) دریافت کنید.  
+5. ویژگی‌های کنترل TextBox1 ActiveX را که شامل متن، قلم، ارتفاع قلم و موقعیت قاب هستند، تغییر دهید.  
+6. به کنترل دوم به نام CommandButton1 دسترسی پیدا کنید.  
+7. عنوان دکمه، قلم و موقعیت آن را تغییر دهید.  
+8. موقعیت قاب‌های کنترل‌های ActiveX را جابه‌جا کنید.  
+9. ارائهٔ اصلاح‌شده را به فایل PPTX بنویسید.
 
-این کد نمونه، بر اساس مراحل بالا، نحوه مدیریت یک کنترل ساده ActiveX را نشان می‌دهد: 
+این کد نمونه، بر پایهٔ مراحل بالا، نشان می‌دهد که چگونه یک کنترل ساده ActiveX را مدیریت کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 // دسترسی به ارائه با کنترل‌های ActiveX
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
-    // دسترس به اولین اسلاید در ارائه
+    // دسترسی به اولین اسلاید در ارائه
     ISlide slide = pres.getSlides().get_Item(0);
 
     // تغییر متن TextBox
@@ -84,8 +92,8 @@ try {
         String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // تغییر تصویر جانشین. PowerPoint این تصویر را هنگام فعال‌سازی ActiveX جایگزین می‌کند،
-        // بنابراین گاهی اوقات می‌توان تصویر را بدون تغییر گذاشت.
+        // تغییر تصویر جایگزین. PowerPoint این تصویر را هنگام فعال‌سازی ActiveX جایگزین خواهد کرد،
+        // بنابراین گاهی می‌توان تصویر را دست‌نخورده باقی گذاشت.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -128,7 +136,7 @@ try {
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // تغییر جانشین
+        // تغییر جایگزین
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
         java.awt.Graphics graphics = image.getGraphics();
@@ -165,7 +173,7 @@ try {
                 control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
             }
 
-            // جابجایی 100 پوینت به سمت پایین
+            // انتقال 100 نقطه به پایین
             for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
                 IShapeFrame frame = ctl.getFrame();
                 ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
@@ -182,17 +190,16 @@ try {
         }
 ```
 
-
 ## **سوالات متداول**
 
-**آیا Aspose.Slides کنترل‌های ActiveX را هنگام خواندن و ذخیره مجدد حفظ می‌کند اگر نتوانند در زمان اجرا جاوا اجرا شوند؟**
+### آیا Aspose.Slides کنترل‌های ActiveX را هنگام خواندن و ذخیرهٔ مجدد حفظ می‌کند حتی اگر در زمان اجرای Java قابل اجرا نباشند؟
 
-بله. Aspose.Slides آنها را به عنوان بخشی از ارائه در نظر می‌گیرد و می‌تواند ویژگی‌ها و فریم‌های آنها را بخواند/ویرایش کند؛ برای حفظ آنها نیازی به اجرای خود کنترل‌ها نیست.
+بله. Aspose.Slides آن‌ها را به عنوان بخشی از ارائه در نظر می‌گیرد و می‌تواند ویژگی‌ها و قاب‌های آن‌ها را بخواند/تغییر دهد؛ اجرای خود کنترل‌ها برای حفظ آن‌ها لازم نیست.
 
-**کنترل‌های ActiveX چگونه با اشیاء OLE در یک ارائه متفاوت هستند؟**
+### کنترل‌های ActiveX چگونه با اشیای OLE در یک ارائه تفاوت دارند؟
 
-کنترل‌های ActiveX کنترل‌های تعاملی مدیریت‌شده هستند (دکمه‌ها، جعبه‌های متن، Media Player) در حالی که [OLE](/slides/fa/java/manage-ole/) به اشیاء برنامه نهفته اشاره دارد (به عنوان مثال یک صفحه‌کاربردی Excel). آنها به‌صورت متفاوتی ذخیره و مدیریت می‌شوند و مدل‌های ویژگی متفاوتی دارند.
+کنترل‌های ActiveX کنترل‌های تعاملی مدیریت‌شده (دکمه‌ها، TextBoxها، Media Player) هستند، در حالی که [OLE](/slides/fa/java/manage-ole/) به اشیای برنامه‌نویسی جاسازی‌شده (مانند یک کاربرگ Excel) اشاره دارد. آن‌ها به شکل متفاوتی ذخیره و مدیریت می‌شوند و مدل‌های ویژگی متفاوتی دارند.
 
-**آیا رویدادهای ActiveX و ماکروهای VBA کار می‌کنند اگر فایل توسط Aspose.Slides اصلاح شده باشد؟**
+### آیا رویدادهای ActiveX و ماکروهای VBA در صورتی که فایل توسط Aspose.Slides اصلاح شده باشد کار می‌کنند؟
 
-Aspose.Slides نشانه‌گذاری و متادیتای موجود را حفظ می‌کند؛ اما رویدادها و ماکروها فقط در PowerPoint بر روی ویندوز و زمانی که امنیت اجازه بدهد اجرا می‌شوند. کتابخانه VBA را اجرا نمی‌کند.
+Aspose.Slides نشانه‌گذاری و متادیتای موجود را حفظ می‌کند؛ اما رویدادها و ماکروها فقط در PowerPoint روی ویندوز و زمانی که امنیت اجازه دهد اجرا می‌شوند. کتابخانه VBA را اجرا نمی‌کند.

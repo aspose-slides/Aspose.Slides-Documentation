@@ -6,13 +6,13 @@ weight: 110
 url: /fr/cpp/wordart/
 keywords:
 - WordArt
-- Créer WordArt
-- Modèle WordArt
-- Effet WordArt
+- créer WordArt
+- modèle WordArt
+- effet WordArt
 - effet d'ombre
 - effet d'affichage
 - effet de lueur
-- Transformation WordArt
+- transformation WordArt
 - effet 3D
 - effet d'ombre extérieure
 - effet d'ombre intérieure
@@ -20,34 +20,32 @@ keywords:
 - présentation
 - C++
 - Aspose.Slides
-description: "Créez et personnalisez les effets WordArt dans Aspose.Slides pour C++. Ce guide étape par étape aide les développeurs à améliorer les présentations avec du texte professionnel en C++."
+description: Créez et personnalisez les effets WordArt dans Aspose.Slides pour C++. Ce guide étape par étape aide les développeurs à améliorer les présentations avec du texte professionnel en C++.
 ---
+## **Vue d'ensemble**
 
-## **À propos de WordArt ?**
-WordArt ou Word Art est une fonctionnalité qui permet d’appliquer des effets aux textes pour les faire ressortir. Avec WordArt, par exemple, vous pouvez tracer le contour d’un texte ou le remplir d’une couleur (ou d’un dégradé), ajouter des effets 3D, etc. Vous pouvez également incliner, plier et étirer la forme d’un texte. 
+Les effets WordArt vous permettent d'ajouter du texte visuellement attrayant et stylisé à vos présentations PowerPoint. Avec Aspose.Slides, les développeurs peuvent créer, personnaliser et gérer WordArt de façon programmatique comme dans Microsoft PowerPoint — sans avoir besoin d'Office installé. Cet article fournit un aperçu du travail avec WordArt, y compris comment appliquer des transformations de texte, des styles de remplissage, des contours, des ombres et d'autres options de mise en forme pour rendre le contenu de votre présentation plus expressif et engageant. WordArt vous permet de traiter le texte comme un objet graphique. Il se compose d'effets ou de modifications spéciales appliquées au texte pour le rendre plus attrayant ou visible.
 
-{{% alert color="primary" %}} 
+## **Créer un modèle WordArt simple et l'appliquer au texte**
 
-WordArt vous permet de traiter un texte comme vous le feriez avec un objet graphique. En général, WordArt se compose d’effets ou de modifications spéciales appliquées aux textes pour les rendre plus attrayants ou visibles. 
+**Using Aspose.Slides** 
 
-{{% /alert %}} 
+Tout d'abord, nous créons un texte simple en utilisant ce code C++ :
 
-**WordArt dans Microsoft PowerPoint**
-
-Pour utiliser WordArt dans Microsoft PowerPoint, vous devez sélectionner l’un des modèles WordArt prédéfinis. Un modèle WordArt est un ensemble d’effets qui s’applique à un texte ou à sa forme. 
-
-**WordArt dans Aspose.Slides**
-
-Dans Aspose.Slides pour C++ 20.10, nous avons ajouté la prise en charge de WordArt et apporté des améliorations à cette fonctionnalité dans les versions ultérieures d’Aspose.Slides pour C++. 
-
-Avec Aspose.Slides pour C++, vous pouvez facilement créer votre propre modèle WordArt (un effet ou une combinaison d’effets) en C++ et l’appliquer aux textes. 
-
-## **Créer un modèle WordArt simple et l’appliquer à un texte**
-
-**Utilisation d’Aspose.Slides** 
-
-Tout d’abord, nous créons un texte simple avec ce code C++ : 
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
@@ -57,30 +55,83 @@ auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(
 portion->set_Text(u"Aspose.Slides");
 ```
 
+Ensuite, nous définissons la hauteur de police du texte à une valeur plus grande pour rendre l'effet plus visible à l'aide de ce code :
 
-Ensuite, nous réglons la hauteur de la police du texte à une valeur plus grande pour rendre l’effet plus visible grâce à ce code : 
 ``` cpp 
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fontData = System::MakeObject<FontData>(u"Arial Black");
 portion->get_PortionFormat()->set_LatinFont(fontData);
 portion->get_PortionFormat()->set_FontHeight(36.0f);
 ```
 
-
-**Utilisation de Microsoft PowerPoint**
+**Using Microsoft PowerPoint**
 
 Accédez au menu des effets WordArt dans Microsoft PowerPoint :
 
 ![todo:image_alt_text](image-20200930113926-1.png)
 
-Dans le menu de droite, vous pouvez choisir un effet WordArt prédéfini. Dans le menu de gauche, vous pouvez spécifier les paramètres d’un nouveau WordArt. 
+Dans le menu de droite, vous pouvez choisir un effet WordArt prédéfini. Dans le menu de gauche, vous pouvez spécifier les paramètres d'un nouveau WordArt. 
 
-Voici quelques-uns des paramètres ou options disponibles : 
+Voici quelques‑uns des paramètres ou options disponibles :
+
 ![todo:image_alt_text](image-20200930114015-3.png)
 
-**Utilisation d’Aspose.Slides**
+**Using Aspose.Slides**
 
-Ici, nous appliquons la couleur du motif SmallGrid au texte et ajoutons une bordure de texte noire d’une largeur de 1 pixel grâce à ce code : 
+Ici, nous appliquons la couleur de motif SmallGrid au texte et ajoutons une bordure de texte noire d'une largeur de 1 en utilisant ce code :
+
 ``` cpp 
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto fillFormat = portion->get_PortionFormat()->get_FillFormat();
 fillFormat->set_FillType(FillType::Pattern);
 fillFormat->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_DarkOrange());
@@ -92,23 +143,53 @@ lineFillFormat->set_FillType(FillType::Solid);
 lineFillFormat->get_SolidFillColor()->set_Color(Color::get_Black());
 ```
 
+Le texte résultant :
 
-Le texte résultant : 
 ![todo:image_alt_text](image-20200930114108-4.png)
 
-## **Appliquer d’autres effets WordArt**
+## **Appliquer d'autres effets WordArt**
 
-**Utilisation de Microsoft PowerPoint**
+**Using Microsoft PowerPoint**
 
-Depuis l’interface du programme, vous pouvez appliquer ces effets à un texte, un bloc de texte, une forme ou un élément similaire : 
+Depuis l'interface du programme, vous pouvez appliquer ces effets à un texte, un bloc de texte, une forme ou un élément similaire :
+
 ![todo:image_alt_text](image-20200930114129-5.png)
 
-Par exemple, les effets Ombre, Réflexion et Lueur peuvent être appliqués à un texte ; les effets Format 3D et Rotation 3D peuvent être appliqués à un bloc de texte ; la propriété Bords doux peut être appliquée à un objet Forme (elle reste effective même lorsqu’aucune propriété Format 3D n’est définie). 
+Par exemple, les effets Ombre, Réflexion et Lueur peuvent être appliqués à un texte ; les effets Format 3D et Rotation 3D peuvent être appliqués à un bloc de texte ; la propriété Bords doux peut être appliquée à un objet forme (elle reste active même lorsqu'aucune propriété Format 3D n'est définie). 
 
-### **Appliquer des effets d’ombre au texte**
+### **Appliquer des effets d'ombre au texte**
 
-Ici, nous avons l’intention de définir uniquement les propriétés liées à un texte. Nous appliquons l’effet d’ombre à un texte avec ce code en C++ : 
+Ici, nous avons l'intention de définir les propriétés relatives uniquement au texte. Nous appliquons l'effet d'ombre à un texte en utilisant ce code C++ :
+
 ``` cpp 
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableOuterShadowEffect();
 
@@ -124,29 +205,54 @@ outerShadowEffect->set_SkewVertical(0);
 outerShadowEffect->get_ShadowColor()->get_ColorTransform()->Add(ColorTransformOperation::SetAlpha, 0.32f);
 ```
 
-
-L’API Aspose.Slides prend en charge trois types d’ombre : OuterShadow, InnerShadow et PresetShadow. 
+L'API Aspose.Slides prend en charge trois types d'ombres : OuterShadow, InnerShadow et PresetShadow. 
 
 Avec PresetShadow, vous pouvez appliquer une ombre à un texte (en utilisant des valeurs prédéfinies). 
 
-**Utilisation de Microsoft PowerPoint**
+**Using Microsoft PowerPoint**
 
-Dans PowerPoint, vous pouvez utiliser un type d’ombre. Voici un exemple : 
+Dans PowerPoint, vous ne pouvez utiliser qu'un type d'ombre. Voici un exemple :
+
 ![todo:image_alt_text](image-20200930114225-6.png)
 
-**Utilisation d’Aspose.Slides**
+**Using Aspose.Slides**
 
-Aspose.Slides vous permet en fait d’appliquer deux types d’ombre simultanément : InnerShadow et PresetShadow. 
+Aspose.Slides permet en fait d'appliquer simultanément deux types d'ombres : InnerShadow et PresetShadow.
 
-**Notes :**
+**Notes:**
 
-- Lorsque OuterShadow et PresetShadow sont utilisés ensemble, seul l’effet OuterShadow est appliqué. 
-- Si OuterShadow et InnerShadow sont utilisés simultanément, l’effet résultant ou appliqué dépend de la version de PowerPoint. Par exemple, dans PowerPoint 2013, l’effet est doublé. Mais dans PowerPoint 2007, l’effet OuterShadow est appliqué. 
+- Lorsque OuterShadow et PresetShadow sont utilisés ensemble, seul l'effet OuterShadow est appliqué. 
+- Si OuterShadow et InnerShadow sont utilisés simultanément, l'effet résultant ou appliqué dépend de la version de PowerPoint. Par exemple, dans PowerPoint 2013, l'effet est doublé. Mais dans PowerPoint 2007, l'effet OuterShadow est appliqué. 
 
 ### **Appliquer des effets de réflexion**
 
-Nous ajoutons une réflexion au texte avec cet exemple de code en C++ : 
+Nous ajoutons une réflexion au texte à l'aide de cet exemple de code C++ :
+
 ``` cpp 
+#include <DOM/Effects/IReflection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableReflectionEffect();
 
@@ -163,11 +269,37 @@ reflectionEffect->set_EndReflectionOpacity(0.9f);
 reflectionEffect->set_RectangleAlign(RectangleAlignment::BottomLeft);
 ```
 
-
 ### **Appliquer des effets de lueur**
 
-Nous appliquons l’effet de lueur au texte pour le faire briller ou ressortir en utilisant ce code : 
+Nous appliquons l'effet de lueur au texte pour le faire briller ou le mettre en évidence en utilisant ce code :
+
 ``` cpp 
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/Effects/IGlow.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+auto portion = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+portion->set_Text(u"Aspose.Slides");
+
 auto effectFormat = portion->get_PortionFormat()->get_EffectFormat();
 effectFormat->EnableGlowEffect();
 
@@ -177,45 +309,90 @@ glowEffect->get_Color()->get_ColorTransform()->Add(ColorTransformOperation::SetA
 glowEffect->set_Radius(7);
 ```
 
+Le résultat de l'opération :
 
-Le résultat de l’opération : 
 ![todo:image_alt_text](image-20200930114621-7.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Vous pouvez modifier les paramètres d’ombre, d’affichage et de lueur. Les propriétés des effets sont définies séparément pour chaque portion du texte. 
+Vous pouvez modifier les paramètres d'ombre, d'affichage et de lueur. Les propriétés des effets sont définies séparément pour chaque portion du texte. 
 
 {{% /alert %}} 
 
 ### **Utiliser les transformations dans WordArt**
 
-Nous utilisons la méthode set_Transform (inhérente à l’ensemble du bloc de texte) avec ce code : 
+Nous utilisons la méthode set_Transform (applicable à l'ensemble du bloc de texte) à l'aide de ce code :
+
 ``` cpp 
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextShapeType.h>
+using namespace Aspose::Slides;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUpPour);
 ```
 
+Le résultat :
 
-Le résultat : 
 ![todo:image_alt_text](image-20200930114712-8.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Microsoft PowerPoint et Aspose.Slides pour C++ offrent un certain nombre de types de transformation prédéfinis. 
+Toutes les deux, Microsoft PowerPoint et Aspose.Slides pour C++, offrent un certain nombre de types de transformation prédéfinis. 
 
 {{% /alert %}} 
 
-**Utilisation de PowerPoint**
+**Using PowerPoint**
 
-Pour accéder aux types de transformation prédéfinis, suivez : **Format** -> **TextEffect** -> **Transform**
+Pour accéder aux types de transformation prédéfinis, suivez : **Format** -> **Effet de texte** -> **Transformation**
 
-**Utilisation d’Aspose.Slides**
+**Using Aspose.Slides**
 
-Pour sélectionner un type de transformation, utilisez l’énumération TextShapeType. 
+Pour sélectionner un type de transformation, utilisez l'énumération TextShapeType. 
 
 ### **Appliquer des effets 3D au texte et aux formes**
 
-Nous appliquons un effet 3D à une forme de texte avec cet exemple de code : 
+Nous appliquons un effet 3D à une forme de texte à l'aide de cet exemple de code :
+
 ``` cpp 
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+autoShape->get_TextFrame()->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = autoShape->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -243,12 +420,41 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
+Le texte résultant et sa forme :
 
-Le texte résultant et sa forme : 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-Nous appliquons un effet 3D au texte avec ce code C++ : 
+Nous appliquons un effet 3D au texte avec ce code C++ :
+
 ``` cpp 
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/MaterialPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace System::Drawing;
+
+auto pres = System::MakeObject<Presentation>();
+auto slide = pres->get_Slides()->idx_get(0);
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
+auto textFrame = autoShape->get_TextFrame();
+textFrame->set_Text(u"Aspose.Slides");
+
 auto threeDFormat = textFrame->get_TextFrameFormat()->get_ThreeDFormat();
 
 threeDFormat->get_BevelBottom()->set_BevelType(BevelPresetType::Circle);
@@ -276,42 +482,61 @@ threeDFormat->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 threeDFormat->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 ```
 
+Le résultat de l'opération :
 
-Le résultat de l’opération : 
 ![todo:image_alt_text](image-20200930114905-10.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-L’application des effets 3D aux textes ou à leurs formes ainsi que les interactions entre les effets sont basées sur certaines règles.
+L'application d'effets 3D aux textes ou à leurs formes ainsi que les interactions entre effets sont basées sur certaines règles. 
 
-Considérez une scène pour un texte et la forme contenant ce texte. L’effet 3D comprend la représentation d’un objet 3D et la scène sur laquelle l’objet est placé.
+Considérez une scène pour un texte et la forme contenant ce texte. L'effet 3D comprend la représentation d'objet 3D et la scène sur laquelle l'objet a été placé. 
 
-- Lorsque la scène est définie à la fois pour la figure et le texte, la scène de la figure a la priorité supérieure — la scène du texte est ignorée.
-- Lorsque la figure n’a pas sa propre scène mais possède une représentation 3D, la scène du texte est utilisée.
-- Sinon—lorsque la forme n’a initialement aucun effet 3D—la forme reste plane et l’effet 3D ne s’applique qu’au texte.
+- Lorsque la scène est définie à la fois pour la forme et pour le texte, la scène de la forme a la priorité supérieure — la scène du texte est ignorée. 
+- Si la forme ne possède pas de scène propre mais a une représentation 3D, la scène du texte est utilisée. 
+- Sinon—lorsque la forme n'a initialement aucun effet 3D—la forme reste plate et l'effet 3D n'est appliqué qu'au texte. 
 
 Ces descriptions sont liées aux méthodes ThreeDFormat.getLightRig() et ThreeDFormat.getCamera(). 
 
 {{% /alert %}} 
 
-## **Appliquer des effets d’ombre extérieure aux formes**
-Aspose.Slides pour C++ fournit les classes [**IOuterShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_outer_shadow) et [**IInnerShadow**](https://reference.aspose.com/slides/cpp/class/aspose.slides.effects.i_inner_shadow) qui permettent d’appliquer des effets d’ombre à un texte contenu dans un TextFrame. Suivez ces étapes :
+## **Appliquer des effets d'ombre extérieure aux formes**
+Aspose.Slides pour C++ fournit les classes [**IOuterShadow**](https://reference.aspose.com/slides/fr/cpp/class/aspose.slides.effects.i_outer_shadow) et [**IInnerShadow**](https://reference.aspose.com/slides/fr/cpp/class/aspose.slides.effects.i_inner_shadow) qui permettent d'appliquer des effets d'ombre à un texte contenu dans un TextFrame. Suivez ces étapes :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenir la référence d’une diapositive en utilisant son index.
-3. Ajouter une AutoShape de type Rectangle à la diapositive.
-4. Accéder au TextFrame associé à l’AutoShape.
-5. Définir la propriété FillType de l’AutoShape sur NoFill.
-6. Instancier la classe OuterShadow
-7. Définir le BlurRadius de l’ombre.
-8. Définir la Direction de l’ombre
-9. Définir la Distance de l’ombre.
-10. Définir le RectanglelAlign sur TopLeft.
-11. Définir le PresetColor de l’ombre sur Black.
-12. Enregistrer la présentation sous forme de fichier PPTX.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/cpp/class/aspose.slides.presentation).  
+2. Obtenez la référence d'une diapositive en utilisant son index.  
+3. Ajoutez un AutoShape de type Rectangle à la diapositive.  
+4. Accédez au TextFrame associé à l'AutoShape.  
+5. Définissez la propriété FillType de l'AutoShape sur NoFill.  
+6. Instanciez la classe OuterShadow  
+7. Définissez le BlurRadius de l'ombre.  
+8. Définissez la Direction de l'ombre  
+9. Définissez la Distance de l'ombre.  
+10. Définissez RectanglelAlign sur TopLeft.  
+11. Définissez PresetColor de l'ombre sur Black.  
+12. Enregistrez la présentation au format PPTX.  
 
-Ce code d’exemple en C++—une implémentation des étapes ci‑dessus—vous montre comment appliquer l’effet d’ombre extérieure à un texte : 
+Ce code d'exemple en C++ — une implémentation des étapes ci‑dessus — montre comment appliquer l'effet d'ombre extérieure à un texte :
+
 ``` cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresetColor.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Effects;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 // Obtenir la référence de la diapositive
 auto sld = pres->get_Slides()->idx_get(0);
@@ -338,21 +563,44 @@ shadow->get_ShadowColor()->set_PresetColor(PresetColor::Black);
 pres->Save(u"pres_out.pptx", SaveFormat::Pptx);
 ```
 
-
-## **Appliquer des effets d’ombre intérieure aux formes**
+## **Appliquer des effets d'ombre intérieure aux formes**
 Suivez ces étapes :
 
-1. Créer une instance de la classe [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation).
-2. Obtenir une référence de la diapositive.
-3. Ajouter une AutoShape de type Rectangle.
-4. Activer InnerShadowEffect.
-5. Définir tous les paramètres nécessaires.
-6. Définir ColorType à Scheme.
-7. Définir la couleur du schéma.
-8. Enregistrer la présentation sous forme de fichier [PPTX](https://docs.fileformat.com/presentation/pptx/).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/cpp/class/aspose.slides.presentation).  
+2. Obtenez une référence de la diapositive.  
+3. Ajoutez un AutoShape de type Rectangle.  
+4. Activez InnerShadowEffect.  
+5. Définissez tous les paramètres nécessaires.  
+6. Définissez ColorType sur Scheme.  
+7. Définissez la couleur du schéma.  
+8. Enregistrez la présentation au format [PPTX](https://docs.fileformat.com/presentation/pptx/).  
 
-Ce code d’exemple (basé sur les étapes ci‑dessus) vous montre comment ajouter un connecteur entre deux formes en C++ : 
+Ce code d'exemple (basé sur les étapes ci‑dessus) montre comment ajouter un connecteur entre deux formes en C++ :
+
 ``` cpp
+#include <DOM/ColorType.h>
+#include <DOM/Effects/IInnerShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 // Obtenir la référence d'une diapositive
 auto slide = presentation->get_Slides()->idx_get(0);
@@ -388,21 +636,16 @@ shadow->get_ShadowColor()->set_SchemeColor(SchemeColor::Accent1);
 presentation->Save(u"WordArt_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **FAQ**
 
-**Puis‑je utiliser les effets WordArt avec différentes polices ou scripts (par ex., arabe, chinois) ?**
+### Puis‑je utiliser les effets WordArt avec différentes polices ou scripts (par ex., arabe, chinois) ?
+Oui, Aspose.Slides prend en charge Unicode et fonctionne avec toutes les principales polices et scripts. Les effets WordArt tels que l'ombre, le remplissage et le contour peuvent être appliqués quel que soit la langue, bien que la disponibilité des polices et le rendu puissent dépendre des polices du système.
 
-Oui, Aspose.Slides prend en charge Unicode et fonctionne avec toutes les principales polices et scripts. Les effets WordArt tels que l’ombre, le remplissage et le contour peuvent être appliqués quel que soit la langue, bien que la disponibilité des polices et le rendu puissent dépendre des polices du système.
+### Puis‑je appliquer les effets WordArt aux éléments du masque de diapositive ?
+Oui, vous pouvez appliquer les effets WordArt aux formes des masques de diapositives, y compris les espaces réservés au titre, les pieds de page ou le texte d'arrière‑plan. Les modifications apportées à la mise en page du masque se refléteront sur toutes les diapositives associées.
 
-**Puis‑je appliquer les effets WordArt aux éléments du masque des diapositives ?**
-
-Oui, vous pouvez appliquer les effets WordArt aux formes sur les masques de diapositives, y compris les espaces réservés de titre, les pieds de page ou le texte d’arrière‑plan. Les modifications apportées à la disposition du masque seront répercutées sur toutes les diapositives associées.
-
-**Les effets WordArt affectent‑ils la taille du fichier de la présentation ?**
-
+### Les effets WordArt affectent-ils la taille du fichier de présentation ?
 Légèrement. Les effets WordArt tels que les ombres, les lueurs et les remplissages en dégradé peuvent légèrement augmenter la taille du fichier en raison des métadonnées de formatage supplémentaires, mais la différence est généralement négligeable.
 
-**Puis‑je prévisualiser le résultat des effets WordArt sans enregistrer la présentation ?**
-
-Oui, vous pouvez rendre les diapositives contenant des WordArt en images (par ex., PNG, JPEG) à l’aide de la méthode `GetImage` des interfaces [IShape](https://reference.aspose.com/slides/cpp/aspose.slides.ishape/) ou [ISlide](https://reference.aspose.com/slides/cpp/aspose.slides.islide/). Cela vous permet de prévisualiser le résultat en mémoire ou à l’écran avant d’enregistrer ou d’exporter la présentation complète.
+### Puis‑je prévisualiser le résultat des effets WordArt sans enregistrer la présentation ?
+Oui, vous pouvez rendre les diapositives contenant du WordArt en images (par ex., PNG, JPEG) en utilisant la méthode `GetImage` des interfaces [IShape](https://reference.aspose.com/slides/fr/cpp/aspose.slides/ishape/) ou [ISlide](https://reference.aspose.com/slides/fr/cpp/aspose.slides/islide/). Cela vous permet de prévisualiser le résultat en mémoire ou à l'écran avant d'enregistrer ou d'exporter la présentation complète.

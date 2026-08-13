@@ -1,6 +1,6 @@
 ---
-title: Android पर प्रस्तुतियों में VBA प्रोजेक्ट प्रबंधन
-linktitle: VBA द्वारा प्रस्तुति
+title: एंड्रॉइड पर प्रस्तुतियों में VBA प्रोजेक्ट प्रबंधित करें
+linktitle: VBA के माध्यम से प्रस्तुति
 type: docs
 weight: 250
 url: /hi/androidjava/presentation-via-vba/
@@ -20,39 +20,39 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java के साथ VBA के माध्यम से PowerPoint और OpenDocument प्रस्तुतियों को उत्पन्न और परिवर्तित करने के तरीके को जानें, ताकि आपका कार्यप्रवाह सुव्यवस्थित हो सके।"
+description: "Aspose.Slides for Android को Java के माध्यम से उपयोग करके VBA के द्वारा PowerPoint और OpenDocument प्रस्तुतियों को उत्पन्न और संशोधित करना सीखें, जिससे आपका कार्यप्रवाह सुगम हो जाएगा."
 ---
-## **Introduction**
+## **परिचय**
 
-Aspose.Slides मैक्रो और VBA कोड के साथ काम करने के लिए क्लास और इंटरफ़ेस प्रदान करता है।
+Aspose.Slides मैक्रो और VBA कोड के साथ काम करने के लिए क्लासेस और इंटरफ़ेस प्रदान करता है।
 
 {{% alert title="Note" color="warning" %}} 
 
-जब आप मैक्रो वाले प्रस्तुतीकरण को किसी अलग फ़ाइल फ़ॉर्मेट (PDF, HTML, आदि) में परिवर्तित करते हैं, तो Aspose.Slides सभी मैक्रो को अनदेखा करता है (मैक्रो परिणामस्वरूप फ़ाइल में नहीं रखे जाते)।
+जब आप मैक्रो शामिल करने वाली प्रस्तुति को विभिन्न फ़ाइल फ़ॉर्मेट (PDF, HTML, आदि) में परिवर्तित करते हैं, तो Aspose.Slides सभी मैक्रो को नज़रअंदाज़ करता है (मैक्रो परिणामस्वरूप फ़ाइल में नहीं ले जाए जाते)।
 
-जब आप प्रस्तुतीकरण में मैक्रो जोड़ते हैं या मैक्रो वाले प्रस्तुतीकरण को फिर से सहेजते हैं, तो Aspose.Slides केवल मैक्रो के बाइट्स को लिखता है।
+जब आप प्रस्तुति में मैक्रो जोड़ते हैं या मैक्रो वाली प्रस्तुति को फिर से सहेजते हैं, तो Aspose.Slides केवल मैक्रो के बाइट्स को लिखता है।
 
-Aspose.Slides **कभी नहीं** प्रस्तुतीकरण में मैक्रो चलाता है।
+Aspose.Slides **कभी भी** प्रस्तुति में मैक्रो नहीं चलाता है।
 
 {{% /alert %}}
 
-## **Add VBA Macros**
+## **VBA मैक्रो जोड़ें**
 
-Aspose.Slides आपको VBA प्रोजेक्ट (और प्रोजेक्ट रेफ़रेंसेज़) बनाने और मौजूदा मॉड्यूल संपादित करने के लिए [VbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/vbaproject/) क्लास प्रदान करता है। आप प्रस्तुतीकरण में एम्बेडेड VBA को प्रबंधित करने के लिए [IVbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ivbaproject/) इंटरफ़ेस का उपयोग कर सकते हैं।
+Aspose.Slides आपको VBA प्रोजेक्ट (और प्रोजेक्ट रेफ़रेंसेज़) बनाने और मौजूदा मॉड्यूल संपादित करने के लिए [VbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/vbaproject/) क्लास प्रदान करता है। आप प्रस्तुति में एम्बेडेड VBA को प्रबंधित करने के लिए [IVbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ivbaproject/) इंटरफ़ेस का उपयोग कर सकते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं।
-2. [VbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/vbaproject/#VbaProject--) कन्स्ट्रक्टर का उपयोग करके नया VBA प्रोजेक्ट जोड़ें।
-3. VbaProject में एक मॉड्यूल जोड़ें।
-4. मॉड्यूल स्रोत कोड सेट करें।
-5. <stdole> के लिए रेफ़रेंसेज़ जोड़ें।
-6. **Microsoft Office** के लिए रेफ़रेंसेज़ जोड़ें।
-7. रेफ़रेंसेज़ को VBA प्रोजेक्ट से जोड़ें।
-8. प्रस्तुतीकरण सहेजें।
-
-यह Java कोड दिखाता है कि कैसे शून्य से प्रस्तुतीकरण में VBA मैक्रो जोड़ा जाए:
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास का उदाहरण बनाएं।
+1. नए VBA प्रोजेक्ट को जोड़ने के लिए [VbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/vbaproject/#VbaProject--) कंस्ट्रक्टर का उपयोग करें।
+1. VbaProject में एक मॉड्यूल जोड़ें।
+1. मॉड्यूल का स्रोत कोड सेट करें।
+1. <stdole> के रेफ़रेंसेज़ जोड़ें।
+1. **Microsoft Office** के रेफ़रेंसेज़ जोड़ें।
+1. रेफ़रेंसेज़ को VBA प्रोजेक्ट के साथ जोड़ें।
+1. प्रस्तुति को सहेजें।
 
 ```java
-// प्रस्तुति क्लास का एक इंस्टेंस बनाता है
+import com.aspose.slides.*;
+
+// प्रस्तुति क्लास का एक उदाहरण बनाता है
 Presentation pres = new Presentation();
 try {
     // एक नया VBA प्रोजेक्ट बनाता है
@@ -82,27 +82,27 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-आप चाहेंगे कि **Aspose** का [Macro Remover](https://products.aspose.app/slides/hi/remove-macros) देखें, जो PowerPoint, Excel और Word दस्तावेज़ों से मैक्रो हटाने के लिए एक मुफ्त वेब ऐप है। 
+आप **Aspose** [Macro Remover](https://products.aspose.app/slides/hi/remove-macros) को देख सकते हैं, जो PowerPoint, Excel, और Word दस्तावेजों से मैक्रो हटाने के लिए एक मुफ्त वेब एप है। 
 
 {{% /alert %}} 
 
-## **Remove VBA Macros**
+## **VBA मैक्रो हटाएँ**
 
-[Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास के अंतर्गत [VbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getVbaProject--) प्रॉपर्टी का उपयोग करके आप VBA मैक्रो हटा सकते हैं।
+[Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास के नीचे [VbaProject](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#getVbaProject--) प्रॉपर्टी का उपयोग करके, आप एक VBA मैक्रो हटा सकते हैं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं और मैक्रो वाले प्रस्तुतीकरण को लोड करें।
-2. Macro मॉड्यूल तक पहुंचें और उसे हटाएं।
-3. संशोधित प्रस्तुतीकरण सहेजें।
-
-यह Java कोड दिखाता है कि कैसे VBA मैक्रो हटाया जाए:
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास का एक उदाहरण बनाएं और मैक्रो शामिल करने वाली प्रस्तुति लोड करें।
+1. Macro मॉड्यूल तक पहुंचें और उसे हटाएँ।
+1. परिवर्तित प्रस्तुति को सहेजें।
 
 ```java
-// मैक्रो वाले प्रस्तुतीकरण को लोड करता है
+import com.aspose.slides.*;
+
+// मैक्रो वाले प्रस्तुति को लोड करता है
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    // Vba मॉड्यूल तक पहुंचता है और उसे हटाता है 
+    // Vba मॉड्यूल तक पहुँचता है और उसे हटाता है 
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
     
     // प्रस्तुति को सहेजता है
@@ -112,19 +112,19 @@ try {
 }
 ```
 
-## **Extract VBA Macros**
+## **VBA मैक्रो निकालें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास का एक इंस्टेंस बनाएं और मैक्रो वाले प्रस्तुतीकरण को लोड करें।
-2. जाँचें कि प्रस्तुतीकरण में VBA प्रोजेक्ट है या नहीं।
-3. मैक्रो देखने के लिए VBA प्रोजेक्ट में मौजूद सभी मॉड्यूल पर लूप करें।
-
-यह Java कोड दिखाता है कि कैसे मैक्रो वाले प्रस्तुतीकरण से VBA मैक्रो निकाले जाएँ:
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation) क्लास का एक उदाहरण बनाएं और मैक्रो शामिल करने वाली प्रस्तुति लोड करें।
+2. जांचें कि प्रस्तुति में VBA प्रोजेक्ट है या नहीं।
+3. VBA प्रोजेक्ट में मौजूद सभी मॉड्यूल पर लूप चलाएँ ताकि मैक्रो देख सकें।
 
 ```java
-// मैक्रो वाले प्रस्तुतीकरण को लोड करता है
+import com.aspose.slides.*;
+
+// मैक्रो वाले प्रस्तुति को लोड करता है
 Presentation pres = new Presentation("VBA.pptm");
 try {
-    if (pres.getVbaProject() != null) // जाँचता है कि प्रस्तुतीकरण में VBA प्रोजेक्ट है या नहीं
+    if (pres.getVbaProject() != null) // जांचता है कि प्रस्तुति में VBA प्रोजेक्ट है या नहीं
     {
         for (IVbaModule module : pres.getVbaProject().getModules())
         {
@@ -137,18 +137,20 @@ try {
 }
 ```
 
-## **Check Whether a VBA Project Is Password-Protected**
+## **जाँचें कि VBA प्रोजेक्ट पासवर्ड‑प्रोटेक्टेड है या नहीं**
 
-[IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) मेथड का उपयोग करके आप निर्धारित कर सकते हैं कि प्रोजेक्ट की प्रॉपर्टीज़ पासवर्ड-प्रोटेक्टेड हैं या नहीं।
+[IVbaProject.isPasswordProtected](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ivbaproject/#isPasswordProtected--) मेथड का उपयोग करके, आप पता लगा सकते हैं कि प्रोजेक्ट की प्रॉपर्टीज़ पासवर्ड‑प्रोटेक्टेड हैं या नहीं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं और मैक्रो वाला प्रस्तुतीकरण लोड करें।
-2. जाँचें कि प्रस्तुतीकरण में [VBA project](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/vbaproject/) है या नहीं।
-3. VBA प्रोजेक्ट पासवर्ड-प्रोटेक्टेड है या नहीं, यह जाँचें ताकि उसकी प्रॉपर्टीज़ देखी जा सकें।
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक उदाहरण बनाएं और एक ऐसी प्रस्तुति लोड करें जिसमें मैक्रो हो।
+2. जांचें कि प्रस्तुति में [VBA project](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/vbaproject/) है या नहीं।
+3. VBA प्रोजेक्ट के पासवर्ड‑प्रोटेक्टेड होने की जाँच करें ताकि उसकी प्रॉपर्टीज़ देख सकें।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("VBA.pptm");
 try {
-    if (presentation.getVbaProject() != null) { // जाँचें कि प्रस्तुतीकरण में VBA प्रोजेक्ट है या नहीं।
+    if (presentation.getVbaProject() != null) { // जाँचें कि प्रस्तुति में VBA प्रोजेक्ट है या नहीं।
         if (presentation.getVbaProject().isPasswordProtected()) {
             System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
@@ -161,14 +163,14 @@ try {
 
 ## **FAQ**
 
-**यदि मैं प्रस्तुतीकरण को PPTX के रूप में सहेजूँ तो मैक्रो क्या होते हैं?**
+### यदि मैं प्रस्तुति को PPTX के रूप में सहेजूँ तो मैक्रो के साथ क्या होता है?
 
-मैक्रो हटा दिए जाएंगे क्योंकि PPTX VBA को सपोर्ट नहीं करता। मैक्रो रखने के लिए PPTM, PPSM, या POTM चुनें।
+मैक्रो हटाए जाएंगे क्योंकि PPTX VBA को सपोर्ट नहीं करता। मैक्रो को रखना है तो PPTM, PPSM, या POTM चुनें।
 
-**क्या Aspose.Slides प्रस्तुतीकरण के भीतर मैक्रो चला सकता है, जैसे डेटा रीफ़्रेश करना?**
+### क्या Aspose.Slides प्रस्तुति के अंदर मैक्रो चला सकता है, उदाहरण के लिए डेटा रिफ्रेश करने के लिए?
 
-नहीं। लाइब्रेरी कभी भी VBA कोड निष्पादित नहीं करती; निष्पादन केवल उपयुक्त सुरक्षा सेटिंग्स के साथ PowerPoint के अंदर संभव है।
+नहीं। लाइब्रेरी कभी भी VBA कोड नहीं चलाती; निष्पादन केवल PowerPoint के भीतर उचित सुरक्षा सेटिंग्स के साथ ही संभव है।
 
-**क्या VBA कोड से जुड़ी ActiveX कंट्रोल्स के साथ काम करना समर्थित है?**
+### क्या VBA कोड से जुड़े ActiveX कंट्रोल्स के साथ काम करना समर्थित है?
 
-हाँ, आप मौजूदा [ActiveX controls](/slides/hi/androidjava/activex/) तक पहुँचा सकते हैं, उनकी प्रॉपर्टीज़ संशोधित कर सकते हैं, और उन्हें हटा सकते हैं। यह तब उपयोगी है जब मैक्रो ActiveX के साथ इंटरैक्ट करते हैं।
+हाँ, आप मौजूदा [ActiveX controls](/slides/hi/androidjava/activex/) तक पहुँच सकते हैं, उनकी प्रॉपर्टीज़ बदल सकते हैं, और उन्हें हटा सकते हैं। यह तब उपयोगी होता है जब मैक्रो ActiveX के साथ इंटरेक्ट करते हैं।

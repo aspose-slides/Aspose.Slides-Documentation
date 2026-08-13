@@ -1,61 +1,64 @@
 ---
-title: メータードライセンス
+title: 従量課金ライセンス
 type: docs
 weight: 100
 url: /ja/java/metered-licensing/
 keywords:
 - ライセンス
-- メータードライセンス
+- 従量課金ライセンス
 - ライセンスキー
-- 公開鍵
-- 秘密鍵
+- 公開キー
+- 秘密キー
 - 消費量
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java のメータードライセンスを使用すると、PowerPoint および OpenDocument ファイルを柔軟に処理でき、使用した分だけ支払うことができます。"
+description: "Aspose.Slides for Java の従量課金ライセンスを使用すると、PowerPoint および OpenDocument ファイルを柔軟に処理でき、使用した分だけ支払うことができます。"
 ---
+## **はじめに**
 
-## **メータードキーの適用**
+従量課金ライセンスは、既存のライセンス方式と併用できるライセンス方式です。Aspose.Slides API の機能使用量に基づいて請求される場合は、従量課金ライセンスを選択します。
 
-{{% alert color="primary" %}} 
+## **従量課金キーの適用**
 
-メータードライセンスは、既存のライセンス方式と併用できる新しいライセンス機構です。Aspose.Slides API の機能使用量に基づいて課金された料金をご希望の場合は、メータードライセンスを選択してください。
+{{% alert color="info" %}} 
 
-メータードライセンスを購入すると、キーが提供され（ライセンスファイルはありません）。このメータードキーは、Aspose が提供するメータリング操作用の [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) クラスで適用できます。詳細については、[Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) を参照してください。
+従量課金ライセンスは、既存のライセンス方式と併用できる新しいライセンス機構です。Aspose.Slides API の機能使用量に基づいて請求される場合は、従量課金ライセンスを選択します。
+
+従量課金ライセンスを購入すると、キー（ライセンスファイルは付属しません）が提供されます。この従量課金キーは、Aspose が提供するメータリング操作用の [Metered](https://reference.aspose.com/slides/ja/java/com.aspose.slides/metered/) クラスを使用して適用できます。詳細は [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) を参照してください。
 
 {{% /alert %}} 
 
-1. [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) クラスのインスタンスを作成します。
+1. [Metered](https://reference.aspose.com/slides/ja/java/com.aspose.slides/metered/) クラスのインスタンスを作成します。
 
-1. 公開鍵と秘密鍵を [setMeteredKey](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-) メソッドに渡します。
+2. 公開キーと秘密キーを `setMeteredKey` メソッドに渡します。
 
-1. 処理（タスクの実行）を行います。
+3. 処理を実行します（タスクを実行）。
 
-1. `Metered` クラスの [getConsumptionQuantity](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#getConsumptionQuantity--) メソッドを呼び出します。
+4. `Metered` クラスの `getConsumptionQuantity` メソッドを呼び出します。
 
-これまでに消費した API リクエストの数／量が表示されます。
+これまでに消費した API リクエストの数量が表示されます。
 
-以下のサンプルコードは、メータードライセンスの使用方法を示しています：
+このサンプルコードは、従量課金ライセンスの使用方法を示しています：
 
 ```java
-// Creates an instance of the Metered class
+// Metered クラスのインスタンスを作成します
 com.aspose.slides.Metered metered = new com.aspose.slides.Metered();
 
 try {
-    // Passes the public and private keys to the Metered object
+    // 公開キーと秘密キーを Metered オブジェクトに渡します
     metered.setMeteredKey("<valid public key>", "<valid private key>");
 
-    // Gets the consumed quantity value before API calls
+    // API 呼び出し前の消費量の値を取得します
     double amountBefore = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed before: " + amountBefore);
 
-    // Do something with Aspose.Slides API here
+    // ここで Aspose.Slides API を使用して何か処理します
     // ...
 
-    // Gets the consumed quantity value after API calls
+    // API 呼び出し後の消費量の値を取得します
     double amountAfter = com.aspose.slides.Metered.getConsumptionQuantity();
     System.out.println("Amount consumed after: " + amountAfter);
 } catch (Exception ex) {
@@ -65,32 +68,32 @@ try {
 
 {{% alert color="warning" title="NOTE"  %}} 
 
-メータードライセンスを使用するには、ライセンス機構がインターネットを介して当社のサービスと常にやり取りし計算を行うため、安定したインターネット接続が必要です。
+従量課金ライセンスを使用するには、ライセンス機構がインターネット経由で当社のサービスと継続的に通信し計算を行うため、安定したインターネット接続が必要です。
 
 {{% /alert %}} 
 
-## **よくある質問**
+## **FAQ**
 
-**同一アプリケーションでメータードライセンスと通常のライセンス（永久または一時）を併用できますか？**
+### 同じアプリケーションで従量課金ライセンスと通常のライセンス（永続または一時）を併用できますか？
 
-はい。Metered は既存の [licensing methods](/slides/ja/java/licensing/) と併用できる追加のライセンス機構です。アプリケーション起動時にどの機構を適用するか選択します。
+はい。従量課金は既存の[ライセンス方式](/slides/ja/java/licensing/)と併用できる追加のライセンス機構です。アプリケーション起動時にどの機構を適用するか選択します。
 
-**メータードライセンスでは、消費量として正確に何がカウントされますか：操作かファイルか？**
+### 従量課金ライセンスでの消費量は正確には何がカウントされますか：操作ですか、ファイルですか？
 
-API の使用がカウントされ、リクエスト数または操作回数が消費量となります。現在の消費量は [consumption-tracking methods](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) で取得できます。
+API の使用量がカウントされます。つまりリクエストまたは操作の回数です。現在の消費量は[消費量追跡メソッド](https://reference.aspose.com/slides/ja/java/com.aspose.slides/metered/)で取得できます。
 
-**インスタンスが頻繁に再起動するマイクロサービスやサーバーレス環境でメータードは適していますか？**
+### インスタンスが頻繁に再起動するマイクロサービスやサーバーレス環境でも従量課金は適していますか？
 
-はい。課金は API コール単位で行われるため、頻繁なコールドスタートがあるシナリオでも、メータード計算のための安定したネットワーク接続が確保できれば問題ありません。
+はい。会計が API 呼び出しレベルで行われるため、コールドスタートが頻繁に発生するシナリオでも、メータリング計算用のネットワークアクセスが安定していれば問題ありません。
 
-**永続ライセンスと比較して、メータードライセンス使用時にライブラリの機能は異なりますか？**
+### 永続ライセンスと比較して、従量課金ライセンス使用時にライブラリの機能は変わりますか？
 
-いいえ。これはライセンスおよび課金の仕組みの違いであり、製品の機能は同一です。
+いいえ。ライセンスや課金方式の違いだけで、製品の機能は同じです。
 
-**メータードは体験版や一時ライセンスとどのように関係していますか？**
+### 従量課金はトライアル版や一時ライセンスとどのように関係しますか？
 
-体験版は機能制限と透かしが付与され、[temporary license](https://purchase.aspose.com/temporary-license/) は 30 日間制限を解除します。一方、メータードは制限を解除し、実際の使用量に基づいて課金されます。
+トライアル版は機能制限と透かしがあり、[一時ライセンス](https://purchase.aspose.com/temporary-license/)は 30 日間制限を解除します。従量課金は制限を解除し、実際の使用量に基づいて課金します。
 
-**消費量がしきい値を超えた際に自動で対応し、予算を管理できますか？**
+### 消費量が閾値を超えたときに自動で予算を制御できますか？
 
-はい。一般的な方法として、[tracking methods](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) を定期的に呼び出して現在の消費量を取得し、アプリケーションまたは監視レベルで独自の上限やアラートを実装します。
+はい。一般的な方法として、[追跡メソッド]（https://reference.aspose.com/slides/ja/java/com.aspose.slides/metered/）で現在の消費量を定期的に取得し、アプリケーションや監視レベルで独自の上限やアラートを実装します。

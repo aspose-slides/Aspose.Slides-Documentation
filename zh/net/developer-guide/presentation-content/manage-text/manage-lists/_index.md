@@ -4,6 +4,8 @@ linktitle: 管理列表
 type: docs
 weight: 70
 url: /zh/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
 - 项目符号
 - 项目符号列表
@@ -23,15 +25,15 @@ keywords:
 - Aspose.Slides
 description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 和 OpenDocument 演示文稿中创建和格式化项目符号、图片、多级和编号列表。"
 ---
-## **概述**
+## **概览**
 
 Aspose.Slides for .NET 允许您在 PowerPoint 和 OpenDocument 演示文稿中创建和格式化项目符号列表和编号列表。列表项是一个段落，其项目符号设置通过段落格式进行控制。
 
-使用[IParagraph.ParagraphFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/paragraphformat/)属性访问段落级别的列表设置。主要入口是[IParagraphFormat.Bullet](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/bullet/)，它返回一个[IBulletFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/)对象。通过该对象，您可以设置项目符号类型、符号、图片、颜色、大小、编号样式以及起始编号。
+使用[IParagraph.ParagraphFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/paragraphformat/)属性来访问段落级别的列表设置。主要入口是[IParagraphFormat.Bullet](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/bullet/)，它返回一个[IBulletFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/)对象。通过该对象，您可以设置项目符号的类型、符号、图片、颜色、大小、编号样式和起始编号。
 
-本文展示如何：
+本文展示了如何：
 
-- 创建带自定义符号的项目符号列表
+- 创建自定义符号的项目符号列表
 - 创建图片项目符号
 - 通过设置段落深度创建多级列表
 - 创建编号列表
@@ -39,11 +41,15 @@ Aspose.Slides for .NET 允许您在 PowerPoint 和 OpenDocument 演示文稿中�
 
 ## **创建项目符号列表**
 
-要创建项目符号列表，向[ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)添加[IParagraph](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/)对象，并将[IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/)设置为[BulletType.Symbol](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/)。随后可以设置[IBulletFormat.Char](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/char/)、[IBulletFormat.Color](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/color/)和[IBulletFormat.Height](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/height/)来控制项目符号的外观。
+要创建项目符号列表，向[ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)添加[IParagraph](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraph/)对象，并将[IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/)设置为[BulletType.Symbol](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/)。然后可以设置[IBulletFormat.Char](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/char/)、[IBulletFormat.Color](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/color/)和[IBulletFormat.Height](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/height/)来控制项目符号的外观。
 
 以下 C# 代码演示如何在幻灯片中创建项目符号列表：
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -80,11 +86,14 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 ## **创建编号列表**
 
-当项目顺序重要时使用编号列表。将[IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/)设置为[BulletType.Numbered](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/)。还可以通过[IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/numberedbulletstyle/)选择编号格式，或在列表应从除 1 之外的值开始时设置[IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/numberedbulletstartwith/)。
+当项目顺序重要时使用编号列表。将[IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/)设置为[BulletType.Numbered](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/)。还可以使用[IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/numberedbulletstyle/)选择编号格式，或在列表应从除 1 之外的值开始时设置[IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/numberedbulletstartwith/)。
 
 以下 C# 代码展示如何在幻灯片中创建编号列表：
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -117,21 +126,24 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 ## **创建图片项目符号**
 
-Aspose.Slides 允许您使用图像替换常规项目符号。图片项目符号最适合使用在小尺寸下仍然可读的简单图像，例如图标或小的透明 PNG 文件。
+Aspose.Slides 允许您使用图像替换常规的项目符号。图片项目符号最适合使用在小尺寸下仍然可读的简单图像，例如图标或小的透明 PNG 文件。
 
-{{% alert color="primary" %}}
-理想情况下，如果您计划用图像替换常规项目符号，最好选择具有透明背景的简单图形。这类图像可作为自定义项目符号使用。
+{{% alert color="info" %}}
+理想情况下，如果您计划用图像替换常规的项目符号，最好选择具有透明背景的简洁图形。此类图像非常适合作为自定义项目符号。
+
+请记住，图像会被缩小到非常小的尺寸。因此，我们强烈建议选择在列表中作为项目符号使用时仍保持清晰且视觉有效的图像。
 {{% /alert %}}
 
 要创建图片项目符号，向[Presentation.Images](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/images/)添加图像，并将返回的图像对象分配给[IBulletFormat.Picture](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/picture/)。在分配图像之前，将[IBulletFormat.Type](https://reference.aspose.com/slides/zh/net/aspose.slides/ibulletformat/type/)设置为[BulletType.Picture](https://reference.aspose.com/slides/zh/net/aspose.slides/bullettype/)。
 
 假设我们有一个 "image.png"：
 
-![用于项目符号的图片](picture_for_bullets.png)
-
 以下 C# 代码展示如何在幻灯片中创建图片项目符号：
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -169,11 +181,14 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 ## **创建多级列表**
 
-使用[IParagraphFormat.Depth](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/depth/)将列表项放置在不同层级。层级 0 为顶层，层级 1 为其下的嵌套层，以此类推。
+使用[IParagraphFormat.Depth](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/depth/)可以将列表项放置在不同的层级。0 级是顶层，1 级位于其下，以此类推。
 
 以下 C# 代码展示如何创建多级项目符号列表：
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -216,6 +231,9 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 以下 C# 代码将文本框中的第一个段落更改为使用编号列表样式：
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation("input.pptx");
 
 var slide = presentation.Slides[0];
@@ -233,14 +251,14 @@ presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 
 ## **常见问题**
 
-**是否可以将项目符号列表和编号列表导出为 PDF 或图像？**
+### 项目符号和编号列表可以导出为 PDF 或图像吗？
 
-可以。Aspose.Slides 在目标格式支持相应的文字布局和项目符号特性时，会保留列表格式。
+是的。Aspose.Slides 在目标格式支持相应的文本布局和项目符号特性时，会保留列表格式。
 
-**我可以编辑现有演示文稿中的列表吗？**
+### 我可以编辑现有演示文稿中的列表吗？
 
-可以。加载演示文稿，访问目标段落，检查或更新其[IParagraphFormat.Bullet](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/bullet/)设置，然后保存演示文稿。
+是的。加载演示文稿，访问目标段落，检查或更新其[IParagraphFormat.Bullet](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/bullet/)设置，然后保存演示文稿。
 
-**列表可以包含非拉丁文字吗？**
+### 列表可以包含非拉丁文字吗？
 
-可以。列表项文本可以包含 Unicode 字符，您可以在多语言演示文稿中创建列表。请确保演示文稿中使用的字体支持所需字符。
+是的。列表项文本可以包含 Unicode 字符，您可以在多语言演示文稿中创建列表。请确保演示文稿中使用的字体支持所需的字符。

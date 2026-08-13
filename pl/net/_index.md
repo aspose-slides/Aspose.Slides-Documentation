@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides dla .NET
-second_title: Aspose.Slides for .NET
+second_title: Aspose.Slides dla .NET
 type: docs
 weight: 10
 url: /pl/net/
@@ -13,16 +13,16 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: Aspose.Slides for .NET jest interfejsem API zarządzania Microsoft PowerPoint® umożliwiającym aplikacjom .NET odczyt i zapis dokumentów PowerPoint® bez użycia Microsoft PowerPoint®.
+description: Aspose.Slides for .NET jest interfejsem API zarządzania Microsoft PowerPoint® umożliwiającym aplikacjom .NET odczytywanie i zapisywanie dokumentów PowerPoint® bez użycia Microsoft PowerPoint®.
 is_root: true
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Witamy w Aspose.Slides dla .NET**
 
 ![Logo produktu Aspose.Slides dla .NET](home_1.png)
 
-Aspose.Slides for .NET jest interfejsem API zarządzania Microsoft PowerPoint® umożliwiającym aplikacjom .NET odczyt i zapis dokumentów PowerPoint® bez użycia Microsoft PowerPoint®.
+Aspose.Slides for .NET to interfejs API zarządzania Microsoft PowerPoint® umożliwiający aplikacjom .NET odczytywanie i zapisywanie dokumentów PowerPoint® bez użycia Microsoft PowerPoint®.
 
 Aspose.Slides for .NET jest pierwszym i jedynym komponentem, który zapewnia funkcjonalności niezbędne do zarządzania dokumentami PowerPoint®.
 
@@ -32,16 +32,16 @@ Aspose.Slides for .NET oferuje wiele kluczowych funkcji, takich jak zarządzanie
 
 ## Zasoby Aspose.Slides dla .NET
 
-Poniżej znajdują się linki do przydatnych zasobów:
+Oto linki do przydatnych zasobów:
 
 - [Dokumentacja online Aspose.Slides dla .NET](/slides/pl/net/)
 - [Funkcje Aspose.Slides dla .NET](/slides/pl/net/features-overview/)
 - [Ograniczenia Aspose.Slides dla .NET](/slides/pl/net/known-issues/)
-- [Informacje o wydaniach Aspose.Slides dla .NET](https://releases.aspose.com/slides/pl/net/release-notes/)
+- [Informacje o wydaniu Aspose.Slides dla .NET](https://releases.aspose.com/slides/pl/net/release-notes/)
 - [Strona produktu Aspose.Slides dla .NET](https://products.aspose.com/slides/pl/net/)
 - [Pobierz Aspose.Slides dla .NET](https://releases.aspose.com/slides/pl/net/)
 - [Zainstaluj pakiet NuGet Aspose.Slides dla .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Przewodnik po odniesieniach API Aspose.Slides dla .NET](https://reference.aspose.com/slides/pl/net)
+- [Przewodnik po referencji API Aspose.Slides dla .NET](https://reference.aspose.com/slides/pl/net)
 - [Pobierz przykłady z repozytorium GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Bezpłatne forum wsparcia Aspose.Slides dla .NET](https://forum.aspose.com/c/slides/pl/11)
 - [Płatny helpdesk wsparcia Aspose.Slides dla .NET](https://helpdesk.aspose.com/)

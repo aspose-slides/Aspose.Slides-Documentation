@@ -25,29 +25,53 @@ keywords:
 - PowerPoint
 - C++
 - Aspose.Slides
-description: "Μάθετε πώς να μετατρέπετε παρουσιάσεις PowerPoint σε βίντεο με C++. Ανακαλύψτε παραδείγματα κώδικα και τεχνικές αυτοματοποίησης για να βελτιστοποιήσετε τη ροή εργασίας σας."
+description: "Μάθετε πώς να μετατρέψετε παρουσιάσεις PowerPoint σε βίντεο με C++. Ανακαλύψτε δείγμα κώδικα και τεχνικές αυτοματοποίησης για να βελτιώσετε τη ροή εργασίας σας."
 ---
 ## **Εισαγωγή**
 
-Με τη μετατροπή της παρουσίασης PowerPoint σε βίντεο, λαμβάνετε  
+Με τη μετατροπή της παρουσίασης PowerPoint σας σε βίντεο, έχετε 
 
-* **Αύξηση προσβασιμότητας:** Όλες οι συσκευές (ανεξαρτήτως πλατφόρμας) είναι εξοπλισμένες από προεπιλογή με προγράμματα αναπαραγωγής βίντεο, σε αντίθεση με τις εφαρμογές άνοιγμα παρουσίασης, έτσι οι χρήστες βρίσκουν πιο εύκολο το άνοιγμα ή την αναπαραγωγή βίντεο.  
-* **Μεγαλύτερη εμβέλεια:** Μέσω βίντεο, μπορείτε να προσεγγίσετε ένα μεγάλο κοινό και να του προσφέρετε πληροφορίες που θα ήταν διαφορετικά βαρετές σε μια παρουσίαση. Οι περισσότερες έρευνες και στατιστικές δείχνουν ότι οι άνθρωποι παρακολουθούν και καταναλώνουν βίντεο περισσότερο από άλλες μορφές περιεχομένου, και γενικά προτιμούν τέτοιο περιεχόμενο.  
+* **Αύξηση προσβασιμότητας:** Όλες οι συσκευές (ανεξάρτητα από την πλατφόρμα) διαθέτουν προεγκατεστημένους αναπαραγωγείς βίντεο συγκριτικά με τις εφαρμογές άνοιγμα παρουσίασης, έτσι οι χρήστες βρίσκουν πιο εύκολο το άνοιγμα ή την αναπαραγωγή βίντεο.
+* **Μεγαλύτερο εύρος:** Μέσω βίντεο μπορείτε να προσεγγίσετε μεγάλο κοινό και να του παρέχετε πληροφορίες που διαφορετικά θα μπορούσαν να φανούν βαρετές σε μια παρουσίαση. Οι περισσότερες έρευνες και στατιστικά δείχνουν ότι οι άνθρωποι παρακολουθούν και καταναλώνουν βίντεο περισσότερο από άλλα είδη περιεχομένου, και γενικά προτιμούν τέτοιο περιεχόμενο.
 
-Στο [Aspose.Slides 22.11](https://docs.aspose.com/slides/el/cpp/aspose-slides-for-cpp-22-11-release-notes/), εφαρμόσαμε υποστήριξη για μετατροπή παρουσίασης σε βίντεο.  
+Στο [Aspose.Slides 22.11](https://docs.aspose.com/slides/el/cpp/aspose-slides-for-cpp-22-11-release-notes/), εφαρμόσαμε υποστήριξη για μετατροπή παρουσίασης σε βίντεο. 
 
-* Χρησιμοποιήστε Aspose.Slides για τη δημιουργία ενός συνόλου καρέ (από τις διαφάνειες της παρουσίασης) που αντιστοιχούν σε συγκεκριμένο FPS (καρέ ανά δευτερόλεπτο)  
-* Χρησιμοποιήστε ένα τρίτο πρόγραμμα όπως `ffmpeg` για να δημιουργήσετε ένα βίντεο βασισμένο στα καρέ.  
+* Χρησιμοποιήστε το Aspose.Slides για να δημιουργήσετε ένα σύνολο καρέ (από τις διαφάνειες της παρουσίασης) που αντιστοιχούν σε ένα συγκεκριμένο FPS (καρέ ανά δευτερόλεπτο)
+* Χρησιμοποιήστε ένα εξωτερικό εργαλείο όπως το `ffmpeg` για να δημιουργήσετε ένα βίντεο βασισμένο στα καρέ.
 
-## **Μετατροπή Παρουσίασης PowerPoint σε Βίντεο**
+## **Μετατροπή παρουσίασης PowerPoint σε βίντεο**
 
-1. Κατεβάστε το ffmpeg[εδώ](https://ffmpeg.org/download.html).  
-2. Προσθέστε το μονοπάτι προς `ffmpeg.exe` στη μεταβλητή περιβάλλοντος `PATH`.  
-3. Εκτελέστε τον κώδικα μετατροπής PowerPoint σε βίντεο.  
+1. Κατεβάστε το ffmpeg[εδώ](https://ffmpeg.org/download.html).
+2. Προσθέστε τη διαδρομή του `ffmpeg.exe` στη μεταβλητή περιβάλλοντος `PATH`.
+3. Εκτελέστε τον κώδικα μετατροπής PowerPoint σε βίντεο.
 
-Αυτός ο κώδικας C++ σας δείχνει πώς να μετατρέψετε μια παρουσίαση (που περιέχει μια εικόνα και δύο εφέ κίνησης) σε βίντεο:
+Αυτός ο κώδικας C++ δείχνει πώς να μετατρέψετε μια παρουσίαση (που περιέχει ένα σχήμα και δύο εφέ κίνησης) σε βίντεο:
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -59,7 +83,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Προσθέτει ένα σχήμα χαμόγελου και στη συνέχεια το κινούει
+    // Προσθέτει ένα σχήμα χαμόγελο και στη συνέχεια το ανιματοποιεί
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -76,30 +100,44 @@ void Run()
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-## **Εφέ Βίντεο**
+## **Εφέ βίντεο**
 
 Μπορείτε να εφαρμόσετε κινήσεις σε αντικείμενα στις διαφάνειες και να χρησιμοποιήσετε μεταβάσεις μεταξύ των διαφανειών.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Μπορεί να θέλετε να δείτε αυτά τα άρθρα: [PowerPoint Animation](https://docs.aspose.com/slides/el/cpp/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/el/cpp/shape-animation/), και [Shape Effect](https://docs.aspose.com/slides/el/cpp/shape-effect/).
 
 {{% /alert %}} 
 
-Οι κινήσεις και οι μεταβάσεις κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες — και το ίδιο ισχύει για τα βίντεο. Ας προσθέσουμε μια άλλη διαφάνεια και μετάβαση στον κώδικα της προηγούμενης παρουσίασης:
+Οι κινήσεις και οι μεταβάσεις κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες—και το ίδιο ισχύει για τα βίντεο. Ας προσθέσουμε μια ακόμα διαφάνεια και μετάβαση στον κώδικα της προηγούμενης παρουσίασης:
 
 ```c++
-// Προσθέτει ένα σχήμα χαμόγελου και το κινεί
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideShowTransition.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideShowTransition/TransitionType.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::SlideShow;
 
-// ...
+// Προσθέτει ένα σχήμα χαμόγελο και το ανιματοποιεί όπως φαίνεται παραπάνω
+auto presentation = System::MakeObject<Presentation>();
 
-// Προσθέτει μια νέα διαφάνεια και κινούμενη μετάβαση
+// Προσθέτει μια νέα διαφάνεια και κίνηση μετάβασης
 
 System::SharedPtr<ISlide> newSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_Slide(0)->get_LayoutSlide());
 
@@ -116,9 +154,37 @@ fillFormat->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Indigo()
 newSlide->get_SlideShowTransition()->set_Type(TransitionType::Push);
 ```
 
-Το Aspose.Slides υποστηρίζει επίσης κίνηση κειμένων. Έτσι, κινούμε παραγράφους σε αντικείμενα, που θα εμφανίζονται η μία μετά την άλλη (με καθυστέρηση ενός δευτερολέπτου):
+Το Aspose.Slides υποστηρίζει επίσης κίνηση κειμένου. Έτσι κινούμε παραγράφους σε αντικείμενα, που θα εμφανίζονται μία μετά την άλλη (με καθυστέρηση ενός δευτερολέπτου):
 
 ```c++
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/diagnostics/process.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -130,7 +196,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Προσθέτει κείμενο και κινήσεις
+    // Προσθέτει κείμενο και κινούμενα εφέ
     System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210.0f, 120.0f, 300.0f, 300.0f);
     System::SharedPtr<Paragraph> para1 = System::MakeObject<Paragraph>();
     para1->get_Portions()->Add(System::MakeObject<Portion>(u"Aspose Slides for C++"));
@@ -164,43 +230,64 @@ void Run()
 
     auto animationsGenerator = System::MakeObject<PresentationAnimationsGenerator>(presentation);
     auto player = System::MakeObject<PresentationPlayer>(animationsGenerator, fps);
-    
+
     player->FrameTick += OnFrameTick;
     animationsGenerator->Run(presentation->get_Slides());
 
     const System::String ffmpegParameters = System::String::Format(
         u"-loglevel {0} -framerate {1} -i {2} -y -c:v {3} -pix_fmt {4} {5}",
-        u"warning", m_fps, "frame_%d.png", u"libx264", u"yuv420p", "video.mp4");
+        u"warning", fps, u"frame_%d.png", u"libx264", u"yuv420p", u"video.mp4");
     auto ffmpegProcess = System::Diagnostics::Process::Start(u"ffmpeg", ffmpegParameters);
     ffmpegProcess->WaitForExit();
 }
 ```
 
-## **Κλάσεις Μετατροπής Βίντεο**
+## **Κλάσεις μετατροπής βίντεο**
 
-Για να εκτελέσετε εργασίες μετατροπής PowerPoint σε βίντεο, το Aspose.Slides παρέχει τις κλάσεις [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_animations_generator/) και [PresentationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_player/).  
+Για να μπορείτε να εκτελείτε εργασίες μετατροπής PowerPoint σε βίντεο, το Aspose.Slides παρέχει τις κλάσεις [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_animations_generator/) και [PresentationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_player/).
 
-Η PresentationAnimationsGenerator σας επιτρέπει να ορίσετε το μέγεθος του καρέ για το βίντεο (που θα δημιουργηθεί αργότερα) μέσω του κατασκευαστή της. Αν περάσετε ένα αντικείμενο παρουσίασης, θα χρησιμοποιηθεί το `Presentation.SlideSize` και θα δημιουργήσει κινήσεις που η [PresentationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_player/) χρησιμοποιεί.  
+Η PresentationAnimationsGenerator σας επιτρέπει να ορίσετε το μέγεθος του καρέ για το βίντεο (που θα δημιουργηθεί αργότερα) μέσω του κατασκευαστή της. Αν περάσετε μια παρουσίαση, θα χρησιμοποιηθεί το `Presentation.SlideSize` και θα παραχθούν κινήσεις που χρησιμοποιεί η PresentationPlayer. 
 
-Κατά τη δημιουργία των κινήσεων, παράγεται ένα συμβάν `NewAnimation` για κάθε επόμενη κίνηση, το οποίο έχει ως παράμετρο έναν [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player/). Αυτός είναι μια κλάση που αντιπροσωπεύει έναν παίχτη για μια ξεχωριστή κίνηση.  
+Όταν δημιουργηθούν οι κινήσεις, ένα συμβάν `NewAnimation` δημιουργείται για κάθε επόμενη κίνηση, το οποίο διαθέτει την παράμετρο [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player/). Η τελευταία είναι μια κλάση που αντιπροσωπεύει έναν παίκτη για μια ξεχωριστή κίνηση.
 
-Για να εργαστείτε με [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player/), χρησιμοποιούνται η ιδιότητα [get_Duration](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (η συνολική διάρκεια της κίνησης) και η μέθοδος [SetTimePosition](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0). Κάθε θέση κίνησης ορίζεται εντός του εύρους *0 έως duration*, και στη συνέχεια η μέθοδος `GetFrame` επιστρέφει ένα Bitmap που αντιστοιχεί στην κατάσταση της κίνησης εκείνη τη στιγμή.
+Για εργασία με [IPresentationAnimationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player/), χρησιμοποιούνται η ιδιότητα [get_Duration](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player#a29881d28eb42f345ab130d52f05a2d91) (η συνολική διάρκεια της κίνησης) και η μέθοδος [SetTimePosition](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.i_presentation_animation_player#a29cb11a73e3ad5f645626fcee3bc4ea0). Κάθε θέση κίνησης ορίζεται εντός του εύρους *0 έως διάρκεια*, και στη συνέχεια η μέθοδος `GetFrame` επιστρέφει ένα Bitmap που αντιστοιχεί στην κατάσταση της κίνησης εκείνη τη στιγμή.
 
 ```c++
+#include <DOM/Animation/EffectPresetClassType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/FramesStream/IPresentationAnimationPlayer.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <IImage.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+
 void OnNewAnimation(System::SharedPtr<IPresentationAnimationPlayer> animationPlayer)
 {
     System::Console::WriteLine(u"Total animation duration: {0}", animationPlayer->get_Duration());
 
     animationPlayer->SetTimePosition(0);
     // αρχική κατάσταση κίνησης
-    System::SharedPtr<System::Drawing::Bitmap> bitmap = animationPlayer->GetFrame();
-    // bitmap αρχικής κατάστασης κίνησης
+    System::SharedPtr<IImage> image = animationPlayer->GetFrame();
+    // bitmap της αρχικής κατάστασης κίνησης
 
     animationPlayer->SetTimePosition(animationPlayer->get_Duration());
     // τελική κατάσταση της κίνησης
-    System::SharedPtr<System::Drawing::Bitmap> lastBitmap = animationPlayer->GetFrame();
+    System::SharedPtr<IImage> lastImage = animationPlayer->GetFrame();
     // τελευταίο καρέ της κίνησης
-    lastBitmap->Save(u"last.png");
+    lastImage->Save(u"last.png");
 }
 
 void Run()
@@ -208,7 +295,7 @@ void Run()
     auto presentation = System::MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
-    // Προσθέτει σχήμα χαμόγελου και το κινεί
+    // Προσθέτει ένα σχήμα χαμόγελο και το ανιματοποιεί
     System::SharedPtr<IAutoShape> smile = slide->get_Shapes()->AddAutoShape(ShapeType::SmileyFace, 110.0f, 20.0f, 500.0f, 500.0f);
     auto sequence = slide->get_Timeline()->get_MainSequence();
     System::SharedPtr<IEffect> effectIn = sequence->AddEffect(smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
@@ -221,9 +308,19 @@ void Run()
 }
 ```
 
-Για να παίξουν όλες οι κινήσεις μιας παρουσίασης ταυτόχρονα, χρησιμοποιείται η κλάση [PresentationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_player/). Αυτή η κλάση λαμβάνει μια παρουσίαση [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_animations_generator/) και FPS για τα εφέ στον κατασκευαστή της και στη συνέχεια καλεί το συμβάν `FrameTick` για όλες τις κινήσεις ώστε να παιχτούν:
+Για να παιχτούν όλες οι κινήσεις σε μια παρουσίαση ταυτόχρονα, χρησιμοποιείται η κλάση [PresentationPlayer](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_player/). Αυτή η κλάση λαμβάνει μια παρουσία της [PresentationAnimationsGenerator](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.export.presentation_animations_generator/) και FPS για τα εφέ στον κατασκευαστή της και στη συνέχεια καλεί το συμβάν `FrameTick` για όλες τις κινήσεις ώστε να παιχτούν:
 
 ```c++
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/FramesStream/FrameTickEventArgs.h>
+#include <Export/FramesStream/PresentationAnimationsGenerator.h>
+#include <Export/FramesStream/PresentationPlayer.h>
+#include <IImage.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 void OnFrameTick(System::SharedPtr<PresentationPlayer> sender, System::SharedPtr<FrameTickEventArgs> args)
 {
     System::String fileName = System::String::Format(u"frame_{0}.png", sender->get_FrameIndex());
@@ -241,84 +338,86 @@ void Run()
 }
 ```
 
-Στη συνέχεια τα παραγόμενα καρέ μπορούν να συναχθούν για να παραχθεί ένα βίντεο. Δείτε την ενότητα [Convert PowerPoint to Video](https://docs.aspose.com/slides/el/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
+Στη συνέχεια τα παραγόμενα καρότσια μπορούν να συναχθούν για να παραχθεί ένα βίντεο. Δείτε την ενότητα [Convert PowerPoint to Video](https://docs.aspose.com/slides/el/cpp/convert-powerpoint-to-video/#convert-powerpoint-to-video).
 
-## **Υποστηριζόμενες Κινήσεις και Εφέ**
+## **Υποστηριζόμενες κίνησεις και εφέ**
 
-**Entrance**:
+**Είσοδος**:
 
-| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
+| Τύπος κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Appear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly In** | ![supported](v.png) | ![supported](v.png) |
-| **Float In** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Wheel** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Grow & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Εμφάνιση** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Ξεθώριασμα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Πτήση μέσα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Αναζωή μέσα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Διαίρεση** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Σκούπισμα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Σχήμα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Τροχός** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Τυχαίες μπάρες** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Ανάπτυξη & Περιστροφή** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Ζουμ** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Ανέλιξη** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Αναπήδηση** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
 
-**Emphasis**:
+**Έμφαση**:
 
-| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
+| Τύπος κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Color Pulse** | ![not supported](x.png) | ![supported](v.png) |
-| **Teeter** | ![supported](v.png) | ![supported](v.png) |
-| **Spin** | ![supported](v.png) | ![supported](v.png) |
-| **Grow/Shrink** | ![not supported](x.png) | ![supported](v.png) |
-| **Desaturate** | ![not supported](x.png) | ![supported](v.png) |
-| **Darken** | ![not supported](x.png) | ![supported](v.png) |
-| **Lighten** | ![not supported](x.png) | ![supported](v.png) |
-| **Transparency** | ![not supported](x.png) | ![supported](v.png) |
-| **Object Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Complementary Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Line Color** | ![not supported](x.png) | ![supported](v.png) |
-| **Fill Color** | ![not supported](x.png) | ![supported](v.png) |
+| **Παλμός** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Παλμός χρώματος** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Ταλάντωση** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Περιστροφή** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Ανάπτυξη/Σμίκρυνση** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Απόσυρση χρώματος** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Σκοτείνιασμα** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Φωτισμός** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Διαφάνεια** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Χρώμα αντικειμένου** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Συμπληρωματικό χρώμα** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Χρώμα γραμμής** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Χρώμα γεμίσματος** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
 
-**Exit**:
+**Έξοδος**:
 
-| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
+| Τύπος κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Disappear** | ![not supported](x.png) | ![supported](v.png) |
-| **Fade** | ![supported](v.png) | ![supported](v.png) |
-| **Fly Out** | ![supported](v.png) | ![supported](v.png) |
-| **Float Out** | ![supported](v.png) | ![supported](v.png) |
-| **Split** | ![supported](v.png) | ![supported](v.png) |
-| **Wipe** | ![supported](v.png) | ![supported](v.png) |
-| **Shape** | ![supported](v.png) | ![supported](v.png) |
-| **Random Bars** | ![supported](v.png) | ![supported](v.png) |
-| **Shrink & Turn** | ![not supported](x.png) | ![supported](v.png) |
-| **Zoom** | ![supported](v.png) | ![supported](v.png) |
-| **Swivel** | ![supported](v.png) | ![supported](v.png) |
-| **Bounce** | ![supported](v.png) | ![supported](v.png) |
+| **Εξαφάνιση** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Ξεθώριασμα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Πτήση έξω** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Αναζωή έξω** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Διαίρεση** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Σκούπισμα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Σχήμα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Τυχαίες μπάρες** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Σμίκρυνση & Περιστροφή** | ![δεν υποστηρίζεται](x.png) | ![υποστηρίζεται](v.png) |
+| **Ζουμ** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Ανέλιξη** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Αναπήδηση** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
 
-**Motion Paths:**  
+**Διαδρομές κίνησης**:
 
-| Τύπος Κίνησης | Aspose.Slides | PowerPoint |
+| Τύπος κίνησης | Aspose.Slides | PowerPoint |
 |---|---|---|
-| **Lines** | ![supported](v.png) | ![supported](v.png) |
-| **Arcs** | ![supported](v.png) | ![supported](v.png) |
-| **Turns** | ![supported](v.png) | ![supported](v.png) |
-| **Shapes** | ![supported](v.png) | ![supported](v.png) |
-| **Loops** | ![supported](v.png) | ![supported](v.png) |
-| **Custom Path** | ![supported](v.png) | ![supported](v.png) |
+| **Γραμμές** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Τόξα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Στροφές** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Σχήματα** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
+| **Βρόχοι** | ![υποστηρίζεται](v.png) | ![υποστηρίζει
 
-## **Συχνές Ερωτήσεις**
+ται](v.png) |
+| **Προσαρμοσμένη διαδρομή** | ![υποστηρίζεται](v.png) | ![υποστηρίζεται](v.png) |
 
-**Μπορεί να γίνει μετατροπή παρουσιάσεων που είναι προστατευμένες με κωδικό;**  
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-Ναι, το Aspose.Slides επιτρέπει την εργασία με [password-protected presentations](/slides/el/cpp/password-protected-presentation/). Κατά την επεξεργασία τέτοιων αρχείων, πρέπει να παρέχετε τον σωστό κωδικό ώστε η βιβλιοθήκη να έχει πρόσβαση στο περιεχόμενο της παρουσίασης.  
+### Είναι δυνατόν να μετατρέψετε παρουσιάσεις που είναι προστατευμένες με κωδικό;
 
-**Υποστηρίζει το Aspose.Slides χρήση σε λύσεις cloud;**  
+Ναι, το Aspose.Slides επιτρέπει την εργασία με [παρουσιάσεις προστατευμένες με κωδικό](/slides/el/cpp/password-protected-presentation/). Κατά την επεξεργασία τέτοιων αρχείων, πρέπει να παρέχετε τον σωστό κωδικό ώστε η βιβλιοθήκη να έχει πρόσβαση στο περιεχόμενο της παρουσίασης.
 
-Ναι, το Aspose.Slides μπορεί να ενσωματωθεί σε cloud εφαρμογές και υπηρεσίες. Η βιβλιοθήκη έχει σχεδιαστεί για να λειτουργεί σε περιβάλλοντα διακομιστών, εξασφαλίζοντας υψηλή απόδοση και επεκτασιμότητα για μαζική επεξεργασία αρχείων.  
+### Υποστηρίζει το Aspose.Slides χρήση σε cloud λύσεις;
 
-**Υπάρχουν περιορισμοί μεγέθους για τις παρουσιάσεις κατά τη μετατροπή;**  
+Ναι, το Aspose.Slides μπορεί να ενσωματωθεί σε cloud εφαρμογές και υπηρεσίες. Η βιβλιοθήκη έχει σχεδιαστεί για λειτουργία σε περιβάλλοντα διακομιστών, εξασφαλίζοντας υψηλή απόδοση και κλιμακωσιμότητα για ομαδική επεξεργασία αρχείων.
 
-Το Aspose.Slides μπορεί να χειριστεί παρουσιάσεις πρακτικά κάθε μεγέθους. Ωστόσο, όταν εργάζεστε με πολύ μεγάλα αρχεία, μπορεί να απαιτηθούν πρόσθετοι πόροι συστήματος, και μερικές φορές συνιστάται η βελτιστοποίηση της παρουσίασης για να βελτιωθεί η απόδοση.
+### Υπάρχουν περιορισμοί μεγέθους για παρουσιάσεις κατά τη μετατροπή;
+
+Το Aspose.Slides είναι ικανό να διαχειριστεί παρουσιάσεις σχεδόν οποιουδήποτε μεγέθους. Ωστόσο, όταν εργάζεστε με πολύ μεγάλα αρχεία, μπορεί να απαιτηθούν πρόσθετοι πόροι συστήματος, και συχνά συνιστάται η βελτιστοποίηση της παρουσίασης για βελτίωση της απόδοσης.

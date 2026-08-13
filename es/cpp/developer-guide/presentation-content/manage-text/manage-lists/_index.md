@@ -20,17 +20,17 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Aprenda a crear y dar formato a listas con viñetas, con imágenes, multinivel y numeradas en presentaciones PowerPoint y OpenDocument usando Aspose.Slides para C++."
+description: "Aprenda a crear y dar formato a listas con viñetas, con imágenes, multinivel y numeradas en presentaciones de PowerPoint y OpenDocument utilizando Aspose.Slides para C++."
 ---
-## **Descripción general**
+## **Visión general**
 
-Aspose.Slides for C++ le permite crear y dar formato a listas con viñetas y numeradas en presentaciones PowerPoint y OpenDocument. Un elemento de lista es un párrafo cuyas configuraciones de viñeta se controlan mediante su formato de párrafo.
+Aspose.Slides for C++ le permite crear y dar formato a listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument. Un elemento de lista es un párrafo cuyas configuraciones de viñeta se controlan mediante el formato del párrafo.
 
-Utilice el [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraph/get_paragraphformat/) para acceder a la configuración de listas a nivel de párrafo. El punto de entrada principal es [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/get_bullet/), que devuelve un objeto [IBulletFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/). Con este objeto, puede establecer el tipo de viñeta, símbolo, imagen, color, tamaño, estilo de numeración y número inicial.
+Utilice el método [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraph/get_paragraphformat/) para acceder a la configuración de listas a nivel de párrafo. El punto de entrada principal es [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/get_bullet/), que devuelve un objeto [IBulletFormat](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/). Con este objeto, puede establecer el tipo de viñeta, símbolo, imagen, color, tamaño, estilo de numeración y número inicial.
 
 Este artículo muestra cómo:
 
-- crear una lista con viñetas y un símbolo personalizado
+- crear una lista con viñetas usando un símbolo personalizado
 - crear una viñeta con imagen
 - crear una lista multinivel estableciendo la profundidad del párrafo
 - crear una lista numerada
@@ -38,11 +38,30 @@ Este artículo muestra cómo:
 
 ## **Crear una lista con viñetas**
 
-Para crear una lista con viñetas, añada objetos [Paragraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraph/) a un [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) y establezca [IBulletFormat::set_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_type/) a [BulletType::Symbol](https://reference.aspose.com/slides/es/cpp/aspose.slides/bullettype/). Después, puede definir [IBulletFormat::set_Char](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/get_color/) y [IBulletFormat::set_Height](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_height/) para controlar la apariencia de la viñeta.
+Para crear una lista con viñetas, añada objetos [Paragraph](https://reference.aspose.com/slides/es/cpp/aspose.slides/paragraph/) a un [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) y establezca [IBulletFormat::set_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_type/) a [BulletType::Symbol](https://reference.aspose.com/slides/es/cpp/aspose.slides/bullettype/). A continuación, puede establecer [IBulletFormat::set_Char](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/get_color/) y [IBulletFormat::set_Height](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_height/) para controlar la apariencia de la viñeta.
 
 El siguiente código C++ muestra cómo crear una lista con viñetas en una diapositiva:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -79,15 +98,30 @@ presentation->Dispose();
 
 El resultado:
 
-![Viñetas de símbolo](symbol_bullets.png)
+![Las viñetas de símbolo](symbol_bullets.png)
 
 ## **Crear una lista numerada**
 
-Utilice listas numeradas cuando el orden de los elementos sea importante. Establezca [IBulletFormat::set_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_type/) a [BulletType::Numbered](https://reference.aspose.com/slides/es/cpp/aspose.slides/bullettype/). También puede elegir un formato de numeración con [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) o establecer [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) cuando la lista deba comenzar con un valor distinto de 1.
+Utilice listas numeradas cuando el orden de los elementos sea importante. Establezca [IBulletFormat::set_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_type/) a [BulletType::Numbered](https://reference.aspose.com/slides/es/cpp/aspose.slides/bullettype/). También puede elegir un formato de numeración con [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) o establecer [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) cuando la lista debe comenzar con un valor distinto de 1.
 
 El siguiente código C++ muestra cómo crear una lista numerada en una diapositiva:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -116,27 +150,46 @@ presentation->Dispose();
 
 El resultado:
 
-![Viñetas numeradas](numbered_bullets.png)
+![Las viñetas numeradas](numbered_bullets.png)
 
 ## **Crear una viñeta con imagen**
 
-Aspose.Slides le permite sustituir un símbolo de viñeta normal por una imagen. Las viñetas con imagen funcionan mejor con imágenes simples que sigan siendo legibles en tamaño pequeño, como íconos o archivos PNG transparentes de pequeño tamaño.
+Aspose.Slides le permite reemplazar un símbolo de viñeta normal por una imagen. Las viñetas con imágenes funcionan mejor con imágenes simples que siguen siendo legibles en tamaños pequeños, como iconos o pequeños archivos PNG transparentes.
 
-{{% alert color="primary" %}}
-Idealmente, si planea sustituir el símbolo de viñeta normal por una imagen, lo mejor es elegir un gráfico sencillo con fondo transparente. Ese tipo de imágenes funciona bien como símbolos de viñeta personalizados.
+{{% alert color="info" %}}
+Idealmente, si planea reemplazar el símbolo de viñeta normal por una imagen, lo mejor es elegir un gráfico sencillo con fondo transparente. Ese tipo de imágenes funcionan bien como símbolos de viñeta personalizados.
 
 Tenga en cuenta que la imagen se reducirá a un tamaño muy pequeño. Por esa razón, recomendamos encarecidamente seleccionar una imagen que siga siendo clara y visualmente eficaz cuando se use como viñeta en una lista.
 {{% /alert %}}
 
 Para crear una viñeta con imagen, añada una imagen a [IPresentation::get_Images](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/get_images/) y asigne el objeto [IPPImage](https://reference.aspose.com/slides/es/cpp/aspose.slides/ippimage/) devuelto a [IBulletFormat::get_Picture](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/get_picture/). Establezca [IBulletFormat::set_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibulletformat/set_type/) a [BulletType::Picture](https://reference.aspose.com/slides/es/cpp/aspose.slides/bullettype/) antes de asignar la imagen.
 
-Supongamos que disponemos de un “image.png”:
+Supongamos que tenemos un "image.png":
 
 ![Una imagen para las viñetas](picture_for_bullets.png)
 
 El siguiente código C++ muestra cómo crear viñetas con imagen en una diapositiva:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -175,15 +228,28 @@ presentation->Dispose();
 
 El resultado:
 
-![Viñetas con imagen](picture_bullets.png)
+![Las viñetas con imagen](picture_bullets.png)
 
 ## **Crear una lista multinivel**
 
 Utilice [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/set_depth/) para colocar los elementos de la lista en diferentes niveles. El nivel 0 es el nivel superior, el nivel 1 está anidado bajo él, y así sucesivamente.
 
-El siguiente código C++ muestra cómo crear una lista con viñetas multinivel:
+El siguiente código C++ muestra cómo crear una lista multinivel con viñetas:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -217,15 +283,28 @@ presentation->Dispose();
 
 El resultado:
 
-![Lista multinivel](multilevel_list.png)
+![La lista multinivel](multilevel_list.png)
 
 ## **Cambiar una lista existente**
 
-Para modificar el formato de lista en una presentación existente, acceda al párrafo objetivo y actualice su configuración [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/get_bullet/). Las mismas propiedades utilizadas para crear listas pueden emplearse para inspeccionar o modificar listas cargadas desde un archivo PPT, PPTX o ODP.
+Para cambiar el formato de una lista en una presentación existente, acceda al párrafo objetivo y actualice sus configuraciones [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/get_bullet/). Las mismas propiedades utilizadas para crear listas pueden usarse para inspeccionar o modificar listas cargadas desde un archivo PPT, PPTX o ODP.
 
-El siguiente código C++ cambia el primer párrafo de un marco de texto para que use un estilo de lista numerada:
+El siguiente código C++ cambia el primer párrafo en un marco de texto para usar un estilo de lista numerada:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -246,14 +325,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**¿Se pueden exportar listas con viñetas y numeradas a PDF o imágenes?**
+### ¿Se pueden exportar listas con viñetas y numeradas a PDF o imágenes?
 
 Sí. Aspose.Slides conserva el formato de la lista cuando el formato de destino admite la disposición de texto y las características de viñetas correspondientes.
 
-**¿Puedo editar listas en presentaciones existentes?**
+### ¿Puedo editar listas en presentaciones existentes?
 
-Sí. Cargue la presentación, acceda al párrafo objetivo, inspeccione o actualice su configuración [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/get_bullet/) y guarde la presentación.
+Sí. Cargue la presentación, acceda al párrafo objetivo, inspeccione o actualice sus configuraciones [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/es/cpp/aspose.slides/iparagraphformat/get_bullet/), y guarde la presentación.
 
-**¿Las listas pueden contener texto no latino?**
+### ¿Pueden las listas contener texto no latino?
 
-Sí. El texto de los elementos de la lista puede contener caracteres Unicode, por lo que puede crear listas en presentaciones multilingües. Asegúrese de que las fuentes utilizadas en la presentación admitan los caracteres que necesita.
+Sí. El texto de los elementos de la lista puede contener caracteres Unicode, por lo que puede crear listas en presentaciones multilingües. Asegúrese de que las fuentes usadas en la presentación admitan los caracteres que necesita.

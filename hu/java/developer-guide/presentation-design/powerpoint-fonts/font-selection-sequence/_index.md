@@ -1,61 +1,60 @@
 ---
-title: Betűtípus kiválasztási folyamat az Aspose.Slides for Java-ban
-linktitle: Betűtípus kiválasztás
+title: Betűkészlet kiválasztási sorozat az Aspose.Slides for Java-ban
+linktitle: Betűkészlet kiválasztás
 type: docs
 weight: 80
 url: /hu/java/font-selection-sequence/
 keywords:
-- betűtípus kiválasztás
-- betűtípus helyettesítés
-- betűtípus csere
+- betűkészlet kiválasztás
+- betűkészlet helyettesítés
+- betűkészlet cseréje
 - helyettesítési szabály
-- elérhető betűtípus
-- hiányzó betűtípus
+- elérhető betűkészlet
+- hiányzó betűkészlet
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Fedezze fel, hogyan választja ki az Aspose.Slides for Java a betűtípusokat, biztosítva a PPT, PPTX és ODP fájlok tiszta, konzisztens megjelenítését – javítsa most diákját."
+description: "Ismerje meg, hogyan választja ki a betűkészleteket az Aspose.Slides for Java, biztosítva a PPT, PPTX és ODP fájlok tiszta, konzisztens megjelenítését – javítsa most diái minőségét."
 ---
 ## **Áttekintés**
 
-Amikor egy prezentációt betöltenek, renderelnek vagy egy másik formátumba konvertálnak, az Aspose.Slides ellenőrzi, hogy a prezentációban használt betűtípusok elérhetők-e az operációs rendszerben. Ha egy szükséges betűtípus hiányzik, az Aspose.Slides egy helyettesítő betűtípust választ, amely a lehető legközelebb áll ahhoz, amit a PowerPoint használna.
+Amikor egy prezentáció betöltődik, renderelődik vagy egy másik formátumba konvertálódik, az Aspose.Slides ellenőrzi, hogy a prezentációban használt betűtípusok elérhetők-e az operációs rendszerben. Ha egy szükséges betűtípus hiányzik, az Aspose.Slides egy helyettesítő betűtípust választ, amely a lehető legközelebb áll ahhoz, amelyet a PowerPoint használna.
 
-Az Aspose.Slides először a kiválasztott betűtípust keresi az operációs rendszerben. Ha a betűtípus megtalálható, azt használja. Ha nem található, akkor egy megfelelő helyettesítőt alkalmaz. Ha a betűtípus‑helyettesítési szabályok a `FontSubstRule` segítségével vannak definiálva, azokat is figyelembe veszi.
+Aspose.Slides először az operációs rendszerben keresi a kiválasztott betűtípust. Ha megtalálja, azt használja. Ha nem találja, egy megfelelő helyettesítőt alkalmaz. Ha a betűtípus‑helyettesítési szabályok a `FontSubstRule` segítségével vannak definiálva, azokat is figyelembe veszi.
 
-Betűtípusokat is hozzáadhatsz az alkalmazás futásidejében, használhatsz beágyazott betűtípusokat egy prezentációból, vagy betölthetsz külső betűtípusokat a kimeneti dokumentumokhoz, például PDF fájlokhoz.
+Betűtípusokat is hozzáadhatsz az alkalmazás futási idejében, használhatsz beágyazott betűtípusokat egy prezentációból, vagy betölthetsz külső betűtípusokat a kimeneti dokumentumokhoz, például PDF fájlokhoz.
 
-## **Betűtípus kiválasztás**
+## **Betűkészlet kiválasztása**
 
-Bizonyos szabályok vonatznak a prezentációban használt betűtípusokra, amikor a prezentációt betöltik, renderelik vagy egy másik formátumba konvertálják. Például amikor egy prezentációt (a diákját) képekké konvertálsz, a prezentáció betűtípusait ellenőrzik, hogy a kiválasztott betűtípusok elérhetők-e az operációs rendszerben. Ha a betűtípusok hiányát megállapítják, helyettesítésre kerülnek – lásd [**Font Replacement**](https://docs.aspose.com/slides/hu/java/font-replacement/) és [**Font Substitution**](https://docs.aspose.com/slides/hu/java/font-substitution/).
+Bizonyos szabályok vonatznak a prezentáció betűtípusaira, amikor az betöltődik, renderelődik vagy egy másik formátumba konvertálódik. Például, ha megpróbálod a prezentációt (a diákjait) képekké konvertálni, a prezentáció betűtípusait ellenőrzik, hogy a kiválasztott betűtípusok elérhetők-e az operációs rendszerben. Ha a betűtípusok hiányának megerősítése megtörténik, helyettesítésre kerülnek — lásd [**Betűkészlet helyettesítés**](https://docs.aspose.com/slides/hu/java/font-replacement/) és [**Betűkészlet szubsztitúció**](https://docs.aspose.com/slides/hu/java/font-substitution/).
 
-Ez a folyamat, amelyet az Aspose.Slides a betűtípusok kezelése során követ:
+Az alábbi folyamatot követi az Aspose.Slides a betűtípusok kezelésekor:
+1. Az Aspose.Slides az operációs rendszerben keresi a betűtípusokat, hogy megtalálja a prezentáció által választott betűtípussal megegyezőt. 
+2. Ha a választott betűtípus megtalálható, az Aspose.Slides azt használja. Ellenkező esetben az Aspose.Slides egy helyettesítő betűtípust használ, amely a lehető legközelebb áll ahhoz, amit a PowerPoint használna.
+3. Ha a betűtípus‑helyettesítési szabályok a [FontSubstRule](https://reference.aspose.com/slides/hu/java/com.aspose.slides/fontsubstrule/) segítségével vannak beállítva, alkalmazásra kerülnek. 
 
-1. Az Aspose.Slides a betűtípusokat az operációs rendszerben keresi, hogy megtalálja a prezentáció által kiválasztott betűtípussal megegyezőt. 
-2. Ha a kiválasztott betűtípust megtalálja, az Aspose.Slides azt használja. Ellenkező esetben az Aspose.Slides egy olyan helyettesítő betűtípust alkalmaz, amely a lehető legközelebb áll ahhoz, amit a PowerPoint használna. 
-3. Ha a betűtípus helyettesítési szabályok a [FontSubstRule](https://reference.aspose.com/slides/hu/java/com.aspose.slides/fontsubstrule/) segítségével lettek beállítva, azokat alkalmazzák. 
+Az Aspose.Slides lehetővé teszi, hogy betűtípusokat adj hozzá az alkalmazás futásidejéhez, és azután ezeket használd. Lásd [**Egyéni betűkészletek**](https://docs.aspose.com/slides/hu/java/custom-font/). 
 
-Az Aspose.Slides lehetővé teszi, hogy betűtípusokat adj hozzá az alkalmazás futásidejéhez, majd azokat használd. Lásd [**Custom fonts**](https://docs.aspose.com/slides/hu/java/custom-font/). 
+Ha további betűtípusok egy prezentációba vannak ágyazva, ezeket [**Beágyazott betűkészletek**](https://docs.aspose.com/slides/hu/java/embedded-font/)nek nevezik.
 
-Amikor további betűtípusokat helyeznek el egy prezentációban, azokat [**Embedded fonts**](https://docs.aspose.com/slides/hu/java/embedded-font/) néven hívják. 
+Az Aspose.Slides lehetővé teszi, hogy olyan betűtípusokat adj hozzá, amelyek *csak* a kimeneti dokumentumokra vonatkoznak. Például, ha egy PDF‑re konvertálni kívánt prezentáció olyan betűtípusokat tartalmaz, amelyek hiányoznak a rendszeredből és a beágyazott betűkészletekből, akkor a szükséges betűtípusokat **külső betűkészletekként** adhatod hozzá vagy töltheted be.
 
-Az Aspose.Slides lehetővé teszi, hogy olyan betűtípusokat adj hozzá, amelyek *csak* a kimeneti dokumentumokra vonatkoznak. Például, ha egy PDF‑re konvertálni kívánt prezentáció olyan betűtípusokat tartalmaz, amelyek hiányoznak a rendszeredből és a beágyazott betűtípusokból, akkor a szükséges betűtípusokat **external fonts**‑ként adhatod hozzá vagy töltheted be. 
-
-{{% alert title="Note" color="primary" %}} 
-Nem terjesztünk semmilyen betűtípust, legyen az fizetős vagy ingyenes. Az API‑nk lehetővé teszi, hogy külső betűtípusokat tölts be és beágyazd a dokumentumokba, de ezt a betűtípusok saját belátásod és felelősséged szerint kell megtenned.
+{{% alert title="Megjegyzés" color="info" %}} 
+Nem terjesztünk semmilyen betűtípust, sem fizetettet, sem ingyeneset. API‑nk lehetővé teszi külső betűtípusok betöltését és beágyazását a dokumentumokba, de ezt a betűtípusokkal Ön saját belátása és felelőssége szerint teszi.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Hogyan határozhatom meg, hogy mely betűtípusok vannak ténylegesen használatban egy prezentációban a konvertálás előtt?**
+### Hogyan tudom meghatározni, mely betűtípusok vannak ténylegesen használatban egy prezentációban a konvertálás előtt?
 
-Az Aspose.Slides lehetővé teszi a használt betűtípusok ellenőrzését a [font manager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/fontsmanager/) segítségével, így eldöntheted, hogy [embed](/slides/hu/java/embedded-font/), [replace](/slides/hu/java/font-replacement/) vagy [external sources](/slides/hu/java/custom-font/) hozzáadását szeretnéd-e alkalmazni. Ez segít megelőzni a nem kívánt helyettesítéseket a renderelés és az export során.
+Az Aspose.Slides lehetővé teszi, hogy a [font manager](https://reference.aspose.com/slides/hu/java/com.aspose.slides/fontsmanager/) segítségével megvizsgáld a használt betűtípusokat, így eldöntheted, hogy [beágyazz](/slides/hu/java/embedded-font/), [helyettesíts](/slides/hu/java/font-replacement/) vagy [külső forrásokat adj hozzá](/slides/hu/java/custom-font/). Ez segít elkerülni a nem kívánt helyettesítéseket a renderelés és exportálás során.
 
-**Hozzáadhatok extra betűtípus könyvtárakat anélkül, hogy telepíteném őket az operációs rendszerre?**
+### Hozzáadhatok extra betűtípus könyvtárakat anélkül, hogy telepíteném őket az operációs rendszerre?
 
-Igen. Regisztrálhatsz [external font sources](/slides/hu/java/custom-font/) olyan elemeket, mint mappák vagy memóriában lévő adatfolyamok a rendereléshez és az exporthoz. Ez eltünteti a függőséget a gazda rendszer betűtípusaival, és előre láthatóvá teszi az elrendezést.
+Igen. Regisztrálhatsz [külső betűtípus forrásokat](/slides/hu/java/custom-font/) olyan mappák vagy memóriaáramok formájában, a rendereléshez és exportáláshoz. Ez eltávolítja a függőséget a host rendszer betűtípusaival, és előre jelezhető elrendezést biztosít.
 
-**Hogyan akadályozhatom meg a csendes visszaesést egy nem megfelelő betűtípusra, ha egy glif hiányzik?**
+### Hogyan előzhetem meg a csendes visszalépést egy nem megfelelő betűtípusra, ha egy glif hiányzik?
 
-Határozz meg előre explicit [font replacement](/slides/hu/java/font-replacement/) és betűtípus [fallback rules](/slides/hu/java/fallback-font/) szabályokat. A használt betűtípusok elemzésével és a helyettesítők szabályozott prioritásának beállításával biztosítod a konzisztens tipográfiát és elkerülöd a váratlan eredményeket.
+Definiálj előre explicit [betűtípus helyettesítést](/slides/hu/java/font-replacement/) és betűtípus [fallback szabályokat](/slides/hu/java/fallback-font/). A használt betűtípusok elemzésével és a helyettesítők kontrollált prioritásának beállításával biztosíthatod a következetes tipográfiát és elkerülheted a váratlan eredményeket.

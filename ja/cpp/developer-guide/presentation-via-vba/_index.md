@@ -1,6 +1,6 @@
 ---
-title: C++ を使用したプレゼンテーションの VBA プロジェクトの管理
-linktitle: VBA によるプレゼンテーション
+title: C++ を使用したプレゼンテーションでの VBA プロジェクトの管理
+linktitle: VBA を使ったプレゼンテーション
 type: docs
 weight: 250
 url: /ja/cpp/presentation-via-vba/
@@ -19,116 +19,144 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して VBA で PowerPoint および OpenDocument のプレゼンテーションを生成および操作し、ワークフローを効率化する方法をご紹介します。"
+description: "Aspose.Slides for C++ を使用して、VBA 経由で PowerPoint および OpenDocument プレゼンテーションを生成および操作し、ワークフローを効率化する方法をご紹介します。"
 ---
+## **はじめに**
 
-
-Aspose.Slides.Vba 名前空間には、マクロと VBA コードの操作に使用できるクラスとインターフェイスが含まれます。
+[Aspose.Slides.Vba](https://reference.aspose.com/slides/ja/cpp/namespace/aspose.slides.vba/) 名前空間には、マクロと VBA コードを操作するためのクラスとインターフェイスが含まれています。
 
 {{% alert title="Note" color="warning" %}} 
-
-プレゼンテーションにマクロが含まれている状態で別のファイル形式（PDF、HTML など）に変換すると、Aspose.Slides はすべてのマクロを無視します（マクロは結果ファイルに引き継がれません）。
+マクロを含むプレゼンテーションを別のファイル形式（PDF、HTML など）に変換すると、Aspose.Slides はすべてのマクロを無視します（マクロは結果ファイルに引き継がれません）。
 
 プレゼンテーションにマクロを追加したり、マクロを含むプレゼンテーションを再保存したりすると、Aspose.Slides は単にマクロのバイト列を書き込みます。
 
-Aspose.Slides はプレゼンテーション内のマクロを **決して** 実行しません。
-
+Aspose.Slides **決して** プレゼンテーション内のマクロを実行しません。  
 {{% /alert %}}
 
 ## **VBA マクロの追加**
 
-Aspose.Slides は、VBA プロジェクト（およびプロジェクト参照）を作成し、既存のモジュールを編集できるようにするために [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project) クラスを提供します。プレゼンテーションに埋め込まれた VBA を管理するには、[IVbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.i_vba_project/) インターフェイスを使用できます。
+Aspose.Slides は、VBA プロジェクト（およびプロジェクト参照）の作成や既存モジュールの編集を可能にする [VbaProject](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.vba.vba_project) クラスを提供します。プレゼンテーションに埋め込まれた VBA を管理するには、[IVbaProject](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.vba.i_vba_project/) インターフェイスを使用できます。
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
-1. [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) コンストラクタを使用して新しい VBA プロジェクトを追加します。
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成します。
+1. [VbaProject](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.vba.vba_project#a01b7a0287df8a75f2f8d85185f3e197b) コンストラクタを使用して新しい VBA プロジェクトを追加します。
 1. VbaProject にモジュールを追加します。
 1. モジュールのソースコードを設定します。
 1. <stdole> への参照を追加します。
 1. **Microsoft Office** への参照を追加します。
-1. 参照を VBA プロジェクトに関連付けます。
+1. これらの参照を VBA プロジェクトに関連付けます。
 1. プレゼンテーションを保存します。
 
-この C++ コードは、プレゼンテーションに VBA マクロを最初から追加する方法を示します: 
+この C++ コードは、プレゼンテーションに VBA マクロを新規作成して追加する方法を示しています。 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaReferenceCollection.h>
+#include <DOM/Vba/VbaProject.h>
+#include <DOM/Vba/VbaReferenceOleTypeLib.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 // ドキュメントディレクトリへのパス。
 const String outPath = u"../out/AddVBAMacros_out.pptm";
 
-// Presentation クラスのインスタンスを作成
+// Presentation クラスのインスタンスを作成します
 SharedPtr<Presentation> presentation = MakeObject<Presentation>();
-// 新しい VBA プロジェクトを作成
+// 新しい VBA プロジェクトを作成します
 presentation->set_VbaProject(MakeObject<VbaProject>());
 
-// VBA プロジェクトに空のモジュールを追加
+// VBA プロジェクトに空のモジュールを追加します
 SharedPtr<IVbaModule> module = presentation->get_VbaProject()->get_Modules()->AddEmptyModule(u"Module");
 
-// モジュールのソースコードを設定
+// モジュールのソースコードを設定します
 module->set_SourceCode(u"Sub Test(oShape As Shape) MsgBox \"Test\" End Sub");
 
-// <stdole> への参照を作成
+// <stdole> への参照を作成します
 SharedPtr<VbaReferenceOleTypeLib> stdoleReference =
 	MakeObject<VbaReferenceOleTypeLib>(u"stdole", u"*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
 
-// Office への参照を作成
+// Office への参照を作成します
 SharedPtr<VbaReferenceOleTypeLib> officeReference =
 	MakeObject<VbaReferenceOleTypeLib>(u"Office", u"*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
 
-// VBA プロジェクトに参照を追加
+// VBA プロジェクトに参照を追加します
 presentation->get_VbaProject()->get_References()->Add(stdoleReference);
 presentation->get_VbaProject()->get_References()->Add(officeReference);
 
-// プレゼンテーションを保存
+// プレゼンテーションを保存します
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
-
-{{% alert color="primary" %}} 
-
-**Aspose** の [Macro Remover](https://products.aspose.app/slides/remove-macros) を確認してください。これは PowerPoint、Excel、Word 文書からマクロを削除するための無料ウェブアプリです。
-
+{{% alert color="info" %}} 
+PowerPoint、Excel、Word ドキュメントからマクロを削除するための無料 Web アプリである **Aspose** [Macro Remover](https://products.aspose.app/slides/ja/remove-macros) をぜひご確認ください。 
 {{% /alert %}} 
 
 ## **VBA マクロの削除**
 
-[Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスの下にある [VbaProject](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) プロパティを使用すると、VBA マクロを削除できます。
+[Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスの下にある [VbaProject](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation#ac9554082a2ac5ed57adf6012c90da5f4) プロパティを使用して、VBA マクロを削除できます。
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
 1. マクロモジュールにアクセスして削除します。
 1. 変更したプレゼンテーションを保存します。
 
-この C++ コードは、VBA マクロを削除する方法を示します: 
+この C++ コードは、VBA マクロを削除する方法を示しています。 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 // ドキュメントディレクトリへのパス。
 const String outPath = u"../out/RemoveVBAMacros_out.pptm";
 const String templatePath = u"../templates/vba.pptm";
 
-// マクロを含むプレゼンテーションを読み込む
+// マクロを含むプレゼンテーションを読み込みます
 SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
 
-// Vba モジュールにアクセスして削除する
+// Vba モジュールにアクセスして削除します
 presentation->get_VbaProject()->get_Modules()->Remove(presentation->get_VbaProject()->get_Modules()->idx_get(0));
 
-// プレゼンテーションを保存
+// プレゼンテーションを保存します
 presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 ```
 
-
 ## **VBA マクロの抽出**
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
+1. [Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides.presentation) クラスのインスタンスを作成し、マクロを含むプレゼンテーションを読み込みます。
 2. プレゼンテーションに VBA プロジェクトが含まれているか確認します。
-3. VBA プロジェクトに含まれるすべてのモジュールをループしてマクロを表示します。
+3. VBA プロジェクトに含まれるすべてのモジュールをループし、マクロを表示します。
 
-この C++ コードは、マクロを含むプレゼンテーションから VBA マクロを抽出する方法を示します: 
+この C++ コードは、マクロを含むプレゼンテーションから VBA マクロを抽出する方法を示しています。 
+
 ```c++
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaModule.h>
+#include <DOM/Vba/IVbaModuleCollection.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
 
 	// ドキュメントディレクトリへのパス。
 	const String templatePath = u"../templates/VBA.pptm";
 
-	// マクロを含むプレゼンテーションを読み込む
+	// マクロを含むプレゼンテーションを読み込みます
 	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
 
 
-	if (pres->get_VbaProject() != NULL) // プレゼンテーションに VBA プロジェクトが含まれているか確認
+	if (pres->get_VbaProject() != NULL) // プレゼンテーションに VBA プロジェクトが含まれているか確認します
 	{
 		
 		//for (SharedPtr<IVbaModule> module : pres->get_VbaProject()->get_Modules())
@@ -142,15 +170,22 @@ presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 	}
 ```
 
-
 ## **VBA プロジェクトがパスワードで保護されているか確認する**
 
-[IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/) プロパティを使用すると、プロジェクトのプロパティがパスワードで保護されているかどうかを判断できます。
+[IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/ja/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/) プロパティを使用して、プロジェクトのプロパティがパスワードで保護されているかどうかを判断できます。
 
-1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) クラスのインスタンスを作成し、マクロを含むプレゼンテーションをロードします。
-2. プレゼンテーションに [VBA project](https://reference.aspose.com/slides/cpp/aspose.slides.vba/vbaproject/) が含まれているか確認します。
+1. マクロを含むプレゼンテーションを読み込み、[Presentation](https://reference.aspose.com/slides/ja/cpp/class/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. プレゼンテーションに [VBA プロジェクト](https://reference.aspose.com/slides/ja/cpp/aspose.slides.vba/vbaproject/) が含まれているか確認します。
 3. VBA プロジェクトがパスワードで保護されているか確認し、プロパティを表示します。
+
 ```cpp
+#include <DOM/Presentation.h>
+#include <DOM/Vba/IVbaProject.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Vba;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"VBA.pptm");
     
 if (presentation->get_VbaProject() != nullptr) // プレゼンテーションに VBA プロジェクトが含まれているか確認します。
@@ -164,17 +199,16 @@ if (presentation->get_VbaProject() != nullptr) // プレゼンテーションに
 presentation->Dispose();
 ```
 
-
 ## **FAQ**
 
-**プレゼンテーションを PPTX として保存した場合、マクロはどうなりますか？**
+### プレゼンテーションを PPTX として保存した場合、マクロはどうなりますか？
 
-PPTX は VBA をサポートしていないため、マクロは削除されます。マクロを保持したい場合は PPTM、PPSM、または POTM を選択してください。
+PPTX は VBA をサポートしていないため、マクロは削除されます。マクロを保持したい場合は、PPTM、PPSM、または POTM を選択してください。
 
-**Aspose.Slides はプレゼンテーション内のマクロを実行して、たとえばデータを更新できますか？**
+### Aspose.Slides はプレゼンテーション内のマクロを実行して、たとえばデータを更新できますか？
 
 いいえ。ライブラリは VBA コードを実行しません。実行は適切なセキュリティ設定がされた PowerPoint 内でのみ可能です。
 
-**VBA コードにリンクされた ActiveX コントロールの操作はサポートされていますか？**
+### VBA コードにリンクされた ActiveX コントロールの操作はサポートされていますか？
 
-はい、既存の [ActiveX controls](/slides/ja/cpp/activex/) にアクセスし、プロパティを変更したり削除したりできます。これはマクロが ActiveX と連携する場合に便利です。
+はい、既存の [ActiveX controls](/slides/ja/cpp/activex/) にアクセスし、プロパティを変更したり削除したりできます。マクロが ActiveX と連携する場合に便利です。

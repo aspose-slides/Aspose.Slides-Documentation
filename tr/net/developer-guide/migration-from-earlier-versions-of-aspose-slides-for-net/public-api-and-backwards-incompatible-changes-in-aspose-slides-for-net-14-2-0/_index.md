@@ -1,6 +1,6 @@
 ---
-title: Aspose.Slides for .NET 14.2.0'de Genel API ve Geriye Yönelik Uyumsuz Değişiklikler
-linktitle: Aspose.Slides for .NET 14.2.0
+title: "Aspose.Slides for .NET 14.2.0'de Genel API ve Geriye Uyumsuz Değişiklikler"
+linktitle: "Aspose.Slides for .NET 14.2.0"
 type: docs
 weight: 40
 url: /tr/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-2-0/
@@ -16,20 +16,20 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'teki genel API güncellemelerini ve kırılma değişikliklerini inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizin sorunsuz bir şekilde taşınmasını sağlayın."
+description: "Aspose.Slides for .NET'te genel API güncellemelerini ve kırıcı değişiklikleri inceleyerek PowerPoint PPT, PPTX ve ODP sunum çözümlerinizi sorunsuz bir şekilde taşıyın."
 ---
-## **Genel API ve Geriye Yönelik Uyumsuz Değişiklikler**
-{{% alert color="primary" %}} 
+## **Genel API ve Geriye Uyumsuz Değişiklikler**
+{{% alert color="info" %}} 
 
-Aspose.Slides for .NET 14.2.0 API'sinde bazı değişiklikler yaptık. Bazı özellikler ve yöntemler kaldırıldı ve bazıları başka bir ad alanına taşındı.
+Aspose.Slides for .NET 14.2.0 API'sinde bazı değişiklikler yaptık. Bazı özellikler ve yöntemler kaldırıldı, bazıları ise başka bir ad alanına taşındı.
 
 {{% /alert %}} 
 ### **Aspose.Slides.IPresentation.Write(…) Yöntemleri Kaldırıldı**
-Bu yöntemler sadece Presentation nesnelerini PPTX format dosyasına yazıyordu. Yeni API'de Presentation sınıfı tüm formatlarla çalışmak için kullanılıyor. Presentation.Save(…) yöntemlerini kullanarak Presentation nesnelerini desteklenen tüm formatlarda kaydetmek mümkün.
+Bu yöntemler yalnızca Presentation nesnelerini PPTX format dosyasına yazıyordu. Yeni API'de Presentation sınıfı tüm biçimlerle çalışmak için tasarlanmıştır. Presentation.Save(…) yöntemlerini kullanarak Presentation nesnelerini desteklenen tüm biçimlere kaydetmek mümkündür.
 ### **Tema Stilleriyle İlgili Sınıflar Aspose.Slides.Theme Ad Alanına Taşındı**
-Aşağıdaki sınıflar Aspose.Slides ad alanından Aspose.Slides.Theme ad alanına taşındı.
+Aşağıdaki sınıflar Aspose.Slides ad alanından Aspose.Slides.Theme ad alanına taşınmıştır.
 
-- Türler ColorScheme
+- Types ColorScheme
 - EffectStyle
 - EffectStyleCollection
 - EffectStyleCollectionEffectiveData
@@ -55,5 +55,5 @@ Aşağıdaki sınıflar Aspose.Slides ad alanından Aspose.Slides.Theme ad alan�
 - IFormatScheme
 - ILineFormatCollection
 - ILineFormatCollectionEffectiveData
-### **Aspose.Slides for .NET 8.X.0'dan Gelen Değişiklikler**
-Aspose.Slides for .NET 8.4 özellikleri Aspose.Slides for .NET 14.2.0 sürümüne eklendi.
+### **Aspose.Slides for .NET 8.X.0'dan Değişiklikler**
+Aspose.Slides for .NET 8.4 özellikleri Aspose.Slides for .NET 14.2.0'a eklenmiştir.

@@ -1,15 +1,15 @@
 ---
-title: C++-ban felsorolási és számozott listák kezelése a prezentációkban
+title: C++-ban felsorolásos és számozott listák kezelése prezentációkban
 linktitle: Listák kezelése
 type: docs
 weight: 70
 url: /hu/cpp/manage-lists/
 keywords:
 - jelölő
-- felsorolási lista
+- felsoroláslista
 - számozott lista
 - szimbólum jelölő
-- képjelölő
+- képes jelölő
 - egyéni jelölő
 - többszintű lista
 - jelölő létrehozása
@@ -20,29 +20,46 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan hozhat létre és formázhat felsorolási, kép-, többszintű és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ használatával."
+description: "Ismerje meg, hogyan hozhat létre és formázhat felsorolásos, képes, többszintű és számozott listákat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ használatával."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for C++ lehetővé teszi, hogy felsorolás‑ és számozott listákat hozzon létre és formázzon PowerPoint és OpenDocument prezentációkban. A listaelem egy bekezdés, amelynek a felsorolás beállításait a bekezdés formátuma vezérli.
+Az Aspose.Slides for C++ lehetővé teszi, hogy felsorolás- és számozott listákat hozzon létre és formázzon PowerPoint és OpenDocument prezentációkban. Egy listaelem egy bekezdés, amelynek a jelölőbeállításait a bekezdés formátuma szabályozza.
 
-Használja az [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraph/get_paragraphformat/) metódust a bekezdés szintű lista beállítások eléréséhez. A fő belépési pont az [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/get_bullet/), amely egy [IBulletFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/) objektumot ad vissza. Ezzel az objektummal beállíthatja a felsorolás típusát, szimbólumát, képét, színét, méretét, számozási stílusát és a kezdő számot.
+Használja a [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraph/get_paragraphformat/) metódust a bekezdés szintű lista beállítások eléréséhez. A fő belépési pont a [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/get_bullet/), amely egy [IBulletFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/) objektumot ad vissza. Ezzel az objektummal állíthatja be a jelölő típusát, szimbólumát, képét, színét, méretét, a számozás stílusát és a kezdő számot.
 
 Ez a cikk bemutatja, hogyan:
 
-- felsorolás létrehozása egy egyedi szimbólummal
-- képjelölő létrehozása
-- többszintű lista létrehozása a bekezdés mélységének beállításával
-- számozott lista létrehozása
-- lista formázásának megtekintése és módosítása egy meglévő prezentációban
+- hozhat létre felsoroláslistát egy egyéni szimbólummal
+- hozhat létre képes jelölőt
+- hozhat létre többszintű listát a bekezdés mélységének beállításával
+- hozhat létre számozott listát
+- vizsgálhatja és módosíthatja a lista formázását egy meglévő prezentációban
 
-## **Felsorolás létrehozása**
+## **Felsoroláslista létrehozása**
 
-Felsorolás létrehozásához adjon [Paragraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides/paragraph/) objektumokat egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/)-hez, és állítsa be az [IBulletFormat::set_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_type/) értékét a [BulletType::Symbol](https://reference.aspose.com/slides/hu/cpp/aspose.slides/bullettype/)-ra. Ezután beállíthatja az [IBulletFormat::set_Char](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/get_color/) és [IBulletFormat::set_Height](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_height/) értékeket a felsorolás megjelenésének szabályozásához.
-
-Az alábbi C++ kód bemutatja, hogyan hozhat létre felsorolást egy dián:
+Felsoroláslista létrehozásához adjon [Paragraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides/paragraph/) objektumokat egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/)-hez, és állítsa be a [IBulletFormat::set_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_type/) értékét a [BulletType::Symbol](https://reference.aspose.com/slides/hu/cpp/aspose.slides/bullettype/) típusra. Ezután a [IBulletFormat::set_Char](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_char/), a [IBulletFormat::get_Color](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/get_color/) és a [IBulletFormat::set_Height](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_height/) beállításokkal szabályozhatja a jelölő megjelenését.
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -79,15 +96,28 @@ presentation->Dispose();
 
 Az eredmény:
 
-![A szimbólum jelölők](symbol_bullets.png)
+![A szimbólum jelölőpontok](symbol_bullets.png)
 
 ## **Számozott lista létrehozása**
 
-Használjon számozott listákat, ha az elemek sorrendje fontos. Állítsa az [IBulletFormat::set_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_type/) értékét a [BulletType::Numbered](https://reference.aspose.com/slides/hu/cpp/aspose.slides/bullettype/)-ra. Választhat számozási formátumot az [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) segítségével, vagy beállíthatja a [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) értékét, ha a lista nem 1‑től szeretne indulni.
-
-Az alábbi C++ kód megmutatja, hogyan hozhat létre számozott listát egy dián:
+Számozott listákat akkor használjon, amikor az elemek sorrendje számít. Állítsa a [IBulletFormat::set_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_type/) értékét a [BulletType::Numbered](https://reference.aspose.com/slides/hu/cpp/aspose.slides/bullettype/) típusra. A számozás formátumát a [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) segítségével választhatja ki, vagy a [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) beállítással adhat meg egy 1‑nél eltérő kezdő értéket.
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -116,29 +146,42 @@ presentation->Dispose();
 
 Az eredmény:
 
-![A számozott jelölők](numbered_bullets.png)
+![A számozott jelölőpontok](numbered_bullets.png)
 
-## **Képjelölő létrehozása**
+## **Képes jelölőpont létrehozása**
 
-Az Aspose.Slides lehetővé teszi, hogy egy szabályos felsorolás szimbólumát képpel helyettesítse. A képjelölők leginkább egyszerű, kicsi méretben is olvasható képekkel működnek, például ikonokkal vagy átlátszó PNG fájlokkal.
+Az Aspose.Slides lehetővé teszi, hogy egy szabványos jelölő szimbólumát egy képpel helyettesítse. A képes jelölőpontok leginkább egyszerű képekkel működnek, amelyek kis méretben is olvashatóak, például ikonok vagy kis átlátszó PNG fájlok.
 
-{{% alert color="primary" %}}
-
-Ideális esetben, ha a szabályos felsorolás szimbólumát képpel akarja helyettesíteni, a legjobb egy egyszerű, átlátszó háttérrel rendelkező grafikát választani. Az ilyen képek jól használhatók egyedi felsorolás‑szimbólumokként.
-
-Tartsa szem előtt, hogy a képet nagyon kicsire kell méretezni. Emiatt erősen ajánljuk, hogy olyan képet válasszon, amely tiszta és vizuálisan hatékony marad, amikor felsorolás‑elemként használják.
-
+{{% alert color="info" %}}
+Ideális esetben, ha a szabványos jelölő szimbólumát képpel szeretné helyettesíteni, érdemes egy egyszerű, átlátszó háttérrel rendelkező grafikát választani. Az ilyen képek jól használhatók egyéni jelölő szimbólumokként.
 {{% /alert %}}
 
-Képjelölő létrehozásához adjon képet a [IPresentation::get_Images](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/get_images/) gyűjteményhez, és a visszakapott [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) objektumot rendelje az [IBulletFormat::get_Picture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/get_picture/) property‑hez. A kép hozzárendelése előtt állítsa be az [IBulletFormat::set_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_type/) értékét a [BulletType::Picture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/bullettype/)‑ra.
+Képes jelölőpont létrehozásához adjon képet a [IPresentation::get_Images](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/get_images/) gyűjteményhez, és rendelje hozzá a visszakapott [IPPImage](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ippimage/) objektumot a [IBulletFormat::get_Picture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/get_picture/) tulajdonsághoz. A kép hozzárendelése előtt állítsa be a [IBulletFormat::set_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibulletformat/set_type/) értékét a [BulletType::Picture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/bullettype/) típusra.
 
-Tegyük fel, hogy van egy "image.png" nevű fájlunk:
+Tegyük fel, hogy van egy "image.png" fájlunk:
 
-![Kép a felsoroláshoz](picture_for_bullets.png)
-
-Az alábbi C++ kód megmutatja, hogyan hozhat létre képjelölőket egy dián:
+![Kép a jelölőpontokhoz](picture_for_bullets.png)
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -177,15 +220,26 @@ presentation->Dispose();
 
 Az eredmény:
 
-![A képjelölők](picture_bullets.png)
+![A képes jelölőpontok](picture_bullets.png)
 
 ## **Többszintű lista létrehozása**
 
-Használja az [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/set_depth/) metódust a listaelemek különböző szintekre helyezéséhez. Az 0‑szint a legfelső szint, az 1‑szint alatta van, stb.
-
-Az alábbi C++ kód bemutatja, hogyan hozhat létre többszintű felsorolást:
+Használja a [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/set_depth/) metódust a listaelemek különböző szintekre helyezéséhez. A 0‑szint a legfelső szint, az 1‑szint alatta, és így tovább.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -223,11 +277,22 @@ Az eredmény:
 
 ## **Meglévő lista módosítása**
 
-A lista formázásának módosításához egy meglévő prezentációban, érje el a cél bekezdést, és frissítse annak [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/get_bullet/) beállításait. A listák létrehozásához használt ugyanazok a tulajdonságok használhatók a PPT, PPTX vagy ODP fájlból betöltött listák vizsgálatához vagy módosításához.
-
-Az alábbi C++ kód a szövegkeret első bekezdését számozott lista stílusra állítja:
+Meglévő prezentációban a lista formázásának módosításához érje el a célbekezdést, és frissítse annak [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/get_bullet/) beállításait. A listák létrehozásához használt ugyanazok a tulajdonságok felhasználhatók a PPT, PPTX vagy ODP fájlból betöltött listák vizsgálatára vagy módosítására.
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -248,14 +313,14 @@ presentation->Dispose();
 
 ## **GYIK**
 
-**Exportálhatóak a felsorolás‑ és számozott listák PDF‑re vagy képekre?**
+### Exportálhatók a felsorolás- és számozott listák PDF‑re vagy képekre?
 
-Igen. Az Aspose.Slides megőrzi a lista formázását, ha a célnyelv támogatja a megfelelő szövegelrendezést és felsorolás‑jellemzőket.
+Igen. Az Aspose.Slides megőrzi a lista formázását, ha a célformátum támogatja a megfelelő szövegelrendezést és jelölő funkciókat.
 
-**Szerkeszthetek listákat meglévő prezentációkban?**
+### Szerkeszthetek listákat meglévő prezentációkban?
 
-Igen. Töltse be a prezentációt, érje el a cél bekezdést, vizsgálja vagy frissítse annak [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/get_bullet/) beállításait, majd mentse a prezentációt.
+Igen. Töltse be a prezentációt, érje el a célbekezdést, vizsgálja meg vagy frissítse annak [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/get_bullet/) beállításait, majd mentse a prezentációt.
 
-**Tartalmazhatnak a listák nem latin betűket?**
+### Tartalmazhatnak a listák nem latin szöveget?
 
-Igen. A listaelemek szövege Unicode karaktereket tartalmazhat, így többnyelvű listákat hozhat létre. Győződjön meg arról, hogy a prezentációban használt betűkészletek támogatják a szükséges karaktereket.
+Igen. A listaelemek szövege Unicode karaktereket is tartalmazhat, így többnyelvű prezentációkban is létrehozhat listákat. Győződjön meg arról, hogy a prezentációban használt betűtípusok támogatják a szükséges karaktereket.

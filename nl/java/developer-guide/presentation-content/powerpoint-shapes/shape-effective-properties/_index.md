@@ -7,31 +7,33 @@ url: /nl/java/shape-effective-properties/
 keywords:
 - vormeigenschappen
 - camera-eigenschappen
-- lichtinrichting
-- schuine vorm
-- tekstvak
-- tekstopmaak
+- lichtinstallatie
+- bevel-vorm
+- tekstframe
+- tekststijl
 - letterhoogte
-- vulindeling
+- opvulopmaak
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek hoe Aspose.Slides for Java effectieve vormeigenschappen berekent en toepast voor nauwkeurige PowerPoint-weergave."
+description: "Ontdek hoe Aspose.Slides for Java effectieve vormeigenschappen berekent en toepast voor nauwkeurige weergave in PowerPoint."
 ---
 ## **Overzicht**
 
-Dit onderwerp legt het verschil uit tussen **lokale** en **effectieve** eigenschappen. Lokale waarden zijn waarden die rechtstreeks op een specifiek opmaakniveau zijn ingesteld, bijvoorbeeld:
+Dit onderwerp legt het verschil uit tussen **lokale** en **effectieve** eigenschappen. Lokale waarden zijn waarden die direct op een specifiek opmaakniveau worden ingesteld, zoals:
 
-1. Deel‑eigenschappen op een dia.
-1. Prototype‑vorm‑tekststijlen op een indeling of master‑dia, wanneer de tekstvak‑vorm van het deel er één heeft.
-1. Globale tekstinstellingen in een presentatie.
+1. Portie‑eigenschappen op een dia.
+1. Prototype‑vormtekststijlen op een lay‑out‑ of mastersdia, wanneer de vorm van het tekstframe van de portie er één heeft.
+1. Globale tekstopmaakinstellingen in een presentatie.
 
-Lokale waarden kunnen op elk niveau worden gedefinieerd of weggelaten. Wanneer Aspose.Slides de uiteindelijke “zoals gerenderd” opmaak nodig heeft, lost het de overervingsketen op en retourneert **effectieve** waarden. Je kunt ze ophalen door de `getEffective`‑methode aan te roepen op het lokale opmaakobject.
+Lokale waarden kunnen op elk niveau worden gedefinieerd of weggelaten. Wanneer Aspose.Slides de uiteindelijke “zoals weergegeven” opmaak nodig heeft, doorloopt het de overervingsketen en retourneert **effectieve** waarden. Je kunt ze verkrijgen door de `getEffective`‑methode aan te roepen op het lokale opmaakobject.
 
-Het volgende voorbeeld laat zien hoe je effectieve waarden kunt verkrijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IAutoShape) is met een tekstvak en minstens één deel.
+Het volgende voorbeeld laat zien hoe je effectieve waarden kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IAutoShape) met een tekstframe en ten minste één portie is.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -49,19 +51,19 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-
-Effectieve opmaakdata vertegenwoordigt de huidig berekende opmaak nadat er erfelijkheid is toegepast. In de huidige implementatie kunnen sommige effectieve data‑objecten, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPortionFormatEffectiveData), intern worden gecached. Een tweede aanroep van `getEffective` na het wijzigen van de bovenliggende of geërfde opmaak kan de cache vernieuwen, en een eerder verkregen object vertegenwoordigt mogelijk niet meer de eerdere toestand. Als je effectieve waarden later opnieuw wilt gebruiken, kopieer dan de benodigde eigenschappen, zoals lettergrootte, vulkleur, lettertype‑stijl of uitlijning, naar je eigen data‑object.
-
+{{% alert color="info" %}}
+Effectieve opmaakgegevens vertegenwoordigen de momenteel berekende opmaak nadat overerving is toegepast. In de huidige implementatie kunnen sommige effectieve gegevensobjecten, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IPortionFormatEffectiveData), intern worden gecached. Het opnieuw aanroepen van `getEffective` nadat ouder‑ of geërfde opmaak is gewijzigd, kan de cache vernieuwen, en een eerder verkregen object vertegenwoordigt mogelijk niet langer de eerdere staat. Als je effectieve waarden later opnieuw wilt gebruiken, kopieer dan de benodigde eigenschappen, zoals letterhoogte, vulkleur, lettertype‑stijl of uitlijning, naar je eigen gegevensobject.
 {{% /alert %}}
 
-## **Effectieve eigenschappen van een camera ophalen**
+## **Effectieve eigenschappen van een camera**
 
-Aspose.Slides stelt je in staat om de effectieve eigenschappen van een camera op te halen. De [ICameraEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ICameraEffectiveData)‑interface vertegenwoordigt een onmutable object dat effectieve cameragegevens bevat. Een [ICameraEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ICameraEffectiveData)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormatEffectiveData), die effectieve waarden voor [IThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormat) levert.
+Aspose.Slides stelt je in staat om effectieve eigenschappen van een camera op te halen. Het [ICameraEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ICameraEffectiveData)-interface vertegenwoordigt een onveranderlijk object dat effectieve camera‑eigenschappen bevat. Een [ICameraEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ICameraEffectiveData)-instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormatEffectiveData), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormat).
 
-De volgende code‑voorbeeld laat zien hoe je effectieve eigenschappen van de camera kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
+De volgende code‑voorbeeld toont hoe je effectieve eigenschappen voor de camera kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -82,13 +84,15 @@ try {
 }
 ```
 
-## **Effectieve eigenschappen van een lichtinrichting ophalen**
+## **Effectieve eigenschappen van een lichtrig**
 
-Aspose.Slides stelt je in staat om de effectieve eigenschappen van een lichtinrichting op te halen. De [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ILightRigEffectiveData)‑interface vertegenwoordigt een onmutable object dat effectieve lichtinrichtings‑eigenschappen bevat. Een [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ILightRigEffectiveData)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormatEffectiveData), die effectieve waarden voor [IThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormat) biedt.
+Aspose.Slides stelt je in staat om effectieve eigenschappen van een lichtrig op te halen. Het [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ILightRigEffectiveData)-interface vertegenwoordigt een onveranderlijk object dat effectieve lichtrig‑eigenschappen bevat. Een [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ILightRigEffectiveData)-instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormatEffectiveData), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormat).
 
-De volgende code‑voorbeeld laat zien hoe je effectieve eigenschappen van de lichtinrichting kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
+De volgende code‑voorbeeld toont hoe je effectieve eigenschappen voor het lichtrig kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -107,13 +111,15 @@ try {
 }
 ```
 
-## **Effectieve eigenschappen van een schuine vorm ophalen**
+## **Effectieve eigenschappen van een bevelvorm**
 
-Aspose.Slides stelt je in staat om de effectieve eigenschappen van een vormschuine (bevel) op te halen. De [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeBevelEffectiveData)‑interface vertegenwoordigt een onmutable object dat effectieve hoek‑relief‑eigenschappen voor een vorm bevat. Een [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeBevelEffectiveData)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormatEffectiveData), die effectieve waarden voor [IThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormat) levert.
+Aspose.Slides stelt je in staat om effectieve eigenschappen van een bevelvorm op te halen. Het [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeBevelEffectiveData)-interface vertegenwoordigt een onveranderlijk object dat effectieve vlak‑relief‑eigenschappen voor een vorm bevat. Een [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShapeBevelEffectiveData)-instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormatEffectiveData), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IThreeDFormat).
 
-De volgende code‑voorbeeld toont hoe je effectieve eigenschappen van de bovenste bevel van een vorm kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
+De volgende code‑voorbeeld toont hoe je effectieve eigenschappen voor de bovenste bevel van een vorm kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -134,13 +140,15 @@ try {
 }
 ```
 
-## **Effectieve eigenschappen van een tekstvak ophalen**
+## **Effectieve eigenschappen van een tekstframe**
 
-Met Aspose.Slides kun je de effectieve eigenschappen van een tekstvak ophalen. De [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ITextFrameFormatEffectiveData)‑interface bevat effectieve tekstvak‑opmaak‑eigenschappen.
+Met Aspose.Slides kun je de effectieve eigenschappen van een tekstframe ophalen. Het [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ITextFrameFormatEffectiveData)‑interface bevat effectieve opmaak‑eigenschappen van een tekstframe.
 
-De volgende code‑voorbeeld laat zien hoe je effectieve tekstvak‑opmaak‑eigenschappen kunt verkrijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IAutoShape) is met een tekstvak.
+De volgende code‑voorbeeld toont hoe je effectieve tekstframe‑opmaak‑eigenschappen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IAutoShape) met een tekstframe is.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -169,13 +177,15 @@ try {
 }
 ```
 
-## **Effectieve eigenschappen van een tekstopmaak ophalen**
+## **Effectieve eigenschappen van een tekststijl**
 
-Met Aspose.Slides kun je de effectieve eigenschappen van een tekstopmaak ophalen. De [ITextStyleEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ITextStyleEffectiveData)‑interface bevat effectieve tekstopmaak‑eigenschappen.
+Met Aspose.Slides kun je de effectieve eigenschappen van een tekststijl ophalen. Het [ITextStyleEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ITextStyleEffectiveData)‑interface bevat effectieve tekststijl‑eigenschappen.
 
-De volgende code‑voorbeeld laat zien hoe je effectieve tekstopmaak‑eigenschappen kunt verkrijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IAutoShape) is met een tekstvak.
+De volgende code‑voorbeeld toont hoe je effectieve tekststijl‑eigenschappen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IAutoShape) met een tekstframe is.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -203,11 +213,13 @@ try {
 }
 ```
 
-## **De effectieve letterhoogte‑waarde ophalen**
+## **Krijg de effectieve letterhoogte‑waarde**
 
-Met Aspose.Slides kun je de effectieve letterhoogte ophalen. De volgende code demonstreert hoe de effectieve letterhoogte van een deel verandert nadat lokale letterhoogte‑waarden op verschillende niveaus van de presentatiestructuur zijn ingesteld.
+Met Aspose.Slides kun je de effectieve letterhoogte verkrijgen. De volgende code demonstreert hoe de effectieve letterhoogte van een portie verandert nadat lokale letterhoogte‑waarden op verschillende niveaus van de presentatiestructuur zijn ingesteld.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -278,13 +290,15 @@ try {
 }
 ```
 
-## **Effectieve vulopmaak voor een tabel ophalen**
+## **Effectief opvulformaat voor een tabel ophalen**
 
-Met Aspose.Slides kun je effectieve vulopmaak ophalen voor verschillende tabelonderdelen. De [IFillFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IFillFormatEffectiveData)‑interface bevat effectieve vulopmaak‑eigenschappen. Cel‑opmaak heeft een hogere prioriteit dan rij‑opmaak, rij‑opmaak heeft een hogere prioriteit dan kolom‑opmaak, en kolom‑opmaak heeft een hogere prioriteit dan opmaak voor de gehele tabel.
+Met Aspose.Slides kun je effectieve opvulopmaak verkrijgen voor verschillende tabelonderdelen. Het [IFillFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IFillFormatEffectiveData)‑interface bevat effectieve opvulopmaak‑eigenschappen. Celopmaak heeft een hogere prioriteit dan rij‑opmaak, rij‑opmaak heeft een hogere prioriteit dan kolom‑opmaak, en kolom‑opmaak heeft een hogere prioriteit dan de opmaak van de volledige tabel.
 
-Als gevolg hiervan worden de eigenschappen van [ICellFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ICellFormatEffectiveData) gebruikt om de tabelcel te tekenen. De volgende code‑voorbeeld laat zien hoe je effectieve vulopmaak voor verschillende tabelonderdelen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [ITable](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ITable) is.
+Als gevolg hiervan worden de eigenschappen van [ICellFormatEffectiveData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ICellFormatEffectiveData) gebruikt om de tabelcel te tekenen. De volgende code‑voorbeeld toont hoe je effectieve opvulopmaak voor verschillende tabelonderdelen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [ITable](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ITable) is.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -304,36 +318,36 @@ try {
 }
 ```
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Retourneert `getEffective` een momentopname?**
+### Retourneert `getEffective` een momentopname?
 
-Niet altijd. Effectieve data vertegenwoordigt de berekende opmaak nadat erfelijkheid is toegepast, maar sommige effectieve data‑objecten kunnen intern worden gecached. Een volgende aanroep van `getEffective` kan de opmaak opnieuw berekenen en de cache vernieuwen, waardoor een eerder verkregen object niet als een duurzame momentopname mag worden beschouwd.
+Niet altijd. Effectieve gegevens vertegenwoordigen de berekende opmaak nadat overerving is toegepast, maar sommige effectieve gegevensobjecten kunnen intern worden gecached. Een volgende `getEffective`‑aanroep kan de opmaak opnieuw berekenen en de cache verversen, zodat een eerder verkregen object niet als een permanente momentopname moet worden beschouwd.
 
-**Wanneer moet ik effectieve eigenschappen opnieuw lezen?**
+### Wanneer moet ik de effectieve eigenschappen opnieuw lezen?
 
-Roep `getEffective` opnieuw aan nadat je lokale opmaak, bovenliggende stijlen, indelings‑opmaak, master‑opmaak of presentatie‑standaardinstellingen hebt gewijzigd. De volgende aanroep herziet de opmaakhiërarchie en retourneert het actuele effectieve resultaat.
+Roep `getEffective` opnieuw aan nadat je lokale opmaak, bovenliggende stijlen, lay‑out‑opmaak, master‑opmaak of de standaardinstellingen van de presentatie hebt gewijzigd. De volgende aanroep evalueert de opmaakhiërarchie opnieuw en retourneert het actuele effectieve resultaat.
 
-**Heeft het wijzigen of verwijderen van een indeling/master‑dia invloed op reeds opgehaalde effectieve eigenschappen?**
+### Heeft het wijzigen of verwijderen van een lay‑out‑/mastersdia invloed op reeds opgehaalde effectieve eigenschappen?
 
-Ja, maar de wijziging wordt zichtbaar bij de volgende `getEffective`‑aanroep. Als een bron van bovenliggende opmaak wordt gewijzigd of verwijderd, kunnen eerder verkregen effectieve data verouderd zijn. Zodra `getEffective` opnieuw wordt aangeroepen, evalueert Aspose.Slides de opmaakboom opnieuw en kunnen lettertypes, kleuren, afmetingen of andere waarden veranderen.
+Ja, maar de wijziging wordt pas zichtbaar bij de volgende `getEffective`‑aanroep. Als een bovenliggende opmaakbron wordt gewijzigd of verwijderd, kan eerder verkregen effectieve data verouderd raken. Zodra `getEffective` opnieuw wordt aangeroepen, herwaardeert Aspose.Slides de opmaakboom en kunnen de resulterende lettertypen, kleuren, groottes of andere waarden veranderen.
 
-**Kan ik waarden wijzigen via effectieve data‑objecten?**
+### Kan ik waarden aanpassen via effectieve gegevensobjecten?
 
-Nee. Effectieve data‑objecten exposeren berekende waarden. Breng wijzigingen aan in de lokale opmaakobjecten en haal daarna de effectieve waarden opnieuw op.
+Nee. Effectieve gegevensobjecten geven alleen berekende waarden weer. Breng wijzigingen aan in de lokale opmaakobjecten en haal daarna opnieuw de effectieve waarden op.
 
-**Wat gebeurt er als een eigenschap niet is ingesteld op vormniveau, noch in de indeling/master, noch in globale instellingen?**
+### Wat gebeurt er als een eigenschap niet is ingesteld op vormniveau, noch in de lay‑out/masters, noch in de globale instellingen?
 
-De effectieve waarde wordt bepaald door het standaardmechanisme, dat de standaardinstellingen van PowerPoint en Aspose.Slides omvat. Die berekende waarde maakt deel uit van de huidige effectieve data.
+De effectieve waarde wordt bepaald door het standaardmechanisme, dat de standaardinstellingen van PowerPoint en Aspose.Slides omvat. Die opgeloste waarde wordt onderdeel van de huidige effectieve gegevens.
 
-**Kan ik aan de hand van een effectieve letterwaarde afleiden op welk niveau de grootte of het lettertype is gedefinieerd?**
+### Kan ik aan de hand van een effectieve letterwaarde zien welk niveau de grootte of het lettertype heeft geleverd?
 
-Niet rechtstreeks. Effectieve data geeft de uiteindelijke waarde terug. Om de bron te vinden, controleer je de lokale waarden op het deel, de alinea, het tekstvak en de tekststijlen op indelings‑, master‑ en presentatieniveau om te zien waar de eerste expliciete definitie voorkomt.
+Niet rechtstreeks. Effectieve gegevens geven de uiteindelijke waarde terug. Om de bron te vinden, controleer je de lokale waarden op portie‑, alinea‑, tekstframe‑ en tekstopmaak‑niveaus in de lay‑out, master en presentatie om te zien waar de eerste expliciete definitie voorkomt.
 
-**Waarom lijken effectieve waarden soms identiek aan de lokale waarden?**
+### Waarom lijken effectieve waarden soms identiek aan de lokale waarden?
 
-Omdat de lokale waarde uiteindelijk de definitieve waarde bleek te zijn (er was geen hogere‑niveau‑erfenis nodig). In dat geval komt de effectieve waarde overeen met de lokale.
+Omdat de lokale waarde uiteindelijk definitief bleek te zijn (geen hoger‑niveau er boven nodig was). In dat geval komt de effectieve waarde overeen met de lokale.
 
-**Wanneer moet ik effectieve eigenschappen gebruiken en wanneer alleen lokale?**
+### Wanneer moet ik effectieve eigenschappen gebruiken en wanneer alleen met lokale werken?
 
-Gebruik effectieve data wanneer je het “zoals gerenderd” resultaat nodig hebt na toepassing van alle erfelijkheid, bijvoorbeeld om kleuren, inspringingen of afmetingen uit te lijnen. Als je die waarden wilt behouden, ongeacht latere opmaakwijzigingen, kopieer je de benodigde eigenschappen naar je eigen object. Als je op een specifiek niveau de opmaak wilt wijzigen, pas dan de lokale eigenschappen aan en lees desgewenst de effectieve data opnieuw om het resultaat te verifiëren.
+Gebruik effectieve gegevens wanneer je het “zoals weergegeven” resultaat nodig hebt nadat alle overerving is toegepast, bijvoorbeeld om kleuren, inspringingen of groottes op elkaar af te stemmen. Als je deze waarden wilt behouden ongeacht latere opmaakwijzigingen, kopieer dan de benodigde eigenschappen naar je eigen object. Als je op een specifiek niveau de opmaak wilt aanpassen, wijzig dan de lokale eigenschappen en lees, indien nodig, de effectieve gegevens opnieuw om het resultaat te verifiëren.

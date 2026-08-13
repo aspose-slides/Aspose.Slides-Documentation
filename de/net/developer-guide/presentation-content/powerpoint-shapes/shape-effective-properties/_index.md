@@ -7,8 +7,8 @@ url: /de/net/shape-effective-properties/
 keywords:
 - Formeigenschaften
 - Kameraeigenschaften
-- Lichtanlage
-- abgeschrägte Form
+- Licht‑Rig
+- Abrundungsform
 - Textfeld
 - Textstil
 - Schriftgröße
@@ -18,21 +18,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Entdecken Sie, wie Aspose.Slides für .NET effektive Formeigenschaften berechnet und anwendet, um eine präzise PowerPoint-Darstellung zu gewährleisten."
+description: "Erfahren Sie, wie Aspose.Slides für .NET effektive Formeigenschaften berechnet und anwendet, um eine präzise PowerPoint‑Darstellung zu gewährleisten."
 ---
 ## **Übersicht**
 
-Dieses Thema erklärt den Unterschied zwischen **lokalen** und **effektiven** Eigenschaften. Lokale Werte sind Werte, die direkt auf einer bestimmten Formatierungsebene festgelegt werden, zum Beispiel:
+Dieses Thema erklärt den Unterschied zwischen **lokalen** und **effektiven** Eigenschaften. Lokale Werte sind Werte, die direkt auf einer bestimmten Formatierungsebene gesetzt werden, zum Beispiel:
 
-1. Abschnittseigenschaften auf einer Folie.
-2. Textstile von Prototypformen in einem Layout‑ oder Master‑Folien, wenn das Textfeld der Abschnittsform einen besitzt.
-3. Globale Texteinstellungen in einer Präsentation.
+1. Portionseigenschaften auf einer Folie.
+1. Textstil‑Prototypformen auf einem Layout‑ oder Master‑Slide, wenn die Textfeld‑Form der Portion einen hat.
+1. Globale Texteinstellungen in einer Präsentation.
 
-Lokale Werte können auf jeder Ebene definiert oder weggelassen werden. Wenn Aspose.Slides die endgültige „wie dargestellt“ Formatierung benötigt, löst es die Vererbungskette auf und gibt **effektive** Werte zurück. Sie können diese erhalten, indem Sie die Methode `GetEffective` auf dem lokalen Formatobjekt aufrufen.
+Lokale Werte können auf jeder Ebene definiert oder weggelassen werden. Wenn Aspose.Slides das endgültige „wie gerenderte“ Format benötigt, löst es die Vererbungskette auf und gibt **effektive** Werte zurück. Sie können diese erhalten, indem Sie die Methode `GetEffective` auf dem lokalen Formatobjekt aufrufen.
 
-Das folgende Beispiel zeigt, wie man effektive Werte abruft. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) mit einem Textfeld und mindestens einem Abschnitt ist.
+Das folgende Beispiel zeigt, wie man effektive Werte erhält. Es wird davon ausgegangen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) mit einem Textfeld und mindestens einer Portion ist.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -46,17 +48,19 @@ var localPortionFormat = portion.PortionFormat;
 var effectivePortionFormat = localPortionFormat.GetEffective();
 ```
 
-{{% alert color="primary" %}}
-Effektive Formatierungsdaten repräsentieren die aktuell berechnete Formatierung nach Anwendung der Vererbung. In der aktuellen Implementierung können einige effektive Datenobjekte, wie [IPortionFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/iportionformateffectivedata/), intern zwischengespeichert werden. Ein erneuter Aufruf von `GetEffective` nach Änderung der übergeordneten oder vererbten Formatierung kann die zwischengespeicherten Daten aktualisieren, und ein zuvor erhaltenes Objekt stellt möglicherweise nicht mehr den vorherigen Zustand dar. Wenn Sie effektive Werte für eine spätere Wiederverwendung bewahren müssen, kopieren Sie die erforderlichen Eigenschaften, z. B. Schriftgröße, Füllfarbe, Schriftsstil oder Ausrichtung, in Ihr eigenes Datenobjekt.
+{{% alert color="info" %}}
+Effektive Formatierungsdaten repräsentieren die aktuell berechnete Formatierung nach Anwendung der Vererbung. In der aktuellen Implementierung können einige effektive Datenobjekte, wie zum Beispiel [IPortionFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/iportionformateffectivedata/), intern zwischengespeichert werden. Ein erneuter Aufruf von `GetEffective` nach Änderungen an übergeordneten oder vererbten Formaten kann die zwischengespeicherten Daten aktualisieren, und ein zuvor erhaltenes Objekt stellt möglicherweise nicht mehr den früheren Zustand dar. Wenn Sie effektive Werte für eine spätere Wiederverwendung behalten müssen, kopieren Sie die benötigten Eigenschaften, wie Schriftgröße, Füllfarbe, Schriftstil oder Ausrichtung, in Ihr eigenes Datenobjekt.
 {{% /alert %}}
 
-## **Effektive Eigenschaften einer Kamera**
+## **Effektive Eigenschaften einer Kamera abrufen**
 
-Aspose.Slides ermöglicht das Abrufen effektiver Kameraeigenschaften. Das Interface [ICameraEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/icameraeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine Instanz von [ICameraEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/icameraeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/) liefert.
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Kamera. Das Interface [ICameraEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/icameraeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Kameraeigenschaften enthält. Eine Instanz von [ICameraEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/icameraeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/) liefert.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Kamera abruft. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
+Der folgende Code‑Beispiel zeigt, wie man effektive Eigenschaften der Kamera erhält. Es wird davon ausgegangen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -70,13 +74,15 @@ Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngl
 Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
 ```
 
-## **Effektive Eigenschaften einer Lichtanlage**
+## **Effektive Eigenschaften eines Licht‑Rigs abrufen**
 
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Lichtanlage. Das Interface [ILightRigEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ilightrigeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Lichtanlageneigenschaften enthält. Eine Instanz von [ILightRigEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ilightrigeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/) liefert.
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften eines Licht‑Rigs. Das Interface [ILightRigEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ilightrigeffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Licht‑Rig‑Eigenschaften enthält. Eine Instanz von [ILightRigEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ilightrigeffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/) liefert.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die Lichtanlage abruft. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
+Der folgende Code‑Beispiel zeigt, wie man effektive Eigenschaften des Licht‑Rigs erhält. Es wird davon ausgegangen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -89,13 +95,15 @@ Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
 Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
 ```
 
-## **Effektive Eigenschaften einer abgeschrägten Form**
+## **Effektive Eigenschaften einer Formkanten‑Abrundung abrufen**
 
-Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Formkehlung. Das Interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ishapebeveleffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Reliefeigenschaften für eine Form enthält. Eine Instanz von [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ishapebeveleffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/) liefert.
+Aspose.Slides ermöglicht das Abrufen effektiver Eigenschaften einer Formkanten‑Abrundung. Das Interface [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ishapebeveleffectivedata/) stellt ein unveränderliches Objekt dar, das effektive Gesichts‑Relief‑Eigenschaften für eine Form enthält. Eine Instanz von [IShapeBevelEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ishapebeveleffectivedata/) wird über [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformateffectivedata/) bereitgestellt, das effektive Werte für [IThreeDFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ithreedformat/) liefert.
 
-Das folgende Codebeispiel zeigt, wie man effektive Eigenschaften für die obere Kehlung einer Form abruft. Es wird angenommen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
+Der folgende Code‑Beispiel zeigt, wie man effektive Eigenschaften der oberen Abrundung einer Form erhält. Es wird davon ausgegangen, dass die erste Form auf der ersten Folie eine 3D‑Formatierung besitzt.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -109,13 +117,15 @@ Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
 Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
 ```
 
-## **Effektive Eigenschaften eines Textfelds**
+## **Effektive Eigenschaften eines Textfelds abrufen**
 
-Mit Aspose.Slides können Sie effektive Eigenschaften eines Textfelds abrufen. Das Interface [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformateffectivedata/) enthält effektive Formatierungseigenschaften für Textfelder.
+Mit Aspose.Slides können Sie effektive Eigenschaften eines Textfelds erhalten. Das Interface [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/itextframeformateffectivedata/) enthält effektive Textfeld‑Formatierungseigenschaften.
 
-Das folgende Codebeispiel zeigt, wie man effektive Textfeldformatierungseigenschaften abruft. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) mit einem Textfeld ist.
+Der folgende Code‑Beispiel zeigt, wie man effektive Textfeld‑Formatierungseigenschaften erhält. Es wird davon ausgegangen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) mit einem Textfeld ist.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -134,13 +144,15 @@ Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
 Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
 ```
 
-## **Effektive Eigenschaften eines Textstils**
+## **Effektive Eigenschaften eines Textstils abrufen**
 
-Mit Aspose.Slides können Sie effektive Eigenschaften eines Textstils abrufen. Das Interface [ITextStyleEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/itextstyleeffectivedata/) enthält effektive Textstileigenschaften.
+Mit Aspose.Slides können Sie effektive Eigenschaften eines Textstils erhalten. Das Interface [ITextStyleEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/itextstyleeffectivedata/) enthält effektive Textstileigenschaften.
 
-Das folgende Codebeispiel zeigt, wie man effektive Textstileigenschaften abruft. Es wird angenommen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) mit einem Textfeld ist.
+Der folgende Code‑Beispiel zeigt, wie man effektive Textstileigenschaften erhält. Es wird davon ausgegangen, dass die erste Form auf der ersten Folie ein [IAutoShape](https://reference.aspose.com/slides/de/net/aspose.slides/iautoshape/) mit einem Textfeld ist.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -161,11 +173,14 @@ for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
 }
 ```
 
-## **Effektiven Schriftgrößenwert abrufen**
+## **Den effektiven Schriftgrößenwert erhalten**
 
-Mit Aspose.Slides können Sie die effektive Schriftgröße ermitteln. Der folgende Code demonstriert, wie sich die effektive Schriftgröße eines Abschnitts ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur gesetzt wurden.
+Mit Aspose.Slides können Sie die effektive Schriftgröße erhalten. Der folgende Code demonstriert, wie sich die effektive Schriftgröße einer Portion ändert, nachdem lokale Schriftgrößenwerte auf verschiedenen Ebenen der Präsentationsstruktur gesetzt wurden.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -223,13 +238,15 @@ Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
 presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
 ```
 
-## **Effektives Füllformat einer Tabelle abrufen**
+## **Effektives Füllformat für eine Tabelle erhalten**
 
-Mit Aspose.Slides können Sie effektive Füllformatierung für verschiedene Tabellenteile erhalten. Das Interface [IFillFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ifillformateffectivedata/) enthält effektive Füllformatierungseigenschaften. Zellenformatierung hat höhere Priorität als Zeilenformatierung, Zeilenformatierung hat höhere Priorität als Spaltenformatierung, und Spaltenformatierung hat höhere Priorität als die Formatierung der gesamten Tabelle.
+Mit Aspose.Slides können Sie effektive Füllformatierung für verschiedene Tabellenteile erhalten. Das Interface [IFillFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/ifillformateffectivedata/) enthält effektive Füllformatierungs‑Eigenschaften. Die Zellenformatierung hat höhere Priorität als die Zeilenformatierung, die Zeilenformatierung hat höhere Priorität als die Spaltenformatierung, und die Spaltenformatierung hat höhere Priorität als die Formatierung der gesamten Tabelle.
 
-Infolgedessen werden die Eigenschaften von [ICellFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/icellformateffectivedata/) zum Zeichnen der Tabellenzelle verwendet. Das folgende Codebeispiel zeigt, wie man effektive Füllformatierung für verschiedene Tabellenteile abruft. Es wird angenommen, dass die erste Form auf der ersten Folie ein [ITable](https://reference.aspose.com/slides/de/net/aspose.slides/itable/) ist.
+Infolgedessen werden die Eigenschaften von [ICellFormatEffectiveData](https://reference.aspose.com/slides/de/net/aspose.slides/icellformateffectivedata/) zum Zeichnen der Tabellenzelle verwendet. Der folgende Code‑Beispiel zeigt, wie man effektive Füllformatierung für verschiedene Tabellenteile erhält. Es wird davon ausgegangen, dass die erste Form auf der ersten Folie ein [ITable](https://reference.aspose.com/slides/de/net/aspose.slides/itable/) ist.
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("sample.pptx");
 
 var slide = presentation.Slides[0];
@@ -248,34 +265,34 @@ var cellFillFormatEffective = cellFormatEffective.FillFormat;
 
 ## **FAQ**
 
-**Gibt `GetEffective` einen Schnappschuss zurück?**
+### Gibt `GetEffective` einen Schnappschuss zurück?
 
-Nicht immer. Effektive Daten repräsentieren die berechnete Formatierung nach Anwendung der Vererbung, aber einige effektive Datenobjekte können intern zwischengespeichert werden. Ein nachfolgender Aufruf von `GetEffective` kann die Formatierung neu berechnen und die zwischengespeicherten Daten aktualisieren, sodass ein zuvor erhaltenes Objekt nicht als dauerhafter Schnappschuss angesehen werden sollte.
+Nicht immer. Effektive Daten repräsentieren die berechnete Formatierung nach Anwendung der Vererbung, aber einige effektive Datenobjekte können intern zwischengespeichert werden. Ein nachfolgender Aufruf von `GetEffective` kann die Formatierung neu berechnen und die zwischengespeicherten Daten aktualisieren, sodass ein zuvor erhaltenes Objekt nicht als dauerhafter Schnappschuss betrachtet werden sollte.
 
-**Wann sollte ich effektive Eigenschaften erneut auslesen?**
+### Wann sollte ich effektive Eigenschaften erneut auslesen?
 
-Rufen Sie `GetEffective` erneut auf, nachdem Sie lokale Formatierung, übergeordnete Stile, Layout‑Formatierung, Master‑Formatierung oder Präsentations‑Standardwerte geändert haben. Der nächste Aufruf bewertet die Formatierungshierarchie neu und gibt das aktuelle effektive Ergebnis zurück.
+Rufen Sie `GetEffective` erneut auf, nachdem Sie lokale Formatierungen, übergeordnete Stile, Layout‑Formatierungen, Master‑Formatierungen oder Präsentations‑Standardwerte geändert haben. Der nächste Aufruf wertet die Formatierungshierarchie neu aus und gibt das aktuelle effektive Ergebnis zurück.
 
-**Wirkt sich das Ändern oder Entfernen einer Layout‑/Master‑Folien auf bereits abgerufene effektive Eigenschaften aus?**
+### Wirkt sich das Ändern oder Entfernen eines Layout‑/Master‑Slides auf bereits abgerufene effektive Eigenschaften aus?
 
-Ja, die Änderung wird beim nächsten Aufruf von `GetEffective` berücksichtigt. Wenn eine übergeordnete Formatierungsquelle geändert oder entfernt wird, können zuvor erhaltene effektive Daten veraltet sein. Sobald `GetEffective` erneut aufgerufen wird, bewertet Aspose.Slides den Formatierungsbaum neu und die resultierenden Schriften, Farben, Größen oder anderen Werte können sich ändern.
+Ja, die Änderung wird beim nächsten Aufruf von `GetEffective` berücksichtigt. Wenn eine übergeordnete Formatierungsquelle geändert oder entfernt wird, können zuvor erhaltene effektive Daten veraltet sein. Nach erneutem Aufruf von `GetEffective` wertet Aspose.Slides den Formatierungsbaum neu aus und die resultierenden Schriftarten, Farben, Größen oder anderen Werte können sich ändern.
 
-**Kann ich Werte über effektive Datenobjekte ändern?**
+### Kann ich Werte über effektive Datenobjekte ändern?
 
-Nein. Effektive Datenobjekte geben nur berechnete Werte zurück. Änderungen sollten an den lokalen Formatierungsobjekten vorgenommen werden, und dann erhalten Sie die effektiven Werte erneut.
+Nein. Effektive Datenobjekte stellen berechnete Werte bereit. Änderungen sollten in den lokalen Formatierungsobjekten vorgenommen werden, und anschließend sollten die effektiven Werte erneut abgerufen werden.
 
-**Was passiert, wenn eine Eigenschaft weder auf Form‑Ebene, noch im Layout/Master, noch in den globalen Einstellungen gesetzt ist?**
+### Was passiert, wenn eine Eigenschaft weder auf Form‑, Layout‑/Master‑ noch auf globale Ebene gesetzt ist?
 
-Der effektive Wert wird durch den Standardmechanismus bestimmt, der die Vorgaben von PowerPoint und Aspose.Slides umfasst. Dieser aufgelöste Wert wird Teil der aktuellen effektiven Daten.
+Der effektive Wert wird durch den Standard‑Mechanismus ermittelt, der die Vorgaben von PowerPoint und Aspose.Slides enthält. Dieser aufgelöste Wert wird Teil der aktuellen effektiven Daten.
 
-**Kann ich anhand eines effektiven Schriftwertes erkennen, welche Ebene die Größe oder Schriftart bereitgestellt hat?**
+### Kann ich aus einem effektiven Schriftwert erkennen, welche Ebene die Größe oder Schriftart bereitgestellt hat?
 
-Nicht direkt. Effektive Daten geben nur den endgültigen Wert zurück. Um die Quelle zu finden, prüfen Sie die lokalen Werte auf Abschnitt‑, Absatz‑, Textfeld‑ und Textstil‑Ebenen im Layout, Master und in der Präsentation, um zu sehen, wo die erste explizite Definition liegt.
+Nicht direkt. Effektive Daten geben den endgültigen Wert zurück. Um die Quelle zu finden, prüfen Sie die lokalen Werte auf Portion‑, Absatz‑, Textfeld‑ und Textstil‑Ebenen im Layout, Master und auf Präsentationsebene, um zu sehen, wo die erste explizite Definition vorkommt.
 
-**Warum sehen effektive Werte manchmal identisch zu den lokalen aus?**
+### Warum sehen effektive Werte manchmal identisch zu den lokalen aus?
 
-Weil der lokale Wert letztlich final war (keine höhere Vererbung nötig). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
+Weil der lokale Wert letztlich final war (keine höhere Ebene musste vererbt werden). In solchen Fällen stimmt der effektive Wert mit dem lokalen überein.
 
-**Wann sollte ich effektive Eigenschaften verwenden und wann nur mit lokalen arbeiten?**
+### Wann sollte ich effektive Eigenschaften verwenden und wann nur lokale?
 
-Verwenden Sie effektive Daten, wenn Sie das Ergebnis „wie dargestellt“ nach vollständiger Vererbung benötigen, etwa um Farben, Einrückungen oder Größen abzustimmen. Wenn Sie diese Werte unabhängig von späteren Formatierungsänderungen bewahren wollen, kopieren Sie die erforderlichen Eigenschaften in Ihr eigenes Objekt. Wenn Sie die Formatierung auf einer bestimmten Ebene ändern möchten, passen Sie die lokalen Eigenschaften an und lesen Sie bei Bedarf die effektiven Daten erneut, um das Ergebnis zu prüfen.
+Verwenden Sie effektive Daten, wenn Sie das „wie gerenderte“ Ergebnis nach vollständiger Vererbung benötigen, z. B. zum Ausrichten von Farben, Einzügen oder Größen. Wenn Sie diese Werte unabhängig von späteren Formatierungsänderungen beibehalten wollen, kopieren Sie die benötigten Eigenschaften in Ihr eigenes Objekt. Wenn Sie die Formatierung auf einer bestimmten Ebene ändern möchten, passen Sie die lokalen Eigenschaften an und lesen Sie bei Bedarf die effektiven Daten erneut, um das Ergebnis zu prüfen.

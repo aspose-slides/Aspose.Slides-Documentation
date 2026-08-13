@@ -10,12 +10,12 @@ keywords:
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "สร้าง, แก้ไข, และแปลงการนำเสนอใน Java — ไม่ต้องใช้ PowerPoint. Aspose.Slides รองรับ PPT, PPTX, และ ODP พร้อมการส่งออก SVG/PDF ที่รวดเร็ว."
+description: "สร้าง, แก้ไข, และแปลงการนำเสนอใน Java—ไม่ต้องใช้ PowerPoint. Aspose.Slides รองรับ PPT, PPTX, และ ODP พร้อมการส่งออก SVG/PDF อย่างรวดเร็ว."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}} 
 
-Aspose.Slides for Java คือไลบรารีคลาสที่ทำให้แอปพลิเคชัน Java สามารถอ่านและเขียนเอกสารนำเสนอได้โดยไม่ต้องใช้ Microsoft PowerPoint® หรือโปรแกรมอื่น ๆ. Aspose.Slides for Java อนุญาตให้จัดการข้อความ, รูปร่าง, ตาราง & การเคลื่อนไหว, เพิ่มเสียงและวิดีโอลงในสไลด์, แสดงตัวอย่างสไลด์, ส่งออกสไลด์เป็นรูปแบบ SVG, PDF และอื่น ๆ อีกมาก.
+Aspose.Slides for Java คือไลบรารีคลาสที่ช่วยให้แอปพลิเคชัน Java สามารถอ่านและเขียนไฟล์งานนำเสนอได้โดยไม่ต้องใช้ Microsoft PowerPoint® หรือโปรแกรมอื่น ๆ Aspose.Slides for Java รองรับการจัดการข้อความ, รูปร่าง, ตารางและแอนิเมชัน, เพิ่มเสียงและวิดีโอลงในสไลด์, แสดงตัวอย่างสไลด์, ส่งออกสไลด์เป็นรูปแบบ SVG, PDF และอื่น ๆ
 
-สามารถดูอ้างอิง API ล่าสุดได้ที่ [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/th/java).
+สามารถค้นหาเอกสารอ้างอิง API ล่าสุดได้ที่ [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/th/java).
 
 {{% /alert %}}

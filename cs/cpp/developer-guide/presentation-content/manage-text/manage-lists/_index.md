@@ -8,7 +8,7 @@ keywords:
 - odrážka
 - odrážkový seznam
 - číslovaný seznam
-- symbolická odrážka
+- symbolová odrážka
 - obrázková odrážka
 - vlastní odrážka
 - víceúrovňový seznam
@@ -20,13 +20,13 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Zjistěte, jak pomocí Aspose.Slides pro C++ vytvářet a formátovat odrážkové, obrázkové, víceúrovňové a číslované seznamy v prezentacích PowerPoint a OpenDocument."
+description: "Naučte se, jak vytvářet a formátovat odrážkové, obrázkové, víceúrovňové a číslované seznamy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Aspose.Slides for C++ vám umožňuje vytvářet a formátovat odrážkové a číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážky je řízeno prostřednictvím formátu odstavce.
+Aspose.Slides pro C++ umožňuje vytvářet a formátovat odrážkové i číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážky je řízeno pomocí formátu odstavce.
 
-Použijte metodu [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/get_paragraphformat/) pro přístup k nastavením seznamu na úrovni odstavce. Hlavním vstupním bodem je [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/get_bullet/), který vrací objekt [IBulletFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/). S tímto objektem můžete nastavit typ odrážky, symbol, obrázek, barvu, velikost, styl číslování a počáteční číslo.
+Použijte metodu [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraph/get_paragraphformat/) pro přístup k nastavením seznamu na úrovni odstavce. Hlavní vstupní bod je [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/get_bullet/), který vrací objekt [IBulletFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/). S tímto objektem můžete nastavit typ odrážky, symbol, obrázek, barvu, velikost, styl číslování a počáteční číslo.
 
 Tento článek ukazuje, jak:
 
@@ -34,15 +34,34 @@ Tento článek ukazuje, jak:
 - vytvořit obrázkovou odrážku
 - vytvořit víceúrovňový seznam nastavením hloubky odstavce
 - vytvořit číslovaný seznam
-- prozkoumat a změnit formátování seznamu v existující prezentaci
+- zkontrolovat a změnit formátování seznamu v existující prezentaci
 
-## **Vytvořit odrážkový seznam**
+## **Vytvoření odrážkového seznamu**
 
-Chcete‑li vytvořit odrážkový seznam, přidejte objekty [Paragraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/paragraph/) do [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) a nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Symbol](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/). Poté můžete nastavit [IBulletFormat::set_Char](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/get_color/) a [IBulletFormat::set_Height](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_height/) pro ovládání vzhledu odrážky.
+Chcete-li vytvořit odrážkový seznam, přidejte objekty [Paragraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides/paragraph/) do [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) a nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Symbol](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/). Poté můžete nastavit [IBulletFormat::set_Char](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_char/), [IBulletFormat::get_Color](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/get_color/) a [IBulletFormat::set_Height](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_height/) pro řízení vzhledu odrážky.
 
 Následující C++ kód ukazuje, jak vytvořit odrážkový seznam na snímku:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 auto createParagraph = [](System::String text)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -81,13 +100,28 @@ Výsledek:
 
 ![Symbolické odrážky](symbol_bullets.png)
 
-## **Vytvořit číslovaný seznam**
+## **Vytvoření číslovaného seznamu**
 
-Používejte číslované seznamy, když je na pořadí položek záležet. Nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Numbered](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/). Můžete také zvolit formát číslování pomocí [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) nebo nastavit [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/), pokud má seznam začínat hodnotou jinou než 1.
+Číslované seznamy používejte, když je důležité pořadí položek. Nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Numbered](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/). Můžete také vybrat formát číslování pomocí [IBulletFormat::set_NumberedBulletStyle](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_numberedbulletstyle/) nebo nastavit [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/), pokud má seznam začít hodnotou jinou než 1.
 
 Následující C++ kód ukazuje, jak vytvořit číslovaný seznam na snímku:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
@@ -118,17 +152,17 @@ Výsledek:
 
 ![Číslované odrážky](numbered_bullets.png)
 
-## **Vytvořit obrázkovou odrážku**
+## **Vytvoření obrázkové odrážky**
 
-Aspose.Slides umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe s jednoduchými obrázky, které zůstávají čitelné při malé velikosti, například ikony nebo malé transparentní PNG soubory.
+Aspose.Slides umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe s jednoduchými obrázky, které zůstávají čitelné při malé velikosti, například ikony nebo malé průhledné soubory PNG.
 
-{{% alert color="primary" %}}
-Ideální je, pokud plánujete nahradit běžný symbol odrážky obrázkem, zvolit jednoduchou grafiku s transparentním pozadím. Takové obrázky se dobře hodí jako vlastní symboly odrážek.
+{{% alert color="info" %}}
+Ideálně, pokud plánujete nahradit běžný symbol odrážky obrázkem, je nejlepší zvolit jednoduchou grafiku s průhledným pozadím. Takové obrázky dobře fungují jako vlastní symboly odrážek.
 
-Mějte na paměti, že obrázek bude zmenšen na velmi malou velikost. Z tohoto důvodu důrazně doporučujeme vybrat obrázek, který zůstane čistý a vizuálně účinný, když bude použit jako odrážka v seznamu.
+Mějte na paměti, že obrázek bude zmenšen na velmi malou velikost. Z tohoto důvodu důrazně doporučujeme vybrat obrázek, který zůstane jasný a vizuálně účinný, když je použit jako odrážka v seznamu.
 {{% /alert %}}
 
-Chcete‑li vytvořit obrázkovou odrážku, přidejte obrázek do [IPresentation::get_Images](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/get_images/) a přiřaďte vrácený objekt [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/) k [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/get_picture/). Před přiřazením obrázku nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Picture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/).
+Chcete-li vytvořit obrázkovou odrážku, přidejte obrázek do [IPresentation::get_Images](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/get_images/) a přiřaďte vrácený objekt [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/) k [IBulletFormat::get_Picture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/get_picture/). Před přiřazením obrázku nastavte [IBulletFormat::set_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibulletformat/set_type/) na [BulletType::Picture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/bullettype/).
 
 Řekněme, že máme soubor „image.png“:
 
@@ -137,6 +171,25 @@ Chcete‑li vytvořit obrázkovou odrážku, přidejte obrázek do [IPresentatio
 Následující C++ kód ukazuje, jak vytvořit obrázkové odrážky na snímku:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image)
 {
     auto paragraph = System::MakeObject<Paragraph>();
@@ -177,13 +230,26 @@ Výsledek:
 
 ![Obrázkové odrážky](picture_bullets.png)
 
-## **Vytvořit víceúrovňový seznam**
+## **Vytvoření víceúrovňového seznamu**
 
-Použijte [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_depth/) pro umístění položek seznamu na různé úrovně. Úroveň 0 je nejvyšší úroveň, úroveň 1 je pod ní a tak dále.
+Použijte [IParagraphFormat::set_Depth](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/set_depth/) k umístění položek seznamu na různé úrovně. Úroveň 0 je nejvyšší úroveň, úroveň 1 je pod ní a tak dále.
 
 Následující C++ kód ukazuje, jak vytvořit víceúrovňový odrážkový seznam:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
@@ -219,13 +285,26 @@ Výsledek:
 
 ![Víceúrovňový seznam](multilevel_list.png)
 
-## **Změnit existující seznam**
+## **Změna existujícího seznamu**
 
-Pro změnu formátování seznamu v existující prezentaci přistupte k cílovému odstavci a aktualizujte jeho nastavení [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/get_bullet/). Stejné vlastnosti, které se používají při vytváření seznamů, lze použít k prozkoumání nebo úpravě seznamů načtených ze souboru PPT, PPTX nebo ODP.
+Chcete-li změnit formátování seznamu v existující prezentaci, přistupte k cílovému odstavci a aktualizujte jeho nastavení [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/get_bullet/). Stejné vlastnosti použité při vytváření seznamů lze použít k prohlížení nebo úpravě seznamů načtených ze souboru PPT, PPTX nebo ODP.
 
-Následující C++ kód mění první odstavec v textovém rámečku tak, aby používal styl číslovaného seznamu:
+Následující C++ kód mění první odstavec v textovém rámci tak, aby používal styl číslovaného seznamu:
 
 ```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
@@ -246,14 +325,14 @@ presentation->Dispose();
 
 ## **Často kladené otázky**
 
-**Lze odrážkové a číslované seznamy exportovat do PDF nebo obrázků?**
+### Lze odrážkové a číslované seznamy exportovat do PDF nebo obrázků?
 
 Ano. Aspose.Slides zachovává formátování seznamu, pokud cílový formát podporuje odpovídající rozvržení textu a funkce odrážek.
 
-**Mohu upravovat seznamy v existujících prezentacích?**
+### Mohu upravovat seznamy v existujících prezentacích?
 
-Ano. Načtěte prezentaci, přistupte k cílovému odstavci, prozkoumejte nebo aktualizujte jeho nastavení [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/get_bullet/) a prezentaci uložte.
+Ano. Načtěte prezentaci, přistupte k cílovému odstavci, prohlédněte nebo aktualizujte jeho nastavení [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iparagraphformat/get_bullet/) a uložte prezentaci.
 
-**Mohou seznamy obsahovat ne‑latinský text?**
+### Mohou seznamy obsahovat text mimo latinské znaky?
 
-Ano. Text položek seznamu může obsahovat Unicode znaky, takže můžete vytvářet seznamy v vícejazykových prezentacích. Ujistěte se, že použité fonty v prezentaci podporují požadované znaky.
+Ano. Text položek seznamu může obsahovat Unicode znaky, takže můžete vytvářet seznamy v vícejazyčných prezentacích. Ujistěte se, že použité fonty v prezentaci podporují požadované znaky.

@@ -1,5 +1,5 @@
 ---
-title: Kelola Latar Belakang Presentasi di Android
+title: Kelola Latar Belakang Presentasi pada Android
 linktitle: Latar Belakang Slide
 type: docs
 weight: 20
@@ -18,27 +18,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Pelajari cara mengatur latar belakang dinamis dalam file PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Android via Java, dengan tips kode untuk meningkatkan presentasi Anda."
+description: "Pelajari cara mengatur latar belakang dinamis dalam file PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Android melalui Java, dengan tip kode untuk meningkatkan presentasi Anda."
 ---
 ## **Pendahuluan**
 
-Warna solid, gradien, dan gambar biasanya digunakan sebagai latar belakang slide. Anda dapat mengatur latar belakang untuk **slide normal** (satu slide) atau **slide master** (berlaku untuk beberapa slide sekaligus).
+Warna solid, gradien, dan gambar biasanya digunakan untuk latar belakang slide. Anda dapat mengatur latar belakang untuk **slide normal** (satu slide) atau **slide master** (berlaku untuk beberapa slide sekaligus).
 
 ![PowerPoint background](powerpoint-background.png)
 
 ## **Mengatur Latar Belakang Warna Solid untuk Slide Normal**
 
-Aspose.Slides memungkinkan Anda mengatur warna solid sebagai latar belakang untuk slide tertentu dalam sebuah presentasi—bahkan jika presentasi menggunakan slide master. Perubahan ini hanya berlaku pada slide yang dipilih.
+Aspose.Slides memungkinkan Anda mengatur warna solid sebagai latar belakang untuk slide tertentu dalam presentasi—bahkan jika presentasi menggunakan slide master. Perubahan ini hanya berlaku untuk slide yang dipilih.
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Atur [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide menjadi `OwnBackground`.
-3. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide menjadi `Solid`.
+2. Set [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide menjadi `OwnBackground`.
+3. Set [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide menjadi `Solid`.
 4. Gunakan metode [getSolidFillColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) pada [FillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/) untuk menentukan warna latar belakang solid.
-5. Simpan presentasi yang telah diubah.
+5. Simpan presentasi yang telah dimodifikasi.
 
 Contoh Java berikut menunjukkan cara mengatur warna solid biru sebagai latar belakang untuk slide normal:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Buat instance dari kelas Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -58,23 +61,26 @@ try {
 
 ## **Mengatur Latar Belakang Warna Solid untuk Slide Master**
 
-Aspose.Slides memungkinkan Anda mengatur warna solid sebagai latar belakang untuk slide master dalam sebuah presentasi. Slide master berfungsi sebagai templat yang mengendalikan pemformatan untuk semua slide, jadi ketika Anda memilih warna solid untuk latar belakang slide master, warna tersebut akan diterapkan ke setiap slide.
+Aspose.Slides memungkinkan Anda mengatur warna solid sebagai latar belakang untuk slide master dalam sebuah presentasi. Slide master berfungsi sebagai templat yang mengendalikan pemformatan untuk semua slide, sehingga ketika Anda memilih warna solid untuk latar belakang slide master, warna tersebut akan diterapkan ke setiap slide.
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Atur [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide master (melalui `getMasters`) menjadi `OwnBackground`.
-3. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide master menjadi `Solid`.
+2. Set [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide master (melalui `getMasters`) menjadi `OwnBackground`.
+3. Set [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide master menjadi `Solid`.
 4. Gunakan metode [getSolidFillColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/#getSolidFillColor--) untuk menentukan warna latar belakang solid.
-5. Simpan presentasi yang telah diubah.
+5. Simpan presentasi yang telah dimodifikasi.
 
 Contoh Java berikut menunjukkan cara mengatur warna solid (hijau) sebagai latar belakang untuk slide master:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Buat instance dari kelas Presentation.
 Presentation presentation = new Presentation();
 try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    // Atur warna latar belakang slide Master menjadi Hijau Hutan.
+    // Atur warna latar belakang slide master menjadi hijau.
     masterSlide.getBackground().setType(BackgroundType.OwnBackground);
     masterSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
     masterSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -88,26 +94,35 @@ try {
 
 ## **Mengatur Latar Belakang Gradien untuk Slide**
 
-Gradien adalah efek grafis yang dibuat oleh perubahan warna secara bertahap. Saat digunakan sebagai latar belakang slide, gradien dapat membuat presentasi terlihat lebih artistik dan profesional. Aspose.Slides memungkinkan Anda mengatur warna gradien sebagai latar belakang untuk slide.
+Gradien adalah efek grafis yang dibuat dengan perubahan warna secara bertahap. Ketika digunakan sebagai latar belakang slide, gradien dapat membuat presentasi terlihat lebih artistik dan profesional. Aspose.Slides memungkinkan Anda mengatur warna gradien sebagai latar belakang untuk slide.
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Atur [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide menjadi `OwnBackground`.
-3. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide menjadi `Gradient`.
-4. Gunakan metode [getGradientFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) pada [FillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/) untuk mengonfigurasi pengaturan gradien yang diinginkan.
-5. Simpan presentasi yang telah diubah.
+2. Set [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide menjadi `OwnBackground`.
+3. Set [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide menjadi `Gradient`.
+4. Gunakan metode [getGradientFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/#getGradientFormat--) pada [FillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/) untuk mengkonfigurasi pengaturan gradien yang diinginkan.
+5. Simpan presentasi yang telah dimodifikasi.
 
 Contoh Java berikut menunjukkan cara mengatur warna gradien sebagai latar belakang untuk slide:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Buat instance dari kelas Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
     
-    // Terapkan efek gradien ke latar belakang.
+    // Terapkan efek gradien pada latar belakang.
     slide.getBackground().setType(BackgroundType.OwnBackground);
     slide.getBackground().getFillFormat().setFillType(FillType.Gradient);
-    slide.getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
+
+    IGradientFormat gradientFormat = slide.getBackground().getFillFormat().getGradientFormat();
+    gradientFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Tambahkan warna gradien. Tanpa stop gradien, latar belakang akan kembali ke ramp default hitam-ke-putih.
+    gradientFormat.getGradientStops().add(0f, Color.CYAN);
+    gradientFormat.getGradientStops().add(1f, Color.BLUE);
 
     // Simpan presentasi ke disk.
     presentation.save("GradientBackground.pptx", SaveFormat.Pptx);
@@ -121,16 +136,18 @@ try {
 Selain isian solid dan gradien, Aspose.Slides memungkinkan Anda menggunakan gambar sebagai latar belakang slide.
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Atur [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide menjadi `OwnBackground`.
-3. Atur [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide menjadi `Picture`.
+2. Set [BackgroundType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/backgroundtype/) slide menjadi `OwnBackground`.
+3. Set [FillType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/filltype/) latar belakang slide menjadi `Picture`.
 4. Muat gambar yang ingin Anda gunakan sebagai latar belakang slide.
 5. Tambahkan gambar ke koleksi gambar presentasi.
 6. Gunakan metode [getPictureFillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/#getPictureFillFormat--) pada [FillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/) untuk menetapkan gambar sebagai latar belakang.
-7. Simpan presentasi yang telah diubah.
+7. Simpan presentasi yang telah dimodifikasi.
 
 Contoh Java berikut menunjukkan cara mengatur gambar sebagai latar belakang untuk slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Buat instance dari kelas Presentation.
 Presentation presentation = new Presentation();
 try {
@@ -156,9 +173,11 @@ try {
 }
 ```
 
-Contoh kode berikut menunjukkan cara mengatur tipe isian latar belakang menjadi gambar yang ditile dan mengubah properti tiling:
+Contoh kode berikut menunjukkan cara mengatur tipe isian latar belakang menjadi gambar berulang dan memodifikasi properti pengulangan:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide firstSlide = presentation.getSlides().get_Item(0);
@@ -191,8 +210,8 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-Baca selengkapnya: [**Tile Picture As Texture**](/slides/id/androidjava/shape-formatting/#tile-picture-as-texture).
+{{% alert color="info" %}}
+Baca selengkapnya: [**Gambar Ubin Sebagai Tekstur**](/slides/id/androidjava/shape-formatting/#tile-picture-as-texture).
 {{% /alert %}}
 
 ### **Mengubah Transparansi Gambar Latar Belakang**
@@ -200,44 +219,57 @@ Baca selengkapnya: [**Tile Picture As Texture**](/slides/id/androidjava/shape-fo
 Anda mungkin ingin menyesuaikan transparansi gambar latar belakang slide agar konten slide lebih menonjol. Kode Java berikut menunjukkan cara mengubah transparansi untuk gambar latar belakang slide:
 
 ```java
-int transparencyValue = 30; // Misalnya.
+import com.aspose.slides.*;
 
-// Get the collection of picture transform operations.
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+int transparencyValue = 30; // Sebagai contoh.
 
-// Find an existing fixed-percentage transparency effect.
-IAlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof IAlphaModulateFixed) {
-        transparencyOperation = (IAlphaModulateFixed)operation;
-        break;
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    // Dapatkan koleksi operasi transformasi gambar.
+    IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+
+    // Temukan efek transparansi persentase tetap yang sudah ada.
+    IAlphaModulateFixed transparencyOperation = null;
+    for (IImageTransformOperation operation : imageTransform) {
+        if (operation instanceof IAlphaModulateFixed) {
+            transparencyOperation = (IAlphaModulateFixed)operation;
+            break;
+        }
     }
-}
 
-// Set the new transparency value.
-if (transparencyOperation == null) {
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else {
-    transparencyOperation.setAmount(100 - transparencyValue);
+    // Setel nilai transparansi baru.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    }
+    else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
+
+    presentation.save("TransparentBackground.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Mendapatkan Nilai Latar Belakang Slide**
 
-Aspose.Slides menyediakan antarmuka [IBackgroundEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibackgroundeffectivedata/) untuk mengambil nilai latar belakang efektif sebuah slide. Antarmuka ini mengekspos [FillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) dan [EffectFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) yang efektif.
+Aspose.Slides menyediakan antarmuka [IBackgroundEffectiveData](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibackgroundeffectivedata/) untuk mengambil nilai latar belakang efektif sebuah slide. Antarmuka ini menampilkan [FillFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getFillFormat--) dan [EffectFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibackgroundeffectivedata/#getEffectFormat--) yang efektif.
 
 Dengan menggunakan metode `getBackground` pada kelas [BaseSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseslide/), Anda dapat memperoleh latar belakang efektif untuk sebuah slide.
 
 Contoh Java berikut menunjukkan cara mendapatkan nilai latar belakang efektif sebuah slide:
 
 ```java
+import com.aspose.slides.*;
+
 // Buat instance dari kelas Presentation.
 Presentation presentation = new Presentation("Sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ambil latar belakang efektif, memperhitungkan master, layout, dan tema.
+    // Ambil latar belakang efektif, dengan mempertimbangkan master, tata letak, dan tema.
     IBackgroundEffectiveData effBackground = slide.getBackground().getEffective();
     
     if (effBackground.getFillFormat().getFillType() == FillType.Solid)
@@ -249,12 +281,12 @@ try {
 }
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apakah saya dapat mengatur ulang latar belakang khusus dan mengembalikan latar belakang tema/layou?**
+### Apakah saya dapat mengatur ulang latar belakang khusus dan mengembalikan latar belakang tema/tata letak?
 
-Ya. Hapus isian khusus slide, dan latar belakang akan kembali diwarisi dari slide [layout](/slides/id/androidjava/slide-layout/)/[master](/slides/id/androidjava/slide-master/) yang bersangkutan (yaitu, [latar belakang tema](/slides/id/androidjava/presentation-theme/)).
+Ya. Hapus isian khusus slide, dan latar belakang akan kembali mewarisi dari slide [layout](/slides/id/androidjava/slide-layout/)/[master](/slides/id/androidjava/slide-master/) yang bersangkutan (yaitu [latar belakang tema](/slides/id/androidjava/presentation-theme/)).
 
-**Apa yang terjadi pada latar belakang jika saya mengubah tema presentasi kemudian?**
+### Apa yang terjadi pada latar belakang jika saya mengubah tema presentasi nanti?
 
-Jika sebuah slide memiliki isian sendiri, isian tersebut tidak akan berubah. Jika latar belakang diwarisi dari [layout](/slides/id/androidjava/slide-layout/)/[master](/slides/id/androidjava/slide-master/), maka akan diperbarui agar sesuai dengan [tema baru](/slides/id/androidjava/presentation-theme/).
+Jika sebuah slide memiliki isian sendiri, isian tersebut tidak akan berubah. Jika latar belakang diwarisi dari [layout](/slides/id/androidjava/slide-layout/)/[master](/slides/id/androidjava/slide-master/), maka latar belakang akan diperbarui agar sesuai dengan [tema baru](/slides/id/androidjava/presentation-theme/).

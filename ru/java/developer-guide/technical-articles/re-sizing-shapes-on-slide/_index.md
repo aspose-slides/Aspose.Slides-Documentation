@@ -1,27 +1,29 @@
 ---
-title: Изменение размеров фигур на слайдах презентации
+title: Изменение размера фигур на слайдах презентации
 type: docs
 weight: 110
 url: /ru/java/re-sizing-shapes-on-slide/
 keywords:
 - изменить размер фигуры
-- изменить размер формы
+- изменить размер фигуры
 - PowerPoint
 - OpenDocument
 - презентация
 - Java
 - Aspose.Slides
-description: "Легко изменяйте размеры фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Java — автоматизируйте настройку макета слайдов и повышайте продуктивность."
+description: "Легко изменяйте размер фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides для Java - автоматизируйте настройку макета слайдов и повышайте производительность."
 ---
+## **Обзор**
 
-## **Overview**
+Один из самых часто задаваемых вопросов клиентами Aspose.Slides for Java — как изменить размер фигур так, чтобы при изменении размера слайда данные не обрезались. Эта короткая техническая статья покажет, как это сделать.
 
-Один из самых часто задаваемых вопросов клиентами Aspose.Slides for Java — как изменять размер фигур так, чтобы при изменении размера слайда данные не обрезались. Эта краткая техническая статья показывает, как это сделать.
+## **Изменение размера фигур**
 
-## **Resize Shapes**
+Чтобы фигуры не смещались при изменении размера слайда, обновите позицию и размеры каждой фигуры так, чтобы они соответствовали новому макету слайда.
 
-Чтобы фигуры не смещались при изменении размера слайда, обновите позицию и размеры каждой фигуры, чтобы они соответствовали новой раскладке слайда.
 ```java
+import com.aspose.slides.*;
+
 // Загрузить файл презентации.
 Presentation presentation = new Presentation("sample.ppt");
 try {
@@ -39,7 +41,7 @@ try {
     float heightRatio = newHeight / currentHeight;
     float widthRatio = newWidth / currentWidth;
 
-    // Изменить размер и перенести фигуры на каждом слайде.
+    // Изменить размер и переместить фигуры на каждом слайде.
     for (ISlide slide : presentation.getSlides()) {
         for (IShape shape : slide.getShapes()) {
             
@@ -60,13 +62,17 @@ finally {
 }
 ```
 
+{{% alert color="info" %}} 
 
-{{% alert color="primary" %}} 
-Если слайд содержит таблицу, приведённый выше код работать не будет. В этом случае необходимо изменять размер каждой ячейки таблицы.
+Таблицы не требуют специальной обработки: установка ширины и высоты таблицы масштабирует её столбцы и строки пропорционально, поэтому повторное масштабирование высот строк и ширины столбцов применит коэффициент дважды. 
+
 {{% /alert %}} 
 
-Используйте следующий код, чтобы изменить размер слайдов, содержащих таблицы. Для таблиц установка ширины или высоты является особым случаем: необходимо корректировать высоту отдельных строк и ширину столбцов, чтобы изменить общий размер таблицы.
+Приведённый выше код изменяет только фигуры на слайдах. Слайды‑мастера и слайды‑макеты имеют свои собственные фигуры, поэтому масштабируйте их тоже, если хотите, чтобы вся презентация соответствовала новому размеру слайда:
+
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Получить исходный размер слайда.
@@ -117,17 +123,6 @@ try {
             // Масштабировать позицию фигуры.
             shape.setY(shape.getY() * heightRatio);
             shape.setX(shape.getX() * widthRatio);
-            if (shape instanceof ITable) {
-                ITable table = (ITable) shape;
-                for (int i = 0; i < table.getRows().size(); i++) {
-                    IRow row = table.getRows().get_Item(i);
-                    row.setMinimalHeight(row.getMinimalHeight() * heightRatio);
-                }
-                for (int j = 0; j < table.getColumns().size(); j++) {
-                    IColumn column = table.getColumns().get_Item(j);
-                    column.setWidth(column.getWidth() * widthRatio);
-                }
-            }
         }
     }
 
@@ -138,33 +133,32 @@ finally {
 }
 ```
 
+## **Часто задаваемые вопросы**
 
-## **FAQ**
+### Почему фигуры искажаются или обрезаются после изменения размера слайда?
 
-**Why are shapes distorted or cut off after resizing a slide?**
+При изменении размера слайда фигуры сохраняют своё исходное положение и размер, если явно не изменить масштаб. Это может привести к обрезке содержимого или смещению фигур.
 
-When resizing a slide, shapes retain their original position and size unless the scale is explicitly changed. This can result in content being cropped or shapes being misaligned.
+### Работает ли предоставленный код для всех типов фигур?
 
-**Does the provided code work for all shape types?**
+Да. Установка высоты и ширины работает для текстовых полей, изображений, диаграмм и таблиц одинаково.
 
-The basic example works for most shape types (text boxes, images, charts, etc.). However, for tables, you need to handle rows and columns separately, since the height and width of a table are determined by the dimensions of individual cells.
+### Как изменить размер таблиц при изменении размера слайда?
 
-**How do I resize tables when resizing a slide?**
+Масштабируйте саму фигуру таблицы, точно так же, как любую другую фигуру. Её строки и столбцы масштабируются пропорционально, поэтому не масштабируйте их повторно позже.
 
-You need to loop through all the rows and columns of the table and resize their height and width proportionally, as shown in the second code example.
+### Будет ли это работать для слайдов‑мастеров и слайдов‑макетов?
 
-**Will this resizing work for master slides and layout slides?**
+Да, но вам также следует пройтись по [Masters](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getMasters--) и [Layout slides](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getLayoutSlides--) и применить ту же логику масштабирования к их фигурам, чтобы обеспечить согласованность во всей презентации.
 
-Yes, but you should also loop through [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--) and [Layout slides](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getLayoutSlides--) and apply the same scaling logic to their shapes to ensure consistency across the presentation.
+### Можно ли изменить ориентацию слайда (портрет/ландшафт) вместе с изменением размера?
 
-**Can I change the orientation of a slide (portrait/landscape) along with the resizing?**
+Да. Вы можете использовать [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islidesize/#setOrientation-int-) для изменения ориентации. Убедитесь, что логика масштабирования настроена соответствующим образом, чтобы сохранить макет.
 
-Yes. You can use [presentation.getSlideSize().setOrientation](https://reference.aspose.com/slides/java/com.aspose.slides/islidesize/#setOrientation-int-) to change the orientation. Make sure you set the scaling logic accordingly to preserve the layout.
+### Есть ли ограничение на размер слайда, который я могу задать?
 
-**Is there a limit to the slide size I can set?**
+Aspose.Slides поддерживает пользовательские размеры, но очень большие размеры могут влиять на производительность или совместимость с некоторыми версиями PowerPoint.
 
-Aspose.Slides supports custom sizes, but very large sizes may affect performance or compatibility with some versions of PowerPoint.
+### Как предотвратить искажение фигур с фиксированным соотношением сторон?
 
-**How can I prevent fixed aspect ratio shapes from becoming distorted?**
-
-You can check the `getAspectRatioLocked` method of the shape before scaling. If it is locked, adjust the width or height proportionally rather than scaling them individually.
+Перед масштабированием проверьте метод `getAspectRatioLocked` у фигуры. Если он заблокирован, изменяйте ширину или высоту пропорционально, а не масштабируйте их по отдельности.

@@ -6,7 +6,7 @@ weight: 80
 url: /tr/androidjava/activex/
 keywords:
 - ActiveX
-- ActiveX kontrol
+- ActiveX denetimi
 - ActiveX yönet
 - ActiveX ekle
 - ActiveX değiştir
@@ -16,31 +16,33 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java'ın ActiveX'i kullanarak PowerPoint sunumlarını otomatikleştirme ve iyileştirme yöntemlerini öğrenin; geliştiricilere slaytlar üzerinde güçlü kontrol sağlar."
+description: "Aspose.Slides for Android via Java, ActiveX'i kullanarak PowerPoint sunumlarını otomatikleştirmenizi ve geliştirmenizi sağlar; geliştiricilere slaytlar üzerinde güçlü kontrol imkanı sunar."
 ---
 ## **Giriş**
 
-ActiveX kontrolleri sunumlarda kullanılır. Aspose.Slides for Android via Java, ActiveX kontrolleri eklemenize ve yönetmenize olanak tanır, ancak bunlar normal sunum şekilleriyle karşılaştırıldığında yönetimi biraz daha zordur. Aspose.Slides içinde Media Player Active kontrolünün eklenmesi desteğini uyguladık. ActiveX kontrollerinin şekil olmadığını; sunumun [IShapeCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) parçası olmadıklarını, bunun yerine ayrı bir [IControlCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrolcollection/) içinde yer aldıklarını unutmayın. Bu konuda, bunlarla nasıl çalışılacağını göstereceğiz.
+ActiveX denetimleri sunumlarda kullanılır. Aspose.Slides for Android via Java, ActiveX denetimlerini eklemenizi ve yönetmenizi sağlar, ancak bunlar normal sunum şekillerine göre yönetilmesi biraz daha zor olabilir. Aspose.Slides içinde Media Player Active denetimini ekleme desteği uyguladık. ActiveX denetimlerinin şekil olmadığını; sunumun [IShapeCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/) içerisinde bulunmadığını unutmayın. Bunun yerine ayrı bir [IControlCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrolcollection/) içinde yer alırlar. Bu bölümde, bu denetimlerle nasıl çalışılacağını göstereceğiz.
 
-## **Bir Slayta Media Player ActiveX Kontrolü Ekleme**
-Media Player ActiveX kontrolü eklemek için şunları yapın:
+## **Bir Slayta Media Player ActiveX Denetimi Ekleme**
+Media Player ActiveX denetimini eklemek için şu adımları izleyin:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının örneğini oluşturun ve boş bir sunum örneği üretin.  
-2. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) içinde hedef slayta erişin.  
-3. [IControlCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrolcollection/) tarafından sunulan [addControl](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) yöntemiyle Media Player ActiveX kontrolünü ekleyin.  
-4. Media Player ActiveX kontrolüne erişin ve özelliklerini kullanarak video yolunu ayarlayın.  
-5. Sunumu PPTX dosyası olarak kaydedin.  
+1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun ve boş bir sunum örneği oluşturun.  
+2. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) içinde hedef slaytı alın.  
+3. [IControlCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrolcollection/) tarafından sunulan [addControl](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) yöntemini kullanarak Media Player ActiveX denetimini ekleyin.  
+4. Media Player ActiveX denetimine erişin ve özelliklerini kullanarak video yolunu ayarlayın.  
+5. Sunumu PPTX dosyası olarak kaydedin.
 
-Bu örnek kod, yukarıdaki adımlara dayanarak bir slayta Media Player ActiveX Kontrolü eklemeyi gösterir:
+Yukarıdaki adımlara dayanan bu örnek kod, bir slayta Media Player ActiveX denetimi nasıl eklenir gösterir:
 
 ```java
-// Boş bir sunum örneği oluştur
+import com.aspose.slides.*;
+
+// Boş sunum örneği oluştur
 Presentation pres = new Presentation();
 try {
-    // Media Player ActiveX kontrolü ekleniyor
+    // Media Player ActiveX denetimini ekleme
     pres.getSlides().get_Item(0).getControls().addControl(ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
 
-    // Media Player ActiveX kontrolüne eriş ve video yolunu ayarla
+    // Media Player ActiveX denetimine eriş ve video yolunu ayarla
     pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
 
     // Sunumu kaydet
@@ -50,32 +52,40 @@ try {
 }
 ```
 
-## **ActiveX Kontrolünü Değiştirme**
-{{% alert color="primary" %}} 
+## **ActiveX Denetimini Değiştirme**
+{{% alert color="info" %}} 
 
-Aspose.Slides for Android via Java 7.1.0 ve sonraki sürümler, ActiveX kontrollerini yönetmek için bileşenlerle donatılmıştır. Sunumunuzda zaten eklenmiş bir ActiveX kontrolüne erişebilir ve özellikleri üzerinden değiştirebilir ya da silebilirsiniz. 
+Aspose.Slides for Android via Java 7.1.0 ve daha yeni sürümler, ActiveX denetimlerini yönetmek için bileşenlerle donatılmıştır. Sunumunuzda önceden eklenmiş bir ActiveX denetimine erişebilir ve özellikleri aracılığıyla bunu değiştirebilir veya silebilirsiniz.
 
 {{% /alert %}} 
 
-Bir slayttaki metin kutusu ve basit bir komut düğmesi gibi basit bir ActiveX kontrolünü yönetmek için şunları yapın:
+Bir slaytta metin kutusu ve basit bir komut düğmesi gibi basit bir ActiveX denetimini yönetmek için şu adımları izleyin:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının örneğini oluşturun ve içinde ActiveX kontrolleri bulunan sunumu yükleyin.  
-2. İndeksine göre bir slayt referansı edinin.  
-3. Slayttaki ActiveX kontrollerine [IControlCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrolcollection/) üzerinden erişin.  
-4. [IControl](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrol/) nesnesini kullanarak TextBox1 ActiveX kontrolüne erişin.  
-5. Metin, font, font yüksekliği ve çerçeve konumunu içeren TextBox1 ActiveX kontrolünün özelliklerini değiştirin.  
-6. CommandButton1 adlı ikinci erişim kontrolüne erişin.  
-7. Düğme başlığını, fontunu ve konumunu değiştirin.  
-8. ActiveX kontrol çerçevelerinin konumunu kaydırın.  
-9. Değiştirilmiş sunumu PPTX dosyası olarak yazın.  
+1. [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun ve içinde ActiveX denetimleri bulunan sunumu yükleyin.  
+2. Slayta indeks üzerinden bir referans elde edin.  
+3. Slayttaki ActiveX denetimlerine, [IControlCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrolcollection/) erişerek ulaşın.  
+4. [IControl](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/icontrol/) nesnesini kullanarak TextBox1 ActiveX denetimine erişin.  
+5. TextBox1 ActiveX denetiminin metin, yazı tipi, yazı tipi yüksekliği ve çerçeve konumu gibi özelliklerini değiştirin.  
+6. İkinci erişim denetimi olan CommandButton1'i alın.  
+7. Düğme başlığını, yazı tipini ve konumunu değiştirin.  
+8. ActiveX denetimlerinin çerçeve konumlarını kaydırın.  
+9. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
 
-Bu örnek kod, yukarıdaki adımlara dayanarak basit bir ActiveX kontrolünün nasıl yönetileceğini gösterir: 
+Yukarıdaki adımlara dayanan bu örnek kod, basit bir ActiveX denetiminin nasıl yönetileceğini gösterir: 
 
 ```java
-// ActiveX kontrolleriyle sunuma erişme
+import com.aspose.slides.*;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+// ActiveX denetimlerine sahip sunuma erişim
 Presentation pres = new Presentation("ActiveX.pptm");
 try {
-    // Sunumdaki ilk slayta erişme
+    // Sunumdaki ilk slayta erişim
     ISlide slide = pres.getSlides().get_Item(0);
 
     // TextBox metnini değiştirme
@@ -85,8 +95,8 @@ try {
         String newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
 
-        // Yerine geçen resmi değiştiriyor. PowerPoint, ActiveX etkinleştirilirken bu resmi değiştirecektir,
-        // bu yüzden bazen resmi değişmeden bırakmak kabul edilebilir.
+        // Yer tutucu resmi değiştiriyor. PowerPoint, activeX aktivasyonu sırasında bu resmi değiştirecek,
+        // bu nedenle bazen resmi değiştirmeden bırakmak sorun olmayabilir.
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
 
@@ -123,15 +133,17 @@ try {
         control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
     }
 
-    // Düğme başlığını değiştirme
+    // Düğme başlığını değiştiriyor
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
 
     if (control.getName().equalsIgnoreCase("CommandButton1") && control.getProperties() != null) {
         String newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
-        // Yerine geçen resmi değiştir
+
+        // Yer tutucuyu değiştiriyor
         BufferedImage image = new BufferedImage((int) control.getFrame().getWidth(), (int) control.getFrame().getHeight(),
                 BufferedImage.TYPE_INT_ARGB);
+
         java.awt.Graphics graphics = image.getGraphics();
         graphics.setColor(SystemColor.control);
         graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
@@ -155,44 +167,44 @@ try {
         graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
 
         graphics.setColor(SystemColor.controlDkShadow);
-                graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
-                graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
+        graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
+        graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
 
-                graphics.dispose();
+        graphics.dispose();
 
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(image, "PNG", baos);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(image, "PNG", baos);
 
-                control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
-            }
+        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+    }
 
-            // 100 puan aşağı kaydırma
-            for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
-                IShapeFrame frame = ctl.getFrame();
-                ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
-                        frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-            }
-            pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
+    // 100 puan aşağı kaydırma
+    for (IControl ctl : pres.getSlides().get_Item(0).getControls()) {
+        IShapeFrame frame = ctl.getFrame();
+        ctl.setFrame(new ShapeFrame(frame.getX(), frame.getY() + 100,
+                frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
+    }
+    pres.save("withActiveX-edited_java.pptm", SaveFormat.Pptm);
 
-            // kontrolleri kaldırma
-            pres.getSlides().get_Item(0).getControls().clear();
-            pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
-        } catch(IOException e) {
-        } finally {
-            if (pres != null) pres.dispose();
-        }
+    // denetimleri kaldırma
+    pres.getSlides().get_Item(0).getControls().clear();
+    pres.save("withActiveX-cleared_java.pptm", SaveFormat.Pptm);
+} catch (IOException e) {
+} finally {
+    if (pres != null) pres.dispose();
+}
 ```
 
 ## **SSS**
 
-**Aspose.Slides, Java çalışma zamanı içinde çalıştırılamadıklarında bile ActiveX kontrollerini okurken ve yeniden kaydederken korur mu?**  
+### Aspose.Slides, Java çalışma zamanında yürütülemiyorsa ActiveX denetimlerini okurken ve yeniden kaydederken korur mu?
 
-Evet. Aspose.Slides, bunları sunumun bir parçası olarak ele alır ve özelliklerini ve çerçevelerini okuyup değiştirebilir; kontrollerin kendisinin çalıştırılması korunmaları için gerekli değildir.
+Evet. Aspose.Slides bu denetimleri sunumun bir parçası olarak kabul eder ve özelliklerini ve çerçevelerini okuyup değiştirebilir; denetimlerin kendisinin yürütülmesi, onları korumak için gerekli değildir.
 
-**ActiveX kontrolleri bir sunumdaki OLE nesnelerinden nasıl farklıdır?**  
+### ActiveX denetimleri, bir sunumdaki OLE nesnelerinden nasıl farklıdır?
 
-ActiveX kontrolleri etkileşimli yönetilen kontrollerdir (düğmeler, metin kutuları, medya oynatıcı), oysa [OLE](/slides/tr/androidjava/manage-ole/) gömülü uygulama nesnelerini (örneğin bir Excel çalışma sayfası) ifade eder. Bunlar farklı şekilde depolanır ve işlenir ve farklı özellik modellerine sahiptir.
+ActiveX denetimleri etkileşimli yönetilen denetimlerdir (düğmeler, metin kutuları, medya oynatıcı), oysa [OLE](/slides/tr/androidjava/manage-ole/) gömülü uygulama nesnelerini (örneğin bir Excel çalışma sayfası) ifade eder. Bunlar farklı şekilde depolanır ve işlenir ve farklı özellik modellerine sahiptir.
 
-**Aspose.Slides tarafından dosya değiştirildiyse ActiveX olayları ve VBA makroları çalışır mı?**  
+### Dosya Aspose.Slides tarafından değiştirildiğinde ActiveX olayları ve VBA makroları çalışır mı?
 
-Aspose.Slides mevcut işaretlemeyi ve meta verileri korur; ancak olaylar ve makrolar yalnızca Windows üzerindeki PowerPoint içinde, güvenlik izin veriyorsa çalışır. Kütüphane VBA’yı çalıştırmaz.
+Aspose.Slides mevcut işaretlemeyi ve meta verileri korur; ancak olaylar ve makrolar yalnızca Windows'ta PowerPoint içinde, güvenlik izin veriyorsa çalışır. Kütüphane VBA'yı yürütmez.

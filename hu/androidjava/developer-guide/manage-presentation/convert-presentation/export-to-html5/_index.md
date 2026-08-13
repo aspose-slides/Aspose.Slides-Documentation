@@ -15,23 +15,25 @@ keywords:
 - PPT mentése HTML5-ként
 - PPTX mentése HTML5-ként
 - ODP mentése HTML5-ként
-- PPT exportálása HTML5-be
-- PPTX exportálása HTML5-be
-- ODP exportálása HTML5-be
+- PPT exportálása HTML5-re
+- PPTX exportálása HTML5-re
+- ODP exportálása HTML5-re
 - Android
 - Java
 - Aspose.Slides
-description: "PowerPoint és OpenDocument prezentációk exportálása reszponzív HTML5-re az Aspose.Slides for Android segítségével Java-ban. Megőrzi a formázást, animációkat és az interaktivitást."
+description: "Exportálja a PowerPoint és OpenDocument prezentációkat reszponzív HTML5-be az Aspose.Slides for Android segítségével Java nyelven. Őrizze meg a formázást, animációkat és az interaktivitást."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet a PowerPoint‑prezentációkat HTML5-re konvertálni az Aspose.Slides használatával. Lefedi az egyszerű HTML5‑exportálást webes kiterjesztések vagy további függőségek nélkül, valamint a formaanimációk és diaváltások vezérlésének beállítási lehetőségeit. A cikk továbbá megmutatja a szokásos PowerPoint‑HTML exportfolyamatot, ismerteti, hogyan lehet HTML5‑kimenetet dianézetben előállítani, és bemutatja, hogyan lehet megjegyzéseket belefoglalni az exportált dokumentumba az elrendezés konfigurálásával.
+Ez a cikk bemutatja, hogyan konvertálhat PowerPoint‑prezentációkat HTML5‑re az Aspose.Slides használatával. Kitér az egyszerű HTML5‑exportálásra webes kiegészítők vagy további függőségek nélkül, valamint a formaanimációk és diaátmenetek vezérlésének lehetőségeire. A cikk ismerteti a szokásos PowerPoint‑HTML exportfolyamatait, bemutatja, hogyan generálhat HTML5‑kimenetet dia‑nézet módban, és megmutatja, hogyan lehet megjegyzéseket felvenni az exportált dokumentumba a layout beállításával.
 
-## **PowerPoint exportálása HTML5-re**
+## **PowerPoint exportálása HTML5‑be**
 
-Ez a Java kód azt mutatja, hogyan lehet egy prezentációt HTML5-re exportálni webes kiterjesztések és függőségek nélkül:
+Ez a Java‑kód azt mutatja, hogyan exportálhat egy prezentációt HTML5‑be webes kiegészítők és függőségek nélkül:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html5);
@@ -40,13 +42,15 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
-Ebben az esetben tiszta HTML-t kap. 
+{{% alert color="info" %}} 
+Ebben az esetben tiszta HTML-et kap. 
 {{% /alert %}}
 
-Így is megadhatja a formaanimációk és diaváltások beállításait:
+A formaanimációk és diaátmenetek beállításait így adhatja meg:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -59,11 +63,13 @@ try {
 }
 ```
 
-## **PowerPoint exportálása HTML-re**
+## **PowerPoint exportálása HTML‑be**
 
-Ez a Java bemutatja a szokásos PowerPoint‑HTML exportfolyamatot:
+Ez a Java‑példa a szokásos PowerPoint‑HTML folyamatot mutatja be:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     pres.save("pres.html", SaveFormat.Html);
@@ -72,7 +78,7 @@ try {
 }
 ```
 
-Ebben az esetben a prezentáció tartalma SVG‑vel kerül megjelenítésre a következő módon:
+Ebben az esetben a prezentáció tartalma SVG‑ként kerül renderelésre, a következő alakban:
 
 ```html
 <body>
@@ -85,16 +91,18 @@ Ebben az esetben a prezentáció tartalma SVG‑vel kerül megjelenítésre a k�
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Ha ezt a módszert használja a PowerPoint HTML‑exportálásához, az SVG renderelés miatt nem lesz lehetőség stílusok alkalmazására vagy adott elemek animálására. 
+Ha ezzel a módszerrel exportálja a PowerPointot HTML‑be, az SVG renderelés miatt nem tud stílusokat alkalmazni vagy animálni bizonyos elemeket. 
 {{% /alert %}}
 
-## **PowerPoint exportálása HTML5 dia nézetben**
+## **PowerPoint exportálása HTML5 Dia‑nézetben**
 
-**Aspose.Slides** lehetővé teszi, hogy egy PowerPoint‑prezentációt HTML5 dokumentummá konvertáljon, amelyben a diák dianézetben jelennek meg. Ebben az esetben, amikor a keletkezett HTML5‑fájlt a böngészőben megnyitja, a prezentációt dianézetben láthatja a weboldalon. 
+**Aspose.Slides** lehetővé teszi, hogy a PowerPoint‑prezentációt HTML5‑dokumentummá konvertálja, ahol a diák dia‑nézet módban jelennek meg. Ebben az esetben, ha a létrejött HTML5‑fájlt böngészőben megnyitja, a prezentációt weboldalon dia‑nézetben láthatja.
 
-Ez a Java kód bemutatja a PowerPoint‑HTML5 dia nézet exportfolyamatát:
+Ez a Java‑kód bemutatja a PowerPoint‑HTML5 Dia‑nézet exportfolyamatát:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     Html5Options html5Options = new Html5Options();
@@ -107,40 +115,45 @@ try {
 }
 ```
 
-## **Bemutató konvertálása HTML5 dokumentummá megjegyzésekkel**
+## **Prezentáció konvertálása HTML5‑dokumentummá megjegyzésekkel**
 
-A PowerPoint‑megjegyzések egy eszköz, amely lehetővé teszi a felhasználók számára, hogy jegyzeteket vagy visszajelzéseket hagyjanak a diákon. Különösen hasznosak együttműködési projektekben, ahol több személy adhat hozzá javaslatokat vagy megjegyzéseket a diák egyes elemeihez anélkül, hogy a fő tartalmat módosítaná. Minden megjegyzés megjeleníti a szerző nevét, így könnyen nyomon követhető, ki hagyta a megjegyzést. 
+A PowerPoint‑megjegyzések olyan eszközök, amelyek lehetővé teszik a felhasználók számára, hogy jegyzeteket vagy visszajelzéseket hagyjanak a diákon. Különösen együttműködő projektekben hasznosak, ahol több személy adhat hozzá javaslatokat vagy megjegyzéseket a konkrét diák elemeihez anélkül, hogy a fő tartalmat módosítaná. Minden megjegyzés tartalmazza a szerző nevét, így könnyen nyomon követhető, ki hagyta a megjegyzést.
 
-Tegyük fel, hogy a következő PowerPoint‑prezentáció a "sample.pptx" fájlban van elmentve.
+Tegyük fel, hogy a következő PowerPoint‑prezentáció a „sample.pptx” fájlban van mentve.
 
-![Két megjegyzés a prezentációs dián](two_comments_pptx.png)
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-Amikor egy PowerPoint‑prezentációt HTML5 dokumentummá konvertál, egyszerűen megadhatja, hogy a prezentációból származó megjegyzéseket bele szeretné-e foglalni a kimeneti dokumentumba. Ehhez meg kell adnia a megjegyzések megjelenítési paramétereit a `getNotesCommentsLayouting` metódusban a [Html5Options](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/) osztályban.
+Amikor a PowerPoint‑prezentációt HTML5‑dokumentummá konvertálja, egyszerűen megadhatja, hogy a kimeneti dokumentumban megjelenjenek‑e a prezentáció megjegyzései. Ehhez át kell adnia a megjegyzések megjelenítési paramétereit a `setSlidesLayoutOptions` metódusnak a [Html5Options](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/) osztályból.
 
-A következő kódrészlet egy prezentációt konvertál HTML5 dokumentummá, a megjegyzésekkel, amelyek a diák jobb oldalán jelennek meg.
+Az alábbi kódrészlet egy prezentációt HTML5‑dokumentummá konvertál, a megjegyzésekkel a diák jobb oldalán megjelenítve.
 ```java
+import com.aspose.slides.*;
+
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setCommentsPosition(CommentsPositions.Right);
+
 Html5Options html5Options = new Html5Options();
-html5Options.getNotesCommentsLayouting().setCommentsPosition(CommentsPositions.Right);
+html5Options.setSlidesLayoutOptions(layoutingOptions);
 
 Presentation presentation = new Presentation("sample.pptx");
 presentation.save("output.html", SaveFormat.Html5, html5Options);
 presentation.dispose();
 ```
 
-A "output.html" dokumentum az alábbi képen látható.
+Az „output.html” dokumentum az alábbi képen látható.
 
-![A megjegyzések a kimeneti HTML5 dokumentumban](two_comments_html5.png)
+![The comments in the output HTML5 document](two_comments_html5.png)
 
-## **FAQ**
+## **GYIK**
 
-**Szabályozhatom, hogy az objektumanimációk és diaváltások lejátszásra kerüljenek HTML5-ben?**  
+### Kezelhetem, hogy az objektumanimációk és diaátmenetek lejátszódjanak HTML5‑ben?
 
-Igen, a HTML5 különálló beállításokat kínál a [formaanimációk](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) és a [diaváltások](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) engedélyezésére vagy letiltására.  
+Igen, a HTML5 külön beállításokat biztosít a [alak animációk](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) és a [diaátmenetek](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) engedélyezéséhez vagy letiltásához.
 
-**Támogatott a megjegyzések kimenete, és hol helyezhetők el a diához képest?**  
+### Támogatottak a megjegyzések kimenete, és hol helyezhetők el a diához képest?
 
-Igen, a megjegyzések hozzáadhatók HTML5-ben, és elhelyezhetők (például a dia jobb oldalán) a [layout beállításokon](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) keresztül a jegyzetek és megjegyzések számára.  
+Igen, a megjegyzések hozzáadhatók HTML5‑ben, és a [layout beállítások](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/html5options/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) segítségével (például a dia jobb oldalára) helyezhetők el.
 
-**Kihagyhatom-e a JavaScript‑et hívó hivatkozásokat biztonsági vagy CSP‑okból adódó okok miatt?**  
+### Kihagyhatom-e azokat a hivatkozásokat, amelyek JavaScriptet hívnak meg a biztonság vagy CSP okokból?
 
-Igen, van egy [beállítás](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-), amely lehetővé teszi, hogy a mentés során kihagyja a JavaScript‑hívásokat tartalmazó hiperhivatkozásokat. Ez segít a szigorú biztonsági szabályzatok betartásában.
+Igen, van egy [beállítás](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/saveoptions/#setSkipJavaScriptLinks-boolean-), amely lehetővé teszi a JavaScript‑hívásokat tartalmazó hiperhivatkozások kihagyását mentéskor. Ez segít a szigorú biztonságpolitikai előírások betartásában.

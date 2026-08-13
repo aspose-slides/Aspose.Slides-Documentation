@@ -16,27 +16,26 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tekintse át a nyilvános API frissítéseket és a visszafelé nem kompatibilis változásokat az Aspose.Slides for .NET-ben, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
+description: "Tekintse át az Aspose.Slides for .NET nyilvános API frissítéseit és visszafelé nem kompatibilis változásait, hogy zökkenőmentesen migrálhassa PowerPoint PPT, PPTX és ODP prezentációs megoldásait."
 ---
-{{% alert color="primary" %}} 
-
-Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/) osztályt, metódust, tulajdonságot stb., valamint a Aspose.Slides for .NET 15.2.0 API-val bevezetett egyéb változásokat.
-
+{{% alert color="info" %}} 
+Ez az oldal felsorolja az összes [hozzáadott](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/) vagy [eltávolított](/slides/hu/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-2-0/) osztályt, metódust, tulajdonságot stb., valamint az Aspose.Slides for .NET 15.2.0 API-val bevezetett egyéb változtatásokat.
 {{% /alert %}} 
 ## **Nyilvános API változások**
 #### **AddDataPointForDoughnutSeries metódusok hozzá lettek adva**
-Az IChartDataPointCollection.AddDataPointForDoughnutSeries() metódus két túlterhelése került hozzáadásra, hogy adatpontokat adhassunk a Donut (Fánk) diagram sorozataihoz.
-#### **Aspose.Slides.SmartArt.SmartArtShape osztályt örökölték az Aspose.Slides.GeometryShape osztályból**
-Az Aspose.Slides.SmartArt.SmartArtShape osztályt örökölték az Aspose.Slides.GeometryShape osztályból. Ez a változás javítja az Aspose.Slides objektummodellt, és új funkciókat ad a SmartArtShape osztályhoz.
-#### **Metódusok került hozzáadásra a diagram adatpontjának és kategóriájának index szerinti eltávolításához**
-IChartDataPointCollection.RemoveAt(int index) metódust hozzáadtuk a diagram adatpontjának index szerinti eltávolításához.  
-IChartCategoryCollection.RemoveAt(int index) metódust hozzáadtuk a diagram kategóriájának index szerinti eltávolításához.
-#### **PptXPptY érték hozzá lett adva az Aspose.Slides.Animation.PropertyType felsoroláshoz**
-A PptXPptY értéket hozzáadták az Aspose.Slides.Animation.PropertyType felsoroláshoz a sorosítási probléma javítása keretében.
-#### **System.Drawing.Color GetAutomaticSeriesColor() metódus hozzáadva az Aspose.Slides.Charts.IChartSeries-hez**
-A GetAutomaticSeriesColor metódus automatikus színt ad vissza a sorozat indexe és a diagram stílusa alapján. Ez a szín alapértelmezés szerint használatos, ha a FillType értéke NotDefined.
-
+Az IChartDataPointCollection.AddDataPointForDoughnutSeries() metódus két túlterhelése hozzá lett adva a Doughnut diagram sorozataiba adatpontok felvételéhez.
+#### **Az Aspose.Slides.SmartArt.SmartArtShape osztály örököl az Aspose.Slides.GeometryShape osztálytól**
+Az Aspose.Slides.SmartArt.SmartArtShape osztály örököl az Aspose.Slides.GeometryShape osztályból. Ez a változtatás javítja az Aspose.Slides objektummodellt, és új funkciókat ad a SmartArtShape osztályhoz.
+#### **Módszerek a diagram adatpont és diagram kategória index szerinti eltávolítására hozzá lettek adva**
+Az IChartDataPointCollection.RemoveAt(int index) metódus hozzá lett adva a diagram adatpont index szerinti eltávolításához. Az IChartCategoryCollection.RemoveAt(int index) metódus hozzá lett adva a diagram kategória index szerinti eltávolításához.
+#### **A PptXPptY érték hozzá lett adva az Aspose.Slides.Animation.PropertyType enumerációhoz**
+A PptXPptY érték hozzá lett adva az Aspose.Slides.Animation.PropertyType enumerációhoz a sorosítási hiba javítása érdekében.
+#### **System.Drawing.Color GetAutomaticSeriesColor() metódus hozzá lett adva az Aspose.Slides.Charts.IChartSeries-hez**
+A GetAutomaticSeriesColor metódus automatikus színt ad vissza a sorozathoz a sorozat indexe és a diagram stílusa alapján. Ez a szín alapértelmezés szerint kerül felhasználásra, ha a FillType értéke NotDefined.
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Pracovní řešení pro změnu velikosti listu
+title: Řešení pro změnu velikosti listu
 type: docs
 weight: 20
 url: /cs/androidjava/working-solution-for-worksheet-resizing/
@@ -9,40 +9,47 @@ keywords:
 - změna velikosti obrázku
 - Excel
 - list
+- PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Opravte změnu velikosti OLE objektu listu Excel v prezentacích: dva způsoby, jak zachovat konzistentní rámečky objektů — změňte měřítko rámce nebo listu — napříč formáty PPT a PPTX."
+description: "Opravte změnu velikosti OLE listu Excelu v prezentacích: dva způsoby, jak udržet objektové rámy konzistentní — zvětšit rám nebo list — v formátech PPT a PPTX."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
-Bylo zaznamenáno, že listy Excelu vložené jako OLE objekty v prezentaci PowerPoint pomocí komponent Aspose jsou po první aktivaci změněny na neidentifikovatelnou velikost. Toto chování vytváří výrazný vizuální rozdíl v prezentaci mezi před‑ a po‑aktivačním stavem OLE objektu. Problém jsme podrobně prozkoumali a připravili řešení, které je v tomto článku popsáno.
+Bylo zaznamenáno, že listy Excelu vložené jako OLE objekty do prezentace PowerPoint prostřednictvím komponent Aspose jsou po první aktivaci přepočítány na neidentifikovanou měřítko. Toto chování vytváří výrazný vizuální rozdíl v prezentaci mezi stavem OLE objektu před a po aktivaci. Problém jsme podrobně prozkoumali a poskytli řešení, které je popsáno v tomto článku.
 
 {{% /alert %}}
 
 ## **Pozadí**
 
-V článku [Spravovat OLE](/slides/cs/androidjava/manage-ole/) jsme vysvětlili, jak přidat OLE rámec do prezentace PowerPoint pomocí Aspose.Slides for Android via Java. Pro řešení [problému s náhledem objektu](/slides/cs/androidjava/object-preview-issue-when-adding-oleobjectframe/) jsme přiřadili obrázek vybrané oblasti listu do OLE rámce. V výstupní prezentaci, když dvakrát kliknete na OLE rámec zobrazující obrázek listu, aktivuje se sešit Excelu. Uživatelé mohou provádět libovolné úpravy skutečného sešitu a poté se vrátit na snímek kliknutím mimo aktivovaný sešit. Velikost OLE rámce se po návratu uživatele na snímek změní. Faktor změny velikosti se liší podle velikosti OLE rámce a vloženého sešitu Excelu.
+V článku [Správa OLE](/slides/cs/androidjava/manage-ole/) jsme vysvětlili, jak pomocí Aspose.Slides pro Android via Java přidat OLE rámec do prezentace PowerPoint. Pro řešení [problému s náhledem objektu](/slides/cs/androidjava/object-preview-issue-when-adding-oleobjectframe/) jsme OLE objektu přiřadili obrázek vybrané oblasti listu. Vygenerovaná prezentace po dvojitém kliknutí na OLE rámec zobrazující obrázek listu aktivuje sešit Excelu. Uživatelé mohou provádět jakékoli změny ve skutečném sešitě Excelu a poté se vrátit na snímek kliknutím mimo aktivovaný sešit. Velikost OLE rámce se po návratu uživatele na snímek změní. Faktor změny velikosti se liší podle velikosti OLE rámce a vloženého sešitu Excelu.
 
 ## **Příčina změny velikosti**
 
-Protože má sešit Excelu vlastní velikost okna, při první aktivaci se snaží zachovat svou původní velikost. Naopak OLE rámec má vlastní rozměry. Podle Microsoftu, když je sešit Excelu aktivován, Excel a PowerPoint vyjednávají velikost tak, aby zachovaly správné proporce v rámci procesu vkládání. Změna velikosti nastává na základě rozdílů mezi velikostí okna Excelu a rozměry a polohou OLE rámce.
+Protože má sešit Excelu vlastní velikost okna, při první aktivaci se snaží zachovat původní rozměry. OLE rámec má také své vlastní rozměry. Podle Microsoftu při aktivaci sešitu Excel a PowerPoint vyjednávají velikost tak, aby zachovaly správné proporce během procesu vkládání. Změna velikosti nastává na základě rozdílů mezi velikostí okna Excelu a velikostí a polohou OLE rámce.
 
-## **Fungující řešení**
+## **Řešení**
 
-Existují dva možná řešení, jak předejít efektu změny velikosti.
+Existují dva možné přístupy, jak předejít efektu změny velikosti.
 
 - Změnit měřítko velikosti OLE rámce v prezentaci PowerPoint tak, aby odpovídalo výšce a šířce požadovaného počtu řádků a sloupců v OLE rámci.
-- Zachovat velikost OLE rámce konstantní a změnit měřítko velikosti zapojených řádků a sloupců tak, aby se vešly do vybrané velikosti OLE rámce.
+- Zachovat konstantní velikost OLE rámce a změnit měřítko velikosti zapojených řádků a sloupců tak, aby se vešly do zvoleného OLE rámce.
 
-### **Změna měřítka velikosti OLE rámce**
+### **Změna měřítka velikosti OLE rámu**
 
-V tomto přístupu se naučíte, jak nastavit velikost OLE rámce vloženého sešitu Excel tak, aby odpovídala kumulativní velikosti zapojených řádků a sloupců v listu Excelu.
+V tomto přístupu se naučíme, jak nastavit velikost OLE rámu vloženého sešitu Excel tak, aby odpovídala součtové velikosti zapojených řádků a sloupců v listu Excelu.
 
-Předpokládejme, že máme šablonový list Excel a chceme jej přidat do prezentace jako OLE rámec. V tomto scénáři se nejprve vypočítá velikost OLE objektu na základě součtu výšek řádků a šířek sloupců zapojených do sešitu. Poté nastavíme velikost OLE rámce na tuto vypočtenou hodnotu. Abychom se vyhnuli červené zprávě „EMBEDDED OLE OBJECT“ u OLE rámce v PowerPointu, také zachytíme obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámce.
+Předpokládejme, že máme šablonový list Excel a chceme jej přidat do prezentace jako OLE rám. V tomto scénáři se nejprve spočítá velikost OLE objektu na základě součtu výšek řádků a šířek sloupců zapojených v sešitu. Pak nastavíme velikost OLE rámu na tuto vypočtenou hodnotu. Abychom v PowerPointu zabránili červené zprávě „EMBEDDED OLE OBJECT“ u OLE rámu, také zachytíme obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámu.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -52,7 +59,7 @@ int imageResolution = 96;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook( "sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Nastavte zobrazenou velikost, když je soubor sešitu použit jako OLE objekt v PowerPointu.
+// Nastavte zobrazovanou velikost, když je soubor sešitu použit jako OLE objekt v PowerPointu.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
@@ -62,10 +69,10 @@ InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Získejte šířku a výšku OLE obrázku v bodech.
 Bitmap image = BitmapFactory.decodeStream(imageStream);
-float imageWidth = image.getWidth(null) * 72f / imageResolution;
-float imageHeight = image.getHeight(null) * 72f / imageResolution;
+float imageWidth = image.getWidth() * 72f / imageResolution;
+float imageHeight = image.getHeight() * 72f / imageResolution;
 
-// Potřebujeme použít upravený sešit.
+// Potřebujeme použít modifikovaný sešit.
 ByteArrayOutputStream oleStream = new ByteArrayOutputStream();
 workbook.save(oleStream, com.aspose.cells.SaveFormat.XLSX);
 workbook.dispose();
@@ -78,7 +85,7 @@ imageStream.reset();
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Vytvořte OLE rámec objektu.
+// Vytvořte OLE objektový rámec.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -90,6 +97,10 @@ presentation.dispose();
 ```
 
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -116,11 +127,15 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ### **Změna měřítka velikosti oblasti buněk**
 
-V tomto přístupu se naučíte, jak změnit měřítko výšek zapojených řádků a šířek zapojených sloupců tak, aby odpovídaly vlastnímu rozměru OLE rámce.
+V tomto přístupu se naučíme, jak změnit výšky zapojených řádků a šířky zapojených sloupců tak, aby odpovídaly vlastní velikosti OLE rámu.
 
-Předpokládejme, že máme šablonový list Excel a chceme jej přidat do prezentace jako OLE rámec. V tomto scénáři nastavíme velikost OLE rámce a upravíme měřítko velikosti řádků a sloupců, které tvoří oblast OLE rámce. Poté uložíme sešit do proudu, abychom změny aplikovali, a převedeme jej na pole bajtů pro vložení do OLE rámce. Abychom se vyhnuli červené zprávě „EMBEDDED OLE OBJECT“ u OLE rámce v PowerPointu, také zachytíme obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámce.
+Předpokládejme, že máme šablonový list Excel a chceme jej přidat do prezentace jako OLE rám. V tomto scénáři nastavíme velikost OLE rámu a změníme velikost řádků a sloupců, které se podílejí na oblasti OLE rámu. Pak uložíme sešit do proudu, aby se změny aplikovaly, a převedeme jej na pole bajtů pro přidání do OLE rámu. Abychom v PowerPointu zabránili červené zprávě „EMBEDDED OLE OBJECT“ u OLE rámu, také zachytíme obrázek požadovaných částí řádků a sloupců v sešitu a nastavíme jej jako obrázek OLE rámu.
 
 ```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
@@ -131,12 +146,12 @@ float frameWidth = 400, frameHeight = 100;
 com.aspose.cells.Workbook workbook = new com.aspose.cells.Workbook("sample.xlsx");
 com.aspose.cells.Worksheet worksheet = workbook.getWorksheets().get(worksheetIndex);
 
-// Nastavte zobrazenou velikost, když je soubor sešitu použit jako OLE objekt v PowerPointu.
+// Nastavte zobrazovanou velikost, když je soubor sešitu použit jako OLE objekt v PowerPointu.
 int lastRow = startRow + rowCount - 1;
 int lastColumn = startColumn + columnCount - 1;
 workbook.getWorksheets().setOleSize(startRow, lastRow, startColumn, lastColumn);
 
-// Změňte měřítko oblasti buněk tak, aby odpovídala velikosti rámce.
+// Změňte měřítko oblasti buněk tak, aby odpovídala velikosti rámu.
 com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
@@ -154,7 +169,7 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 imageStream.close();
 
-// Vytvořte OLE rámec objektu.
+// Vytvořte OLE objektový rámec.
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleStream.toByteArray(), "xlsx");
 IOleObjectFrame oleFrame = slide.getShapes().addOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
@@ -202,7 +217,12 @@ static void ScaleCellRange(com.aspose.cells.Range cellRange, float width, float 
 }
 ```
 
+
 ```java
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageResolution) throws Exception {
     com.aspose.cells.PageSetup pageSetup = cellRange.getWorksheet().getPageSetup();
     pageSetup.setPrintArea(cellRange.getAddress());
@@ -229,34 +249,34 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 
 ## **Závěr**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Existují dva přístupy, jak vyřešit problém se změnou velikosti listu. Výběr vhodného přístupu závisí na konkrétních požadavcích a scénáři použití. Oba přístupy fungují stejně, ať už jsou prezentace vytvořeny ze šablony nebo od nuly. Navíc v tomto řešení neexistuje žádné omezení velikosti OLE objektu.
+Existují dva přístupy k vyřešení problému změny velikosti listu. Výběr vhodného přístupu závisí na konkrétních požadavcích a scénáři použití. Oba přístupy fungují stejně, ať už jsou prezentace vytvořeny ze šablony nebo od nuly. Navíc v tomto řešení neexistuje žádný limit velikosti OLE objektu.
 
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Proč se velikost vloženého listu Excel změní při první aktivaci v PowerPointu?**
+### Proč se vložený list Excelu po první aktivaci v PowerPointu zvětší nebo zmenší?
 
-Stane se to, protože Excel se snaží zachovat původní velikost okna při aktivaci, zatímco OLE rámec v PowerPointu má své vlastní rozměry. PowerPoint a Excel vyjednávají velikost tak, aby zachovaly poměr stran, což může vést ke změně velikosti.
+Stane se to, protože Excel se při aktivaci snaží zachovat původní velikost okna, zatímco OLE rám v PowerPointu má vlastní rozměry. PowerPoint a Excel si dohodnou velikost tak, aby zachovaly poměr stran, což může způsobit změnu velikosti.
 
-**Je možné tomuto problému se změnou velikosti úplně předejít?**
+### Je možné tomuto problému se změnou velikosti zcela předejít?
 
-Ano. Změnou měřítka OLE rámce tak, aby odpovídal velikosti oblasti buněk Excelu, nebo změnou měřítka oblasti buněk tak, aby odpovídala požadované velikosti OLE rámce, lze zabránit nechtěné změně velikosti.
+Ano. Změnou měřítka OLE rámu tak, aby odpovídal velikosti oblasti buněk Excelu, nebo změnou měřítka oblasti buněk tak, aby odpovídala požadované velikosti OLE rámu, můžete zabránit nechtěné změně velikosti.
 
-**Kterou metodu změny měřítka mám použít, změnu měřítka OLE rámce nebo změnu měřítka oblasti buněk?**
+### Kterou metodu měřítka mám použít, změnu měřítka OLE rámu nebo změnu měřítka oblasti buněk?
 
-Vyberte **změnu měřítka OLE rámce**, pokud chcete zachovat původní velikosti řádků a sloupců v Excelu. Vyberte **změnu měřítka oblasti buněk**, pokud chcete mít v prezentaci pevnou velikost OLE rámce.
+Vyberte **změnu měřítka OLE rámu**, pokud chcete zachovat původní velikosti řádků a sloupců v Excelu. Vyberte **změnu měřítka oblasti buněk**, pokud chcete mít v prezentaci pevnou velikost OLE rámu.
 
-**Budou tato řešení fungovat, pokud je moje prezentace založena na šabloně?**
+### Budou tato řešení fungovat, i když je moje prezentace založena na šabloně?
 
 Ano. Obě řešení fungují pro prezentace vytvořené ze šablon i od nuly.
 
-**Existuje limit velikosti OLE rámce při použití těchto metod?**
+### Existuje limit velikosti OLE rámu při použití těchto metod?
 
-Ne. OLE objekt můžete nastavit na libovolnou velikost, pokud nastavíte správné měřítko.
+Ne. OLE objekt můžete nastavit na libovolnou velikost, pokud nastavíte vhodné měřítko.
 
-**Je možné se vyhnout textu „EMBEDDED OLE OBJECT“ jako zástupnému symbolu v PowerPointu?**
+### Je možné odstranit text zástupce „EMBEDDED OLE OBJECT“ v PowerPointu?
 
-Ano. Pořízením snímku cílové oblasti buněk v Excelu a nastavením tohoto snímku jako zástupného obrázku OLE rámce můžete zobrazit vlastní náhled místo výchozího zástupného textu.
+Ano. Pořízením snímku cílové oblasti buněk v Excelu a nastavením tohoto snímku jako obrázku zástupce OLE rámu můžete zobrazit vlastní náhled místo výchozího zástupného textu.

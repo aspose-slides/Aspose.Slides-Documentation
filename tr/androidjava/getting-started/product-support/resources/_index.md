@@ -7,7 +7,7 @@ keywords:
 - kaynaklar
 - ana sayfa
 - blog
-- Aspose.Slides indirme
+- Aspose.Slides indir
 - destek forumu
 - ürün belgeleri
 - PowerPoint
@@ -16,16 +16,18 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java için temel kaynakları keşfedin—indirmeler ve belgelerden forumlar ve blog güncellemelerine—PPT, PPTX ve ODP ile çalışmayı iyileştirmek için."
+description: "Aspose.Slides for Android via Java için önemli kaynakları keşfedin—indirmeler ve belgelerden forumlar ve blog güncellemelerine—PPT, PPTX ve ODP ile çalışmanızı geliştirmek için."
 ---
-{{% alert color="primary" %}} 
-Bu tablo, Android için Java aracılığıyla Aspose.Slides teknik kaynaklarını listeler. 
+{{% alert color="info" %}} 
+
+Bu tablo, Android için Java üzerinden Aspose.Slides teknik kaynaklarını listeler. 
+
 {{% /alert %}} 
 
-|**Kaynak**|**Açıklama**|
+|**Resource**|**Description**|
 | :- | :- |
-|[Aspose.Slides for Android via Java ana sayfası](/slides/tr/androidjava/)|Ürün ana sayfası.|
-|[Aspose.Slides blogu](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve Aspose.Slides ile ilgili faydalı ipuçları için bu bölümü düzenli olarak kontrol edin.|
-|[Aspose.Slides for Android via Java indirme](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Aspose.Slides'in en son sürümünü buradan indirin. Sık sık yeni sürümler yayınlıyoruz.|
-|[Aspose.Slides destek forumu](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı hızlı çözüm için buraya gönderin.|
-|[Aspose.Slides for Android via Java ürün belgeleri](/slides/tr/java/)|Bu belgeyi ve Aspose.Slides API Referansını içeren tam çevrimiçi dokümantasyon.|
+|[Aspose.Slides for Android via Java home page](/slides/tr/androidjava/)|Ürün ana sayfası.|
+|[Aspose.Slides blog](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve Aspose.Slides ile ilgili faydalı ipuçları hakkında bilgi almak için bu bölümü düzenli olarak kontrol edin.|
+|[Aspose.Slides for Android via Java download](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Aspose.Slides'in en son sürümünü buradan indirin. Yeni sürümler sık sık yayınlanır.|
+|[Aspose.Slides support forum](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı hızlı çözüm için buraya gönderin.|
+|[Aspose.Slides for Android via Java product documentation](/slides/tr/java/)|Bu belgeyi ve Aspose.Slides API Referansını içeren tam çevrimiçi belgeler.|

@@ -1,55 +1,57 @@
 ---
-title: Android のプレゼンテーションにウォーターマークを追加
+title: Android でプレゼンテーションにウォーターマークを追加する
 linktitle: ウォーターマーク
 type: docs
 weight: 40
 url: /ja/androidjava/watermark/
 keywords:
 - ウォーターマーク
-- テキスト ウォーターマーク
-- 画像 ウォーターマーク
-- ウォーターマークを追加
-- ウォーターマークを変更
-- ウォーターマークを削除
-- ウォーターマークを削除
-- PPT にウォーターマークを追加
-- PPTX にウォーターマークを追加
-- ODP にウォーターマークを追加
-- PPT からウォーターマークを削除
-- PPTX からウォーターマークを削除
-- ODP からウォーターマークを削除
-- PPT からウォーターマークを削除
-- PPTX からウォーターマークを削除
-- ODP からウォーターマークを削除
+- テキストウォーターマーク
+- 画像ウォーターマーク
+- ウォーターマークを追加する
+- ウォーターマークを変更する
+- ウォーターマークを削除する
+- ウォーターマークを削除する
+- PPT にウォーターマークを追加する
+- PPTX にウォーターマークを追加する
+- ODP にウォーターマークを追加する
+- PPT からウォーターマークを削除する
+- PPTX からウォーターマークを削除する
+- ODP からウォーターマークを削除する
+- PPT からウォーターマークを削除する
+- PPTX からウォーターマークを削除する
+- ODP からウォーターマークを削除する
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Android 上の Java で PowerPoint および OpenDocument プレゼンテーションにテキストと画像のウォーターマークを管理し、ドラフトや機密情報などを示します。"
+description: "Android の Java で PowerPoint および OpenDocument プレゼンテーションにテキストと画像のウォーターマークを管理し、ドラフトや機密情報などを示すことができます。"
 ---
+## **イントロダクション**
 
-## **ウォーターマークについて**
+**ウォーターマーク** は、スライドまたはプレゼンテーション全体のスライドに使用されるテキストまたは画像のスタンプです。通常、ウォーターマークはプレゼンテーションがドラフトであること（例: 「Draft」ウォーターマーク）や機密情報を含むこと（例: 「Confidential」ウォーターマーク）を示したり、所属企業を明示したり（例: 「Company Name」ウォーターマーク）、著者を特定したりするために使用されます。ウォーターマークは、コピーすべきでないことを示すことで著作権侵害を防止する役割も果たします。ウォーターマークは PowerPoint と OpenOffice のプレゼンテーション形式の両方で使用できます。Aspose.Slides では、PowerPoint PPT、PPTX、および OpenOffice ODP ファイル形式にウォーターマークを追加できます。
 
-**ウォーターマーク** は、スライドまたはプレゼンテーション全体のスライドに使用されるテキストまたは画像のスタンプです。通常、ドラフトであることを示す（例:「Draft」ウォーターマーク）や、機密情報を含むことを示す（例:「Confidential」ウォーターマーク）など、プレゼンテーションがどの会社に属するか（例:「Company Name」ウォーターマーク）や、作成者を識別するために使用されます。ウォーターマークは、プレゼンテーションをコピーすべきでないことを示すことで著作権侵害を防止するのに役立ちます。ウォーターマークは PowerPoint と OpenOffice のプレゼンテーション形式の両方で使用されます。Aspose.Slides では、PowerPoint PPT、PPTX、OpenOffice ODP のファイル形式にウォーターマークを追加できます。
+[**Aspose.Slides**](https://products.aspose.com/slides/ja/android-java/) では、PowerPoint または OpenOffice ドキュメントにウォーターマークを作成し、デザインや動作を変更するさまざまな方法が提供されています。共通点として、テキストウォーターマークを追加する場合は [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) インターフェイスを使用し、画像ウォーターマークを追加する場合は [PictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/pictureframe/) クラスを使用するか、ウォーターマーク形状に画像をフィルとして設定します。`PictureFrame` は [IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) インターフェイスを実装しているため、形状オブジェクトの柔軟な設定をすべて利用できます。`ITextFrame` は形状ではなく設定が制限されるため、[IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) オブジェクトにラップされます。
 
-[**Aspose.Slides**](https://products.aspose.com/slides/android-java/) では、PowerPoint または OpenOffice ドキュメントにウォーターマークを作成し、デザインや動作を変更するさまざまな方法が用意されています。共通点は、テキストウォーターマークを追加する場合は [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) インターフェイスを使用し、画像ウォーターマークを追加する場合は [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe/) クラスまたは画像でシェイプを塗りつぶすことです。`PictureFrame` は [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) インターフェイスを実装しているため、シェイプ オブジェクトの柔軟な設定をすべて利用できます。`ITextFrame` はシェイプではなく設定が限定的なため、[IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) オブジェクトにラップされます。
+ウォーターマークの適用方法は 2 つあります: 単一スライドに適用するか、プレゼンテーション全体のスライドに適用するかです。スライドマスタを使用すると、ウォーターマークをすべてのスライドに適用できます。ウォーターマークはスライドマスタに追加され、そこで完全にデザインされ、個々のスライドでウォーターマークの編集権限に影響を与えることなくすべてのスライドに適用されます。
 
-ウォーターマークの適用方法は 2 つあります。単一スライドに適用するか、プレゼンテーション全体のスライドに適用するかです。スライド全体にウォーターマークを適用するにはスライド マスターを使用します。ウォーターマークはスライド マスターに追加され、そこで完全にデザインされ、個々のスライドの編集権限に影響を与えることなくすべてのスライドに適用されます。
+ウォーターマークは通常、他のユーザーが編集できないように設定されます。ウォーターマーク（正確にはウォーターマークの親形状）が編集されないようにするため、Aspose.Slides は形状ロック機能を提供します。特定の形状は通常のスライドでもスライドマスタでもロックできます。スライドマスタでウォーターマーク形状をロックすると、すべてのプレゼンテーションスライドでロックされた状態になります。
 
-ウォーターマークは通常、他のユーザーが編集できないように設定されます。ウォーターマーク（正確にはウォーターマークの親シェイプ）を編集できないようにするために、Aspose.Slides はシェイプ ロック機能を提供します。特定のシェイプは通常のスライドまたはスライド マスター上でロックできます。スライド マスター上でウォーターマーク シェイプをロックすると、すべてのプレゼンテーション スライドでロックされた状態になります。
+将来的に削除したい場合に備えて、ウォーターマークに名前を付けることができます。名前でスライドの形状一覧から検索できるようになります。
 
-将来的にウォーターマークを削除したい場合に備えて、シェイプ名を設定しておくことができます。名前を付けておけば、スライドのシェイプ一覧から名前で検索して削除できます。
+ウォーターマークは任意のデザインで作成できますが、センター揃え、回転、前面表示などの共通の特徴があります。以下の例でこれらの使い方を検討します。
 
-ウォーターマークは任意の方法でデザインできますが、中心揃え、回転、前面表示などの共通の特徴があります。以下のサンプルでこれらの使い方を確認しましょう。
+## **テキストウォーターマーク**
 
-## **テキスト ウォーターマーク**
+### **スライドにテキストウォーターマークを追加する**
 
-### **スライドにテキスト ウォーターマークを追加する**
+PPT、PPTX、または ODP にテキストウォーターマークを追加するには、まずスライドに形状を追加し、その形状にテキストフレームを追加します。テキストフレームは [ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) インターフェイスで表されます。この型は [IShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) から継承されておらず、柔軟な位置設定プロパティを持ちません。そのため、[ITextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/itextframe/) オブジェクトは [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) オブジェクトでラップされます。形状にウォーターマークテキストを追加するには、以下のように [addTextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) メソッドを使用します。
 
-PPT、PPTX、ODP にテキスト ウォーターマークを追加するには、まずスライドにシェイプを追加し、そのシェイプにテキスト フレームを追加します。テキスト フレームは [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) インターフェイスで表されます。このタイプは [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) から継承されていないため、柔軟な位置指定プロパティがありません。そのため、[ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) オブジェクトは [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) オブジェクトにラップされます。シェイプにウォーターマーク テキストを追加するには、以下のように [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) メソッドを使用します。
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -61,15 +63,17 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-
-{{% alert color="primary" title="参照" %}} 
+{{% alert color="info" title="参照" %}} 
 - [TextFrame クラスの使用方法](/slides/ja/androidjava/text-formatting/)
 {{% /alert %}}
 
-### **プレゼンテーション全体にテキスト ウォーターマークを追加する**
+### **プレゼンテーション全体にテキストウォーターマークを追加する**
 
-プレゼンテーション全体（すべてのスライド）にテキスト ウォーターマークを追加したい場合は、[MasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) に追加します。残りのロジックは単一スライドに追加する場合と同じです。まず [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) オブジェクトを作成し、次に [addTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) メソッドでウォーターマークを設定します。
+プレゼンテーション全体（すべてのスライド）にテキストウォーターマークを追加したい場合は、[MasterSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/masterslide/) に追加します。残りのロジックは単一スライドに追加する場合と同じです。まず [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) オブジェクトを作成し、次に [addTextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) メソッドでウォーターマークを追加します。
+
 ```java
+import com.aspose.slides.*;
+
 String watermarkText = "CONFIDENTIAL";
 
 Presentation presentation = new Presentation();
@@ -81,155 +85,261 @@ ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-
-{{% alert color="primary" title="参照" %}} 
-- [スライド マスターの使用方法](/slides/ja/androidjava/slide-master/)
+{{% alert color="info" title="参照" %}} 
+- [スライドマスタの使用方法](/slides/ja/androidjava/slide-master/)
 {{% /alert %}}
 
-### **ウォーターマーク シェイプの透明度を設定する**
+### **ウォーターマーク形状の透明度を設定する**
 
-既定では、矩形シェイプは塗りつぶしと線の色が設定されています。次のコードでシェイプを透明にできます。
+デフォルトでは、矩形形状は塗りつぶしと線の色が設定されています。次のコードで形状を透明にします。
+
 ```java
-watermarkShape.getFillFormat().setFillType(FillType.NoFill);
-watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.getFillFormat().setFillType(FillType.NoFill);
+    watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **テキストウォーターマークのフォントを設定する**
 
-### **テキスト ウォーターマークのフォントを設定する**
+以下のようにテキストウォーターマークのフォントを変更できます。
 
-以下のようにテキスト ウォーターマークのフォントを変更できます。
 ```java
-IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
-textFormat.setLatinFont(new FontData("Arial"));
-textFormat.setFontHeight(50);
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+    textFormat.setLatinFont(new FontData("Arial"));
+    textFormat.setFontHeight(50);
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **ウォーターマークテキストの色を設定する**
 
-### **ウォーターマーク テキストの色を設定する**
+ウォーターマークテキストの色を設定するには、次のコードを使用します。
 
-ウォーターマーク テキストの色を設定するには、次のコードを使用します。
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 150, red = 200, green = 200, blue = 200;
 
-IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
-fillFormat.setFillType(FillType.Solid);
-fillFormat.getSolidFillColor().setColor(Color.argb(alpha, red, green, blue));
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame("CONFIDENTIAL");
+
+    IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+    fillFormat.setFillType(FillType.Solid);
+    fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **テキストウォーターマークを中央揃えにする**
 
-### **テキスト ウォーターマークを中央に配置する**
+ウォーターマークをスライドの中央に配置するには、以下の手順を実行します。
 
-ウォーターマークをスライドの中央に配置することができます。以下の手順をご参照ください。
 ```java
-SizeF slideSize = presentation.getSlideSize().getSize();
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-float watermarkWidth = 400;
-float watermarkHeight = 40;
-float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
-float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+String watermarkText = "CONFIDENTIAL";
 
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(
-        ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+    float watermarkWidth = 400;
+    float watermarkHeight = 40;
+    float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
+    float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
+
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(
+            ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+
+    ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
+} finally {
+    presentation.dispose();
+}
 ```
 
+以下の画像が最終結果です。
 
-以下の画像は最終結果を示しています。
+![テキストウォーターマーク](text_watermark.png)
 
-![テキスト ウォーターマーク](text_watermark.png)
+## **画像ウォーターマーク**
 
-## **画像 ウォーターマーク**
+### **プレゼンテーションに画像ウォーターマークを追加する**
 
-### **プレゼンテーションに画像 ウォーターマークを追加する**
+プレゼンテーションのスライドに画像ウォーターマークを追加するには、次の手順を実行します。
 
-プレゼンテーション スライドに画像 ウォーターマークを追加するには、次の手順を実行します。
 ```java
-InputStream imageStream = new FileInputStream("watermark.png");
-IPPImage image = presentation.getImages().addImage(imageStream);
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
-watermarkShape.getFillFormat().setFillType(FillType.Picture);
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
-watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    InputStream imageStream = new FileInputStream("watermark.png");
+    IPPImage image = presentation.getImages().addImage(imageStream);
+
+    watermarkShape.getFillFormat().setFillType(FillType.Picture);
+    watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+    watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+} finally {
+    presentation.dispose();
+}
 ```
-
 
 ### **ウォーターマークの編集をロックする**
 
-ウォーターマークの編集を防止する必要がある場合は、シェイプに対して [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) メソッドを使用します。このプロパティにより、シェイプの選択、サイズ変更、再配置、他の要素とのグループ化、テキストの編集ロックなどを保護できます。
-```java
-// ウォーターマークシェイプの変更をロックする
-watermarkShape.getAutoShapeLock().setSelectLocked(true);
-watermarkShape.getAutoShapeLock().setSizeLocked(true);
-watermarkShape.getAutoShapeLock().setTextLocked(true);
-watermarkShape.getAutoShapeLock().setPositionLocked(true);
-watermarkShape.getAutoShapeLock().setGroupingLocked(true);
-```
+ウォーターマークの編集を防止する必要がある場合は、形状の [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/#getAutoShapeLock--) メソッドを使用します。このプロパティにより、形状の選択、サイズ変更、位置変更、他の要素とのグループ化、テキストの編集ロックなどが可能になります。
 
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    // ウォーターマーク形状の変更をロックする
+    watermarkShape.getAutoShapeLock().setSelectLocked(true);
+    watermarkShape.getAutoShapeLock().setSizeLocked(true);
+    watermarkShape.getAutoShapeLock().setTextLocked(true);
+    watermarkShape.getAutoShapeLock().setPositionLocked(true);
+    watermarkShape.getAutoShapeLock().setGroupingLocked(true);
+} finally {
+    presentation.dispose();
+}
+```
 
 ### **ウォーターマークを前面に持ってくる**
 
-Aspose.Slides では、シェイプの Z 順序を [IShapeCollection.reorder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) メソッドで設定できます。プレゼンテーションのスライドリストからこのメソッドを呼び出し、シェイプ参照と順序番号を渡すことで、シェイプを前面または背面に移動できます。この機能は、ウォーターマークをプレゼンテーションの前面に配置したい場合に特に便利です。
-```java
-int shapeCount = slide.getShapes().size();
-slide.getShapes().reorder(shapeCount - 1, watermarkShape);
-```
+Aspose.Slides では、形状の Z オーダーを [IShapeCollection.reorder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) メソッドで設定できます。このメソッドをプレゼンテーションのスライドリストから呼び出し、形状参照と順序番号を渡すことで、形状を前面または背面に移動できます。ウォーターマークをスライドの前面に配置したい場合に便利です。
 
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    int shapeCount = slide.getShapes().size();
+    slide.getShapes().reorder(shapeCount - 1, watermarkShape);
+} finally {
+    presentation.dispose();
+}
+```
 
 ### **ウォーターマークの回転を設定する**
 
 以下のコード例は、ウォーターマークをスライドの対角線上に配置するために回転させる方法を示しています。
+
 ```java
-double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
 
-watermarkShape.setRotation((float)diagonalAngle);
-```
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+    Dimension2D slideSize = presentation.getSlideSize().getSize();
 
+    double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
-### **ウォーターマークに名前を付ける**
-
-Aspose.Slides ではシェイプに名前を設定できます。名前を付けておけば、将来的にそのシェイプにアクセスして変更または削除できます。ウォーターマーク シェイプに名前を設定するには、[IAutoShape.setName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) メソッドを使用します。
-```java
-watermarkShape.setName("watermark");
-```
-
-
-### **ウォーターマークを削除する**
-
-ウォーターマーク シェイプを削除するには、[IAutoShape.getName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getName--) メソッドでスライドのシェイプ一覧から対象シェイプを取得し、[IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) メソッドに渡します。
-```java
-IShape[] slideShapes = slide.getShapes().toArray();
-for (IShape shape : slideShapes) {
-    if ("watermark".equals(shape.getName()))
-    {
-        slide.getShapes().remove(watermarkShape);
-    }
+    watermarkShape.setRotation((float)diagonalAngle);
+} finally {
+    presentation.dispose();
 }
 ```
 
+### **ウォーターマークに名前を付ける**
+
+Aspose.Slides では形状に名前を設定できます。形状名を使用すると、将来その形状にアクセスして変更または削除できます。ウォーターマーク形状に名前を付けるには、[IAutoShape.setName](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#setName-java.lang.String-) メソッドを使用します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+
+    watermarkShape.setName("watermark");
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ウォーターマークを削除する**
+
+ウォーターマーク形状を削除するには、[IAutoShape.getName](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#getName--) メソッドでスライドの形状一覧から検索し、見つけた形状を [IShapeCollection.remove](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) メソッドに渡します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("watermarked.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape[] slideShapes = slide.getShapes().toArray();
+    for (IShape shape : slideShapes) {
+        if ("watermark".equals(shape.getName()))
+        {
+            slide.getShapes().remove(shape);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**ウォーターマークとは何ですか？また、なぜ使用すべきですか？**
+### ウォーターマークとは何ですか？また、なぜ使用すべきですか？
 
 ウォーターマークは、スライドに適用されるテキストまたは画像のオーバーレイで、知的財産を保護したり、ブランド認知度を高めたり、プレゼンテーションの不正使用を防止したりします。
 
-**プレゼンテーションのすべてのスライドにウォーターマークを追加できますか？**
+### プレゼンテーションのすべてのスライドにウォーターマークを追加できますか？
 
-はい。Aspose.Slides を使用すると、プログラムでプレゼンテーションの各スライドにウォーターマークを追加できます。すべてのスライドをループして個別に設定できます。
+はい、Aspose.Slides を使用すると、プログラムでプレゼンテーションのすべてのスライドにウォーターマークを追加できます。すべてのスライドを反復処理して個別に設定を適用できます。
 
-**ウォーターマークの透明度はどのように調整しますか？**
+### ウォーターマークの透明度を調整するには？
 
-シェイプの塗りつぶし設定（[getFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getFillFormat--)）を変更することで、透明度を調整できます。これにより、ウォーターマークが控えめになり、スライドの内容の妨げになりません。
+形状の塗りつぶし設定（[getFillFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/shape/#getFillFormat--)）を変更することで、透明度を調整できます。これにより、ウォーターマークが控えめになり、スライドのコンテンツの邪魔になりません。
 
-**ウォーターマークでサポートされている画像形式は何ですか？**
+### ウォーターマークでサポートされている画像形式は何ですか？
 
 Aspose.Slides は PNG、JPEG、GIF、BMP、SVG など、さまざまな画像形式をサポートしています。
 
-**テキスト ウォーターマークのフォントやスタイルはカスタマイズできますか？**
+### テキストウォーターマークのフォントとスタイルをカスタマイズできますか？
 
-はい。プレゼンテーションのデザインやブランドの一貫性に合わせて、任意のフォント、サイズ、スタイルを選択できます。
+はい、フォント、サイズ、スタイルを自由に選択して、プレゼンテーションのデザインやブランドの一貫性に合わせることができます。
 
-**ウォーターマークの位置や向きはどのように変更しますか？**
+### ウォーターマークの位置や向きを変更するには？
 
-シェイプの座標、サイズ、回転プロパティをプログラムで変更することで、位置や向きを調整できます。
+形状の座標、サイズ、回転プロパティをプログラムで変更することで、ウォーターマークの位置や向きを調整できます。

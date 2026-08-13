@@ -11,50 +11,50 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java için hızlı, ücretsiz teknik destek alın, sorunları etkili bir şekilde raporlayın ve PPT, PPTX ve ODP projelerinizin sorunsuz çalışmasını sağlayın."
+description: "Aspose.Slides for Android via Java için hızlı ve ücretsiz teknik destek alın, sorunları etkili bir şekilde bildirin ve PPT, PPTX ve ODP projelerinizin sorunsuz çalışmasını sağlayın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides için destek almanın nasıl olduğunu ve sorunları etkili bir şekilde raporlamayı açıklar. Ana destek kanalını tanımlar, bir sorunu gönderme önerileri sunar ve ürün sayfası, blog, indirmeler, destek forumu, belgeler ve API Referansı gibi faydalı teknik kaynaklara işaret eder. Makale ayrıca ücretli destek, sorun yükseltme ve eski kütüphane sürümleri için destek hakkında sık sorulan soruları yanıtlar.
+Bu makale Aspose.Slides için destek almayı ve sorunları etkili bir şekilde bildirmeyi açıklar. Ana destek kanalını tanımlar, bir sorun gönderirken öneriler sunar ve ürün sayfası, blog, indirmeler, destek forumu, dokümantasyon ve API Referansı gibi yararlı teknik kaynaklara işaret eder. Makale ayrıca ücretli destek, sorun yükseltme ve eski kütüphane sürümleri için destek gibi yaygın sorulara yanıt verir.
 
 ## **Teknik Destek**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-Aspose tüm ürünleri için sınırsız ücretsiz teknik destek sağlar. Destek, tüm kullanıcılara (değerlendirme paketleri dahil) sunulmaktadır.
+Aspose tüm ürünleri için sınırsız ücretsiz teknik destek sağlar. Destek, değerlendirme paketlerine sahip kullanıcılar dahil tüm kullanıcılara açıktır.
 
 {{% /alert %}} 
 
-Aspose.Slides for Android via Java ile yardım gerektiğinde şu noktaları göz önünde bulundurun:
+Aspose.Slides for Android via Java konusunda yardıma ihtiyacınız olduğunda aşağıdakileri göz önünde bulundurun:
 
-- Ana destek kanalı Aspose.Forums'dur. Sorunuzu Aspose.Slides forumuna gönderin—birkaç saat içinde yanıtlanacaktır. Aspose.Slides destek ekibi, forumda yayınlanan soruları doğrudan yanıtlar.
-- Lütfen Aspose'un telefonla teknik destek sağlamadığını unutmayın. Telefon desteği yalnızca satış ve satın alma soruları için mevcuttur.
-- Forumlarda yanıt beklerken, sabırlı olun ve saat dilimi farklarını göz önünde bulundurun.
+- Destek için ana kanal Aspose.Forums'dur. Sorunuzu Aspose.Slides forumunda gönderin—birkaç saat içinde yanıtlanacaktır. Aspose.Slides destek ekibi, forumda gönderilen soruları doğrudan yanıtlar.
+- Aspose telefon üzerinden teknik destek sağlamaz. Telefon desteği yalnızca satış ve satın alma soruları için mevcuttur.
+- Forumlarda yanıt beklerken sabırlı olun ve saat dilimi farklarını göz önünde bulundurun.
 
-Aspose.Slides for Android via Java ile bir sorun yaşadığınızda, en verimli şekilde çözmek için şu yönergeleri izleyin:
+Aspose.Slides for Android via Java ile bir sorun yaşadığınızda, aynı anda en verimli şekilde çözmek için aşağıdaki yönergeleri izleyin:
 
-- Sorunu raporlamadan önce en son Aspose.Slides for Android via Java sürümünü kullandığınızdan emin olun ve kontrol edin. Belki deneyimlediğiniz sorun bir güncellemede zaten çözülmüştür.  
+- Sorunu bildirmeden önce en son Aspose.Slides for Android via Java sürümünü kullandığınızı kontrol edin ve onaylayın. Belki de yaşadığınız sorun bir güncellemede zaten çözüldü.  
 
-  En son sürüm hakkında bilgi almak için Aspose.Slides download sayfasına bakın.
+  En son sürüm bilgisi için Aspose.Slides indirmesini inceleyin.
 
-- Bir sorunu raporlamadan önce, forumlarımıza, bu belgelere ve API Referansına göz atabilirsiniz. Belki sorunuzun cevabı zaten verilmiştir. 
+- Sorun bildirmeden önce forumlarımıza, bu dokümantasyona ve API Referansına göz atabilirsiniz. Belki sorunuzun cevabı zaten verilmiştir. 
 
-- Sorun rapor ederken, lütfen orijinal belgeyi ve (mümkünse) soruna ilişkin kod parçacığını ekleyin. Birden fazla dosya eklemeniz gerekiyorsa, bunları bir ZIP paketine koyun.  
+- Sorun bildirirken lütfen orijinal belgeyi ve (mümkünse) soruna ilişkin kod parçacığını ekleyin. Birden fazla dosya eklemeniz gerekiyorsa, bunları bir ZIP paketine koyun.  
 
-  Belgelerinizi Aspose.Forums'ta güvenle ekleyebilirsiniz; yalnızca siz ve Aspose geliştiricileri ekli dosyalara erişebilir.
+  Dosyalarınızı Aspose.Forums'da güvenle ekleyebilirsiniz; çünkü ekli dosyalara yalnızca siz ve Aspose geliştiricileri erişebilir.
 
-- Bir sorun için tek bir konu oluşturup kullanın. Başka bir sorun yaşarsanız, onu raporlamak için ayrı bir konu oluşturmanız gerekir. 
+- Belirli bir sorun için tek bir konu oluşturup kullanın. Başka bir sorun yaşarsanız, onu raporlamak için yeni bir konu açmanız gerekir. 
 
 ## **SSS**
 
-**Ücretli destek seviyeleri nelerdir ve nasıl farklılık gösterir?**
+### Hangi ücretli destek seviyeleri mevcuttur ve nasıl farklılık gösterir?
 
-[Developer, Business, and Enterprise](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Bunlar, dahil edilen olay sayısı, yanıt önceliği ve mevcut iletişim kanalları açısından farklılık gösterir.
+[Geliştirici, İş ve Kurumsal](https://helpdesk.aspose.com/kb/faq/1-Introduction-to-Paid-Support-Services). Farklılıklar, dahil edilen olay sayısı, yanıt önceliği ve mevcut iletişim kanallarına göre belirlenir.
 
-**Bir hatayı doğrudan mühendislik ekibine yükseltebilir miyim?**
+### Bir hatayı doğrudan mühendislik ekibine yükseltebilir miyim?
 
-Evet. [Paid support](https://helpdesk.aspose.com/) bir sorun daha derin bir araştırma gerektirdiğinde geliştiricilere yükseltme olanağı sağlar.
+Evet. [Ücretli destek](https://helpdesk.aspose.com/) bir sorunun daha derinlemesine incelenmesi gerektiğinde geliştiricilere yükseltme imkanı verir.
 
-**Eski kütüphane sürümleri destekleniyor mu ve bunlar için düzeltmeler yayınlıyor musunuz?**
+### Eski kütüphane sürümleri destekleniyor mu ve bunlar için düzeltmeler yayımlanıyor mu?
 
-Daha eski sürümleri kullanabilirsiniz, ancak düzeltmeler yalnızca güncel sürüm için sağlanır; eski sürümler için yama yayınlanmaz.
+Eski sürümleri kullanabilirsiniz, ancak düzeltmeler yalnızca mevcut sürüm için sağlanır; eski sürümler için yama yayınlanmaz.
